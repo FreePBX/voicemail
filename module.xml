@@ -5,6 +5,6 @@
 	<type>setup</type>
 	<category>Messaging</category>
 	<location>release/voicemail-1.0.tgz</location>
-	<info>http://freepbx.org/wiki/VoiceMail</info>
+	<info>http://aussievoip.com.au/wiki/freePBX-Features</info>
 	<md5sum>b42d736ceb7447fa681f686ffa0abb1e</md5sum>
 </module>
