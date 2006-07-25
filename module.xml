@@ -1,10 +1,10 @@
 <module>
 	<rawname>voicemail</rawname>
 	<name>Voicemail</name>
-	<version>1.0</version>
+	<version>1.1</version>
 	<type>setup</type>
 	<category>Messaging</category>
-	<location>release/voicemail-1.0.tgz</location>
+	<location>release/voicemail-1.1.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-Features</info>
-	<md5sum>4d1fb5a4a707bbb8862956270eeb33ec</md5sum>
+	<md5sum>b694662c8927f904552f836eb5320ceb</md5sum>
 </module>
