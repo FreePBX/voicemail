@@ -1,7 +1,7 @@
 <module>
 	<rawname>voicemail</rawname>
 	<name>Voicemail</name>
-	<version>1.1</version>
+	<version>1.1.1</version>
 	<type>setup</type>
 	<category>Messaging</category>
 	<location>release/voicemail-1.1.tgz</location>
