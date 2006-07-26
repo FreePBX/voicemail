@@ -38,7 +38,7 @@ function voicemail_myvoicemail($c) {
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
-	$ext->add($id, $c, '', new ext_macro('get-vm-context','${CALLERID(num)}')); 
+	$ext->add($id, $c, '', new ext_macro('get-vmcontext','${CALLERID(num)}')); 
 	$ext->add($id, $c, '', new ext_vmmain('${CALLERID(num)}@${VMCONTEXT}')); // n,VoiceMailMain(${VMCONTEXT})
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 }
@@ -62,7 +62,7 @@ function voicemail_dialvoicemail($c) {
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	// How long is the command? We need to strip that off the front
 	$clen = strlen($c)-2;
-	$ext->add($id, $c, '', new ext_macro('get-vm-context','${EXTEN:'.$clen.'}')); 
+	$ext->add($id, $c, '', new ext_macro('get-vmcontext','${EXTEN:'.$clen.'}')); 
 	$ext->add($id, $c, '', new ext_vmmain('${EXTEN:'.$clen.'}@${VMCONTEXT}')); // n,VoiceMailMain(${VMCONTEXT})
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 }
