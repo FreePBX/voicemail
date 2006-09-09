@@ -4,7 +4,7 @@
 	<version>1.2.0</version>
 	<type>setup</type>
 	<category>Messaging</category>
-	<location>release//2.2/voicemail-1.1.2.tgz</location>
+	<location>release/2.2/voicemail-1.2.0.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-Features</info>
-	<md5sum>6599eb89d79691aa06b06b1179c70cc2</md5sum>
+	<md5sum>33ef843541f99a1d53dbe37d1739e789</md5sum>
 </module>
