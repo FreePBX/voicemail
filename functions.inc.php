@@ -70,8 +70,7 @@ function voicemail_dialvoicemail($c) {
 function voicemail_configpageinit($dispnum) {
 	global $currentcomponent;
 
-	//if ( $dispnum == 'users' || $dispnum == 'extensions' ) {
-	if ( $dispnum == 'users' ) {
+	if ( $dispnum == 'users' || $dispnum == 'extensions' && ($_REQUEST['action'] != 'del' && ($_REQUEST['extdisplay'] != '' || $_REQUEST['tech_hardware'] != '') ) )  {
 		// Setup two option lists we need
 		// Enable / Disable list
 		$currentcomponent->addoptlistitem('vmena', 'enabled', 'Enabled');
