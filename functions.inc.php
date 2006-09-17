@@ -133,8 +133,9 @@ function voicemail_configpageload() {
 			}
 			extract($vmoptions, EXTR_PREFIX_ALL, "vmops");
 		}
+ 		//AMP Users can only add to their department's context
+		$vmcontext = isset($_SESSION["AMP_user"]->_deptname)?$_SESSION["AMP_user"]->_deptname:null;
 
-		$vmcontext = $_SESSION["AMP_user"]->_deptname; //AMP Users can only add to their department's context
 		if (empty($vmcontext)) 
 			$vmcontext = ($_REQUEST['vmcontext'] ? $_REQUEST['vmcontext'] : $incontext);
 		if (empty($vmcontext))
