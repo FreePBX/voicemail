@@ -100,15 +100,15 @@ function voicemail_configpageload() {
 	global $currentcomponent;
 
 	// Init vars from $_REQUEST[]
-	$action = $_REQUEST['action'];
-	$extdisplay = $_REQUEST['extdisplay'];
+	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
+	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
 	
 	if ($action != 'del') {
 		$vmbox = voicemail_mailbox_get($extdisplay);
 		if ( $vmbox == null ) {
 			$vm = false;
 		} else {
-			$incontext = $vmbox['vmcontext'];
+			$incontext = isset($vmbox['vmcontext'])?$vmbox['vmcontext']:'device';
 			$vmpwd = $vmbox['pwd'];
 			$name = $vmbox['name'];
 			$email = $vmbox['email'];
@@ -170,6 +170,8 @@ function voicemail_configpageload() {
 function voicemail_configprocess() {
 	//create vars from the request
 	extract($_REQUEST);
+	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
+	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
 	
 	//if submitting form, update database
 	switch ($action) {
