@@ -107,6 +107,12 @@ function voicemail_configpageload() {
 		$vmbox = voicemail_mailbox_get($extdisplay);
 		if ( $vmbox == null ) {
 			$vm = false;
+			$incontext = 'device';
+			$vmpwd = null;
+			$name = null;
+			$email = null;
+			$pager = null;
+			$vmoptions = null;
 		} else {
 			$incontext = isset($vmbox['vmcontext'])?$vmbox['vmcontext']:'device';
 			$vmpwd = $vmbox['pwd'];
@@ -119,7 +125,7 @@ function voicemail_configpageload() {
 
 		//loop through all options
 		$options="";
-		if ( is_array($vmoptions) ) {
+		if ( isset($vmoptions) && is_array($vmoptions) ) {
 			$alloptions = array_keys($vmoptions);
 			if (isset($alloptions)) {
 				foreach ($alloptions as $option) {
@@ -132,12 +138,18 @@ function voicemail_configpageload() {
 				
 			}
 			extract($vmoptions, EXTR_PREFIX_ALL, "vmops");
+		} else {
+			$vmops_attach = false;
+			$vmops_saycid = false;
+			$vmops_envelope = false;
+			$vmops_delete = false;
 		}
+
  		//AMP Users can only add to their department's context
 		$vmcontext = isset($_SESSION["AMP_user"]->_deptname)?$_SESSION["AMP_user"]->_deptname:null;
 
 		if (empty($vmcontext)) 
-			$vmcontext = ($_REQUEST['vmcontext'] ? $_REQUEST['vmcontext'] : $incontext);
+			$vmcontext = (isset($_REQUEST['vmcontext']) ? $_REQUEST['vmcontext'] : $incontext);
 		if (empty($vmcontext))
 			$vmcontext = 'default';
 		
