@@ -107,14 +107,14 @@ function voicemail_configpageload() {
 		$vmbox = voicemail_mailbox_get($extdisplay);
 		if ( $vmbox == null ) {
 			$vm = false;
-			$incontext = 'device';
+			$incontext = 'default';
 			$vmpwd = null;
 			$name = null;
 			$email = null;
 			$pager = null;
 			$vmoptions = null;
 		} else {
-			$incontext = isset($vmbox['vmcontext'])?$vmbox['vmcontext']:'device';
+			$incontext = isset($vmbox['vmcontext'])?$vmbox['vmcontext']:'default';
 			$vmpwd = $vmbox['pwd'];
 			$name = $vmbox['name'];
 			$email = $vmbox['email'];
