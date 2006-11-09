@@ -1,10 +1,12 @@
 <module>
 	<rawname>voicemail</rawname>
 	<name>Voicemail</name>
-	<version>1.3.3</version>
+	<version>1.4</version>
+	<changelog>*1.4* First release for 2.2. Fix inability to create voicemail box</changelog>
+	<description>This module allows you to configure Voicemail for a user or extension</description>
 	<type>setup</type>
 	<category>Messaging</category>
-	<location>release/2.2/voicemail-1.3.3.tgz</location>
+	<location>release/2.2/voicemail-1.4.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-Features</info>
-	<md5sum>8ce946a2151c85ca90a00e6c20feb62b</md5sum>
+	<md5sum>1f19b74a17a27c30883e7281b5e77d51</md5sum>
 </module>
