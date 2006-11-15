@@ -130,7 +130,7 @@ function voicemail_configpageload() {
 			if (isset($alloptions)) {
 				foreach ($alloptions as $option) {
 					if ( ($option!="attach") && ($option!="envelope") && ($option!="saycid") && ($option!="delete") && ($option!='') )
-						$options .= $option.'='.$uservm[$vmcontext][$extdisplay]['options'][$option].'|';
+					    $options .= $option.'='.$vmoptions[$option].'|';
 				}
 				$options = rtrim($options,'|');
 				// remove the = sign if there are no options set
