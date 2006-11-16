@@ -1,8 +1,11 @@
 <module>
 	<rawname>voicemail</rawname>
 	<name>Voicemail</name>
-	<version>1.4</version>
-	<changelog>*1.4* First release for 2.2. Fix inability to create voicemail box</changelog>
+	<version>1.4.1</version>
+	<changelog>
+	    *1.4.1* Fixed radio button defaults to 'no' from false so they work
+	    *1.4* First release for 2.2. Fix inability to create voicemail box
+	</changelog>
 	<description>This module allows you to configure Voicemail for a user or extension</description>
 	<type>setup</type>
 	<category>Messaging</category>

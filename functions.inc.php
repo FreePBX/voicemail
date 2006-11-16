@@ -139,10 +139,10 @@ function voicemail_configpageload() {
 			}
 			extract($vmoptions, EXTR_PREFIX_ALL, "vmops");
 		} else {
-			$vmops_attach = false;
-			$vmops_saycid = false;
-			$vmops_envelope = false;
-			$vmops_delete = false;
+			$vmops_attach = 'no';
+			$vmops_saycid = 'no';
+			$vmops_envelope = 'no';
+			$vmops_delete = 'no';
 		}
 
  		//AMP Users can only add to their department's context
