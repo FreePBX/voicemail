@@ -1,14 +1,15 @@
 <module>
 	<rawname>voicemail</rawname>
 	<name>Voicemail</name>
-	<version>1.4.1</version>
+	<version>1.4.2</version>
 	<changelog>
+	    *1.4.2* Change category to Basic
 	    *1.4.1* Fixed radio button defaults to 'no' from false so they work
 	    *1.4* First release for 2.2. Fix inability to create voicemail box
 	</changelog>
 	<description>This module allows you to configure Voicemail for a user or extension</description>
 	<type>setup</type>
-	<category>Messaging</category>
+	<category>Basic</category>
 	<location>release/2.2/voicemail-1.4.1.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-Features</info>
 	<md5sum>36807ce8a940261fa1a47caff96ba58f</md5sum>
