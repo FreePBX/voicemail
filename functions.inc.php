@@ -67,42 +67,68 @@ function voicemail_dialvoicemail($c) {
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 }
 
-function voicemail_configpageinit($dispnum) {
+function voicemail_configpageinit($pagename) {
 	global $currentcomponent;
 
 	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
 	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+	$extension = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
 	$tech_hardware = isset($_REQUEST['tech_hardware'])?$_REQUEST['tech_hardware']:null;
 
-	if ( $dispnum == 'users' || $dispnum == 'extensions' && ($action != 'del' && ($extdisplay != '' || $tech_hardware != '') ) )  {
-		// Setup two option lists we need
-		// Enable / Disable list
-		$currentcomponent->addoptlistitem('vmena', 'enabled', 'Enabled');
-		$currentcomponent->addoptlistitem('vmena', 'disabled', 'Disabled');
-		$currentcomponent->setoptlistopts('vmena', 'sort', false);
-		// Yes / No Radio button list
-		$currentcomponent->addoptlistitem('vmyn', 'yes', 'yes');
-		$currentcomponent->addoptlistitem('vmyn', 'no', 'no');
-		$currentcomponent->setoptlistopts('vmyn', 'sort', false);
 
-		// Add the 'proces' function
-		$currentcomponent->addguifunc('voicemail_configpageload');
+       // We only want to hook 'users' or 'extensions' pages. 
+	if ($pagename != 'users' && $pagename != 'extensions')  
+		return true; 
+	// On a 'new' user, 'tech_hardware' is set, and there's no extension. Hook into the page. 
+	if ($tech_hardware != null) { 
+		voicemail_applyhooks(); 
+	} elseif ($action=="add") { 
+	// We don't need to display anything on an 'add', but we do need to handle returned data. 
 		// ** WARNING **
 		// Mailbox must be processed before adding / deleting users, therefore $sortorder = 1
 		$currentcomponent->addprocessfunc('voicemail_configprocess', 1);
 		// JS function needed for checking voicemail = Enabled
 		$js = 'return (theForm.vm.value == "enabled");';
+	} elseif ($extdisplay != '') { 
+	// We're now viewing an extension, so we need to display _and_ process. 
+		voicemail_applyhooks(); 
+		$currentcomponent->addprocessfunc('voicemail_configprocess', 1);
+		$js = 'return (theForm.vm.value == "enabled");';
 		$currentcomponent->addjsfunc('isVoiceMailEnabled(notused)',$js);
-	}
+	} 
+} 
+
+function voicemail_applyhooks() {
+	global $currentcomponent;
+
+	// Setup two option lists we need
+	// Enable / Disable list
+	$currentcomponent->addoptlistitem('vmena', 'enabled', 'Enabled');
+	$currentcomponent->addoptlistitem('vmena', 'disabled', 'Disabled');
+	$currentcomponent->setoptlistopts('vmena', 'sort', false);
+	// Yes / No Radio button list
+	$currentcomponent->addoptlistitem('vmyn', 'yes', 'yes');
+	$currentcomponent->addoptlistitem('vmyn', 'no', 'no');
+	$currentcomponent->setoptlistopts('vmyn', 'sort', false);
+
+	// Add the 'proces' function
+	$currentcomponent->addguifunc('voicemail_configpageload');
 }
+
 
 function voicemail_configpageload() {
 	global $currentcomponent;
 
 	// Init vars from $_REQUEST[]
 	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
-	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+	$ext = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+	$extn = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
 	
+	if ($ext==='') {
+		$extdisplay = $extn;
+	} else {
+		$extdisplay = $ext;
+	}
 	if ($action != 'del') {
 		$vmbox = voicemail_mailbox_get($extdisplay);
 		if ( $vmbox == null ) {
