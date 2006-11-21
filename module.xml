@@ -1,8 +1,9 @@
 <module>
 	<rawname>voicemail</rawname>
 	<name>Voicemail</name>
-	<version>1.5</version>
+	<version>1.5.1</version>
 	<changelog>
+            *1.5.1* Fix for MWI not working
 	    *1.5* Fix issue with vm options not being saved on creation of extension
 	    *1.4.2* Change category to Basic
 	    *1.4.1* Fixed radio button defaults to 'no' from false so they work
@@ -11,7 +12,7 @@
 	<description>This module allows you to configure Voicemail for a user or extension</description>
 	<type>setup</type>
 	<category>Basic</category>
-	<location>release/2.2/voicemail-1.5.tgz</location>
+	<location>release/2.2/voicemail-1.5.1.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-Features</info>
-	<md5sum>6c8a5084dc455272b3c87b005bcaa58d</md5sum>
+	<md5sum>32c0ce971e63994ef546fbf0ea5693f3</md5sum>
 </module>
