@@ -80,7 +80,7 @@ function voicemail_configpageinit($pagename) {
 	if ($pagename != 'users' && $pagename != 'extensions')  
 		return true; 
 	// On a 'new' user, 'tech_hardware' is set, and there's no extension. Hook into the page. 
-	if ($tech_hardware != null) { 
+	if ($tech_hardware != null || $pagename == 'users') { 
 		voicemail_applyhooks(); 
 	} elseif ($action=="add") { 
 	// We don't need to display anything on an 'add', but we do need to handle returned data. 
