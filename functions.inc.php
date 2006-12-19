@@ -80,7 +80,7 @@ function voicemail_configpageinit($pagename) {
 	if ($pagename != 'users' && $pagename != 'extensions')  
 		return true; 
 	// On a 'new' user, 'tech_hardware' is set, and there's no extension. Hook into the page. 
-	if ($tech_hardware != null || $pagename == 'users') { 
+	if ($tech_hardware != null ) { 
 		voicemail_applyhooks(); 
 	} elseif ($action=="add") { 
 	// We don't need to display anything on an 'add', but we do need to handle returned data. 
@@ -89,7 +89,7 @@ function voicemail_configpageinit($pagename) {
 		$currentcomponent->addprocessfunc('voicemail_configprocess', 1);
 		// JS function needed for checking voicemail = Enabled
 		$js = 'return (theForm.vm.value == "enabled");';
-	} elseif ($extdisplay != '') { 
+	} elseif ($extdisplay != '' || $pagename == 'users') { 
 	// We're now viewing an extension, so we need to display _and_ process. 
 		voicemail_applyhooks(); 
 		$currentcomponent->addprocessfunc('voicemail_configprocess', 1);
