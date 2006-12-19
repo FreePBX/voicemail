@@ -123,6 +123,7 @@ function voicemail_configpageload() {
 	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
 	$ext = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
 	$extn = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
+	$display = isset($_REQUEST['display'])?$_REQUEST['display']:null;
 	
 	if ($ext==='') {
 		$extdisplay = $extn;
@@ -194,15 +195,15 @@ function voicemail_configpageload() {
 
 		$section = 'Voicemail & Directory';
 		$currentcomponent->addguielem($section, new gui_selectbox('vm', $currentcomponent->getoptlist('vmena'), $vmselect, 'Status', '', false));
-		$currentcomponent->addguielem($section, new gui_textbox('vmpwd', $vmpwd, 'voicemail password', "This is the password used to access the voicemail system.<br><br>This password can only contain numbers.<br><br>A user can change the password you enter here after logging into the voicemail system ($fc_vm) with a phone.", "frm_users_isVoiceMailEnabled() && !isInteger()", $msgInvalidVmPwd, false));
-		$currentcomponent->addguielem($section, new gui_textbox('email', $email, 'email address', "The email address that voicemails are sent to.", "frm_users_isVoiceMailEnabled() && !isEmail()", $msgInvalidEmail, true));
-		$currentcomponent->addguielem($section, new gui_textbox('pager', $pager, 'pager email address', "Pager/mobile email address that short voicemail notifcations are sent to.", "frm_users_isVoiceMailEnabled() && !isEmail()", $msgInvalidEmail, true));
+		$currentcomponent->addguielem($section, new gui_textbox('vmpwd', $vmpwd, 'voicemail password', "This is the password used to access the voicemail system.<br><br>This password can only contain numbers.<br><br>A user can change the password you enter here after logging into the voicemail system ($fc_vm) with a phone.", "frm_${display}_isVoiceMailEnabled() && !isInteger()", $msgInvalidVmPwd, false));
+		$currentcomponent->addguielem($section, new gui_textbox('email', $email, 'email address', "The email address that voicemails are sent to.", "frm_${display}_isVoiceMailEnabled() && !isEmail()", $msgInvalidEmail, true));
+		$currentcomponent->addguielem($section, new gui_textbox('pager', $pager, 'pager email address', "Pager/mobile email address that short voicemail notifcations are sent to.", "frm_${display}_isVoiceMailEnabled() && !isEmail()", $msgInvalidEmail, true));
 		$currentcomponent->addguielem($section, new gui_radio('attach', $currentcomponent->getoptlist('vmyn'), $vmops_attach, 'email attachment', "Option to attach voicemails to email."));
 		$currentcomponent->addguielem($section, new gui_radio('saycid', $currentcomponent->getoptlist('vmyn'), $vmops_saycid, 'Play CID', "Read back caller's telephone number prior to playing the incoming message, and just after announcing the date and time the message was left."));
 		$currentcomponent->addguielem($section, new gui_radio('envelope', $currentcomponent->getoptlist('vmyn'), $vmops_envelope, 'Play Envelope', "Envelope controls whether or not the voicemail system will play the message envelope (date/time) before playing the voicemail message. This settng does not affect the operation of the envelope option in the advanced voicemail menu."));
 		$currentcomponent->addguielem($section, new gui_radio('delete', $currentcomponent->getoptlist('vmyn'), $vmops_delete, 'Delete Vmail', "If set to \"yes\" the message will be deleted from the voicemailbox (after having been emailed). Provides functionality that allows a user to receive their voicemail via email alone, rather than having the voicemail able to be retrieved from the Webinterface or the Extension handset.  CAUTION: MUST HAVE attach voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE LOST FOREVER."));
 		$currentcomponent->addguielem($section, new gui_textbox('options', $options, 'vm options', 'Separate options with pipe ( | )<br><br>ie: review=yes|maxmessage=60'));
-		$currentcomponent->addguielem($section, new gui_textbox('vmcontext', $vmcontext, 'vm context', '', 'frm_users_isVoiceMailEnabled() && isEmpty()', $msgInvalidVMContext, false));
+		$currentcomponent->addguielem($section, new gui_textbox('vmcontext', $vmcontext, 'vm context', '', "frm_${display}_isVoiceMailEnabled() && isEmpty()", $msgInvalidVMContext, false));
 	}
 }
 

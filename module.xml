@@ -1,8 +1,9 @@
 <module>
 	<rawname>voicemail</rawname>
 	<name>Voicemail</name>
-	<version>1.5.2</version>
+	<version>1.5.3</version>
 	<changelog>
+	    *1.5.3* Fix for vm Javascript sanity checks only working in DevAndUser mode.
 	    *1.5.2* Fix vm not appearing in DeviceAndUser mode
             *1.5.1* Fix for MWI not working
 	    *1.5* Fix issue with vm options not being saved on creation of extension
@@ -13,7 +14,5 @@
 	<description>This module allows you to configure Voicemail for a user or extension</description>
 	<type>setup</type>
 	<category>Basic</category>
-	<location>release/2.3/voicemail-1.5.2.tgz</location>
-	<info>http://aussievoip.com.au/wiki/freePBX-Features</info>
 	<md5sum>13e1aa56412ac54c728fa8cd43e6ec53</md5sum>
 </module>
