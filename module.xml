@@ -1,9 +1,10 @@
 <module>
 	<rawname>voicemail</rawname>
 	<name>Voicemail</name>
-	<version>1.6</version>
+	<version>1.6.1</version>
 	<changelog>
-            *1.6* Re-Fix 1.5.2, bump version for 2.2rc2 release.
+		  *1.6.1* Added support to enable/disable VmX Locator (personal ivr)
+      *1.6* Re-Fix 1.5.2, bump version for 2.2rc2 release.
 	    *1.5.3* Fix for vm Javascript sanity checks only working in DevAndUser mode.
 	    *1.5.2* Fix vm not appearing in DeviceAndUser mode
             *1.5.1* Fix for MWI not working

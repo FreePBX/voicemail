@@ -75,7 +75,6 @@ function voicemail_configpageinit($pagename) {
 	$extension = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
 	$tech_hardware = isset($_REQUEST['tech_hardware'])?$_REQUEST['tech_hardware']:null;
 
-
        // We only want to hook 'users' or 'extensions' pages. 
 	if ($pagename != 'users' && $pagename != 'extensions')  
 		return true; 
@@ -106,6 +105,10 @@ function voicemail_applyhooks() {
 	$currentcomponent->addoptlistitem('vmena', 'enabled', 'Enabled');
 	$currentcomponent->addoptlistitem('vmena', 'disabled', 'Disabled');
 	$currentcomponent->setoptlistopts('vmena', 'sort', false);
+	// Enable / Disable vmx list
+	$currentcomponent->addoptlistitem('vmxena', '', 'Disabled');
+	$currentcomponent->addoptlistitem('vmxena', 'checked', 'Enabled');
+	$currentcomponent->setoptlistopts('vmxena', 'sort', false);
 	// Yes / No Radio button list
 	$currentcomponent->addoptlistitem('vmyn', 'yes', 'yes');
 	$currentcomponent->addoptlistitem('vmyn', 'no', 'no');
@@ -124,12 +127,14 @@ function voicemail_configpageload() {
 	$ext = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
 	$extn = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
 	$display = isset($_REQUEST['display'])?$_REQUEST['display']:null;
-	
+
 	if ($ext==='') {
 		$extdisplay = $extn;
 	} else {
 		$extdisplay = $ext;
 	}
+
+
 	if ($action != 'del') {
 		$vmbox = voicemail_mailbox_get($extdisplay);
 		if ( $vmbox == null ) {
@@ -140,6 +145,8 @@ function voicemail_configpageload() {
 			$email = null;
 			$pager = null;
 			$vmoptions = null;
+
+			$vmx_state = '';
 		} else {
 			$incontext = isset($vmbox['vmcontext'])?$vmbox['vmcontext']:'default';
 			$vmpwd = $vmbox['pwd'];
@@ -148,6 +155,8 @@ function voicemail_configpageload() {
 			$pager = $vmbox['pager'];
 			$vmoptions = $vmbox['options'];
 			$vm = true;
+
+			$vmx_state = voicemail_vmxGet($extdisplay);
 		}
 
 		//loop through all options
@@ -204,6 +213,7 @@ function voicemail_configpageload() {
 		$currentcomponent->addguielem($section, new gui_radio('delete', $currentcomponent->getoptlist('vmyn'), $vmops_delete, 'Delete Vmail', "If set to \"yes\" the message will be deleted from the voicemailbox (after having been emailed). Provides functionality that allows a user to receive their voicemail via email alone, rather than having the voicemail able to be retrieved from the Webinterface or the Extension handset.  CAUTION: MUST HAVE attach voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE LOST FOREVER."));
 		$currentcomponent->addguielem($section, new gui_textbox('options', $options, 'vm options', 'Separate options with pipe ( | )<br><br>ie: review=yes|maxmessage=60'));
 		$currentcomponent->addguielem($section, new gui_textbox('vmcontext', $vmcontext, 'vm context', '', "frm_${display}_isVoiceMailEnabled() && isEmpty()", $msgInvalidVMContext, false));
+		$currentcomponent->addguielem($section, new gui_selectbox('vmx_state', $currentcomponent->getoptlist('vmxena'), $vmx_state, 'VmX IVR', 'Enable/Disable the Extended Voicemail IVR ability on this extension. Defaults will be set an d the user can make changes in the ARI or equivalent portal. Unchecking will disabled the feature but not delete any existing settings', false));
 	}
 }
 
@@ -328,5 +338,20 @@ function voicemail_getVoicemail() {
 	
 	return $vmconf;
 }
+
+function voicemail_vmxGet($extension) {
+	global $astman;                                                                                                                                                                                                    
+		                                                                                                                                                                                                                     
+	// Retrieve the state
+	$vmx_state=$astman->database_get("AMPUSER",$extension."/vmx/unavail/state");
+	if (isset($vmx_state) && (trim($vmx_state) == 'enabled' || trim($vmx_state) == 'disabled')) {
+		$vmx_state='checked';
+	} else {
+		$vmx_state='';
+	}
+
+	return $vmx_state;
+}                                                                                                                                                                                                                    
+
 
 ?>
