@@ -14,14 +14,4 @@ $fcc->setDefault('*98');
 $fcc->update();
 unset($fcc);
 
-//1.6.2
-$modinfo = module_getinfo('voicemail');
-if (is_array($modinfo)) {
-	$ver = $modinfo['voicemail']['dbversion'];
-	if (version_compare($ver,'1.6.2','lt')) { //we have to fix existing users with wrong values for vm ticket #1697
-		sql("update users set voicemail='novm' where voicemail='disabled' or voicemail='';");
-		core_users2astdb();
-	}
-}
-
 ?>
