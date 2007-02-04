@@ -1,8 +1,9 @@
 <module>
 	<rawname>voicemail</rawname>
 	<name>Voicemail</name>
-	<version>1.6.1</version>
+	<version>1.6.2</version>
 	<changelog>
+           *1.6.2* Bump version to fix existing extensions with disabled voicemail #1697
 	    *1.6.1* Added support to enable/disable VmX Locator (personal ivr)
 	    *1.6* Re-Fix 1.5.2, bump version for 2.2rc2 release.
 	    *1.5.3* Fix for vm Javascript sanity checks only working in DevAndUser mode.
@@ -18,5 +19,5 @@
 	<category>Basic</category>
 	<location>release/2.3/voicemail-1.6.2.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-Features</info>
-	<md5sum>fc4a1a0c1ef5ba268d35d90b9021d6cf</md5sum>
+	<md5sum>de62991fe8ba1ae12558ea06b6abc36b</md5sum>
 </module>
