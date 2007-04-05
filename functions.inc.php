@@ -322,19 +322,23 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 }
 
 function voicemail_saveVoicemail($vmconf) {
+	global $amp_conf;
+
 	// just in case someone tries to be sneaky and not call getVoicemail() first..
 	if ($vmconf == null) die('Error: Trying to write null voicemail file! I refuse to contiune!');
 	
 	// yes, this is hardcoded.. is this a bad thing?
-	write_voicemailconf("/etc/asterisk/voicemail.conf", $vmconf, $section);
+	write_voicemailconf(rtrim($amp_conf["ASTETCDIR"],"/")."/voicemail.conf", $vmconf, $section);
 }
 
 function voicemail_getVoicemail() {
+	global $amp_conf;
+
 	$vmconf = null;
 	$section = null;
 	
 	// yes, this is hardcoded.. is this a bad thing?
-	parse_voicemailconf("/etc/asterisk/voicemail.conf", $vmconf, $section);
+	parse_voicemailconf(rtrim($amp_conf["ASTETCDIR"],"/")."/voicemail.conf", $vmconf, $section);
 	
 	return $vmconf;
 }
