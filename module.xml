@@ -19,7 +19,7 @@
 	<description>This module allows you to configure Voicemail for a user or extension</description>
 	<type>setup</type>
 	<category>Basic</category>
-	<location>release/2.3/voicemail-1.6.3.tgz</location>
+	<location>release/2.3/voicemail-2.0.0.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-Features</info>
-	<md5sum>84c90d7df6c1891a17a31ac251bd3d6d</md5sum>
+	<md5sum>5b4d30a7f6f35f649c1661581ce59e75</md5sum>
 </module>
