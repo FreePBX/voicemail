@@ -2,10 +2,8 @@
 	<rawname>voicemail</rawname>
 	<name>Voicemail</name>
 	<version>2.0.1</version>
-	<depends>
-		<version>2.2.2</version>
-	</depends> 
 	<changelog>
+		*2.0.1.1* removed depends on 2.2.2 - classes are in all version of 2.3
 		*2.0.1* #1976 - check if mailbox exists and enter with no arguments if not
 		*2.0.0* Bumped version number to avoid confusion with freepbx 2.2.x versions
 		*1.6.3* Remove hardcoded paths to voicemail.conf
