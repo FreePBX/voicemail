@@ -184,9 +184,6 @@ function voicemail_configpageload() {
 			$vmops_delete = 'no';
 		}
 
- 		//AMP Users can only add to their department's context
-		$vmcontext = isset($_SESSION["AMP_user"]->_deptname)?$_SESSION["AMP_user"]->_deptname:null;
-
 		if (empty($vmcontext)) 
 			$vmcontext = (isset($_REQUEST['vmcontext']) ? $_REQUEST['vmcontext'] : $incontext);
 		if (empty($vmcontext))
