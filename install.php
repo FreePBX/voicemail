@@ -21,7 +21,6 @@ $modinfo = module_getinfo('voicemail');
 if (is_array($modinfo)) {
 	$ver = $modinfo['voicemail']['dbversion'];
 	if (version_compare($ver,'1.6.2','lt')) { //we have to fix existing users with wrong values for vm ticket #1697
-		checkAstMan();
 		if ($astman) {
 			$sql = "select * from users where voicemail='disabled' or voicemail='';";
 			$users = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
@@ -30,6 +29,7 @@ if (is_array($modinfo)) {
 			}
 		} else {
 			echo _("Cannot connect to Asterisk Manager with ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];
+			return false;
 		}
 		sql("update users set voicemail='novm' where voicemail='disabled' or voicemail='';");
 	}
