@@ -230,6 +230,9 @@ function voicemail_configprocess() {
 			needreload();
 		break;
 		case "del":
+			// call remove before del, it needs to know context info
+			//
+			voicemail_mailbox_remove($extdisplay);
 			voicemail_mailbox_del($extdisplay);
 			needreload();
 		break;
@@ -259,6 +262,35 @@ function voicemail_mailbox_get($mbox) {
 	}
 	
 	return null;
+}
+
+function voicemail_mailbox_remove($mbox) {
+	global $amp_conf;
+	$uservm = voicemail_getVoicemail();
+	$vmcontexts = array_keys($uservm);
+
+	$return = true;
+
+	foreach ($vmcontexts as $vmcontext) {
+		if(isset($uservm[$vmcontext][$mbox])){
+
+			$vm_dir = $amp_conf['ASTSPOOLDIR']."/voicemail/$vmcontext/$mbox";
+			exec("rm -rf $vm_dir",$output,$ret);
+			if ($ret) {
+				$return = false;
+				$text   = sprintf(_("Failed to delete vmbox: %s@%s"),$mbox, $vmcontext);
+				$etext  = sprintf(_("failed with retcode %s while removing %s:"),$ret, $vm_dir)."<br>";
+				$etext .= implode("<br>",$output);
+				$nt =& notifications::create($db);
+				$nt->add_error('voicemail', 'MBOXREMOVE', $text, $etext, '', true, true);
+				//
+				// TODO: this does not work but we should give some sort of feedback that id did not work
+				//
+				// echo "<script>javascript:alert('$text\n"._("See notification panel for details")."')</script>";
+			}
+		}
+	}
+	return $return;	
 }
 
 function voicemail_mailbox_del($mbox) {
