@@ -39,10 +39,11 @@ function voicemail_myvoicemail($c) {
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
 	$ext->add($id, $c, '', new ext_macro('get-vmcontext','${AMPUSER}')); 
-	$ext->add($id, $c, 'check', new ext_vmexists('${AMPUSER}@${VMCONTEXT}|j')); // n,VoiceMailMain(${VMCONTEXT})
+	$ext->add($id, $c, 'check', new ext_vmexists('${AMPUSER}@${VMCONTEXT}')); // n,VoiceMailMain(${VMCONTEXT})
+	$ext->add($id, $c, '', new ext_gotoif('$["${VMBOXEXISTSSTATUS}" = "SUCCESS"]', 'mbexist'));
 	$ext->add($id, $c, '', new ext_vmmain('')); // n,VoiceMailMain(${VMCONTEXT})
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
-	$ext->add($id, $c, '', new ext_vmmain('${AMPUSER}@${VMCONTEXT}'),'check',101); // n,VoiceMailMain(${VMCONTEXT})
+	$ext->add($id, $c, 'mbexist', new ext_vmmain('${CALLERID(num)}@${VMCONTEXT}'),'check',101); // n,VoiceMailMain(${VMCONTEXT})
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 }
 
