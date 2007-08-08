@@ -313,7 +313,7 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 	//check if VM box already exists
 	if ( voicemail_mailbox_get($mbox) != null ) {
 		trigger_error("Voicemail mailbox '$mbox' already exists, call to voicemail_maibox_add failed");
-		die();
+		die_freepbx();
 	}
 	
 	$uservm = voicemail_getVoicemail();
@@ -358,7 +358,7 @@ function voicemail_saveVoicemail($vmconf) {
 	global $amp_conf;
 
 	// just in case someone tries to be sneaky and not call getVoicemail() first..
-	if ($vmconf == null) die('Error: Trying to write null voicemail file! I refuse to contiune!');
+	if ($vmconf == null) die_freepbx('Error: Trying to write null voicemail file! I refuse to contiune!');
 	
 	// yes, this is hardcoded.. is this a bad thing?
 	write_voicemailconf(rtrim($amp_conf["ASTETCDIR"],"/")."/voicemail.conf", $vmconf, $section);
