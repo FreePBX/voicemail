@@ -1,10 +1,11 @@
 <module>
 	<rawname>voicemail</rawname>
 	<name>Voicemail</name>
-	<version>2.0.3.1</version>
+	<version>2.0.3.2</version>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*2.0.3.2* bump for rc1
 		*2.0.3.1* #2232 checking for voicemial failure on Asterisk 1.4
 		*2.0.3* #1836 - remove mailbox form filesystem after deleting an extension
 		*2.0.2.4* changed install script to return false on astman not there
@@ -31,6 +32,5 @@
 	<type>setup</type>
 	<category>Basic</category>
 	<location>release/2.3/voicemail-2.0.3.1.tgz</location>
-	<info>http://aussievoip.com.au/wiki/freePBX-Features</info>
 	<md5sum>42870a35d956d6d6ed2ddf625693ff79</md5sum>
 </module>
