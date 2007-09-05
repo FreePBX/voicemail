@@ -32,6 +32,6 @@
 	<description>This module allows you to configure Voicemail for a user or extension</description>
 	<type>setup</type>
 	<category>Basic</category>
-	<location>release/2.3/voicemail-2.0.3.2.tgz</location>
-	<md5sum>60fd26800ea25d6153d55d8e3eca47ad</md5sum>
+	<location>release/2.3/voicemail-2.0.3.3.tgz</location>
+	<md5sum>6a2ec22f303465579eb20d40e22a71f2</md5sum>
 </module>
