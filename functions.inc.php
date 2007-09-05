@@ -43,7 +43,7 @@ function voicemail_myvoicemail($c) {
 	$ext->add($id, $c, '', new ext_gotoif('$["${VMBOXEXISTSSTATUS}" = "SUCCESS"]', 'mbexist'));
 	$ext->add($id, $c, '', new ext_vmmain('')); // n,VoiceMailMain(${VMCONTEXT})
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
-	$ext->add($id, $c, 'mbexist', new ext_vmmain('${CALLERID(num)}@${VMCONTEXT}'),'check',101); // n,VoiceMailMain(${VMCONTEXT})
+	$ext->add($id, $c, 'mbexist', new ext_vmmain('${AMPUSER}@${VMCONTEXT}'),'check',101); // n,VoiceMailMain(${VMCONTEXT})
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 }
 
