@@ -30,6 +30,7 @@ function voicemail_get_config($engine) {
 
 function voicemail_myvoicemail($c) {
 	global $ext;
+	global $core_conf;
 
 	$id = "app-vmmain"; // The context to be included
 
@@ -45,6 +46,12 @@ function voicemail_myvoicemail($c) {
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 	$ext->add($id, $c, 'mbexist', new ext_vmmain('${AMPUSER}@${VMCONTEXT}'),'check',101); // n,VoiceMailMain(${VMCONTEXT})
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+
+	// Now add to sip_general_addtional.conf
+	//
+	if (isset($core_conf) && is_a($core_conf, "core_conf")) {
+		$core_conf->addSipGeneral('vmexten',$c);
+	}
 }
 
 function voicemail_dialvoicemail($c) {

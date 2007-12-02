@@ -5,6 +5,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*2.0.4* #2457 add voicemial dial code to vmexten in sip_general_additional.conf file
 		*2.0.3.4* Fix some labeling and make localization friendly
 		*2.0.3.3* #2232 call to VoiceMailMain() need ${AMPUSER} was fixed wrong
 		*2.0.3.2* bump for rc1
