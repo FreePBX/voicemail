@@ -235,8 +235,13 @@ function voicemail_configprocess() {
 	switch ($action) {
 		case "add":
 			if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
-				voicemail_mailbox_add($extdisplay, $_REQUEST);
-				needreload();
+				$usage_arr = framework_check_extension_usage($_REQUEST['extension']);
+				if (!empty($usage_arr)) {
+					$GLOBALS['abort'] = true;
+				} else {
+					voicemail_mailbox_add($extdisplay, $_REQUEST);
+					needreload();
+				}
 			}
 		break;
 		case "del":
