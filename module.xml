@@ -1,11 +1,11 @@
 <module>
 	<rawname>voicemail</rawname>
 	<name>Voicemail</name>
-	<version>2.0.3.4</version>
+	<version>2.4.0</version>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
-		*2.0.4* #2457 add voicemial dial code to vmexten in sip_general_additional.conf file
+		*2.4.0* #2457 vm dial code to vmexten in sip_general_additional.conf, make hooks abort if extension confilct, misc fixes
 		*2.0.3.4* Fix some labeling and make localization friendly
 		*2.0.3.3* #2232 call to VoiceMailMain() need ${AMPUSER} was fixed wrong
 		*2.0.3.2* bump for rc1
@@ -34,6 +34,6 @@
 	<description>This module allows you to configure Voicemail for a user or extension</description>
 	<type>setup</type>
 	<category>Basic</category>
-	<location>release/2.3/voicemail-2.0.3.4.tgz</location>
-	<md5sum>8d9ff2bb18229e7d1ee42594d54f9b0e</md5sum>
+	<location>release/2.4/voicemail-2.4.0.tgz</location>
+	<md5sum>26e1f518bd9a8ed554941b91b306cc2f</md5sum>
 </module>
