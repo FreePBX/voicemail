@@ -235,10 +235,10 @@ function voicemail_configprocess() {
 	//if submitting form, update database
 	switch ($action) {
 		case "add":
-			if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
+			if (!isset($_GLOBALS['abort']) || $_GLOBALS['abort'] !== true) {
 				$usage_arr = framework_check_extension_usage($_REQUEST['extension']);
 				if (!empty($usage_arr)) {
-					$GLOBALS['abort'] = true;
+					$_GLOBALS['abort'] = true;
 				} else {
 					voicemail_mailbox_add($extdisplay, $_REQUEST);
 					needreload();
@@ -253,7 +253,7 @@ function voicemail_configprocess() {
 			needreload();
 		break;
 		case "edit":
-			if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
+			if (!isset($_GLOBALS['abort']) || $_GLOBALS['abort'] !== true) {
 				voicemail_mailbox_del($extdisplay);
 				if ( $vm != 'disabled' )
 					voicemail_mailbox_add($extdisplay, $_REQUEST);
