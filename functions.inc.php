@@ -98,14 +98,18 @@ function voicemail_configpageinit($pagename) {
 		// ** WARNING **
 		// Mailbox must be processed before adding / deleting users, therefore $sortorder = 1
 		$currentcomponent->addprocessfunc('voicemail_configprocess', 1);
-		// JS function needed for checking voicemail = Enabled
-		$js = 'return (theForm.vm.value == "enabled");';
 	} elseif ($extdisplay != '' || $pagename == 'users') { 
 	// We're now viewing an extension, so we need to display _and_ process. 
 		voicemail_applyhooks(); 
 		$currentcomponent->addprocessfunc('voicemail_configprocess', 1);
+		// JS function needed for checking voicemail = Enabled
 		$js = 'return (theForm.vm.value == "enabled");';
 		$currentcomponent->addjsfunc('isVoiceMailEnabled(notused)',$js);
+		// JS for verifying an empty password is OK
+		$msg = _('Voicemail is enabled but the Voicemail Password field is empty.  Are you sure you wish to continue?');
+		$js = 'if (theForm.vmpwd.value == "") { if(confirm("'.$msg.'")) { return true; } else { return false; }  };';
+		$currentcomponent->addjsfunc('verifyEmptyVoiceMailPassword(notused)', $js);
+
 	} 
 } 
 
@@ -213,7 +217,7 @@ function voicemail_configpageload() {
 
 		$section = 'Voicemail & Directory';
 		$currentcomponent->addguielem($section, new gui_selectbox('vm', $currentcomponent->getoptlist('vmena'), $vmselect, _('Status'), '', false));
-		$currentcomponent->addguielem($section, new gui_textbox('vmpwd', $vmpwd, _('Voicemail Password'), sprintf(_("This is the password used to access the voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "frm_${display}_isVoiceMailEnabled() && !isInteger()", $msgInvalidVmPwd, false));
+		$currentcomponent->addguielem($section, new gui_textbox('vmpwd', $vmpwd, _('Voicemail Password'), sprintf(_("This is the password used to access the voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "frm_${display}_isVoiceMailEnabled() && !frm_${display}_verifyEmptyVoiceMailPassword() && !isInteger()", $msgInvalidVmPwd, false));
 		$currentcomponent->addguielem($section, new gui_textbox('email', $email, _('Email Address'), _("The email address that voicemails are sent to."), "frm_${display}_isVoiceMailEnabled() && !isEmail()", $msgInvalidEmail, true));
 		$currentcomponent->addguielem($section, new gui_textbox('pager', $pager, _('Pager Email Address'), _("Pager/mobile email address that short voicemail notifcations are sent to."), "frm_${display}_isVoiceMailEnabled() && !isEmail()", $msgInvalidEmail, true));
 		$currentcomponent->addguielem($section, new gui_radio('attach', $currentcomponent->getoptlist('vmyn'), $vmops_attach, _('Email Attachment'), _("Option to attach voicemails to email.")));
