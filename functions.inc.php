@@ -61,11 +61,26 @@ function voicemail_dialvoicemail($c) {
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 
-	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
-	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
-	$ext->add($id, $c, '', new ext_vmmain('')); // n,VoiceMailMain(${VMCONTEXT})
+	$ext->add($id, $c, '', new ext_answer(''));
+	$ext->add($id, $c, 'start', new ext_wait('1'));
+	$ext->add($id, $c, '', new ext_noop($id.': Asking for mailbox'));
+	$ext->add($id, $c, '', new ext_read('MAILBOX', 'vm-login', '', '', 3, 2));
+	$ext->add($id, $c, 'check', new ext_noop($id.': Got Mailbox ${MAILBOX}'));
+	$ext->add($id, $c, '', new ext_macro('get-vmcontext','${MAILBOX}')); 
+	$ext->add($id, $c, '', new ext_vmexists('${MAILBOX}@${VMCONTEXT}'));
+	$ext->add($id, $c, '', new ext_gotoif('$["${VMBOXEXISTSSTATUS}" = "SUCCESS"]', 'good', 'bad'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	$ext->add($id, $c, 'good', new ext_noop($id.': Good mailbox ${MAILBOX}@${VMCONTEXT}'));
+	$ext->add($id, $c, '', new ext_vmmain('${MAILBOX}@${VMCONTEXT}'));
+	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	$ext->add($id, $c, 'bad', new ext_noop($id.': BAD mailbox ${MAILBOX}@${VMCONTEXT}'));
+	$ext->add($id, $c, '', new ext_wait('1'));
+	$ext->add($id, $c, '', new ext_noop($id.': Asking for password so people can\'t probe for existence of a mailbox'));
+	$ext->add($id, $c, '', new ext_read('FAKEPW', 'vm-password', '', '', 3, 2));
+	$ext->add($id, $c, '', new ext_noop($id.': Asking for mailbox again'));
+	$ext->add($id, $c, '', new ext_read('MAILBOX', 'vm-incorrect-mailbox', '', '', 3, 2));
+	$ext->add($id, $c, '', new ext_goto('check'));
+ 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 
 	// Note that with this one, it has paramters. So we have to add '_' to the start and '.' to the end
 	// of $c
