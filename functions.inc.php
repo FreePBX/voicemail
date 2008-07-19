@@ -261,6 +261,7 @@ function voicemail_configpageinit($pagename) {
 		$js = "
 		if (document.getElementById('vm').value == 'disabled') {
 			var dval=true;
+			document.getElementById('vmx_state').value='';
 		} else {
 			var dval=false;
 		}
@@ -291,7 +292,6 @@ function voicemail_configpageinit($pagename) {
 			document.getElementById('vmx_unavail_enabled').disabled=dval;
 			document.getElementById('vmx_busy_enabled').disabled=dval;
 			document.getElementById('vmx_play_instructions').disabled=dval;
-			document.getElementById('vmx_option_0_system_default').disabled=dval;
 		";
 		$vmxobj = new vmxObject($extdisplay);
 		$follow_me_disabled = !$vmxobj->hasFollowMe();
@@ -302,31 +302,36 @@ function voicemail_configpageinit($pagename) {
 		";
 		}
 		$js .= "
-			document.getElementById('vmx_option_0_number').disabled=dval;
 			document.getElementById('vmx_option_1_number').disabled=dval;
 			document.getElementById('vmx_option_2_number').disabled=dval;
 
-			if (document.getElementById('vmx_state').value == 'checked') {
+			if (document.getElementById('vm').value == 'disabled') {
+				document.getElementById('vmx_option_0_number').disabled = true;
+				document.getElementById('vmx_option_0_system_default').disabled=true;
+			} else {
+				document.getElementById('vmx_option_0_system_default').disabled=false;
 				if (document.getElementById('vmx_option_0_system_default').checked) {
 					document.getElementById('vmx_option_0_number').disabled = true;
 				} else {
 					document.getElementById('vmx_option_0_number').disabled = false;
 				}
+			}
 		";
 					
 		if (!$follow_me_disabled) {
 			$js .= "
+			if (document.getElementById('vmx_state').value == 'checked') {
 				if (document.getElementById('vmx_option_1_system_default').checked) {
 					document.getElementById('vmx_option_1_number').disabled = true;
 				} else {
 					document.getElementById('vmx_option_1_number').disabled = false;
 				}
+			}
 			";
 		}
 
 		$js .= 
 			"
-			}
 			return true;
 		";
 		$currentcomponent->addjsfunc('vmx_disable_fields(notused)', $js);
@@ -436,7 +441,7 @@ function voicemail_configpageload() {
 		$msgInvalidVMContext = _("VM Context cannot be blank");
 
 		$section = _("Voicemail & Directory");
-		$currentcomponent->addguielem($section, new gui_selectbox('vm', $currentcomponent->getoptlist('vmena'), $vmselect, _('Status'), '', false,"frm_${display}_voicemailEnabled()"));
+		$currentcomponent->addguielem($section, new gui_selectbox('vm', $currentcomponent->getoptlist('vmena'), $vmselect, _('Status'), '', false,"frm_${display}_voicemailEnabled() && frm_${display}_vmx_disable_fields()"));
 		$disable = ($vmselect == 'disabled');
 		$currentcomponent->addguielem($section, new gui_textbox('vmpwd', $vmpwd, _('Voicemail Password'), sprintf(_("This is the password used to access the voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "frm_${display}_isVoiceMailEnabled() && !frm_${display}_verifyEmptyVoiceMailPassword() && !isInteger()", $msgInvalidVmPwd, false,0,$disable));
 		$currentcomponent->addguielem($section, new gui_textbox('email', $email, _('Email Address'), _("The email address that voicemails are sent to."), "frm_${display}_isVoiceMailEnabled() && !isEmail()", $msgInvalidEmail, true, 0, $disable));
@@ -451,7 +456,7 @@ function voicemail_configpageload() {
 		$section = _("VmX Locater");
 		$currentcomponent->addguielem($section, new gui_selectbox('vmx_state', $currentcomponent->getoptlist('vmxena'), $vmx_state, 'VmX Locater&trade;', _("Enable/Disable the VmX Locater feature for this user. When enabled all settings are controlled by the user in the User Portal (ARI). Disabling will not delete any existing user settings but will disable access to the feature"), false, "frm_{$display}_vmx_disable_fields()",$disable),5,6);
 
-		$vmxhtml = voicemail_draw_vmxgui($extdisplay);
+		$vmxhtml = voicemail_draw_vmxgui($extdisplay, $disable);
 		$vmxhtml = '<tr><td colspan="2"><table>'.$vmxhtml.'</table></td></tr>';
 
 		$msgValidNumber = _("Please enter a valid phone number using number digits only");
@@ -466,11 +471,10 @@ function voicemail_configpageload() {
 		";
 
 		$currentcomponent->addguielem($section, new guielement('vmxcustom', $vmxhtml, "$vmxcustom_validate"),6,6);
-		//$currentcomponent->addguielem($section, new guielement('vmxcustom', $vmxhtml, ''),6,6);
 	}
 }
 
-function voicemail_draw_vmxgui($extdisplay) {
+function voicemail_draw_vmxgui($extdisplay, $disable) {
 	global $display;
 
 	$vmxobj = new vmxObject($extdisplay);
@@ -500,13 +504,13 @@ function voicemail_draw_vmxgui($extdisplay) {
 		}
 	}
  
-	$vmx_option_0_system_default_text_box_options = $dval;
+	$vmx_option_0_system_default_text_box_options = ($disable) ? 'disabled="true"' : '';
 	$vmx_option_0_number = $vmxobj->getMenuOpt(0);
 	if ($vmx_option_0_number == "") {
 		$vmx_option_0_number_text_box_options = 'disabled="true"';
 		$vmx_option_0_system_default = 'checked';
 	} else {
-		$vmx_option_0_number_text_box_options = $dval;
+		$vmx_option_0_number_text_box_options = ($diable) ? 'disabled="true"' : '';
 		$vmx_option_0_system_default = '';
 	}
 	$vmx_option_2_number_text_box_options = $dval;
@@ -728,8 +732,20 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 	}
 	voicemail_saveVoicemail($uservm);
 
-	// TODO - pull out the operator extension setting when we do that and insert either case
 	$vmxobj = new vmxObject($extension);
+
+	// Operator extension can be set even without VmX enabled so that it can be
+	// used as an alternate way to provide an operator extension for a user
+	// without VmX enabled.
+	//
+	if (isset($vmx_option_0_system_default) && $vmx_option_0_system_default != '') {
+		$vmxobj->setMenuOpt("",0,'unavail');
+		$vmxobj->setMenuOpt("",0,'busy');
+	} else {
+		$vmx_option_0_number = preg_replace("/[^0-9]/" ,"", $vmx_option_0_number);
+		$vmxobj->setMenuOpt($vmx_option_0_number,0,'unavail');
+		$vmxobj->setMenuOpt($vmx_option_0_number,0,'busy');
+	}
 
 	if ($vmx_state) {
 
@@ -751,15 +767,6 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 		} else {
 			$vmxobj->setVmPlay(false,'unavail');
 			$vmxobj->setVmPlay(false,'busy');
-		}
-
-		if (isset($vmx_option_0_system_default) && $vmx_option_0_system_default != '') {
-			$vmxobj->setMenuOpt("",0,'unavail');
-			$vmxobj->setMenuOpt("",0,'busy');
-		} else {
-			$vmx_option_0_number = preg_replace("/[^0-9]/" ,"", $vmx_option_0_number);
-			$vmxobj->setMenuOpt($vmx_option_0_number,0,'unavail');
-			$vmxobj->setMenuOpt($vmx_option_0_number,0,'busy');
 		}
 
 		if (isset($vmx_option_1_system_default) && $vmx_option_1_system_default != '') {
