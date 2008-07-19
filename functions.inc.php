@@ -292,7 +292,16 @@ function voicemail_configpageinit($pagename) {
 			document.getElementById('vmx_busy_enabled').disabled=dval;
 			document.getElementById('vmx_play_instructions').disabled=dval;
 			document.getElementById('vmx_option_0_system_default').disabled=dval;
+		";
+		$vmxobj = new vmxObject($extdisplay);
+		$follow_me_disabled = !$vmxobj->hasFollowMe();
+
+		if (!$follow_me_disabled) {
+		$js .= "
 			document.getElementById('vmx_option_1_system_default').disabled=dval;
+		";
+		}
+		$js .= "
 			document.getElementById('vmx_option_0_number').disabled=dval;
 			document.getElementById('vmx_option_1_number').disabled=dval;
 			document.getElementById('vmx_option_2_number').disabled=dval;
@@ -312,12 +321,12 @@ function voicemail_configpageinit($pagename) {
 				} else {
 					document.getElementById('vmx_option_1_number').disabled = false;
 				}
-			}
 			";
 		}
 
 		$js .= 
 			"
+			}
 			return true;
 		";
 		$currentcomponent->addjsfunc('vmx_disable_fields(notused)', $js);
@@ -503,20 +512,22 @@ function voicemail_draw_vmxgui($extdisplay) {
 	$vmx_option_2_number_text_box_options = $dval;
 	$vmx_option_2_number = $vmxobj->getMenuOpt(2);
 
+	$tabindex = guielement::gettabindex();
+	$tabindex_text = "tabindex='$tabindex'";
 	$set_vmx_text .= 
 		"
 			<tr>
 				<td><a href='#' class='info'>" . _("Use When:") . "<span>" . _("Menu options below are available during your personal voicemail greeting playback. <br/><br/>Check both to use at all times.") . "<br></span></a></td> <td>
-					<input $vmx_unavail_enabled_text_box_options $vmx_unavail_enabled_value type=checkbox name='vmx_unavail_enabled' id='vmx_unavail_enabled' value='checked'>
+					<input $tabindex_text $vmx_unavail_enabled_text_box_options $vmx_unavail_enabled_value type=checkbox name='vmx_unavail_enabled' id='vmx_unavail_enabled' value='checked'>
 					<small>" . _("unavailable") . "</small>&nbsp;&nbsp;
-					<input $vmx_busy_enabled_text_box_options $vmx_busy_enabled_value type=checkbox name='vmx_busy_enabled' id='vmx_busy_enabled' value='checked'>
+					<input $tabindex_text $vmx_busy_enabled_text_box_options $vmx_busy_enabled_value type=checkbox name='vmx_busy_enabled' id='vmx_busy_enabled' value='checked'>
 					<small>" . _("busy") . "</small>
 				</td>
 			</tr>
 			<tr>
 				<td><a href='#' class='info'>" . _("Voicemail Instructions:") ."<span>" . _("Uncheck to play a beep after your personal voicemail greeting.") . "<br></span></a></td>
 				<td>
-					<input $vmx_play_instructions_text_box_options $vmx_play_instructions type=checkbox name='vmx_play_instructions' id='vmx_play_instructions' value='checked'>
+					<input $tabindex_text $vmx_play_instructions_text_box_options $vmx_play_instructions type=checkbox name='vmx_play_instructions' id='vmx_play_instructions' value='checked'>
 					<small>" . _("Standard voicemail prompts.") . "</small>
 				</td>
 			</tr>
@@ -529,10 +540,10 @@ function voicemail_draw_vmxgui($extdisplay) {
 					Uncheck to enter another destination here.") . "<br></span></a>
 				</td>
 				<td>
-					<input $vmx_option_0_number_text_box_options name='vmx_option_0_number' id='vmx_option_0_number' type='text' size=24 value='$vmx_option_0_number'>
+					<input $tabindex_text $vmx_option_0_number_text_box_options name='vmx_option_0_number' id='vmx_option_0_number' type='text' size=24 value='$vmx_option_0_number'>
 				</td>
 				<td>
-					<input $vmx_option_0_system_default_text_box_options $vmx_option_0_system_default type=checkbox name='vmx_option_0_system_default' id='vmx_option_0_system_default' value='checked' OnClick=\"frm_{$display}_vmx_disable_fields();\">
+					<input $tabindex_text $vmx_option_0_system_default_text_box_options $vmx_option_0_system_default type=checkbox name='vmx_option_0_system_default' id='vmx_option_0_system_default' value='checked' OnClick=\"frm_{$display}_vmx_disable_fields();\">
 					<small>" . _("Go To Operator") . "</small>
 				</td>
 			</tr>
@@ -549,12 +560,12 @@ function voicemail_draw_vmxgui($extdisplay) {
 		"			<br></span></a>
 				</td>
 				<td>
-					<input $vmx_option_1_number_text_box_options  name='vmx_option_1_number' id='vmx_option_1_number' type='text' size=24 value='$vmx_option_1_number'>
+					<input $tabindex_text $vmx_option_1_number_text_box_options  name='vmx_option_1_number' id='vmx_option_1_number' type='text' size=24 value='$vmx_option_1_number'>
 				</td>
 				<td>";
 				
 	if (!$follow_me_disabled) {
-		$set_vmx_text .=  "<input $vmx_option_1_system_default_text_box_options $vmx_option_1_system_default type=checkbox name='vmx_option_1_system_default' id='vmx_option_1_system_default' value='checked' OnClick=\"frm_{$display}_vmx_disable_fields(); \"><small>" . _("Send to Follow-Me") . "</small>";
+		$set_vmx_text .=  "<input $tabindex_text $vmx_option_1_system_default_text_box_options $vmx_option_1_system_default type=checkbox name='vmx_option_1_system_default' id='vmx_option_1_system_default' value='checked' OnClick=\"frm_{$display}_vmx_disable_fields(); \"><small>" . _("Send to Follow-Me") . "</small>";
 	}
 
 	$set_vmx_text .=  
@@ -564,7 +575,7 @@ function voicemail_draw_vmxgui($extdisplay) {
 			<tr>
 				<td><a href='#' class='info'>" . _("Press 2:") . "<span>" . _("Use any extensions, ringgroups, queues or external numbers. <br/><br/>Remember to re-record your personal voicemail greeting and include instructions. Run a test to make sure that the number is functional.") . "<br></span></a></td>
 				<td>
-					<input $vmx_option_2_number_text_box_options name='vmx_option_2_number' id='vmx_option_2_number' type='text' size=24 value='$vmx_option_2_number'>
+					<input $tabindex_text $vmx_option_2_number_text_box_options name='vmx_option_2_number' id='vmx_option_2_number' type='text' size=24 value='$vmx_option_2_number'>
 				</td>
 			</tr>
 		";
