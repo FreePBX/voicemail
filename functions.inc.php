@@ -540,8 +540,7 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 		<br>
 		<table class='settings'>
 			<tr>
-				<td><a href='#' class='info'>" . _("Press 0:") . "<span>" . _("Pressing 0 during your personal voicemail greeing goes to the Operator. 
-					Uncheck to enter another destination here.") . "<br></span></a>
+				<td><a href='#' class='info'>" . _("Press 0:") . "<span>" . _("Pressing 0 during your personal voicemail greeing goes to the Operator. Uncheck to enter another destination here. This feature can be used while still disabling VmX to allow an alternative Operator extension without requiring the VmX feature for the user.") . "<br></span></a>
 				</td>
 				<td>
 					<input $tabindex_text $vmx_option_0_number_text_box_options name='vmx_option_0_number' id='vmx_option_0_number' type='text' size=24 value='$vmx_option_0_number'>
