@@ -237,20 +237,11 @@ function voicemail_configpageinit($pagename) {
 	$tech_hardware = isset($_REQUEST['tech_hardware'])?$_REQUEST['tech_hardware']:null;
 
        // We only want to hook 'users' or 'extensions' pages. 
-	if ($pagename != 'users' && $pagename != 'extensions')  
+	if ($pagename != 'users' && $pagename != 'extensions')  {
 		return true; 
-	// On a 'new' user, 'tech_hardware' is set, and there's no extension. Hook into the page. 
-	if ($tech_hardware != null ) { 
-		voicemail_applyhooks(); 
-	} elseif ($action=="add") { 
-	// We don't need to display anything on an 'add', but we do need to handle returned data. 
-		// ** WARNING **
-		// Mailbox must be processed before adding / deleting users, therefore $sortorder = 1
-		$currentcomponent->addprocessfunc('voicemail_configprocess', 1);
-	} elseif ($extdisplay != '' || $pagename == 'users') { 
-	// We're now viewing an extension, so we need to display _and_ process. 
-		voicemail_applyhooks(); 
-		$currentcomponent->addprocessfunc('voicemail_configprocess', 1);
+	}
+
+	if ($tech_hardware != null || $extdisplay != '' || $pagename == 'users') { 
 		// JS function needed for checking voicemail = Enabled
 		$js = 'return (theForm.vm.value == "enabled");';
 		$currentcomponent->addjsfunc('isVoiceMailEnabled(notused)',$js);
@@ -282,7 +273,7 @@ function voicemail_configpageinit($pagename) {
 		return true;
 		";
 		$currentcomponent->addjsfunc('voicemailEnabled(notused)', $js);
-
+	
 		$js = "
 			if (document.getElementById('vmx_state').value == 'checked') {
 				var dval=false;
@@ -304,7 +295,7 @@ function voicemail_configpageinit($pagename) {
 		$js .= "
 			document.getElementById('vmx_option_1_number').disabled=dval;
 			document.getElementById('vmx_option_2_number').disabled=dval;
-
+	
 			if (document.getElementById('vm').value == 'disabled') {
 				document.getElementById('vmx_option_0_number').disabled = true;
 				document.getElementById('vmx_option_0_system_default').disabled=true;
@@ -335,6 +326,20 @@ function voicemail_configpageinit($pagename) {
 			return true;
 		";
 		$currentcomponent->addjsfunc('vmx_disable_fields(notused)', $js);
+	}
+
+	// On a 'new' user, 'tech_hardware' is set, and there's no extension. Hook into the page. 
+	if ($tech_hardware != null ) { 
+		voicemail_applyhooks(); 
+	} elseif ($action=="add") { 
+	// We don't need to display anything on an 'add', but we do need to handle returned data. 
+		// ** WARNING **
+		// Mailbox must be processed before adding / deleting users, therefore $sortorder = 1
+		$currentcomponent->addprocessfunc('voicemail_configprocess', 1);
+	} elseif ($extdisplay != '' || $pagename == 'users') { 
+	// We're now viewing an extension, so we need to display _and_ process. 
+		voicemail_applyhooks(); 
+		$currentcomponent->addprocessfunc('voicemail_configprocess', 1);
 	} 
 }
 
