@@ -241,7 +241,7 @@ function voicemail_configpageinit($pagename) {
 		return true; 
 	}
 
-	if ($tech_hardware != null || $extdisplay != '' || $pagename == 'users') { 
+	if ($tech_hardware != null || $extdisplay != '' || $pagename == 'users') {
 		// JS function needed for checking voicemail = Enabled
 		$js = 'return (theForm.vm.value == "enabled");';
 		$currentcomponent->addjsfunc('isVoiceMailEnabled(notused)',$js);
@@ -335,7 +335,22 @@ function voicemail_configpageinit($pagename) {
 	// We don't need to display anything on an 'add', but we do need to handle returned data. 
 		// ** WARNING **
 		// Mailbox must be processed before adding / deleting users, therefore $sortorder = 1
-		$currentcomponent->addprocessfunc('voicemail_configprocess', 1);
+		//
+		// More hacky-ness from components, since this is called first, we need to determine if
+		// it there is a conclict indpenendent from the user component so we know if we should
+		// redisplay the or not. While we are at it, we won't add the process function if there
+		// is a conflict
+		//
+		if ($_REQUEST['display'] == 'users') {
+			$usage_arr = framework_check_extension_usage($_REQUEST['extension']);
+			if (empty($usage_arr)) {
+				$currentcomponent->addprocessfunc('voicemail_configprocess', 1);
+			} else {
+				voicemail_applyhooks(); 
+			}
+		} else {
+			$currentcomponent->addprocessfunc('voicemail_configprocess', 1);
+		}
 	} elseif ($extdisplay != '' || $pagename == 'users') { 
 	// We're now viewing an extension, so we need to display _and_ process. 
 		voicemail_applyhooks(); 
@@ -599,10 +614,10 @@ function voicemail_configprocess() {
 	//if submitting form, update database
 	switch ($action) {
 		case "add":
-			if (!isset($_GLOBALS['abort']) || $_GLOBALS['abort'] !== true) {
+			if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
 				$usage_arr = framework_check_extension_usage($_REQUEST['extension']);
 				if (!empty($usage_arr)) {
-					$_GLOBALS['abort'] = true;
+					$GLOBALS['abort'] = true;
 				} else {
 					voicemail_mailbox_add($extdisplay, $_REQUEST);
 					needreload();
@@ -617,7 +632,7 @@ function voicemail_configprocess() {
 			needreload();
 		break;
 		case "edit":
-			if (!isset($_GLOBALS['abort']) || $_GLOBALS['abort'] !== true) {
+			if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
 				voicemail_mailbox_del($extdisplay);
 				if ( $vm != 'disabled' )
 					voicemail_mailbox_add($extdisplay, $_REQUEST);
