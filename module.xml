@@ -13,28 +13,7 @@
 		*2.4.0* #2457 vm dial code to vmexten in sip_general_additional.conf, make hooks abort if extension confilct, misc fixes
 		*2.0.3.4* Fix some labeling and make localization friendly
 		*2.0.3.3* #2232 call to VoiceMailMain() need ${AMPUSER} was fixed wrong
-		*2.0.3.2* bump for rc1
-		*2.0.3.1* #2232 checking for voicemial failure on Asterisk 1.4
-		*2.0.3* #1836 - remove mailbox form filesystem after deleting an extension
-		*2.0.2.4* changed install script to return false on astman not there
-		*2.0.2.3* remove setting vmcontext to department, fixed #2153 and #2136
-		*2.0.2.2* MailBoxExists needs 'j' option for Asterisk 1.4 (and technically this is correct syntax)
-	  *2.0.2.1* added candisable = no for module admin
-	  *2.0.2* changed ${CALLERID(number)} to ${AMPUSER} to accomodate CID number masquerading
-		*2.0.1.1* removed depends on 2.2.2 - classes are in all version of 2.3
-		*2.0.1* #1976 - check if mailbox exists and enter with no arguments if not
-		*2.0.0* Bumped version number to avoid confusion with freepbx 2.2.x versions
-		*1.6.3* Remove hardcoded paths to voicemail.conf
-		*1.6.2* Bump version to fix existing extensions with disabled voicemail #1697
-		*1.6.1* Added support to enable/disable VmX Locator (personal ivr)
-		*1.6* Re-Fix 1.5.2, bump version for 2.2rc2 release.
-		*1.5.3* Fix for vm Javascript sanity checks only working in DevAndUser mode.
-		*1.5.2* Fix vm not appearing in DeviceAndUser mode
-		*1.5.1* Fix for MWI not working
-		*1.5* Fix issue with vm options not being saved on creation of extension
-		*1.4.2* Change category to Basic
-		*1.4.1* Fixed radio button defaults to 'no' from false so they work
-		*1.4* First release for 2.2. Fix inability to create voicemail box
+		*2.0.3.2* CHANGELOG TRUNCATED See SVN Repository
 	</changelog>
 	<description>This module allows you to configure Voicemail for a user or extension</description>
 	<type>setup</type>
