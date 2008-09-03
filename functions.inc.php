@@ -519,7 +519,7 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 	$vmx_play_instructions_text_box_options = $dval;
 
 	$follow_me_disabled = !$vmxobj->hasFollowMe();
-	if (!$follow_me_disable) {
+	if (!$follow_me_disabled) {
 		$vmx_option_1_system_default_text_box_options = $dval;
 		if ($vmxobj->isFollowMe()) {
 			$vmx_option_1_number_text_box_options = 'disabled="true"';
@@ -530,6 +530,8 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 			$vmx_option_1_number = $vmxobj->getMenuOpt(1);
 			$vmx_option_1_system_default = '';
 		}
+	} else {
+		$vmx_option_1_number_text_box_options = $dval;
 	}
  
 	$vmx_option_0_system_default_text_box_options = ($disable) ? 'disabled="true"' : '';
@@ -546,7 +548,7 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 
 	$tabindex = guielement::gettabindex();
 	$tabindex_text = "tabindex='$tabindex'";
-	$set_vmx_text .= 
+	$set_vmx_text = 
 		"
 			<tr>
 				<td><a href='#' class='info'>" . _("Use When:") . "<span>" . _("Menu options below are available during your personal voicemail greeting playback. <br/><br/>Check both to use at all times.") . "<br></span></a></td> <td>
