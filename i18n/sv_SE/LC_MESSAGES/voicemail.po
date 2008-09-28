@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: FreePBX voicemail\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-27 15:10+0200\n"
-"PO-Revision-Date: 2008-09-27 16:04+0100\n"
+"PO-Revision-Date: 2008-09-28 17:03+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -211,7 +211,7 @@ msgstr "Min röstbrevlåda"
 
 #: install.php:14
 msgid "Dial Voicemail"
-msgstr "Ring min röstbrevlåda"
+msgstr "Ring en röstbrevlåda"
 
 #: install.php:33
 msgid "Cannot connect to Asterisk Manager with "
