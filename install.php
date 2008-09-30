@@ -1,19 +1,24 @@
 <?php
+//for translation only
+if (false) {
+_("Voicemail");
+_("My Voicemail");
+_("Dial Voicemail");
+}
+
 global $astman;
 global $amp_conf;
 
 // Register FeatureCode - Activate
-$myvoicemail = _("My Voicemail");
 $fcc = new featurecode('voicemail', 'myvoicemail');
-$fcc->setDescription($myvoicemail);
+$fcc->setDescription('My Voicemail');
 $fcc->setDefault('*97');
 $fcc->update();
 unset($fcc);
 
 // Register FeatureCode - Deactivate
-$dialvoicemail = _("Dial Voicemail");
 $fcc = new featurecode('voicemail', 'dialvoicemail');
-$fcc->setDescription($dialvoicemail);
+$fcc->setDescription('Dial Voicemail');
 $fcc->setDefault('*98');
 $fcc->update();
 unset($fcc);
