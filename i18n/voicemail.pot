@@ -106,7 +106,7 @@ msgid ""
 msgstr ""
 
 #: functions.inc.php:480
-msgid "Delete Vociemail"
+msgid "Delete Voicemail"
 msgstr ""
 
 #: functions.inc.php:480

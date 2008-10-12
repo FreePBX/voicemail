@@ -95,7 +95,7 @@ msgid "Envelope controls whether or not the voicemail system will play the messa
 msgstr "Markera om du vill ha systemet att spela upp datum och tid när meddelandet lämnades. Detta kommer att spelas upp före röstmeddelandet. Denna inställning påverkar inte valen i avancerade inställningar för röstbrevlådan."
 
 #: functions.inc.php:480
-msgid "Delete Vociemail"
+msgid "Delete Voicemail"
 msgstr "Ta bort röstmeddelande"
 
 #: functions.inc.php:480
