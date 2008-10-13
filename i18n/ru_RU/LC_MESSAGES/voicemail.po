@@ -1,0 +1,277 @@
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2008 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
+#
+# Использовать iconv amp.new -f UTF-8 -t ISO-8859-5 -o amp.po
+# fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-27 19:41+0300\n"
+"PO-Revision-Date: 2008-09-27 16:38+0100\n"
+"Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
+"Language-Team: Russian <faq@postmet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-5\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: functions.inc.php:472
+msgid "Status"
+msgstr "Статус"
+
+#: functions.inc.php:474
+msgid "Voicemail Password"
+msgstr "Пароль на голосовую почту"
+
+#: functions.inc.php:475
+msgid "Email Address"
+msgstr "Адрес эл. почты"
+
+#: functions.inc.php:475
+#msgid "The email address that voicemails are sent to."
+#msgstr "Адрес эл. почты куда будет высылаться сообщение о принятых звонках."
+
+#: functions.inc.php:476
+msgid "Pager Email Address"
+msgstr "Адрес пейджера"
+
+#: functions.inc.php:476
+#msgid ""
+#"Pager/mobile email address that short voicemail notifications are sent to."
+#msgstr ""
+
+#: functions.inc.php:477
+msgid "Email Attachment"
+msgstr "Вложение в эл. почту"
+
+#: functions.inc.php:477
+#msgid "Option to attach voicemails to email."
+#msgstr "Опционально - вложение оставленного сообщения в эл. сообщении."
+
+#: functions.inc.php:478
+msgid "Play CID"
+msgstr "Воспроизводить Номер ИД"
+
+#: functions.inc.php:479
+msgid "Play Envelope"
+msgstr "Воспроизводить дату/время"
+
+#: functions.inc.php:480
+msgid "Delete Voicemail"
+msgstr "Удалить голосовую почту"
+
+#: functions.inc.php:480
+msgid "Delete Vociemail"
+msgstr "Удалить голосовую почту"
+
+#: functions.inc.php:481
+msgid "VM Options"
+msgstr "Опции голосовой почты"
+
+#: functions.inc.php:482
+msgid "VM Context"
+msgstr "Контекст голосовой почты"
+
+#: functions.inc.php:466
+msgid "Please enter a valid Voicemail Password, using digits only"
+msgstr "Пожалуйста введите разрешённый пароль голосовой почты, используя только цифры"
+
+#: functions.inc.php:467
+msgid "Please enter a valid Email Address"
+msgstr "Пожалуйста введите разрешённый адрес эл. почты"
+
+#: functions.inc.php:468
+msgid "Please enter a valid Pager Email Address"
+msgstr "Пожалуйста введите разрешённый адрес пейджера"
+
+#: functions.inc.php:469
+msgid "VM Context cannot be blank"
+msgstr "Контекст голосовой почты не может быть пустым"
+
+#: functions.inc.php:471
+msgid "Voicemail & Directory"
+msgstr "Голосовая почта и Директории"
+
+#: functions.inc.php:474
+#, c-format
+msgid ""
+"This is the password used to access the voicemail system.%sThis password can "
+"only contain numbers.%sA user can change the password you enter here after "
+"logging into the voicemail system (%s) with a phone."
+msgstr ""
+"Пароль для доступа к голосовой почте. %sПароль может состоять "
+"только из цифр.<br>%sПользователь может сменить установленный здесь пароль "
+"набрав (%s) со своего телефона после входа в систему голосовой почты."
+
+#: functions.inc.php:475
+msgid "The email address that voicemails are sent to."
+msgstr "Адрес эл.почты, куда будут отсылаться сообщения."
+
+#: functions.inc.php:476
+msgid ""
+"Pager/mobile email address that short voicemail notifications are sent to."
+msgstr ""
+"Адрес пейджера/мобильного телефона, куда можно посылать СМС об оставленных сообщениях."
+
+#: functions.inc.php:477
+msgid "Option to attach voicemails to email."
+msgstr "Опционально - присоединять звуковой файл к сообщению эл. почты."
+
+#: functions.inc.php:478
+msgid ""
+"Read back caller's telephone number prior to playing the incoming message, "
+"and just after announcing the date and time the message was left."
+msgstr ""
+"Проговаривать телефонный номер позвонившего прежде чем воспроизводить входящее "
+"сообщение, с указанием даты и времени, когда оно было оставлено."
+
+#: functions.inc.php:479
+msgid ""
+"Envelope controls whether or not the voicemail system will play the message "
+"envelope (date/time) before playing the voicemail message. This setting does "
+"not affect the operation of the envelope option in the advanced voicemail "
+"menu."
+msgstr ""
+"Средства оформления сообщения, воспроизводить элементы (дата/время) прежде чем "
+"воспроизводить сообщение. Эти установки не дают эффекта с функциями в расширенном "
+"меню голосовой почты."
+
+#: functions.inc.php:480
+msgid ""
+"If set to \"yes\" the message will be deleted from the voicemailbox (after "
+"having been emailed). Provides functionality that allows a user to receive "
+"their voicemail via email alone, rather than having the voicemail able to be "
+"retrieved from the Webinterface or the Extension handset.  CAUTION: MUST "
+"HAVE attach voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE "
+"LOST FOREVER."
+msgstr ""
+"Если установлено в \"да\", сообщение будет удалено из ящика голосовой почты "
+"(после того, как будет отослано). Обеспечивает функциональность пользователю "
+"голосовой почты прослушивать сообщения только из сообщения в эл. почты, вместо "
+"того, чтобы использовать вэбинтерфейс или свой телефон для той же цели. "
+"ПРЕДУПРЕЖДЕНИЕ: опция присоединения голосового файла к сообщению эл. почты "
+"ОБЯЗАТЕЛЬНО должна быть задействована, в противном случае СООБЩЕНИЕ БУДЕТ "
+"УТРАЧЕНО БЕЗВОЗВРАТНО"
+
+#: functions.inc.php:481
+#, c-format
+msgid "Separate options with pipe ( | )%sie: review=yes|maxmessage=60"
+msgstr "Отделяйте опции значком ( | )%sнапример: review=yes|maxmessage=60"
+
+#: functions.inc.php:482
+msgid ""
+"This is the Voicemail Context which is normally set to default. Do not "
+"change unless you understand the implications."
+msgstr ""
+"Это контекст голосовой почты, обычно он default. Не изменяйте его, если вы не отчётливо "
+"понимаете как это применять"
+
+#: functions.inc.php:484
+msgid "VmX Locater"
+msgstr "VmX Локатор"
+
+#: functions.inc.php:485
+msgid ""
+"Enable/Disable the VmX Locater feature for this user. When enabled all "
+"settings are controlled by the user in the User Portal (ARI). Disabling will "
+"not delete any existing user settings but will disable access to the feature"
+msgstr ""
+"Включить/выключить функцию VmX Локатора для этого пользователя. Если включена, "
+"- все установки доступны пользователю в интерфейсе голосовых сообщений Астериск "
+"(ARI). Отключение не удаляет созданные настройки, а только отключает доступ к этой функции."
+
+#: functions.inc.php:555
+msgid "Use When:"
+msgstr "Использовать при:"
+
+#: functions.inc.php:555
+msgid "Menu options below are available during your personal voicemail greeting playback. <br/><br/>Check both to use at all times."
+msgstr "Опции меню ниже доступны при воспроизведении персонального уведомления голосовой почты. <br><br>Отметить оба для использования."
+
+#: functions.inc.php:557
+msgid "unavailable"
+msgstr "недоступен"
+
+#: functions.inc.php:559
+msgid "busy"
+msgstr "занят"
+
+#: functions.inc.php:563
+msgid "Voicemail Instructions:"
+msgstr "Инструкции к голосовой почте:"
+
+#: functions.inc.php:563
+msgid "Uncheck to play a beep after your personal voicemail greeting."
+msgstr "Не отмечать для воспроизведения простого звукого сигнала \"бип\" после персонального уведомления голосовой почты."
+
+#: functions.inc.php:566
+msgid "Standard voicemail prompts."
+msgstr "Стандартные сообщения голосовой почты."
+
+#: functions.inc.php:574
+msgid "Press 0:"
+msgstr "Нажать 0:"
+
+#: functions.inc.php:574
+msgid "Pressing 0 during your personal voicemail greeting goes to the Operator. Uncheck to enter another destination here. This feature can be used while still disabling VmX to allow an alternative Operator extension without requiring the VmX feature for the user."
+msgstr "При нажатии на 0 во время воспороизведения уведомления голосовой почты произойдёт перенаправление на Оператора. Не отмечать, если предполагается другое перенаправление. "
+"Эта возможность может использоваться только при отключенном VmX локаторе, при этом предполагается альтернативное перенаправление на Оператора без возможностей VmX локатора для этого пользователя."
+
+#: functions.inc.php:581
+msgid "Go To Operator"
+msgstr "Перенаправление на Оператора"
+
+#: functions.inc.php:585
+msgid "Press 1:"
+msgstr "Нажать 1:"
+
+#: functions.inc.php:588
+msgid "The remaining options can have internal extensions, ringgroups, queues and external numbers that may be rung. It is often used to include your cell phone. You should run a test to make sure that the number is functional any time a change is made so you don't leave a caller stranded or receiving invalid number messages."
+msgstr ""
+"Оставшиеся опции могут включать внутренние номера, группы вызова, очереди, и "
+"внешние номера, на которые можно позвонить. Чаще это используется для добавления "
+"номера вашего мобильного телефона. Вы должны обязательно протестировать номер, "
+"чтобы быть уверенным, что внесённые изменения функционируют корректно в любое время, "
+"не создавая неудобств и затруднений, когда позвонивший вдруг получает сообщение о "
+"неправильно набранном номере." 
+
+#: functions.inc.php:610
+msgid "Press 2:"
+msgstr "Нажать 2:"
+
+#: functions.inc.php:610
+msgid "Use any extensions, ringgroups, queues or external numbers. <br/><br/>Remember to re-record your personal voicemail greeting and include instructions. Run a test to make sure that the number is functional."
+msgstr "Использовать любые внутренние номера, группы вызова, очереди или внешние номера.<br><br>Не забудьте перезаписать персональное сообщение голосовой почты, где эти возможности упоминаются. "
+"Протестируйте номер, чтобы быть уверенным, что внесённые изменения функционируют корректно."
+
+#: functions.inc.php:490
+msgid "Please enter a valid phone number using number digits only"
+msgstr "Пожалуйста введите разрешённый номер используя только цифры"
+
+#: functions.inc.php:590
+msgid ""
+"Enter an alternate number here, then change your personal voicemail greeting "
+"to let callers know to press 1 to reach that number. <br/><br/>If you'd like "
+"to use your Follow Me List, check \"Send to Follow Me\" and disable Follow "
+"Me above."
+msgstr ""
+"Введите альтернативный номер, затем поменяйте ваше персональное приветствие "
+"голосовой почты, чтобы дать возможность позвонившему нажать 1 и услышать этот номер."
+"<br/><br/>Если есть желание использовать свой лист Следуйте сюда, отметьте \"Послать в "
+"Следуйте-сюда\" и отключите Следуйте сюда выше."
+
+#: functions.inc.php:602
+msgid "Send to Follow-Me"
+msgstr "Послать в Следуйте-сюда"
+
+#: functions.inc.php:689
+#, c-format
+msgid "Failed to delete vmbox: %s@%s"
+msgstr "Ошибка при удалении ящика голосовой почты: %s@%s"
+
+#: functions.inc.php:690
+#, c-format
+msgid "failed with retcode %s while removing %s:"
+msgstr "ошибка с кодом %s при удалении %s"
