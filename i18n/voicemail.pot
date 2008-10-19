@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-27 15:10+0200\n"
+"POT-Creation-Date: 2008-10-10 17:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,22 @@ msgstr ""
 msgid ""
 "Voicemail is enabled but the Voicemail Password field is empty.  Are you "
 "sure you wish to continue?"
+msgstr ""
+
+#: functions.inc.php:374 functions.inc.php:379
+msgid "Enabled"
+msgstr ""
+
+#: functions.inc.php:375 functions.inc.php:378
+msgid "Disabled"
+msgstr ""
+
+#: functions.inc.php:382
+msgid "yes"
+msgstr ""
+
+#: functions.inc.php:383
+msgid "no"
 msgstr ""
 
 #: functions.inc.php:466
@@ -139,6 +155,10 @@ msgid ""
 msgstr ""
 
 #: functions.inc.php:484
+msgid "VmX Locater"
+msgstr ""
+
+#: functions.inc.php:485
 msgid "VmX Locater&trade;"
 msgstr ""
 
@@ -245,18 +265,18 @@ msgstr ""
 msgid "failed with retcode %s while removing %s:"
 msgstr ""
 
-#: install.php:6
+#: install.php:4
+msgid "Voicemail"
+msgstr ""
+
+#: install.php:5
 msgid "My Voicemail"
 msgstr ""
 
-#: install.php:14
+#: install.php:6
 msgid "Dial Voicemail"
 msgstr ""
 
-#: install.php:33
+#: install.php:38
 msgid "Cannot connect to Asterisk Manager with "
-msgstr ""
-
-#: module.xml
-msgid "Voicemail"
 msgstr ""

@@ -371,16 +371,16 @@ function voicemail_applyhooks() {
 
 	// Setup two option lists we need
 	// Enable / Disable list
-	$currentcomponent->addoptlistitem('vmena', 'enabled', 'Enabled');
-	$currentcomponent->addoptlistitem('vmena', 'disabled', 'Disabled');
+	$currentcomponent->addoptlistitem('vmena', 'enabled', _('Enabled'));
+	$currentcomponent->addoptlistitem('vmena', 'disabled', _('Disabled'));
 	$currentcomponent->setoptlistopts('vmena', 'sort', false);
 	// Enable / Disable vmx list
-	$currentcomponent->addoptlistitem('vmxena', '', 'Disabled');
-	$currentcomponent->addoptlistitem('vmxena', 'checked', 'Enabled');
+	$currentcomponent->addoptlistitem('vmxena', '', _('Disabled'));
+	$currentcomponent->addoptlistitem('vmxena', 'checked', _('Enabled'));
 	$currentcomponent->setoptlistopts('vmxena', 'sort', false);
 	// Yes / No Radio button list
-	$currentcomponent->addoptlistitem('vmyn', 'yes', 'yes');
-	$currentcomponent->addoptlistitem('vmyn', 'no', 'no');
+	$currentcomponent->addoptlistitem('vmyn', 'yes', _('yes'));
+	$currentcomponent->addoptlistitem('vmyn', 'no', _('no'));
 	$currentcomponent->setoptlistopts('vmyn', 'sort', false);
 
 	// Add the 'proces' function
@@ -482,7 +482,7 @@ function voicemail_configpageload() {
 		$currentcomponent->addguielem($section, new gui_textbox('vmcontext', $vmcontext, _('VM Context'), _("This is the Voicemail Context which is normally set to default. Do not change unless you understand the implications."), "frm_${display}_isVoiceMailEnabled() && isEmpty()", $msgInvalidVMContext, false,0,$disable));
 
 		$section = _("VmX Locater");
-		$currentcomponent->addguielem($section, new gui_selectbox('vmx_state', $currentcomponent->getoptlist('vmxena'), $vmx_state, 'VmX Locater&trade;', _("Enable/Disable the VmX Locater feature for this user. When enabled all settings are controlled by the user in the User Portal (ARI). Disabling will not delete any existing user settings but will disable access to the feature"), false, "frm_{$display}_vmx_disable_fields()",$disable),5,6);
+		$currentcomponent->addguielem($section, new gui_selectbox('vmx_state', $currentcomponent->getoptlist('vmxena'), $vmx_state, _('VmX Locater&trade;'), _("Enable/Disable the VmX Locater feature for this user. When enabled all settings are controlled by the user in the User Portal (ARI). Disabling will not delete any existing user settings but will disable access to the feature"), false, "frm_{$display}_vmx_disable_fields()",$disable),5,6);
 
 		$vmxhtml = voicemail_draw_vmxgui($extdisplay, $disable);
 		$vmxhtml = '<tr><td colspan="2"><table>'.$vmxhtml.'</table></td></tr>';

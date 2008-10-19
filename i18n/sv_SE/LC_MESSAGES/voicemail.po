@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX voicemail\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-27 15:10+0200\n"
-"PO-Revision-Date: 2008-09-28 17:03+0100\n"
+"POT-Creation-Date: 2008-10-10 17:24+0200\n"
+"PO-Revision-Date: 2008-10-19 18:52+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,24 @@ msgstr ""
 #: functions.inc.php:257
 msgid "Voicemail is enabled but the Voicemail Password field is empty.  Are you sure you wish to continue?"
 msgstr "Röstbrevlådan är aktiverad men lösenordfältet är tomt. Är du säker på att du vill fortsätta?"
+
+#: functions.inc.php:374
+#: functions.inc.php:379
+msgid "Enabled"
+msgstr "Aktiverad"
+
+#: functions.inc.php:375
+#: functions.inc.php:378
+msgid "Disabled"
+msgstr "Avaktiverad"
+
+#: functions.inc.php:382
+msgid "yes"
+msgstr "ja"
+
+#: functions.inc.php:383
+msgid "no"
+msgstr "nej"
 
 #: functions.inc.php:466
 msgid "Please enter a valid Voicemail Password, using digits only"
@@ -120,6 +138,10 @@ msgid "This is the Voicemail Context which is normally set to default. Do not ch
 msgstr "Detta är sammanhanget för röstbrevlådan, som standard är den satt till default. ÄNDRA INTE om du inte känner till vad som kommer att hända om du gör det."
 
 #: functions.inc.php:484
+msgid "VmX Locater"
+msgstr "VmX Lokator"
+
+#: functions.inc.php:485
 msgid "VmX Locater&trade;"
 msgstr "VmX-lokator&trade;"
 
@@ -205,19 +227,19 @@ msgstr "Kunde inta ta bort röstbrevlåda: %s@%s"
 msgid "failed with retcode %s while removing %s:"
 msgstr "misslyckades med returkoden: %s när %s togs bort:"
 
-#: install.php:6
+#: install.php:4
+msgid "Voicemail"
+msgstr "Röstbrevlådor"
+
+#: install.php:5
 msgid "My Voicemail"
 msgstr "Min röstbrevlåda"
 
-#: install.php:14
+#: install.php:6
 msgid "Dial Voicemail"
 msgstr "Ring en röstbrevlåda"
 
-#: install.php:33
+#: install.php:38
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "Kan inte koppla upp mot Asterisk hanterare med"
-
-#: module.xml
-msgid "Voicemail"
-msgstr "Röstbrevlådor"
 
