@@ -1,0 +1,246 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FreePBX v2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-10 17:24+0200\n"
+"PO-Revision-Date: 2008-11-05 11:23+0200\n"
+"Last-Translator: \n"
+"Language-Team: Chavdar Iliev <chavdar_75@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: functions.inc.php:257
+msgid "Voicemail is enabled but the Voicemail Password field is empty.  Are you sure you wish to continue?"
+msgstr "Гласовата Поща е разрешена но полето за парола е празно. Сигурни ли сте че искате да продължите?"
+
+#: functions.inc.php:374
+#: functions.inc.php:379
+msgid "Enabled"
+msgstr "Разрешена"
+
+#: functions.inc.php:375
+#: functions.inc.php:378
+msgid "Disabled"
+msgstr "Забранена"
+
+#: functions.inc.php:382
+msgid "yes"
+msgstr "да"
+
+#: functions.inc.php:383
+msgid "no"
+msgstr "не"
+
+#: functions.inc.php:466
+msgid "Please enter a valid Voicemail Password, using digits only"
+msgstr "Моля въведете правилна Парола на Гласова Поща, като използвате само цифри"
+
+#: functions.inc.php:467
+msgid "Please enter a valid Email Address"
+msgstr "Моля въведете валиден Email Адрес"
+
+#: functions.inc.php:468
+msgid "Please enter a valid Pager Email Address"
+msgstr "Моля въведете валиден Пейджър Email Адрес"
+
+#: functions.inc.php:469
+msgid "VM Context cannot be blank"
+msgstr "ГП Контекст не може да е празен"
+
+#: functions.inc.php:471
+msgid "Voicemail & Directory"
+msgstr "Гласова Поща & Директория"
+
+#: functions.inc.php:472
+msgid "Status"
+msgstr "Състояние"
+
+#: functions.inc.php:474
+msgid "Voicemail Password"
+msgstr "Парола на Гласова Поща"
+
+#: functions.inc.php:474
+#, php-format
+msgid "This is the password used to access the voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the voicemail system (%s) with a phone."
+msgstr "Паролата използвана за достъп до гласова поща.%sМоже да съдържа само цифри.%sПотребителят може да смени въведената тук парола след като влезе в системата за гласова поща (%s) през телефона си."
+
+#: functions.inc.php:475
+msgid "Email Address"
+msgstr "Email Адрес"
+
+#: functions.inc.php:475
+msgid "The email address that voicemails are sent to."
+msgstr "Email адрес на който да се изпрати гласовата поща."
+
+#: functions.inc.php:476
+msgid "Pager Email Address"
+msgstr "Пейджър Email Адрес"
+
+#: functions.inc.php:476
+msgid "Pager/mobile email address that short voicemail notifications are sent to."
+msgstr "Пейджър/мобилен email адрес където да се изпрати кратко известие."
+
+#: functions.inc.php:477
+msgid "Email Attachment"
+msgstr "Прикачване към Email"
+
+#: functions.inc.php:477
+msgid "Option to attach voicemails to email."
+msgstr "Опция за прикачане на гласова поща към email."
+
+#: functions.inc.php:478
+msgid "Play CID"
+msgstr "Възпроизведи CID"
+
+#: functions.inc.php:478
+msgid "Read back caller's telephone number prior to playing the incoming message, and just after announcing the date and time the message was left."
+msgstr "Прочита телефонния номер на обаждащия се преди да възпроизведе входящото съобщение и след представянето на датата и часа на съобщението."
+
+#: functions.inc.php:479
+msgid "Play Envelope"
+msgstr "Възпроизведи Обшивка"
+
+#: functions.inc.php:479
+msgid "Envelope controls whether or not the voicemail system will play the message envelope (date/time) before playing the voicemail message. This setting does not affect the operation of the envelope option in the advanced voicemail menu."
+msgstr "Обшивката контролира дали системата да възпроизведе общото съобщение (дата/час) преди да пусне оставеното съобщение. Тази настройка не засяга работата на обшивката в главното меню на гласовата поща."
+
+#: functions.inc.php:480
+msgid "Delete Voicemail"
+msgstr "Изтрий Гласова Поща"
+
+#: functions.inc.php:480
+msgid "If set to \"yes\" the message will be deleted from the voicemailbox (after having been emailed). Provides functionality that allows a user to receive their voicemail via email alone, rather than having the voicemail able to be retrieved from the Webinterface or the Extension handset.  CAUTION: MUST HAVE attach voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE LOST FOREVER."
+msgstr "Ако е установено на \"да\" съобщението ще се изтрие от кутията (след като е изпратено на email). Предоставя на потребителите възможността да получават техните гласови съобщения само чрез email, а не да използват уеб интерфейса или телефона си. ВНИМАНИЕ: ТРЯБВА ДА ИМАТЕ прикачи гласова поща към email УСТАНОВЕНО НА 'ДА' ИЛИ ВАШИТЕ СЪОБЩЕНИЯ ЩЕ СЕ ЗАГУБЯТ ЗАВИНАГИ."
+
+#: functions.inc.php:481
+msgid "VM Options"
+msgstr "Опции на Гласова Поща"
+
+#: functions.inc.php:481
+#, php-format
+msgid "Separate options with pipe ( | )%sie: review=yes|maxmessage=60"
+msgstr "Разделете опциите с отвес ( | )%sНапример: review=yes|maxmessage=60"
+
+#: functions.inc.php:482
+msgid "VM Context"
+msgstr "Контекст на Гласова Поща"
+
+#: functions.inc.php:482
+msgid "This is the Voicemail Context which is normally set to default. Do not change unless you understand the implications."
+msgstr "Контекста на Гласовата Поща който нормално е установен по-подразбиране. Не го променяйте освен ако разбирате евентуалните последствия."
+
+#: functions.inc.php:484
+msgid "VmX Locater"
+msgstr "Гласова Поща VmX Намери Ме"
+
+#: functions.inc.php:485
+msgid "VmX Locater&trade;"
+msgstr "Гласова Поща Намери Ме"
+
+#: functions.inc.php:485
+msgid "Enable/Disable the VmX Locater feature for this user. When enabled all settings are controlled by the user in the User Portal (ARI). Disabling will not delete any existing user settings but will disable access to the feature"
+msgstr "Разреши/Забрани услугата Гласова Поща Намери Ме за този потребител. Когато е разрешена  всички настройки се контролират от потребителя в Потребителски Портал (ARI). Забраняването няма да изтрие потребителските настройки, но ще забрани достъпа до тази услуга."
+
+#: functions.inc.php:490
+msgid "Please enter a valid phone number using number digits only"
+msgstr "Моля въведете правилен телефонен номер, като използвате само цифри"
+
+#: functions.inc.php:555
+msgid "Use When:"
+msgstr "Използвай Когато:"
+
+#: functions.inc.php:555
+msgid "Menu options below are available during your personal voicemail greeting playback. <br/><br/>Check both to use at all times."
+msgstr "Следните опции са достъпни за включване на вашето лично приветствие на гласовата поща. <br/><br/>Изберете и двете за да го използвате при всички случаи."
+
+#: functions.inc.php:557
+msgid "unavailable"
+msgstr "недостъпен"
+
+#: functions.inc.php:559
+msgid "busy"
+msgstr "зает"
+
+#: functions.inc.php:563
+msgid "Voicemail Instructions:"
+msgstr "Инструкции на ГП:"
+
+#: functions.inc.php:563
+msgid "Uncheck to play a beep after your personal voicemail greeting."
+msgstr "Размаркирайте за възпроизжеждане на бипкане след вашето лично приветствие на гласова поща."
+
+#: functions.inc.php:566
+msgid "Standard voicemail prompts."
+msgstr "Стандартни инструкции за гласова поща"
+
+#: functions.inc.php:574
+msgid "Press 0:"
+msgstr "Натисната 0:"
+
+#: functions.inc.php:574
+msgid "Pressing 0 during your personal voicemail greeting goes to the Operator. Uncheck to enter another destination here. This feature can be used while still disabling VmX to allow an alternative Operator extension without requiring the VmX feature for the user."
+msgstr "Натискането на 0 по време на вашето лично приветствие на гласовата поща ще пренасочи към Оператор. Размаркирайте за да въведете друго направление тук. Тази услуга може да се използва дори и при забранен ГП Намери Ме, като позволява алтернативен вътрешен номер за Оператор без да изисква услугата ГП Намери Ме за потребителя."
+
+#: functions.inc.php:581
+msgid "Go To Operator"
+msgstr "Отиди Към Оператор"
+
+#: functions.inc.php:585
+msgid "Press 1:"
+msgstr "Натисната 1:"
+
+#: functions.inc.php:588
+msgid "The remaining options can have internal extensions, ringgroups, queues and external numbers that may be rung. It is often used to include your cell phone. You should run a test to make sure that the number is functional any time a change is made so you don't leave a caller stranded or receiving invalid number messages."
+msgstr "Останалите опции могат да съдържат вътрешни линии, групи на звънене, опашки и външни номера. Често се използва за да добавите вашия мобилен телефон. При всяка промяна направете тест за да се убедите че работят и да не оставяте обаждащия се заседнал или да получава грешни съобщения за номерата."
+
+#: functions.inc.php:590
+msgid "Enter an alternate number here, then change your personal voicemail greeting to let callers know to press 1 to reach that number. <br/><br/>If you'd like to use your Follow Me List, check \"Send to Follow Me\" and disable Follow Me above."
+msgstr "Въведете алтернативен номер, след което променете вашето лично приветствие на гласовата поща за да уведомите обаждащите се да натиснат 1 за да изберат този номер. <br/><br/>Ако желаете да използвате списъка на Следвай Ме, маркирайте  \"Изпрати към Следвай Ме\" и забранете Следвай Ме по-горе."
+
+#: functions.inc.php:602
+msgid "Send to Follow-Me"
+msgstr "Изпрати към Следвай Ме"
+
+#: functions.inc.php:610
+msgid "Press 2:"
+msgstr "Натисната 2:"
+
+#: functions.inc.php:610
+msgid "Use any extensions, ringgroups, queues or external numbers. <br/><br/>Remember to re-record your personal voicemail greeting and include instructions. Run a test to make sure that the number is functional."
+msgstr "Използвайте каквито и да са вътрешни линии, групи на звънене, опашки и външни номера. <br/><br/>Запомнете да презапишете вашето лично приветствие на гласовата поща и да включите инструкциите. Направете тест за да се убедите че номерата функционират."
+
+#: functions.inc.php:689
+#, php-format
+msgid "Failed to delete vmbox: %s@%s"
+msgstr "Не мога да изтрия vmbox: %s@%s"
+
+#: functions.inc.php:690
+#, php-format
+msgid "failed with retcode %s while removing %s:"
+msgstr "неуспех с retcode %s докато премахвах %s:"
+
+#: install.php:4
+msgid "Voicemail"
+msgstr "Гласова Поща"
+
+#: install.php:5
+msgid "My Voicemail"
+msgstr "Моя Гласова Поща"
+
+#: install.php:6
+msgid "Dial Voicemail"
+msgstr "Избери Гласова Поща"
+
+#: install.php:38
+msgid "Cannot connect to Asterisk Manager with "
+msgstr "Не мога да се свържа с Астериск Manager с"
+
