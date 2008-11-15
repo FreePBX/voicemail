@@ -532,7 +532,7 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 		}
 	} else {
 		$vmx_option_1_number_text_box_options = $dval;
-		$vmx_option_1_number = '';
+		$vmx_option_1_number = $vmxobj->getMenuOpt(1);
 	}
  
 	$vmx_option_0_system_default_text_box_options = ($disable) ? 'disabled="true"' : '';
