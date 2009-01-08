@@ -1,0 +1,238 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-10 17:24+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jouniaux <c.jouniauxdiv@laposte.net>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: functions.inc.php:257
+msgid "Voicemail is enabled but the Voicemail Password field is empty.  Are you sure you wish to continue?"
+msgstr "La boîte vocale est activé mais il n'y a pas de mot de passe. Voulez vous continuer?"
+
+#: functions.inc.php:374
+#: functions.inc.php:379
+msgid "Enabled"
+msgstr "Activé"
+
+#: functions.inc.php:375
+#: functions.inc.php:378
+msgid "Disabled"
+msgstr "Désactivé"
+
+#: functions.inc.php:382
+msgid "yes"
+msgstr "oui"
+
+#: functions.inc.php:383
+msgid "no"
+msgstr "non"
+
+#: functions.inc.php:466
+msgid "Please enter a valid Voicemail Password, using digits only"
+msgstr "Un mot de passe de boîte vocale ne contient que des chiffres."
+
+#: functions.inc.php:467
+msgid "Please enter a valid Email Address"
+msgstr "Adresse courriel invalide"
+
+#: functions.inc.php:468
+msgid "Please enter a valid Pager Email Address"
+msgstr "Adresse courriel Pager invalide"
+
+#: functions.inc.php:469
+msgid "VM Context cannot be blank"
+msgstr "Le contexte ne peut être vide"
+
+#: functions.inc.php:471
+msgid "Voicemail & Directory"
+msgstr "Boîte vocale et annuaire"
+
+#: functions.inc.php:472
+msgid "Status"
+msgstr "Statut"
+
+#: functions.inc.php:474
+msgid "Voicemail Password"
+msgstr "Mot de passe boîte vocale"
+
+#: functions.inc.php:474
+#, php-format
+msgid "This is the password used to access the voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the voicemail system (%s) with a phone."
+msgstr "C'est le mot de passe pour accéder à la boîte vocale. %s Ce mot de passe ne peut contenir que des chiffres. %s Un utilisateur peut le changer après s'être loggué à  sa boîte vocale (%s) avec un téléphone."
+
+#: functions.inc.php:475
+msgid "Email Address"
+msgstr "Adresse courriel"
+
+#: functions.inc.php:475
+msgid "The email address that voicemails are sent to."
+msgstr "L'adresse courriel où envoyer les messages voix."
+
+#: functions.inc.php:476
+msgid "Pager Email Address"
+msgstr "Adresse courriel du Pager"
+
+#: functions.inc.php:476
+msgid "Pager/mobile email address that short voicemail notifications are sent to."
+msgstr "Adresse courriel du Pager/Mobile où des notifications sont envoyées"
+
+#: functions.inc.php:477
+msgid "Email Attachment"
+msgstr "Pièce jointe"
+
+#: functions.inc.php:477
+msgid "Option to attach voicemails to email."
+msgstr "Option pour attacher au mail le message déposé en pièce jointe."
+
+#: functions.inc.php:478
+msgid "Play CID"
+msgstr "Jouer le numéro"
+
+#: functions.inc.php:478
+msgid "Read back caller's telephone number prior to playing the incoming message, and just after announcing the date and time the message was left."
+msgstr "Lit le numéro de téléphone de l'appelant avant de jouer le message d'accueil, et juste après avoir annoncé la date et l'heure où le message a été déposé."
+
+#: functions.inc.php:479
+msgid "Play Envelope"
+msgstr "Jouer l'enveloppe"
+
+#: functions.inc.php:479
+msgid "Envelope controls whether or not the voicemail system will play the message envelope (date/time) before playing the voicemail message. This setting does not affect the operation of the envelope option in the advanced voicemail menu."
+msgstr "L'enveloppe contrôle si la boîte vocale annonce la date et l'heure avant le message. Ce réglage ne modifie pas l'option enveloppe du menu boîte vocale avancé."
+
+#: functions.inc.php:480
+msgid "Delete Voicemail"
+msgstr "Suppression boîte vocale"
+
+#: functions.inc.php:480
+msgid "If set to \"yes\" the message will be deleted from the voicemailbox (after having been emailed). Provides functionality that allows a user to receive their voicemail via email alone, rather than having the voicemail able to be retrieved from the Webinterface or the Extension handset.  CAUTION: MUST HAVE attach voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE LOST FOREVER."
+msgstr "Si vous cochez \"Oui\" le message sera détruit de la boîte vocale (après avoir été envoyé par courriel). L'utilisateur reçoit alors ses messages uniquement par courriel. ATTENTION: la case Pièce jointe doit être à \"Oui\" sinon les messages seront définitivement perdus!"
+
+#: functions.inc.php:481
+msgid "VM Options"
+msgstr "Options BV"
+
+#: functions.inc.php:481
+#, php-format
+msgid "Separate options with pipe ( | )%sie: review=yes|maxmessage=60"
+msgstr "Séparez les options avec des redirecteurs  ( | )%sie: review=yes|maxmessage=60"
+
+#: functions.inc.php:482
+msgid "VM Context"
+msgstr "Contexte BV"
+
+#: functions.inc.php:482
+msgid "This is the Voicemail Context which is normally set to default. Do not change unless you understand the implications."
+msgstr "C'est le contexte de la boîte vocale ui est normalement à Défaut. Ne le changer que si vous êtes sur de ce que vous faites."
+
+#: functions.inc.php:484
+msgid "VmX Locater"
+msgstr "Locater VmX"
+
+#: functions.inc.php:485
+msgid "VmX Locater&trade;"
+msgstr "VmX Locater&trade;"
+
+#: functions.inc.php:485
+msgid "Enable/Disable the VmX Locater feature for this user. When enabled all settings are controlled by the user in the User Portal (ARI). Disabling will not delete any existing user settings but will disable access to the feature"
+msgstr "Actice/désactive l'option VmW Locater pour cet utilisateur. Quand activé, tous les règlages sont contrôlées par l'utilisateur dans le portail utilisateur (ARI). Désactivé ne modifie les réglages mais bloque l'accès à cette fontion."
+
+#: functions.inc.php:490
+msgid "Please enter a valid phone number using number digits only"
+msgstr "Entrez un numéro de téléphone valide composé uniquement de chiffres."
+
+#: functions.inc.php:555
+msgid "Use When:"
+msgstr "Utilisé quand"
+
+#: functions.inc.php:555
+msgid "Menu options below are available during your personal voicemail greeting playback. <br/><br/>Check both to use at all times."
+msgstr "Les options ci-dessous sont utilisables pendant votre message d'accueil.<br/><br/>Cochez les deux cases pour l'utiliser dans tous les cas."
+
+#: functions.inc.php:557
+msgid "unavailable"
+msgstr "Non disponible"
+
+#: functions.inc.php:559
+msgid "busy"
+msgstr "Occupé"
+
+#: functions.inc.php:563
+msgid "Voicemail Instructions:"
+msgstr "Instructions boîte vocale"
+
+#: functions.inc.php:563
+msgid "Uncheck to play a beep after your personal voicemail greeting."
+msgstr "Décochez pour émettre un beep après votre message d'accueil"
+
+#: functions.inc.php:566
+msgid "Standard voicemail prompts."
+msgstr "Messages standard"
+
+#: functions.inc.php:574
+msgid "Press 0:"
+msgstr "Touche 0"
+
+#: functions.inc.php:574
+msgid "Pressing 0 during your personal voicemail greeting goes to the Operator. Uncheck to enter another destination here. This feature can be used while still disabling VmX to allow an alternative Operator extension without requiring the VmX feature for the user."
+msgstr "Appuyez sur le 0 pendant votre message d'accueil transfert l'appel au standard. Décochez la case pour une autre destination."
+
+#: functions.inc.php:581
+msgid "Go To Operator"
+msgstr "Aller au standard"
+
+#: functions.inc.php:585
+msgid "Press 1:"
+msgstr "Touche 1"
+
+#: functions.inc.php:588
+msgid "The remaining options can have internal extensions, ringgroups, queues and external numbers that may be rung. It is often used to include your cell phone. You should run a test to make sure that the number is functional any time a change is made so you don't leave a caller stranded or receiving invalid number messages."
+msgstr "Les options restantes peut être des numéros internes, des groupements d'appels, des files d'attente et des numéros externes.On met souvent son numéro de portable. Faites toujours un test pour vérifier que tout fonctione pour éviter que l'appelant n'aboutisse vers un numéro étranger ou invalide."
+
+#: functions.inc.php:590
+msgid "Enter an alternate number here, then change your personal voicemail greeting to let callers know to press 1 to reach that number. <br/><br/>If you'd like to use your Follow Me List, check \"Send to Follow Me\" and disable Follow Me above."
+msgstr "Entrez un autre numéro puis changez votre message d'accueil pour prévenir votre interlocuteur de cete possibilité.<br/><br/>Si vous voulez utiliser votre liste Follow Me, cochez \"Envoyer à Follow Me\" et désactivez l'option Follow Me au dessus."
+
+#: functions.inc.php:602
+msgid "Send to Follow-Me"
+msgstr "Envoyez au numéro Follow Me"
+
+#: functions.inc.php:610
+msgid "Press 2:"
+msgstr "Touche 2"
+
+#: functions.inc.php:610
+msgid "Use any extensions, ringgroups, queues or external numbers. <br/><br/>Remember to re-record your personal voicemail greeting and include instructions. Run a test to make sure that the number is functional."
+msgstr "Vous pouvez utiliser toutes les extensions, groupement d'appels, files d'attente ou numéros externes.<br/><br/>N'oubliez pas de réenregistrer votre message d'accueil pour y inclure ces possibilités. Faites ensuite un test pour tout vérifier."
+
+#: functions.inc.php:689
+#, php-format
+msgid "Failed to delete vmbox: %s@%s"
+msgstr "Impossible de supprimer la boîte : %s@%s"
+
+#: functions.inc.php:690
+#, php-format
+msgid "failed with retcode %s while removing %s:"
+msgstr "Echec avec code erreur %s pendant le retrait de %s:"
+
+#: install.php:4
+msgid "Voicemail"
+msgstr "Boîte vocale"
+
+#: install.php:5
+msgid "My Voicemail"
+msgstr "Ma boîte vocale"
+
+#: install.php:6
+msgid "Dial Voicemail"
+msgstr "Appel boîte vocale"
+
+#: install.php:38
+msgid "Cannot connect to Asterisk Manager with "
+msgstr "Ne peut se connecter au serveur Asterisk avec"
+
