@@ -1,3 +1,4 @@
+<?php
 //This file is part of FreePBX.
 //
 //    FreePBX is free software: you can redistribute it and/or modify
@@ -13,7 +14,6 @@
 //    You should have received a copy of the GNU General Public License
 //    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 // Copyright (c) 2006, 2008, 2009 qldrob, rcourtna
-<?php
 
 class vmxObject {
 
