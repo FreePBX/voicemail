@@ -290,6 +290,8 @@ function voicemail_configpageinit($pagename) {
 		document.getElementById('envelope1').disabled=dval;
 		document.getElementById('delete0').disabled=dval;
 		document.getElementById('delete1').disabled=dval;
+		document.getElementById('imapuser').disabled=dval; 
+		document.getElementById('imappassword').disabled=dval; 
 		document.getElementById('options').disabled=dval;
 		document.getElementById('vmcontext').disabled=dval;
 		document.getElementById('vmx_state').disabled=dval;
@@ -449,7 +451,7 @@ function voicemail_configpageload() {
 			$alloptions = array_keys($vmoptions);
 			if (isset($alloptions)) {
 				foreach ($alloptions as $option) {
-					if ( ($option!="attach") && ($option!="envelope") && ($option!="saycid") && ($option!="delete") && ($option!='') )
+					if ( ($option!="attach") && ($option!="envelope") && ($option!="saycid") && ($option!="delete") && ($option!="imapuser") && ($option!="imappassword") && ($option!='') )
 					    $options .= $option.'='.$vmoptions[$option].'|';
 				}
 				$options = rtrim($options,'|');
@@ -463,6 +465,8 @@ function voicemail_configpageload() {
 			$vmops_saycid = 'no';
 			$vmops_envelope = 'no';
 			$vmops_delete = 'no';
+			$vmops_imapuser = null;
+			$vmops_imappassword = null;
 		}
 
 		if (empty($vmcontext)) 
@@ -493,6 +497,8 @@ function voicemail_configpageload() {
 		$currentcomponent->addguielem($section, new gui_radio('saycid', $currentcomponent->getoptlist('vmyn'), $vmops_saycid, _('Play CID'), _("Read back caller's telephone number prior to playing the incoming message, and just after announcing the date and time the message was left."), $disable));
 		$currentcomponent->addguielem($section, new gui_radio('envelope', $currentcomponent->getoptlist('vmyn'), $vmops_envelope, _('Play Envelope'), _("Envelope controls whether or not the voicemail system will play the message envelope (date/time) before playing the voicemail message. This setting does not affect the operation of the envelope option in the advanced voicemail menu."), $disable));
 		$currentcomponent->addguielem($section, new gui_radio('delete', $currentcomponent->getoptlist('vmyn'), $vmops_delete, _('Delete Voicemail'), _("If set to \"yes\" the message will be deleted from the voicemailbox (after having been emailed). Provides functionality that allows a user to receive their voicemail via email alone, rather than having the voicemail able to be retrieved from the Webinterface or the Extension handset.  CAUTION: MUST HAVE attach voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE LOST FOREVER."), $disable));
+		$currentcomponent->addguielem($section, new gui_textbox('imapuser', $vmops_imapuser, _('IMAP Username'), sprintf(_("This is the IMAP username, if using IMAP storage"),"<br /><br />"),'','',true,0,$disable));
+		$currentcomponent->addguielem($section, new gui_textbox('imappassword', $vmops_imappassword, _('IMAP Password'), sprintf(_("This is the IMAP password, if using IMAP storage"),"<br /><br />"),'','',true,0,$disable));
 		$currentcomponent->addguielem($section, new gui_textbox('options', $options, _('VM Options'), sprintf(_("Separate options with pipe ( | )%sie: review=yes|maxmessage=60"),"<br /><br />"),'','',true,0,$disable));
 		$currentcomponent->addguielem($section, new gui_textbox('vmcontext', $vmcontext, _('VM Context'), _("This is the Voicemail Context which is normally set to default. Do not change unless you understand the implications."), "frm_${display}_isVoiceMailEnabled() && isEmpty()", $msgInvalidVMContext, false,0,$disable));
 
@@ -753,6 +759,10 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 				$vmoptions[$vmoption[0]] = $vmoption[1];
 			}
 		}
+		if ($imapuser!='' && $imapuser!='') { 
+			$vmoptions['imapuser'] = $imapuser; 
+			$vmoptions['imappassword'] = $imappassword; 
+		} 
 		$vmoption = explode("=",$attach);
 			$vmoptions[$vmoption[0]] = $vmoption[1];
 		$vmoption = explode("=",$saycid);
