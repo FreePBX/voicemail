@@ -1,14 +1,26 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2009 FreePBX
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-10 17:24+0200\n"
+"POT-Creation-Date: 2009-05-14 06:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,57 +28,57 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: functions.inc.php:257
+#: functions.inc.php:272
 msgid ""
 "Voicemail is enabled but the Voicemail Password field is empty.  Are you "
 "sure you wish to continue?"
 msgstr ""
 
-#: functions.inc.php:374 functions.inc.php:379
+#: functions.inc.php:391 functions.inc.php:396
 msgid "Enabled"
 msgstr ""
 
-#: functions.inc.php:375 functions.inc.php:378
+#: functions.inc.php:392 functions.inc.php:395
 msgid "Disabled"
 msgstr ""
 
-#: functions.inc.php:382
+#: functions.inc.php:399
 msgid "yes"
 msgstr ""
 
-#: functions.inc.php:383
+#: functions.inc.php:400
 msgid "no"
 msgstr ""
 
-#: functions.inc.php:466
+#: functions.inc.php:485
 msgid "Please enter a valid Voicemail Password, using digits only"
 msgstr ""
 
-#: functions.inc.php:467
+#: functions.inc.php:486
 msgid "Please enter a valid Email Address"
 msgstr ""
 
-#: functions.inc.php:468
+#: functions.inc.php:487
 msgid "Please enter a valid Pager Email Address"
 msgstr ""
 
-#: functions.inc.php:469
+#: functions.inc.php:488
 msgid "VM Context cannot be blank"
 msgstr ""
 
-#: functions.inc.php:471
+#: functions.inc.php:490
 msgid "Voicemail & Directory"
 msgstr ""
 
-#: functions.inc.php:472
+#: functions.inc.php:491
 msgid "Status"
 msgstr ""
 
-#: functions.inc.php:474
+#: functions.inc.php:493
 msgid "Voicemail Password"
 msgstr ""
 
-#: functions.inc.php:474
+#: functions.inc.php:493
 #, php-format
 msgid ""
 "This is the password used to access the voicemail system.%sThis password can "
@@ -74,46 +86,46 @@ msgid ""
 "logging into the voicemail system (%s) with a phone."
 msgstr ""
 
-#: functions.inc.php:475
+#: functions.inc.php:494
 msgid "Email Address"
 msgstr ""
 
-#: functions.inc.php:475
+#: functions.inc.php:494
 msgid "The email address that voicemails are sent to."
 msgstr ""
 
-#: functions.inc.php:476
+#: functions.inc.php:495
 msgid "Pager Email Address"
 msgstr ""
 
-#: functions.inc.php:476
+#: functions.inc.php:495
 msgid ""
 "Pager/mobile email address that short voicemail notifications are sent to."
 msgstr ""
 
-#: functions.inc.php:477
+#: functions.inc.php:496
 msgid "Email Attachment"
 msgstr ""
 
-#: functions.inc.php:477
+#: functions.inc.php:496
 msgid "Option to attach voicemails to email."
 msgstr ""
 
-#: functions.inc.php:478
+#: functions.inc.php:497
 msgid "Play CID"
 msgstr ""
 
-#: functions.inc.php:478
+#: functions.inc.php:497
 msgid ""
 "Read back caller's telephone number prior to playing the incoming message, "
 "and just after announcing the date and time the message was left."
 msgstr ""
 
-#: functions.inc.php:479
+#: functions.inc.php:498
 msgid "Play Envelope"
 msgstr ""
 
-#: functions.inc.php:479
+#: functions.inc.php:498
 msgid ""
 "Envelope controls whether or not the voicemail system will play the message "
 "envelope (date/time) before playing the voicemail message. This setting does "
@@ -121,11 +133,11 @@ msgid ""
 "menu."
 msgstr ""
 
-#: functions.inc.php:480
+#: functions.inc.php:499
 msgid "Delete Voicemail"
 msgstr ""
 
-#: functions.inc.php:480
+#: functions.inc.php:499
 msgid ""
 "If set to \"yes\" the message will be deleted from the voicemailbox (after "
 "having been emailed). Provides functionality that allows a user to receive "
@@ -135,79 +147,97 @@ msgid ""
 "LOST FOREVER."
 msgstr ""
 
-#: functions.inc.php:481
+#: functions.inc.php:500
+msgid "IMAP Username"
+msgstr ""
+
+#: functions.inc.php:500
+#, php-format
+msgid "This is the IMAP username, if using IMAP storage"
+msgstr ""
+
+#: functions.inc.php:501
+msgid "IMAP Password"
+msgstr ""
+
+#: functions.inc.php:501
+#, php-format
+msgid "This is the IMAP password, if using IMAP storage"
+msgstr ""
+
+#: functions.inc.php:502
 msgid "VM Options"
 msgstr ""
 
-#: functions.inc.php:481
+#: functions.inc.php:502
 #, php-format
 msgid "Separate options with pipe ( | )%sie: review=yes|maxmessage=60"
 msgstr ""
 
-#: functions.inc.php:482
+#: functions.inc.php:503
 msgid "VM Context"
 msgstr ""
 
-#: functions.inc.php:482
+#: functions.inc.php:503
 msgid ""
 "This is the Voicemail Context which is normally set to default. Do not "
 "change unless you understand the implications."
 msgstr ""
 
-#: functions.inc.php:484
+#: functions.inc.php:505
 msgid "VmX Locater"
 msgstr ""
 
-#: functions.inc.php:485
+#: functions.inc.php:506
 msgid "VmX Locater&trade;"
 msgstr ""
 
-#: functions.inc.php:485
+#: functions.inc.php:506
 msgid ""
 "Enable/Disable the VmX Locater feature for this user. When enabled all "
 "settings are controlled by the user in the User Portal (ARI). Disabling will "
 "not delete any existing user settings but will disable access to the feature"
 msgstr ""
 
-#: functions.inc.php:490
+#: functions.inc.php:511
 msgid "Please enter a valid phone number using number digits only"
 msgstr ""
 
-#: functions.inc.php:555
+#: functions.inc.php:576
 msgid "Use When:"
 msgstr ""
 
-#: functions.inc.php:555
+#: functions.inc.php:576
 msgid ""
 "Menu options below are available during your personal voicemail greeting "
 "playback. <br/><br/>Check both to use at all times."
 msgstr ""
 
-#: functions.inc.php:557
+#: functions.inc.php:578
 msgid "unavailable"
 msgstr ""
 
-#: functions.inc.php:559
+#: functions.inc.php:580
 msgid "busy"
 msgstr ""
 
-#: functions.inc.php:563
+#: functions.inc.php:584
 msgid "Voicemail Instructions:"
 msgstr ""
 
-#: functions.inc.php:563
+#: functions.inc.php:584
 msgid "Uncheck to play a beep after your personal voicemail greeting."
 msgstr ""
 
-#: functions.inc.php:566
+#: functions.inc.php:587
 msgid "Standard voicemail prompts."
 msgstr ""
 
-#: functions.inc.php:574
+#: functions.inc.php:595
 msgid "Press 0:"
 msgstr ""
 
-#: functions.inc.php:574
+#: functions.inc.php:595
 msgid ""
 "Pressing 0 during your personal voicemail greeting goes to the Operator. "
 "Uncheck to enter another destination here. This feature can be used while "
@@ -215,15 +245,15 @@ msgid ""
 "requiring the VmX feature for the user."
 msgstr ""
 
-#: functions.inc.php:581
+#: functions.inc.php:602
 msgid "Go To Operator"
 msgstr ""
 
-#: functions.inc.php:585
+#: functions.inc.php:606
 msgid "Press 1:"
 msgstr ""
 
-#: functions.inc.php:588
+#: functions.inc.php:609
 msgid ""
 "The remaining options can have internal extensions, ringgroups, queues and "
 "external numbers that may be rung. It is often used to include your cell "
@@ -232,7 +262,7 @@ msgid ""
 "invalid number messages."
 msgstr ""
 
-#: functions.inc.php:590
+#: functions.inc.php:611
 msgid ""
 "Enter an alternate number here, then change your personal voicemail greeting "
 "to let callers know to press 1 to reach that number. <br/><br/>If you'd like "
@@ -240,43 +270,43 @@ msgid ""
 "Me above."
 msgstr ""
 
-#: functions.inc.php:602
+#: functions.inc.php:623
 msgid "Send to Follow-Me"
 msgstr ""
 
-#: functions.inc.php:610
+#: functions.inc.php:631
 msgid "Press 2:"
 msgstr ""
 
-#: functions.inc.php:610
+#: functions.inc.php:631
 msgid ""
 "Use any extensions, ringgroups, queues or external numbers. <br/><br/"
 ">Remember to re-record your personal voicemail greeting and include "
 "instructions. Run a test to make sure that the number is functional."
 msgstr ""
 
-#: functions.inc.php:689
+#: functions.inc.php:710
 #, php-format
 msgid "Failed to delete vmbox: %s@%s"
 msgstr ""
 
-#: functions.inc.php:690
+#: functions.inc.php:711
 #, php-format
 msgid "failed with retcode %s while removing %s:"
 msgstr ""
 
-#: install.php:4
+#: install.php:20
 msgid "Voicemail"
 msgstr ""
 
-#: install.php:5
+#: install.php:21
 msgid "My Voicemail"
 msgstr ""
 
-#: install.php:6
+#: install.php:22
 msgid "Dial Voicemail"
 msgstr ""
 
-#: install.php:38
+#: install.php:54
 msgid "Cannot connect to Asterisk Manager with "
 msgstr ""
