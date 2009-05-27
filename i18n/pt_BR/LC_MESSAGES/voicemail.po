@@ -1,18 +1,30 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright 2009, Marcelo Arauj
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: FreePbx 2.5.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-10-10 17:24+0200\n"
-"PO-Revision-Date: 2009-05-05 15:29-0300\n"
+"PO-Revision-Date: 2009-05-11 20:06-0300\n"
 "Last-Translator: Marcelo Araujo <marcelo.araujo@voffice.com.br>\n"
 "Language-Team: Team MidiVTS <team@midivts.org.br>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Portuguese\n"
 "X-Poedit-Country: BRAZIL\n"
@@ -25,12 +37,12 @@ msgstr "O correio de voz está habilitado mas o campo senha está vazio. Tem cer
 #: functions.inc.php:374
 #: functions.inc.php:379
 msgid "Enabled"
-msgstr "Habilitada"
+msgstr "Habilitado"
 
 #: functions.inc.php:375
 #: functions.inc.php:378
 msgid "Disabled"
-msgstr "Desabilitada"
+msgstr "Desabilitado"
 
 #: functions.inc.php:382
 msgid "yes"
@@ -91,7 +103,7 @@ msgstr "Endereço de pager/mobile para onde mensagens curstas devem ser enviadas
 
 #: functions.inc.php:477
 msgid "Email Attachment"
-msgstr "Anexo do e-mail"
+msgstr "Anexar ao e-mail"
 
 #: functions.inc.php:477
 msgid "Option to attach voicemails to email."
@@ -111,15 +123,15 @@ msgstr "Tocar o envelope"
 
 #: functions.inc.php:479
 msgid "Envelope controls whether or not the voicemail system will play the message envelope (date/time) before playing the voicemail message. This setting does not affect the operation of the envelope option in the advanced voicemail menu."
-msgstr "O Envelope contro se ou não o sistema de correio de voz irá tocar a mensagem de envelope (data/hora) antes de tocar a mensagem de correio de voz. Esta configuração não afeta a operação do envelope no menu avançado de opções. "
+msgstr "O Envelope controla se o sistema de correio de voz irá tocar a mensagem de envelope (data/hora) antes de tocar a mensagem de correio de voz. Esta configuração não afeta a operação do envelope no menu avançado de opções. "
 
 #: functions.inc.php:480
 msgid "Delete Voicemail"
-msgstr "Apagar o correio de voz"
+msgstr "Excluír o correio de voz"
 
 #: functions.inc.php:480
 msgid "If set to \"yes\" the message will be deleted from the voicemailbox (after having been emailed). Provides functionality that allows a user to receive their voicemail via email alone, rather than having the voicemail able to be retrieved from the Webinterface or the Extension handset.  CAUTION: MUST HAVE attach voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE LOST FOREVER."
-msgstr "Se configurado para \"yes\" a mensagem será apagada da caixa de correio de voz (após ter habilitado). Provê a funcionalidade que permite que um usuário receba seu correio de voz sozinho, ao invés de ter o correio de voz sendo recuperado da interface Web ou de um telefone. CUIDADO: VOCÊ DEVE anexar o correio de voz para o email. CONFIGURE PARA YES SENÃO SUAS MENSAGENS SERÃO PERDIDAS PARA SEMPRE. "
+msgstr "Se configurado para \"sim\" a mensagem será apagada da caixa de correio de voz (após ter habilitado). Provê a funcionalidade que permite que um usuário receba seu correio de voz sozinho, ao invés de ter o correio de voz sendo recuperado da interface Web ou de um telefone. CUIDADO: VOCÊ DEVE anexar o correio de voz para o email. CONFIGURE PARA YES SENÃO SUAS MENSAGENS SERÃO PERDIDAS PARA SEMPRE. "
 
 #: functions.inc.php:481
 msgid "VM Options"
@@ -140,7 +152,7 @@ msgstr "Este é o context do correio de voz que é normalmente configurado como 
 
 #: functions.inc.php:484
 msgid "VmX Locater"
-msgstr "Localizador VmX"
+msgstr "VmX Locater"
 
 #: functions.inc.php:485
 msgid "VmX Locater&trade;"
@@ -164,11 +176,11 @@ msgstr "As opções do menu abaixo estão disponíveis durante a sua saudação 
 
 #: functions.inc.php:557
 msgid "unavailable"
-msgstr "Não disponível"
+msgstr "indisponível"
 
 #: functions.inc.php:559
 msgid "busy"
-msgstr "Ocupado"
+msgstr "ocupado"
 
 #: functions.inc.php:563
 msgid "Voicemail Instructions:"
@@ -226,7 +238,7 @@ msgstr "Falhou em remover o vmbox: %s@%s"
 #: functions.inc.php:690
 #, php-format
 msgid "failed with retcode %s while removing %s:"
-msgstr "Falhou com retcode%s ao remover %s:"
+msgstr "Falhou com código de retorno %s ao remover %s:"
 
 #: install.php:4
 msgid "Voicemail"
