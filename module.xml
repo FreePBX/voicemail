@@ -5,6 +5,8 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*2.5.1.7* #3698
+		*2.5.1.6* localization updates
 		*2.5.1.5* #3399 and language updates
 		*2.5.1.4* localization string enclosures
 		*2.5.1.3* localization fixes

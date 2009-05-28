@@ -76,7 +76,7 @@ class vmxObject {
 	function getVmPlay($mode="unavail") {
 		global $astman;
 		if ($astman && ($mode == "unavail" || $mode == "busy")) {
-			return (trim($astman->database_get("AMPUSER",$this->exten."/vmx/$mode/vmxopts/timeout")) == 's');
+			return (trim($astman->database_get("AMPUSER",$this->exten."/vmx/$mode/vmxopts/timeout")) != 's');
 		} else {
 			return false;
 		}
@@ -85,7 +85,7 @@ class vmxObject {
 	function setVmPlay($opts=true, $mode="unavail") {
 		global $astman;
 		if ($astman && ($mode == "unavail" || $mode == "busy")) {
-			$val = $opts ? 's' : '';
+			$val = $opts ? '' : 's';
 			$astman->database_put("AMPUSER", $this->exten."/vmx/$mode/vmxopts/timeout", $val);
 			return true;
 		} else {
@@ -816,7 +816,7 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 			$vmxobj->setState('disabled','busy');
 		}
 
-		if (isset($vmx_play_instructions) && $vmx_play_instructions!= '') {
+		if (isset($vmx_play_instructions) && $vmx_play_instructions== 'checked') {
 			$vmxobj->setVmPlay(true,'unavail');
 			$vmxobj->setVmPlay(true,'busy');
 		} else {
