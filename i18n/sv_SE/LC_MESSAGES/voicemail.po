@@ -163,7 +163,7 @@ msgstr ""
 "Om du sätter detta till \"Ja\" kommer meddelandet att tas bort från "
 "röstbrevlådan (efter att det har e-postats till dig). Denna inställning gör "
 "att röstbeskeden endast levereras via e-post i stället för att kunna höra "
-"dom via telefonen eller din webbläsare. VARNING: Du MÅSTE AKTIVERA s-posta "
+"dom via telefonen eller din webbläsare. VARNING: DU MÅSTE AKTIVERA e-posta "
 "meddelande ANNARS KOMMER DINA RÖSTBESKED ATT FÖRSVINNA FÖR ALLTID!! "
 
 #: functions.inc.php:500
