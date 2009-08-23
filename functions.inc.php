@@ -797,12 +797,15 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 		$vmxobj->setMenuOpt("",0,'unavail');
 		$vmxobj->setMenuOpt("",0,'busy');
 	} else {
+    if (!isset($vmx_option_0_number)) {
+		  $vmx_option_0_number = '';
+    }
 		$vmx_option_0_number = preg_replace("/[^0-9]/" ,"", $vmx_option_0_number);
 		$vmxobj->setMenuOpt($vmx_option_0_number,0,'unavail');
 		$vmxobj->setMenuOpt($vmx_option_0_number,0,'busy');
 	}
 
-	if ($vmx_state) {
+	if (isset($vmx_state) && $vmx_state) {
 
 		if (isset($vmx_unavail_enabled) && $vmx_unavail_enabled != '') {
 			$vmxobj->setState('enabled','unavail');
