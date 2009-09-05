@@ -486,6 +486,8 @@ function voicemail_configpageload() {
 		$msgInvalidEmail = _("Please enter a valid Email Address");
 		$msgInvalidPager = _("Please enter a valid Pager Email Address");
 		$msgInvalidVMContext = _("VM Context cannot be blank");
+		$vmops_imapuser = '';
+		$vmops_imappassword = '';
 
 		$section = _("Voicemail & Directory");
 		$currentcomponent->addguielem($section, new gui_selectbox('vm', $currentcomponent->getoptlist('vmena'), $vmselect, _('Status'), '', false,"frm_${display}_voicemailEnabled() && frm_${display}_vmx_disable_fields()"));
