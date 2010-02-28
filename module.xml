@@ -1,12 +1,13 @@
 <module>
 	<rawname>voicemail</rawname>
 	<name>Voicemail</name>
-	<version>2.6.0.2</version>
+	<version>2.7.0.0</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*2.7.0.0* localizations
 		*2.6.0.2* #3867
 		*2.6.0.1* #3780
 		*2.6.0.0* #1957, localizations, misc
@@ -33,6 +34,6 @@
 	<depends>
 		<version>2.5.0alpha1</version>
 	</depends>
-	<location>release/2.6/voicemail-2.6.0.2.tgz</location>
-	<md5sum>d66b2d2ae4a7b39dbe68854abf01d8bf</md5sum>
+	<location>release/2.7/voicemail-2.7.0.0.tgz</location>
+	<md5sum>6ce0acaca31b75a83e06ff783ddab4b8</md5sum>
 </module>
