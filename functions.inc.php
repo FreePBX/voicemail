@@ -515,7 +515,7 @@ function voicemail_configpageload() {
 		defaultEmptyOK = true;
 		if (!theForm.vmx_option_0_system_default.checked && !isInteger(theForm.vmx_option_0_number.value)) 
 			return warnInvalid(theForm.vmx_option_0_number, '$msgValidNumber');
-		if (!theForm.vmx_option_1_system_default.checked && !isInteger(theForm.vmx_option_1_number.value)) 
+		if (theForm.vmx_option_1_system_default != undefined && !theForm.vmx_option_1_system_default.checked && !isInteger(theForm.vmx_option_1_number.value)) 
 			return warnInvalid(theForm.vmx_option_1_number, '$msgValidNumber');
 		if (!isInteger(theForm.vmx_option_2_number.value)) 
 			return warnInvalid(theForm.vmx_option_2_number, '$msgValidNumber');
