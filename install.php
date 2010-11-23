@@ -25,17 +25,16 @@ _("Dial Voicemail");
 global $astman;
 global $amp_conf;
 
-// Register FeatureCode - Activate
 $fcc = new featurecode('voicemail', 'myvoicemail');
 $fcc->setDescription('My Voicemail');
 $fcc->setDefault('*97');
 $fcc->update();
 unset($fcc);
 
-// Register FeatureCode - Deactivate
 $fcc = new featurecode('voicemail', 'dialvoicemail');
 $fcc->setDescription('Dial Voicemail');
 $fcc->setDefault('*98');
+$fcc->setProvideDest();
 $fcc->update();
 unset($fcc);
 
