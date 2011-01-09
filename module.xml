@@ -1,5 +1,6 @@
 <module>
 	<rawname>voicemail</rawname>
+	<repo>standard</repo>
 	<name>Voicemail</name>
 	<version>2.9.0.0</version>
 	<publisher>FreePBX</publisher>
