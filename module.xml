@@ -8,7 +8,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
-		*2.9.0.0* add ProvideDest to *97
+		*2.9.0.0* #4653, #4734, #4736, merge vmailadmin
 		*2.8.0.0* #4310
 		*2.7.0.1* #4210
 		*2.7.0.0* localizations
@@ -35,6 +35,9 @@
 	<description>This module allows you to configure Voicemail for a user or extension</description>
 	<type>setup</type>
 	<category>Basic</category>
+	<menuitems>
+		<voicemail>Voicemail Admin</voicemail>
+	</menuitems>
 	<depends>
 		<version>2.5.0alpha1</version>
 	</depends>

@@ -20,6 +20,18 @@ if (false) {
 _("Voicemail");
 _("My Voicemail");
 _("Dial Voicemail");
+_("Voicemail Admin");
+}
+
+if (! function_exists("out")) {
+	function out($text) {
+		echo $text."<br />";
+	}
+}
+if (! function_exists("outn")) {
+	function outn($text) {
+		echo $text;
+	}
 }
 
 global $astman;
@@ -54,4 +66,22 @@ if ($ver !== null && version_compare($ver,'1.6.2','lt')) { //we have to fix exis
 	sql("update users set voicemail='novm' where voicemail='disabled' or voicemail='';");
 }
 
+// vmailadmin module functionality has been fully incporporated into this module
+// so if it is installed we remove and delete it from the repository.
+//
+outn(_("checking if Voicemail Admin (vmailadmin) is installed.."));
+$modules = module_getinfo('vmailadmin');
+if (!isset($modules['vmailadmin'])) {
+  out(_("not installed, ok"));
+} else {
+  out(_("installed."));
+  out(_("Voicemail Admin being removed and merged with Voicemail"));
+  outn(_("Attempting to delete.."));
+  $result = module_delete('vmailadmin');
+  if ($result === true) {
+    out(_("ok"));
+  } else {
+    out($result);
+  }
+}
 ?>
