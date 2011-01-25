@@ -23,17 +23,6 @@ _("Dial Voicemail");
 _("Voicemail Admin");
 }
 
-if (! function_exists("out")) {
-	function out($text) {
-		echo $text."<br />";
-	}
-}
-if (! function_exists("outn")) {
-	function outn($text) {
-		echo $text;
-	}
-}
-
 global $astman;
 global $amp_conf;
 
