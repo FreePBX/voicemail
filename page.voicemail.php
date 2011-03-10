@@ -39,7 +39,7 @@ if (isset($extens) && is_array($extens)) {
 	$i = 0;
 	foreach ($extens as $key => $exten) {
 		$vmbox = null;
-		/* Voicemail is enabled for this extension when it is associated with a voicemail context. */
+		/* Voicemail is enabled for this extension when it is associated with a Voicemail context. */
 		foreach ($vmail_info["contexts"] as $vmcontext) {
 			if (isset($uservm[$vmcontext][$exten[0]])) {
 				$vmbox["context"] = $vmcontext;
@@ -208,33 +208,33 @@ $tooltips = array("tz" 	    => array("name" 				=> _("Timezone definition name")
 				     "del"				=> _("Remove the timezone definition")),
 	          "general" => array("adsifdn"				=> _("The ADSI feature descriptor number to download to"),
 				     "adsisec"				=> _("The ADSI security lock code"),
-				     "adsiver"				=> _("The ADSI voicemail application version number."),
-				     "attach" 				=> _("Option to attach voicemails to email."),
+				     "adsiver"				=> _("The ADSI Voicemail application version number."),
+				     "attach" 				=> _("Option to attach Voicemails to email."),
 				     "authpassword"	 		=> _("IMAP server master password."),
 				     "authuser" 			=> _("IMAP server master username."),
 				     "backupdeleted"			=> _("No. of deleted messages saved per mailbox (can be a number or yes/no, yes meaning MAXMSG, no meaning 0)."),
 				     "callback"				=> _("Context to call back from; if not listed, calling the sender back will not be permitted."),
-				     "charset"				=> _("The character set for voicemail messages"),
+				     "charset"				=> _("The character set for Voicemail messages"),
 				     "cidinternalcontexts"		=> _("Comma separated list of internal contexts to use caller ID."),
 				     "dialout"				=> _("Context to dial out from [option 4 from the advanced menu] if not listed, dialing out will not be permitted."),
 				     "emailbody"			=> _("Email body."),
-				     "emaildateformat"			=> _("Load date format config for voicemail mail."),
+				     "emaildateformat"			=> _("Load date format config for Voicemail mail."),
 				     "emailsubject"			=> _("Email subject"),
 				     "maxsilence"			=> _("How many seconds of silence before we end the recording"),
 				     "envelope"				=> _("Turn on/off envelope playback before message playback. [ON by default] This does NOT affect option 3,3 from the advanced options menu."),
 				     "exitcontext"			=> _("Context to check for handling * or 0 calls to operator. \"Operator Context\""),
 				     "expungeonhangup"			=> _("Expunge on exit."),
-				     "externnotify"			=> _("External voicemail notify application."),
+				     "externnotify"			=> _("External Voicemail notify application."),
 				     "externpass"			=> _("External password changing command (overrides externpassnotify)."),
 				     "externpassnotify"			=> _("Command specified runs after a user changes his password."),
 				     "forcegreetings"			=> _("Force new user to record greetings (the same as forcename, except for recording greetings).  The default is \"no\"."),
 				     "forcename"			=> _("Force a new user to record their name.  A new user is determined by the password being the same as the mailbox number.  The default is \"no\"."),
-				     "format"				=> _("Formats for writing Voicemail.  Note that when using IMAP storage for voicemail, only the first format specified will be used."),
+				     "format"				=> _("Formats for writing Voicemail.  Note that when using IMAP storage for Voicemail, only the first format specified will be used."),
 				     "fromstring"			=> _("From: string for email"),
 				     "imapclosetimeout"			=> _("For IMAP storage"),
 				     "imapflags"			=> _("IMAP server flags."),
-				     "imapfolder"			=> _("IMAP voicemail folder."),
-				     "imapgreetings"			=> _("If using IMAP storage, specify whether voicemail greetings should be stored via IMAP. If no, then greetings are stored as if IMAP storage were not enabled"),
+				     "imapfolder"			=> _("IMAP Voicemail folder."),
+				     "imapgreetings"			=> _("If using IMAP storage, specify whether Voicemail greetings should be stored via IMAP. If no, then greetings are stored as if IMAP storage were not enabled"),
 				     "greetingsfolder"			=> _("(yes/no) If imapgreetings=yes, then specify which folder to store your greetings in. If you do not specify a folder, then INBOX will be used."),
 				     "imapopentimeout"			=> _("For IMAP storage - TCP open timeout in seconds"),
 				     "imapparentfolder"			=> _("Set the parent folder (default is to have no parent folder set)."),
@@ -254,23 +254,23 @@ $tooltips = array("tz" 	    => array("name" 				=> _("Timezone definition name")
 				     "maxsecs"				=> _("Max message time length."),
 				     "maxmsg"				=> _("Maximum number of messages per folder.  If not specified, a default value (100) is used.  Maximum value for this option is 9999."),
 				     "minsecs"				=> _("Min message time length - maxsilence should be less than minsecs or you may get empty messages."),
-				     "moveheard"			=> _("Move heard messages to the 'Old' folder automagically.  Defaults to on."),
+				     "moveheard"			=> _("Move heard messages to the 'Old' folder automatically.  Defaults to on."),
 				     "nextaftercmd"			=> _("Skip to the next message after save/delete."),
 				     "obdcstorage"			=> _("The value of odbcstorage is the database connection configured in res_odbc.conf."),
-				     "odbctable"			=> _("The default table for ODBC voicemail storage is voicemessages."),
-				     "operator"				=> _("Operator break. Allow sender to hit 0 before/after/during  leaving a voicemail to reach an operator  [OFF by default]"),
+				     "odbctable"			=> _("The default table for ODBC Voicemail storage is voicemessages."),
+				     "operator"				=> _("Operator break. Allow sender to hit 0 before/after/during  leaving a Voicemail to reach an operator  [OFF by default]"),
 				     "pagerbody"			=> _("Body of message sent to pager."),
 				     "pagerfromstring"			=> _("From: string sent to pager."),
 				     "pagersubject"			=> _("Subject sent to pager."),
 				     "pbxskip"				=> _("Skip the \"[PBX]:\" string from the message title"),
 				     "pollfreq"				=> _("If the \"pollmailboxes\" option is enabled, this option sets the polling frequency.  The default is once every 30 seconds."),
-				     "pollmailboxes"			=> _("If mailboxes are changed anywhere outside of app_voicemail, then this option must be enabled for MWI to work.  This enables polling mailboxes for changes.  Normally, it will expect that changes are only made when someone called in to one of the voicemail applications. Examples of situations that would require this option are web interfaces to voicemail or an email client in the case of using IMAP storage."),
+				     "pollmailboxes"			=> _("If mailboxes are changed anywhere outside of app_voicemail, then this option must be enabled for MWI to work.  This enables polling mailboxes for changes.  Normally, it will expect that changes are only made when someone called in to one of the Voicemail applications. Examples of situations that would require this option are web interfaces to Voicemail or an email client in the case of using IMAP storage."),
 				     "review"				=> _("Allow sender to review/rerecord their message before saving it [OFF by default]"),
 				     "saycid"				=> _("Read back caller's telephone number prior to playing the incoming message, and just after announcing the date and time the message was left. If not described, or set to no, it will be in the envelope."),
 				     "sayduration"			=> _("Turn on/off saying duration information before the message playback. [ON by default]"),
 				     "saydurationm"			=> _("Specify in minutes the minimum duration to say. Default is 2 minutes."),
 				     "searchcontexts"			=> _("Yes to search all contexts, no to search current context (if one is not specified)."),
-				     "sendvoicemail"			=> _("Send voicemail message. If not listed, sending messages from inside voicemail will not be permitted."),
+				     "sendvoicemail"			=> _("Send Voicemail message. If not listed, sending messages from inside Voicemail will not be permitted."),
 				     "serveremail"			=> _("Who the e-mail notification should appear to come from"),
 				     "silencethreshold"			=> _("Silence threshold (what we consider silence: the lower, the more sensitive)"),
 				     "skipms"				=> _("How many milliseconds to skip forward/back when rew/ff in message playback"),
@@ -284,21 +284,21 @@ $tooltips = array("tz" 	    => array("name" 				=> _("Timezone definition name")
 				     "vm-passchanged"			=> _("Customize which sound file is used instead of the default prompt that says: \"Your password has been changed.\""),
 				     "vm-password"			=> _("Customize which sound file is used instead of the default prompt that says: \"password\""),
 				     "vm-reenterpassword"		=> _("Customize which sound file is used instead of the default prompt that says: \"Please re-enter your password followed by the pound key\""),
-				     "volgain"				=> _("Emails bearing the voicemail may arrive in a volume too quiet to be heard.  This parameter allows you to specify how much gain to add to the message when sending a voicemail. NOTE: sox must be installed for this option to work.")
+				     "volgain"				=> _("Emails bearing the Voicemail may arrive in a volume too quiet to be heard.  This parameter allows you to specify how much gain to add to the message when sending a Voicemail. NOTE: sox must be installed for this option to work.")
 				     ),
-		  "account" => array("pwd" 				=> _("This is the password used to access the voicemail system.<br /><br />This password can only contain numbers.<br /><br />A user can change the password you enter here after logging into the voicemail system (*98) with a phone."),
-				     "attach" 				=> _("Option to attach voicemails to email."),
+		  "account" => array("pwd" 				=> _("This is the password used to access the Voicemail system.<br /><br />This password can only contain numbers.<br /><br />A user can change the password you enter here after logging into the Voicemail system (*98) with a phone."),
+				     "attach" 				=> _("Option to attach Voicemails to email."),
 				     "attachfmt"			=> _("Which format of audio file to attach to the email."),
 				     "backupdeleted" 			=> _("No. of deleted messages saved per mailbox (can be a number or yes/no, yes meaning MAXMSG, no meaning 0)."),
 				     "callback" 			=> _("Context to call back from; if not listed, calling the sender back will not be permitted."),
-				     "delete" 				=> _("After notification, the voicemail is deleted from the server. [per-mailbox only] This is intended for use with users who wish to receive their voicemail ONLY by email. Note:  deletevoicemail is provided as an equivalent option for Realtime configuration."),
+				     "delete" 				=> _("After notification, the Voicemail is deleted from the server. [per-mailbox only] This is intended for use with users who wish to receive their Voicemail ONLY by email. Note:  deletevoicemail is provided as an equivalent option for Realtime configuration."),
 				     "dialout" 				=> _("Context to dial out from [option 4 from the advanced menu] if not listed, dialing out will not be permitted."),
-				     "email"				=> _("The email address that voicemails are sent to."),
+				     "email"				=> _("The email address that Voicemails are sent to."),
 				     "envelope" 			=> _("Turn on/off envelope playback before message playback. [ON by default] This does NOT affect option 3,3 from the advanced options menu."),
 				     "exitcontext" 			=> _("Context to check for handling * or 0 calls to operator. \"Operator Context\""),
 				     "forcegreetings" 			=> _("Force new user to record greetings (the same as forcename, except for recording greetings).  The default is \"no\"."),
 				     "forcename" 			=> _("Force a new user to record their name.  A new user is determined by the password being the same as the mailbox number.  The default is \"no\"."),
-				     "fullname"				=> _("Name of voicemail account"),
+				     "fullname"				=> _("Name of Voicemail account"),
 				     "hidefromdir"			=> _("Hide this mailbox from the directory produced by app_directory. The default is \"no\"."),
 				     "imappassword" 			=> _("IMAP password."),
 				     "imapuser" 			=> _("IMAP user."),
@@ -306,20 +306,20 @@ $tooltips = array("tz" 	    => array("name" 				=> _("Timezone definition name")
 				     "maxmsg" 				=> _("Maximum number of messages per folder.  If not specified, a default value (100) is used.  Maximum value for this option is 9999."),
 				     "maxmessage" 			=> _("Max message time length."),
 				     "maxsecs" 				=> _("Max message time length."),
-				     "moveheard" 			=> _("Move heard messages to the 'Old' folder automagically.  Defaults to on."),
+				     "moveheard" 			=> _("Move heard messages to the 'Old' folder automatically.  Defaults to on."),
 				     "name"				=> _("Name of account/user"),
-				     "operator" 			=> _("Operator break. Allow sender to hit 0 before/after/during  leaving a voicemail to reach an operator  [OFF by default]"),
-				     "pager"				=> _("Pager/mobile email address that short voicemail notifications are sent to."),
+				     "operator" 			=> _("Operator break. Allow sender to hit 0 before/after/during  leaving a Voicemail to reach an operator  [OFF by default]"),
+				     "pager"				=> _("Pager/mobile email address that short Voicemail notifications are sent to."),
 				     "review"				=> _("Allow sender to review/rerecord their message before saving it [OFF by default]"),
 				     "saycid" 				=> _("Read back caller's telephone number prior to playing the incoming message, and just after announcing the date and time the message was left. If not described, or set to no, it will be in the envelope."),
 				     "sayduration" 			=> _("Turn on/off saying duration information before the message playback. [ON by default]"),
 				     "saydurationm" 			=> _("Specify in minutes the minimum duration to say. Default is 2 minutes."),
-				     "sendvoicemail" 			=> _("Send voicemail message. If not listed, sending messages from inside voicemail will not be permitted."),
+				     "sendvoicemail" 			=> _("Send Voicemail message. If not listed, sending messages from inside Voicemail will not be permitted."),
 				     "serveremail"			=> _("Who the e-mail notification should appear to come from"),
 				     "tempgreetwarn" 			=> _("Remind the user that their temporary greeting is set"),
 				     "tz" 				=> _("Timezone from zonemessages context.  Irrelevant if envelope=no."),
 				     "vmcontext"			=> _("This is the Voicemail Context which is normally set to default. Do not change unless you understand the implications."),
-				     "volgain" 				=> _("Emails bearing the voicemail may arrive in a volume too quiet to be heard.  This parameter allows you to specify how much gain to add to the message when sending a voicemail. NOTE: sox must be installed for this option to work."),
+				     "volgain" 				=> _("Emails bearing the Voicemail may arrive in a volume too quiet to be heard.  This parameter allows you to specify how much gain to add to the message when sending a Voicemail. NOTE: sox must be installed for this option to work."),
 				     "callmenum" 			=> _("Call me number. Can be used from within ARI.")
 				     )
 		 );
@@ -346,7 +346,7 @@ if (isset($_REQUEST["ext"])) {
 		} else if (isset($vmail_info["unactivated_info"][$extension])) {
 			$context = $vmail_info["unactivated_info"][$extension];
 		} else {
-			// Force voicemail to "system" mode by clearing context and extension values
+			// Force Voicemail to "system" mode by clearing context and extension values
 			$context   = "";
 			$extension = "";
 		}
@@ -430,10 +430,10 @@ switch ($action) {
 		/* get tz settings */
 		$settings = voicemail_get_settings($uservm, $action, $extension);
 		$output .= "<tr><td colspan='2'><hr /></td><td></td></tr>";
-		$output .= "<tr><td style='max-width: 60px' colspan='2'>" . _("A timezone definition specifies how the voicemail system announces the time.") . "</td><td></td></tr>";
+		$output .= "<tr><td style='max-width: 60px' colspan='2'>" . _("A timezone definition specifies how the Voicemail system announces the time.") . "</td><td></td></tr>";
 		$output .= "<tr><td style='max-width: 60px' colspan='2'>" . _("For example, the time a message was left will be announced according to the user's timezone on message playback.") . "</td><td></td></tr>";
 		$output .= "<tr><td></td><td></td></tr>";
-		$output .= "<tr><td style='max-width: 60px' colspan='2'><b>" . _("Entries below will be written to voicemail configuration as-is.") . "</b></td><td></td></tr>";
+		$output .= "<tr><td style='max-width: 60px' colspan='2'><b>" . _("Entries below will be written to Voicemail configuration as-is.") . "</b></td><td></td></tr>";
 		$output .= "<tr><td style='max-width: 60px' colspan='2'><b>" . _("Please be sure to follow the format for timezone definitions described below.") . "</b></td></tr>";
 		$output .= "<tr><td colspan='2'><hr /></td><td></td></tr>";
 		$output .= "<tr><td><a href='#' class='info'><h4>" . _("Name") . "</h4><span>" . $tooltips["tz"]["name"] . "</span></a></td><td><a href='#' class='info'><h4>" . _("Timezone Definition") . "</h4><span>" . $tooltips["tz"]["def"] . "</span></a>";
@@ -569,7 +569,7 @@ switch ($action) {
 					}
 					$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<input type='radio' name='$id' id='$id' tabindex='1' value='yes' $yes_selected />" . _("yes");
 					$output .= "<input type='radio' name='$id' id='$id' tabindex='1' value='no' $no_selected />" . _("no");
-					$output .= "<input type='radio' name='$id' id='$id' tabindex='1' value='undefined' $undef_selected /><a href='#' class='info'>" . _("undefined") . "<span>" . _("Selecting \"undefined\" will remove this option from the user's voicemail configuration entry. (System default will be used.)") . "</span></a></td></tr>";
+					$output .= "<input type='radio' name='$id' id='$id' tabindex='1' value='undefined' $undef_selected /><a href='#' class='info'>" . _("undefined") . "<span>" . _("Selecting \"undefined\" will remove this option from the user's Voicemail configuration entry. (System default will be used.)") . "</span></a></td></tr>";
 				} else {
 					$text_type = ($key == "pwd" || $key == "authpassword")?"password":"text";
 					$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<input size='$text_size' maxlength='$len' type='$text_type' name='$id' id='$id' tabindex='1' value=\"$val\" /></td></tr>";
@@ -578,7 +578,7 @@ switch ($action) {
 			unset($id);
 		}
 		/* Any additional setting? */
-		unset($settings["enabled"]);	# ignore this value; we will not enable/disable from voicemail
+		unset($settings["enabled"]);	# ignore this value; we will not enable/disable from Voicemail
 		if (is_array($settings) && !empty($settings)) {
 			foreach ($settings as $key => $val) {
 				$id = $id_prefix . "__" . $key;
@@ -648,7 +648,7 @@ switch ($action) {
 			$abandoned_row .= "<td><input type='checkbox' name='del_abandoned' id='del_abandoned' value='true' />&nbsp;<a href='#' class='info'>" . _("Delete") . "<span>" . _("Remove all abandoned greetings (> 1 day old)") . "</span></a></td></tr>";
 			$abandoned_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
 
-			$storage_row = "<tr><td><a href='#' class='info'>" . _("Storage Used:") . "<span>" . _("Disk space currently in use by voicemail data") . "</span></a></td>";
+			$storage_row = "<tr><td><a href='#' class='info'>" . _("Storage Used:") . "<span>" . _("Disk space currently in use by Voicemail data") . "</span></a></td>";
 			$storage_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$storage</td>";
 			$storage_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
 			
@@ -701,7 +701,7 @@ switch ($action) {
 			$abandoned_row .= "<td><input type='checkbox' name='del_abandoned' id='del_abandoned' value='true' />&nbsp;<a href='#' class='info'>" . _("Delete") . "<span>" . _("Remove all abandoned greetings (> 1 day old)") . "</span></a></td></tr>";
 			$abandoned_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
 
-			$storage_row = "<tr><td><a href='#' class='info'>" . _("Storage Used") . "<span>" . _("Disk space currently in use by voicemail data") . "</span></a></td>";
+			$storage_row = "<tr><td><a href='#' class='info'>" . _("Storage Used") . "<span>" . _("Disk space currently in use by Voicemail data") . "</span></a></td>";
 			$storage_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$storage</td>";
 			$storage_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
 
