@@ -276,6 +276,7 @@ function voicemail_configpageinit($pagename) {
 		if (document.getElementById('vm').value == 'disabled') {
 			var dval=true;
 			document.getElementById('vmx_state').value='';
+			$('.radioset').buttonset('refresh');
 		} else {
 			var dval=false;
 		}
@@ -295,6 +296,7 @@ function voicemail_configpageinit($pagename) {
 		document.getElementById('options').disabled=dval;
 		document.getElementById('vmcontext').disabled=dval;
 		document.getElementById('vmx_state').disabled=dval;
+		$('.radioset').buttonset('refresh');
 		return true;
 		";
 		$currentcomponent->addjsfunc('voicemailEnabled(notused)', $js);
