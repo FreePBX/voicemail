@@ -414,7 +414,7 @@ $output        .= "<table border='0' cellpadding='0.3px' cellspacing='2px'>";
 $output	       .= "<tr><td colspan='3'>$title</td></tr>";
 $output        .= "<tr><td><h5>" . _("System View Links:") . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td><td colspan='2'><h5>$settings_link&nbsp;&nbsp;|&nbsp;&nbsp;$usage_link&nbsp;&nbsp;|&nbsp;&nbsp;$tzone_link</h5></td></tr>";
 
-if ($need_update) {
+if ($need_update && $action != 'usage') {
 	/* set args */
 	$args = array();
 	if (voicemail_update_settings($action, $context, $extension, $_REQUEST)) {
