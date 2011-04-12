@@ -73,4 +73,21 @@ if (!isset($modules['vmailadmin'])) {
     out($result);
   }
 }
-?>
+
+$freepbx_conf =& freepbx_conf::create();
+
+// VM_SHOW_IMAP
+//
+$set['value'] = false;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'voicemail';
+$set['category'] = 'Voicemail Module';
+$set['emptyok'] = 0;
+$set['sortorder'] = 100;
+$set['name'] = 'Provide IMAP Voicemail Fields';
+$set['description'] = 'Installations that have configured Voicemail with IMAP should set this to true so that the IMAP username and password fields are provided in the Voicemail setup screen for extensions. If an extension alread has these fields populated, they will be displayed even if this is set to false.';
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('VM_SHOW_IMAP',$set,true);
