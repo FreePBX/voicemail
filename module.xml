@@ -2,12 +2,13 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>2.9.0.3</version>
+	<version>2.9.0.4</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*2.9.0.4* #5036, #5062
 		*2.9.0.3* #5000
 		*2.9.0.2* #4401
 		*2.9.0.1* removed duplicate functions
@@ -44,6 +45,6 @@
 	<depends>
 		<version>2.5.0alpha1</version>
 	</depends>
-	<location>release/2.9/voicemail-2.9.0.3.tgz</location>
-	<md5sum>b3d6c0f164dbc2431b036f6686f38067</md5sum>
+	<location>release/2.9/voicemail-2.9.0.4.tgz</location>
+	<md5sum>672e6a4b2d3b0e3eb3e61978786ba668</md5sum>
 </module>
