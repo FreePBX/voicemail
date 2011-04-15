@@ -253,6 +253,7 @@ function voicemail_dialvoicemail($c) {
 
 function voicemail_configpageinit($pagename) {
 	global $currentcomponent;
+	global $amp_conf;
 
 	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
 	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
@@ -291,8 +292,14 @@ function voicemail_configpageinit($pagename) {
 		document.getElementById('envelope1').disabled=dval;
 		document.getElementById('delete0').disabled=dval;
 		document.getElementById('delete1').disabled=dval;
-		document.getElementById('imapuser').disabled=dval; 
-		document.getElementById('imappassword').disabled=dval; 
+		";
+		if ($amp_conf['VM_SHOW_IMAP'] || $vmops_imapuser || $vmops_imappassword) {
+			$js .="
+			document.getElementById('imapuser').disabled=dval; 
+			document.getElementById('imappassword').disabled=dval; 
+			";
+		}
+		$js .= "
 		document.getElementById('options').disabled=dval;
 		document.getElementById('vmcontext').disabled=dval;
 		document.getElementById('vmx_state').disabled=dval;
