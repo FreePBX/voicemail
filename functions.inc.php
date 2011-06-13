@@ -499,7 +499,7 @@ function voicemail_configpageload() {
 		$vmops_imapuser = isset($vmops_imapuser) ? $vmops_imapuser : '';
 		$vmops_imappassword = isset($vmops_imappassword) ? $vmops_imappassword : '';
 
-		$section = _("Voicemail & Directory");
+		$section = _("Voicemail");
 		$currentcomponent->addguielem($section, new gui_selectbox('vm', $currentcomponent->getoptlist('vmena'), $vmselect, _('Status'), '', false,"frm_${display}_voicemailEnabled() && frm_${display}_vmx_disable_fields()"));
 		$disable = ($vmselect == 'disabled');
 		$currentcomponent->addguielem($section, new gui_textbox('vmpwd', $vmpwd, _('Voicemail Password'), sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "frm_${display}_isVoiceMailEnabled() && !frm_${display}_verifyEmptyVoiceMailPassword() && !isInteger()", $msgInvalidVmPwd, false,0,$disable));
