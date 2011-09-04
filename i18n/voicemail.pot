@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-10 22:46+0100\n"
+"POT-Creation-Date: 2011-09-04 18:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,7 +57,7 @@ msgstr ""
 msgid "VM Context cannot be blank"
 msgstr ""
 
-msgid "Voicemail & Directory"
+msgid "Voicemail"
 msgstr ""
 
 msgid "Status"
@@ -265,9 +265,6 @@ msgid "System Usage Statistics"
 msgstr ""
 
 msgid "Invalid Action"
-msgstr ""
-
-msgid "Voicemail"
 msgstr ""
 
 msgid "My Voicemail"
@@ -926,8 +923,21 @@ msgstr ""
 msgid "Storage Used"
 msgstr ""
 
-msgid "Basic"
+msgid "Apps"
 msgstr ""
 
 msgid "This module allows you to configure Voicemail for a user or extension"
+msgstr ""
+
+msgid "Provide IMAP Voicemail Fields"
+msgstr ""
+
+msgid "Voicemail Module"
+msgstr ""
+
+msgid ""
+"Installations that have configured Voicemail with IMAP should set this to "
+"true so that the IMAP username and password fields are provided in the "
+"Voicemail setup screen for extensions. If an extension alread has these "
+"fields populated, they will be displayed even if this is set to false."
 msgstr ""
