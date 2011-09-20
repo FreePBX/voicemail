@@ -16,7 +16,7 @@
 		*2.9.0.0* #4653, #4734, #4736, merge vmailadmin
 	</changelog>
 	<description>This module allows you to configure Voicemail for a user or extension</description>
-	<category>Apps</category>
+	<category>Settings</category>
 	<menuitems>
 		<voicemail>Voicemail Admin</voicemail>
 	</menuitems>
