@@ -968,7 +968,8 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 						$id = "gen__$key";
 						$vmconf["general"][$key] = isset($args[$id])?$args[$id]:$vmconf["general"][$key];
 						/* Bad to have empty fields in vmconf. */
-						if (empty($vmconf["general"][$key])) {
+						/* also make sure no boolean undefined fields left in there */
+						if (empty($vmconf["general"][$key]) || $vmconf["general"][$key] == 'undefined' && $gen_settings[$key]['type'] == 'flag') {
 							unset($vmconf["general"][$key]);
 						}
 						unset($args[$id]);
