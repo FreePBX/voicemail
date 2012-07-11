@@ -420,7 +420,8 @@ if ($need_update && $action != 'usage') {
 	$args = array();
 	if (voicemail_update_settings($action, $context, $extension, $_REQUEST)) {
 		$url = "config.php?type=$type&display=$display&action=$action&ext=$extension&updated=true";
-		redirect($url);
+        needreload();
+        redirect($url);
 	} else {
 		$url = "config.php?type=$type&display=$display&action=$action&ext=$extension&updated=false";
 		redirect($url);
