@@ -178,6 +178,32 @@ function voicemail_get_config($engine) {
 	}
 }
 
+function voicemail_directdialvoicemail($c) {
+	global $ext;
+
+	$userlist = core_users_list();
+	if (is_array($userlist)) {
+		foreach($userlist as $item) {
+			$exten = core_users_get($item[0]);
+			$vm = ((($exten['voicemail'] == "novm") || ($exten['voicemail'] == "disabled") || ($exten['voicemail'] == "")) ? "novm" : $exten['extension']);
+
+			if($vm != "novm") {
+				$context = 'ext-local';
+				$exten_num = $exten['extension'];
+				// This usually gets called from macro-exten-vm but if follow-me destination need to go this route
+				$ext->add($context, $c.$exten_num, '', new ext_macro('vm',$vm.',DIRECTDIAL,${IVR_RETVM}'));
+				$ext->add($context, $c.$exten_num, '', new ext_goto('1','vmret'));
+
+				$ivr_context = 'from-did-direct-ivr';
+				$ext->add($ivr_context, $c.$exten_num, '', new ext_macro('blkvm-clr'));
+				$ext->add($ivr_context, $c.$exten_num, '', new ext_setvar('__NODEST', ''));
+				$ext->add($ivr_context, $c.$exten_num, '', new ext_macro('vm',$vm.',DIRECTDIAL,${IVR_RETVM}'));
+				$ext->add($ivr_context, $c.$exten_num, '', new ext_gotoif('$["${IVR_RETVM}" = "RETURN" & "${IVR_CONTEXT}" != ""]','ext-local,vmret,playret'));
+			}
+		}
+	}
+}
+
 function voicemail_myvoicemail($c) {
 	global $ext;
 	global $core_conf;

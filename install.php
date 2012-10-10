@@ -22,6 +22,7 @@ _("Voicemail");
 _("My Voicemail");
 _("Dial Voicemail");
 _("Voicemail Admin");
+_("Direct Dial Prefix");
 }
 
 global $astman;
@@ -37,6 +38,42 @@ $fcc = new featurecode('voicemail', 'dialvoicemail');
 $fcc->setDescription('Dial Voicemail');
 $fcc->setDefault('*98');
 $fcc->setProvideDest();
+$fcc->update();
+unset($fcc);
+
+// Migrate VM_PREFIX from VM_PREFIX if needed
+//
+$current_prefix = $default_prefix = '*';
+$sql = "SELECT `value` FROM globals WHERE `variable` = 'VM_PREFIX'";
+$globals = $db->getAll($sql,DB_FETCHMODE_ASSOC);
+if(!DB::IsError($globals)) {
+	out(_("setting "));
+	if (count($globals)) {
+		$current_prefix = trim($globals[0]['value']);
+		$sql = "DELETE FROM globals WHERE `variable` = 'VM_PREFIX'";
+		out(_("migrated VM_PREFIX to feature codes"));
+		outn(_("deleting VM_PREFIX from globals.."));
+		$res = $db->query($sql);
+		if(!DB::IsError($globals)) {
+			out(_("done"));
+		} else {
+			out(_("could not delete"));
+		}
+	}
+}
+
+// Now setup the new feature code, if blank then disable
+//
+$fcc = new featurecode('voicemail', 'directdialvoicemail');
+$fcc->setDescription('Direct Dial Prefix');
+$fcc->setDefault($default_prefix);
+if ($current_prefix != $default_prefix) {
+	if ($current_prefix != '') {
+		$fcc->setCode($current_prefix);
+	} else {
+		$fcc->setEnabled(false);
+	}
+}
 $fcc->update();
 unset($fcc);
 
