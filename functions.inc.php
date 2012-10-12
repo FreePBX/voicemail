@@ -174,6 +174,15 @@ function voicemail_get_config($engine) {
 					}	
 				}
 			}
+
+			// Temporary Kludge Until we remove these as globals out of VMX Locater and Other Places
+			// However, if we remove these, we MUST make some changes to the dialplan currently commented
+			// in the vmx locater code in core
+			$settings = voicemail_admin_get();
+			foreach ($settings as $k => $v) {
+				$ext->addGlobal($k, $v);
+				out("Added to globals: $g = $v");
+			}
 		break;
 	}
 }
@@ -930,6 +939,9 @@ function voicemail_get_title($action, $context="", $account="") {
 				$title .= _("System Settings");
 			}
 			break;
+		case "dialplan":
+			$title .= _("Dialplan Behavior");
+			break;
 		case "usage":
 			if (!empty($account)) {
 				$title .= _("Usage Statistics For: ") . "&nbsp;&nbsp;&nbsp;$account&nbsp;&nbsp;&nbsp;($context)";
@@ -956,7 +968,11 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 	global $tz_settings;
 	global $gen_settings;
 	/* Ensure we get the most up-to-date voicemail.conf data. */
-	$vmconf = voicemail_getVoicemail();
+	if ($action != 'dialplan') {
+		$vmconf = voicemail_getVoicemail();
+	} else {
+		$vmconf = null;
+	}
 	if ($vmconf !== null) {
 		switch ($action) {
 			case "tz":
@@ -1110,13 +1126,94 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 		voicemail_saveVoicemail($vmconf);
 		$astman->send_request("Command", array("Command" => "reload app_voicemail.so"));
 		return true;
+
+		// Special Case dialplan since no voicemail.conf related configs
+	} else if ($action == 'dialplan') {
+
+		// defaults need to be set for checkboxes unless we change them to radio buttons
+		//
+		$cb = array('VM_OPTS', 'VMX_OPTS_LOOP', 'VMX_OPTS_DOVM');
+		foreach ($cb as $cbs) {
+			if (!isset($args[$cbs])) {
+				$args[$cbs] = '';
+			}
+		}
+		return voicemail_admin_update($args);
 	}
 	return false;
+}
+
+function voicemail_admin_update($args) {
+	global $db;
+
+	$valid_settings = array(
+		'VM_OPTS', 
+		'VM_DDTYPE', 
+		'VM_GAIN', 
+		'OPERATOR_XTN',
+		'VMX_OPTS_LOOP',
+		'VMX_OPTS_DOVM',
+		'VMX_TIMEOUT',
+		'VMX_REPEAT',
+		'VMX_LOOPS'
+	);
+
+	$update_arr = array();
+	foreach ($args as $key => $value) {
+		if (in_array($key, $valid_settings)) {
+			$update_arr[] = array($key, $db->escapeSimple($value));
+		}
+	}
+	if (empty($update_arr)) {
+		return true;
+	}
+
+	$compiled = $db->prepare('REPLACE INTO `voicemail_admin` (`variable`, `value`) VALUES (?, ?)');
+	$result = $db->executeMultiple($compiled,$update_arr);
+	if(DB::IsError($result)) {
+		//LOG ERROR HERE
+		dbug("FAILED ON INSERT TO voicemail_admin");
+		return false;
+	}
+	return true;
+}
+
+function voicemail_admin_get($setting = false) {
+	global $db;
+
+	if ($setting !== false) {
+		return sql("SELECT `value` FROM `voicemail_admin` WHERE `variable` = '$setting'", "getOne");
+	}
+	$sql = "SELECT * FROM `voicemail_admin`";
+	$res = sql($sql, "getAll", DB_FETCHMODE_ASSOC);
+	$settings = array();
+	foreach ($res as $s) {
+		$settings[$s['variable']] = $s['value'];	
+	}
+	return $settings;
 }
 
 function voicemail_get_settings($vmconf, $action, $extension="") {
 	$settings = array();
 	switch ($action) {
+		case "dialplan":
+			// DEFAULTS:
+			$settings['VM_OPTS'] = '';
+			$settings['VM_DDTYPE'] = 'b';
+			$settings['VM_GAIN'] = '12';
+			$settings['OPERATOR_XTN'] = '';
+			$settings['VMX_OPTS_LOOP'] = '';
+			$settings['VMX_OPTS_DOVM'] = '';
+			$settings['VMX_TIMEOUT'] = '2';
+			$settings['VMX_REPEAT'] = '1';
+			$settings['VMX_LOOPS'] = '1';
+
+			$vmsettings = voicemail_admin_get();
+			// replace defaults with any values present in the DB
+			foreach ($vmsettings as $k => $v) {
+				$settings[$k] = $vmsettings[$k];
+			}
+			break;
 		case "tz":
 			if (is_array($vmconf) && is_array($vmconf["zonemessages"])) {
 				foreach ($vmconf["zonemessages"] as $key => $val) {

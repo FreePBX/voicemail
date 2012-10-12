@@ -408,12 +408,13 @@ $output .= "\n--></script>";
 /* END of Javascript for remembering scroll position of rnav menu */
 
 $sys_view_flag = empty($extension)?true:false;
+$dialplan_link = "<a" . (($sys_view_flag && $action == "dialplan")?" style='color:#ff9933;' ":" ") . "href='config.php?type=$type&display=$display&action=dialplan'>Dialplan Behavior</a>";
 $settings_link = "<a" . (($sys_view_flag && $action == "settings")?" style='color:#ff9933;' ":" ") . "href='config.php?type=$type&display=$display&action=settings'>Settings</a>";
 $usage_link    = "<a" . (($sys_view_flag && $action == "usage")?" style='color:#ff9933;' ":" ") . "href='config.php?type=$type&display=$display&action=usage'>Usage</a>";
 $tzone_link    = "<a" . (($sys_view_flag && $action == "tz")?" style='color:#ff9933;' ":" ") . "href='config.php?type=$type&display=$display&action=tz'>Timezone Definitions</a>";
 $output        .= "<table border='0' cellpadding='0.3px' cellspacing='2px'>";
 $output	       .= "<tr><td colspan='3'>$title</td></tr>";
-$output        .= "<tr><td><h5>" . _("System View Links:") . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td><td colspan='2'><h5>$settings_link&nbsp;&nbsp;|&nbsp;&nbsp;$usage_link&nbsp;&nbsp;|&nbsp;&nbsp;$tzone_link</h5></td></tr>";
+$output        .= "<tr><td><h5>" . _("System View Links:") . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td><td colspan='2'><h5>$dialplan_link&nbsp;&nbsp;|&nbsp;&nbsp;$settings_link&nbsp;&nbsp;|&nbsp;&nbsp;$usage_link&nbsp;&nbsp;|&nbsp;&nbsp;$tzone_link</h5></td></tr>";
 
 if ($need_update && $action != 'usage') {
 	/* set args */
@@ -453,8 +454,8 @@ switch ($action) {
 		$output .= "<tr><td><input size='10' type='text' name='tznew_name' id='tznew_name' tabindex='1' value='' /></td>";
 		$output .= "<td><input size='50' type='text' name='tznew_def' id='tznew_def' tabindex='1' value='' /></td></tr>";
 
-		$update_notice = ($update_flag == false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";
-		$update_notice = ($update_flag == true)?"&nbsp;&nbsp;<b><u>UPDATE COMPLETED</u></b>":"";
+		$update_notice = ($update_flag === false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";
+		$update_flag === true ? $update_notice = "&nbsp;&nbsp;<b><u>UPDATE COMPLETED</u></b>":"";
 		$output .= "<tr><td></td><td colspan='2'><input type='submit' name='action' id='action' value='Submit' />" . $update_notice . "</td></tr>";
 
 		$output .= "<tr><td colspan='2'><hr /></td></tr>";
@@ -478,6 +479,105 @@ switch ($action) {
 			   "<tr><td style='max-width: 60px'>" . _("q") 		 . "</td><td style='max-width: 60px' colspan='2'>" . _("\"\" (for today), \"yesterday\", weekday, or ABdY") . "</td></tr>" .
 			   "<tr><td style='max-width: 60px'>" . _("R") 		 . "</td><td style='max-width: 60px' colspan='2'>" . _("24 hour time, including minute") . "</td></tr>";
 		break;
+	case "dialplan":
+		// TODO: may wan to look at making this table driven but for now ...
+		$settings = voicemail_get_settings($uservm, $action, $extension);
+		$output .= "<tr><td colspan='2'><hr /></td><td></td></tr>";
+		$output .= "<tr><td colspan='2'><h4>" . _("General Dialplan Settings") . "</h4></td></tr>";
+
+		// Disable "Leave message after tone"
+		$checkbox = form_checkbox('VM_OPTS', 's', $settings['VM_OPTS']);
+		$output .= "<tr><td>" . 
+			fpbx_label(_("Disable Standard Prompt"), _("Check this box to disable the standard voicemail instructions that follow the user recorded message. These standard instructions tell the caller to leave a message after the beep. This can be individually controlled for users who have VMX locater enabled.")) . 
+			"</td><td>" . $checkbox . "</td></tr>";
+
+		// Direct Dial Mode
+		unset($opts);
+		$opts['u'] = _("Unavailable");
+		$opts['b'] = _("Busy");
+		$opts['s'] = _("No Message");
+		$dropdown = form_dropdown('VM_DDTYPE', $opts, $settings['VM_DDTYPE']);
+		$output .= "<tr><td>" . 
+			fpbx_label(_("Direct Dial Mode"), _("Whether to play the busy, unavailable or no message when direct dialing voicemail")) . 
+			"</td><td>" . $dropdown . "</td></tr>";
+
+		// Voicemail Gain
+		unset($opts);
+		$opts[''] = _("None");
+		$opts['3'] = _("3 db");
+		$opts['6'] = _("6 db");
+		$opts['9'] = _("9 db");
+		$opts['12'] = _("12 db");
+		$opts['15'] = _("15 db");
+		$dropdown = form_dropdown('VM_GAIN', $opts, $settings['VM_GAIN']);
+		$output .= "<tr><td>" . 
+			fpbx_label(_("Voicemail Recording Gain"), _("The amount of gain to amplify a voicemail message when geing recorded. This is usually set when users are complaining about hard to hear messages on your system, often caused by very quiet analog lines. The gain is in Decibels which doubles for every 3 db.")) . 
+			"</td><td>" . $dropdown . "</td></tr>";
+
+		// Operator Extension
+		$textbox = form_input('OPERATOR_XTN', $settings['OPERATOR_XTN']);
+		$output .= "<tr><td>" . 
+			fpbx_label(_("Operator Extension"), _("Default number to dial when a voicemail user 'zeros out' if enabled. This can be overriden for each extension with the VMX Locater option that is valid even when VMX Locater is not enabled. This can be any number including an external number and there is NO VALIDATION so it should be tested after configuration.")) . 
+			"</td><td>" . $textbox . "</td></tr>";
+
+		$output .= "<tr><td colspan='2'><h4>" . _("Advanced VmX Locater Settings") . "</h4></td></tr>";
+
+		// VMX_TIMEOUT
+		//
+		unset($opts);
+		$opts['0'] = _("0 Sec");
+		for ($i=1;$i<16;$i++) { 
+			$opts[$i] = sprintf(_("%s Sec"),$i);
+		}
+		$dropdown = form_dropdown('VMX_TIMEOUT', $opts, $settings['VMX_TIMEOUT']);
+		$output .= "<tr><td>" . 
+			fpbx_label(_("Msg Timeout"), _("Time to wait after message has played to timeout and/or repeat the message if no entry pressed.")) . 
+			"</td><td>" . $dropdown . "</td></tr>";
+
+		// VMX_REPEAT
+		//
+		unset($opts);
+		for ($i=1;$i<5;$i++) { 
+			$opts[$i] = sprintf(_("%s Attempts"),$i);
+		}
+		$dropdown = form_dropdown('VMX_REPEAT', $opts, $settings['VMX_REPEAT']);
+		$output .= "<tr><td>" . 
+			fpbx_label(_("Times to Play Message"), _("Number of times to play the recorded message if the caller does not press any options and it times out. One attempt means we won't repeat and it will be treated as a timeout. A timeout would be the normal behavior and it is fairly normal to leave this zero and just record a message that tells them to press the various options now and leave enough time in the greeting letting them know it will otherwise go to voicemail as is normal.")) . 
+			"</td><td>" . $dropdown . "</td></tr>";
+
+		// VMX_LOOPS
+		//
+		unset($opts);
+		$opts[1] = sprintf(_("%s Retry"),1);
+		for ($i=2;$i<5;$i++) { 
+			$opts[$i] = sprintf(_("%s Retries"),$i);
+		}
+		$dropdown = form_dropdown('VMX_LOOPS', $opts, $settings['VMX_LOOPS']);
+		$output .= "<tr><td>" . 
+			fpbx_label(_("Error Re-tries"), _("Number of times to play invalid options and repeat the message upon receiving an undefined option. One retry means it will repeat at one time after the intial failure.")) . 
+			"</td><td>" . $dropdown . "</td></tr>";
+
+		// Disable "Leave message after tone" after repeated bad destinations
+		//
+		$checkbox = form_checkbox('VMX_OPTS_LOOP', 's', $settings['VMX_OPTS_LOOP']);
+		$output .= "<tr><td>" . 
+			fpbx_label(_("Disable Standard Prompt after Max Loops"), _("If the Max Loops are reached and the call goes to voicemail, checking this box will disable the standard voicemail prompt prompt that follows the user's recorded greeting. This default can be overriden with a unique ..vmx/vmxopts/loops AstDB entry for the given mode (busy/unavail) and user.")) . 
+			"</td><td>" . $checkbox . "</td></tr>";
+
+		// Disable "Leave message after tone" if special dovm destination provided
+		//
+		$checkbox = form_checkbox('VMX_OPTS_DOVM', 's', $settings['VMX_OPTS_DOVM']);
+		$output .= "<tr><td>" . 
+			fpbx_label(_("Disable Standard Prompt on 'dovm' Extension"), _("If the special advanced extension of 'dovm' is used, checking this box will disable the standard voicemail prompt prompt that follows the user's recorded greeting. This default can be overriden with a unique ..vmx/vmxopts/dovm AstDB entry for the given mode (busy/unavail) and user.")) . 
+			"</td><td>" . $checkbox . "</td></tr>";
+
+		$update_notice = ($update_flag === false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";
+		$update_flag === true ? $update_notice = "&nbsp;&nbsp;<b><u>UPDATE COMPLETED</u></b>":"";
+		//$output .= "<tr><td></td><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='action' id='action' value='Submit' />" . $update_notice . "</td></tr>";
+		$output .= "<tr><td></td><td colspan='2'><br /></td></tr>";
+		$output .= "<tr><td></td><td colspan='2'><input type='submit' name='action' id='action' value='Submit' />" . $update_notice . "</td></tr>";
+		break;
+
 	case "bsettings":
 	case "settings":
 		/* get settings */
@@ -588,8 +688,8 @@ switch ($action) {
 				$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<input size='$text_size' type='text' name='$id' id='$id' tabindex='1' value=\"$val\" /></td></tr>";
 			}
 		}
-		$update_notice = ($update_flag == false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";
-		$update_notice = ($update_flag == true)?"&nbsp;&nbsp;<b><u>UPDATE COMPLETED</u></b>":"";
+		$update_notice = ($update_flag === false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";
+		$update_flag === true ? $update_notice = "&nbsp;&nbsp;<b><u>UPDATE COMPLETED</u></b>":"";
 		$output .= "<tr><td></td><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='action' id='action' value='Submit' />" . $update_notice . "</td></tr>";
 		break;
 	case "usage":
@@ -709,8 +809,8 @@ switch ($action) {
 			$output .= $lp . $msg_row . $name_row . $unavail_row . $busy_row . $temp_row . $abandoned_row . $storage_row;
 		}
 
-		$update_notice = ($update_flag == false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";
-		$update_notice = ($update_flag == true)?"&nbsp;&nbsp;<b><u>UPDATE COMPLETED</u></b>":"";
+		$update_notice = ($update_flag === false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";
+		$update_flag === true ? $update_notice = "&nbsp;&nbsp;<b><u>UPDATE COMPLETED</u></b>":"";
 		$output .= "<tr><td></td><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='action' id='action' value='Submit' />" . $update_notice . "</td></tr>";
 		break;
 	default:
