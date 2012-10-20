@@ -29,6 +29,6 @@
 	<depends>
 		<version>2.5.0alpha1</version>
 	</depends>
-	<location>release/2.10/voicemail-2.10.0.4.tgz</location>
-	<md5sum>6a1496a8279781b84132191176b7f242</md5sum>
+	<location>release/2.11/voicemail-2.11.0.0.tgz</location>
+	<md5sum>9bc6598371c18aef6e491f4eaeb71982</md5sum>
 </module>
