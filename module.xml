@@ -2,12 +2,13 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>2.10.0.4</version>
+	<version>2.11.0.0</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*2.11.0.0* #6015
 		*2.10.0.4* #5894
 		*2.10.0.3* #5639
 		*2.10.0.2* #5135, #5168
