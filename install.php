@@ -135,7 +135,7 @@ if (count($globals)) {
   }
 }
 
-// Migrate VM_PREFIX from VM_PREFIX if needed
+// Migrate VM_PREFIX from globals if needed
 //
 $current_prefix = $default_prefix = '*';
 $sql = "SELECT `value` FROM globals WHERE `variable` = 'VM_PREFIX'";
