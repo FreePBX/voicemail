@@ -1185,7 +1185,14 @@ function voicemail_admin_get($setting = false) {
 		return sql("SELECT `value` FROM `voicemail_admin` WHERE `variable` = '$setting'", "getOne");
 	}
 	$sql = "SELECT * FROM `voicemail_admin`";
-	$res = sql($sql, "getAll", DB_FETCHMODE_ASSOC);
+	$res = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+
+	// This shouldn't happen but some install_amp installs, at least during development, can
+	// result in this, better to avoid crashes in the install_amp log
+	//
+	if(DB::IsError($res)) {
+		$res = array();
+	}
 	$settings = array();
 	foreach ($res as $s) {
 		$settings[$s['variable']] = $s['value'];	
