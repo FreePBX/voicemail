@@ -244,7 +244,7 @@ function voicemail_myvoicemail($c) {
 }
 
 function voicemail_dialvoicemail($c) {
-	global $ext;
+	global $ext,$amp_conf,$astman;
 
 	$id = "app-dialvm"; // The context to be included
 
@@ -274,9 +274,30 @@ function voicemail_dialvoicemail($c) {
 	$ext->add($id, $c, 'playret', new ext_playback('beep&you-will-be-transfered-menu&silence/1'));
 	$ext->add($id, $c, '', new ext_goto('1','return','${IVR_CONTEXT}'));
 
-	// Note that with this one, it has paramters. So we have to add '_' to the start and '.' to the end
-	// of $c
-	$c = "_$c.";
+	//res_mwi_blf allows you to subscribe to voicemail hints, the following code generates the dialplan for doing so
+        $resmwiblf_check = $astman->send_request('Command', array('Command' => 'module show like res_mwi_blf'));
+        $resmwiblf_module = preg_match('/[1-9] modules loaded/', $resmwiblf_check['data']);
+        
+	if ($resmwiblf_module && $amp_conf['USERESMWIBLF']) {
+                $userlist = core_users_list();
+                if (is_array($userlist)) {
+                        foreach($userlist as $item) {
+                                $exten = core_users_get($item[0]);
+                                $vm = ((($exten['voicemail'] == "novm") || ($exten['voicemail'] == "disabled") || ($exten['voicemail'] == "")) ? "novm" : $exten['extension']);
+
+                                if($vm != "novm") {
+                                        $ext->add($id, $c.$vm, '', new ext_goto('1','s${EXTEN:3}'));
+                                        $ext->addHint($id, $c.$vm, "MWI:$vm@".$exten['voicemail']);
+                                }
+                        }
+                }
+		$c = '_s.';
+        } else {
+		// Note that with this one, it has paramters. So we have to add '_' to the start and '.' to the end
+        	// of $c
+		$c = "_$c.";
+	}
+	
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	// How long is the command? We need to strip that off the front

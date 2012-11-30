@@ -222,3 +222,39 @@ $set['name'] = 'Provide IMAP Voicemail Fields';
 $set['description'] = 'Installations that have configured Voicemail with IMAP should set this to true so that the IMAP username and password fields are provided in the Voicemail setup screen for extensions. If an extension alread has these fields populated, they will be displayed even if this is set to false.';
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('VM_SHOW_IMAP',$set,true);
+
+// USERESMWIBLF
+//
+$set['value'] = true;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'voicemail';
+$set['category'] = 'Voicemail Module';
+$set['emptyok'] = 0;
+$set['sortorder'] = 100;
+$set['name'] = 'Create Voicemail Hints';
+$set['description'] = 'Setting this flag with generate the required dialplan to integrate with res_mwi_blf which is included with the Official FreePBX Distro. It allows users to subscribe to other voicemail box and be notified via BLF of changes.';
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('USERESMWIBLF',$set,true);
+
+/* update modules.conf to make sure it preloads res_mwi_blf.so
+   This makes sure that the modules.conf has been updated for older systems
+   which assures that static queue agents are availabe when Asterisk first starts
+*/
+$mod_conf = $amp_conf['ASTETCDIR'].'/modules.conf';
+exec("grep -e '^[[:space:]]*preload[[:space:]]*=.*res_mwi_blf.so' $mod_conf",$output,$ret);
+if ($ret) {
+  outn(_("adding preload for res_mwi_blf.so to modules.conf.."));
+  exec('sed -i.2.8.0-1.bak "s/\s*preload\s*=>\s*chan_local.so/&\npreload => res_mwi_blf.so ;auto-inserted by FreePBX/" '.$mod_conf,$output,$ret);
+  exec("grep -e '^[[:space:]]*preload[[:space:]]*=.*res_mwi_blf.so' $mod_conf",$output,$ret);
+  if ($ret) {
+    out(_("FAILED"));
+    out(_("you may need to add the line 'preload => res_mwi_blf.so' to your modules.conf manually"));
+  } else {
+    out(_("ok"));
+  }
+}
+unset($output);
+
