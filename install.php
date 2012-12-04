@@ -239,26 +239,23 @@ $set['description'] = 'Setting this flag with generate the required dialplan to 
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('USERESMWIBLF',$set,true);
 
-/* update modules.conf to make sure it preloads res_mwi_blf.so if they have it
+/* 
+   update modules.conf to make sure it preloads res_mwi_blf.so if they have it
    This makes sure that the modules.conf has been updated for older systems
-   which assures that static queue agents are availabe when Asterisk first starts
+   which assures that mwi blf events are captured when Asterisk first starts
 */
-$resmwiblf_check = $astman->send_request('Command', array('Command' => 'module show like res_mwi_blf'));
-$resmwiblf_module = preg_match('/[1-9] modules loaded/', $resmwiblf_check['data']);
-if ($resmwiblf_module) {
-	$mod_conf = $amp_conf['ASTETCDIR'].'/modules.conf';
-	exec("grep -e '^[[:space:]]*preload[[:space:]]*=.*res_mwi_blf.so' $mod_conf",$output,$ret);
-	if ($ret) {
-	  outn(_("adding preload for res_mwi_blf.so to modules.conf.."));
-	  exec('sed -i.2.8.0-1.bak "s/\s*preload\s*=>\s*chan_local.so/&\npreload => res_mwi_blf.so ;auto-inserted by FreePBX/" '.$mod_conf,$output,$ret);
-	  exec("grep -e '^[[:space:]]*preload[[:space:]]*=.*res_mwi_blf.so' $mod_conf",$output,$ret);
-	  if ($ret) {
-	    out(_("FAILED"));
-	    out(_("you may need to add the line 'preload => res_mwi_blf.so' to your modules.conf manually"));
-	  } else {
-	    out(_("ok"));
-	  }
-	}
-	unset($output);
+$mod_conf = $amp_conf['ASTETCDIR'].'/modules.conf';
+exec("grep -e '^[[:space:]]*preload[[:space:]]*=.*res_mwi_blf.so' $mod_conf",$output,$ret);
+if ($ret) {
+  outn(_("adding preload for res_mwi_blf.so to modules.conf.."));
+  exec('sed -i.2.8.0-1.bak "s/\s*preload\s*=>\s*chan_local.so/&\npreload => res_mwi_blf.so ;auto-inserted by FreePBX/" '.$mod_conf,$output,$ret);
+  exec("grep -e '^[[:space:]]*preload[[:space:]]*=.*res_mwi_blf.so' $mod_conf",$output,$ret);
+  if ($ret) {
+    out(_("FAILED"));
+    out(_("you may need to add the line 'preload => res_mwi_blf.so' to your modules.conf manually"));
+  } else {
+    out(_("ok"));
+  }
 }
+unset($output);
 

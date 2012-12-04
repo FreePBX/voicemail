@@ -286,12 +286,12 @@ function voicemail_dialvoicemail($c) {
                                 $vm = ((($exten['voicemail'] == "novm") || ($exten['voicemail'] == "disabled") || ($exten['voicemail'] == "")) ? "novm" : $exten['extension']);
 
                                 if($vm != "novm") {
-                                        $ext->add($id, $c.$vm, '', new ext_goto('1','s${EXTEN:3}'));
+                                        $ext->add($id, $c.$vm, '', new ext_goto('1','dvm${EXTEN:3}'));
                                         $ext->addHint($id, $c.$vm, "MWI:$vm@".$exten['voicemail']);
                                 }
                         }
                 }
-		$c = '_s.';
+		$c = '_dvm.';
         } else {
 		// Note that with this one, it has paramters. So we have to add '_' to the start and '.' to the end
         	// of $c
