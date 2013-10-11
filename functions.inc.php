@@ -181,7 +181,7 @@ function voicemail_get_config($engine) {
 			$settings = voicemail_admin_get();
 			foreach ($settings as $k => $v) {
 				$ext->addGlobal($k, $v);
-				out("Added to globals: $g = $v");
+				out("Added to globals: $k = $v");
 			}
 		break;
 	}
