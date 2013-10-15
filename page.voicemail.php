@@ -12,6 +12,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
   GNU General Public License for more details.
 */
 
+$display_data = array();
+
 /* All extensions. */
 $extens     = core_users_list();
 /* All voicemail.conf settings. */
@@ -384,38 +386,21 @@ if (empty($action)) {
 /* system-wide rnav menu (lists all accounts) */
 $rnav_list = implode("\n", $rnav_entries);
 
-$rnav_menu = "<ul name='voicemail_menu' id='voicemail_menu' style='max-width:400px;'>\n" . $rnav_list . "</ul>";
+show_view(dirname(__FILE__).'/views/nav.php',array('rnav_list' => $rnav_list));
+
 $title	  = voicemail_get_title($action, $context, $extension);
-$output   = "";
-$output   .= "<div class='rnav'>$rnav_menu</div>";
-$output   .= "<div class='content'>\n";
-$output   .= "<form name='frm_voicemail' action='" . $_SERVER['PHP_SELF'] . "' method='post'>";
-$output   .= "<input type='hidden' name='type' id='type' value='$type' />";
-$output   .= "<input type='hidden' name='display' id='display' value='$display' />";
-$output   .= "<input type='hidden' name='ext' id='ext' value='$extension' />";
-$output   .= "<input type='hidden' name='page_type' id='page_type' value='$action' />";
-/* Javascript for remembering scroll position of rnav menu */
-$output .= "<script type='text/javascript'><!--\n";
-$output .= "\n
-function find_in_menu(id) {
-	var objToFind   = document.getElementById(id);
-	document.getElementById('voicemail_menu').scrollTop = objToFind.offsetTop - 2 * objToFind.offsetHeight;
-}";
-if ($extension != "") {
-	$output .= "\n\n" . "find_in_menu('voicemail_list_" . $extension . "');\n";
-}
-$output .= "\n--></script>";
-/* END of Javascript for remembering scroll position of rnav menu */
-
 $sys_view_flag = empty($extension)?true:false;
-$dialplan_link = "<a" . (($sys_view_flag && $action == "dialplan")?" style='color:#ff9933;' ":" ") . "href='config.php?type=$type&display=$display&action=dialplan'>Dialplan Behavior</a>";
-$settings_link = "<a" . (($sys_view_flag && $action == "settings")?" style='color:#ff9933;' ":" ") . "href='config.php?type=$type&display=$display&action=settings'>Settings</a>";
-$usage_link    = "<a" . (($sys_view_flag && $action == "usage")?" style='color:#ff9933;' ":" ") . "href='config.php?type=$type&display=$display&action=usage'>Usage</a>";
-$tzone_link    = "<a" . (($sys_view_flag && $action == "tz")?" style='color:#ff9933;' ":" ") . "href='config.php?type=$type&display=$display&action=tz'>Timezone Definitions</a>";
-$output        .= "<table border='0' cellpadding='0.3px' cellspacing='2px'>";
-$output	       .= "<tr><td colspan='3'>$title</td></tr>";
-$output        .= "<tr><td><h5>" . _("System View Links:") . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td><td colspan='2'><h5>$dialplan_link&nbsp;&nbsp;|&nbsp;&nbsp;$settings_link&nbsp;&nbsp;|&nbsp;&nbsp;$usage_link&nbsp;&nbsp;|&nbsp;&nbsp;$tzone_link</h5></td></tr>";
 
+show_view(dirname(__FILE__).'/views/header.php',array(
+	'type' => $type, 
+	'display' => $display, 
+	'extension' => $extension, 
+	'action' => $action, 
+	'sys_view_flag' => $sys_view_flag, 
+	'title' =>$title,
+		)
+);
+//Do we really need to say "UPDATE COMPLETED??"
 if ($need_update && $action != 'usage') {
 	/* set args */
 	$args = array();
@@ -428,183 +413,71 @@ if ($need_update && $action != 'usage') {
 		redirect($url);
 	}
 }
+
 switch ($action) {
 	case "tz":
 		/* get tz settings */
 		$settings = voicemail_get_settings($uservm, $action, $extension);
-		$output .= "<tr><td colspan='2'><hr /></td><td></td></tr>";
-		$output .= "<tr><td style='max-width: 60px' colspan='2'>" . _("A timezone definition specifies how the Voicemail system announces the time.") . "</td><td></td></tr>";
-		$output .= "<tr><td style='max-width: 60px' colspan='2'>" . _("For example, the time a message was left will be announced according to the user's timezone on message playback.") . "</td><td></td></tr>";
-		$output .= "<tr><td></td><td></td></tr>";
-		$output .= "<tr><td style='max-width: 60px' colspan='2'><b>" . _("Entries below will be written to Voicemail configuration as-is.") . "</b></td><td></td></tr>";
-		$output .= "<tr><td style='max-width: 60px' colspan='2'><b>" . _("Please be sure to follow the format for timezone definitions described below.") . "</b></td></tr>";
-		$output .= "<tr><td colspan='2'><hr /></td><td></td></tr>";
-		$output .= "<tr><td><a href='#' class='info'><h4>" . _("Name") . "</h4><span>" . $tooltips["tz"]["name"] . "</span></a></td><td><a href='#' class='info'><h4>" . _("Timezone Definition") . "</h4><span>" . $tooltips["tz"]["def"] . "</span></a>";
-		$output .= "</td></tr>"; 
-		if (is_array($settings) && !empty($settings)) {
-			foreach ($settings as $key => $val) {
-				$output .= "<tr>";
-				$output .= "<td>$key</td>";
-				$output .= "<td><input size='50' type='text' name='tz__$key' id='tz__$key' tabindex='1' value=\"$val\" />";
-				$output .= "&nbsp;&nbsp;&nbsp;&nbsp;<input type='checkbox' name='tzdel__$key' id='tzdel__$key' value='true' />&nbsp;&nbsp;<a href='#' class='info'>" . _("Delete") . "<span>" . $tooltips["tz"]["del"] . "</span></a></td></tr>";
-			}
-		}
-		$output .= "<tr><td coslpan='2'></td></tr>";
-		$output .= "<tr><td><a href='#' class='info'><h4>" . _("New Name") . "</h4><span>" . $tooltips["tz"]["name"] . "</span></a></td><td><a href='#' class='info'><h4>" . _("New Timezone Definition") . "</h4><span>" . $tooltips["tz"]["def"] . "</span></a></td>";
-		$output .= "<tr><td><input size='10' type='text' name='tznew_name' id='tznew_name' tabindex='1' value='' /></td>";
-		$output .= "<td><input size='50' type='text' name='tznew_def' id='tznew_def' tabindex='1' value='' /></td></tr>";
-
-		$update_notice = ($update_flag === false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";
-		$update_flag === true ? $update_notice = "&nbsp;&nbsp;<b><u>UPDATE COMPLETED</u></b>":"";
-		$output .= "<tr><td></td><td colspan='2'><input type='submit' name='action' id='action' value='Submit' />" . $update_notice . "</td></tr>";
-
-		$output .= "<tr><td colspan='2'><hr /></td></tr>";
-		$output .= "<tr><td style='max-width: 60px' colspan='2'>" . _("Timezone definition format is: ") . "&nbsp;&nbsp;<b style='font-family:courier;'>" . _("timezone|values") . "</b></td><td></td></tr>";
-		$output .= "<tr><td style='max-width: 60px' colspan='2'><br /><b>" . _("<i>Timezones</i> are listed in /usr/share/zoneinfo") . "</td></tr>";
-		$output .= "<tr><td style='max-width: 60px' colspan='2'><b>" . _("The <i>values</i> supported in the timezone definition string include:") . "</b></td></tr>" .
-		"<tr><td>" . _("'filename'") . "</td><td style='max-width: 60px' colspan='2'>" . _("The name of a sound file (the file name must be single-quoted)") . "</td></tr>" .
-		"<tr><td>" . _("variable") . "</td><td style='max-width: 60px' colspan='2'>" . _("A variable to be substituted (see below for supported variable values)") . "</td></tr>";
-		$output .= "<tr><td style='max-width: 60px' colspan='2'><b>" . _("Supported <i>variables</i>:") . "</b></td></tr>" .
-			   "<tr><td style='max-width: 60px'>" . _("A or a") 	 . "</td><td style='max-width: 60px' colspan='2'>" . _("Day of week (Saturday, Sunday, ...)") . "</td></tr>" .
-			   "<tr><td style='max-width: 60px'>" . _("B or b or h") . "</td><td style='max-width: 60px' colspan='2'>" . _("Month name (January, February, ...)") . "</td></tr>" .
-			   "<tr><td style='max-width: 60px'>" . _("d or e") 	 . "</td><td style='max-width: 60px' colspan='2'>" . _("numeric day of month (first, second, ..., thirty-first)") . "</td></tr>" .
-			   "<tr><td style='max-width: 60px'>" . _("Y") 		 . "</td><td style='max-width: 60px' colspan='2'>" . _("Year") . "</td></tr>" .
-			   "<tr><td style='max-width: 60px'>" . _("I or l") 	 . "</td><td style='max-width: 60px' colspan='2'>" . _("Hour, 12 hour clock") . "</td></tr>" .
-			   "<tr><td style='max-width: 60px'>" . _("H") 		 . "</td><td style='max-width: 60px' colspan='2'>" . _("Hour, 24 hour clock (single digit hours preceded by \"oh\")") . "</td></tr>" .
-			   "<tr><td style='max-width: 60px'>" . _("k") 		 . "</td><td style='max-width: 60px' colspan='2'>" . _("Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")") . "</td></tr>" .
-			   "<tr><td style='max-width: 60px'>" . _("M") 		 . "</td><td style='max-width: 60px' colspan='2'>" . _("Minute, with 00 pronounced as \"o'clock\"") . "</td></tr>" .
-			   "<tr><td style='max-width: 60px'>" . _("N") 		 . "</td><td style='max-width: 60px' colspan='2'>" . _("Minute, with 00 pronounced as \"hundred\" (US military time)") . "</td></tr>" .
-			   "<tr><td style='max-width: 60px'>" . _("P or p") 	 . "</td><td style='max-width: 60px' colspan='2'>" . _("AM or PM") . "</td></tr>" .
-			   "<tr><td style='max-width: 60px'>" . _("Q") 		 . "</td><td style='max-width: 60px' colspan='2'>" . _("\"today\", \"yesterday\" or ABdY") . "</td></tr>" .
-			   "<tr><td style='max-width: 60px'>" . _("q") 		 . "</td><td style='max-width: 60px' colspan='2'>" . _("\"\" (for today), \"yesterday\", weekday, or ABdY") . "</td></tr>" .
-			   "<tr><td style='max-width: 60px'>" . _("R") 		 . "</td><td style='max-width: 60px' colspan='2'>" . _("24 hour time, including minute") . "</td></tr>";
+		$settings = (is_array($settings) && !empty($settings)) ? $settings : array();
+		show_view(dirname(__FILE__).'/views/tz.php',array('settings' => $settings, 'tooltips' => $tooltips));
 		break;
 	case "dialplan":
 		// TODO: may wan to look at making this table driven but for now ...
 		$settings = voicemail_get_settings($uservm, $action, $extension);
-		$output .= "<tr><td colspan='2'><hr /></td><td></td></tr>";
-		$output .= "<tr><td colspan='2'><h4>" . _("General Dialplan Settings") . "</h4></td></tr>";
-
-		// Disable "Leave message after tone"
-		$checkbox = form_checkbox('VM_OPTS', 's', $settings['VM_OPTS']);
-		$output .= "<tr><td>" . 
-			fpbx_label(_("Disable Standard Prompt"), _("Check this box to disable the standard voicemail instructions that follow the user recorded message. These standard instructions tell the caller to leave a message after the beep. This can be individually controlled for users who have VMX locater enabled.")) . 
-			"</td><td>" . $checkbox . "</td></tr>";
-
 		// Direct Dial Mode
-		unset($opts);
-		$opts['u'] = _("Unavailable");
-		$opts['b'] = _("Busy");
-		$opts['s'] = _("No Message");
-		$dropdown = form_dropdown('VM_DDTYPE', $opts, $settings['VM_DDTYPE']);
-		$output .= "<tr><td>" . 
-			fpbx_label(_("Direct Dial Mode"), _("Whether to play the busy, unavailable or no message when direct dialing voicemail")) . 
-			"</td><td>" . $dropdown . "</td></tr>";
-
+		$direct_dial_opts = array(
+			'u' => _("Unavailable"),
+			'b' => _("Busy"),
+			's' => _("No Message")
+		);
 		// Voicemail Gain
-		unset($opts);
-		$opts[''] = _("None");
-		$opts['3'] = _("3 db");
-		$opts['6'] = _("6 db");
-		$opts['9'] = _("9 db");
-		$opts['12'] = _("12 db");
-		$opts['15'] = _("15 db");
-		$dropdown = form_dropdown('VM_GAIN', $opts, $settings['VM_GAIN']);
-		$output .= "<tr><td>" . 
-			fpbx_label(_("Voicemail Recording Gain"), _("The amount of gain to amplify a voicemail message when geing recorded. This is usually set when users are complaining about hard to hear messages on your system, often caused by very quiet analog lines. The gain is in Decibels which doubles for every 3 db.")) . 
-			"</td><td>" . $dropdown . "</td></tr>";
-
-		// Operator Extension
-		$textbox = form_input('OPERATOR_XTN', $settings['OPERATOR_XTN']);
-		$output .= "<tr><td>" . 
-			fpbx_label(_("Operator Extension"), _("Default number to dial when a voicemail user 'zeros out' if enabled. This can be overriden for each extension with the VMX Locater option that is valid even when VMX Locater is not enabled. This can be any number including an external number and there is NO VALIDATION so it should be tested after configuration.")) . 
-			"</td><td>" . $textbox . "</td></tr>";
-
-		$output .= "<tr><td colspan='2'><h4>" . _("Advanced VmX Locater Settings") . "</h4></td></tr>";
-
+		$voicemail_gain_opts = array(
+			'' => _("None"),
+			'3' => _("3 db"),
+			'6' => _("6 db"),
+			'9' => _("9 db"),
+			'12' => _("12 db"),
+			'15' => _("15 db")
+		);
 		// VMX_TIMEOUT
-		//
-		unset($opts);
-		$opts['0'] = _("0 Sec");
+		$vmx_timeout_opts['0'] = _("0 Sec");
 		for ($i=1;$i<16;$i++) { 
-			$opts[$i] = sprintf(_("%s Sec"),$i);
+			$vmx_timeout_opts[$i] = sprintf(_("%s Sec"),$i);
 		}
-		$dropdown = form_dropdown('VMX_TIMEOUT', $opts, $settings['VMX_TIMEOUT']);
-		$output .= "<tr><td>" . 
-			fpbx_label(_("Msg Timeout"), _("Time to wait after message has played to timeout and/or repeat the message if no entry pressed.")) . 
-			"</td><td>" . $dropdown . "</td></tr>";
-
 		// VMX_REPEAT
-		//
-		unset($opts);
 		for ($i=1;$i<5;$i++) { 
-			$opts[$i] = sprintf(_("%s Attempts"),$i);
+			$vmx_repeat_opts[$i] = sprintf(_("%s Attempts"),$i);
 		}
-		$dropdown = form_dropdown('VMX_REPEAT', $opts, $settings['VMX_REPEAT']);
-		$output .= "<tr><td>" . 
-			fpbx_label(_("Times to Play Message"), _("Number of times to play the recorded message if the caller does not press any options and it times out. One attempt means we won't repeat and it will be treated as a timeout. A timeout would be the normal behavior and it is fairly normal to leave this zero and just record a message that tells them to press the various options now and leave enough time in the greeting letting them know it will otherwise go to voicemail as is normal.")) . 
-			"</td><td>" . $dropdown . "</td></tr>";
-
 		// VMX_LOOPS
 		//
-		unset($opts);
-		$opts[1] = sprintf(_("%s Retry"),1);
+		$vmx_loops_opts[1] = sprintf(_("%s Retry"),1);
 		for ($i=2;$i<5;$i++) { 
-			$opts[$i] = sprintf(_("%s Retries"),$i);
+			$vmx_loops_opts[$i] = sprintf(_("%s Retries"),$i);
 		}
-		$dropdown = form_dropdown('VMX_LOOPS', $opts, $settings['VMX_LOOPS']);
-		$output .= "<tr><td>" . 
-			fpbx_label(_("Error Re-tries"), _("Number of times to play invalid options and repeat the message upon receiving an undefined option. One retry means it will repeat at one time after the intial failure.")) . 
-			"</td><td>" . $dropdown . "</td></tr>";
-
-		// Disable "Leave message after tone" after repeated bad destinations
-		//
-		$checkbox = form_checkbox('VMX_OPTS_LOOP', 's', $settings['VMX_OPTS_LOOP']);
-		$output .= "<tr><td>" . 
-			fpbx_label(_("Disable Standard Prompt after Max Loops"), _("If the Max Loops are reached and the call goes to voicemail, checking this box will disable the standard voicemail prompt prompt that follows the user's recorded greeting. This default can be overriden with a unique ..vmx/vmxopts/loops AstDB entry for the given mode (busy/unavail) and user.")) . 
-			"</td><td>" . $checkbox . "</td></tr>";
-
-		// Disable "Leave message after tone" if special dovm destination provided
-		//
-		$checkbox = form_checkbox('VMX_OPTS_DOVM', 's', $settings['VMX_OPTS_DOVM']);
-		$output .= "<tr><td>" . 
-			fpbx_label(_("Disable Standard Prompt on 'dovm' Extension"), _("If the special advanced extension of 'dovm' is used, checking this box will disable the standard voicemail prompt prompt that follows the user's recorded greeting. This default can be overriden with a unique ..vmx/vmxopts/dovm AstDB entry for the given mode (busy/unavail) and user.")) . 
-			"</td><td>" . $checkbox . "</td></tr>";
-
-		$update_notice = ($update_flag === false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";
-		$update_flag === true ? $update_notice = "&nbsp;&nbsp;<b><u>UPDATE COMPLETED</u></b>":"";
-		//$output .= "<tr><td></td><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='action' id='action' value='Submit' />" . $update_notice . "</td></tr>";
-		$output .= "<tr><td></td><td colspan='2'><br /></td></tr>";
-		$output .= "<tr><td></td><td colspan='2'><input type='submit' name='action' id='action' value='Submit' />" . $update_notice . "</td></tr>";
+		show_view(dirname(__FILE__).'/views/dialplan.php',array('settings' => $settings, 'direct_dial_opts' => $direct_dial_opts, 'voicemail_gain_opts' => $voicemail_gain_opts, 'vmx_timeout_opts' => $vmx_timeout_opts, 'vmx_repeat_opts' => $vmx_repeat_opts, 'vmx_loops_opts' => $vmx_loops_opts));
 		break;
 
 	case "bsettings":
 	case "settings":
+		$output = '';
 		/* get settings */
 		$settings = voicemail_get_settings($uservm, $action, $extension);
 		/* Get Asterisk version. */
 		$ast_info = engine_getinfo();
 		$version = $ast_info["version"];
 		$text_size = 40;
-
 		if (!empty($extension)) {
-			$acct_title_links  = "<tr><td><h5>" . _("Account View Links:") . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td><td colspan='2'><h5><a href='config.php?type=$type&display=$display&action=bsettings&ext=$extension'>" . _("Settings") . "</a>&nbsp;&nbsp;|&nbsp;&nbsp;";
-			$acct_title_links .= "<a href='config.php?type=$type&display=$display&action=usage&ext=$extension'>" . _("Usage") . "</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a style='color:#ff9933;' href='config.php?type=$type&display=$display&action=settings&ext=$extension'>" . _("Advanced Settings") . "</a></h5></td></tr><tr><td colspan='2'><hr /></td></tr>";
+			show_view(dirname(__FILE__).'/views/settings.php',array('action' => $action, 'extension' => $extension, 'version' => $version, 'settings' => $settings, 'tooltips' => $tooltips, 'display_settings' => $acct_settings, 'display_tips' => $tooltips["account"], 'id_prefix' => 'acct'));
+			$id_prefix = "acct";
 			$display_settings = $acct_settings;
-			$display_tips     = $tooltips["account"];
-			$id_prefix        = "acct";
 		} else {
-			$acct_title_links = "";
-			$output .= "<tr><td colspan='2'><hr /></td></tr>";
+			show_view(dirname(__FILE__).'/views/settings.php',array('action' => $action, 'extension' => $extension, 'version' => $version, 'settings' => $settings, 'tooltips' => $tooltips, 'display_settings' => $gen_settings, 'display_tips' => $tooltips["general"], 'id_prefix' => 'gen'));
+			$id_prefix = "gen";
 			$display_settings = $gen_settings;
-			$display_tips     = $tooltips["general"];
-			$id_prefix        = "gen";
 		}
+
 		$display_name_row = "";
 		if ($action == "bsettings") {
-			# Overwrite account title links
-			$acct_title_links = "<tr><td><h5>" . _("Account View Links:") . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5></td><td colspan='2'><h5><a style='color:#ff9933;' href='config.php?type=$type&display=$display&action=bsettings&ext=$extension'>" . _("Settings") . "</a>&nbsp;&nbsp;|&nbsp;&nbsp;";
-			$acct_title_links .= "<a href='config.php?type=$type&display=$display&action=usage&ext=$extension'>" . _("Usage") . "</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='config.php?type=$type&display=$display&action=settings&ext=$extension'>" . _("Advanced Settings") . "</a></h5></td></tr><tr><td colspan='2'><hr /></td></tr>";
 			/* Display account name */
 			$display_name = isset($settings["name"])?$settings["name"]:_("No name defined; this is configured from the Extensions or Users page.");
 			$display_name_row = "<tr><td><a href='#' class='info'>" . _("Name") . "<span>" . $tooltips["account"]["name"] . "</span></a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;" . $display_name . "</td></tr>";
@@ -638,7 +511,7 @@ switch ($action) {
 			$opt_headings["delete"]		= _("Delete Voicemail");
 			$opt_headings["callmenum"]	= _("Call-Me Number");
 		}
-		$output .= $acct_title_links . $display_name_row;
+		$output .= $display_name_row;
 
 		foreach ($display_settings as $key => $descrip) {
 			$tooltip = isset($display_tips[$key])?$display_tips[$key]:"";
@@ -673,7 +546,7 @@ switch ($action) {
 					$output .= "</td></tr>";
 				} else {
 					$text_type = ($key == "pwd" || $key == "authpassword")?"password":"text";
-					$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<input size='$text_size' maxlength='$len' type='$text_type' name='$id' id='$id' tabindex='1' value=\"$val\" /></td></tr>";
+					$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<input size='$text_size' maxlength='$len' type='$text_type' name='$id' id='$id' tabindex='1' value=\"".htmlentities($val)."\" /></td></tr>";
 				}
 			}
 			unset($id);
@@ -685,12 +558,13 @@ switch ($action) {
 				$id = $id_prefix . "__" . $key;
 				# no tooltip available
 				$output .= "<tr><td>$key</td>";
-				$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<input size='$text_size' type='text' name='$id' id='$id' tabindex='1' value=\"$val\" /></td></tr>";
+				$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<input size='$text_size' type='text' name='$id' id='$id' tabindex='1' value=\"".htmlentities($val)."\" /></td></tr>";
 			}
 		}
 		$update_notice = ($update_flag === false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";
 		$update_flag === true ? $update_notice = "&nbsp;&nbsp;<b><u>UPDATE COMPLETED</u></b>":"";
 		$output .= "<tr><td></td><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='action' id='action' value='Submit' />" . $update_notice . "</td></tr>";
+		echo $output;
 		break;
 	case "usage":
 		/* Usage information and options available for system-wide,
@@ -700,125 +574,64 @@ switch ($action) {
 		if ($need_update) {
 			voicemail_update_usage($vmail_info, $context, $extension, $_REQUEST);
 			if (!empty($extension)) {
-				$url = "config.php?type=$type&display=$display&ext=$extension&action=$action&updated=true";
+				$url = "config.php?display=$display&ext=$extension&action=$action&updated=true";
 			} else {
-				$url = "config.php?type=$type&display=$display&action=$action&updated=true";
+				$url = "config.php?display=$display&action=$action&updated=true";
 			}
 			redirect($url);
 		}
 
-		voicemail_get_usage($vmail_info, $scope, $acts_total, $acts_act, $acts_unact, $disabled_count,
- 	                                       $msg_total, $msg_in, $msg_other,
-					       $name, $unavail, $busy, $temp, $abandoned,
-					       $storage,
-					       $context, $extension);
-		$lp = "<tr><td colspan='3'><br /></td></tr>";
+		voicemail_get_usage($vmail_info, 
+			$scope, 
+			$acts_total, 
+			$acts_act, 
+			$acts_unact, 
+			$disabled_count,
+			$msg_total, 
+			$msg_in, 
+			$msg_other,
+			$name, 
+			$unavail, 
+			$busy, 
+			$temp, 
+			$abandoned,
+			$storage,
+			$context, 
+			$extension
+		);
+		
+		$vals = array(
+			'scope' => $scope, 
+			'acts_total' => $acts_total, 
+			'acts_act' => $acts_act, 
+			'acts_unact' => $acts_unact, 
+			'disabled_count' => $disabled_count,
+			'msg_total' => $msg_total,
+			'msg_in' => $msg_in,
+			'msg_other' => $msg_other,
+			'name' => $name,
+			'unavail' => $unavail,
+			'busy' => $busy,
+			'temp' => $temp,
+			'abandoned' => $abandoned,
+			'storage' => $storage,
+			'context' => $context,
+			'extension' => $extension
+		);
+		
 		if ($scope == "system") {
-			$output .= "<tr><td colspan='3'><hr /></td></tr>";
-			$accounts_row = "<tr><td><a href='#' class='info'>" . _("Number of Accounts:") . "<span>" . _("Total ( Activated / Unactivated / Disabled )") . "</span></a></td>";
-			$accounts_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$acts_total&nbsp;&nbsp;(&nbsp;$acts_act&nbsp;/&nbsp;$acts_unact&nbsp;/&nbsp;$disabled_count&nbsp;)</td></tr>";
-			$accounts_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
-
-			$msg_row = "<tr><td><a href='#' class='info'>" . _("Number of Messages:") . "<span>" . _("Total ( Messages in inboxes / Messages in other folders )") . "</span></a></td>";
-			$msg_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$msg_total&nbsp;&nbsp;(&nbsp;$msg_in&nbsp;/&nbsp;$msg_other&nbsp;)</td>";
-			$msg_row .= "<td><input type='checkbox' name='del_msgs' id='del_msgs' value='true' />&nbsp;<a href='#' class='info'>" . _("Delete") . "<span>" . _("Remove all messages") . "</span></a></td></tr>";
-			$msg_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
-
-			$name_row = "<tr><td><a href='#' class='info'>" . _("Recorded Names:") . "<span>" . _("Number of recorded name greetings") . "</span></a></td>";
-			$name_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$name</td>";
-			$name_row .= "<td><input type='checkbox' name='del_names' id='del_names' value='true' />&nbsp;<a href='#' class='info'>" . _("Delete") . "<span>" . _("Remove all recorded names") . "</span></a></td></tr>";
-			$name_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
-
-			$unavail_row = "<tr><td><a href='#' class='info'>" . _("Unavailable Greetings:") . "<span>" . _("Number of recorded unavailable greetings") . "</span></a></td>";
-			$unavail_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$unavail</td>";
-			$unavail_row .= "<td><input type='checkbox' name='del_unavail' id='del_unavail' value='true' />&nbsp;<a href='#' class='info'>" . _("Delete") . "<span>" . _("Remove all unavailable greetings") . "</span></a></td></tr>";
-			$unavail_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
-
-			$busy_row = "<tr><td><a href='#' class='info'>" . _("Busy Greetings:") . "<span>" . _("Number of recorded busy greetings") . "</span></a></td>";
-			$busy_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$busy</td>";
-			$busy_row .= "<td><input type='checkbox' name='del_busy' id='del_busy' value='true' />&nbsp;<a href='#' class='info'>" . _("Delete") . "<span>" . _("Remove all busy greetings") . "</span></a></td></tr>";
-			$busy_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
-
-			$temp_row = "<tr><td><a href='#' class='info'>" . _("Temporary Greetings:") . "<span>" . _("Number of recorded temporary greetings") . "</span></a></td>";
-			$temp_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$temp</td>";
-			$temp_row .= "<td><input type='checkbox' name='del_temp' id='del_temp' value='true' />&nbsp;<a href='#' class='info'>" . _("Delete") . "<span>" . _("Remove all temporary greetings") . "</span></a></td></tr>";
-			$temp_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
-
-			$abandoned_row = "<tr><td><a href='#' class='info'>" . _("Abandoned Greetings:") . "<span>" . _("Number of abandoned greetings. Such greetings were recorded by the user but were NOT accepted, so the sound file remains on disk but is not used as a greeting.") . "</span></a></td>";
-			$abandoned_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$abandoned</td>";
-			$abandoned_row .= "<td><input type='checkbox' name='del_abandoned' id='del_abandoned' value='true' />&nbsp;<a href='#' class='info'>" . _("Delete") . "<span>" . _("Remove all abandoned greetings (> 1 day old)") . "</span></a></td></tr>";
-			$abandoned_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
-
-			$storage_row = "<tr><td><a href='#' class='info'>" . _("Storage Used:") . "<span>" . _("Disk space currently in use by Voicemail data") . "</span></a></td>";
-			$storage_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$storage</td>";
-			$storage_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
-			
-			$output .= $lp . $accounts_row . $msg_row . $name_row . $unavail_row . $busy_row . $temp_row . $abandoned_row . $storage_row;			
+			show_view(dirname(__FILE__).'/views/usage_system.php',$vals);
 		} else {
-			$accounts_row = "";
-			$output .= "<tr><td><h5>" . _("Account View Links:") . "</h5></td><td colspan='3'><h5><a href='config.php?type=$type&display=$display&action=bsettings&ext=$extension'>" . _("Settings") . "</a>&nbsp;&nbsp;|&nbsp;&nbsp;";
-			$output .= "<a style='color:#ff9933;' href='config.php?type=$type&display=$display&action=usage&ext=$extension'>" . _("Usage") . "</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='config.php?type=$type&display=$display&action=settings&ext=$extension'>" . _("Advanced Settings") . "</a></h5></td></tr><tr><td colspan='3'><hr /></td></tr>";
-
-			$msg_row = "<tr><td><a href='#' class='info'>" . _("Number of Messages:") . "<span>" . _("Total ( Messages in inboxes / Messages in other folders )") . "</span></a>&nbsp;&nbsp;&nbsp;</td>";
-			$msg_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$msg_total&nbsp;&nbsp;(&nbsp;$msg_in&nbsp;/&nbsp;$msg_other&nbsp;)</td>";
-			$msg_row .= "<td><input type='checkbox' name='del_msgs' id='del_msgs' value='true' />&nbsp;<a href='#' class='info'>" . _("Delete") . "<span>" . _("Remove all messages") . "</span></a></td></tr>";
-			$msg_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
-
+			show_view(dirname(__FILE__).'/views/settings.php',array('action' => $action, 'extension' => $extension, 'version' => $version, 'settings' => $settings, 'tooltips' => $tooltips, 'display_settings' => $acct_settings, 'display_tips' => $tooltips["account"], 'id_prefix' => 'acct'));
 			/* Get timestamps, if applicable */
-			$ts = voicemail_get_greeting_timestamps($name, $unavail, $busy, $temp, $context, $extension);
-			$name_ts = ($ts["name"] > 0)?$ts["name"]:"";
-			$unavail_ts = ($ts["unavail"] > 0)?$ts["unavail"]:"";
-			$busy_ts = ($ts["busy"] > 0)?$ts["busy"]:"";
-			$temp_ts = ($ts["temp"] > 0)?$ts["temp"]:"";
-
-			/* Convert count of greetings to yes/no */
-			$name = ($name > 0)?"<a href='#' class='info'>" . _("yes") . "<span>" . _("File timestamp: ") . $name_ts . "</span></a>":_("no");
-			$name_row = "<tr><td><a href='#' class='info'>" . _("Recorded Name:") . "<span>" . _("Has a recorded name greeting?") . "</span></a>&nbsp;&nbsp;&nbsp;</td>";
-			$name_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$name</td>";
-			$name_row .= "<td><input type='checkbox' name='del_names' id='del_names' value='true' />&nbsp;<a href='#' class='info'>" . _("Delete") . "<span>" . _("Remove recorded name") . "</span></a>&nbsp;&nbsp;&nbsp;</td></tr>";
-			$name_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
-
-			$unavail = ($unavail > 0)?"<a href='#' class='info'>" . _("yes") . "<span>" . _("File timestamp: ") . $unavail_ts . "</span></a>":_("no");
-			$unavail_row = "<tr><td><a href='#' class='info'>" . _("Unavailable Greeting:") . "<span>" . _("Has a recorded unavailable greeting?") . "</span></a>&nbsp;&nbsp;&nbsp;</td>";
-			$unavail_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$unavail</td>";
-			$unavail_row .= "<td><input type='checkbox' name='del_unavail' id='del_unavail' value='true' />&nbsp;<a href='#' class='info'>" . _("Delete") . "<span>" . _("Remove unavailable greeting") . "</span></a>&nbsp;&nbsp;&nbsp;</td></tr>";
-			$unavail_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
-
-			$busy = ($busy > 0)?"<a href='#' class='info'>" . _("yes") . "<span>" . _("File timestamp: ") . $busy_ts . "</span></a>":_("no");
-			$busy_row = "<tr><td><a href='#' class='info'>" . _("Busy Greetings:") . "<span>" . _("Has a recorded busy greeting?") . "</span></a>&nbsp;&nbsp;&nbsp;</td>";
-			$busy_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$busy</td>";
-			$busy_row .= "<td><input type='checkbox' name='del_busy' id='del_busy' value='true' />&nbsp;<a href='#' class='info'>" . _("Delete") . "<span>" . _("Remove busy greeting") . "</span></a>&nbsp;&nbsp;&nbsp;</td></tr>";
-			$busy_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
-
-			$temp = ($temp > 0)?"<a href='#' class='info'>" . _("yes") . "<span>" . _("File timestamp: ") . $temp_ts . "</span></a>":_("no");
-			$temp_row = "<tr><td><a href='#' class='info'>" . _("Temporary Greeting:") . "<span>" . _("Has a recorded temporary greeting?") . "</span></a>&nbsp;&nbsp;&nbsp;</td>";
-			$temp_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$temp</td>";
-			$temp_row .= "<td><input type='checkbox' name='del_temp' id='del_temp' value='true' />&nbsp;<a href='#' class='info'>" . _("Delete") . "<span>" . _("Remove temporary greeting") . "</span></a></td></tr>";
-			$temp_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
-
-			# It is conceivable a user has more than one abandoned greeting.
-			$abandoned_row = "<tr><td><a href='#' class='info'>" . _("Abandoned Greetings:") . "<span>" . _("Number of abandoned greetings. Such greetings were recorded by the user but were NOT accepted, so the sound file remains on disk but is not used as a greeting.") . "</span></a></td>";
-			$abandoned_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$abandoned</td>";
-			$abandoned_row .= "<td><input type='checkbox' name='del_abandoned' id='del_abandoned' value='true' />&nbsp;<a href='#' class='info'>" . _("Delete") . "<span>" . _("Remove all abandoned greetings (> 1 day old)") . "</span></a></td></tr>";
-			$abandoned_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
-
-			$storage_row = "<tr><td><a href='#' class='info'>" . _("Storage Used") . "<span>" . _("Disk space currently in use by Voicemail data") . "</span></a></td>";
-			$storage_row .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;$storage</td>";
-			$storage_row .= "<tr><td colspan='3'><hr style='height:0.1px;' /></td></tr>";
-
-			$output .= $lp . $msg_row . $name_row . $unavail_row . $busy_row . $temp_row . $abandoned_row . $storage_row;
+			$vals['ts'] = voicemail_get_greeting_timestamps($name, $unavail, $busy, $temp, $context, $extension);
+			$vals['name_ts'] = ($vals['ts']["name"] > 0) ? $vals['ts']["name"] : '0';
+			$vals['unavail_ts'] = ($vals['ts']["unavail"] > 0) ? $vals['ts']["unavail"] : '0';
+			$vals['busy_ts'] = ($vals['ts']["busy"] > 0) ? $vals['ts']["busy"] : '0';
+			$vals['temp_ts'] = ($vals['ts']["temp"] > 0) ? $vals['ts']["temp"] : '0';
+			show_view(dirname(__FILE__).'/views/usage.php',$vals);
 		}
-
-		$update_notice = ($update_flag === false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";
-		$update_flag === true ? $update_notice = "&nbsp;&nbsp;<b><u>UPDATE COMPLETED</u></b>":"";
-		$output .= "<tr><td></td><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='action' id='action' value='Submit' />" . $update_notice . "</td></tr>";
 		break;
 	default:
 		break;
 }
-
-$output .= "</table>";
-$output .= "</form>";
-
-echo $output;
-?>

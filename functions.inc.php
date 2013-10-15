@@ -929,7 +929,6 @@ function voicemail_getVoicemail() {
 
 	$vmconf = null;
 	$section = null;
-	
 	// yes, this is hardcoded.. is this a bad thing?
 	parse_voicemailconf(rtrim($amp_conf["ASTETCDIR"],"/")."/voicemail.conf", $vmconf, $section);
 	
