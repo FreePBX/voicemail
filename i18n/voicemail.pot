@@ -20,12 +20,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"POT-Creation-Date: 2013-10-31 12:10-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid ""
@@ -258,6 +258,9 @@ msgstr ""
 msgid "System Settings"
 msgstr ""
 
+msgid "Dialplan Behavior"
+msgstr ""
+
 msgid "Usage Statistics For: "
 msgstr ""
 
@@ -274,6 +277,69 @@ msgid "Dial Voicemail"
 msgstr ""
 
 msgid "Voicemail Admin"
+msgstr ""
+
+msgid "Direct Dial Prefix"
+msgstr ""
+
+msgid "Checking for General Setting migrations.."
+msgstr ""
+
+msgid "preparing"
+msgstr ""
+
+#, php-format
+msgid "%s no longer used"
+msgstr ""
+
+#, php-format
+msgid "%s changed from %s to max value 15"
+msgstr ""
+
+#, php-format
+msgid "%s adjusted from %s to %s"
+msgstr ""
+
+#, php-format
+msgid "%s adjusted from bad value %s to default no gain"
+msgstr ""
+
+#, php-format
+msgid ""
+"ERROR inserting %s into voicemail_admin during migration, it may alreayd "
+"exist"
+msgstr ""
+
+#, php-format
+msgid "%s migrated"
+msgstr ""
+
+msgid "not needed"
+msgstr ""
+
+#, php-format
+msgid "%s added"
+msgstr ""
+
+msgid "General Settings migrated"
+msgstr ""
+
+msgid "Deleting migrated settings.."
+msgstr ""
+
+msgid "Fatal DB error trying to delete globals, trying to carry on"
+msgstr ""
+
+msgid "done"
+msgstr ""
+
+msgid "migrated VM_PREFIX to feature codes"
+msgstr ""
+
+msgid "deleting VM_PREFIX from globals.."
+msgstr ""
+
+msgid "could not delete"
 msgstr ""
 
 msgid "Cannot connect to Asterisk Manager with "
@@ -295,6 +361,17 @@ msgid "Attempting to delete.."
 msgstr ""
 
 msgid "ok"
+msgstr ""
+
+msgid "adding preload for res_mwi_blf.so to modules.conf.."
+msgstr ""
+
+msgid "FAILED"
+msgstr ""
+
+msgid ""
+"you may need to add the line 'preload => res_mwi_blf.so' to your modules."
+"conf manually"
 msgstr ""
 
 msgid "Timezone definition name"
@@ -650,286 +727,80 @@ msgstr ""
 msgid "Call me number. Can be used from within ARI."
 msgstr ""
 
-msgid "System View Links:"
+msgid "Unavailable"
 msgstr ""
 
-msgid ""
-"A timezone definition specifies how the Voicemail system announces the time."
+msgid "Busy"
 msgstr ""
 
-msgid ""
-"For example, the time a message was left will be announced according to the "
-"user's timezone on message playback."
+msgid "No Message"
 msgstr ""
 
-msgid "Entries below will be written to Voicemail configuration as-is."
+msgid "None"
 msgstr ""
 
-msgid ""
-"Please be sure to follow the format for timezone definitions described below."
+msgid "3 db"
 msgstr ""
 
-msgid "Name"
+msgid "6 db"
 msgstr ""
 
-msgid "Timezone Definition"
+msgid "9 db"
 msgstr ""
 
-msgid "Delete"
+msgid "12 db"
 msgstr ""
 
-msgid "New Name"
+msgid "15 db"
 msgstr ""
 
-msgid "New Timezone Definition"
+msgid "0 Sec"
 msgstr ""
 
-msgid "Timezone definition format is: "
+#, php-format
+msgid "%s Sec"
 msgstr ""
 
-msgid "timezone|values"
+#, php-format
+msgid "%s Attempts"
 msgstr ""
 
-msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
+#, php-format
+msgid "%s Retry"
 msgstr ""
 
-msgid "The <i>values</i> supported in the timezone definition string include:"
-msgstr ""
-
-msgid "'filename'"
-msgstr ""
-
-msgid "The name of a sound file (the file name must be single-quoted)"
-msgstr ""
-
-msgid "variable"
-msgstr ""
-
-msgid "A variable to be substituted (see below for supported variable values)"
-msgstr ""
-
-msgid "Supported <i>variables</i>:"
-msgstr ""
-
-msgid "A or a"
-msgstr ""
-
-msgid "Day of week (Saturday, Sunday, ...)"
-msgstr ""
-
-msgid "B or b or h"
-msgstr ""
-
-msgid "Month name (January, February, ...)"
-msgstr ""
-
-msgid "d or e"
-msgstr ""
-
-msgid "numeric day of month (first, second, ..., thirty-first)"
-msgstr ""
-
-msgid "Y"
-msgstr ""
-
-msgid "Year"
-msgstr ""
-
-msgid "I or l"
-msgstr ""
-
-msgid "Hour, 12 hour clock"
-msgstr ""
-
-msgid "H"
-msgstr ""
-
-msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
-msgstr ""
-
-msgid "k"
-msgstr ""
-
-msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
-msgstr ""
-
-msgid "M"
-msgstr ""
-
-msgid "Minute, with 00 pronounced as \"o'clock\""
-msgstr ""
-
-msgid "N"
-msgstr ""
-
-msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
-msgstr ""
-
-msgid "P or p"
-msgstr ""
-
-msgid "AM or PM"
-msgstr ""
-
-msgid "Q"
-msgstr ""
-
-msgid "\"today\", \"yesterday\" or ABdY"
-msgstr ""
-
-msgid "q"
-msgstr ""
-
-msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
-msgstr ""
-
-msgid "R"
-msgstr ""
-
-msgid "24 hour time, including minute"
-msgstr ""
-
-msgid "Account View Links:"
-msgstr ""
-
-msgid "Settings"
-msgstr ""
-
-msgid "Usage"
-msgstr ""
-
-msgid "Advanced Settings"
+#, php-format
+msgid "%s Retries"
 msgstr ""
 
 msgid "No name defined; this is configured from the Extensions or Users page."
 msgstr ""
 
+msgid "Name"
+msgstr ""
+
 msgid "Call-Me Number"
 msgstr ""
 
-msgid "undefined"
-msgstr ""
-
-msgid ""
-"Selecting \"undefined\" will remove this option from the user's Voicemail "
-"configuration entry. (System default will be used.)"
-msgstr ""
-
-msgid "Number of Accounts:"
-msgstr ""
-
-msgid "Total ( Activated / Unactivated / Disabled )"
-msgstr ""
-
-msgid "Number of Messages:"
-msgstr ""
-
-msgid "Total ( Messages in inboxes / Messages in other folders )"
-msgstr ""
-
-msgid "Remove all messages"
-msgstr ""
-
-msgid "Recorded Names:"
-msgstr ""
-
-msgid "Number of recorded name greetings"
-msgstr ""
-
-msgid "Remove all recorded names"
-msgstr ""
-
-msgid "Unavailable Greetings:"
-msgstr ""
-
-msgid "Number of recorded unavailable greetings"
-msgstr ""
-
-msgid "Remove all unavailable greetings"
-msgstr ""
-
-msgid "Busy Greetings:"
-msgstr ""
-
-msgid "Number of recorded busy greetings"
-msgstr ""
-
-msgid "Remove all busy greetings"
-msgstr ""
-
-msgid "Temporary Greetings:"
-msgstr ""
-
-msgid "Number of recorded temporary greetings"
-msgstr ""
-
-msgid "Remove all temporary greetings"
-msgstr ""
-
-msgid "Abandoned Greetings:"
-msgstr ""
-
-msgid ""
-"Number of abandoned greetings. Such greetings were recorded by the user but "
-"were NOT accepted, so the sound file remains on disk but is not used as a "
-"greeting."
-msgstr ""
-
-msgid "Remove all abandoned greetings (> 1 day old)"
-msgstr ""
-
-msgid "Storage Used:"
-msgstr ""
-
-msgid "Disk space currently in use by Voicemail data"
-msgstr ""
-
-msgid "File timestamp: "
-msgstr ""
-
-msgid "Recorded Name:"
-msgstr ""
-
-msgid "Has a recorded name greeting?"
-msgstr ""
-
-msgid "Remove recorded name"
-msgstr ""
-
-msgid "Unavailable Greeting:"
-msgstr ""
-
-msgid "Has a recorded unavailable greeting?"
-msgstr ""
-
-msgid "Remove unavailable greeting"
-msgstr ""
-
-msgid "Has a recorded busy greeting?"
-msgstr ""
-
-msgid "Remove busy greeting"
-msgstr ""
-
-msgid "Temporary Greeting:"
-msgstr ""
-
-msgid "Has a recorded temporary greeting?"
-msgstr ""
-
-msgid "Remove temporary greeting"
-msgstr ""
-
-msgid "Storage Used"
+msgid "Settings"
 msgstr ""
 
 msgid "This module allows you to configure Voicemail for a user or extension"
 msgstr ""
 
-msgid "Provide IMAP Voicemail Fields"
+msgid "Create Voicemail Hints"
 msgstr ""
 
 msgid "Voicemail Module"
+msgstr ""
+
+msgid ""
+"Setting this flag with generate the required dialplan to integrate with "
+"res_mwi_blf which is included with the Official FreePBX Distro. It allows "
+"users to subscribe to other voicemail box and be notified via BLF of changes."
+msgstr ""
+
+msgid "Provide IMAP Voicemail Fields"
 msgstr ""
 
 msgid ""
