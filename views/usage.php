@@ -77,7 +77,7 @@
 		<td>
 			<a href='#' class='info'><?php echo _("Abandoned Greetings:") ?><span><?php echo _("Number of abandoned greetings. Such greetings were recorded by the user but were NOT accepted, so the sound file remains on disk but is not used as a greeting.") ?></span></a>
 		</td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;$abandoned</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $abandoned; ?></td>
 		<td>
 			<input type='checkbox' name='del_abandoned' id='del_abandoned' value='true' />&nbsp;<a href='#' class='info'><?php echo _("Delete") ?><span><?php echo _("Remove all abandoned greetings (> 1 day old)") ?></span></a>
 		</td>
@@ -92,7 +92,7 @@
 		<td>
 			<a href='#' class='info'><?php echo _("Storage Used") ?><span><?php echo _("Disk space currently in use by Voicemail data") ?></span></a>
 		</td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;$storage</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $storage; ?></td>
 	</tr>
 	<tr>
 		<td colspan='3'>
