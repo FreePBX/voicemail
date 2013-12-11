@@ -514,11 +514,11 @@ switch ($action) {
 		$output .= $display_name_row;
 
 		foreach ($display_settings as $key => $descrip) {
-			$tooltip = isset($display_tips[$key])?$display_tips[$key]:"";
+			$tooltip = isset($tooltips['general'][$key])?$tooltips['general'][$key]:(isset($tooltips['account'][$key])?$tooltips['account'][$key]:"");
 			$len = ($descrip["len"] > 0)?$descrip["len"]:$dlen;
 			$id = $id_prefix . "__" . $key;
 			if (isset($settings[$key]) || ($version >= $descrip["ver"])) {
-				$val = isset($settings[$key])?$settings[$key]:$descrip["default"];
+				$val = isset($settings[$key]) ? $settings[$key] : (!empty($descrip["default"]) ? $descrip["default"] : '');
 				unset($settings[$key]);
 				$opt_name = ($action == "bsettings")?$opt_headings[$key]:$key;
 				$output .= "<tr><td><a href='#' class='info'>$opt_name<span>$tooltip</span></a></td>";
@@ -622,6 +622,8 @@ switch ($action) {
 		if ($scope == "system") {
 			show_view(dirname(__FILE__).'/views/usage_system.php',$vals);
 		} else {
+			$version = !empty($version) ? $version : '';
+			$settings = !empty($settings) ? $settings : '';
 			show_view(dirname(__FILE__).'/views/settings.php',array('action' => $action, 'extension' => $extension, 'version' => $version, 'settings' => $settings, 'tooltips' => $tooltips, 'display_settings' => $acct_settings, 'display_tips' => $tooltips["account"], 'id_prefix' => 'acct'));
 			/* Get timestamps, if applicable */
 			$vals['ts'] = voicemail_get_greeting_timestamps($name, $unavail, $busy, $temp, $context, $extension);
