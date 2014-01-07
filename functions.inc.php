@@ -754,7 +754,7 @@ function voicemail_mailbox_get($mbox) {
 			$vmbox['vmcontext'] = $vmcontext;
 			$vmbox['pwd'] = $uservm[$vmcontext][$mbox]['pwd'];
 			$vmbox['name'] = $uservm[$vmcontext][$mbox]['name'];
-			$vmbox['email'] = $uservm[$vmcontext][$mbox]['email'];
+			$vmbox['email'] = str_replace('|',',',$uservm[$vmcontext][$mbox]['email']);
 			$vmbox['pager'] = $uservm[$vmcontext][$mbox]['pager'];
 			$vmbox['options'] = $uservm[$vmcontext][$mbox]['options'];
 			return $vmbox;
@@ -847,7 +847,7 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 			'mailbox' => $extension, 
 			'pwd' => $vmpwd,
 			'name' => $name,
-			'email' => $email,
+			'email' => str_replace(',','|',$email),
 			'pager' => $pager,
 			'options' => $vmoptions
 			);
