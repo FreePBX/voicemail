@@ -8,7 +8,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
-		*2.11.1.1* #6977
+		*2.11.1.1* Fix #6967 (missing help popups) and PBXAC-12 (unable to delete greetings/recordings)
 		*2.11.1.0* Reorganize and rework module. Clean up and fixed #6769
 		*2.11.0.4* #6712
 		*2.11.0.3* #6246

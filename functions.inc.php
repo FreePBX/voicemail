@@ -754,7 +754,7 @@ function voicemail_mailbox_get($mbox) {
 			$vmbox['vmcontext'] = $vmcontext;
 			$vmbox['pwd'] = $uservm[$vmcontext][$mbox]['pwd'];
 			$vmbox['name'] = $uservm[$vmcontext][$mbox]['name'];
-			$vmbox['email'] = $uservm[$vmcontext][$mbox]['email'];
+			$vmbox['email'] = str_replace('|',',',$uservm[$vmcontext][$mbox]['email']);
 			$vmbox['pager'] = $uservm[$vmcontext][$mbox]['pager'];
 			$vmbox['options'] = $uservm[$vmcontext][$mbox]['options'];
 			return $vmbox;
@@ -847,7 +847,7 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 			'mailbox' => $extension, 
 			'pwd' => $vmpwd,
 			'name' => $name,
-			'email' => $email,
+			'email' => str_replace(',','|',$email),
 			'pager' => $pager,
 			'options' => $vmoptions
 			);
@@ -1306,6 +1306,7 @@ function voicemail_get_settings($vmconf, $action, $extension="") {
 function voicemail_update_usage($vmail_info, $context="", $extension="", $args) {
 	global $vmail_root;
 	$take_action = false;
+
 	if (isset($args["del_msgs"]) && $args["del_msgs"] == "true") {
 		$msg = true;
 		$take_action = true;
@@ -1375,23 +1376,23 @@ function voicemail_del_greeting_files($vmail_root, $context="", $exten="", $name
 	$path = $vmail_root;
 	if (!empty($context) && !empty($exten)) {
 		$path .= "/" . $context . "/" . $exten;
-		$ab_name_cmd    = "ls $path/greet.tmp.*";
-		$ab_temp_cmd    = "ls $path/temp.tmp.*";
-		$ab_busy_cmd    = "ls $path/busy.tmp.*";
-		$ab_unavail_cmd = "ls $path/unavail.tmp.*";
-		$name_cmd       = "ls $path/greet.*";
-		$unavail_cmd    = "ls $path/unavail.*";
-		$busy_cmd       = "ls $path/busy.*";
-		$temp_cmd       = "ls $path/temp.*";
+		$ab_name_cmd    = "$path/greet.tmp.*";
+		$ab_temp_cmd    = "$path/temp.tmp.*";
+		$ab_busy_cmd    = "$path/busy.tmp.*";
+		$ab_unavail_cmd = "$path/unavail.tmp.*";
+		$name_cmd       = "$path/greet.*";
+		$unavail_cmd    = "$path/unavail.*";
+		$busy_cmd       = "$path/busy.*";
+		$temp_cmd       = "$path/temp.*";
 	} else {
-		$ab_name_cmd    = "ls $path/*/*/greet.tmp.*";
-		$ab_temp_cmd    = "ls $path/*/*/temp.tmp.*";
-		$ab_busy_cmd    = "ls $path/*/*/busy.tmp.*";
-		$ab_unavail_cmd = "ls $path/*/*/unavail.tmp.*";
-		$name_cmd       = "ls $path/*/*/greet.*";
-		$unavail_cmd    = "ls $path/*/*/unavail.*";
-		$busy_cmd       = "ls $path/*/*/busy.*";
-		$temp_cmd       = "ls $path/*/*/temp.*";
+		$ab_name_cmd    = "$path/*/*/greet.tmp.*";
+		$ab_temp_cmd    = "$path/*/*/temp.tmp.*";
+		$ab_busy_cmd    = "$path/*/*/busy.tmp.*";
+		$ab_unavail_cmd = "$path/*/*/unavail.tmp.*";
+		$name_cmd       = "$path/*/*/greet.*";
+		$unavail_cmd    = "$path/*/*/unavail.*";
+		$busy_cmd       = "$path/*/*/busy.*";
+		$temp_cmd       = "$path/*/*/temp.*";
 	}
 	
 	if (is_dir($path)) {
@@ -1410,18 +1411,12 @@ function voicemail_del_greeting_files($vmail_root, $context="", $exten="", $name
 				}
 			}
 		}
-		if ($name) {
-			$names 		= voicemail_get_greetings("greet", $name_cmd);
-		}
-		if ($unavail) {
-			$unavails	= voicemail_get_greetings("unavail", $unavail_cmd);
-		}
-		if ($busy) {
-			$busys 		= voicemail_get_greetings("busy", $busy_cmd);
-		}
-		if ($temp) {
-			$temps		= voicemail_get_greetings("temp", $temp_cmd);
-		}
+		
+		$names = ($name) ? voicemail_get_greetings("greet", $name_cmd) : array();
+		$unavails = ($unavail) ? voicemail_get_greetings("unavail", $unavail_cmd) : array();
+		$busys = ($busy) ? voicemail_get_greetings("busy", $busy_cmd) : array();
+		$temps = ($temp) ? voicemail_get_greetings("temp", $temp_cmd) : array();
+		
 		$greetings   = array_merge($names, $temps, $busys, $unavails);
 		if (!empty($greetings)) {
 			foreach ($greetings as $greeting_path) {
@@ -1431,10 +1426,11 @@ function voicemail_del_greeting_files($vmail_root, $context="", $exten="", $name
 	}
 }
 function voicemail_get_storage($path) {
-	$cmd            = escapeshellcmd("du -khs $path");
 	$storage_result = array();
 	$matches        = array();
-	exec($cmd, $storage_result);
+	foreach (glob($path) as $filename) {
+		$storage_result[] = $filename;
+	}
 	if (preg_match("/[0-9]*\.*[0-9]*[a-zA-Z]*/", $storage_result[0], $matches) > 0) {
 		$storage = $matches[0];
 		unset($matches);
@@ -1464,10 +1460,8 @@ function voicemail_get_storage($path) {
 	return $storage;
 }
 function voicemail_get_usage($vmail_info, $scope, &$acts_total, &$acts_act, &$acts_unact, &$disabled_count,
- 	                                &$msg_total, &$msg_in, &$msg_other,
-	                                &$name, &$unavail, &$busy, &$temp, &$abandoned,
-				        &$storage,
-					$context="", $extension="") {
+							&$msg_total, &$msg_in, &$msg_other,&$name, &$unavail, &$busy, &$temp, &$abandoned,
+							&$storage, $context="", $extension="") {
 	global $vmail_root;
 	$msg_total = 0;
 	$msg_in    = 0;
@@ -1524,40 +1518,40 @@ function voicemail_get_usage($vmail_info, $scope, &$acts_total, &$acts_act, &$ac
 function voicemail_file_usage($path, &$inmsg_cnt, &$othmsg_cnt, &$greet_cnt, &$unavail_cnt, &$busy_cnt, &$temp_cnt, &$abandoned_cnt, $acct_flag=false) {
 	if ($acct_flag) { /* account-specific; account included in path passed in */
 		# greetings, all
-		$greet_cmd	= "ls $path/greet.*";
-		$unavail_cmd 	= "ls $path/unavail.*";
-		$busy_cmd	= "ls $path/busy.*";
-		$temp_cmd	= "ls $path/temp.*";
+		$greet_cmd	= "$path/greet.*";
+		$unavail_cmd 	= "$path/unavail.*";
+		$busy_cmd	= "$path/busy.*";
+		$temp_cmd	= "$path/temp.*";
 	
 		# abandoned greetings
-		$agreet_cmd	= "ls $path/greet.tmp.*";
-		$aunavail_cmd	= "ls $path/unavail.tmp.*";
-		$abusy_cmd	= "ls $path/busy.tmp.*";
-		$atemp_cmd	= "ls $path/temp.tmp.*";
+		$agreet_cmd	= "$path/greet.tmp.*";
+		$aunavail_cmd	= "$path/unavail.tmp.*";
+		$abusy_cmd	= "$path/busy.tmp.*";
+		$atemp_cmd	= "$path/temp.tmp.*";
 
 		# inbox messages
-		$inmsg_cmd	= "ls $path/INBOX/msg*.txt";
+		$inmsg_cmd	= "$path/INBOX/msg*.txt";
 
 		# all messages
-		$allmsg_cmd	= "ls $path/*/msg*.txt";
+		$allmsg_cmd	= "$path/*/msg*.txt";
 	} else { /* system-wide */
 		# greetings, all
-		$greet_cmd	= "ls $path/*/greet.*";
-		$unavail_cmd 	= "ls $path/*/unavail.*";
-		$busy_cmd	= "ls $path/*/busy.*";
-		$temp_cmd	= "ls $path/*/temp.*";
+		$greet_cmd	= "$path/*/greet.*";
+		$unavail_cmd 	= "$path/*/unavail.*";
+		$busy_cmd	= "$path/*/busy.*";
+		$temp_cmd	= "$path/*/temp.*";
 	
 		# abandoned greetings
-		$agreet_cmd	= "ls $path/*/greet.tmp.*";
-		$aunavail_cmd	= "ls $path/*/unavail.tmp.*";
-		$abusy_cmd	= "ls $path/*/busy.tmp.*";
-		$atemp_cmd	= "ls $path/*/temp.tmp.*";
+		$agreet_cmd	= "$path/*/greet.tmp.*";
+		$aunavail_cmd	= "$path/*/unavail.tmp.*";
+		$abusy_cmd	= "$path/*/busy.tmp.*";
+		$atemp_cmd	= "$path/*/temp.tmp.*";
 
 		# inbox messages
-		$inmsg_cmd	= "ls $path/*/INBOX/msg*.txt";
+		$inmsg_cmd	= "$path/*/INBOX/msg*.txt";
 
 		# all messages
-		$allmsg_cmd	= "ls $path/*/*/msg*.txt";
+		$allmsg_cmd	= "$path/*/*/msg*.txt";
 	}
 
 	if (is_dir($path)) {
@@ -1588,9 +1582,9 @@ function voicemail_strip_exten_from_greet_path($greet_path) {
 	$exten = $path_array[$n-2];
 	return $exten;
 }
-function voicemail_count_greetings($greeting, $cmd) {
+function voicemail_count_greetings($greeting, $path) {
 	/* get a list of all greeting files */
-	$file_list = voicemail_get_greetings($greeting, $cmd);
+	$file_list = voicemail_get_greetings($greeting, $path);
 	$greet_list = array();
 	/* greeting can be in multiple formats, making file count greater than greeting */
 	/* count, so make array with one entry for each extension that has the greeting */
@@ -1599,19 +1593,20 @@ function voicemail_count_greetings($greeting, $cmd) {
 	}
 	return sizeof($greet_list);
 }
-function voicemail_get_greetings($greeting, $cmd) {
+function voicemail_get_greetings($greeting, $path) {
 	$results = array();
 	$greet_list = array();
-	exec($cmd, $results);
-	/* filter out abandoned greeting recordings */
-	foreach ($results as $r) {
+	
+	foreach (glob($path) as $filename) {
+		/* filter out abandoned greeting recordings */
 		$pat = "/.*" . $greeting . "\.tmp\..+/";
-		if (!preg_match($pat, $r))
-			$greet_list[] = $r;
+		if (!preg_match($pat, $filename))
+			$greet_list[] = $filename;
 	}
 	return $greet_list;
 }
 function voicemail_count_ab_greetings($greeting, $cmd) {
+	
 	$file_list = voicemail_get_ab_greetings($greeting, $cmd);
 	$greet_list = array();
 	/* greeting can be in multiple formats, making file count greater than greeting */
@@ -1621,22 +1616,22 @@ function voicemail_count_ab_greetings($greeting, $cmd) {
 	}
 	return sizeof($greet_list);
 }
-function voicemail_get_ab_greetings($greeting, $cmd) {
+function voicemail_get_ab_greetings($greeting, $path) {
 	$results = array();
 	$greet_list = array();
-	exec($cmd, $results);
-	foreach ($results as $r) {
-		$greet_list[] = $r;
+
+	foreach (glob($path) as $filename) {
+		$greet_list[] = $filename;
 	}
 	return $greet_list;	
 }
-function voicemail_count_msg($msg_cmd) {
+function voicemail_count_msg($path) {
 	$results = array();
 	$msg_cnt = 0;
-	exec($msg_cmd, $results);
+	
 	/* Message can be recorded in multiple formats, but there is always one text */
 	/* file for each message, so count the text files. */
-	foreach ($results as $r) {
+	foreach (glob($path) as $r) {
 		if (preg_match("/.+\/msg[0-9][0-9][0-9][0-9]\.txt\/{0,1}/", $r)) {
 			$msg_cnt++;
 		}
