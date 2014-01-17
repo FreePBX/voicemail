@@ -233,11 +233,11 @@ function voicemail_myvoicemail($c) {
 	$ext->add($id, $c, 'mbexist', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/novmpw)}"!=""]','novmpw','vmpw'),'check',101);
 	
 	$ext->add($id, $c, 'novmpw', new ext_noop('Verifying channel ${CHANNEL} is actually ${AMPUSER}'));
-	$ext->add($id, $c, '', new ext_gotoif('$["${REGEX("^${DB(DEVICE/${AMPUSER}/dial)}-[0-9a-f]+$" ${CHANNEL})}"!="1"]','novmpws'));
+	$ext->add($id, $c, '', new ext_gotoif('$["${REGEX("^${DB(DEVICE/${AMPUSER}/dial)}-[0-9a-f]+$" ${CHANNEL})}"!="1"]','vmpws'));
 	$ext->add($id, $c, '', new ext_vmmain('${AMPUSER}@${VMCONTEXT},s')); // n,VoiceMailMain(${VMCONTEXT})
 	$ext->add($id, $c, '', new ext_goto('vmend'));
 	
-	$ext->add($id, $c, 'novmpws', new ext_noop('Channel ${CHANNEL} is NOT ${AMPUSER} forcing VM Password'));
+	$ext->add($id, $c, 'vmpws', new ext_noop('Channel ${CHANNEL} is NOT ${AMPUSER} forcing VM Password'));
 	$ext->add($id, $c, 'vmpw', new ext_vmmain('${AMPUSER}@${VMCONTEXT}'));
 	$ext->add($id, $c, '', new ext_goto('vmend'));
 	
