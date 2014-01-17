@@ -230,10 +230,18 @@ function voicemail_myvoicemail($c) {
 	$ext->add($id, $c, '', new ext_vmmain('')); // n,VoiceMailMain(${VMCONTEXT})
 	$ext->add($id, $c, '', new ext_gotoif('$["${IVR_RETVM}" = "RETURN" & "${IVR_CONTEXT}" != ""]','playret'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
-	$ext->add($id, $c, 'mbexist', new ext_execif('$["${DB(AMPUSER/${AMPUSER}/novmpw)}"!=""]','Set','VMOPT=,s'),'check',101);
-	$ext->add($id, $c, '', new ext_vmmain('${AMPUSER}@${VMCONTEXT}${VMOPT}')); // n,VoiceMailMain(${VMCONTEXT})
+	$ext->add($id, $c, 'mbexist', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/novmpw)}"!=""]','novmpw','vmpw'),'check',101);
 	
-	$ext->add($id, $c, '', new ext_gotoif('$["${IVR_RETVM}" = "RETURN" & "${IVR_CONTEXT}" != ""]','playret'));
+	$ext->add($id, $c, 'novmpw', new ext_noop('Verifying channel ${CHANNEL} is actually ${AMPUSER}'));
+	$ext->add($id, $c, '', new ext_gotoif('$["${REGEX("^${DB(DEVICE/${AMPUSER}/dial)}-[0-9a-f]+$" ${CHANNEL})}"!="1"]','vmpws'));
+	$ext->add($id, $c, '', new ext_vmmain('${AMPUSER}@${VMCONTEXT},s')); // n,VoiceMailMain(${VMCONTEXT})
+	$ext->add($id, $c, '', new ext_goto('vmend'));
+	
+	$ext->add($id, $c, 'novmpws', new ext_noop('Channel ${CHANNEL} is NOT ${AMPUSER} forcing VM Password'));
+	$ext->add($id, $c, 'vmpw', new ext_vmmain('${AMPUSER}@${VMCONTEXT}'));
+	$ext->add($id, $c, '', new ext_goto('vmend'));
+	
+	$ext->add($id, $c, 'vmend', new ext_gotoif('$["${IVR_RETVM}" = "RETURN" & "${IVR_CONTEXT}" != ""]','playret'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 	$ext->add($id, $c, 'playret', new ext_playback('beep&you-will-be-transfered-menu&silence/1'));
 	$ext->add($id, $c, '', new ext_goto('1','return','${IVR_CONTEXT}'));
