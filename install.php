@@ -23,6 +23,8 @@ _("My Voicemail");
 _("Dial Voicemail");
 _("Voicemail Admin");
 _("Direct Dial Prefix");
+_("The Feature Code used to direct dial a users voicemail from their own extension");
+-("The Feature Code used to dial any voicemail");
 }
 
 global $astman;
@@ -31,12 +33,15 @@ global $db;
 
 $fcc = new featurecode('voicemail', 'myvoicemail');
 $fcc->setDescription('My Voicemail');
+$fcc->setHelpText('The Feature Code used to direct dial a users voicemail from their own extension');
 $fcc->setDefault('*97');
 $fcc->update();
 unset($fcc);
 
 $fcc = new featurecode('voicemail', 'dialvoicemail');
 $fcc->setDescription('Dial Voicemail');
+$fcc->setHelpText('The Feature Code used to dial any voicemail');
+$fcc->setHelpText('');
 $fcc->setDefault('*98');
 $fcc->setProvideDest();
 $fcc->update();
