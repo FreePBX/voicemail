@@ -248,6 +248,7 @@ $freepbx_conf->define_conf_setting('USERESMWIBLF',$set,true);
    This makes sure that the modules.conf has been updated for older systems
    which assures that mwi blf events are captured when Asterisk first starts
 */
-if(file_exists($amp_conf['ASTMODDIR'].'/res_mwi_blf.so')) {
+$amd = FreePBX::create()->Config->get_conf_setting('ASTMODDIR');
+if(file_exists($amd.'/res_mwi_blf.so')) {
 	FreePBX::create()->ModulesConf->preload('res_mwi_blf.so');
 }
