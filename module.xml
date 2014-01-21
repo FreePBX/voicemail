@@ -2,12 +2,13 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>12.0.0</version>
+	<version>12.0.1</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*12.0.1* Use BMO object to add the Asterisk mwi module if it exists
 		*12.0.0* Added back the ability to have an extension call voicemail and not have to enter a password, re FREEPBX-5323
 		*2.11.1.1* Fix #6967 (missing help popups) and PBXAC-12 (unable to delete greetings/recordings)
 		*2.11.1.0* Reorganize and rework module. Clean up and fixed #6769
