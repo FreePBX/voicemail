@@ -340,6 +340,8 @@ function voicemail_configpageinit($pagename) {
 		$msg = _('Voicemail is enabled but the Voicemail Password field is empty.  Are you sure you wish to continue?');
 		$js = 'if (theForm.vmpwd.value == "") { if(confirm("'.$msg.'")) { return true; } else { return false; }  };';
 		$currentcomponent->addjsfunc('verifyEmptyVoiceMailPassword(notused)', $js);
+		$js = 'if(theForm.vmpwd.value.match(/^[\d|\*]*$/)) {return true;}else{return false;}';
+		$currentcomponent->addjsfunc('isValidVoicemailPass(notused)', $js);
 		$js = "
 		if (document.getElementById('vm').value == 'disabled') {
 			var dval=true;
@@ -568,7 +570,7 @@ function voicemail_configpageload() {
 		$section = _("Voicemail");
 		$currentcomponent->addguielem($section, new gui_selectbox('vm', $currentcomponent->getoptlist('vmena'), $vmselect, _('Status'), '', false,"frm_${display}_voicemailEnabled() && frm_${display}_vmx_disable_fields()"));
 		$disable = ($vmselect == 'disabled');
-		$currentcomponent->addguielem($section, new gui_textbox('vmpwd', $vmpwd, _('Voicemail Password'), sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "frm_${display}_isVoiceMailEnabled() && !frm_${display}_verifyEmptyVoiceMailPassword() && !isInteger()", $msgInvalidVmPwd, false,0,$disable));
+		$currentcomponent->addguielem($section, new gui_textbox('vmpwd', $vmpwd, _('Voicemail Password'), sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "frm_${display}_isVoiceMailEnabled() && !frm_${display}_verifyEmptyVoiceMailPassword() && !frm_${display}_isValidVoicemailPass()", $msgInvalidVmPwd, false,0,$disable));
 		//for passwordless voicemail we need to check some settings
 		//first lets see if there is an entry in the asteriskDB for this device
 		//no entry in the db is the same as yes, meaning we need a voicemail password
