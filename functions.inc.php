@@ -795,10 +795,6 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 			'pager' => $pager,
 			'options' => $vmoptions
 			);
-		// Update $_REQUEST with 'devinfo_mailbox, so MWI works.
-		if (empty($_REQUEST['devinfo_mailbox'])) {
-			$_REQUEST['devinfo_mailbox']="$extension@$vmcontext";
-		}
 	}
 	voicemail_saveVoicemail($uservm);
 
