@@ -330,7 +330,7 @@ function voicemail_configpageinit($pagename) {
 		$msg = _('Voicemail is enabled but the Voicemail Password field is empty.  Are you sure you wish to continue?');
 		$js = 'if (theForm.vmpwd.value == "") { if(confirm("'.$msg.'")) { return true; } else { return false; }  };';
 		$currentcomponent->addjsfunc('verifyEmptyVoiceMailPassword(notused)', $js);
-		$js = 'if(theForm.vmpwd.value.match(/^[\d|\*]*$/)) {return true;}else{return false;}';
+		$js = 'if(theForm.vmpwd.value.match(/^[0-9A-D\*#]*$/i)) {return true;}else{return false;}';
 		$currentcomponent->addjsfunc('isValidVoicemailPass(notused)', $js);
 		$js = "
 		if (document.getElementById('vm').value == 'disabled') {
