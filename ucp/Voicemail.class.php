@@ -47,15 +47,21 @@ class Voicemail extends Modules{
 		$displayvars['ext'] = $ext;
 		$displayvars['folders'] = $folders;
 		$displayvars['messages'] = isset($messages[$reqFolder]['messages']) ? $messages[$reqFolder]['messages'] : array();
-		$displayvars['supportedMediaFormats'] = $this->UCP->FreePBX->Voicemail->supportedFormats;
 		
-		$html = $this->loadScript().$this->loadCSS();
+		$html = "<script>var supportedMediaFormats = '".implode(",",$this->UCP->FreePBX->Voicemail->supportedFormats)."'; var extension = ".$ext."</script>";
+		$html .= $this->loadCSS();
 		$html .= load_view(__DIR__.'/views/header.php',$displayvars);
 		
 		switch($view) {
 			case "settings":
+				$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
 				$mainDisplay= load_view(__DIR__.'/views/settings.php',$displayvars);
 				$displayvars['activeList'] = 'settings';
+			break;
+			case "greetings":
+				$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
+				$mainDisplay= load_view(__DIR__.'/views/greetings.php',$displayvars);
+				$displayvars['activeList'] = 'greetings';
 			break;
 			case "folder":
 				$mainDisplay = load_view(__DIR__.'/views/mailbox.php',$displayvars);
@@ -68,6 +74,7 @@ class Voicemail extends Modules{
 		$html .= load_view(__DIR__.'/views/nav.php',$displayvars);
 		$html .= $mainDisplay;
 		$html .= load_view(__DIR__.'/views/footer.php',$displayvars);
+		$html .= $this->loadScript();
 		return $html;
 	}
 	
@@ -84,6 +91,8 @@ class Voicemail extends Modules{
 		switch($command) {
 			case 'listen':
 			case 'moveToFolder':
+			case 'delete':
+			case 'savesettings':
 				return true;
 			default:
 				return false;
@@ -102,10 +111,22 @@ class Voicemail extends Modules{
 		$return = array("status" => false, "message" => "");	
 		switch($_REQUEST['command']) {
 			case 'moveToFolder':
-				$ext = '1000';
-				$this->UCP->FreePBX->Voicemail->moveMessageByExtensionFolder($ext,$_POST['msg'],$_POST['folder']);
-				$return = array("status" => true, "message" => "");
+				$ext = $_POST['ext'];
+				$status = $this->UCP->FreePBX->Voicemail->moveMessageByExtensionFolder($_POST['msg'],$ext,$_POST['folder']);
+				$return = array("status" => $status, "message" => "");
 				break;
+			case 'delete':
+				$ext = $_POST['ext'];
+				$status = $this->UCP->FreePBX->Voicemail->deleteMessageByID($_POST['msg'],$ext);
+				$return = array("status" => $status, "message" => "");
+			break;
+			case 'savesettings':
+				$ext = $_POST['ext'];
+				$saycid = ($_POST['saycid'] == 'true') ? true : false;
+				$envelope = ($_POST['envelope'] == 'true') ? true : false;
+				$status = $this->UCP->FreePBX->Voicemail->saveVMSettingsByExtension($ext,$_POST['pwd'],$_POST['email'],$_POST['pager'],$saycid,$envelope);
+				$return = array("status" => $status, "message" => "");
+			break;
 			default:
 				return false;
 			break;
@@ -113,6 +134,13 @@ class Voicemail extends Modules{
 		return $return;
 	}
 	
+	/**
+	 * The Handler for quiet events
+	 *
+	 * Used by Ajax Class to process commands in which custom processing is needed
+	 *
+	 * @return mixed Output if success, otherwise false will generate a 500 error serverside
+	 */
 	function ajaxCustomHandler() {
 		switch($_REQUEST['command']) {
 			case "listen":

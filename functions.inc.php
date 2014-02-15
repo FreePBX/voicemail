@@ -947,7 +947,7 @@ function voicemail_saveVoicemail($vmconf) {
 	global $amp_conf;
 
 	// just in case someone tries to be sneaky and not call getVoicemail() first..
-	if ($vmconf == null) die_freepbx('Error: Trying to write null Voicemail file! I refuse to contiune!');
+	if ($vmconf == null) die_freepbx('Error: Trying to write null Voicemail file! I refuse to continue!');
 	
 	// yes, this is hardcoded.. is this a bad thing?
 	write_voicemailconf(rtrim($amp_conf["ASTETCDIR"],"/")."/voicemail.conf", $vmconf, $section);

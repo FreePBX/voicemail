@@ -14,18 +14,21 @@ $(function() {
 			//do teh folder move stuff here
 			var msg = event.originalEvent.dataTransfer.getData("msg");
 			var folder = $(event.currentTarget).data('folder');
-			var data = {"msg":msg,"folder":folder}
-			voicemail_ajax('moveToFolder',data)
-			if(true) {
-				$(this).removeClass("hover");
-				var dragSrc = $('.message-list .vm-message[data-msg="'+msg+'"]');
-				dragSrc.remove();
-				$(".vm-temp").remove();
-				var badge = $(event.currentTarget).find('.badge');
-				badge.text(Number(badge.text()) + 1);
-				var badge = $('.mailbox .folder-list .folder.active').find('.badge');
-				badge.text(Number(badge.text()) - 1);
-			}
+			var data = {msg:msg,folder:folder,ext:extension}
+			$.post( "index.php?quietmode=1&module=voicemail&command=moveToFolder", data, function( data ) {
+				if(data.status) {
+					$(this).removeClass("hover");
+					var dragSrc = $('.message-list .vm-message[data-msg="'+msg+'"]');
+					dragSrc.remove();
+					$(".vm-temp").remove();
+					var badge = $(event.currentTarget).find('.badge');
+					badge.text(Number(badge.text()) + 1);
+					var badge = $('.mailbox .folder-list .folder.active').find('.badge');
+					badge.text(Number(badge.text()) - 1);
+				} else {
+					//nothing
+				}
+			});
 		});
 		$('.mailbox .folder-list .folder').on('dragover', function (event) {
 		    if (event.preventDefault) {
@@ -46,6 +49,7 @@ $(function() {
 	//clear old binds
 	$(document).off('click', '[vm-pjax] a, a[vm-pjax]');
 	$(document).on('click', '[vm-pjax] a, a[vm-pjax]', function(event) {
+		event.preventDefault()
 		var container = $('#dashboard-content')
 		$.pjax.click(event, {container: container})
 		enable_drags();
@@ -103,10 +107,37 @@ function vmplay(msgid) {
 	}
 }
 
-function voicemail_ajax(command,data) {
-	$.post( "index.php?quietmode=1&module=voicemail&command="+command, data, function( data ) {
+function vmdel(msgid) {
+	if($('.jp-audio').is(':visible') && loaded == msgid) {
+		$('.jp-audio').slideUp();
+	}
+	var data = {msg: msgid, ext: extension};
+	$.post( "index.php?quietmode=1&module=voicemail&command=delete", data, function( data ) {
 		if(data.status) {
-			return true;
+			$('.vm-message[data-msg="'+msgid+'"]').fadeOut('fast');
+		} else {
+			return false;
+		}
+	});
+}
+
+function addNoMessages() {
+	if(!$('.vm-message').length) {
+		//add no messages
+	}
+}
+
+function saveVMSettings() {
+	var data = {ext: extension}
+	$('.vmsettings input[type="text"]').each(function( index ) {
+		data[$( this ).attr('name')] = $( this ).val()
+	});
+	$('.vmsettings input[type="checkbox"]').each(function( index ) {
+		data[$( this ).attr('name')] = $( this ).is(':checked')
+	});
+	$.post( "index.php?quietmode=1&module=voicemail&command=savesettings", data, function( data ) {
+		if(data.status) {
+			return true
 		} else {
 			return false;
 		}

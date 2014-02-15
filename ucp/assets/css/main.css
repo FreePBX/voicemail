@@ -1,3 +1,20 @@
+.tablesettings {
+	border-collapse: separate;
+}
+.tablesettings td{
+	padding-left: 11px;
+	padding-bottom: 5px;
+}
+.vmsettings {
+	background-color: aliceblue;
+	border-radius: 10px;
+	padding-top: 10px;
+	width: 370px;
+}
+.vmsettings .center {
+	width: 26%;
+	margin: 0 auto;
+}
 .separator-list {
 	height: 15px;
 }
@@ -39,14 +56,17 @@
 	background: url("modules/Voicemail/assets/images/play_controls.png") 0 0px repeat-x;
 	width:24px;
 	height:24px;
-	display: block;
-	overflow: hidden;
-	text-indent: -9999px;
+	position: absolute;
 }
 .download {
 	cursor: pointer;
 	position: relative;
-	left: 5px;
+	left: 25px;
+}
+.delete {
+	cursor: pointer;
+	position: relative;
+	left: 30px;
 }
 .controls {
 	display: inline-flex;
@@ -667,10 +687,6 @@ div.jp-video-play:hover a.jp-video-play-icon {
 	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.video.play.png") 0 -100px no-repeat;
 }
 
-
-
-
-
 div.jp-jplayer audio,
 div.jp-jplayer {
 	width:0px;
@@ -680,10 +696,6 @@ div.jp-jplayer {
 div.jp-jplayer {
 	background-color: #000000;
 }
-
-
-
-
 
 /* @group TOGGLES */
 
@@ -776,7 +788,6 @@ a.jp-shuffle-off {
 a.jp-shuffle-off:hover {
 	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -90px -270px no-repeat;
 }
-
 
 /* @end */
 

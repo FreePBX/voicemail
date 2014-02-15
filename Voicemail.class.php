@@ -46,12 +46,43 @@ class Voicemail implements BMO {
 	}
 	
 	public function getVoicemailBoxByExtension($extdisplay) {
-		//TODO: this is weirdness right here.
 		include_once(__DIR__.'/functions.inc.php');
 		return voicemail_mailbox_get($extdisplay);
 	}
 	
-	public function moveMessageByExtensionFolder($ext,$msg,$folder) {
+	public function saveVMSettingsByExtension($ext,$pwd,$email,$page,$playcid,$envelope) {
+		$o = $this->getVoicemailBoxByExtension($ext);
+		$context = $o['vmcontext'];
+		$vmconf = voicemail_getVoicemail();
+		if(!empty($vmconf[$context][$ext])) {
+			$vmconf[$context][$ext]['pwd'] = $pwd;
+			$vmconf[$context][$ext]['email'] = $email;
+			$vmconf[$context][$ext]['pager'] = $page;
+			$vmconf[$context][$ext]['options']['saycid'] = ($playcid) ? 'yes' : 'no';
+			$vmconf[$context][$ext]['options']['envelope'] = ($envelope) ? 'yes' : 'no';
+			voicemail_saveVoicemail($vmconf);
+		}
+		return false;
+	}
+	
+	public function deleteMessageByID($msg,$ext) {
+		$message = $this->getMessageByMessageIDExtension($msg,$ext);
+		if(!empty($message)) {
+			foreach(glob($message['path']."/".$message['fid'].".*") as $filename) {
+				if(!unlink($filename)) {
+					return false;
+				}
+			}
+			return true;
+		}
+		return false;
+	}
+	
+	public function renumberAllMessages($folder) {
+		
+	}
+	
+	public function moveMessageByExtensionFolder($msg,$ext,$folder) {
 		if(!$this->folderCheck($folder)) {
 			return false;
 		}
@@ -219,6 +250,6 @@ class Voicemail implements BMO {
 	}
 	
 	private function validFolder($folder) {
-		return in_array($folder,$this->vmFolders);
+		return isset($this->vmFolders[$folder]);
 	}
 }
