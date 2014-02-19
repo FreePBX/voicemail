@@ -1,18 +1,44 @@
+.greet-hidden {
+	display:none;
+}
+.pbar {
+	height: 100%;
+	width: 0%;
+	background-color: green;
+}
+.bar {
+    height: 18px;
+    background: green;
+}
+.filedrop {
+	border: 1px dotted;
+	height: 60px;
+}
+.filedrop span {
+	position: absolute;
+	z-index: 1;
+	top: 80%;
+	left: 30%
+}
 label.envelope {
-	margin-left: 70px;
+	margin-left: 10%;
 }
 label.playcid {
-	margin-left: 60px;
+	margin-left: 5%;
 }
 .vmsettings {
 	background-color: aliceblue;
 	border-radius: 10px;
 	padding: 10px;
 	width: 370px;
+	@media only screen and (max-width : 991px) { 
+	    width: 100%;
+	}
 }
+
 .vmsettings .center {
-	width: 26%;
-	margin: 0 auto;
+	/*width: 26%;
+	margin: 0 auto;*/
 }
 .separator-list {
 	height: 15px;
@@ -52,7 +78,7 @@ label.playcid {
 	color: #2a6496;
 }
 .subplay {
-	background: url("modules/Voicemail/assets/images/play_controls.png") 0 0px repeat-x;
+	background: url("images/play_controls.png") 0 0px repeat-x;
 	width:24px;
 	height:24px;
 	position: absolute;
@@ -179,7 +205,7 @@ label.playcid {
  * Skin Version: 4.3 (jPlayer 2.2.0)
  * Date: 19th November 2012
  */
-div.jp-audio {
+#freepbx_player_1 {
 	display:none;
 }
 div.jp-audio,
@@ -321,17 +347,17 @@ a.jp-pause {
 }
 
 a.jp-play {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") 0 0 no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") 0 0 no-repeat;
 }
 a.jp-play:hover {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -41px 0 no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -41px 0 no-repeat;
 }
 a.jp-pause {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") 0 -42px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") 0 -42px no-repeat;
 	display: none;
 }
 a.jp-pause:hover {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -41px -42px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -41px -42px no-repeat;
 }
 
 a.jp-stop, a.jp-previous, a.jp-next {
@@ -341,26 +367,26 @@ a.jp-stop, a.jp-previous, a.jp-next {
 }
 
 a.jp-stop {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") 0 -83px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") 0 -83px no-repeat;
 	margin-left:10px;
 }
 
 a.jp-stop:hover {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -29px -83px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -29px -83px no-repeat;
 }
 
 a.jp-previous {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") 0 -112px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") 0 -112px no-repeat;
 }
 a.jp-previous:hover {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -29px -112px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -29px -112px no-repeat;
 }
 
 a.jp-next {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") 0 -141px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") 0 -141px no-repeat;
 }
 a.jp-next:hover {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -29px -141px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -29px -141px no-repeat;
 }
 
 /* @end */
@@ -396,20 +422,20 @@ div.jp-video div.jp-progress {
 	height:10px;
 }
 div.jp-seek-bar {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") 0 -202px repeat-x;
+	background: url("images/jplayer.blue.monday.jpg") 0 -202px repeat-x;
 	width:0px;
 	height:100%;
 	cursor: pointer;
 }
 div.jp-play-bar {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") 0 -218px repeat-x ;
+	background: url("images/jplayer.blue.monday.jpg") 0 -218px repeat-x ;
 	width:0px;
 	height:100%;
 }
 
 /* The seeking class is added/removed inside jPlayer */
 div.jp-seeking-bg {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.seeking.gif");
+	background: url("images/jplayer.blue.monday.seeking.gif");
 }
 
 /* @end */
@@ -462,38 +488,38 @@ div.jp-video a.jp-volume-max {
 }
 
 a.jp-mute {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") 0 -170px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") 0 -170px no-repeat;
 	position: absolute;
 	float: right;
 	right: 77px;
 }
 a.jp-mute:hover {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -19px -170px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -19px -170px no-repeat;
 }
 a.jp-unmute {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -60px -170px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -60px -170px no-repeat;
 	display: none;
 	position: absolute;
 	float: right;
 	right: 77px;
 }
 a.jp-unmute:hover {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -79px -170px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -79px -170px no-repeat;
 }
 a.jp-volume-max {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") 0 -186px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") 0 -186px no-repeat;
 	position: absolute;
 	float: right;
 	right: 5px;
 }
 a.jp-volume-max:hover {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -19px -186px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -19px -186px no-repeat;
 }
 
 div.jp-volume-bar {
 	position: absolute;
 	overflow:hidden;
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") 0 -250px repeat-x;
+	background: url("images/jplayer.blue.monday.jpg") 0 -250px repeat-x;
 	width:46px;
 	height:5px;
 	cursor: pointer;
@@ -511,7 +537,7 @@ div.jp-video div.jp-volume-bar {
 	left:72px;
 }
 div.jp-volume-bar-value {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") 0 -256px repeat-x;
+	background: url("images/jplayer.blue.monday.jpg") 0 -256px repeat-x;
 	width:0px;
 	height:5px;
 }
@@ -679,11 +705,11 @@ a.jp-video-play-icon {
 	left:50%;
 	top:50%;
 
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.video.play.png") 0 0 no-repeat;
+	background: url("images/jplayer.blue.monday.video.play.png") 0 0 no-repeat;
 	text-indent:-9999px;
 }
 div.jp-video-play:hover a.jp-video-play-icon {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.video.play.png") 0 -100px no-repeat;
+	background: url("images/jplayer.blue.monday.video.play.png") 0 -100px no-repeat;
 }
 
 div.jp-jplayer audio,
@@ -737,55 +763,55 @@ ul.jp-toggles li a {
 }
 
 a.jp-full-screen {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") 0 -310px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") 0 -310px no-repeat;
 	margin-left: 20px;
 }
 
 a.jp-full-screen:hover {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -30px -310px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -30px -310px no-repeat;
 }
 
 a.jp-restore-screen {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -60px -310px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -60px -310px no-repeat;
 	margin-left: 20px;
 }
 
 a.jp-restore-screen:hover {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -90px -310px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -90px -310px no-repeat;
 }
 
 a.jp-repeat {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") 0 -290px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") 0 -290px no-repeat;
 }
 
 a.jp-repeat:hover {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -30px -290px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -30px -290px no-repeat;
 }
 
 a.jp-repeat-off {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -60px -290px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -60px -290px no-repeat;
 }
 
 a.jp-repeat-off:hover {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -90px -290px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -90px -290px no-repeat;
 }
 
 a.jp-shuffle {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") 0 -270px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") 0 -270px no-repeat;
 	margin-left: 5px;
 }
 
 a.jp-shuffle:hover {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -30px -270px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -30px -270px no-repeat;
 }
 
 a.jp-shuffle-off {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -60px -270px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -60px -270px no-repeat;
 	margin-left: 5px;
 }
 
 a.jp-shuffle-off:hover {
-	background: url("modules/Voicemail/assets/images/jplayer.blue.monday.jpg") -90px -270px no-repeat;
+	background: url("images/jplayer.blue.monday.jpg") -90px -270px no-repeat;
 }
 
 /* @end */

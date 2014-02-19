@@ -2,12 +2,27 @@
 // vim: set ai ts=4 sw=4 ft=php:
 
 class Voicemail implements BMO {
+	public $folders = array(
+		"INBOX",
+		"Family",
+		"Friends",
+		"Old",
+		"Work",
+		"Urgent"
+	);
+	public $supportedFormats = array(
+		"oga" => "ogg",
+		"wav" => "wav"
+	);
+	public $greetings = array(
+		'temp',
+		'unavail',
+		'busy',
+		'greet'
+	);
+	private $vmBoxData = array();
 	private $vmFolders = array();
 	private $vmPath = null;
-	public $supportedFormats = array(
-		"ogg",
-		"wav"
-	);
 	
 	public function __construct($freepbx = null) {
 		if ($freepbx == null)
@@ -16,8 +31,7 @@ class Voicemail implements BMO {
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
 		$this->vmPath = $this->FreePBX->Config->get_conf_setting('ASTSPOOLDIR') . "/voicemail";
-		$folders = array("INBOX","Family","Friends","Old","Work","Urgent");
-		foreach($folders as $folder) {
+		foreach($this->folders as $folder) {
 			$this->vmFolders[$folder] = array(
 				"folder" => $folder,
 				"name" => _($folder)
@@ -45,9 +59,72 @@ class Voicemail implements BMO {
 		return $this->vmFolders;
 	}
 	
-	public function getVoicemailBoxByExtension($extdisplay) {
-		include_once(__DIR__.'/functions.inc.php');
-		return voicemail_mailbox_get($extdisplay);
+	public function deleteVMGreeting($ext,$type) {
+		$o = $this->getVoicemailBoxByExtension($ext);
+		$context = $o['vmcontext'];
+		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
+		$file = $vmfolder."/".$type.".wav";
+		if(in_array($type,$this->greetings) && file_exists($file)) {
+			foreach(glob($vmfolder."/".$type.".*") as $filename) {
+				if(!unlink($filename)) {
+					return false;
+				}
+			}
+			return true;
+		}
+		return false;
+	}
+	
+	public function saveVMGreeting($ext,$type,$filename,$contents) {
+		$o = $this->getVoicemailBoxByExtension($ext);
+		$context = $o['vmcontext'];
+		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
+		if(in_array($type,$this->greetings)) {
+			$file = $vmfolder."/".$type.".wav";
+			$tempf = $vmfolder . "/" . $type . "_tmp.wav";
+			if(file_exists($file)) {
+				if(!unlink($file)) {
+					return false;
+				}
+			}
+			file_put_contents($tempf,$contents);
+			//convert the file here using sox I guess
+			exec("sox " . $tempf . " -r 8000 -c1 " . $file . " > /dev/null 2>&1");
+			unlink($tempf);
+			$this->generateAdditionalMediaFormats($file);
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public function getVoicemailBoxByExtension($ext) {
+		if(empty($this->vmBoxData[$ext])) {
+			include_once(__DIR__.'/functions.inc.php');
+			$this->vmBoxData[$ext] = voicemail_mailbox_get($ext);
+		}
+		return !empty($this->vmBoxData[$ext]) ? $this->vmBoxData[$ext] : false;
+	}
+	
+	public function getGreetingsByExtension($ext,$cache = false) {
+		$o = $this->getVoicemailBoxByExtension($ext);
+		//temp greeting <--overrides (temp.wav)
+		//unaval (unavail.wav)
+		//busy (busy.wav)
+		//name (greet.wav)
+		$context = $o['vmcontext'];
+		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
+		$files = array();
+		foreach($this->greetings as $greeting) {
+			$file = $vmfolder . "/" . $greeting . ".wav";
+			if(file_exists($file) && is_readable($file)) {
+				$files[$greeting] = $file;
+				if(!$cache) {
+					$this->generateAdditionalMediaFormats($file);
+				}
+			}
+		}
+		return $files;
 	}
 	
 	public function saveVMSettingsByExtension($ext,$pwd,$email,$page,$playcid,$envelope) {
@@ -61,19 +138,24 @@ class Voicemail implements BMO {
 			$vmconf[$context][$ext]['options']['saycid'] = ($playcid) ? 'yes' : 'no';
 			$vmconf[$context][$ext]['options']['envelope'] = ($envelope) ? 'yes' : 'no';
 			voicemail_saveVoicemail($vmconf);
+			return true;
 		}
 		return false;
 	}
 	
 	public function deleteMessageByID($msg,$ext) {
-		$message = $this->getMessageByMessageIDExtension($msg,$ext);
-		if(!empty($message)) {
-			foreach(glob($message['path']."/".$message['fid'].".*") as $filename) {
-				if(!unlink($filename)) {
-					return false;
+		if(in_array($msg,$this->greetings)) {
+			return $this->deleteVMGreeting($ext,$msg);
+		} else {
+			$message = $this->getMessageByMessageIDExtension($msg,$ext);
+			if(!empty($message)) {
+				foreach(glob($message['path']."/".$message['fid'].".*") as $filename) {
+					if(!unlink($filename)) {
+						return false;
+					}
 				}
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}
@@ -141,9 +223,36 @@ class Voicemail implements BMO {
 		return false;
 	}
 	
+	public function getGreetingByExtension($greeting,$ext) {
+		$greetings = $this->getGreetingsByExtension($ext,true);
+		$o = $this->getVoicemailBoxByExtension($ext);
+		$context = $o['vmcontext'];
+		$data = array();
+		if(isset($greetings[$greeting])) {
+			$data['path'] = $this->vmPath . '/'.$context.'/'.$ext;
+			$data['file'] = basename($greetings[$greeting]);
+			foreach($this->supportedFormats as $format => $extension) {
+				$mf = $data['path']."/".$greeting.".".$extension;
+				if(file_exists($mf)) {
+					$data['format'][$format] = array(
+						"filename" => basename($mf),
+						"path" => $data['path'],
+						"length" => filesize($mf)
+					);
+				}
+			}
+		}
+		return $data;
+	}
+	
 	public function getMessageByMessageIDExtension($msgid,$ext) {
-		$messages = $this->getMessagesByExtension($ext);
-		return !empty($messages['messages'][$msgid]) ? $messages['messages'][$msgid] : false;
+		if(in_array($msgid,$this->greetings)) {
+			$out = $this->getGreetingByExtension($msgid,$ext);
+			return !empty($out) ? $out : false;
+		} else {
+			$messages = $this->getMessagesByExtension($ext);
+			return !empty($messages['messages'][$msgid]) ? $messages['messages'][$msgid] : false;
+		}
 	}
 	
 	public function readMessageBinaryByMessageIDExtension($msgid,$ext,$format,$start=0,$buffer=8192) {
@@ -190,8 +299,8 @@ class Voicemail implements BMO {
 						$out['messages'][$key]['context'] = $context;
 						$out['messages'][$key]['path'] = $folder;
 						
-						foreach($this->supportedFormats as $format) {
-							$mf = $vfolder."/".$vm.".".$format;
+						foreach($this->supportedFormats as $format => $extension) {
+							$mf = $vfolder."/".$vm.".".$extension;
 							if(file_exists($mf)) {
 								$out['messages'][$key]['format'][$format] = array(
 									"filename" => basename($mf),

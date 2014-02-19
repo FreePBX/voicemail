@@ -1,7 +1,10 @@
+$(document).on('pjax:end', function() {
+	//stylize();
+	//resizeContent();
+})
 $(function() {
 	if (Modernizr.draganddrop) {
 		// Browser supports HTML5 DnD.
-		
 		enable_drags();
 
 		$('.mailbox .folder-list .folder').on('drop', function (event) {
@@ -42,9 +45,21 @@ $(function() {
 		$('.mailbox .folder-list .folder').on('dragleave', function (event) {
 			$(this).removeClass("hover");
 		});
+
+		$('.filedrop').on('dragover', function (event) {
+		    if (event.preventDefault) {
+				event.preventDefault(); // Necessary. Allows us to drop.
+		    }
+			$(this).addClass("hover");
+		});
+		$('.filedrop').on('dragleave',function (event) {
+			$(this).removeClass("hover");
+		});
+		
 	} else {
 		// Fallback to a library solution.
-		console.log('no drag')
+		console.log('no drag');
+
 	}
 	//clear old binds
 	$(document).off('click', '[vm-pjax] a, a[vm-pjax]');
@@ -72,18 +87,188 @@ $(function() {
 	$("#freepbx_player").bind($.jPlayer.event.pause, function(event) { // Add a listener to report the time play began
 		$('.vm-message[data-msg="'+loaded+'"] .subplay').css('background-position', '0px 0px');
 	});
-})
-var voicemail = function() {
 	
-}
+    $("#freepbx_player_unavail").jPlayer({
+        ready: function(event) {
+			$(this).jPlayer( "setMedia", {
+				wav: "?quietmode=1&module=voicemail&command=listen&msgid=unavail&format=wav&ext="+extension,
+				oga: "?quietmode=1&module=voicemail&command=listen&msgid=unavail&format=oga&ext="+extension
+			});
+        },
+        swfPath: "assets/js",
+        supplied: supportedMediaFormats,
+		warningAlerts: false,
+		cssSelectorAncestor: "#freepbx_player_unavail_1"
+    });
+    $('#unavail input[type="file"]').fileupload({
+		url: '?quietmode=1&module=voicemail&command=upload&type=unavail&ext='+extension,
+		dropZone: $('#unavail .filedrop'),
+        dataType: 'json',
+        add: function (e, data) {
+			$('#unavail .filedrop span').text('Uploading...');
+            data.submit();
+        },
+        done: function (e, data) {
+			if(data.result.status) {
+		        $('#unavail .filedrop .pbar').css('width','0%');
+				$('#unavail .filedrop span').text('Drag a New Greeting Here')
+				$("#freepbx_player_unavail").jPlayer( "setMedia", {
+					wav: "?quietmode=1&module=voicemail&command=listen&msgid=unavail&format=wav&ext="+extension,
+					oga: "?quietmode=1&module=voicemail&command=listen&msgid=unavail&format=oga&ext="+extension
+				});
+				togglegreeting('unavail',true)
+			} else {
+				console.log(data.result.message);
+			}
+        },
+		progressall: function (e, data) {
+	        var progress = parseInt(data.loaded / data.total * 100, 10);
+	        $('#unavail .filedrop .pbar').css('width',progress + '%');
+		},
+	    drop: function (e, data) {
+			$('#unavail .filedrop').removeClass("hover");
+	    }
+    });
+	
+    $("#freepbx_player_busy").jPlayer({
+        ready: function(event) {
+			$(this).jPlayer( "setMedia", {
+				wav: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=wav&ext="+extension,
+				oga: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=oga&ext="+extension
+			});
+        },
+        swfPath: "assets/js",
+        supplied: supportedMediaFormats,
+		warningAlerts: false,
+		cssSelectorAncestor: "#freepbx_player_busy_1"
+    });
+    $('#busy input[type="file"]').fileupload({
+		url: '?quietmode=1&module=voicemail&command=upload&type=busy&ext='+extension,
+		dropZone: $('#busy .filedrop'),
+        dataType: 'json',
+        add: function (e, data) {
+			$('#busy .filedrop span').text('Uploading...');
+            data.submit();
+        },
+        done: function (e, data) {
+			if(data.result.status) {
+		        $('#busy .filedrop .pbar').css('width','0%');
+				$('#busy .filedrop span').text('Drag a New Greeting Here')
+				$("#freepbx_player_busy").jPlayer( "setMedia", {
+					wav: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=wav&ext="+extension,
+					oga: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=oga&ext="+extension
+				});
+				togglegreeting('busy',true)
+			} else {
+				console.log(data.result.message);
+			}
+        },
+		progressall: function (e, data) {
+	        var progress = parseInt(data.loaded / data.total * 100, 10);
+	        $('#busy .filedrop .pbar').css('width',progress + '%');
+		},
+	    drop: function (e, data) {
+			$('#busy .filedrop').removeClass("hover");
+	    }
+    });
+	
+    $("#freepbx_player_greet").jPlayer({
+        ready: function(event) {
+			$(this).jPlayer( "setMedia", {
+				wav: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=wav&ext="+extension,
+				oga: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=oga&ext="+extension
+			});
+        },
+        swfPath: "assets/js",
+        supplied: supportedMediaFormats,
+		warningAlerts: false,
+		cssSelectorAncestor: "#freepbx_player_greet_1"
+    });
+    $('#greet input[type="file"]').fileupload({
+		url: '?quietmode=1&module=voicemail&command=upload&type=greet&ext='+extension,
+		dropZone: $('#greet .filedrop'),
+        dataType: 'json',
+        add: function (e, data) {
+            $('#greet .filedrop span').text('Uploading...');
+            data.submit();
+        },
+        done: function (e, data) {
+			if(data.result.status) {
+		        $('#greet .filedrop .pbar').css('width','0%');
+				$('#greet .filedrop span').text('Drag a New Greeting Here')
+				$("#freepbx_player_greet").jPlayer( "setMedia", {
+					wav: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=wav&ext="+extension,
+					oga: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=oga&ext="+extension
+				});
+				togglegreeting('greet',true)
+			} else {
+				console.log(data.result.message);
+			}
+        },
+		progressall: function (e, data) {
+	        var progress = parseInt(data.loaded / data.total * 100, 10);
+	        $('#greet .filedrop .pbar').css('width',progress + '%');
+		},
+	    drop: function (e, data) {
+	        $.each(data.files, function (index, file) {
+	            //alert('Dropped file: ' + file.name);
+	        });
+			$('#greet .filedrop').removeClass("hover");
+			$('#greet .filedrop span').text('Uploading...');
+	    }
+    });
+	
+    $("#freepbx_player_temp").jPlayer({
+        ready: function(event) {
+			$(this).jPlayer( "setMedia", {
+				wav: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=wav&ext="+extension,
+				oga: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=oga&ext="+extension
+			});
+        },
+        swfPath: "assets/js",
+        supplied: supportedMediaFormats,
+		warningAlerts: false,
+		cssSelectorAncestor: "#freepbx_player_temp_1"
+    });
+    $('#temp input[type="file"]').fileupload({
+		url: '?quietmode=1&module=voicemail&command=upload&type=temp&ext='+extension,
+		dropZone: $('#temp .filedrop'),
+        dataType: 'json',
+        add: function (e, data) {
+			$('#temp .filedrop span').text('Uploading...');
+            data.submit();
+        },
+        done: function (e, data) {
+			if(data.result.status) {
+		        $('#temp .filedrop .pbar').css('width','0%');
+				$('#temp .filedrop span').text('Drag a New Greeting Here')
+				$("#freepbx_player_temp").jPlayer( "setMedia", {
+					wav: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=wav&ext="+extension,
+					oga: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=oga&ext="+extension
+				});
+				togglegreeting('temp',true)
+			} else {
+				console.log(data.result.message);
+			}
+        },
+		progressall: function (e, data) {
+	        var progress = parseInt(data.loaded / data.total * 100, 10);
+	        $('#temp .filedrop .pbar').css('width',progress + '%');
+		},
+	    drop: function (e, data) {
+			$('#temp .filedrop').removeClass("hover");
+	    }
+    });
+})
+
 var loaded = null;
 function vmplay(msgid) {
 	var player = $('#freepbx_player')
 	var cid = $('.vm-message[data-msg="'+msgid+'"] .cid').text()
 	if(player.data().jPlayer.status.paused && loaded != msgid) {		
 		player.jPlayer( "setMedia", {
-			wav: "http://freepbxdev1.schmoozecom.net/ucp/index.php?quietmode=1&module=voicemail&command=listen&msgid="+msgid+"&format=wav&ext="+extension,
-			oga: "http://freepbxdev1.schmoozecom.net/ucp/index.php?quietmode=1&module=voicemail&command=listen&msgid="+msgid+"&format=ogg&ext="+extension
+			wav: "?quietmode=1&module=voicemail&command=listen&msgid="+msgid+"&format=wav&ext="+extension,
+			oga: "?quietmode=1&module=voicemail&command=listen&msgid="+msgid+"&format=oga&ext="+extension
 		});
 		loaded = msgid;
 		if($('.jp-audio').is(':hidden')) {
@@ -127,7 +312,29 @@ function addNoMessages() {
 	}
 }
 
+function greetingdelete(type) {
+	var data = {msg: type, ext: extension};
+	$.post( "index.php?quietmode=1&module=voicemail&command=delete", data, function( data ) {
+		if(data.status) {
+			togglegreeting(type,false);
+		} else {
+			return false;
+		}
+	});
+}
+
+function togglegreeting(type,visible) {
+	if(visible == true) {
+		$('#'+type+' button').fadeIn();
+		$('#freepbx_player_'+type+'_1').slideDown();
+	} else {
+		$('#'+type+' button').fadeOut();
+		$('#freepbx_player_'+type+'_1').slideUp();
+	}
+}
+
 function saveVMSettings() {
+	$('#message').fadeOut("slow");
 	var data = {ext: extension}
 	$('.vmsettings input[type="text"]').each(function( index ) {
 		data[$( this ).attr('name')] = $( this ).val()
@@ -137,8 +344,14 @@ function saveVMSettings() {
 	});
 	$.post( "index.php?quietmode=1&module=voicemail&command=savesettings", data, function( data ) {
 		if(data.status) {
-			return true
+			$('#message').addClass('alert-success')
+			$('#message').text('Saved!')
+			$('#message').fadeIn( "slow", function() {
+				setTimeout(function() { $('#message').fadeOut("slow"); }, 2000);
+			});;
 		} else {
+			$('#message').addClass('alert-error')
+			$('#message').text(data.message)
 			return false;
 		}
 	});

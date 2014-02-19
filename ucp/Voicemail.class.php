@@ -26,6 +26,8 @@ namespace UCP\Modules;
 use \UCP\Modules as Modules;
 
 class Voicemail extends Modules{
+	protected $module = 'Voicemail';
+	
 	function __construct($Modules) {
 		$this->Modules = $Modules;
 	}
@@ -48,33 +50,35 @@ class Voicemail extends Modules{
 		$displayvars['folders'] = $folders;
 		$displayvars['messages'] = isset($messages[$reqFolder]['messages']) ? $messages[$reqFolder]['messages'] : array();
 		
-		$html = "<script>var supportedMediaFormats = '".implode(",",$this->UCP->FreePBX->Voicemail->supportedFormats)."'; var extension = ".$ext."</script>";
+		$html = "<script>var supportedMediaFormats = '".implode(",",array_keys($this->UCP->FreePBX->Voicemail->supportedFormats))."'; var extension = ".$ext."</script>";
 		$html .= $this->loadCSS();
-		$html .= load_view(__DIR__.'/views/header.php',$displayvars);
+		$html .= $this->loadLESS();
+		$html .= $this->load_view(__DIR__.'/views/header.php',$displayvars);
 		
 		switch($view) {
 			case "settings":
 				$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
-				$mainDisplay= load_view(__DIR__.'/views/settings.php',$displayvars);
+				$mainDisplay= $this->load_view(__DIR__.'/views/settings.php',$displayvars);
 				$displayvars['activeList'] = 'settings';
 			break;
 			case "greetings":
 				$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
-				$mainDisplay= load_view(__DIR__.'/views/greetings.php',$displayvars);
+				$displayvars['greetings'] = $this->UCP->FreePBX->Voicemail->getGreetingsByExtension($ext);
+				$mainDisplay= $this->load_view(__DIR__.'/views/greetings.php',$displayvars);
 				$displayvars['activeList'] = 'greetings';
 			break;
 			case "folder":
-				$mainDisplay = load_view(__DIR__.'/views/mailbox.php',$displayvars);
+				$mainDisplay = $this->load_view(__DIR__.'/views/mailbox.php',$displayvars);
 				$displayvars['activeList'] = $reqFolder;
 			default:
 			break;
 		}
 		
 		
-		$html .= load_view(__DIR__.'/views/nav.php',$displayvars);
+		$html .= $this->load_view(__DIR__.'/views/nav.php',$displayvars);
 		$html .= $mainDisplay;
-		$html .= load_view(__DIR__.'/views/footer.php',$displayvars);
-		$html .= $this->loadScript();
+		$html .= $this->load_view(__DIR__.'/views/footer.php',$displayvars);
+		$html .= $this->loadScripts();
 		return $html;
 	}
 	
@@ -93,6 +97,7 @@ class Voicemail extends Modules{
 			case 'moveToFolder':
 			case 'delete':
 			case 'savesettings':
+			case 'upload':
 				return true;
 			default:
 				return false;
@@ -127,6 +132,28 @@ class Voicemail extends Modules{
 				$status = $this->UCP->FreePBX->Voicemail->saveVMSettingsByExtension($ext,$_POST['pwd'],$_POST['email'],$_POST['pager'],$saycid,$envelope);
 				$return = array("status" => $status, "message" => "");
 			break;
+			case "upload":
+				foreach ($_FILES["files"]["error"] as $key => $error) {
+					if ($error == UPLOAD_ERR_OK) {
+						$extension = pathinfo($_FILES["files"]["name"][$key], PATHINFO_EXTENSION);
+						if($extension == 'wav' || $extension == 'ogg') {
+							$tmp_name = $_FILES["files"]["tmp_name"][$key];
+							$name = $_FILES["files"]["name"][$key];
+							if(!file_exists(__DIR__."/tmp")) {
+								mkdir(__DIR__."/tmp");
+							}
+							move_uploaded_file($tmp_name, __DIR__."/tmp/$name");
+							$contents = file_get_contents(__DIR__."/tmp/$name");
+							unlink(__DIR__."/tmp/$name");
+							$this->UCP->FreePBX->Voicemail->saveVMGreeting($_REQUEST['ext'],$_REQUEST['type'],$name,$contents);
+						} else {
+							$return = array("status" => false, "message" => "unsupported file format");
+							break;
+						}
+					}
+				}
+				$return = array("status" => true, "message" => "good!");
+			break;
 			default:
 				return false;
 			break;
@@ -157,25 +184,36 @@ class Voicemail extends Modules{
 		return false;
 	}
 	
-	public function doConfigPageInit($display) {
-	}
-	
-	public function myShowPage() {
-	}
-	
-	public function loadScript() {
-		$contents = '';
-		foreach (glob(__DIR__."/assets/js/*.js") as $filename) {
-			$contents .= file_get_contents($filename);
+	public function getBadge() {
+		$total = 0;
+		foreach($this->Modules->getAssignedDevices() as $extension) {
+			$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
+			$total = $total + $mailbox['NewMessages'];
 		}
-		return "<script>".$contents."</script>";
+		return !empty($total) ? $total : false;
 	}
 	
-	public function readRemoteFile($msgid,$ext,$format) {
+	public function getMenuItems() {
+		$menu = array(
+			"rawname" => "voicemail",
+			"name" => "Vmail",
+			"badge" => $this->getBadge()
+		);
+		foreach($this->Modules->getAssignedDevices() as $extension) {
+			$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
+			$menu["menu"][] = array(
+				"rawname" => $extension,
+				"name" => $extension,
+				"badge" => $mailbox['NewMessages']
+			);
+		}
+		return $menu; 
+	}
+	
+	
+	private function readRemoteFile($msgid,$ext,$format) {
 		$message = $this->UCP->FreePBX->Voicemail->getMessageByMessageIDExtension($msgid,$ext);
-		dbug("Using format: ".$format);
-		if(!empty($message) && !empty($message['format'][$format])) {
-			//$format = $message['format'][$format];
+		if(!empty($message) && !empty($message['format'][$format]) && !empty($message['format'][$format]['length'])) {
 			$size   = $message['format'][$format]['length']; // File size
 			$length = $size;           // Content length
 			$start  = 0;               // Start byte
@@ -188,6 +226,7 @@ class Voicemail extends Modules{
 				case "wav":
 					$ct = "audio/x-wav, audio/wav";
 				break;
+				case "oga":
 				case "ogg":
 					$ct = "audio/ogg";
 				break;
@@ -246,40 +285,8 @@ class Voicemail extends Modules{
 			exit;
 		} else {
 			header("HTTP/1.0 404 Not Found");
+			echo _("File Not Found");
+			exit;
 		}
-	}
-	
-	public function loadCSS() {
-		$contents = '';
-		foreach (glob(__DIR__."/assets/css/*.css") as $filename) {
-			$contents .= file_get_contents($filename);
-		}
-		return "<style>".$contents."</style>";
-	}
-	
-	public function getBadge() {
-		$total = 0;
-		foreach($this->Modules->getAssignedDevices() as $extension) {
-			$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
-			$total = $total + $mailbox['NewMessages'];
-		}
-		return !empty($total) ? $total : false;
-	}
-	
-	public function getMenuItems() {
-		$menu = array(
-			"rawname" => "voicemail",
-			"name" => "Vmail",
-			"badge" => $this->getBadge()
-		);
-		foreach($this->Modules->getAssignedDevices() as $extension) {
-			$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
-			$menu["menu"][] = array(
-				"rawname" => $extension,
-				"name" => $extension,
-				"badge" => $mailbox['NewMessages']
-			);
-		}
-		return $menu; 
 	}
 }

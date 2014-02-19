@@ -1,18 +1,19 @@
 <div class="col-md-10">
 	<h3>Voicemail Settings</h3>
 	<div class="vmsettings">
+		<div id="message" class="alert" style="display:none;"></div>
 		<form role="form">
 			<div class="form-group">
 				<label for="pwd">Voicemail Password</label>
-				<input type="text" class="form-control" id="pwd" value="<?php echo $settings['pwd']?>" autocapitalize="off" autocorrect="off">
+				<input name="pwd" type="text" class="form-control" id="pwd" value="<?php echo $settings['pwd']?>" autocapitalize="off" autocorrect="off">
 			</div>
 			<div class="form-group">
 				<label for="email">Email Address</label>
-				<input type="email" class="form-control" id="email" value="<?php echo $settings['email']?>" placeholder="user@domain.tld" autocapitalize="off" autocorrect="off">
+				<input name="email" type="email" class="form-control" id="email" value="<?php echo $settings['email']?>" placeholder="user@domain.tld" autocapitalize="off" autocorrect="off">
 			</div>
 			<div class="form-group">
 				<label for="pager">Pager Email Address</label>
-				<input type="email" class="form-control" id="pager" value="<?php echo $settings['pager']?>" placeholder="user@domain.tld" autocapitalize="off" autocorrect="off">
+				<input name="pager" type="email" class="form-control" id="pager" value="<?php echo $settings['pager']?>" placeholder="user@domain.tld" autocapitalize="off" autocorrect="off">
 			</div>
 			<div class="checkbox-row">
 				<label class="playcid">
