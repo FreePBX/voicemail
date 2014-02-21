@@ -15,10 +15,10 @@ class Voicemail implements BMO {
 		"wav" => "wav"
 	);
 	public $greetings = array(
-		'temp',
-		'unavail',
-		'busy',
-		'greet'
+		'unavail' => 'Unavailable',
+		'greet' => 'Name',
+		'busy' => 'Busy',
+		'temp' => 'Temporary',
 	);
 	private $vmBoxData = array();
 	private $vmFolders = array();
@@ -64,7 +64,7 @@ class Voicemail implements BMO {
 		$context = $o['vmcontext'];
 		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
 		$file = $vmfolder."/".$type.".wav";
-		if(in_array($type,$this->greetings) && file_exists($file)) {
+		if(isset($this->greetings[$type]) && file_exists($file)) {
 			foreach(glob($vmfolder."/".$type.".*") as $filename) {
 				if(!unlink($filename)) {
 					return false;
@@ -75,13 +75,27 @@ class Voicemail implements BMO {
 		return false;
 	}
 	
-	public function saveVMGreeting($ext,$type,$filename,$contents) {
+	public function copyVMGreeting($ext,$source,$target) {
 		$o = $this->getVoicemailBoxByExtension($ext);
 		$context = $o['vmcontext'];
 		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
-		if(in_array($type,$this->greetings)) {
+		if(isset($this->greetings[$source]) && isset($this->greetings[$target])) {
+			if(file_exists($vmfolder."/".$target.".wav")) {
+				$this->deleteVMGreeting($ext,$target);
+			}
+			copy($vmfolder."/".$source.".wav",$vmfolder."/".$target.".wav");
+			$this->generateAdditionalMediaFormats($vmfolder."/".$target.".wav",false);
+		}
+		return true;
+	}
+	
+	public function saveVMGreeting($ext,$type,$format,$contents) {
+		$o = $this->getVoicemailBoxByExtension($ext);
+		$context = $o['vmcontext'];
+		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
+		if(isset($this->greetings[$type])) {
 			$file = $vmfolder."/".$type.".wav";
-			$tempf = $vmfolder . "/" . $type . "_tmp.wav";
+			$tempf = $vmfolder . "/" . $type . "_tmp.".$format;
 			if(file_exists($file)) {
 				if(!unlink($file)) {
 					return false;
@@ -91,7 +105,7 @@ class Voicemail implements BMO {
 			//convert the file here using sox I guess
 			exec("sox " . $tempf . " -r 8000 -c1 " . $file . " > /dev/null 2>&1");
 			unlink($tempf);
-			$this->generateAdditionalMediaFormats($file);
+			$this->generateAdditionalMediaFormats($file,false);
 			return true;
 		} else {
 			return false;
@@ -115,7 +129,7 @@ class Voicemail implements BMO {
 		$context = $o['vmcontext'];
 		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
 		$files = array();
-		foreach($this->greetings as $greeting) {
+		foreach(array_keys($this->greetings) as $greeting) {
 			$file = $vmfolder . "/" . $greeting . ".wav";
 			if(file_exists($file) && is_readable($file)) {
 				$files[$greeting] = $file;
@@ -144,7 +158,7 @@ class Voicemail implements BMO {
 	}
 	
 	public function deleteMessageByID($msg,$ext) {
-		if(in_array($msg,$this->greetings)) {
+		if(isset($this->greetings[$msg])) {
 			return $this->deleteVMGreeting($ext,$msg);
 		} else {
 			$message = $this->getMessageByMessageIDExtension($msg,$ext);
@@ -246,7 +260,7 @@ class Voicemail implements BMO {
 	}
 	
 	public function getMessageByMessageIDExtension($msgid,$ext) {
-		if(in_array($msgid,$this->greetings)) {
+		if(isset($this->greetings[$msgid])) {
 			$out = $this->getGreetingByExtension($msgid,$ext);
 			return !empty($out) ? $out : false;
 		} else {
@@ -341,14 +355,15 @@ class Voicemail implements BMO {
 		return $out;
 	}
 	
-	private function generateAdditionalMediaFormats($file) {
-		//TODO: This will probably be slow, need to figure out how to do this properly
+	//TODO: Do this during retrieve_conf
+	private function generateAdditionalMediaFormats($file,$background = true) {
 		$path = dirname($file);
 		$filename = pathinfo($file,PATHINFO_FILENAME);
+		$b = ($background) ? '&' : '';
 		foreach($this->supportedFormats as $format) {
 			switch($format) {
 				case "ogg":
-					exec("sox $file " . $path . "/" . $filename . ".ogg > /dev/null 2>&1 &");
+					exec("sox $file " . $path . "/" . $filename . ".ogg > /dev/null 2>&1 ".$b);
 				break;
 			}
 		}

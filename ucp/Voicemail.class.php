@@ -33,8 +33,10 @@ class Voicemail extends Modules{
 	}
 	
 	function getDisplay() {
-		
 		$ext = !empty($_REQUEST['sub']) ? $_REQUEST['sub'] : '';
+		if(!empty($ext) && !$this->_checkExtension($ext)) {
+			return _("Forbidden");
+		}
 		$reqFolder = !empty($_REQUEST['folder']) ? $_REQUEST['folder'] : 'INBOX';
 		$view = !empty($_REQUEST['view']) ? $_REQUEST['view'] : 'folder';
 		$folders = $this->UCP->FreePBX->Voicemail->getFolders();
@@ -64,6 +66,8 @@ class Voicemail extends Modules{
 			case "greetings":
 				$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
 				$displayvars['greetings'] = $this->UCP->FreePBX->Voicemail->getGreetingsByExtension($ext);
+				$displayvars['short_greetings'] = $this->UCP->FreePBX->Voicemail->greetings;
+				
 				$mainDisplay= $this->load_view(__DIR__.'/views/greetings.php',$displayvars);
 				$displayvars['activeList'] = 'greetings';
 			break;
@@ -98,7 +102,9 @@ class Voicemail extends Modules{
 			case 'delete':
 			case 'savesettings':
 			case 'upload':
-				return true;
+			case 'copy':
+			case 'record':
+				return $this->_checkExtension($_REQUEST['ext']);
 			default:
 				return false;
 			break;
@@ -145,14 +151,35 @@ class Voicemail extends Modules{
 							move_uploaded_file($tmp_name, __DIR__."/tmp/$name");
 							$contents = file_get_contents(__DIR__."/tmp/$name");
 							unlink(__DIR__."/tmp/$name");
-							$this->UCP->FreePBX->Voicemail->saveVMGreeting($_REQUEST['ext'],$_REQUEST['type'],$name,$contents);
+							$this->UCP->FreePBX->Voicemail->saveVMGreeting($_REQUEST['ext'],$_REQUEST['type'],$extension,$contents);
 						} else {
 							$return = array("status" => false, "message" => "unsupported file format");
 							break;
 						}
 					}
 				}
-				$return = array("status" => true, "message" => "good!");
+				$return = array("status" => true, "message" => "");
+			break;
+			case "copy":
+				$status = $this->UCP->FreePBX->Voicemail->copyVMGreeting($_POST['ext'],$_POST['source'],$_POST['target']);
+				$return = array("status" => $status, "message" => "");
+			break;
+			case "record":
+				if ($_FILES["file"]["error"] == UPLOAD_ERR_OK) {
+					$tmp_name = $_FILES["file"]["tmp_name"];
+					$name = $_FILES["file"]["name"];
+					if(!file_exists(__DIR__."/tmp")) {
+						mkdir(__DIR__."/tmp");
+					}
+					move_uploaded_file($tmp_name, __DIR__."/tmp/$name");
+					$contents = file_get_contents(__DIR__."/tmp/$name");
+					unlink(__DIR__."/tmp/$name");
+					$this->UCP->FreePBX->Voicemail->saveVMGreeting($_REQUEST['ext'],$_REQUEST['type'],'wav',$contents);
+				}	else {
+					$return = array("status" => false, "message" => "unknown error");
+					break;
+				}
+				$return = array("status" => true, "message" => "");
 			break;
 			default:
 				return false;
@@ -199,7 +226,11 @@ class Voicemail extends Modules{
 			"name" => "Vmail",
 			"badge" => $this->getBadge()
 		);
-		foreach($this->Modules->getAssignedDevices() as $extension) {
+		
+		$user = $this->UCP->User->getUser();
+		$extensions = $this->UCP->getSetting($user['username'],$this->module,'assigned');
+		$extensions = !empty($extensions) ? $extensions : array();
+		foreach($extensions as $extension) {
 			$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
 			$menu["menu"][] = array(
 				"rawname" => $extension,
@@ -212,8 +243,15 @@ class Voicemail extends Modules{
 	
 	
 	private function readRemoteFile($msgid,$ext,$format) {
+		if(!$this->_checkExtension($ext)) {
+			header("HTTP/1.0 403 Forbidden");
+			echo _("Forbidden");
+			exit;
+		}
 		$message = $this->UCP->FreePBX->Voicemail->getMessageByMessageIDExtension($msgid,$ext);
 		if(!empty($message) && !empty($message['format'][$format]) && !empty($message['format'][$format]['length'])) {
+			header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+			header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 			$size   = $message['format'][$format]['length']; // File size
 			$length = $size;           // Content length
 			$start  = 0;               // Start byte
@@ -288,5 +326,11 @@ class Voicemail extends Modules{
 			echo _("File Not Found");
 			exit;
 		}
+	}
+	
+	private function _checkExtension($extension) {
+		$user = $this->UCP->User->getUser();
+		$extensions = $this->UCP->getSetting($user['username'],$this->module,'assigned');
+		return in_array($extension,$extensions);
 	}
 }

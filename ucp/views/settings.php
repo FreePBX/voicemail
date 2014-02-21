@@ -37,7 +37,7 @@
 					</div>
 				</label>
 			</div>
-			<div class="center"><button onclick="saveVMSettings();return false;">Save</button></div>
+			<div class="center"><button onclick="Voicemail.saveVMSettings();return false;">Save</button></div>
 		</form>
 	</div>
 </div>

@@ -55,7 +55,7 @@
 					<td class="cid"><?php echo $message['callerid']?></td>
 					<td class="hidden-xs"><?php echo $message['origmailbox']?></td>
 					<td class="hidden-xs"><?php echo $message['duration']?> sec</td>
-					<td><div class="subplay" onclick="vmplay('<?php echo $message['msg_id']?>')" style="cursor:pointer;"></div><a class="download" href="http://freepbxdev1.schmoozecom.net/ucp/index.php?quietmode=1&module=voicemail&command=listen&msgid=<?php echo $message['msg_id']?>&amp;format=wav&amp;ext=<?php echo $ext?>" target="_blank"><img src="modules/Voicemail/assets/images/browser_download.png"></a><a class="delete" onclick="vmdel('<?php echo $message['msg_id']?>')"><img src="modules/Voicemail/assets/images/trash.png"></a></td>
+					<td><div class="subplay" onclick="Voicemail.playVoicemail('<?php echo $message['msg_id']?>')" style="cursor:pointer;"></div><a class="download" href="http://freepbxdev1.schmoozecom.net/ucp/index.php?quietmode=1&module=voicemail&command=listen&msgid=<?php echo $message['msg_id']?>&amp;format=wav&amp;ext=<?php echo $ext?>" target="_blank"><img src="modules/Voicemail/assets/images/browser_download.png"></a><a class="delete" onclick="Voicemail.deleteVoicemail('<?php echo $message['msg_id']?>')"><img src="modules/Voicemail/assets/images/trash.png"></a></td>
 				</tr>
 			<?php }?>
 		<?php } else { ?>
