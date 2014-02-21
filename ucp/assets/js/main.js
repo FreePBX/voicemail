@@ -539,7 +539,7 @@ var Voicemail = new function() {
 				recc.show();
 				$('#'+type+' .jp-audio').slideDown();
 			}, function(e) {
-				console.log('Reeeejected!', e)
+				alert('Your Browser Blocked The Recording, Please check your settings')
 				Voicemail.recording = false;
 			});
 		}
