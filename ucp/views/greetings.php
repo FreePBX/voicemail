@@ -45,6 +45,7 @@
 					<div class="file-controls">
 						<span class="btn btn-file"><?php echo _('Upload Greeting')?><input type="file" type="file" name="files[]" multiple /></span>
 						<button class="<?php echo !isset($greetings[$greeting]) ? 'greet-hidden' : ''?>" onclick="Voicemail.deleteGreeting('<?php echo $greeting?>')"><?php echo _('Delete')?></button>
+						<button class="record-greeting-btn" onclick="Voicemail.recordGreeting('<?php echo $greeting?>')">Record Greeting</button>
 					</div>
 					<div class="recording-controls">
 						<button onclick="Voicemail.saveRecording('<?php echo $greeting?>')"><?php echo _('Save Greeting')?></button>

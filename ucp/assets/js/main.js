@@ -15,9 +15,11 @@ var Voicemail = new function() {
 		//If broswer doesnt support get user media requests then just hide it from the display
 		if(!Modernizr.getusermedia) {
 			$('.jp-record-wrapper').hide();
+			$('.record-greeting-btn').hide();
 		} else {
 			$('.jp-record-wrapper').show();
 			$('.jp-stop-wrapper').hide();
+			$('.record-greeting-btn').show();
 		}
 		//Nothing on this page will really work without drag and drop at this point
 		if (Modernizr.draganddrop) {
@@ -535,6 +537,7 @@ var Voicemail = new function() {
 				Voicemail.recording = true;
 				filec.hide();
 				recc.show();
+				$('#'+type+' .jp-audio').slideDown();
 			}, function(e) {
 				console.log('Reeeejected!', e)
 				Voicemail.recording = false;
