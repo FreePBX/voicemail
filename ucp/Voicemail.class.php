@@ -220,23 +220,24 @@ class Voicemail extends Modules{
 		return !empty($total) ? $total : false;
 	}
 	
-	public function getMenuItems() {
-		$menu = array(
-			"rawname" => "voicemail",
-			"name" => "Vmail",
-			"badge" => $this->getBadge()
-		);
-		
+	public function getMenuItems() {		
 		$user = $this->UCP->User->getUser();
 		$extensions = $this->UCP->getSetting($user['username'],$this->module,'assigned');
-		$extensions = !empty($extensions) ? $extensions : array();
-		foreach($extensions as $extension) {
-			$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
-			$menu["menu"][] = array(
-				"rawname" => $extension,
-				"name" => $extension,
-				"badge" => $mailbox['NewMessages']
+		$menu = array();
+		if(!empty($extensions)) {
+			$menu = array(
+				"rawname" => "voicemail",
+				"name" => "Vmail",
+				"badge" => $this->getBadge()
 			);
+			foreach($extensions as $extension) {
+				$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
+				$menu["menu"][] = array(
+					"rawname" => $extension,
+					"name" => $extension,
+					"badge" => $mailbox['NewMessages']
+				);
+			}
 		}
 		return $menu; 
 	}

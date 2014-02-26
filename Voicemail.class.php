@@ -55,6 +55,32 @@ class Voicemail implements BMO {
 
 	}
 	
+	public function processUCPAdminDisplay($user) {
+		if(!empty($_POST['ucp|voicemail'])) {
+			$this->FreePBX->Ucp->setSetting($user['username'],'Voicemail','assigned',$_POST['ucp|voicemail']);
+		}	else {
+			$this->FreePBX->Ucp->setSetting($user['username'],'Voicemail','assigned',array());
+		}
+	}
+	
+	public function getUCPAdminDisplay($user) {
+		$fpbxusers = array();
+		$cul = array();
+		foreach(core_users_list() as $list) {
+			$cul[$list[0]] = array(
+				"name" => $list[1],
+				"vmcontext" => $list[2]
+			);
+		}
+		$vmassigned = $this->FreePBX->Ucp->getSetting($user['username'],'Voicemail','assigned');
+		$vmassigned = !empty($vmassigned) ? $vmassigned : array();
+		foreach($user['assigned'] as $assigned) {
+			$fpbxusers[] = array("ext" => $assigned, "data" => $cul[$assigned], "selected" => in_array($assigned,$vmassigned));
+		}
+		$html = load_view(dirname(__FILE__)."/views/ucp_config.php",array("fpbxusers" => $fpbxusers));
+		return $html;
+	}
+	
 	public function getFolders() {
 		return $this->vmFolders;
 	}
