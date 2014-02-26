@@ -58,7 +58,7 @@ class Voicemail implements BMO {
 	public function processUCPAdminDisplay($user) {
 		if(!empty($_POST['ucp|voicemail'])) {
 			$this->FreePBX->Ucp->setSetting($user['username'],'Voicemail','assigned',$_POST['ucp|voicemail']);
-		}	else {
+		} else {
 			$this->FreePBX->Ucp->setSetting($user['username'],'Voicemail','assigned',array());
 		}
 	}
