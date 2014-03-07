@@ -23,7 +23,7 @@ class Voicemail implements BMO {
 	private $vmBoxData = array();
 	private $vmFolders = array();
 	private $vmPath = null;
-	
+
 	public function __construct($freepbx = null) {
 		if ($freepbx == null)
 			throw new Exception("Not given a FreePBX Object");
@@ -37,24 +37,30 @@ class Voicemail implements BMO {
 				"name" => _($folder)
 			);
 		}
+
+		$this->FreePBX->Ucp->registerHook('addUser','Voicemail','updateUser');
 	}
-	
+
+	public function updateUser($id,$display,$data) {
+
+	}
+
 	public function install() {
-		
+
 	}
 	public function uninstall() {
-		
+
 	}
 	public function backup(){
-		
+
 	}
 	public function restore($backup){
-		
+
 	}
 	public function genConfig() {
 
 	}
-	
+
 	public function processUCPAdminDisplay($user) {
 		if(!empty($_POST['ucp|voicemail'])) {
 			$this->FreePBX->Ucp->setSetting($user['username'],'Voicemail','assigned',$_POST['ucp|voicemail']);
@@ -62,7 +68,7 @@ class Voicemail implements BMO {
 			$this->FreePBX->Ucp->setSetting($user['username'],'Voicemail','assigned',array());
 		}
 	}
-	
+
 	public function getUCPAdminDisplay($user) {
 		$fpbxusers = array();
 		$cul = array();
@@ -80,11 +86,11 @@ class Voicemail implements BMO {
 		$html = load_view(dirname(__FILE__)."/views/ucp_config.php",array("fpbxusers" => $fpbxusers));
 		return $html;
 	}
-	
+
 	public function getFolders() {
 		return $this->vmFolders;
 	}
-	
+
 	public function deleteVMGreeting($ext,$type) {
 		$o = $this->getVoicemailBoxByExtension($ext);
 		$context = $o['vmcontext'];
@@ -100,7 +106,7 @@ class Voicemail implements BMO {
 		}
 		return false;
 	}
-	
+
 	public function copyVMGreeting($ext,$source,$target) {
 		$o = $this->getVoicemailBoxByExtension($ext);
 		$context = $o['vmcontext'];
@@ -114,7 +120,7 @@ class Voicemail implements BMO {
 		}
 		return true;
 	}
-	
+
 	public function saveVMGreeting($ext,$type,$format,$contents) {
 		$o = $this->getVoicemailBoxByExtension($ext);
 		$context = $o['vmcontext'];
@@ -137,7 +143,7 @@ class Voicemail implements BMO {
 			return false;
 		}
 	}
-	
+
 	public function getVoicemailBoxByExtension($ext) {
 		if(empty($this->vmBoxData[$ext])) {
 			include_once(__DIR__.'/functions.inc.php');
@@ -145,7 +151,7 @@ class Voicemail implements BMO {
 		}
 		return !empty($this->vmBoxData[$ext]) ? $this->vmBoxData[$ext] : false;
 	}
-	
+
 	public function getGreetingsByExtension($ext,$cache = false) {
 		$o = $this->getVoicemailBoxByExtension($ext);
 		//temp greeting <--overrides (temp.wav)
@@ -166,7 +172,7 @@ class Voicemail implements BMO {
 		}
 		return $files;
 	}
-	
+
 	public function saveVMSettingsByExtension($ext,$pwd,$email,$page,$playcid,$envelope) {
 		$o = $this->getVoicemailBoxByExtension($ext);
 		$context = $o['vmcontext'];
@@ -182,7 +188,7 @@ class Voicemail implements BMO {
 		}
 		return false;
 	}
-	
+
 	public function deleteMessageByID($msg,$ext) {
 		if(isset($this->greetings[$msg])) {
 			return $this->deleteVMGreeting($ext,$msg);
@@ -199,11 +205,11 @@ class Voicemail implements BMO {
 		}
 		return false;
 	}
-	
+
 	public function renumberAllMessages($folder) {
-		
+
 	}
-	
+
 	public function moveMessageByExtensionFolder($msg,$ext,$folder) {
 		if(!$this->folderCheck($folder)) {
 			return false;
@@ -229,7 +235,7 @@ class Voicemail implements BMO {
 						}
 					}
 					//check to make sure the file doesnt already exist first.
-					
+
 					//if the folder is empty (meaning we dont have a 0000 file) then set this to 0000
 					$tname = preg_replace('/([0-9]+)/','0000',basename($txt));
 					if(!file_exists($folder."/".$tname)) {
@@ -239,7 +245,7 @@ class Voicemail implements BMO {
 						}
 					} else {
 						//Else we have other voicemail data in here so do something else
-						
+
 						//figure out the last file in the directory
 						$oldFiles = glob($folder."/*.txt");
 						$numbers = array();
@@ -250,7 +256,7 @@ class Voicemail implements BMO {
 						}
 						rsort($numbers);
 						$next = sprintf('%04d', ($numbers[0] + 1));
-						
+
 						foreach($files as $file) {
 							$fname = preg_replace('/([0-9]+)/',$next,basename($file));
 							rename($file, $folder."/".$fname);
@@ -262,7 +268,7 @@ class Voicemail implements BMO {
 		}
 		return false;
 	}
-	
+
 	public function getGreetingByExtension($greeting,$ext) {
 		$greetings = $this->getGreetingsByExtension($ext,true);
 		$o = $this->getVoicemailBoxByExtension($ext);
@@ -284,7 +290,7 @@ class Voicemail implements BMO {
 		}
 		return $data;
 	}
-	
+
 	public function getMessageByMessageIDExtension($msgid,$ext) {
 		if(isset($this->greetings[$msgid])) {
 			$out = $this->getGreetingByExtension($msgid,$ext);
@@ -294,7 +300,7 @@ class Voicemail implements BMO {
 			return !empty($messages['messages'][$msgid]) ? $messages['messages'][$msgid] : false;
 		}
 	}
-	
+
 	public function readMessageBinaryByMessageIDExtension($msgid,$ext,$format,$start=0,$buffer=8192) {
 		$message = $this->getMessageByMessageIDExtension($msgid,$ext);
 		$fpath = $message['format'][$format]['path']."/".$message['format'][$format]['filename'];
@@ -302,7 +308,7 @@ class Voicemail implements BMO {
 			$end = $message['format'][$format]['length'] - 1;
 			$fp = fopen($fpath, "rb");
 			fseek($fp, $start);
-			if(!feof($fp) && ($p = ftell($fp)) <= $end) { 
+			if(!feof($fp) && ($p = ftell($fp)) <= $end) {
 			    if ($p + $buffer > $end) {
 			        $buffer = $end - $p + 1;
 			    }
@@ -314,16 +320,16 @@ class Voicemail implements BMO {
 		}
 		return false;
 	}
-	
+
 	public function getMessagesByExtension($extension) {
 		$o = $this->getVoicemailBoxByExtension($extension);
 		$context = $o['vmcontext'];
-		
+
 		$out = array();
 		$vmfolder = $this->vmPath . '/'.$context.'/'.$extension;
 		if (is_dir($vmfolder) && is_readable($vmfolder)) {
 			$count = 1;
-			foreach (glob($vmfolder . '/*',GLOB_ONLYDIR) as $folder) {				
+			foreach (glob($vmfolder . '/*',GLOB_ONLYDIR) as $folder) {
 				foreach (glob($folder."/*.txt") as $filename) {
 					$vm = pathinfo($filename,PATHINFO_FILENAME);
 					$vfolder = dirname($filename);
@@ -338,7 +344,7 @@ class Voicemail implements BMO {
 						$out['messages'][$key]['fid'] = $vm;
 						$out['messages'][$key]['context'] = $context;
 						$out['messages'][$key]['path'] = $folder;
-						
+
 						foreach($this->supportedFormats as $format => $extension) {
 							$mf = $vfolder."/".$vm.".".$extension;
 							if(file_exists($mf)) {
@@ -357,11 +363,11 @@ class Voicemail implements BMO {
 		}
 		return $out;
 	}
-	
+
 	public function getMessagesByExtensionFolder($extension,$folder) {
 		$o = $this->getVoicemailBoxByExtension($extension);
 		$context = $o['vmcontext'];
-		
+
 		$out = array();
 		$vmfolder = $this->vmPath . '/'.$context.'/'.$extension . '/'. $folder;
 		if (is_dir($vmfolder) && is_readable($vmfolder)) {
@@ -380,7 +386,7 @@ class Voicemail implements BMO {
 		}
 		return $out;
 	}
-	
+
 	//TODO: Do this during retrieve_conf
 	private function generateAdditionalMediaFormats($file,$background = true) {
 		$path = dirname($file);
@@ -394,11 +400,11 @@ class Voicemail implements BMO {
 			}
 		}
 	}
-	
+
 	private function folderCheck($folder) {
 		return !preg_match('/[\.|\/]/',$folder) && $this->validFolder($folder);
 	}
-	
+
 	private function validFolder($folder) {
 		return isset($this->vmFolders[$folder]);
 	}

@@ -27,11 +27,11 @@ use \UCP\Modules as Modules;
 
 class Voicemail extends Modules{
 	protected $module = 'Voicemail';
-	
+
 	function __construct($Modules) {
 		$this->Modules = $Modules;
 	}
-	
+
 	function getDisplay() {
 		$ext = !empty($_REQUEST['sub']) ? $_REQUEST['sub'] : '';
 		if(!empty($ext) && !$this->_checkExtension($ext)) {
@@ -41,22 +41,22 @@ class Voicemail extends Modules{
 		$view = !empty($_REQUEST['view']) ? $_REQUEST['view'] : 'folder';
 		$folders = $this->UCP->FreePBX->Voicemail->getFolders();
 		$messages = array();
-		
+
 		foreach($folders as $folder) {
 			$messages[$folder['folder']] = $this->UCP->FreePBX->Voicemail->getMessagesByExtensionFolder($ext,$folder['folder']);
 			$folders[$folder['folder']]['count'] = !empty($messages) && isset($messages[$folder['folder']]['messages']) ? count($messages[$folder['folder']]['messages']) : '0';
 		}
-		
+
 		$displayvars = array();
 		$displayvars['ext'] = $ext;
 		$displayvars['folders'] = $folders;
 		$displayvars['messages'] = isset($messages[$reqFolder]['messages']) ? $messages[$reqFolder]['messages'] : array();
-		
+
 		$html = "<script>var supportedMediaFormats = '".implode(",",array_keys($this->UCP->FreePBX->Voicemail->supportedFormats))."'; var extension = ".$ext."</script>";
 		$html .= $this->loadCSS();
 		$html .= $this->loadLESS();
 		$html .= $this->load_view(__DIR__.'/views/header.php',$displayvars);
-		
+
 		switch($view) {
 			case "settings":
 				$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
@@ -67,7 +67,7 @@ class Voicemail extends Modules{
 				$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
 				$displayvars['greetings'] = $this->UCP->FreePBX->Voicemail->getGreetingsByExtension($ext);
 				$displayvars['short_greetings'] = $this->UCP->FreePBX->Voicemail->greetings;
-				
+
 				$mainDisplay= $this->load_view(__DIR__.'/views/greetings.php',$displayvars);
 				$displayvars['activeList'] = 'greetings';
 			break;
@@ -77,15 +77,15 @@ class Voicemail extends Modules{
 			default:
 			break;
 		}
-		
-		
+
+
 		$html .= $this->load_view(__DIR__.'/views/nav.php',$displayvars);
 		$html .= $mainDisplay;
 		$html .= $this->load_view(__DIR__.'/views/footer.php',$displayvars);
 		$html .= $this->loadScripts();
 		return $html;
 	}
-	
+
 	/**
 	 * Determine what commands are allowed
 	 *
@@ -110,7 +110,7 @@ class Voicemail extends Modules{
 			break;
 		}
 	}
-	
+
 	/**
 	 * The Handler for all ajax events releated to this class
 	 *
@@ -119,7 +119,7 @@ class Voicemail extends Modules{
 	 * @return mixed Output if success, otherwise false will generate a 500 error serverside
 	 */
 	function ajaxHandler() {
-		$return = array("status" => false, "message" => "");	
+		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
 			case 'moveToFolder':
 				$ext = $_POST['ext'];
@@ -187,7 +187,7 @@ class Voicemail extends Modules{
 		}
 		return $return;
 	}
-	
+
 	/**
 	 * The Handler for quiet events
 	 *
@@ -210,7 +210,7 @@ class Voicemail extends Modules{
 		}
 		return false;
 	}
-	
+
 	public function getBadge() {
 		$total = 0;
 		foreach($this->Modules->getAssignedDevices() as $extension) {
@@ -219,8 +219,8 @@ class Voicemail extends Modules{
 		}
 		return !empty($total) ? $total : false;
 	}
-	
-	public function getMenuItems() {		
+
+	public function getMenuItems() {
 		$user = $this->UCP->User->getUser();
 		$extensions = $this->UCP->getSetting($user['username'],$this->module,'assigned');
 		$menu = array();
@@ -239,10 +239,10 @@ class Voicemail extends Modules{
 				);
 			}
 		}
-		return $menu; 
+		return $menu;
 	}
-	
-	
+
+
 	private function readRemoteFile($msgid,$ext,$format) {
 		if(!$this->_checkExtension($ext)) {
 			header("HTTP/1.0 403 Forbidden");
@@ -316,7 +316,7 @@ class Voicemail extends Modules{
 					break;
 				}
 				echo $content;
-				ob_flush(); 
+				ob_flush();
 				flush();
 				$wstart = $wstart + $buffer;
 				set_time_limit(0);
@@ -328,7 +328,7 @@ class Voicemail extends Modules{
 			exit;
 		}
 	}
-	
+
 	private function _checkExtension($extension) {
 		$user = $this->UCP->User->getUser();
 		$extensions = $this->UCP->getSetting($user['username'],$this->module,'assigned');
