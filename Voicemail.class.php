@@ -41,6 +41,10 @@ class Voicemail implements BMO {
 		$this->FreePBX->Ucp->registerHook('addUser','Voicemail','updateUser');
 	}
 
+	public function doConfigPageInit($page) {
+
+	}
+
 	public function updateUser($id,$display,$data) {
 
 	}
