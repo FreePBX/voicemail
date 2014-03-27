@@ -51,6 +51,9 @@ class Voicemail extends Modules{
 		$displayvars['ext'] = $ext;
 		$displayvars['folders'] = $folders;
 		$displayvars['messages'] = isset($messages[$reqFolder]['messages']) ? $messages[$reqFolder]['messages'] : array();
+        usort($displayvars['messages'], function($a, $b) {
+            return $b['origtime'] - $a['origtime'];
+        });
 
 		$html = "<script>var supportedMediaFormats = '".implode(",",array_keys($this->UCP->FreePBX->Voicemail->supportedFormats))."'; var extension = ".$ext."</script>";
 		$html .= $this->loadCSS();
