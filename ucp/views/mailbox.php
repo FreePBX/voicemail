@@ -1,9 +1,12 @@
 <div class="col-md-10">
+	<?php if(!empty($message)) { ?>
+		<div class="alert alert-<?php echo $message['type']?>"><?php echo $message['message']?></div>
+	<?php } ?>
 	<div id="freepbx_player" class="jp-jplayer"></div>
 	<div id="freepbx_player_1" class="jp-audio">
 	    <div class="jp-type-single">
 	        <div class="jp-gui jp-interface">
-	            <ul class="jp-controls">                
+	            <ul class="jp-controls">
 	                <li class="jp-play-wrapper"><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
 	                <li class="jp-pause-wrapper"><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
 	                <li class="jp-stop-wrapper"><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
@@ -25,7 +28,7 @@
 		            <ul>
 		                <li id="title-text">Cro Magnon Man</li>
 		            </ul>
-		        </div>                  
+		        </div>
 	        </div>
 	        <div class="jp-no-solution">
 	            <span>Update Required</span>

@@ -51,14 +51,20 @@ class Voicemail extends Modules{
 		$displayvars['ext'] = $ext;
 		$displayvars['folders'] = $folders;
 		$displayvars['messages'] = isset($messages[$reqFolder]['messages']) ? $messages[$reqFolder]['messages'] : array();
-        usort($displayvars['messages'], function($a, $b) {
-            return $b['origtime'] - $a['origtime'];
-        });
+		if(!empty($displayvars['messages'])) {
+			usort($displayvars['messages'], function($a, $b) {
+				return $b['origtime'] - $a['origtime'];
+			});
+		}
 
 		$html = "<script>var supportedMediaFormats = '".implode(",",array_keys($this->UCP->FreePBX->Voicemail->supportedFormats))."'; var extension = ".$ext."</script>";
 		$html .= $this->loadCSS();
 		$html .= $this->loadLESS();
 		$html .= $this->load_view(__DIR__.'/views/header.php',$displayvars);
+
+        if(!empty($this->UCP->FreePBX->Voicemail->displayMessage['message'])) {
+            $displayvars['message'] = $this->UCP->FreePBX->Voicemail->displayMessage;
+        }
 
 		switch($view) {
 			case "settings":
@@ -252,6 +258,7 @@ class Voicemail extends Modules{
 			echo _("Forbidden");
 			exit;
 		}
+
 		$message = $this->UCP->FreePBX->Voicemail->getMessageByMessageIDExtension($msgid,$ext);
 		if(!empty($message) && !empty($message['format'][$format]) && !empty($message['format'][$format]['length'])) {
 			header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1

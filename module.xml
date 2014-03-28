@@ -2,12 +2,13 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>12.0.3</version>
+	<version>12.0.4</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*12.0.4* Set message limit for UCP display
 		*12.0.3* Work on GUI for button work in Framework, numerous changes and additions for User Control Panel on the backend
 		*12.0.2* FREEPBX-6471 allow asterisk in password field
 		*12.0.1* Use BMO object to add the Asterisk mwi module if it exists

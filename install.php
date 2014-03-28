@@ -55,7 +55,7 @@ sql($sql);
 
 $globals_convert['OPERATOR_XTN'] = '';
 $globals_convert['VM_OPTS'] = '';
-$globals_convert['VM_GAIN'] = ''; 
+$globals_convert['VM_GAIN'] = '';
 $globals_convert['VM_DDTYPE'] = 'u';
 
 $globals_convert['VMX_OPTS_TIMEOUT'] = '';
@@ -243,7 +243,21 @@ $set['description'] = 'Setting this flag with generate the required dialplan to 
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('USERESMWIBLF',$set,true);
 
-/* 
+$set['value'] = 3000;
+$set['defaultval'] =& $set['value'];
+$set['options'] = array(1,100000);
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'voicemail';
+$set['category'] = 'Voicemail Module';
+$set['emptyok'] = 0;
+$set['sortorder'] = 100;
+$set['name'] = 'UCP Message Limit';
+$set['description'] = 'Limit the Messages to be Displayed in UCP. If your device has more processing power you can increase this otherwise lower it if you find your system not responsive';
+$set['type'] = CONF_TYPE_INT;
+$freepbx_conf->define_conf_setting('UCP_MESSAGE_LIMIT',$set,true);
+/*
    update modules.conf to make sure it preloads res_mwi_blf.so if they have it
    This makes sure that the modules.conf has been updated for older systems
    which assures that mwi blf events are captured when Asterisk first starts

@@ -2,7 +2,28 @@
 // vim: set ai ts=4 sw=4 ft=php:
 
 class Voicemail implements BMO {
-	public $folders = array(
+	//message to display to client
+	public $displayMessage = array(
+		"type" => "warning",
+		"message" => ""
+	);
+
+	//supported playback formats
+	public $supportedFormats = array(
+		"oga" => "ogg",
+		"wav" => "wav"
+	);
+
+	//supported greeting names
+	public $greetings = array(
+		'unavail' => 'Unavailable',
+		'greet' => 'Name',
+		'busy' => 'Busy',
+		'temp' => 'Temporary',
+	);
+
+	//Voicemail folders to search
+	private $folders = array(
 		"INBOX",
 		"Family",
 		"Friends",
@@ -10,16 +31,9 @@ class Voicemail implements BMO {
 		"Work",
 		"Urgent"
 	);
-	public $supportedFormats = array(
-		"oga" => "ogg",
-		"wav" => "wav"
-	);
-	public $greetings = array(
-		'unavail' => 'Unavailable',
-		'greet' => 'Name',
-		'busy' => 'Busy',
-		'temp' => 'Temporary',
-	);
+
+	//limits the messages to process
+	private $messageLimit = 3000;
 	private $vmBoxData = array();
 	private $vmFolders = array();
 	private $vmPath = null;
@@ -31,21 +45,16 @@ class Voicemail implements BMO {
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
 		$this->vmPath = $this->FreePBX->Config->get_conf_setting('ASTSPOOLDIR') . "/voicemail";
+		$this->messageLimit = $this->FreePBX->Config->get_conf_setting('UCP_MESSAGE_LIMIT');
 		foreach($this->folders as $folder) {
 			$this->vmFolders[$folder] = array(
 				"folder" => $folder,
 				"name" => _($folder)
 			);
 		}
-
-		$this->FreePBX->Ucp->registerHook('addUser','Voicemail','updateUser');
 	}
 
 	public function doConfigPageInit($page) {
-
-	}
-
-	public function updateUser($id,$display,$data) {
 
 	}
 
@@ -335,6 +344,10 @@ class Voicemail implements BMO {
 			$count = 1;
 			foreach (glob($vmfolder . '/*',GLOB_ONLYDIR) as $folder) {
 				foreach (glob($folder."/*.txt") as $filename) {
+					if($count > ($this->messageLimit)) {
+						$this->displayMessage['message'] = sprintf(_('Warning, You are over the max message display amount of %s only %s messages will be shown'),$this->messageLimit,$this->messageLimit);
+						break 2;
+					}
 					$vm = pathinfo($filename,PATHINFO_FILENAME);
 					$vfolder = dirname($filename);
 					$txt = $vfolder."/".$vm.".txt";
@@ -377,6 +390,10 @@ class Voicemail implements BMO {
 		if (is_dir($vmfolder) && is_readable($vmfolder)) {
 			$count = 1;
 			foreach (glob($vmfolder."/*.txt") as $filename) {
+				if($count > ($this->messageLimit)) {
+					$this->displayMessage['message'] = sprintf(_('Warning, You are over the max message display amount of %s only %s messages will be shown'),$this->messageLimit,$this->messageLimit);
+					break;
+				}
 				$vm = pathinfo($filename,PATHINFO_FILENAME);
 				$txt = $vmfolder."/".$vm.".txt";
 				$wav = $vmfolder."/".$vm.".wav";
@@ -388,6 +405,7 @@ class Voicemail implements BMO {
 				}
 			}
 		}
+
 		return $out;
 	}
 
