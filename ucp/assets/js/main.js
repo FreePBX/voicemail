@@ -25,7 +25,7 @@ var Voicemail = new function() {
 		if (Modernizr.draganddrop) {
 			/* MailBox Binds */
 			Voicemail.enableDrags();
-		
+
 			//Bind to the mailbox folders, listen for a drop
 			$('.mailbox .folder-list .folder').on('drop', function (event) {
 				if (event.stopPropagation) {
@@ -52,7 +52,7 @@ var Voicemail = new function() {
 					}
 				});
 			});
-			
+
 			//Mailbox drag over event
 			$('.mailbox .folder-list .folder').on('dragover', function (event) {
 			    if (event.preventDefault) {
@@ -84,7 +84,7 @@ var Voicemail = new function() {
 			$('.greeting-control .jp-audio').on('dragend', function (event) {
 				$(this).fadeTo( "fast" , 1.0);
 			});
-			
+
 			//Bind to the file drop, we are already bound from the jquery file handler
 			//but we bind again to pick up 'copy' events, to which file drop will ignore
 			$('.filedrop').on('drop', function (event) {
@@ -98,7 +98,7 @@ var Voicemail = new function() {
 				    }
 					//remove the hover event
 					$(this).removeClass("hover");
-				
+
 					//get our type
 					var target = $(this).data("type");
 					//ger the incoming type
@@ -113,7 +113,7 @@ var Voicemail = new function() {
 						alert("Dragging to yourself. Amusing");
 						return false
 					}
-					
+
 					//Send copy ajax
 					var data = {ext: extension, source: source, target: target};
 					var message = $(this).find('span')
@@ -157,7 +157,7 @@ var Voicemail = new function() {
 			$.pjax.click(event, {container: container})
 			Voicemail.enableDrags();
 		})
-	
+
 		/* MESSAGE PLAYER BINDS */
 	    $("#freepbx_player").jPlayer({
 	        ready: function(event) {
@@ -177,7 +177,7 @@ var Voicemail = new function() {
 			$('.vm-message[data-msg="'+Voicemail.loaded+'"] .subplay').css('background-position', '0px 0px');
 		});
 		/* END MESSAGE PLAYER BINDS */
-		
+
 		/* GREETING PLAYER BINDS */
 	    $("#freepbx_player_unavail").jPlayer({
 	        ready: function(event) {
@@ -220,7 +220,7 @@ var Voicemail = new function() {
 				$('#unavail .filedrop').removeClass("hover");
 		    }
 	    });
-	
+
 	    $("#freepbx_player_busy").jPlayer({
 	        ready: function(event) {
 				$(this).jPlayer( "setMedia", {
@@ -262,7 +262,7 @@ var Voicemail = new function() {
 				$('#busy .filedrop').removeClass("hover");
 		    }
 	    });
-	
+
 	    $("#freepbx_player_greet").jPlayer({
 	        ready: function(event) {
 				$(this).jPlayer( "setMedia", {
@@ -308,7 +308,7 @@ var Voicemail = new function() {
 				$('#greet .filedrop span').text('Uploading...');
 		    }
 	    });
-	
+
 	    $("#freepbx_player_temp").jPlayer({
 	        ready: function(event) {
 				$(this).jPlayer( "setMedia", {
@@ -356,7 +356,7 @@ var Voicemail = new function() {
 	this.playVoicemail = function(msgid) {
 		var player = $('#freepbx_player')
 		var cid = $('.vm-message[data-msg="'+msgid+'"] .cid').text()
-		if(player.data().jPlayer.status.paused && Voicemail.loaded != msgid) {		
+		if(player.data().jPlayer.status.paused && Voicemail.loaded != msgid) {
 			player.jPlayer( "setMedia", {
 				wav: "?quietmode=1&module=voicemail&command=listen&msgid="+msgid+"&format=wav&ext="+extension,
 				oga: "?quietmode=1&module=voicemail&command=listen&msgid="+msgid+"&format=oga&ext="+extension
@@ -393,6 +393,10 @@ var Voicemail = new function() {
 				$('.vm-message[data-msg="'+msgid+'"]').fadeOut('fast', function() {
 					Voicemail.CheckNoMessages()
 				});
+				var num = $('.mailbox .folder-list .folder.active .badge').text();
+				$('.mailbox .folder-list .folder.active .badge').text(num - 1);
+				num = $('#voicemail-badge').text();
+				$('#voicemail-badge').text(num - 1);
 			} else {
 				return false;
 			}
@@ -519,7 +523,7 @@ var Voicemail = new function() {
 			window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
 			var context = new AudioContext();
-		
+
 			var gUM = Modernizr.prefixed('getUserMedia', navigator);
 			gUM({audio: true}, function(stream) {
 		        var mediaStreamSource = context.createMediaStreamSource(stream);

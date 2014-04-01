@@ -114,6 +114,9 @@ class Voicemail extends Modules{
 			case 'copy':
 			case 'record':
 				return $this->_checkExtension($_REQUEST['ext']);
+                break;
+            case 'checkboxes':
+                return true;
 			default:
 				return false;
 			break;
@@ -130,6 +133,16 @@ class Voicemail extends Modules{
 	function ajaxHandler() {
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
+            case 'checkboxes':
+                $total = 0;
+                $boxes = array();
+                foreach($this->Modules->getAssignedDevices() as $extension) {
+                    $mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
+                    $total = $total + $mailbox['NewMessages'];
+                    $boxes[$extension] = $mailbox['NewMessages'];
+                }
+                $return = array("status" => true, "total" => $total, "boxes" => $boxes);
+            break;
 			case 'moveToFolder':
 				$ext = $_POST['ext'];
 				$status = $this->UCP->FreePBX->Voicemail->moveMessageByExtensionFolder($_POST['msg'],$ext,$_POST['folder']);
