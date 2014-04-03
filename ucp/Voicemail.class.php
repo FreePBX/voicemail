@@ -250,7 +250,7 @@ class Voicemail extends Modules{
 			$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
 			$total = $total + $mailbox['NewMessages'];
 		}
-		return !empty($total) ? $total : false;
+		return !empty($total) ? $total : 0;
 	}
 
 	public function getMenuItems() {
