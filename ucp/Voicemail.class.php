@@ -95,6 +95,17 @@ class Voicemail extends Modules{
 		return $html;
 	}
 
+    function poll() {
+        $total = 0;
+        $boxes = array();
+        foreach($this->Modules->getAssignedDevices() as $extension) {
+            $mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
+            $total = $total + $mailbox['NewMessages'];
+            $boxes[$extension] = $mailbox['NewMessages'];
+        }
+        return array("status" => true, "total" => $total, "boxes" => $boxes);
+    }
+
 	/**
 	 * Determine what commands are allowed
 	 *
