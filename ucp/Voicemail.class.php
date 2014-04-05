@@ -264,15 +264,18 @@ class Voicemail extends Modules{
 				"badge" => $this->getBadge()
 			);
 			foreach($extensions as $extension) {
-				$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
-				$menu["menu"][] = array(
-					"rawname" => $extension,
-					"name" => $extension,
-					"badge" => $mailbox['NewMessages']
-				);
+				$o = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($extension);
+				if(!empty($o)) {
+					$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
+					$menu["menu"][] = array(
+						"rawname" => $extension,
+						"name" => $extension,
+						"badge" => $mailbox['NewMessages']
+					);
+				}
 			}
 		}
-		return $menu;
+		return !empty($menu["menu"]) ? $menu : array();
 	}
 
 
