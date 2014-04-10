@@ -16,10 +16,12 @@ var Voicemail_poll = function(data) {
 			body: 'You Have '+notify+' New Voicemail'+plural,
 			icon: 'modules/Voicemail/assets/images/mail.png'
 		});
-		if(!Notify.needsPermission() && notify > 0) {
-			voicemailNotification.show();
+		if(notify > 0) {
+			if(!Notify.needsPermission()) {
+				voicemailNotification.show();
+			}
 			//reload the page
 			$('.mailbox .folder-list .folder.active a').click();
 		}
 	}
-}
+};
