@@ -17,7 +17,7 @@ var Voicemail_poll = function(data) {
 			icon: 'modules/Voicemail/assets/images/mail.png'
 		});
 		if(notify > 0) {
-			if(!Notify.needsPermission()) {
+			if(UCP.notify) {
 				voicemailNotification.show();
 			}
 			//reload the page
