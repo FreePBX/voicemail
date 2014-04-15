@@ -413,7 +413,7 @@ class Voicemail implements BMO {
 	private function generateAdditionalMediaFormats($file,$background = true) {
 		$path = dirname($file);
 		$filename = pathinfo($file,PATHINFO_FILENAME);
-		$b = ($background) ? '&' : '';
+		$b = ($background) ? '&' : ''; //this is so very important
 		foreach($this->supportedFormats as $format) {
 			switch($format) {
 				case "ogg":
