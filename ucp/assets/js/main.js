@@ -170,11 +170,11 @@ var Voicemail = new function() {
 	    });
 		//play binds
 		$("#freepbx_player").bind($.jPlayer.event.play, function(event) { // Add a listener to report the time play began
-			$('.vm-message[data-msg="'+Voicemail.loaded+'"] .subplay').css('background-position', '24px 0px');
+			$('.vm-message[data-msg="'+Voicemail.loaded+'"] .subplay img').prop('src', 'modules/Voicemail/assets/images/pause_control.png');
 		});
 
 		$("#freepbx_player").bind($.jPlayer.event.pause, function(event) { // Add a listener to report the time play began
-			$('.vm-message[data-msg="'+Voicemail.loaded+'"] .subplay').css('background-position', '0px 0px');
+			$('.vm-message[data-msg="'+Voicemail.loaded+'"] .subplay img').prop('src', 'modules/Voicemail/assets/images/play_control.png');
 		});
 		/* END MESSAGE PLAYER BINDS */
 
@@ -366,20 +366,20 @@ var Voicemail = new function() {
 				$("#title-text").text(cid);
 				$('.jp-audio').slideDown(function(event){
 					player.jPlayer("play")
-					$('.vm-message[data-msg="'+msgid+'"] .subplay').css('background-position', '24px 0px');
+					$('.vm-message[data-msg="'+msgid+'"] .subplay img').prop('src', 'modules/Voicemail/assets/images/play_control.png');
 				})
 			} else {
 				player.jPlayer("play", 0)
-				$('.vm-message[data-msg="'+msgid+'"] .subplay').css('background-position', '24px 0px');
+				$('.vm-message[data-msg="'+msgid+'"] .subplay img').prop('src', 'modules/Voicemail/assets/images/play_control.png');
 				$("#title-text").text(cid);
 			}
 		} else if(player.data().jPlayer.status.paused && Voicemail.loaded == msgid) {
 			player.jPlayer("play")
-			$('.vm-message[data-msg="'+msgid+'"] .subplay').css('background-position', '24px 0px');
+			$('.vm-message[data-msg="'+msgid+'"] .subplay img').prop('src', 'modules/Voicemail/assets/images/play_control.png');
 			$("#title-text").text(cid);
 		} else {
 			player.jPlayer("pause")
-			$('.vm-message[data-msg="'+msgid+'"] .subplay').css('background-position', '0px 0px');
+			$('.vm-message[data-msg="'+msgid+'"] .subplay img').prop('src', 'modules/Voicemail/assets/images/pause_control.png');
 		}
 	};
 	//Used to delete a voicemail message
