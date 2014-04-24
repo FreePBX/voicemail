@@ -58,7 +58,6 @@ class Voicemail extends Modules{
 		}
 
 		$html = "<script>var supportedMediaFormats = '".implode(",",array_keys($this->UCP->FreePBX->Voicemail->supportedFormats))."'; var extension = ".$ext."</script>";
-		$html .= $this->loadCSS();
 		$html .= $this->loadLESS();
 		$html .= $this->load_view(__DIR__.'/views/header.php',$displayvars);
 
@@ -91,7 +90,6 @@ class Voicemail extends Modules{
 		$html .= $this->load_view(__DIR__.'/views/nav.php',$displayvars);
 		$html .= $mainDisplay;
 		$html .= $this->load_view(__DIR__.'/views/footer.php',$displayvars);
-		$html .= $this->loadScripts();
 		return $html;
 	}
 
