@@ -58,7 +58,17 @@
 					<td class="cid"><?php echo $message['callerid']?></td>
 					<td class="hidden-xs"><?php echo $message['origmailbox']?></td>
 					<td class="hidden-xs"><?php echo $message['duration']?> sec</td>
-					<td><a class="subplay" onclick="Voicemail.playVoicemail('<?php echo $message['msg_id']?>')" style="cursor:pointer;"><img src="modules/Voicemail/assets/images/play_control.png"></div><a class="download" href="?quietmode=1&amp;module=voicemail&amp;command=listen&amp;msgid=<?php echo $message['msg_id']?>&amp;format=wav&amp;ext=<?php echo $ext?>" target="_blank"><img src="modules/Voicemail/assets/images/browser_download.png"></a><a class="delete" onclick="Voicemail.deleteVoicemail('<?php echo $message['msg_id']?>')"><img src="modules/Voicemail/assets/images/trash.png"></a></td>
+					<td>
+						<a class="subplay" onclick="Voicemail.playVoicemail('<?php echo $message['msg_id']?>')" style="cursor:pointer;">
+							<i class="fa fa-play"></i>
+						</a>
+						<a class="download" href="?quietmode=1&amp;module=voicemail&amp;command=listen&amp;msgid=<?php echo $message['msg_id']?>&amp;format=wav&amp;ext=<?php echo $ext?>" target="_blank">
+							<i class="fa fa-cloud-download"></i>
+						</a>
+						<a class="delete" onclick="Voicemail.deleteVoicemail('<?php echo $message['msg_id']?>')">
+							<i class="fa fa-trash-o"></i>
+						</a>
+					</td>
 				</tr>
 			<?php }?>
 		<?php } else { ?>

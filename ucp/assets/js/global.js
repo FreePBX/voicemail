@@ -35,6 +35,7 @@ var VoicemailC = UCPC.extend({
 		}
 	},
 	display: function(event) {
+		Voicemail.init();
 		//If browser doesnt support get user media requests then just hide it from the display
 		if(!Modernizr.getusermedia) {
 			$('.jp-record-wrapper').hide();
@@ -194,11 +195,11 @@ var VoicemailC = UCPC.extend({
 		});
 		//play binds
 		$("#freepbx_player").bind($.jPlayer.event.play, function(event) { // Add a listener to report the time play began
-			$('.vm-message[data-msg="'+Voicemail.loaded+'"] .subplay img').prop('src', 'modules/Voicemail/assets/images/pause_control.png');
+			$('.vm-message[data-msg="'+Voicemail.loaded+'"] .subplay i').removeClass('fa-play').addClass('fa-pause');
 		});
 
 		$("#freepbx_player").bind($.jPlayer.event.pause, function(event) { // Add a listener to report the time play began
-			$('.vm-message[data-msg="'+Voicemail.loaded+'"] .subplay img').prop('src', 'modules/Voicemail/assets/images/play_control.png');
+			$('.vm-message[data-msg="'+Voicemail.loaded+'"] .subplay i').removeClass('fa-pause').addClass('fa-play');
 		});
 		/* END MESSAGE PLAYER BINDS */
 
@@ -412,20 +413,20 @@ var VoicemailC = UCPC.extend({
 				$("#title-text").text(cid);
 				$('.jp-audio').slideDown(function(event){
 					player.jPlayer("play");
-					$('.vm-message[data-msg="'+msgid+'"] .subplay img').prop('src', 'modules/Voicemail/assets/images/play_control.png');
+					$('.vm-message[data-msg="'+msgid+'"] .subplay i').removeClass('fa-play').addClass('fa-pause');
 				});
 			} else {
 				player.jPlayer("play", 0);
-				$('.vm-message[data-msg="'+msgid+'"] .subplay img').prop('src', 'modules/Voicemail/assets/images/play_control.png');
+				$('.vm-message[data-msg="'+msgid+'"] .subplay i').removeClass('fa-play').addClass('fa-pause');
 				$("#title-text").text(cid);
 			}
 		} else if(player.data().jPlayer.status.paused && Voicemail.loaded == msgid) {
 			player.jPlayer("play");
-			$('.vm-message[data-msg="'+msgid+'"] .subplay img').prop('src', 'modules/Voicemail/assets/images/play_control.png');
+			$('.vm-message[data-msg="'+msgid+'"] .subplay i').removeClass('fa-play').addClass('fa-pause');
 			$("#title-text").text(cid);
 		} else {
 			player.jPlayer("pause");
-			$('.vm-message[data-msg="'+msgid+'"] .subplay img').prop('src', 'modules/Voicemail/assets/images/pause_control.png');
+			$('.vm-message[data-msg="'+msgid+'"] .subplay i').removeClass('fa-pause').addClass('fa-play');
 		}
 	},
 	//Used to delete a voicemail message
