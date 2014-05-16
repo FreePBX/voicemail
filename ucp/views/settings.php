@@ -40,7 +40,6 @@
 				</div>
 				<span class="help-block help-hidden" data-for="envelope-h"><?php echo _('Envelope controls whether or not the Voicemail system will play the message envelope (date/time) before playing the Voicemail message. This setting does not affect the operation of the envelope option in the advanced Voicemail menu.')?></span>
 			</div>
-			<div class="center"><button onclick="Voicemail.saveVMSettings();return false;"><?php echo _('Save')?></button></div>
 		</form>
 	</div>
 </div>

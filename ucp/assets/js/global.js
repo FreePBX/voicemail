@@ -376,6 +376,18 @@ var VoicemailC = UCPC.extend({
 			}
 		});
 		/* END GREETING PLAYER BINDS */
+
+		/* Settings changes binds */
+		$('.vmsettings input[type!="checkbox"]').change(function() {
+			$(this).blur(function() {
+				Voicemail.saveVMSettings();
+				$(this).off('blur');
+			});
+		});
+		$('.vmsettings input[type="checkbox"]').change(function() {
+			Voicemail.saveVMSettings();
+		});
+		/* end settings changes binds */
 	},
 	hide: function(event) {
 
@@ -431,23 +443,25 @@ var VoicemailC = UCPC.extend({
 	},
 	//Used to delete a voicemail message
 	deleteVoicemail: function(msgid) {
-		if($('.jp-audio').is(':visible') && Voicemail.loaded == msgid) {
-			$('.jp-audio').slideUp();
-		}
-		var data = {msg: msgid, ext: extension};
-		$.post( "index.php?quietmode=1&module=voicemail&command=delete", data, function( data ) {
-			if(data.status) {
-				$('.vm-message[data-msg="'+msgid+'"]').fadeOut('fast', function() {
-					Voicemail.CheckNoMessages();
-				});
-				var num = $('.mailbox .folder-list .folder.active .badge').text();
-				$('.mailbox .folder-list .folder.active .badge').text(num - 1);
-				num = $('#voicemail-badge').text();
-				$('#voicemail-badge').text(num - 1);
-			} else {
-				return false;
+		if(confirm("Are you sure you wish to delete this voicemail?")) {
+			if($('.jp-audio').is(':visible') && Voicemail.loaded == msgid) {
+				$('.jp-audio').slideUp();
 			}
-		});
+			var data = {msg: msgid, ext: extension};
+			$.post( "index.php?quietmode=1&module=voicemail&command=delete", data, function( data ) {
+				if(data.status) {
+					$('.vm-message[data-msg="'+msgid+'"]').fadeOut('fast', function() {
+						Voicemail.CheckNoMessages();
+					});
+					var num = $('.mailbox .folder-list .folder.active .badge').text();
+					$('.mailbox .folder-list .folder.active .badge').text(num - 1);
+					num = $('#voicemail-badge').text();
+					$('#voicemail-badge').text(num - 1);
+				} else {
+					return false;
+				}
+			});
+		}
 	},
 	//Toggle the html5 player for greeting
 	toggleGreeting: function(type,visible) {
@@ -463,7 +477,7 @@ var VoicemailC = UCPC.extend({
 	saveVMSettings: function() {
 		$('#message').fadeOut("slow");
 		var data = {ext: extension};
-		$('.vmsettings input[type="text"]').each(function( index ) {
+		$('.vmsettings input[type!="checkbox"]').each(function( index ) {
 			data[$( this ).attr('name')] = $( this ).val();
 		});
 		$('.vmsettings input[type="checkbox"]').each(function( index ) {

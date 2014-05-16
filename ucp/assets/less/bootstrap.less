@@ -75,24 +75,6 @@
         color: #2a6496;
     }
 }
-.subplay {
-    width:24px;
-    height:24px;
-    position: absolute;
-}
-.download {
-    cursor: pointer;
-    position: relative;
-    left: 25px;
-}
-.delete {
-    cursor: pointer;
-    position: relative;
-    left: 30px;
-}
-.controls {
-    display: inline-flex;
-}
 .folder-list {
     background-color: aliceblue;
 }
@@ -722,5 +704,21 @@ a.jp-shuffle-off:hover {
         display:block;
         text-align:center;
         font-weight:bold;
+    }
+}
+
+.table > tbody > tr > td.actions {
+    font-size: 159%;
+    padding: 1px;
+    div {
+        margin-left: 10px;
+        margin-top: 3px;
+        a {
+            cursor: pointer;
+            letter-spacing: 2px;
+        }
+        a:hover {
+            color:#428bca;
+        }
     }
 }
