@@ -262,12 +262,13 @@ class Voicemail extends Modules{
 				"badge" => $this->getBadge()
 			);
 			foreach($extensions as $extension) {
+				$data = $this->UCP->FreePBX->Core->getDevice($extension);
 				$o = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($extension);
 				if(!empty($o)) {
 					$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
 					$menu["menu"][] = array(
 						"rawname" => $extension,
-						"name" => $extension,
+						"name" => $extension . " - " . $data['description'],
 						"badge" => $mailbox['NewMessages']
 					);
 				}

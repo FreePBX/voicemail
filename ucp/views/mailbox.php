@@ -54,7 +54,7 @@
 				<tr class="vm-message" data-msg="<?php echo $message['msg_id']?>" draggable="true">
 					<td class="visible-xs"><?php echo date('m-d',$message['origtime'])?></td>
 					<td class="hidden-xs"><?php echo date('Y-m-d',$message['origtime'])?></td>
-					<td><?php echo date('h:m:sa',$message['origtime'])?></td>
+					<td><?php echo date('h:i:sa',$message['origtime'])?></td>
 					<td class="cid"><?php echo $message['callerid']?></td>
 					<td class="hidden-xs"><?php echo $message['origmailbox']?></td>
 					<td class="hidden-xs"><?php echo $message['duration']?> sec</td>
