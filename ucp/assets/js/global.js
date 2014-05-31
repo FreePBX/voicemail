@@ -143,7 +143,7 @@ var VoicemailC = UCPC.extend({
 
 					//Send copy ajax
 					var data = {ext: extension, source: source, target: target};
-					var message = $(this).find('span');
+					var message = $(this).find('.message');
 					message.text('Copying...');
 					$.post( "index.php?quietmode=1&module=voicemail&command=copy", data, function( data ) {
 						if(data.status) {
@@ -221,13 +221,13 @@ var VoicemailC = UCPC.extend({
 			dropZone: $('#unavail .filedrop'),
 			dataType: 'json',
 			add: function (e, data) {
-				$('#unavail .filedrop span').text('Uploading...');
+				$('#unavail .filedrop .message').text('Uploading...');
 				data.submit();
 			},
 			done: function (e, data) {
 				if(data.result.status) {
 					$('#unavail .filedrop .pbar').css('width','0%');
-					$('#unavail .filedrop span').text('Drag a New Greeting Here');
+					$('#unavail .filedrop .message').text('Drag a New Greeting Here');
 					$("#freepbx_player_unavail").jPlayer( "setMedia", {
 						wav: "?quietmode=1&module=voicemail&command=listen&msgid=unavail&format=wav&ext="+extension+"&rand="+Voicemail.generateRandom(),
 						oga: "?quietmode=1&module=voicemail&command=listen&msgid=unavail&format=oga&ext="+extension+"&rand="+Voicemail.generateRandom()
@@ -263,13 +263,13 @@ var VoicemailC = UCPC.extend({
 			dropZone: $('#busy .filedrop'),
 			dataType: 'json',
 			add: function (e, data) {
-				$('#busy .filedrop span').text('Uploading...');
+				$('#busy .filedrop .message').text('Uploading...');
 				data.submit();
 			},
 			done: function (e, data) {
 				if(data.result.status) {
 					$('#busy .filedrop .pbar').css('width','0%');
-					$('#busy .filedrop span').text('Drag a New Greeting Here');
+					$('#busy .filedrop .message').text('Drag a New Greeting Here');
 					$("#freepbx_player_busy").jPlayer( "setMedia", {
 						wav: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=wav&ext="+extension+"&rand="+Voicemail.generateRandom(),
 						oga: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=oga&ext="+extension+"&rand="+Voicemail.generateRandom()
@@ -305,13 +305,13 @@ var VoicemailC = UCPC.extend({
 			dropZone: $('#greet .filedrop'),
 			dataType: 'json',
 			add: function (e, data) {
-				$('#greet .filedrop span').text('Uploading...');
+				$('#greet .filedrop .message').text('Uploading...');
 				data.submit();
 			},
 			done: function (e, data) {
 				if(data.result.status) {
 					$('#greet .filedrop .pbar').css('width','0%');
-					$('#greet .filedrop span').text('Drag a New Greeting Here');
+					$('#greet .filedrop .message').text('Drag a New Greeting Here');
 					$("#freepbx_player_greet").jPlayer( "setMedia", {
 						wav: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=wav&ext="+extension+"&rand="+Voicemail.generateRandom(),
 						oga: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=oga&ext="+extension+"&rand="+Voicemail.generateRandom()
@@ -330,7 +330,7 @@ var VoicemailC = UCPC.extend({
 					//alert('Dropped file: ' + file.name);
 				});
 				$('#greet .filedrop').removeClass("hover");
-				$('#greet .filedrop span').text('Uploading...');
+				$('#greet .filedrop .message').text('Uploading...');
 			}
 		});
 
@@ -351,13 +351,13 @@ var VoicemailC = UCPC.extend({
 			dropZone: $('#temp .filedrop'),
 			dataType: 'json',
 			add: function (e, data) {
-				$('#temp .filedrop span').text('Uploading...');
+				$('#temp .filedrop .message').text('Uploading...');
 				data.submit();
 			},
 			done: function (e, data) {
 				if(data.result.status) {
 					$('#temp .filedrop .pbar').css('width','0%');
-					$('#temp .filedrop span').text('Drag a New Greeting Here');
+					$('#temp .filedrop .message').text('Drag a New Greeting Here');
 					$("#freepbx_player_temp").jPlayer( "setMedia", {
 						wav: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=wav&ext="+extension+"&rand="+Voicemail.generateRandom(),
 						oga: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=oga&ext="+extension+"&rand="+Voicemail.generateRandom()
@@ -597,7 +597,7 @@ var VoicemailC = UCPC.extend({
 			return false;
 		}
 		if((typeof(Voicemail.soundBlobs[type]) !== 'undefined') && Voicemail.soundBlobs[type] !== null) {
-			$('#'+type+' .filedrop span').text('Uploading...');
+			$('#'+type+' .filedrop .message').text('Uploading...');
 			var data = new FormData();
 			data.append('file', Voicemail.soundBlobs[type]);
 			$.ajax({
@@ -621,7 +621,7 @@ var VoicemailC = UCPC.extend({
 			    processData: false,
 			    contentType: false,
 		        success: function(data) {
-					$('#'+type+' .filedrop span').text('Drag a New Greeting Here');
+					$('#'+type+' .filedrop .message').text('Drag a New Greeting Here');
 					$('#'+type+' .filedrop .pbar').css('width','0%');
 					Voicemail.soundBlobs[type] = null;
 					filec.show();

@@ -11,7 +11,7 @@
 					<div id="freepbx_player_<?php echo $greeting?>_1" data-type="<?php echo $greeting?>" class="jp-audio <?php echo !isset($greetings[$greeting]) ? 'greet-hidden' : ''?>" draggable="true">
 					    <div class="jp-type-single">
 					        <div class="jp-gui jp-interface">
-					            <ul class="jp-controls">                
+					            <ul class="jp-controls">
 					                <li class="jp-play-wrapper"><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
 					                <li class="jp-pause-wrapper"><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
 					                <li class="jp-stop-wrapper"><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
@@ -34,7 +34,7 @@
 						            <ul>
 						                <li class="title-text" data-title="<?php echo _($name.' Greeting')?>"><?php echo _($name.' Greeting')?></li>
 						            </ul>
-						        </div>                  
+						        </div>
 					        </div>
 					        <div class="jp-no-solution">
 					            <span><?php echo _('Update Required')?></span>
@@ -43,18 +43,17 @@
 					    </div>
 					</div>
 					<div class="file-controls">
-						<span class="btn btn-file"><?php echo _('Upload Greeting')?><input type="file" type="file" name="files[]" multiple /></span>
-						<button class="<?php echo !isset($greetings[$greeting]) ? 'greet-hidden' : ''?>" onclick="Voicemail.deleteGreeting('<?php echo $greeting?>')"><?php echo _('Delete')?></button>
-						<button class="record-greeting-btn" onclick="Voicemail.recordGreeting('<?php echo $greeting?>')">Record Greeting</button>
+						<span class="btn btn-file btn-success btn-xs"><i class="fa fa-cloud-upload"></i> <?php echo _('Upload Greeting')?><input type="file" type="file" name="files[]" multiple /></span>
+						<button class="btn btn-danger btn-xs <?php echo !isset($greetings[$greeting]) ? 'greet-hidden' : ''?>" onclick="Voicemail.deleteGreeting('<?php echo $greeting?>')"><i class="fa fa-trash-o fa-lg"></i><?php echo _('Delete')?></button>
+						<button class="btn btn-danger record-greeting-btn btn-xs" onclick="Voicemail.recordGreeting('<?php echo $greeting?>')"><i class="fa fa-circle"></i> Record Greeting</button>
 					</div>
 					<div class="recording-controls">
-						<button onclick="Voicemail.saveRecording('<?php echo $greeting?>')"><?php echo _('Save Greeting')?></button>
-						<button onclick="Voicemail.deleteRecording('<?php echo $greeting?>')"><?php echo _('Discard Greeting')?></button>
+						<button class="btn btn-success btn-xs" onclick="Voicemail.saveRecording('<?php echo $greeting?>')"><i class="fa fa-floppy-o"></i> <?php echo _('Save Greeting')?></button>
+						<button class="btn btn-danger btn-xs" onclick="Voicemail.deleteRecording('<?php echo $greeting?>')"><i class="fa fa-trash-o fa-lg"></i> <?php echo _('Discard Greeting')?></button>
 					</div>
 					<div data-type="<?php echo $greeting?>" class="filedrop hidden-xs hidden-sm">
-						<div class="pbar">
-							<span><?php echo _('Drag a New Greeting Here')?></span>
-						</div>
+						<div class="message"><?php echo _('Drag a New Greeting Here')?></div>
+						<div class="pbar"></div>
 					</div>
 				</div>
 			</div>
