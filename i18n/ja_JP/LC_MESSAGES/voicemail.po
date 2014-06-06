@@ -38,20 +38,21 @@ msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-03 19:07+0900\n"
-"PO-Revision-Date: 2014-02-20 23:04+0200\n"
-"Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
-"Language-Team: Japanese <http://example.com/projects/freepbx/voicemail/ja/>\n"
-"Language: ja\n"
+"PO-Revision-Date: 2014-06-06 08:35+0200\n"
+"Last-Translator: Kevin <kevin@qloog.com>\n"
+"Language-Team: Japanese "
+"<http://git.freepbx.org/projects/freepbx/voicemail/ja/>\n"
+"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.8\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 msgid ""
 "Voicemail is enabled but the Voicemail Password field is empty.  Are you "
 "sure you wish to continue?"
-msgstr "ボイスメールは有効ですが、ボイスメールのパスワードが空です。 本当に続行しますか？"
+msgstr "ボイスメールは有効化されていますが、パスワードが空です。処理を続行しますか？"
 
 msgid "Enabled"
 msgstr "有効"
@@ -66,25 +67,25 @@ msgid "no"
 msgstr "いいえ"
 
 msgid "Please enter a valid Voicemail Password, using digits only"
-msgstr "有効なボイスメールパスワードを入力してください、数値のみ有効です。"
+msgstr "正しいボイスメールのパスワードを入力してください。数字のみ使えます。"
 
 msgid "Please enter a valid Email Address"
-msgstr "有効なEメールアドレスを入力してください"
+msgstr "正しいEメールアドレスを入力してください。"
 
 msgid "Please enter a valid Pager Email Address"
-msgstr "有効なページャーEメールアドレスを入力してください"
+msgstr "正しいポケベルのEメールアドレスを入力してください"
 
 msgid "VM Context cannot be blank"
-msgstr "VMコンテキストを空にすることはできません"
+msgstr "VMコンテキストを空にすることはできません。"
 
 msgid "Voicemail"
 msgstr "ボイスメール"
 
 msgid "Status"
-msgstr "ステータス"
+msgstr "ボイスメールの有効/無効"
 
 msgid "Voicemail Password"
-msgstr "ボイスメールパスワード"
+msgstr "ボイスメールのパスワード"
 
 #, php-format
 msgid ""
@@ -92,40 +93,35 @@ msgid ""
 "only contain numbers.%sA user can change the password you enter here after "
 "logging into the Voicemail system (%s) with a phone."
 msgstr ""
-"これは、ボイスメールシステムにアクセスするために使用するパスワードです。%s こ"
-"のパスワードは数字のみを含めることができます。%sユーザが電話でボイスメールシ"
-"ステム（%s）にログインした後、ここで入力したパスワードを変更することができま"
-"す。"
+"ボイスメールシステムにアクセスするためのパスワードを指定します。%s このパスワードには数字のみを組み合わせて指定してください。%s "
+"電話からボイスメールシステム (%s) に接続し、ここで入力したパスワードを入力してください。"
 
 msgid "Email Address"
-msgstr "Eメールアドレス"
+msgstr "ボイスメール送信先のEメールアドレス"
 
 msgid "The email address that Voicemails are sent to."
-msgstr "ボイスメールが送信されるEメールアドレス。"
+msgstr "ボイスメールの送信先Eメールアドレスを設定します。"
 
 msgid "Pager Email Address"
-msgstr "ページャーEメールアドレス"
+msgstr "ポケベルEメールアドレス"
 
 msgid ""
 "Pager/mobile email address that short Voicemail notifications are sent to."
-msgstr ""
-"短いボイスメール通知が送信されるポケットベル・モバイルのEメールアドレス。"
+msgstr "指定のEメールアドレスに、ボイスメールを受信したことを通知します。"
 
 msgid "Email Attachment"
-msgstr "Eメール添付"
+msgstr "Eメールに添付"
 
 msgid "Option to attach Voicemails to email."
-msgstr "ボイスメールをメールに添付するオプション"
+msgstr "ボイスメールメッセージの音声データをEメールに添付します。"
 
 msgid "Play CID"
-msgstr "再生CID"
+msgstr "CIDを再生する"
 
 msgid ""
 "Read back caller's telephone number prior to playing the incoming message, "
 "and just after announcing the date and time the message was left."
-msgstr ""
-"受信したメッセージを再生する前に、メッセージが残された日付と時刻をアナウンス"
-"した直後に発信者の電話番号を読み戻す。"
+msgstr "受信したメッセージを再生する前に、メッセージが残された日付と時刻をアナウンスした直後に発信者の電話番号をアナウンスします。"
 
 msgid "Play Envelope"
 msgstr "冒頭再生"
@@ -136,12 +132,11 @@ msgid ""
 "not affect the operation of the envelope option in the advanced Voicemail "
 "menu."
 msgstr ""
-"冒頭再生はボイスメールメッセージを再生する前にボイスメールシステムが冒頭の(日"
-"付/時間)メッセージを再生するかどうかを制御します。この設定は高度なボイスメー"
-"ルメニュー内にある冒頭オプションの操作に影響しません。"
+"冒頭再生はボイスメールメッセージを再生する前にボイスメールシステムが冒頭の(日付/時間)メッセージを再生するかどうかを制御します。この設定は高度設定ボイス"
+"メールメニュー内にある冒頭オプションの操作に影響しません。"
 
 msgid "Delete Voicemail"
-msgstr "ボイスメールを削除"
+msgstr "送信後にボイスメールを削除する"
 
 msgid ""
 "If set to \"yes\" the message will be deleted from the Voicemailbox (after "
@@ -151,35 +146,33 @@ msgid ""
 "HAVE attach Voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE "
 "LOST FOREVER."
 msgstr ""
-"\"はい\"に設定された場合、メッセージは(Eメール送信された後に)ボイスメールボッ"
-"クスから削除されます。ユーザーに、ウェブインターフェイスや内線ハンドセットか"
-"らボイスメールを検索するのではなく、彼らのボイスメールをEメール経由のみで受信"
-"することを許す機能を提供します。注意: Eメールにボイスメールを添付する設定を"
-"「はい」にしないと、あなたのメッセージは永久に失われます。"
+"この設定項目で\"はい\""
+"を指定すると、Eメールとして送信した後に、ボイスメールを削除します。この場合、Eメール以外の手段でボイスメールを確認することはできなくなります。\n"
+"注意:\"はい\"を指定する場合には、ボイスメールの Eメールへの添付を有効にしてください。有効にしないとメッセージは失われてしまいます。"
 
 msgid "IMAP Username"
 msgstr "IMAPユーザー名"
 
 #, php-format
 msgid "This is the IMAP username, if using IMAP storage"
-msgstr "IMAPを使用する場合のIMAPユーザー名"
+msgstr "ボイスメールにIMAPを使用する場合には、IMAPのユーザー名を指定します。"
 
 msgid "IMAP Password"
 msgstr "IMAPパスワード"
 
 #, php-format
 msgid "This is the IMAP password, if using IMAP storage"
-msgstr "IMAPを使用する際のIMAPパスワード"
+msgstr "IMAPを使用する場合のIMAPパスワード"
 
 msgid "VM Options"
-msgstr "VMオプション"
+msgstr "ボイスメールオプション"
 
 #, php-format
 msgid "Separate options with pipe ( | )%sie: review=yes|maxmessage=60"
-msgstr "オプションをパイプ( | )%s で分割します。例：review=yes|maxmessage=60"
+msgstr "ボイスメールのオプションを、'|' で区切って指定してください。%s 例) review=yes|maxmessage=60"
 
 msgid "VM Context"
-msgstr "VMコンテキスト"
+msgstr "ボイスメールのコンテキスト"
 
 msgid ""
 "This is the Voicemail Context which is normally set to default. Do not "
@@ -197,41 +190,37 @@ msgid ""
 "settings are controlled by the user in the User Portal (ARI). Disabling will "
 "not delete any existing user settings but will disable access to the feature"
 msgstr ""
-"このユーザーに対するVmXロケータ―機能を有効/無効にします。有効にした場合、全て"
-"の設定はユーザーポータル(ARI)内でユーザーによって制御されます。無効にしても既"
-"存のユーザー設定は削除されませんが、機能へのアクセスは無効になります。"
+"このユーザーに対するVmXロケータ―機能を有効/無効にします。有効にした場合、全ての設定はユーザーポータル(ARI)内でユーザーによって制御されます。無効"
+"にしても既存のユーザー設定は削除されませんが、機能へのアクセスはできなくなります。"
 
 msgid "Please enter a valid phone number using number digits only"
 msgstr "数値のみを使用して正しい電話番号を入力してください。"
 
 msgid "Use When:"
-msgstr "使用タイミング："
+msgstr "使用するタイミング："
 
 msgid ""
 "Menu options below are available during your personal Voicemail greeting "
 "playback. <br/><br/>Check both to use at all times."
-msgstr ""
-"あなたのパーソナルボイスメール挨拶メッセージが再生されている間に以下のメ"
-"ニューオプションが利用できます。<br/><br/>いつでも使用する場合は両方をチェッ"
-"クしてください。"
+msgstr "次の2つのチェックボックスは、あなたのボイスメールアナウンス再生中に適用されます。<br/><br/>両方チェックするといつでも利用できます。"
 
 msgid "unavailable"
-msgstr "利用不可能"
+msgstr "利用不可"
 
 msgid "busy"
 msgstr "通話中"
 
 msgid "Voicemail Instructions:"
-msgstr "ボイスメール操作説明:"
+msgstr "ボイスメール操作説明："
 
 msgid "Uncheck to play a beep after your personal Voicemail greeting."
-msgstr "チェックを外すと、あなたのボイスメール•グリーティング後に「ピー」という発信音が再生されます。"
+msgstr "チェックを外すと、あなたのボイスメールグリーティング再生後に「ピー」という発信音が再生されます。"
 
 msgid "Standard Voicemail prompts."
 msgstr "標準ボイスメールプロンプト"
 
 msgid "Press 0:"
-msgstr "0を押す:"
+msgstr "0 を押した場合："
 
 msgid ""
 "Pressing 0 during your personal Voicemail greeting goes to the Operator. "
@@ -239,14 +228,14 @@ msgid ""
 "still disabling VmX to allow an alternative Operator extension without "
 "requiring the VmX feature for the user."
 msgstr ""
-"ボイスメールのパーソナルグリーティング再生時に0を押すと、オペレーターに転送さ"
-"れます。チェックを外すと、違う転送先を指定できます。"
+"ボイスメールのパーソナルグリーティング再生時に0を押すと、オペレーターに転送されます。チェックを外すと、違う転送先を指定できます。この機能は、VmX "
+"ロケーターが無効な場合でも、代替のオペレーターエクステンションを使用するために利用することができます。"
 
 msgid "Go To Operator"
 msgstr "オペレーターへ移動"
 
 msgid "Press 1:"
-msgstr "を押す:"
+msgstr "1 を押した場合："
 
 msgid ""
 "The remaining options can have internal extensions, ringgroups, queues and "
@@ -255,10 +244,9 @@ msgid ""
 "time a change is made so you don't leave a caller stranded or receiving "
 "invalid number messages."
 msgstr ""
-"残りのオプションは、電話が鳴る可能性のある内線、リンググループ、キューや外部"
-"の番号を持つことが可能です。携帯番号を含める使用方法が一般的です。発信者が取"
-"り残されたり無効な番号ですというメッセージを受け取らないように変更されたかど"
-"うか、番号がいつも機能しているかを確認するためにテストをするべきです。"
+"残りのオプションは、電話が鳴る可能性のある内線、リンググループ、キューや外部の番号を持つことが可能です。携帯番号を含める使用方法が一般的です。発信者が取り"
+"残されたり、「番号が無効です」というメッセージを受け取らないように変更されたかどうか、番号がいつも機能しているかを確認するためにテストすることをお勧めしま"
+"す。"
 
 msgid ""
 "Enter an alternate number here, then change your personal Voicemail greeting "
@@ -266,27 +254,22 @@ msgid ""
 "to use your Follow Me List, check \"Send to Follow Me\" and disable Follow "
 "Me above."
 msgstr ""
-"ここでは代わりとなる番号を入力してください、次に、その番号に到達するには1番を"
-"押すということを発信者に知らせるために、あなたのパーソナルボイスメールグリー"
-"ティングを変更してください。<br/><br/>もしあなたのフォローミーリストを使用し"
-"たい場合は、\"フォローミーに送る\"をクリックし、上記のフォローミーを無効にし"
-"てください。"
+"ここに他の代替番号を入力し、発信者に「1」を押すことを知らせるようにアナウンスを変更してください。<br/><br/>Follow Me List "
+"を使用したくない場合には、「フォローミーに送る」をチェックし、上記フォローミーを無効にしてください。"
 
 msgid "Send to Follow-Me"
 msgstr "フォローミーに送る"
 
 msgid "Press 2:"
-msgstr "を押す:"
+msgstr "2を押した場合："
 
 msgid ""
 "Use any extensions, ringgroups, queues or external numbers. <br/><br/"
 ">Remember to re-record your personal Voicemail greeting and include "
 "instructions. Run a test to make sure that the number is functional."
 msgstr ""
-"お好みの内線番号、リンググループ、キューや外線番号を使用してください。<br/"
-"><br/>忘れずにあなたのパーソナルボイスメールグリーティングを再度録音しなお"
-"し、使用方法を含めてください。その番号がちゃんと動作するかどうか確認するため"
-"にテストしてください。"
+"お好みの内線番号、リンググループ、キューや外線番号を使用できます。<br/><br/>忘れずにあなたのパーソナルボイスメールグリーティングを再度録音しなお"
+"し、使用方法の説明を追加してください。テストを実行し、番号が動作することを確認してください。"
 
 #, php-format
 msgid "Failed to delete vmbox: %s@%s"
@@ -294,46 +277,46 @@ msgstr "vmboxの削除に失敗: %s@%s"
 
 #, php-format
 msgid "failed with retcode %s while removing %s:"
-msgstr "リターンンコード %s 失敗 %sを削除中に。"
+msgstr "リターンコード %s で、%s 削除中に失敗しました："
 
 msgid "Voicemail Administration"
-msgstr "ボイスメール管理"
+msgstr "ボイスメールの管理"
 
 msgid "Timezone Definitions"
-msgstr "タイムゾーン定義"
+msgstr "タイムゾーンの定義"
 
 msgid "Basic Settings For: "
-msgstr "基本的な設定："
+msgstr "基本設定： "
 
 msgid "Basic settings view is for individual accounts."
-msgstr "個人アカウントの基本設定ビュー"
+msgstr "各アカウントの基本設定。"
 
 msgid "Advanced Settings For: "
-msgstr "高度な設定："
+msgstr "高度な設定： "
 
 msgid "System Settings"
 msgstr "システム設定"
 
 msgid "Dialplan Behavior"
-msgstr "ダイヤルプラン動作"
+msgstr "ダイヤルプランの動作"
 
 msgid "Usage Statistics For: "
-msgstr "使用上の統計:"
+msgstr "使用状況の統計: "
 
 msgid "System Usage Statistics"
 msgstr "システム使用状況の統計"
 
 msgid "Invalid Action"
-msgstr "無効なアクション"
+msgstr "不正な操作"
 
 msgid "My Voicemail"
-msgstr "マイボイスメール"
+msgstr "自分のボイスメール"
 
 msgid "Dial Voicemail"
 msgstr "ボイスメールへダイヤル"
 
 msgid "Voicemail Admin"
-msgstr "ボイスメール管理"
+msgstr "ボイスメールの管理"
 
 msgid "Direct Dial Prefix"
 msgstr "ダイレクトダイヤルプレフィックス"
@@ -350,47 +333,47 @@ msgstr "%sは現在使われていません"
 
 #, php-format
 msgid "%s changed from %s to max value 15"
-msgstr "%sは%sから最大値15へ変更されました"
+msgstr "%s は %s から最大値の15へ変更しました。"
 
 #, php-format
 msgid "%s adjusted from %s to %s"
-msgstr "%sは、%sから%sに調整されました。"
+msgstr "%s を %s から %s に調整しました。"
 
 #, php-format
 msgid "%s adjusted from bad value %s to default no gain"
-msgstr "%sは、無効値%sからデフォルトのno gainに調整されました。"
+msgstr "%s を不正な値 %s からデフォルト値に変更しました"
 
 #, php-format
 msgid ""
 "ERROR inserting %s into voicemail_admin during migration, it may alreayd "
 "exist"
-msgstr "移行中、%sをvoicemail_adminに挿入中にエラーが発生しました。すでに存在している可能性があります"
+msgstr "エラー：　移行処理中に、%s が既に存在していたため、voicemail_admin に挿入できませんでした。"
 
 #, php-format
 msgid "%s migrated"
-msgstr "%sは移行されました。"
+msgstr "%s を移行しました"
 
 msgid "not needed"
-msgstr "必要なし"
+msgstr "不要"
 
 #, php-format
 msgid "%s added"
-msgstr "%sを追加"
+msgstr "%s を追加"
 
 msgid "General Settings migrated"
-msgstr "一般設定が移行されました。"
+msgstr "一般設定の移行が完了しました"
 
 msgid "Deleting migrated settings.."
-msgstr "移行された設定を削除中…"
+msgstr "移行した設定の削除中..."
 
 msgid "Fatal DB error trying to delete globals, trying to carry on"
-msgstr "globals の削除を試行中に致命的なDBエラーが発生しました。継続を試みています"
+msgstr "グローバル設定の削除中に致命的な DB エラーが発生しました。設定を持ち越します"
 
 msgid "done"
 msgstr "完了"
 
 msgid "migrated VM_PREFIX to feature codes"
-msgstr "VM_PREFIXをfeature codesに移行しました"
+msgstr "VM_PREFIXを機能コードに移行しました"
 
 msgid "deleting VM_PREFIX from globals.."
 msgstr "VM_PREFIXをグローバル値から削除中…"
