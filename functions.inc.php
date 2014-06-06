@@ -238,6 +238,7 @@ function voicemail_dialvoicemail($c) {
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 
+	$ext->add($id, $c, '', new ext_macro('user-callerid'));
 	$ext->add($id, $c, '', new ext_answer(''));
 	$ext->add($id, $c, 'start', new ext_wait('1'));
 	$ext->add($id, $c, '', new ext_noop($id.': Asking for mailbox'));
