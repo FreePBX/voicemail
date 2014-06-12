@@ -46,6 +46,7 @@
 		<voicemail>Voicemail Admin</voicemail>
 	</menuitems>
 	<depends>
+		<module>core ge 12.0.1alpha26</module>
 		<version>12.0.1alpha53</version>
 	</depends>
 	<supported>
