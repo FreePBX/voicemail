@@ -6,135 +6,59 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 class vmxObject {
 
-	var $exten;
+	private $exten;
 
 	// contstructor
-	function vmxObject($myexten) {
+	function __construct($myexten) {
 		$this->exten = $myexten;
+		$this->vmx = FreePBX::Voicemail()->Vmx;
 	}
 
 	function isInitialized($mode="unavail") {
-		global $astman;
-		if ($astman && ($mode == "unavail" || $mode == "busy")) {
-			$vmx_state=trim($astman->database_get("AMPUSER",$this->exten."/vmx/$mode/state"));
-			if (isset($vmx_state) && ($vmx_state == 'enabled' || $vmx_state == 'disabled') || $vmx_state == 'blocked') {
-				return true;
-			} else {
-				return false;
-			}
-		}
-		return false;
+		return $this->vmx->isInitialized($this->exten,$mode);
 	}
 	function isEnabled($mode="unavail") {
-		global $astman;
-		if ($astman && ($mode == "unavail" || $mode == "busy")) {
-			$vmx_state=trim($astman->database_get("AMPUSER",$this->exten."/vmx/$mode/state"));
-			if (isset($vmx_state) && ($vmx_state == 'enabled' || $vmx_state == 'disabled')) {
-				return true;
-			} else {
-				return false;
-			}
-		}
-		return false;
+		return $this->vmx->isEnabled($this->exten,$mode);
 	}
 
 	function disable() {
-		$ret = $this->setState('blocked','unavail');
-		return $this->setState('blocked','busy') && $ret;
+		return $this->vmx->disable($this->exten);
 	}
 
 	function getState($mode="unavail") {
-		global $astman;
-		if ($astman && ($mode == "unavail" || $mode == "busy")) {
-			return trim($astman->database_get("AMPUSER",$this->exten."/vmx/$mode/state"));
-		} else {
-			return false;
-		}
+		return $this->vmx->getState($this->exten,$mode);
 	}
 
 	function setState($state="enabled", $mode="unavail") {
-		global $astman;
-		if ($astman && ($mode == "unavail" || $mode == "busy")) {
-			$astman->database_put("AMPUSER", $this->exten."/vmx/$mode/state", "$state");
-			return true;
-		} else {
-			return false;
-		}
+		return $this->vmx->setState($this->exten,$mode,$state);
 	}
 
 	function getVmPlay($mode="unavail") {
-		global $astman;
-		if ($astman && ($mode == "unavail" || $mode == "busy")) {
-			return (trim($astman->database_get("AMPUSER",$this->exten."/vmx/$mode/vmxopts/timeout")) != 's');
-		} else {
-			return false;
-		}
+		return $this->vmx->getVmPlay($this->exten,$mode);
 	}
 
 	function setVmPlay($opts=true, $mode="unavail") {
-		global $astman;
-		if ($astman && ($mode == "unavail" || $mode == "busy")) {
-			$val = $opts ? '' : 's';
-			$astman->database_put("AMPUSER", $this->exten."/vmx/$mode/vmxopts/timeout", $val);
-			return true;
-		} else {
-			return false;
-		}
+		return $this->vmx->setVmPlay($this->exten,$mode,$opts);
 	}
 
 	function hasFollowMe() {
-		global $astman;
-		if ($astman) {
-			return ($astman->database_get("AMPUSER",$this->exten."/followme/ddial")) == "" ? false : true;
-		} else {
-			return false;
-		}
+		return $this->vmx->hasFollowMe($this->exten);
 	}
 
 	function isFollowMe($digit="1", $mode="unavail") {
-		global $astman;
-		if ($astman && ($mode == "unavail" || $mode == "busy")) {
-			return $astman->database_get("AMPUSER",$this->exten."/vmx/$mode/$digit/ext") == 'FM'.$this->exten ? true : false;
-		} else {
-			return false;
-		}
+		return $this->vmx->isFollowMe($this->exten,$digit,$mode);
 	}
 
 	function setFollowMe($digit="1", $mode="unavail", $context='ext-findmefollow', $priority='1') {
-		global $astman;
-		if ($astman && ($mode == "unavail" || $mode == "busy")) {
-			$astman->database_put("AMPUSER", $this->exten."/vmx/$mode/$digit/ext", "FM".$this->exten);
-			$astman->database_put("AMPUSER", $this->exten."/vmx/$mode/$digit/context", $context);
-			$astman->database_put("AMPUSER", $this->exten."/vmx/$mode/$digit/pri", $priority);
-			return true;
-		} else {
-			return false;
-		}
+		return $this->vmx->setFollowMe($this->exten,$digit,$mode,$context,$priority);
 	}
 
 	function getMenuOpt($digit="0", $mode="unavail") {
-		global $astman;
-		if ($astman && ($mode == "unavail" || $mode == "busy")) {
-			return trim($astman->database_get("AMPUSER",$this->exten."/vmx/$mode/$digit/ext"));
-		} else {
-			return false;
-		}
+		return $this->vmx->getMenuOpt($this->exten,$digit,$mode);
 	}
 
 	function setMenuOpt($opt="", $digit="0", $mode="unavail", $context="from-internal", $priority="1") {
-		global $astman;
-		if ($astman && ($mode == "unavail" || $mode == "busy")) {
-			if ($opt != "" && ctype_digit($opt)) {
-				$astman->database_put("AMPUSER", $this->exten."/vmx/$mode/$digit/ext", $opt);
-				$astman->database_put("AMPUSER", $this->exten."/vmx/$mode/$digit/context", $context);
-				$astman->database_put("AMPUSER", $this->exten."/vmx/$mode/$digit/pri", $priority);
-			} else {
-				$astman->database_deltree("AMPUSER/".$this->exten."/vmx/$mode/$digit");
-			}
-			return true;
-		} else {
-			return false;
-		}
+		return $this->vmx->setMenuOpt($this->exten,$opt, $digit, $mode, $context, $priority);
 	}
 }
 
@@ -383,6 +307,7 @@ function voicemail_configpageinit($pagename) {
 			}
 			document.getElementById('vmx_unavail_enabled').disabled=dval;
 			document.getElementById('vmx_busy_enabled').disabled=dval;
+			document.getElementById('vmx_temp_enabled').disabled=dval;
 			document.getElementById('vmx_play_instructions').disabled=dval;
 		";
 		$vmxobj = new vmxObject($extdisplay);
@@ -629,6 +554,9 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 	$vmx_busy_enabled_value = $vmxobj->getState("busy") == "enabled" ? "checked" : "";
 	$vmx_busy_enabled_text_box_options = $dval;
 
+	$vmx_temp_enabled_value = $vmxobj->getState("temp") == "enabled" ? "checked" : "";
+	$vmx_temp_enabled_text_box_options = $dval;
+
 	$vmx_play_instructions= $vmxobj->getVmPlay() ? "checked" : "";
 	$vmx_play_instructions_text_box_options = $dval;
 
@@ -670,7 +598,9 @@ function voicemail_draw_vmxgui($extdisplay, $disable) {
 					<input $tabindex_text $vmx_unavail_enabled_text_box_options $vmx_unavail_enabled_value type=checkbox name='vmx_unavail_enabled' id='vmx_unavail_enabled' value='checked'>
 					<small>" . _("unavailable") . "</small>&nbsp;&nbsp;
 					<input $tabindex_text $vmx_busy_enabled_text_box_options $vmx_busy_enabled_value type=checkbox name='vmx_busy_enabled' id='vmx_busy_enabled' value='checked'>
-					<small>" . _("busy") . "</small>
+					<small>" . _("busy") . "</small>&nbsp;&nbsp;
+					<input $tabindex_text $vmx_temp_enabled_text_box_options $vmx_temp_enabled_value type=checkbox name='vmx_temp_enabled' id='vmx_temp_enabled' value='checked'>
+					<small>" . _("temp") . "</small>
 				</td>
 			</tr>
 			<tr>
@@ -893,6 +823,7 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 	if (isset($vmx_option_0_system_default) && $vmx_option_0_system_default != '') {
 		$vmxobj->setMenuOpt("",0,'unavail');
 		$vmxobj->setMenuOpt("",0,'busy');
+		$vmxobj->setMenuOpt("",0,'temp');
 	} else {
     if (!isset($vmx_option_0_number)) {
 		  $vmx_option_0_number = '';
@@ -900,6 +831,7 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 		$vmx_option_0_number = preg_replace("/[^0-9]/" ,"", $vmx_option_0_number);
 		$vmxobj->setMenuOpt($vmx_option_0_number,0,'unavail');
 		$vmxobj->setMenuOpt($vmx_option_0_number,0,'busy');
+		$vmxobj->setMenuOpt($vmx_option_0_number,0,'temp');
 	}
 
 	if (isset($vmx_state) && $vmx_state) {
@@ -916,26 +848,37 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 			$vmxobj->setState('disabled','busy');
 		}
 
+		if (isset($vmx_temp_enabled) && $vmx_temp_enabled != '') {
+			$vmxobj->setState('enabled','temp');
+		} else {
+			$vmxobj->setState('disabled','temp');
+		}
+
 		if (isset($vmx_play_instructions) && $vmx_play_instructions== 'checked') {
 			$vmxobj->setVmPlay(true,'unavail');
 			$vmxobj->setVmPlay(true,'busy');
+			$vmxobj->setVmPlay(true,'temp');
 		} else {
 			$vmxobj->setVmPlay(false,'unavail');
 			$vmxobj->setVmPlay(false,'busy');
+			$vmxobj->setVmPlay(false,'temp');
 		}
 
 		if (isset($vmx_option_1_system_default) && $vmx_option_1_system_default != '') {
 			$vmxobj->setFollowMe(1,'unavail');
 			$vmxobj->setFollowMe(1,'busy');
+			$vmxobj->setFollowMe(1,'temp');
 		} else {
 			$vmx_option_1_number = preg_replace("/[^0-9]/" ,"", $vmx_option_1_number);
 			$vmxobj->setMenuOpt($vmx_option_1_number,1,'unavail');
 			$vmxobj->setMenuOpt($vmx_option_1_number,1,'busy');
+			$vmxobj->setMenuOpt($vmx_option_1_number,1,'temp');
 		}
 		if (isset($vmx_option_2_number)) {
 			$vmx_option_2_number = preg_replace("/[^0-9]/" ,"", $vmx_option_2_number);
 			$vmxobj->setMenuOpt($vmx_option_2_number,2,'unavail');
 			$vmxobj->setMenuOpt($vmx_option_2_number,2,'busy');
+			$vmxobj->setMenuOpt($vmx_option_2_number,2,'temp');
 		}
 	} else {
 		if ($vmxobj->isInitialized()) {

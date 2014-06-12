@@ -6,6 +6,55 @@ var VoicemailC = UCPC.extend({
 		this.recordTimer = null;
 		this.startTime = null;
 		this.soundBlobs = {};
+		this.placeholders = [];
+	},
+	settingsDisplay: function() {
+		$('#module-Voicemail form .input-group').each(function( index ) {
+			$(this).find('input[type="text"]').prop('disabled',!$(this).find('input[type="checkbox"]').is(':checked'));
+		});
+		$('#module-Voicemail input[type="text"]').change(function() {
+			$(this).blur(function() {
+				Voicemail.saveVmXSettings($(this).prop('name'),$(this).val());
+				$(this).off('blur');
+			});
+		});
+		$('#module-Voicemail .input-group input[type="checkbox"]').change(function() {
+			var el = $(this).data("el");
+			if(!$(this).is(':checked')) {
+				$('#'+el).prop('disabled',true);
+				$('#'+el).prop('placeholder',$('#'+el).data('ph'));
+				if($('#'+el).val() !== '') {
+					$('#'+el).val('');
+					Voicemail.saveVmXSettings($('#'+el).prop('name'),'');
+				}
+			} else {
+				$('#'+el).prop('placeholder','');
+				$('#'+el).prop('disabled',false);
+			}
+		});
+
+		$('#module-Voicemail .dests input[type="checkbox"]').change(function() {
+			Voicemail.saveVmXSettings($(this).prop('name'),$(this).is(':checked'));
+		});
+	},
+	settingsHide: function() {
+		$('#module-Voicemail input[type="text"], #module-Findmefollow textarea').off('change');
+		$('#module-Voicemail input[type="checkbox"]').off('change');
+	},
+	saveVmXSettings: function(key,value) {
+		var data = {ext: ext, settings: {key: key, value: value}};
+		$.post( "index.php?quietmode=1&module=voicemail&command=vmxsettings", data, function( data ) {
+			if(data.status) {
+				$('#module-Voicemail .message').text(data.message).addClass('alert-'+data.alert).fadeIn('fast', function() {
+					$(this).delay(5000).fadeOut('fast', function() {
+						$('.masonry-container').packery();
+					});
+				});
+				$('.masonry-container').packery();
+			} else {
+				return false;
+			}
+		});
 	},
 	poll: function(data){
 		if(data.status) {

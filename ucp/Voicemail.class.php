@@ -30,6 +30,8 @@ class Voicemail extends Modules{
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
+		$this->astman = $this->UCP->FreePBX->astman;
+		$this->Vmx = $this->UCP->FreePBX->Voicemail->Vmx;
 	}
 
 	function getDisplay() {
@@ -103,6 +105,26 @@ class Voicemail extends Modules{
         return array("status" => true, "total" => $total, "boxes" => $boxes);
     }
 
+	public function getSettingsDisplay($ext) {
+		if($this->Vmx->isInitialized($ext) && $this->Vmx->isEnabled($ext)) {
+			$displayvars = array(
+				'settings' => $this->Vmx->getSettings($ext),
+				'fmfm' => 'FM'.$ext
+			);
+			$out = array(
+				array(
+					"title" => _('VmX Locator'),
+					"content" => $this->load_view(__DIR__.'/views/vmx.php',$displayvars),
+					"size" => 6,
+					"order" => 1
+				)
+			);
+			return $out;
+		} else {
+			return array();
+		}
+	}
+
 	/**
 	 * Determine what commands are allowed
 	 *
@@ -122,9 +144,13 @@ class Voicemail extends Modules{
 			case 'copy':
 			case 'record':
 				return $this->_checkExtension($_REQUEST['ext']);
-                break;
-            case 'checkboxes':
-                return true;
+			break;
+			case 'vmxsettings':
+				$ext = $_REQUEST['ext'];
+				return $this->_checkExtension($ext) && $this->Vmx->isInitialized($ext) && $this->Vmx->isEnabled($ext);
+			break;
+			case 'checkboxes':
+				return true;
 			default:
 				return false;
 			break;
@@ -141,6 +167,49 @@ class Voicemail extends Modules{
 	function ajaxHandler() {
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
+			case 'vmxsettings':
+				switch($_POST['settings']['key']) {
+					case 'vmx-usewhen-unavailable':
+						$m = ($_POST['settings']['value'] == 'true') ? 'enabled' : 'disabled';
+						$this->Vmx->setState($_POST['ext'],'unavail',$m);
+					break;
+					case 'vmx-usewhen-busy':
+						$m = ($_POST['settings']['value'] == 'true') ? 'enabled' : 'disabled';
+						$this->Vmx->setState($_POST['ext'],'busy',$m);
+					break;
+					case 'vmx-usewhen-temp':
+						$m = ($_POST['settings']['value'] == 'true') ? 'enabled' : 'disabled';
+						$this->Vmx->setState($_POST['ext'],'temp',$m);
+					break;
+					case 'vmx-opt0':
+						$this->Vmx->setMenuOpt($_POST['ext'],$_POST['settings']['value'],'0','unavail');
+						$this->Vmx->setMenuOpt($_POST['ext'],$_POST['settings']['value'],'0','busy');
+						$this->Vmx->setMenuOpt($_POST['ext'],$_POST['settings']['value'],'0','temp');
+					break;
+					case 'vmx-opt1':
+						if(empty($_POST['settings']['value'])) {
+							$this->Vmx->setFollowMe($_POST['ext'],'1','unavail');
+							$this->Vmx->setFollowMe($_POST['ext'],'1','busy');
+							$this->Vmx->setFollowMe($_POST['ext'],'1','temp');
+						} else {
+							$this->Vmx->setMenuOpt($_POST['ext'],$_POST['settings']['value'],'1','unavail');
+							$this->Vmx->setMenuOpt($_POST['ext'],$_POST['settings']['value'],'1','busy');
+							$this->Vmx->setMenuOpt($_POST['ext'],$_POST['settings']['value'],'1','temp');
+						}
+					break;
+					case 'vmx-opt2':
+						$this->Vmx->setMenuOpt($_POST['ext'],$_POST['settings']['value'],'2','unavail');
+						$this->Vmx->setMenuOpt($_POST['ext'],$_POST['settings']['value'],'2','busy');
+						$this->Vmx->setMenuOpt($_POST['ext'],$_POST['settings']['value'],'2','temp');
+					break;
+					default:
+						dbug($_POST['settings']['key']);
+						return false;
+					break;
+				}
+
+				$return = array("status" => true, "message" => "Saved", "alert" => "success");
+			break;
             case 'checkboxes':
                 $total = 0;
                 $boxes = array();

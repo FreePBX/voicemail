@@ -1,7 +1,7 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=php:
-
-class Voicemail implements BMO {
+namespace FreePBX\modules;
+class Voicemail implements \BMO {
 	//message to display to client
 	public $displayMessage = array(
 		"type" => "warning",
@@ -37,10 +37,17 @@ class Voicemail implements BMO {
 	private $vmBoxData = array();
 	private $vmFolders = array();
 	private $vmPath = null;
+	public $Vmx = null;
 
 	public function __construct($freepbx = null) {
-		if ($freepbx == null)
-			throw new Exception("Not given a FreePBX Object");
+		if ($freepbx == null) {
+			throw new \Exception("Not given a FreePBX Object");
+		}
+
+		if(!class_exists('Vmx') && file_exists(__DIR__.'/Vmx.class.php')) {
+			include(__DIR__.'/Vmx.class.php');
+			$this->Vmx = new Voicemail\Vmx($freepbx);
+		}
 
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
@@ -96,7 +103,8 @@ class Voicemail implements BMO {
 		foreach($user['assigned'] as $assigned) {
 			$fpbxusers[] = array("ext" => $assigned, "data" => $cul[$assigned], "selected" => in_array($assigned,$vmassigned));
 		}
-		$html = load_view(dirname(__FILE__)."/views/ucp_config.php",array("fpbxusers" => $fpbxusers));
+		$html['description'] = '<a href="#" class="info">'._("Allowed Voicemail").':<span>'._("These are the assigned and active extensions which will show up for this user to control and edit in UCP").'</span></a>';
+		$html['content'] = load_view(dirname(__FILE__)."/views/ucp_config.php",array("fpbxusers" => $fpbxusers));
 		return $html;
 	}
 
