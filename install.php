@@ -216,7 +216,7 @@ $freepbx_conf->define_conf_setting('VM_SHOW_IMAP',$set,true);
 
 // USERESMWIBLF
 //
-$set['value'] = true;
+$set['value'] = (file_exists($amp_conf['ASTMODDIR']."/res_mwi_blf.so"));
 $set['defaultval'] =& $set['value'];
 $set['readonly'] = 0;
 $set['hidden'] = 0;
@@ -230,6 +230,7 @@ $set['description'] = 'Setting this flag with generate the required dialplan to 
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('USERESMWIBLF',$set,true);
 
+//UCP_MESSAGE_LIMIT
 $set['value'] = 3000;
 $set['defaultval'] =& $set['value'];
 $set['options'] = array(1,100000);
@@ -244,6 +245,7 @@ $set['name'] = 'UCP Message Limit';
 $set['description'] = 'Limit the Messages to be Displayed in UCP. If your device has more processing power you can increase this otherwise lower it if you find your system not responsive';
 $set['type'] = CONF_TYPE_INT;
 $freepbx_conf->define_conf_setting('UCP_MESSAGE_LIMIT',$set,true);
+
 /*
    update modules.conf to make sure it preloads res_mwi_blf.so if they have it
    This makes sure that the modules.conf has been updated for older systems

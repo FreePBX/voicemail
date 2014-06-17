@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>12.0.11</version>
+	<version>12.0.12</version>
 	<publisher>FreePBX</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*12.0.12* FREEPBX-7326 fixes issue of enabling setting if module doesnt exist.
 		*12.0.11* VmX Temp addition and Fixes and UCP conflict fixes
 		*12.0.10* Part fix for #6923 language not being set.
 		*12.0.9* Restructure Parts of UCP
