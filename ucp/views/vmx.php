@@ -1,4 +1,5 @@
-<div class="message alert" style="display:none;"></div>
+<div id="vmxerror" class="message alert" style="display:none;"></div>
+<div id="vmxmessage" class="message alert" style="display:none;"></div>
 <form role="form">
 	<div class="form-group">
 		<label for="vmx-usewhen-h" class="help"><?php echo _('Use When')?> <i class="fa fa-question-circle"></i></label>

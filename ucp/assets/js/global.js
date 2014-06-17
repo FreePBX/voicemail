@@ -1,4 +1,4 @@
-var VoicemailC = UCPC.extend({
+var VoicemailC = UCPMC.extend({
 	init: function(){
 		this.loaded = null;
 		this.recording = false;
@@ -9,6 +9,10 @@ var VoicemailC = UCPC.extend({
 		this.placeholders = [];
 	},
 	settingsDisplay: function() {
+		$('#ddial, #vmx-p1_enable').change(function() {
+			Voicemail.findmeFollowState();
+		});
+		this.findmeFollowState();
 		$('#module-Voicemail form .input-group').each(function( index ) {
 			$(this).find('input[type="text"]').prop('disabled',!$(this).find('input[type="checkbox"]').is(':checked'));
 		});
@@ -40,12 +44,20 @@ var VoicemailC = UCPC.extend({
 	settingsHide: function() {
 		$('#module-Voicemail input[type="text"], #module-Findmefollow textarea').off('change');
 		$('#module-Voicemail input[type="checkbox"]').off('change');
+		$('#ddial, #vmx-p1_enable').off('change');
+	},
+	findmeFollowState: function() {
+		if(!$('#vmx-p1_enable').is(':checked') && !$('#ddial').is(':checked')) {
+			$('#vmxerror').text('Find me Follow me is disabled when VmX locator option 1 is disabled as well!').addClass('alert-danger').fadeIn('fast');
+		} else {
+			$('#vmxerror').fadeOut('fast');
+		}
 	},
 	saveVmXSettings: function(key,value) {
 		var data = {ext: ext, settings: {key: key, value: value}};
 		$.post( "index.php?quietmode=1&module=voicemail&command=vmxsettings", data, function( data ) {
 			if(data.status) {
-				$('#module-Voicemail .message').text(data.message).addClass('alert-'+data.alert).fadeIn('fast', function() {
+				$('#vmxmessage').text(data.message).addClass('alert-'+data.alert).fadeIn('fast', function() {
 					$(this).delay(5000).fadeOut('fast', function() {
 						$('.masonry-container').packery();
 					});
