@@ -381,11 +381,11 @@ $title	  = voicemail_get_title($action, $context, $extension);
 $sys_view_flag = empty($extension)?true:false;
 
 show_view(dirname(__FILE__).'/views/header.php',array(
-	'type' => $type, 
-	'display' => $display, 
-	'extension' => $extension, 
-	'action' => $action, 
-	'sys_view_flag' => $sys_view_flag, 
+	'type' => $type,
+	'display' => $display,
+	'extension' => $extension,
+	'action' => $action,
+	'sys_view_flag' => $sys_view_flag,
 	'title' =>$title,
 		)
 );
@@ -430,17 +430,17 @@ switch ($action) {
 		);
 		// VMX_TIMEOUT
 		$vmx_timeout_opts['0'] = _("0 Sec");
-		for ($i=1;$i<16;$i++) { 
+		for ($i=1;$i<16;$i++) {
 			$vmx_timeout_opts[$i] = sprintf(_("%s Sec"),$i);
 		}
 		// VMX_REPEAT
-		for ($i=1;$i<5;$i++) { 
+		for ($i=1;$i<5;$i++) {
 			$vmx_repeat_opts[$i] = sprintf(_("%s Attempts"),$i);
 		}
 		// VMX_LOOPS
 		//
 		$vmx_loops_opts[1] = sprintf(_("%s Retry"),1);
-		for ($i=2;$i<5;$i++) { 
+		for ($i=2;$i<5;$i++) {
 			$vmx_loops_opts[$i] = sprintf(_("%s Retries"),$i);
 		}
 		show_view(dirname(__FILE__).'/views/dialplan.php',array('settings' => $settings, 'direct_dial_opts' => $direct_dial_opts, 'voicemail_gain_opts' => $voicemail_gain_opts, 'vmx_timeout_opts' => $vmx_timeout_opts, 'vmx_repeat_opts' => $vmx_repeat_opts, 'vmx_loops_opts' => $vmx_loops_opts));
@@ -530,9 +530,9 @@ switch ($action) {
 							$undef_selected = "checked=checked";
 							break;
 					}
-					$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<input type='radio' name='$id' id='$id' tabindex='1' value='yes' $yes_selected />" . _("yes");
-					$output .= "<input type='radio' name='$id' id='$id' tabindex='1' value='no' $no_selected />" . _("no");
-					$output .= "</td></tr>";
+					$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<span class='radioset'><input type='radio' name='$id' id='{$id}_yes' tabindex='1' value='yes' $yes_selected /><label for='{$id}_yes'>" . _("yes") . "</label>";
+					$output .= "<input type='radio' name='$id' id='{$id}_no' tabindex='1' value='no' $no_selected /><label for='{$id}_no'>" . _("no") . "</label>";
+					$output .= "</span></td></tr>";
 				} else {
 					$text_type = ($key == "pwd" || $key == "authpassword")?"password":"text";
 					$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<input size='$text_size' maxlength='$len' type='$text_type' name='$id' id='$id' tabindex='1' value=\"".htmlentities($val)."\" /></td></tr>";
@@ -570,30 +570,30 @@ switch ($action) {
 			redirect($url);
 		}
 
-		voicemail_get_usage($vmail_info, 
-			$scope, 
-			$acts_total, 
-			$acts_act, 
-			$acts_unact, 
+		voicemail_get_usage($vmail_info,
+			$scope,
+			$acts_total,
+			$acts_act,
+			$acts_unact,
 			$disabled_count,
-			$msg_total, 
-			$msg_in, 
+			$msg_total,
+			$msg_in,
 			$msg_other,
-			$name, 
-			$unavail, 
-			$busy, 
-			$temp, 
+			$name,
+			$unavail,
+			$busy,
+			$temp,
 			$abandoned,
 			$storage,
-			$context, 
+			$context,
 			$extension
 		);
-		
+
 		$vals = array(
-			'scope' => $scope, 
-			'acts_total' => $acts_total, 
-			'acts_act' => $acts_act, 
-			'acts_unact' => $acts_unact, 
+			'scope' => $scope,
+			'acts_total' => $acts_total,
+			'acts_act' => $acts_act,
+			'acts_unact' => $acts_unact,
 			'disabled_count' => $disabled_count,
 			'msg_total' => $msg_total,
 			'msg_in' => $msg_in,
@@ -607,7 +607,7 @@ switch ($action) {
 			'context' => $context,
 			'extension' => $extension
 		);
-		
+
 		if ($scope == "system") {
 			show_view(dirname(__FILE__).'/views/usage_system.php',$vals);
 		} else {
