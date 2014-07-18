@@ -1,5 +1,5 @@
 <div class='content'>
-	<form name='frm_voicemail' action='<?php $_SERVER['PHP_SELF'] ?>' method='post'>
+	<form name='frm_voicemail' action='' method='post'>
 		<input type='hidden' name='type' id='type' value='<?php echo $type ?>' />
 		<input type='hidden' name='display' id='display' value='<?php echo $display ?>' />
 		<input type='hidden' name='ext' id='ext' value='<?php echo $extension ?>' />
