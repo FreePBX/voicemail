@@ -44,7 +44,7 @@ class Voicemail implements \BMO {
 			throw new \Exception("Not given a FreePBX Object");
 		}
 
-		if(!class_exists('Vmx') && file_exists(__DIR__.'/Vmx.class.php')) {
+		if(!class_exists('FreePBX\modules\Voicemail\Vmx') && file_exists(__DIR__.'/Vmx.class.php')) {
 			include(__DIR__.'/Vmx.class.php');
 			$this->Vmx = new Voicemail\Vmx($freepbx);
 		}
@@ -221,6 +221,7 @@ class Voicemail implements \BMO {
 						return false;
 					}
 				}
+				$this->renumberAllMessages($message['path']);
 				return true;
 			}
 		}
@@ -228,7 +229,22 @@ class Voicemail implements \BMO {
 	}
 
 	public function renumberAllMessages($folder) {
-
+		$count = 0;
+		foreach(glob($folder."/*.txt") as $filename) {
+			preg_match('/msg(\d*).txt/',$filename,$matches);
+			$msgnum = (int)$matches[1];
+			if($msgnum != $count) {
+				$newn = sprintf('%04d', $count);
+				foreach(glob($folder."/msg".$matches[1].".*") as $filename2) {
+					$newpath = preg_replace('/msg\d*/','msg'.$newn,$filename2);
+					if(file_exists($newpath)) {
+						unlink($newpath);
+					}
+					rename($filename2,$newpath);
+				}
+			}
+			$count++;
+		}
 	}
 
 	public function moveMessageByExtensionFolder($msg,$ext,$folder) {
@@ -283,6 +299,9 @@ class Voicemail implements \BMO {
 							rename($file, $folder."/".$fname);
 						}
 					}
+					//Just for sanity sakes recheck the directories hopefully this doesnt take hours though.
+					$this->renumberAllMessages($vmfolder."/".$info['folder']);
+					$this->renumberAllMessages($folder);
 					return true;
 				}
 			}
@@ -416,6 +435,29 @@ class Voicemail implements \BMO {
 
 		return $out;
 	}
+
+	public function myDialplanHooks() {
+		return true;
+	}
+
+	public function doDialplanHook(&$ext, $engine, $priority) {
+		/* Determine if this is OK or not
+			// We're not actually doing any dialplan modifications.
+			foreach (glob($this->vmPath.'/device/*',GLOB_ONLYDIR) as $directory) {
+				foreach($this->folders as $folder) {
+					if(file_exists($directory.'/'.$folder)) {
+						foreach (glob($directory.'/'.$folder.'/*.wav') as $filename) {
+							if(preg_match('/msg(\d*)/',$filename,$matches)) {
+								if(!file_exists($directory.'/'.$folder.'/msg'.$matches[1].'.ogg')) {
+									$this->generateAdditionalMediaFormats($filename);
+								}
+							}
+						}
+					}
+				}
+			}
+		*/
+		}
 
 	//TODO: Do this during retrieve_conf
 	private function generateAdditionalMediaFormats($file,$background = true) {
