@@ -1,20 +1,8 @@
 <?php
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
-//This file is part of FreePBX.
+//	License for all code of this FreePBX module can be found in the license file inside the module directory
+//	Copyright 2006-2013 Schmooze Com Inc.
 //
-//    FreePBX is free software: you can redistribute it and/or modify
-//    it under the terms of the GNU General Public License as published by
-//    the Free Software Foundation, either version 3 of the License, or
-//    (at your option) any later version.
-//
-//    FreePBX is distributed in the hope that it will be useful,
-//    but WITHOUT ANY WARRANTY; without even the implied warranty of
-//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//    GNU General Public License for more details.
-//
-//    You should have received a copy of the GNU General Public License
-//    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
-// Copyright (c) 2006, 2008, 2009 qldrob, rcourtna
 
 class vmxObject {
 
@@ -250,6 +238,7 @@ function voicemail_dialvoicemail($c) {
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 
+	$ext->add($id, $c, '', new ext_macro('user-callerid'));
 	$ext->add($id, $c, '', new ext_answer(''));
 	$ext->add($id, $c, 'start', new ext_wait('1'));
 	$ext->add($id, $c, '', new ext_noop($id.': Asking for mailbox'));

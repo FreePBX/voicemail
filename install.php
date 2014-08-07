@@ -1,20 +1,7 @@
 <?php
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
-//This file is part of FreePBX.
-//
-//    FreePBX is free software: you can redistribute it and/or modify
-//    it under the terms of the GNU General Public License as published by
-//    the Free Software Foundation, either version 3 of the License, or
-//    (at your option) any later version.
-//
-//    FreePBX is distributed in the hope that it will be useful,
-//    but WITHOUT ANY WARRANTY; without even the implied warranty of
-//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//    GNU General Public License for more details.
-//
-//    You should have received a copy of the GNU General Public License
-//    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
-// Copyright (c) 2006, 2008, 2009 qldrob, rcourtna
+//	License for all code of this FreePBX module can be found in the license file inside the module directory
+//	Copyright 2006-2013 Schmooze Com Inc.s
 //
 //for translation only
 if (false) {
@@ -51,7 +38,7 @@ sql($sql);
 
 $globals_convert['OPERATOR_XTN'] = '';
 $globals_convert['VM_OPTS'] = '';
-$globals_convert['VM_GAIN'] = ''; 
+$globals_convert['VM_GAIN'] = '';
 $globals_convert['VM_DDTYPE'] = 'u';
 
 $globals_convert['VMX_OPTS_TIMEOUT'] = '';
@@ -225,7 +212,7 @@ $freepbx_conf->define_conf_setting('VM_SHOW_IMAP',$set,true);
 
 // USERESMWIBLF
 //
-$set['value'] = true;
+$set['value'] = (file_exists($amp_conf['ASTMODDIR']."/res_mwi_blf.so"));
 $set['defaultval'] =& $set['value'];
 $set['readonly'] = 0;
 $set['hidden'] = 0;
@@ -239,23 +226,24 @@ $set['description'] = 'Setting this flag with generate the required dialplan to 
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('USERESMWIBLF',$set,true);
 
-/* 
+/*
    update modules.conf to make sure it preloads res_mwi_blf.so if they have it
    This makes sure that the modules.conf has been updated for older systems
    which assures that mwi blf events are captured when Asterisk first starts
 */
-$mod_conf = $amp_conf['ASTETCDIR'].'/modules.conf';
-exec("grep -e '^[[:space:]]*preload[[:space:]]*=.*res_mwi_blf.so' $mod_conf",$output,$ret);
-if ($ret) {
-  outn(_("adding preload for res_mwi_blf.so to modules.conf.."));
-  exec('sed -i.2.8.0-1.bak "s/\s*preload\s*=>\s*chan_local.so/&\npreload => res_mwi_blf.so ;auto-inserted by FreePBX/" '.$mod_conf,$output,$ret);
-  exec("grep -e '^[[:space:]]*preload[[:space:]]*=.*res_mwi_blf.so' $mod_conf",$output,$ret);
-  if ($ret) {
-    out(_("FAILED"));
-    out(_("you may need to add the line 'preload => res_mwi_blf.so' to your modules.conf manually"));
-  } else {
-    out(_("ok"));
-  }
+if (file_exists($amp_conf['ASTMODDIR']."/res_mwi_blf.so")) {
+    $mod_conf = $amp_conf['ASTETCDIR'].'/modules.conf';
+    exec("grep -e '^[[:space:]]*preload[[:space:]]*=.*res_mwi_blf.so' $mod_conf",$output,$ret);
+    if ($ret) {
+      outn(_("adding preload for res_mwi_blf.so to modules.conf.."));
+      exec('sed -i.2.8.0-1.bak "s/\s*preload\s*=>\s*chan_local.so/&\npreload => res_mwi_blf.so ;auto-inserted by FreePBX/" '.$mod_conf,$output,$ret);
+      exec("grep -e '^[[:space:]]*preload[[:space:]]*=.*res_mwi_blf.so' $mod_conf",$output,$ret);
+      if ($ret) {
+        out(_("FAILED"));
+        out(_("you may need to add the line 'preload => res_mwi_blf.so' to your modules.conf manually"));
+      } else {
+        out(_("ok"));
+      }
+    }
+    unset($output);
 }
-unset($output);
-
