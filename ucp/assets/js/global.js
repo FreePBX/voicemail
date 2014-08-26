@@ -504,9 +504,11 @@ var VoicemailC = UCPMC.extend({
 	},
 	//Used to delete a voicemail message
 	deleteVoicemail: function(msgid) {
+		var player = $('#freepbx_player');
 		if(confirm("Are you sure you wish to delete this voicemail?")) {
 			if($('.jp-audio').is(':visible') && Voicemail.loaded == msgid) {
 				$('.jp-audio').slideUp();
+				player.jPlayer("pause");
 			}
 			var data = {msg: msgid, ext: extension};
 			$.post( "index.php?quietmode=1&module=voicemail&command=delete", data, function( data ) {
