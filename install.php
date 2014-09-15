@@ -216,7 +216,7 @@ $freepbx_conf->define_conf_setting('VM_SHOW_IMAP',$set,true);
 
 // USERESMWIBLF
 //
-$set['value'] = (file_exists($amp_conf['ASTMODDIR']."/res_mwi_blf.so"));
+$set['value'] = (file_exists($amp_conf['ASTMODDIR']."/res_mwi_blf.so") || file_exists($amp_conf['ASTMODDIR']."/res_mwi_devstate.so"));
 $set['defaultval'] =& $set['value'];
 $set['readonly'] = 0;
 $set['hidden'] = 0;
@@ -226,7 +226,7 @@ $set['category'] = 'Voicemail Module';
 $set['emptyok'] = 0;
 $set['sortorder'] = 100;
 $set['name'] = 'Create Voicemail Hints';
-$set['description'] = 'Setting this flag with generate the required dialplan to integrate with res_mwi_blf which is included with the Official FreePBX Distro. It allows users to subscribe to other voicemail box and be notified via BLF of changes.';
+$set['description'] = 'Setting this flag with generate the required dialplan to integrate with res_mwi_devstate (res_mwi_blf) which is included with the Official FreePBX Distro. It allows users to subscribe to other voicemail box and be notified via BLF of changes.';
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('USERESMWIBLF',$set,true);
 
