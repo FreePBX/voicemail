@@ -326,7 +326,7 @@ class Voicemail extends Modules{
 		if(!empty($extensions)) {
 			$menu = array(
 				"rawname" => "voicemail",
-				"name" => "Vmail",
+				"name" => _("Voicemail"),
 				"badge" => $this->getBadge()
 			);
 			foreach($extensions as $extension) {
