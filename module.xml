@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>12.0.15</version>
+	<version>12.0.16</version>
 	<publisher>FreePBX</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*12.0.16* Add res_mwi_devstate now for 12 installations
 		*12.0.15* Stop playing voicemails in UCP when they are deleted
 		*12.0.14* FREEPBX-7542 fixes UCP not renumbering voicemails
 		*12.0.13* FREEPBX-7500 Make User voicemail settings uniform
