@@ -198,26 +198,30 @@ function voicemail_dialvoicemail($c) {
 	$ext->add($id, $c, '', new ext_goto('1','return','${IVR_CONTEXT}'));
 
 	//res_mwi_blf allows you to subscribe to voicemail hints, the following code generates the dialplan for doing so
-        $resmwiblf_check = $astman->send_request('Command', array('Command' => 'module show like res_mwi_blf'));
-        $resmwiblf_module = preg_match('/[1-9] modules loaded/', $resmwiblf_check['data']);
+	$resmwiblf_check = $astman->send_request('Command', array('Command' => 'module show like res_mwi_blf'));
+	$resmwiblf_module = preg_match('/[1-9] modules loaded/', $resmwiblf_check['data']);
 
+	if(!$resmwiblf_module) {
+		$resmwiblf_check = $astman->send_request('Command', array('Command' => 'module show like res_mwi_devstate'));
+		$resmwiblf_module = preg_match('/[1-9] modules loaded/', $resmwiblf_check['data']);
+	}
 	if ($resmwiblf_module && $amp_conf['USERESMWIBLF']) {
-                $userlist = core_users_list();
-                if (is_array($userlist)) {
-                        foreach($userlist as $item) {
-                                $exten = core_users_get($item[0]);
-                                $vm = ((($exten['voicemail'] == "novm") || ($exten['voicemail'] == "disabled") || ($exten['voicemail'] == "")) ? "novm" : $exten['extension']);
+		$userlist = core_users_list();
+		if (is_array($userlist)) {
+			foreach($userlist as $item) {
+				$exten = core_users_get($item[0]);
+				$vm = ((($exten['voicemail'] == "novm") || ($exten['voicemail'] == "disabled") || ($exten['voicemail'] == "")) ? "novm" : $exten['extension']);
 
-                                if($vm != "novm") {
-                                        $ext->add($id, $c.$vm, '', new ext_goto('1','dvm${EXTEN:'.strlen($c).'}'));
-                                        $ext->addHint($id, $c.$vm, "MWI:$vm@".$exten['voicemail']);
-                                }
-                        }
-                }
+				if($vm != "novm") {
+					$ext->add($id, $c.$vm, '', new ext_goto('1','dvm${EXTEN:'.strlen($c).'}'));
+					$ext->addHint($id, $c.$vm, "MWI:$vm@".$exten['voicemail']);
+				}
+			}
+		}
 		$c = '_dvm.';
-        } else {
+	} else {
 		// Note that with this one, it has paramters. So we have to add '_' to the start and '.' to the end
-        	// of $c
+		// of $c
 		$c = "_$c.";
 	}
 
