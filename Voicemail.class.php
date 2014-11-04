@@ -221,6 +221,11 @@ class Voicemail implements \BMO {
 						return false;
 					}
 				}
+				foreach(glob($message['path']."/".$message['fid']."_*.*") as $filename) {
+					if(!unlink($filename)) {
+						return false;
+					}
+				}
 				$this->renumberAllMessages($message['path']);
 				return true;
 			}
@@ -231,12 +236,19 @@ class Voicemail implements \BMO {
 	public function renumberAllMessages($folder) {
 		$count = 0;
 		foreach(glob($folder."/*.txt") as $filename) {
-			preg_match('/msg(\d*).txt/',$filename,$matches);
+			preg_match('/msg([0-9]+).txt/',$filename,$matches);
 			$msgnum = (int)$matches[1];
 			if($msgnum != $count) {
 				$newn = sprintf('%04d', $count);
 				foreach(glob($folder."/msg".$matches[1].".*") as $filename2) {
-					$newpath = preg_replace('/msg\d*/','msg'.$newn,$filename2);
+					$newpath = preg_replace('/msg([0-9]+)/','msg'.$newn,$filename2);
+					if(file_exists($newpath)) {
+						unlink($newpath);
+					}
+					rename($filename2,$newpath);
+				}
+				foreach(glob($folder."/msg".$matches[1]."_*.*") as $filename2) {
+					$newpath = preg_replace('/msg([0-9]+)/','msg'.$newn,$filename2);
 					if(file_exists($newpath)) {
 						unlink($newpath);
 					}
@@ -262,6 +274,7 @@ class Voicemail implements \BMO {
 			if(file_exists($txt) && is_readable($txt)) {
 				$files = array();
 				$files[] = $txt;
+				$files[] = $vmfolder."/".$info['folder']."/" . $info['file'];
 				if(!file_exists($folder)) {
 					mkdir($folder);
 				}
@@ -277,7 +290,7 @@ class Voicemail implements \BMO {
 					$tname = preg_replace('/([0-9]+)/','0000',basename($txt));
 					if(!file_exists($folder."/".$tname)) {
 						foreach($files as $file) {
-							$fname = preg_replace('/([0-9]+)/','0000',basename($file));
+							$fname = preg_replace('/msg([0-9]+)/','msg0000',basename($file));
 							rename($file, $folder."/".$fname);
 						}
 					} else {
@@ -295,7 +308,7 @@ class Voicemail implements \BMO {
 						$next = sprintf('%04d', ($numbers[0] + 1));
 
 						foreach($files as $file) {
-							$fname = preg_replace('/([0-9]+)/',$next,basename($file));
+							$fname = preg_replace('/msg([0-9]+)/',"msg".$next,basename($file));
 							rename($file, $folder."/".$fname);
 						}
 					}
@@ -331,7 +344,7 @@ class Voicemail implements \BMO {
 		return $data;
 	}
 
-	public function getMessageByMessageIDExtension($msgid,$ext) {
+	public function getMessageByMessageIDExtension($msgid,$ext,$generateMedia = false) {
 		if(isset($this->greetings[$msgid])) {
 			$out = $this->getGreetingByExtension($msgid,$ext);
 			return !empty($out) ? $out : false;
@@ -339,7 +352,9 @@ class Voicemail implements \BMO {
 			$messages = $this->getMessagesByExtension($ext);
 			if(!empty($messages['messages'][$msgid])) {
 				$msg = $messages['messages'][$msgid];
-				$this->generateAdditionalMediaFormats($msg['path']."/".$msg['file'],false);
+				if($generateMedia) {
+					$this->generateAdditionalMediaFormats($msg['path']."/".$msg['file'],false);
+				}
 				return $messages['messages'][$msgid];
 			} else {
 				return false;
@@ -395,8 +410,9 @@ class Voicemail implements \BMO {
 						$out['messages'][$key]['context'] = $context;
 						$out['messages'][$key]['path'] = $folder;
 
+						$sha = sha1_file($wav);
 						foreach($this->supportedFormats as $format => $extension) {
-							$mf = $vfolder."/".$vm.".".$extension;
+							$mf = $vfolder."/".$vm."_".$sha.".".$extension;
 							if(file_exists($mf)) {
 								$out['messages'][$key]['format'][$format] = array(
 									"filename" => basename($mf),
@@ -414,11 +430,56 @@ class Voicemail implements \BMO {
 		return $out;
 	}
 
-	public function getMessagesByExtensionFolder($extension,$folder) {
+	public function getMessagesByExtensionFolder($extension,$folder,$start,$limit) {
 		$o = $this->getVoicemailBoxByExtension($extension);
 		$context = $o['vmcontext'];
 
 		$out = array();
+		$vmfolder = $this->vmPath . '/'.$context.'/'.$extension . '/'. $folder;
+		if (is_dir($vmfolder) && is_readable($vmfolder)) {
+			$count = 1;
+			$aMsgs = array();
+			foreach (glob($vmfolder."/*.txt") as $filename) {
+				if($count > ($this->messageLimit)) {
+					$this->displayMessage['message'] = sprintf(_('Warning, You are over the max message display amount of %s only %s messages will be shown'),$this->messageLimit,$this->messageLimit);
+					break;
+				}
+				$vm = pathinfo($filename,PATHINFO_FILENAME);
+				$txt = $vmfolder."/".$vm.".txt";
+				$wav = $vmfolder."/".$vm.".wav";
+				if(file_exists($txt) && is_readable($txt) && file_exists($wav) && is_readable($wav)) {
+					preg_match("/msg([0-9]+)/",$vm,$matches);
+					$aMsgs['messages'][$vm] = $this->FreePBX->LoadConfig->getConfig("msg".$matches[1].".txt", $vmfolder, 'message');
+					$aMsgs['messages'][$vm]['file'] = basename($wav);
+					$aMsgs['messages'][$vm]['number'] = $matches[1];
+				}
+			}
+
+			usort($aMsgs['messages'], function($a, $b) {
+				return $b['origtime'] - $a['origtime'];
+			});
+
+			$i = 0;
+			foreach($aMsgs['messages'] as $key => $message) {
+				$n = (int)$message['number'];
+				if($n < $start) {
+					continue;
+				}
+				if($i > $limit) {
+					break;
+				}
+				$out['messages'][$key] = $message;
+				$i++;
+			}
+		}
+		return $out;
+	}
+
+	public function getMessagesCountByExtensionFolder($extension,$folder) {
+		$o = $this->getVoicemailBoxByExtension($extension);
+		$context = $o['vmcontext'];
+
+		$total = 0;
 		$vmfolder = $this->vmPath . '/'.$context.'/'.$extension . '/'. $folder;
 		if (is_dir($vmfolder) && is_readable($vmfolder)) {
 			$count = 1;
@@ -431,14 +492,11 @@ class Voicemail implements \BMO {
 				$txt = $vmfolder."/".$vm.".txt";
 				$wav = $vmfolder."/".$vm.".wav";
 				if(file_exists($txt) && is_readable($txt) && file_exists($wav) && is_readable($wav)) {
-					$out['messages'][$vm] = $this->FreePBX->LoadConfig->getConfig($vm.".txt", $vmfolder, 'message');
-					$out['messages'][$vm]['file'] = basename($wav);
-					$out['total'] = $count++;
+					$total = $count++;
 				}
 			}
 		}
-
-		return $out;
+		return $total;
 	}
 
 	public function myDialplanHooks() {
@@ -466,16 +524,23 @@ class Voicemail implements \BMO {
 
 	//TODO: Do this during retrieve_conf
 	private function generateAdditionalMediaFormats($file,$background = true) {
+		$b = ($background) ? '&' : ''; //this is so very important
 		$path = dirname($file);
 		$filename = pathinfo($file,PATHINFO_FILENAME);
-		$b = ($background) ? '&' : ''; //this is so very important
+		if(!file_exists($file)) {
+			return false;
+		}
+		$sha1 = sha1_file($file);
 		foreach($this->supportedFormats as $format) {
 			switch($format) {
 				case "ogg":
-					exec("sox $file " . $path . "/" . $filename . ".ogg > /dev/null 2>&1 ".$b);
+					if(!file_exists($path . "/" . $filename . "_".$sha1.".ogg")) {
+						exec("sox $file " . $path . "/" . $filename . "_".$sha1.".ogg > /dev/null 2>&1 ".$b);
+					}
 				break;
 			}
 		}
+		return true;
 	}
 
 	private function folderCheck($folder) {

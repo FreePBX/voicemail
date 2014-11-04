@@ -48,26 +48,19 @@ class Voicemail extends Modules{
 		$messages = array();
 
 		foreach($folders as $folder) {
-			$messages[$folder['folder']] = $this->UCP->FreePBX->Voicemail->getMessagesByExtensionFolder($ext,$folder['folder']);
-			$folders[$folder['folder']]['count'] = !empty($messages) && isset($messages[$folder['folder']]['messages']) ? count($messages[$folder['folder']]['messages']) : '0';
+			$folders[$folder['folder']]['count'] = $this->UCP->FreePBX->Voicemail->getMessagesCountByExtensionFolder($ext,$folder['folder']);
 		}
 
 		$displayvars = array();
 		$displayvars['ext'] = $ext;
 		$displayvars['folders'] = $folders;
-		$displayvars['messages'] = isset($messages[$reqFolder]['messages']) ? $messages[$reqFolder]['messages'] : array();
-		if(!empty($displayvars['messages'])) {
-			usort($displayvars['messages'], function($a, $b) {
-				return $b['origtime'] - $a['origtime'];
-			});
-		}
 
 		$html = "<script>var supportedMediaFormats = '".implode(",",array_keys($this->UCP->FreePBX->Voicemail->supportedFormats))."'; var extension = ".$ext."</script>";
 		$html .= $this->load_view(__DIR__.'/views/header.php',$displayvars);
 
-        if(!empty($this->UCP->FreePBX->Voicemail->displayMessage['message'])) {
-            $displayvars['message'] = $this->UCP->FreePBX->Voicemail->displayMessage;
-        }
+    if(!empty($this->UCP->FreePBX->Voicemail->displayMessage['message'])) {
+        $displayvars['message'] = $this->UCP->FreePBX->Voicemail->displayMessage;
+    }
 
 		switch($view) {
 			case "settings":
@@ -84,16 +77,14 @@ class Voicemail extends Modules{
 				$displayvars['activeList'] = 'greetings';
 			break;
 			case "folder":
-				$c = $folders[$reqFolder]['count'];
-				$messagesReset = array_values($displayvars['messages']);
+				$start = (($page - 1) * $this->limit);
+				$msgs = $this->UCP->FreePBX->Voicemail->getMessagesByExtensionFolder($ext,$reqFolder,$start,$this->limit);
+				$displayvars['messages'] = !empty($msgs['messages']) ? $msgs['messages'] : array();
 				$final = array();
-				$s = (($page - 1) * $this->limit);
-				for($i=0;$i<$this->limit;$i++) {
-					if(empty($messagesReset[$i + $s])) {
-						break;
-					}
-					$final[] = $this->UCP->FreePBX->Voicemail->getMessageByMessageIDExtension($messagesReset[$i + $s]['msg_id'], $ext);
+				foreach($displayvars['messages'] as &$m) {
+					$final[] = $this->UCP->FreePBX->Voicemail->getMessageByMessageIDExtension($m['msg_id'], $ext, true);
 				}
+				$c = $folders[$reqFolder]['count'];
 				$displayvars['messages'] = $final;
 				$totalPages = (ceil($c/$this->limit) > 0) ? ceil($c/$this->limit) : 1;
 				$displayvars['pagnation'] = $this->UCP->Template->generatePagnation($totalPages,$page,"?display=dashboard&mod=voicemail&sub=".$ext."&folder=".$reqFolder."&view=folder",$this->break);
