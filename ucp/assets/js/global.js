@@ -9,8 +9,9 @@ var VoicemailC = UCPMC.extend({
 		this.placeholders = [];
 	},
 	settingsDisplay: function() {
+		var $this = this;
 		$("#ddial, #vmx-p1_enable").change(function() {
-			Voicemail.findmeFollowState();
+			$this.findmeFollowState();
 		});
 		this.findmeFollowState();
 		$("#module-Voicemail form .input-group").each(function( index ) {
@@ -18,7 +19,7 @@ var VoicemailC = UCPMC.extend({
 		});
 		$("#module-Voicemail input[type=\"text\"]").change(function() {
 			$(this).blur(function() {
-				Voicemail.saveVmXSettings($(this).prop("name"), $(this).val());
+				$this.saveVmXSettings($(this).prop("name"), $(this).val());
 				$(this).off("blur");
 			});
 		});
@@ -29,7 +30,7 @@ var VoicemailC = UCPMC.extend({
 				$("#" + el).prop("placeholder", $("#" + el).data("ph"));
 				if ($("#" + el).val() !== "") {
 					$("#" + el).val("");
-					Voicemail.saveVmXSettings($("#" + el).prop("name"), "");
+					$this.saveVmXSettings($("#" + el).prop("name"), "");
 				}
 			} else {
 				$("#" + el).prop("placeholder", "");
@@ -38,7 +39,7 @@ var VoicemailC = UCPMC.extend({
 		});
 
 		$("#module-Voicemail .dests input[type=\"checkbox\"]").change(function() {
-			Voicemail.saveVmXSettings($(this).prop("name"), $(this).is(":checked"));
+			$this.saveVmXSettings($(this).prop("name"), $(this).is(":checked"));
 		});
 	},
 	settingsHide: function() {
@@ -96,7 +97,8 @@ var VoicemailC = UCPMC.extend({
 		}
 	},
 	display: function(event) {
-		Voicemail.init();
+		var $this = this;
+		$this.init();
 		//If browser doesnt support get user media requests then just hide it from the display
 		if (!Modernizr.getusermedia) {
 			$(".jp-record-wrapper").hide();
@@ -106,10 +108,35 @@ var VoicemailC = UCPMC.extend({
 			$(".jp-stop-wrapper").hide();
 			$(".record-greeting-btn").show();
 		}
+
+		$(".vm-message a.play").click(function() {
+			var id = $(this).data("id");
+			$this.playVoicemail(id);
+		});
+		$(".vm-message a.delete").click(function() {
+			var id = $(this).data("id");
+			$this.deleteVoicemail(id);
+		});
+		$(".recording-controls .save").click(function() {
+			var id = $(this).data("id");
+			$this.saveRecording(id);
+		});
+		$(".recording-controls .delete").click(function() {
+			var id = $(this).data("id");
+			$this.deleteRecording(id);
+		});
+		$(".file-controls .record, .jp-record").click(function() {
+			var id = $(this).data("id");
+			$this.recordGreeting(id);
+		});
+		$(".file-controls .delete").click(function() {
+			var id = $(this).data("id");
+			$this.deleteGreeting(id);
+		});
 		//Nothing on this page will really work without drag and drop at this point
 		if (Modernizr.draganddrop) {
 			/* MailBox Binds */
-			Voicemail.enableDrags();
+			$this.enableDrags();
 
 			//Bind to the mailbox folders, listen for a drop
 			$(".mailbox .folder-list .folder").on("drop", function(event) {
@@ -134,6 +161,8 @@ var VoicemailC = UCPMC.extend({
 
 						badge = $(".mailbox .folder-list .folder.active").find(".badge");
 						badge.text(Number(badge.text()) - 1);
+						$("#freepbx_player_" + msg).jPlayer("pause");
+						$("#vm_playback_" + msg).remove();
 					} else {
 						//nothing
 					}
@@ -213,7 +242,7 @@ var VoicemailC = UCPMC.extend({
 								oga: "?quietmode=1&module=voicemail&command=listen&msgid=" + target + "&format=oga&ext=" + extension
 							});
 							message.text(_("Drag a New Greeting Here"));
-							Voicemail.toggleGreeting(target, true);
+							$this.toggleGreeting(target, true);
 						} else {
 							return false;
 						}
@@ -243,26 +272,10 @@ var VoicemailC = UCPMC.extend({
 			$(document).on("click", "[vm-pjax] a, a[vm-pjax]", function(event) {
 				var container = $("#dashboard-content");
 				$.pjax.click(event, { container: container });
-				Voicemail.enableDrags();
+				$this.enableDrags();
 			});
 		}
 
-		/* MESSAGE PLAYER BINDS */
-		$("#freepbx_player").jPlayer({
-			ready: function(event) {},
-			swfPath: "assets/js",
-			supplied: supportedMediaFormats, //this is dynamic from the page
-			warningAlerts: false,
-			cssSelectorAncestor: "#freepbx_player_1"
-		});
-		//play binds
-		$("#freepbx_player").bind($.jPlayer.event.play, function(event) { // Add a listener to report the time play began
-			$(".vm-message[data-msg=\"" + Voicemail.loaded + "\"] .subplay i").removeClass("fa-play").addClass("fa-pause");
-		});
-
-		$("#freepbx_player").bind($.jPlayer.event.pause, function(event) { // Add a listener to report the time play began
-			$(".vm-message[data-msg=\"" + Voicemail.loaded + "\"] .subplay i").removeClass("fa-pause").addClass("fa-play");
-		});
 		/* END MESSAGE PLAYER BINDS */
 
 		/* GREETING PLAYER BINDS */
@@ -291,10 +304,10 @@ var VoicemailC = UCPMC.extend({
 					$("#unavail .filedrop .pbar").css("width", "0%");
 					$("#unavail .filedrop .message").text(_("Drag a New Greeting Here"));
 					$("#freepbx_player_unavail").jPlayer( "setMedia", {
-						wav: "?quietmode=1&module=voicemail&command=listen&msgid=unavail&format=wav&ext=" + extension + "&rand=" + Voicemail.generateRandom(),
-						oga: "?quietmode=1&module=voicemail&command=listen&msgid=unavail&format=oga&ext=" + extension + "&rand=" + Voicemail.generateRandom()
+						wav: "?quietmode=1&module=voicemail&command=listen&msgid=unavail&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
+						oga: "?quietmode=1&module=voicemail&command=listen&msgid=unavail&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
 					});
-					Voicemail.toggleGreeting("unavail", true);
+					$this.toggleGreeting("unavail", true);
 				} else {
 					console.log(data.result.message);
 				}
@@ -311,8 +324,8 @@ var VoicemailC = UCPMC.extend({
 		$("#freepbx_player_busy").jPlayer({
 			ready: function(event) {
 				$(this).jPlayer( "setMedia", {
-					wav: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=wav&ext=" + extension + "&rand=" + Voicemail.generateRandom() + "&rand=" + Voicemail.generateRandom(),
-					oga: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=oga&ext=" + extension + "&rand=" + Voicemail.generateRandom() + "&rand=" + Voicemail.generateRandom()
+					wav: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=wav&ext=" + extension + "&rand=" + $this.generateRandom() + "&rand=" + $this.generateRandom(),
+					oga: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=oga&ext=" + extension + "&rand=" + $this.generateRandom() + "&rand=" + $this.generateRandom()
 				});
 			},
 			swfPath: "assets/js",
@@ -333,10 +346,10 @@ var VoicemailC = UCPMC.extend({
 					$("#busy .filedrop .pbar").css("width", "0%");
 					$("#busy .filedrop .message").text(_("Drag a New Greeting Here"));
 					$("#freepbx_player_busy").jPlayer( "setMedia", {
-						wav: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=wav&ext=" + extension + "&rand=" + Voicemail.generateRandom(),
-						oga: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=oga&ext=" + extension + "&rand=" + Voicemail.generateRandom()
+						wav: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
+						oga: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
 					});
-					Voicemail.toggleGreeting("busy", true);
+					$this.toggleGreeting("busy", true);
 				} else {
 					console.log(data.result.message);
 				}
@@ -353,8 +366,8 @@ var VoicemailC = UCPMC.extend({
 		$("#freepbx_player_greet").jPlayer({
 			ready: function(event) {
 				$(this).jPlayer( "setMedia", {
-					wav: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=wav&ext=" + extension + "&rand=" + Voicemail.generateRandom(),
-					oga: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=oga&ext=" + extension + "&rand=" + Voicemail.generateRandom()
+					wav: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
+					oga: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
 				});
 			},
 			swfPath: "assets/js",
@@ -375,10 +388,10 @@ var VoicemailC = UCPMC.extend({
 					$("#greet .filedrop .pbar").css("width", "0%");
 					$("#greet .filedrop .message").text("Drag a New Greeting Here");
 					$("#freepbx_player_greet").jPlayer( "setMedia", {
-						wav: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=wav&ext=" + extension + "&rand=" + Voicemail.generateRandom(),
-						oga: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=oga&ext=" + extension + "&rand=" + Voicemail.generateRandom()
+						wav: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
+						oga: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
 					});
-					Voicemail.toggleGreeting("greet", true);
+					$this.toggleGreeting("greet", true);
 				} else {
 					console.log(data.result.message);
 				}
@@ -399,8 +412,8 @@ var VoicemailC = UCPMC.extend({
 		$("#freepbx_player_temp").jPlayer({
 			ready: function(event) {
 				$(this).jPlayer( "setMedia", {
-					wav: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=wav&ext=" + extension + "&rand=" + Voicemail.generateRandom(),
-					oga: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=oga&ext=" + extension + "&rand=" + Voicemail.generateRandom()
+					wav: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
+					oga: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
 				});
 			},
 			swfPath: "assets/js",
@@ -421,10 +434,10 @@ var VoicemailC = UCPMC.extend({
 					$("#temp .filedrop .pbar").css("width", "0%");
 					$("#temp .filedrop .message").text(_("Drag a New Greeting Here"));
 					$("#freepbx_player_temp").jPlayer( "setMedia", {
-						wav: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=wav&ext=" + extension + "&rand=" + Voicemail.generateRandom(),
-						oga: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=oga&ext=" + extension + "&rand=" + Voicemail.generateRandom()
+						wav: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
+						oga: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
 					});
-					Voicemail.toggleGreeting("temp", true);
+					$this.toggleGreeting("temp", true);
 				} else {
 					console.log(data.result.message);
 				}
@@ -442,17 +455,18 @@ var VoicemailC = UCPMC.extend({
 		/* Settings changes binds */
 		$(".vmsettings input[type!=\"checkbox\"]").change(function() {
 			$(this).blur(function() {
-				Voicemail.saveVMSettings();
+				$this.saveVMSettings();
 				$(this).off("blur");
 			});
 		});
 		$(".vmsettings input[type=\"checkbox\"]").change(function() {
-			Voicemail.saveVMSettings();
+			$this.saveVMSettings();
 		});
 		/* end settings changes binds */
 	},
 	hide: function(event) {
-
+		$(".vm-message a.play").off("click");
+		$(".vm-message a.delete").off("click");
 	},
 	//Added a "No Voicemail Messages Message"
 	CheckNoMessages: function() {
@@ -462,10 +476,10 @@ var VoicemailC = UCPMC.extend({
 	},
 	//Delete a voicemail greeting
 	deleteGreeting: function(type) {
-		var data = { msg: type, ext: extension };
+		var $this = this, data = { msg: type, ext: extension };
 		$.post( "index.php?quietmode=1&module=voicemail&command=delete", data, function( data ) {
 			if (data.status) {
-				Voicemail.toggleGreeting(type, false);
+				$this.toggleGreeting(type, false);
 				$("#freepbx_player_" + type).jPlayer( "clearMedia" );
 			} else {
 				return false;
@@ -474,47 +488,74 @@ var VoicemailC = UCPMC.extend({
 	},
 	//Used to play a voicemail message
 	playVoicemail: function(msgid) {
-		var player = $("#freepbx_player"),
-				cid = $(".vm-message[data-msg=\"" + msgid + "\"] .cid").text();
-		if (player.data().jPlayer.status.paused && Voicemail.loaded != msgid) {
+		var player = $("#freepbx_player_" + msgid),
+				cid = $(".vm-message[data-msg=\"" + msgid + "\"] .cid").text(),
+				container = $("#vm_playback_" + msgid),
+				icon = $(".vm-message[data-msg=\"" + msgid + "\"] .play i");
+
+		/* MESSAGE PLAYER BINDS */
+		player.jPlayer({
+			ready: function(event) {},
+			swfPath: "assets/js",
+			supplied: supportedMediaFormats, //this is dynamic from the page
+			warningAlerts: false,
+			cssSelectorAncestor: "#freepbx_container_" + msgid
+		});
+		//play binds
+
+		player.bind($.jPlayer.event.play, function(event) {
+			icon.removeClass("fa-play").addClass("fa-pause");
+		});
+
+		player.bind($.jPlayer.event.pause, function(event) {
+			icon.removeClass("fa-pause").addClass("fa-play");
+		});
+
+		if (this.loaded !== null && this.loaded != msgid) {
+			$("#freepbx_player_" + this.loaded).jPlayer("pause");
+			$("#vm_playback_" + this.loaded).slideUp("fast");
+		}
+
+		this.loaded = msgid;
+
+		if (player.data().jPlayer.status.waitForLoad) {
 			player.jPlayer( "setMedia", {
 				wav: "?quietmode=1&module=voicemail&command=listen&msgid=" + msgid + "&format=wav&ext=" + extension,
 				oga: "?quietmode=1&module=voicemail&command=listen&msgid=" + msgid + "&format=oga&ext=" + extension
 			});
-			Voicemail.loaded = msgid;
-			if ($(".jp-audio").is(":hidden")) {
-				$("#title-text").text(cid);
-				$(".jp-audio").slideDown(function(event) {
+			if (container.is(":hidden")) {
+				$("#freepbx_container_" + msgid + " .title-text").text(cid);
+				container.slideDown(function(event) {
 					player.jPlayer("play");
-					$(".vm-message[data-msg=\"" + msgid + "\"] .subplay i").removeClass("fa-play").addClass("fa-pause");
+					icon.removeClass("fa-play").addClass("fa-pause");
 				});
 			} else {
 				player.jPlayer("play", 0);
-				$(".vm-message[data-msg=\"" + msgid + "\"] .subplay i").removeClass("fa-play").addClass("fa-pause");
-				$("#title-text").text(cid);
+				icon.removeClass("fa-play").addClass("fa-pause");
+				$("#freepbx_container_" + msgid + " .title-text").text(cid);
 			}
-		} else if (player.data().jPlayer.status.paused && Voicemail.loaded == msgid) {
-			player.jPlayer("play");
-			$(".vm-message[data-msg=\"" + msgid + "\"] .subplay i").removeClass("fa-play").addClass("fa-pause");
-			$("#title-text").text(cid);
 		} else {
-			player.jPlayer("pause");
-			$(".vm-message[data-msg=\"" + msgid + "\"] .subplay i").removeClass("fa-pause").addClass("fa-play");
+			if (player.data().jPlayer.status.paused) {
+				player.jPlayer("play");
+			} else {
+				player.jPlayer("pause");
+			}
 		}
 	},
 	//Used to delete a voicemail message
 	deleteVoicemail: function(msgid) {
-		var player = $("#freepbx_player");
+		var $this = this,
+				player = $("#freepbx_player"),
+				data = { msg: msgid, ext: extension };
 		if (confirm(_("Are you sure you wish to delete this voicemail?"))) {
-			if ($(".jp-audio").is(":visible") && Voicemail.loaded == msgid) {
+			if ($(".jp-audio").is(":visible") && $this.loaded == msgid) {
 				$(".jp-audio").slideUp();
 				player.jPlayer("pause");
 			}
-			var data = { msg: msgid, ext: extension };
 			$.post( "index.php?quietmode=1&module=voicemail&command=delete", data, function( data ) {
 				if (data.status) {
 					$(".vm-message[data-msg=\"" + msgid + "\"]").fadeOut("fast", function() {
-						Voicemail.CheckNoMessages();
+						$this.CheckNoMessages();
 					});
 					var num = $(".mailbox .folder-list .folder.active .badge").text();
 					$(".mailbox .folder-list .folder.active .badge").text(num - 1);
@@ -603,6 +644,7 @@ var VoicemailC = UCPMC.extend({
 		});
 	},
 	recordGreeting: function(type) {
+		var $this = this;
 		if (!Modernizr.getusermedia) {
 			alert(_("Direct Media Recording is Unsupported in your Broswer!"));
 			return false;
@@ -611,19 +653,19 @@ var VoicemailC = UCPMC.extend({
 		title = $("#" + type + " .title-text");
 		filec = $("#" + type + " .file-controls");
 		recc = $("#" + type + " .recording-controls");
-		if (Voicemail.recording) {
-			clearInterval(Voicemail.recordTimer);
+		if ($this.recording) {
+			clearInterval($this.recordTimer);
 			title.text("Recorded Message");
-	        Voicemail.recorder.stop();
-	        Voicemail.recorder.exportWAV(function(blob) {
-				Voicemail.soundBlobs[type] = blob;
+	        $this.recorder.stop();
+	        $this.recorder.exportWAV(function(blob) {
+				$this.soundBlobs[type] = blob;
 				var url = (window.URL || window.webkitURL).createObjectURL(blob);
 				$("#freepbx_player_" + type).jPlayer( "clearMedia" );
 				$("#freepbx_player_" + type).jPlayer( "setMedia", {
 					wav: url
 				});
 	        });
-			Voicemail.recording = false;
+			$this.recording = false;
 		} else {
 			window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
@@ -632,37 +674,38 @@ var VoicemailC = UCPMC.extend({
 			var gUM = Modernizr.prefixed("getUserMedia", navigator);
 			gUM({ audio: true }, function(stream) {
 		        var mediaStreamSource = context.createMediaStreamSource(stream);
-		        Voicemail.recorder = new Recorder(mediaStreamSource,{ workerPath: "assets/js/recorderWorker.js" });
-		        Voicemail.recorder.record();
-				Voicemail.startTime = new Date();
-				Voicemail.recordTimer = setInterval(function () {
-					var mil = (new Date() - Voicemail.startTime);
+		        $this.recorder = new Recorder(mediaStreamSource,{ workerPath: "assets/js/recorderWorker.js" });
+		        $this.recorder.record();
+				$this.startTime = new Date();
+				$this.recordTimer = setInterval(function () {
+					var mil = (new Date() - $this.startTime);
 					var temp = (mil / 1000);
 					var min = ("0" + Math.floor((temp %= 3600) / 60)).slice(-2);
 				    var sec = ("0" + Math.round(temp % 60)).slice(-2);
 				    counter.text(min + ":" + sec);
 				}, 1000);
 				title.text(_("Recording..."));
-				Voicemail.recording = true;
+				$this.recording = true;
 				filec.hide();
 				recc.show();
 				$("#" + type + " .jp-audio").slideDown();
 			}, function(e) {
 				alert(_("Your Browser Blocked The Recording, Please check your settings"));
-				Voicemail.recording = false;
+				$this.recording = false;
 			});
 		}
 	},
 	saveRecording: function(type) {
+		var $this = this;
 		title = $("#" + type + " .title-text");
-		if(Voicemail.recording) {
+		if ($this.recording) {
 			alert(_("Stop the Recording First before trying to save"));
 			return false;
 		}
-		if((typeof(Voicemail.soundBlobs[type]) !== "undefined") && Voicemail.soundBlobs[type] !== null) {
+		if ((typeof($this.soundBlobs[type]) !== "undefined") && $this.soundBlobs[type] !== null) {
 			$("#" + type + " .filedrop .message").text(_("Uploading..."));
 			var data = new FormData();
-			data.append("file", Voicemail.soundBlobs[type]);
+			data.append("file", $this.soundBlobs[type]);
 			$.ajax({
 			    type: "POST",
 			    url: "index.php?quietmode=1&module=voicemail&command=record&type=" + type + "&ext=" + extension,
@@ -670,11 +713,10 @@ var VoicemailC = UCPMC.extend({
 				{
 					var xhr = new window.XMLHttpRequest();
 					//Upload progress
-					xhr.upload.addEventListener("progress", function(evt){
+					xhr.upload.addEventListener("progress", function(evt) {
 						if (evt.lengthComputable) {
-							var percentComplete = evt.loaded / evt.total;
-							//Do something with upload progress
-							var progress = Math.round(percentComplete * 100);
+							var percentComplete = evt.loaded / evt.total,
+									progress = Math.round(percentComplete * 100);
 							$("#" + type + " .filedrop .pbar").css("width", progress + "%");
 						}
 					}, false);
@@ -686,13 +728,13 @@ var VoicemailC = UCPMC.extend({
 		        success: function(data) {
 					$("#" + type + " .filedrop .message").text("Drag a New Greeting Here");
 					$("#" + type + " .filedrop .pbar").css("width", "0%");
-					Voicemail.soundBlobs[type] = null;
+					$this.soundBlobs[type] = null;
 					filec.show();
 					recc.hide();
 					$("#freepbx_player_" + type).jPlayer( "clearMedia" );
 					$("#freepbx_player_" + type).jPlayer( "setMedia", {
-						wav: "?quietmode=1&module=voicemail&command=listen&msgid=" + type + "&format=wav&ext=" + extension + "&rand=" + Voicemail.generateRandom(),
-						oga: "?quietmode=1&module=voicemail&command=listen&msgid=" + type + "&format=oga&ext=" + extension + "&rand=" + Voicemail.generateRandom()
+						wav: "?quietmode=1&module=voicemail&command=listen&msgid=" + type + "&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
+						oga: "?quietmode=1&module=voicemail&command=listen&msgid=" + type + "&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
 					});
 					title.text(title.data("title"));
 		        },
@@ -703,18 +745,19 @@ var VoicemailC = UCPMC.extend({
 		}
 	},
 	deleteRecording: function(type) {
-		if(Voicemail.recording) {
+		var $this = this;
+		if ($this.recording) {
 			alert(_("Stop the Recording First before trying to delete"));
 			return false;
 		}
-		if((typeof(Voicemail.soundBlobs[type]) !== "undefined") && Voicemail.soundBlobs[type] !== null) {
-			Voicemail.soundBlobs[type] = null;
+		if ((typeof($this.soundBlobs[type]) !== "undefined") && $this.soundBlobs[type] !== null) {
+			$this.soundBlobs[type] = null;
 			filec.show();
 			recc.hide();
-			$("#freepbx_player_"+type).jPlayer( "clearMedia" );
-			$("#freepbx_player_"+type).jPlayer( "setMedia", {
-				wav: "?quietmode=1&module=voicemail&command=listen&msgid=" + type + "&format=wav&ext=" + extension + "&rand=" + Voicemail.generateRandom(),
-				oga: "?quietmode=1&module=voicemail&command=listen&msgid=" + type + "&format=oga&ext=" + extension + "&rand=" + Voicemail.generateRandom()
+			$("#freepbx_player_" + type).jPlayer( "clearMedia" );
+			$("#freepbx_player_" + type).jPlayer( "setMedia", {
+				wav: "?quietmode=1&module=voicemail&command=listen&msgid=" + type + "&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
+				oga: "?quietmode=1&module=voicemail&command=listen&msgid=" + type + "&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
 			});
 			title.text(title.data("title"));
 		} else {
@@ -726,4 +769,3 @@ var VoicemailC = UCPMC.extend({
 		return Math.round(new Date().getTime() / 1000);
 	}
 });
-var Voicemail = new VoicemailC();

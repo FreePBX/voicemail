@@ -27,6 +27,8 @@ use \UCP\Modules as Modules;
 
 class Voicemail extends Modules{
 	protected $module = 'Voicemail';
+	private $limit = 15;
+	private $break = 10;
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
@@ -41,6 +43,7 @@ class Voicemail extends Modules{
 		}
 		$reqFolder = !empty($_REQUEST['folder']) ? $_REQUEST['folder'] : 'INBOX';
 		$view = !empty($_REQUEST['view']) ? $_REQUEST['view'] : 'folder';
+		$page = !empty($_REQUEST['page']) ? $_REQUEST['page'] : 1;
 		$folders = $this->UCP->FreePBX->Voicemail->getFolders();
 		$messages = array();
 
@@ -81,6 +84,19 @@ class Voicemail extends Modules{
 				$displayvars['activeList'] = 'greetings';
 			break;
 			case "folder":
+				$c = $folders[$reqFolder]['count'];
+				$messagesReset = array_values($displayvars['messages']);
+				$final = array();
+				$s = (($page - 1) * $this->limit);
+				for($i=0;$i<$this->limit;$i++) {
+					if(empty($messagesReset[$i + $s])) {
+						break;
+					}
+					$final[] = $this->UCP->FreePBX->Voicemail->getMessageByMessageIDExtension($messagesReset[$i + $s]['msg_id'], $ext);
+				}
+				$displayvars['messages'] = $final;
+				$totalPages = (ceil($c/$this->limit) > 0) ? ceil($c/$this->limit) : 1;
+				$displayvars['pagnation'] = $this->UCP->Template->generatePagnation($totalPages,$page,"?display=dashboard&mod=voicemail&sub=".$ext."&folder=".$reqFolder."&view=folder",$this->break);
 				$mainDisplay = $this->load_view(__DIR__.'/views/mailbox.php',$displayvars);
 				$displayvars['activeList'] = $reqFolder;
 			default:

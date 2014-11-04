@@ -337,7 +337,13 @@ class Voicemail implements \BMO {
 			return !empty($out) ? $out : false;
 		} else {
 			$messages = $this->getMessagesByExtension($ext);
-			return !empty($messages['messages'][$msgid]) ? $messages['messages'][$msgid] : false;
+			if(!empty($messages['messages'][$msgid])) {
+				$msg = $messages['messages'][$msgid];
+				$this->generateAdditionalMediaFormats($msg['path']."/".$msg['file'],false);
+				return $messages['messages'][$msgid];
+			} else {
+				return false;
+			}
 		}
 	}
 
@@ -428,7 +434,6 @@ class Voicemail implements \BMO {
 					$out['messages'][$vm] = $this->FreePBX->LoadConfig->getConfig($vm.".txt", $vmfolder, 'message');
 					$out['messages'][$vm]['file'] = basename($wav);
 					$out['total'] = $count++;
-					$this->generateAdditionalMediaFormats($wav);
 				}
 			}
 		}
