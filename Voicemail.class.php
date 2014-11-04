@@ -458,18 +458,13 @@ class Voicemail implements \BMO {
 			usort($aMsgs['messages'], function($a, $b) {
 				return $b['origtime'] - $a['origtime'];
 			});
+			$aMsgs['messages'] = array_values($aMsgs['messages']);
 
-			$i = 0;
-			foreach($aMsgs['messages'] as $key => $message) {
-				$n = (int)$message['number'];
-				if($n < $start) {
-					continue;
-				}
-				if($i > $limit) {
+			for($i=$start;$i<($start+$limit);$i++) {
+				if(empty($aMsgs['messages'][$i])) {
 					break;
 				}
-				$out['messages'][$key] = $message;
-				$i++;
+				$out['messages'][] = $aMsgs['messages'][$i];
 			}
 		}
 		return $out;
