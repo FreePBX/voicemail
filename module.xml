@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>12.0.20</version>
+	<version>13.0.1</version>
 	<publisher>FreePBX</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.1* Layout changes
 		*12.0.20* pagination fixes
 		*12.0.19* FREEPBX-8211 Improvements to UCP Voicemail/CDR Playback
 		*12.0.18* Restructure Voicemail in UCP, FREEPBX-8198 Add pagination, FREEPBX-8207 fix converting process
@@ -59,7 +60,7 @@
 		<version>12.0.1alpha54</version>
 	</depends>
 	<supported>
-		<version>12.0</version>
+		<version>13.0</version>
 	</supported>
 	<location>release/2.11/voicemail-2.11.1.0.tgz</location>
 	<md5sum>442f0ba3a17bedc96f4cb75c53ccf99b</md5sum>
