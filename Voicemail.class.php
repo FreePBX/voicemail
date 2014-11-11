@@ -37,6 +37,7 @@ class Voicemail implements \BMO {
 	private $vmBoxData = array();
 	private $vmFolders = array();
 	private $vmPath = null;
+	private $messageCache = array();
 	public $Vmx = null;
 
 	public function __construct($freepbx = null) {
@@ -370,9 +371,9 @@ class Voicemail implements \BMO {
 			$fp = fopen($fpath, "rb");
 			fseek($fp, $start);
 			if(!feof($fp) && ($p = ftell($fp)) <= $end) {
-			    if ($p + $buffer > $end) {
-			        $buffer = $end - $p + 1;
-			    }
+					if ($p + $buffer > $end) {
+							$buffer = $end - $p + 1;
+					}
 				$contents = fread($fp, $buffer);
 				fclose($fp);
 				return $contents;
@@ -383,6 +384,9 @@ class Voicemail implements \BMO {
 	}
 
 	public function getMessagesByExtension($extension) {
+		if(!empty($this->messageCache)) {
+			return $this->messageCache;
+		}
 		$o = $this->getVoicemailBoxByExtension($extension);
 		$context = $o['vmcontext'];
 
@@ -392,6 +396,7 @@ class Voicemail implements \BMO {
 			$count = 1;
 			foreach (glob($vmfolder . '/*',GLOB_ONLYDIR) as $folder) {
 				foreach (glob($folder."/*.txt") as $filename) {
+					//$start = microtime(true);
 					if($count > ($this->messageLimit)) {
 						$this->displayMessage['message'] = sprintf(_('Warning, You are over the max message display amount of %s only %s messages will be shown'),$this->messageLimit,$this->messageLimit);
 						break 2;
@@ -402,8 +407,9 @@ class Voicemail implements \BMO {
 					$wav = $vfolder."/".$vm.".wav";
 					if(file_exists($txt) && is_readable($txt) && file_exists($wav) && is_readable($wav)) {
 						$data = $this->FreePBX->LoadConfig->getConfig($vm.".txt", $vfolder, 'message');
-						$key = $data['msg_id'];
+						$key = !empty($data['msg_id']) ? $data['msg_id'] : basename($folder)."_".$vm;
 						$out['messages'][$key] = $data;
+						$out['messages'][$key]['msg_id'] = $key;
 						$out['messages'][$key]['file'] = basename($wav);
 						$out['messages'][$key]['folder'] = basename($folder);
 						$out['messages'][$key]['fid'] = $vm;
@@ -421,77 +427,57 @@ class Voicemail implements \BMO {
 								);
 							}
 						}
-
 						$out['total'] = $count++;
 					}
 				}
 			}
 		}
-		return $out;
+		$this->messageCache = $out;
+		return $this->messageCache;
 	}
 
 	public function getMessagesByExtensionFolder($extension,$folder,$start,$limit) {
-		$o = $this->getVoicemailBoxByExtension($extension);
-		$context = $o['vmcontext'];
+		$messages = $this->getMessagesByExtension($extension);
+		$count = 1;
+		$aMsgs = array();
+		foreach($messages['messages'] as $message) {
+			if($message['folder'] != $folder) {
+				continue;
+			}
+			$id = $message['msg_id'];
+			$aMsgs['messages'][$id] = $message;
+			$count++;
+		}
+		if(empty($aMsgs)) {
+			return $aMsgs;
+		}
+		$aMsgs['count'] = $count;
+
+		usort($aMsgs['messages'], function($a, $b) {
+			return $b['origtime'] - $a['origtime'];
+		});
+		$aMsgs['messages'] = array_values($aMsgs['messages']);
 
 		$out = array();
-		$vmfolder = $this->vmPath . '/'.$context.'/'.$extension . '/'. $folder;
-		if (is_dir($vmfolder) && is_readable($vmfolder)) {
-			$count = 1;
-			$aMsgs = array();
-			foreach (glob($vmfolder."/*.txt") as $filename) {
-				if($count > ($this->messageLimit)) {
-					$this->displayMessage['message'] = sprintf(_('Warning, You are over the max message display amount of %s only %s messages will be shown'),$this->messageLimit,$this->messageLimit);
-					break;
-				}
-				$vm = pathinfo($filename,PATHINFO_FILENAME);
-				$txt = $vmfolder."/".$vm.".txt";
-				$wav = $vmfolder."/".$vm.".wav";
-				if(file_exists($txt) && is_readable($txt) && file_exists($wav) && is_readable($wav)) {
-					preg_match("/msg([0-9]+)/",$vm,$matches);
-					$aMsgs['messages'][$vm] = $this->FreePBX->LoadConfig->getConfig("msg".$matches[1].".txt", $vmfolder, 'message');
-					$aMsgs['messages'][$vm]['file'] = basename($wav);
-					$aMsgs['messages'][$vm]['number'] = $matches[1];
-				}
+		for($i=$start;$i<($start+$limit);$i++) {
+			if(empty($aMsgs['messages'][$i])) {
+				break;
 			}
-
-			usort($aMsgs['messages'], function($a, $b) {
-				return $b['origtime'] - $a['origtime'];
-			});
-			$aMsgs['messages'] = array_values($aMsgs['messages']);
-
-			for($i=$start;$i<($start+$limit);$i++) {
-				if(empty($aMsgs['messages'][$i])) {
-					break;
-				}
-				$out['messages'][] = $aMsgs['messages'][$i];
-			}
+			$out['messages'][] = $aMsgs['messages'][$i];
 		}
 		return $out;
 	}
 
 	public function getMessagesCountByExtensionFolder($extension,$folder) {
-		$o = $this->getVoicemailBoxByExtension($extension);
-		$context = $o['vmcontext'];
-
-		$total = 0;
-		$vmfolder = $this->vmPath . '/'.$context.'/'.$extension . '/'. $folder;
-		if (is_dir($vmfolder) && is_readable($vmfolder)) {
-			$count = 1;
-			foreach (glob($vmfolder."/*.txt") as $filename) {
-				if($count > ($this->messageLimit)) {
-					$this->displayMessage['message'] = sprintf(_('Warning, You are over the max message display amount of %s only %s messages will be shown'),$this->messageLimit,$this->messageLimit);
-					break;
-				}
-				$vm = pathinfo($filename,PATHINFO_FILENAME);
-				$txt = $vmfolder."/".$vm.".txt";
-				$wav = $vmfolder."/".$vm.".wav";
-				if(file_exists($txt) && is_readable($txt) && file_exists($wav) && is_readable($wav)) {
-					$total = $count++;
-				}
+		$messages = $this->getMessagesByExtension($extension);
+		$count = 0;
+		foreach($messages['messages'] as $message) {
+			if($message['folder'] != $folder) {
+				continue;
 			}
+			$count++;
 		}
-		return $total;
+		return $count;
 	}
 
 	public function myDialplanHooks() {

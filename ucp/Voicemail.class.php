@@ -1,27 +1,27 @@
 <?php
 /**
- * This is the User Control Panel Object.
- *
- * Copyright (C) 2013 Schmooze Com, INC
- * Copyright (C) 2013 Andrew Nagy <andrew.nagy@schmoozecom.com>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * @package   FreePBX UCP BMO
- * @author   Andrew Nagy <andrew.nagy@schmoozecom.com>
- * @license   AGPL v3
- */
+* This is the User Control Panel Object.
+*
+* Copyright (C) 2013 Schmooze Com, INC
+* Copyright (C) 2013 Andrew Nagy <andrew.nagy@schmoozecom.com>
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as
+* published by the Free Software Foundation, either version 3 of the
+* License, or (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU Affero General Public License for more details.
+*
+* You should have received a copy of the GNU Affero General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+* @package   FreePBX UCP BMO
+* @author   Andrew Nagy <andrew.nagy@schmoozecom.com>
+* @license   AGPL v3
+*/
 namespace UCP\Modules;
 use \UCP\Modules as Modules;
 
@@ -58,9 +58,9 @@ class Voicemail extends Modules{
 		$html = "<script>var supportedMediaFormats = '".implode(",",array_keys($this->UCP->FreePBX->Voicemail->supportedFormats))."'; var extension = ".$ext."</script>";
 		$html .= $this->load_view(__DIR__.'/views/header.php',$displayvars);
 
-    if(!empty($this->UCP->FreePBX->Voicemail->displayMessage['message'])) {
-        $displayvars['message'] = $this->UCP->FreePBX->Voicemail->displayMessage;
-    }
+		if(!empty($this->UCP->FreePBX->Voicemail->displayMessage['message'])) {
+				$displayvars['message'] = $this->UCP->FreePBX->Voicemail->displayMessage;
+		}
 
 		switch($view) {
 			case "settings":
@@ -101,16 +101,16 @@ class Voicemail extends Modules{
 		return $html;
 	}
 
-    function poll() {
-        $total = 0;
-        $boxes = array();
-        foreach($this->Modules->getAssignedDevices() as $extension) {
-            $mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
-            $total = $total + $mailbox['NewMessages'];
-            $boxes[$extension] = $mailbox['NewMessages'];
-        }
-        return array("status" => true, "total" => $total, "boxes" => $boxes);
-    }
+		function poll() {
+				$total = 0;
+				$boxes = array();
+				foreach($this->Modules->getAssignedDevices() as $extension) {
+						$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
+						$total = $total + $mailbox['NewMessages'];
+						$boxes[$extension] = $mailbox['NewMessages'];
+				}
+				return array("status" => true, "total" => $total, "boxes" => $boxes);
+		}
 
 	public function getSettingsDisplay($ext) {
 		if($this->Vmx->isInitialized($ext) && $this->Vmx->isEnabled($ext)) {
@@ -133,14 +133,14 @@ class Voicemail extends Modules{
 	}
 
 	/**
-	 * Determine what commands are allowed
-	 *
-	 * Used by Ajax Class to determine what commands are allowed by this class
-	 *
-	 * @param string $command The command something is trying to perform
-	 * @param string $settings The Settings being passed through $_POST or $_PUT
-	 * @return bool True if pass
-	 */
+	* Determine what commands are allowed
+	*
+	* Used by Ajax Class to determine what commands are allowed by this class
+	*
+	* @param string $command The command something is trying to perform
+	* @param string $settings The Settings being passed through $_POST or $_PUT
+	* @return bool True if pass
+	*/
 	function ajaxRequest($command, $settings) {
 		switch($command) {
 			case 'listen':
@@ -165,12 +165,12 @@ class Voicemail extends Modules{
 	}
 
 	/**
-	 * The Handler for all ajax events releated to this class
-	 *
-	 * Used by Ajax Class to process commands
-	 *
-	 * @return mixed Output if success, otherwise false will generate a 500 error serverside
-	 */
+	* The Handler for all ajax events releated to this class
+	*
+	* Used by Ajax Class to process commands
+	*
+	* @return mixed Output if success, otherwise false will generate a 500 error serverside
+	*/
 	function ajaxHandler() {
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
@@ -217,16 +217,16 @@ class Voicemail extends Modules{
 
 				$return = array("status" => true, "message" => "Saved", "alert" => "success");
 			break;
-            case 'checkboxes':
-                $total = 0;
-                $boxes = array();
-                foreach($this->Modules->getAssignedDevices() as $extension) {
-                    $mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
-                    $total = $total + $mailbox['NewMessages'];
-                    $boxes[$extension] = $mailbox['NewMessages'];
-                }
-                $return = array("status" => true, "total" => $total, "boxes" => $boxes);
-            break;
+						case 'checkboxes':
+								$total = 0;
+								$boxes = array();
+								foreach($this->Modules->getAssignedDevices() as $extension) {
+										$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
+										$total = $total + $mailbox['NewMessages'];
+										$boxes[$extension] = $mailbox['NewMessages'];
+								}
+								$return = array("status" => true, "total" => $total, "boxes" => $boxes);
+						break;
 			case 'moveToFolder':
 				$ext = $_POST['ext'];
 				$status = $this->UCP->FreePBX->Voicemail->moveMessageByExtensionFolder($_POST['msg'],$ext,$_POST['folder']);
@@ -295,12 +295,12 @@ class Voicemail extends Modules{
 	}
 
 	/**
-	 * The Handler for quiet events
-	 *
-	 * Used by Ajax Class to process commands in which custom processing is needed
-	 *
-	 * @return mixed Output if success, otherwise false will generate a 500 error serverside
-	 */
+	* The Handler for quiet events
+	*
+	* Used by Ajax Class to process commands in which custom processing is needed
+	*
+	* @return mixed Output if success, otherwise false will generate a 500 error serverside
+	*/
 	function ajaxCustomHandler() {
 		switch($_REQUEST['command']) {
 			case "listen":
