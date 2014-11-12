@@ -416,6 +416,12 @@ class Voicemail implements \BMO {
 						$out['messages'][$key]['context'] = $context;
 						$out['messages'][$key]['path'] = $folder;
 
+						$out['messages'][$key]['format']['wav'] = array(
+							"filename" => basename($wav),
+							"path" => $folder,
+							"length" => filesize($wav)
+						);
+
 						$sha = sha1_file($wav);
 						foreach($this->supportedFormats as $format => $extension) {
 							$mf = $vfolder."/".$vm."_".$sha.".".$extension;
