@@ -11,30 +11,24 @@
 		<table class="table table-hover table-bordered message-table message-list">
 			<thead>
 			<tr class="message-header">
-				<th class="visible-xs"><?php echo _('Date')?></th>
-				<th class="hidden-xs"><?php echo _('Date')?></th>
-				<th><?php echo _('Time')?></th>
+				<th><?php echo _('Date')?></th>
 				<th><?php echo _('CID')?></th>
-				<th class="hidden-xs"><?php echo _('Mailbox')?></th>
-				<th class="hidden-xs"><?php echo _('Length')?></th>
+				<th class="hidden-xs"><?php echo _('Duration')?></th>
 				<th><?php echo _('Controls')?></th>
 			</tr>
 			</thead>
 		<?php if(!empty($messages)) {?>
 			<?php foreach($messages as $message){?>
 				<tr class="vm-message" data-msg="<?php echo $message['msg_id']?>" draggable="true">
-					<td class="visible-xs"><?php echo date('m-d',$message['origtime'])?></td>
-					<td class="hidden-xs"><?php echo date('Y-m-d',$message['origtime'])?></td>
-					<td><?php echo date('h:i:sa',$message['origtime'])?></td>
+					<td class="date"><span><?php echo date('m/d/y',$message['origtime'])?></span>  <span class="hidden-xs" style="margin-left:5px;"><?php echo date('h:i:sa',$message['origtime'])?></span></td>
 					<td class="cid"><?php echo $message['callerid']?></td>
-					<td class="hidden-xs"><?php echo $message['origmailbox']?></td>
 					<td class="hidden-xs"><?php echo $message['duration']?> sec</td>
 					<td class="actions">
 						<div>
 							<a class="play" alt="<?php echo _('Play');?>" data-id="<?php echo $message['msg_id']?>">
 								<i class="fa fa-play"></i>
 							</a>
-							<a class="download" alt="<?php echo _('Download');?>" href="?quietmode=1&amp;module=voicemail&amp;command=listen&amp;msgid=<?php echo $message['msg_id']?>&amp;format=wav&amp;ext=<?php echo $ext?>" target="_blank">
+							<a class="download" alt="<?php echo _('Download');?>" href="?quietmode=1&amp;module=voicemail&amp;command=download&amp;msgid=<?php echo $message['msg_id']?>&amp;format=wav&amp;ext=<?php echo $ext?>" target="_blank">
 								<i class="fa fa-cloud-download"></i>
 							</a>
 							<a class="delete" alt="<?php echo _('Delete');?>" data-id="<?php echo $message['msg_id']?>">

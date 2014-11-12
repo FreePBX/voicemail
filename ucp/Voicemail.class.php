@@ -28,12 +28,15 @@ use \UCP\Modules as Modules;
 class Voicemail extends Modules{
 	protected $module = 'Voicemail';
 	private $limit = 15;
-	private $break = 10;
+	private $break = 5;
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
 		$this->astman = $this->UCP->FreePBX->astman;
 		$this->Vmx = $this->UCP->FreePBX->Voicemail->Vmx;
+		if($this->UCP->Session->isMobile) {
+			$this->limit = 7;
+		}
 	}
 
 	function getDisplay() {
@@ -143,6 +146,7 @@ class Voicemail extends Modules{
 	*/
 	function ajaxRequest($command, $settings) {
 		switch($command) {
+			case 'download':
 			case 'listen':
 			case 'moveToFolder':
 			case 'delete':
@@ -303,6 +307,12 @@ class Voicemail extends Modules{
 	*/
 	function ajaxCustomHandler() {
 		switch($_REQUEST['command']) {
+			case "download":
+				$msgid = $_REQUEST['msgid'];
+				$format = $_REQUEST['format'];
+				$ext = $_REQUEST['ext'];
+				$this->readRemoteFile($msgid,$ext,$format,true);
+				return true;
 			case "listen":
 				$msgid = $_REQUEST['msgid'];
 				$format = $_REQUEST['format'];
@@ -352,7 +362,7 @@ class Voicemail extends Modules{
 		return !empty($menu["menu"]) ? $menu : array();
 	}
 
-	private function readRemoteFile($msgid,$ext,$format) {
+	private function readRemoteFile($msgid,$ext,$format,$download=false) {
 		if(!$this->_checkExtension($ext)) {
 			header("HTTP/1.0 403 Forbidden");
 			echo _("Forbidden");
@@ -401,12 +411,13 @@ class Voicemail extends Modules{
 				}
 				header("Content-type: ".$ct); // change mimetype
 
-				if (isset($_SERVER['HTTP_RANGE'])){ // do it for any device that supports byte-ranges not only iPhone
+				if (!$download && isset($_SERVER['HTTP_RANGE'])){ // do it for any device that supports byte-ranges not only iPhone
 					$this->rangeDownload($msgid,$message,$ext,$format,$file);
 				} else {
 					header("Content-length: " . $message['format'][$format]['length']);
 					header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 					header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
+					header('Content-Disposition: attachment;filename="' . $message['format'][$format]['filename'].'"');
 					$buffer = 1024 * 8;
 					$wstart = 0;
 					ob_end_clean();
@@ -501,6 +512,7 @@ class Voicemail extends Modules{
 		// Notify the client the byte range we'll be outputting
 		header("Content-Range: bytes $start-$end/$size");
 		header("Content-Length: $length");
+		header('Content-Disposition: attachment;filename="' . $message['format'][$format]['filename'].'"');
 
 		$buffer = 1024 * 8;
 		$wstart = $start;
