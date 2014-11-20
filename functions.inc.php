@@ -488,7 +488,7 @@ function voicemail_configpageload() {
 			"prompttext" => _('Email Address'),
 			"helptext" => _("The email address that Voicemails are sent to."),
 			"currentvalue" => $email,
-			"jsvalidation" => "!isEmail()",
+			"jsvalidation" => "frm_${display}_isVoiceMailEnabled() && !isEmail()",
 			"failvalidationmsg" => $msgInvalidEmail,
 			"canbeempty" => false,
 			"class" => $class,
@@ -501,7 +501,7 @@ function voicemail_configpageload() {
 			"prompttext" => _('Pager Email Address'),
 			"helptext" => _("Pager/mobile email address that short Voicemail notifications are sent to."),
 			"currentvalue" => $pager,
-			"jsvalidation" => "!isEmail()",
+			"jsvalidation" => "frm_${display}_isVoiceMailEnabled() && !isEmail()",
 			"failvalidationmsg" => $msgInvalidEmail,
 			"canbeempty" => false,
 			"class" => $class,
@@ -543,7 +543,7 @@ function voicemail_configpageload() {
 		$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)),$category);
 
 		$el = array(
-			"elemname" => "delete",
+			"elemname" => "vmdelete",
 			"prompttext" => _('Delete Voicemail'),
 			"helptext" => _("If set to \"yes\" the message will be deleted from the Voicemailbox (after having been emailed). Provides functionality that allows a user to receive their Voicemail via email alone, rather than having the Voicemail able to be retrieved from the Webinterface or the Extension handset.  CAUTION: MUST HAVE attach Voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE LOST FOREVER."),
 			"currentvalue" => $vmops_delete,
@@ -606,7 +606,7 @@ function voicemail_draw_vmxgui($extdisplay, $vmdisable) {
 	global $currentcomponent;
 	global $display;
 
-	$section = _("VmX Locater");
+	$section = _("VmX Locater&trade;");
 	$group = "vmxgroup";
 	$category = "Voicemail";
 
@@ -688,7 +688,7 @@ function voicemail_draw_vmxgui($extdisplay, $vmdisable) {
 
 	$el = array(
 		"elemname" => "vmx_state",
-		"prompttext" => _('VmX Locater&trade;'),
+		"prompttext" => _('Enabled'),
 		"helptext" => _("Enable/Disable the VmX Locater feature for this user. When enabled all settings are controlled by the user in the User Portal (ARI). Disabling will not delete any existing user settings but will disable access to the feature"),
 		"currentvalue" => (($disable) ? 'disabled' : 'enabled'),
 		"valarray" => $currentcomponent->getoptlist('vmena'),
@@ -751,7 +751,6 @@ function voicemail_draw_vmxgui($extdisplay, $vmdisable) {
 		);
 		$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)), $category);
 	} else {
-		dbug($vmxsettings);
 		$el = array(
 			"elemname" => "vmx_option_1_number",
 			"prompttext" => _("Press 1:"),
@@ -891,7 +890,8 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 
 	$uservm = voicemail_getVoicemail();
 	extract($mboxoptsarray);
-
+	$delete = str_replace("vmdelete","delete",$vmdelete);
+	unset($vmdelete);
 	if ($vm != 'disabled')
 	{
 		// need to check if there are any options entered in the text field
