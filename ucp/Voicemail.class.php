@@ -348,12 +348,18 @@ class Voicemail extends Modules{
 			);
 			foreach($extensions as $extension) {
 				$data = $this->UCP->FreePBX->Core->getDevice($extension);
+				if(empty($data) || empty($data['description'])) {
+					$data = $this->UCP->FreePBX->Core->getUser($extension);
+					$name = $data['name'];
+				} else {
+					$name = $data['description'];
+				}
 				$o = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($extension);
 				if(!empty($o)) {
 					$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
 					$menu["menu"][] = array(
 						"rawname" => $extension,
-						"name" => $extension . " - " . $data['description'],
+						"name" => $extension . " - " . $name,
 						"badge" => $mailbox['NewMessages']
 					);
 				}
