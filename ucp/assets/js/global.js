@@ -500,6 +500,10 @@ var VoicemailC = UCPMC.extend({
 			supplied: supportedMediaFormats, //this is dynamic from the page
 			warningAlerts: false,
 			cssSelectorAncestor: "#freepbx_container_" + msgid
+		}).bind($.jPlayer.event.loadstart, function(event) {
+			$("#freepbx_container_" + msgid + " .jp-message-window").show();
+			$("#freepbx_container_" + msgid + " .jp-message-window .message").css("color","");
+			$("#freepbx_container_" + msgid + " .jp-seek-bar").css("background", 'url("modules/Cdr/assets/images/jplayer.blue.monday.seeking.gif") 0 0 repeat-x');
 		});
 		//play binds
 
@@ -509,6 +513,17 @@ var VoicemailC = UCPMC.extend({
 
 		player.bind($.jPlayer.event.pause, function(event) {
 			icon.removeClass("fa-pause").addClass("fa-play");
+		});
+
+		player.bind($.jPlayer.event.canplay, function(event) {
+			$(".jp-message-window").fadeOut("fast");
+			$("#freepbx_container_" + msgid + " .jp-seek-bar").css("background","");
+		});
+
+		player.bind($.jPlayer.event.error, function(event) {
+			$("#freepbx_container_" + msgid + " .jp-message-window").show();
+			$("#freepbx_container_" + msgid + " .message").text(event.jPlayer.error.message).css("color","red");
+			$("#freepbx_container_" + msgid + " .jp-seek-bar").css("background","");
 		});
 
 		if (this.loaded !== null && this.loaded != msgid) {

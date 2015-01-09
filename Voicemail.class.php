@@ -113,6 +113,27 @@ class Voicemail implements \BMO {
 		return $this->vmFolders;
 	}
 
+	/**
+	* Query the audio file and make sure it's actually audio
+	* @param string $file The full file path to check
+	*/
+	public function queryAudio($file) {
+		if(!file_exists($file) || !is_readable($file)) {
+			return false;
+		}
+		$last = exec('sox '.$file.' -n stat 2>&1',$output,$ret);
+		if(preg_match('/not sound/',$last)) {
+			return false;
+		}
+		$data = array();
+		foreach($output as $o) {
+			$parts = explode(":",$o);
+			$key = preg_replace("/\W/","",$parts[0]);
+			$data[$key] = trim($parts[1]);
+		}
+		return $data;
+	}
+
 	public function deleteVMGreeting($ext,$type) {
 		$o = $this->getVoicemailBoxByExtension($ext);
 		$context = $o['vmcontext'];
@@ -185,7 +206,7 @@ class Voicemail implements \BMO {
 		$files = array();
 		foreach(array_keys($this->greetings) as $greeting) {
 			$file = $vmfolder . "/" . $greeting . ".wav";
-			if(file_exists($file) && is_readable($file)) {
+			if($this->queryAudio($file)) {
 				$files[$greeting] = $file;
 				if(!$cache) {
 					$this->generateAdditionalMediaFormats($file);
@@ -333,7 +354,7 @@ class Voicemail implements \BMO {
 			$data['file'] = basename($greetings[$greeting]);
 			foreach($this->supportedFormats as $format => $extension) {
 				$mf = $data['path']."/".$greeting.".".$extension;
-				if(file_exists($mf)) {
+				if($this->queryAudio($mf)) {
 					$data['format'][$format] = array(
 						"filename" => basename($mf),
 						"path" => $data['path'],
@@ -366,7 +387,7 @@ class Voicemail implements \BMO {
 	public function readMessageBinaryByMessageIDExtension($msgid,$ext,$format,$start=0,$buffer=8192) {
 		$message = $this->getMessageByMessageIDExtension($msgid,$ext);
 		$fpath = $message['format'][$format]['path']."/".$message['format'][$format]['filename'];
-		if(!empty($message) && !empty($message['format'][$format]) && file_exists($fpath)) {
+		if(!empty($message) && !empty($message['format'][$format]) && $this->queryAudio($fpath)) {
 			$end = $message['format'][$format]['length'] - 1;
 			$fp = fopen($fpath, "rb");
 			fseek($fp, $start);
@@ -405,7 +426,7 @@ class Voicemail implements \BMO {
 					$vfolder = dirname($filename);
 					$txt = $vfolder."/".$vm.".txt";
 					$wav = $vfolder."/".$vm.".wav";
-					if(file_exists($txt) && is_readable($txt) && file_exists($wav) && is_readable($wav)) {
+					if(file_exists($txt) && is_readable($txt) && $this->queryAudio($wav)) {
 						$data = $this->FreePBX->LoadConfig->getConfig($vm.".txt", $vfolder, 'message');
 						$key = !empty($data['msg_id']) ? $data['msg_id'] : basename($folder)."_".$vm;
 						$out['messages'][$key] = $data;
@@ -425,7 +446,7 @@ class Voicemail implements \BMO {
 						$sha = sha1_file($wav);
 						foreach($this->supportedFormats as $format => $extension) {
 							$mf = $vfolder."/".$vm."_".$sha.".".$extension;
-							if(file_exists($mf)) {
+							if($this->queryAudio($mf)) {
 								$out['messages'][$key]['format'][$format] = array(
 									"filename" => basename($mf),
 									"path" => $folder,
@@ -514,7 +535,7 @@ class Voicemail implements \BMO {
 		$b = ($background) ? '&' : ''; //this is so very important
 		$path = dirname($file);
 		$filename = pathinfo($file,PATHINFO_FILENAME);
-		if(!file_exists($file)) {
+		if(!$this->queryAudio($file)) {
 			return false;
 		}
 		$sha1 = sha1_file($file);
