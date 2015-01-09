@@ -128,7 +128,7 @@ $gen_settings = array(		"adsifdn" 			=> array("ver" => 1.2, "len" => 4, "type" =
 				"maxlogins"                     => array("ver" => 1.2, "len" => $dlen, "type" => "num", "default" => ""),
 				"maxmessage"                    => array("ver" => 1.2, "len" => $dlen, "type" => "num", "default" => "300"),
 				"maxmsg"                        => array("ver" => 1.2, "len" => $dlen, "type" => "num", "default" => ""),
-				"maxsecs"                       => array("ver" => 1.6, "len" => $dlen, "type" => "num", "default" => ""),
+				"maxsecs"                       => array("ver" => 1.6, "len" => $dlen, "type" => "num", "default" => "300"),
 				"maxsilence"                    => array("ver" => 1.2, "len" => $dlen, "type" => "num", "default" => "60"),
 				"minsecs"                       => array("ver" => 1.6, "len" => $dlen, "type" => "num", "default" => ""),
 				"moveheard"                     => array("ver" => 1.6, "len" => 0, "type" => "flag", "default" => "no"),
