@@ -653,7 +653,8 @@ class Voicemail implements \BMO {
 							$dirname = dirname($vmfile);
 							//check for bad files, remove if they are bad (we cant read them no one can)
 							if(!$this->queryAudio($vmfile)) {
-								unlink($vmfile);
+								//TODO: We have text files here as all, dont unlink yet
+								//unlink($vmfile);
 								//dont stop here continue to do cleanups
 							}
 							if(preg_match("/(.*)\_(.*)\./i",$basename,$matches)) {
