@@ -251,16 +251,27 @@ class Voicemail extends Modules{
 			case "upload":
 				foreach ($_FILES["files"]["error"] as $key => $error) {
 					if ($error == UPLOAD_ERR_OK) {
+						$tmp_path = sys_get_temp_dir();
+						$tmp_path = !empty($tmp_path) ? $tmp_path : '/tmp';
+
 						$extension = pathinfo($_FILES["files"]["name"][$key], PATHINFO_EXTENSION);
 						if($extension == 'wav' || $extension == 'ogg') {
 							$tmp_name = $_FILES["files"]["tmp_name"][$key];
 							$name = $_FILES["files"]["name"][$key];
-							if(!file_exists(__DIR__."/tmp")) {
-								mkdir(__DIR__."/tmp");
+							if(!file_exists($tmp_path."/vmtmp")) {
+								mkdir($tmp_path."/vmtmp");
 							}
-							move_uploaded_file($tmp_name, __DIR__."/tmp/$name");
-							$contents = file_get_contents(__DIR__."/tmp/$name");
-							unlink(__DIR__."/tmp/$name");
+							move_uploaded_file($tmp_name, $tmp_path."/vmtmp/$name");
+							if(!file_exists($tmp_path."/vmtmp/$name")) {
+								$return = array("status" => false, "message" => "Voicemail not moved to ".$tmp_path."/vmtmp/$name");
+								break;
+							}
+							$contents = file_get_contents($tmp_path."/vmtmp/$name");
+							if(empty($contents)) {
+								$return = array("status" => false, "message" => "Voicemail was empty ".$tmp_path."/vmtmp/$name");
+								break;
+							}
+							unlink($tmp_path."/tmp/$name");
 							$this->UCP->FreePBX->Voicemail->saveVMGreeting($_REQUEST['ext'],$_REQUEST['type'],$extension,$contents);
 						} else {
 							$return = array("status" => false, "message" => "unsupported file format");
@@ -276,14 +287,25 @@ class Voicemail extends Modules{
 			break;
 			case "record":
 				if ($_FILES["file"]["error"] == UPLOAD_ERR_OK) {
+					$tmp_path = sys_get_temp_dir();
+					$tmp_path = !empty($tmp_path) ? $tmp_path : '/tmp';
+					
 					$tmp_name = $_FILES["file"]["tmp_name"];
 					$name = $_FILES["file"]["name"];
-					if(!file_exists(__DIR__."/tmp")) {
-						mkdir(__DIR__."/tmp");
+					if(!file_exists($tmp_path."/vmtmp")) {
+						mkdir($tmp_path."/vmtmp");
 					}
-					move_uploaded_file($tmp_name, __DIR__."/tmp/$name");
-					$contents = file_get_contents(__DIR__."/tmp/$name");
-					unlink(__DIR__."/tmp/$name");
+					move_uploaded_file($tmp_name, $tmp_path."/vmtmp/$name");
+					if(!file_exists($tmp_path."/vmtmp/$name")) {
+						$return = array("status" => false, "message" => "Voicemail not moved to ".$tmp_path."/vmtmp/$name");
+						break;
+					}
+					$contents = file_get_contents($tmp_path."/vmtmp/$name");
+					if(empty($contents)) {
+						$return = array("status" => false, "message" => "Voicemail was empty ".$tmp_path."/vmtmp/$name");
+						break;
+					}
+					unlink($tmp_path."/vmtmp/$name");
 					$this->UCP->FreePBX->Voicemail->saveVMGreeting($_REQUEST['ext'],$_REQUEST['type'],'wav',$contents);
 				}	else {
 					$return = array("status" => false, "message" => "unknown error");
