@@ -39,6 +39,7 @@ class Voicemail implements \BMO {
 	private $vmPath = null;
 	private $messageCache = array();
 	public $Vmx = null;
+	private $boxes = array();
 
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
@@ -51,6 +52,7 @@ class Voicemail implements \BMO {
 		}
 
 		$this->FreePBX = $freepbx;
+		$this->astman = $this->FreePBX->astman;
 		$this->db = $freepbx->Database;
 		$this->vmPath = $this->FreePBX->Config->get_conf_setting('ASTSPOOLDIR') . "/voicemail";
 		$this->messageLimit = $this->FreePBX->Config->get_conf_setting('UCP_MESSAGE_LIMIT');
@@ -226,7 +228,10 @@ class Voicemail implements \BMO {
 	 */
 	public function getVoicemailBoxByExtension($ext) {
 		if(empty($this->vmBoxData[$ext])) {
-			include_once(__DIR__.'/functions.inc.php');
+			//TODO: Lazy...
+			if(!function_exists('voicemail_mailbox_get')) {
+				include_once(__DIR__.'/functions.inc.php');
+			}
 			$this->vmBoxData[$ext] = voicemail_mailbox_get($ext);
 		}
 		return !empty($this->vmBoxData[$ext]) ? $this->vmBoxData[$ext] : false;
@@ -487,9 +492,9 @@ class Voicemail implements \BMO {
 			$fp = fopen($fpath, "rb");
 			fseek($fp, $start);
 			if(!feof($fp) && ($p = ftell($fp)) <= $end) {
-					if ($p + $buffer > $end) {
-							$buffer = $end - $p + 1;
-					}
+				if ($p + $buffer > $end) {
+					$buffer = $end - $p + 1;
+				}
 				$contents = fread($fp, $buffer);
 				fclose($fp);
 				return $contents;
@@ -528,6 +533,9 @@ class Voicemail implements \BMO {
 					if(file_exists($txt) && is_readable($txt) && file_exists($wav)) {
 						$data = $this->FreePBX->LoadConfig->getConfig($vm.".txt", $vfolder, 'message');
 						$key = !empty($data['msg_id']) ? $data['msg_id'] : basename($folder)."_".$vm;
+						if(isset($out['messages'][$key])) {
+							$key = rand(0,5000);
+						}
 						$out['messages'][$key] = $data;
 						$out['messages'][$key]['msg_id'] = $key;
 						$out['messages'][$key]['file'] = basename($wav);
@@ -634,10 +642,6 @@ class Voicemail implements \BMO {
 					if(!is_dir($file)) {
 						$basename = basename($file);
 						$dirname = dirname($file);
-						//check for bad files, remove if they are bad (we cant read them no one can)
-						if(!$this->queryAudio($file)) {
-							unlink($file);
-						}
 						if(preg_match("/(.*)\_(.*)\./i",$basename,$matches)) {
 							$sha1 = $matches[2];
 							$filename = $matches[1];
@@ -651,11 +655,6 @@ class Voicemail implements \BMO {
 						foreach (glob($file."/*") as $vmfile) {
 							$basename = basename($vmfile);
 							$dirname = dirname($vmfile);
-							//check for bad files, remove if they are bad (we cant read them no one can)
-							if(!$this->queryAudio($vmfile)) {
-								unlink($vmfile);
-								//dont stop here continue to do cleanups
-							}
 							if(preg_match("/(.*)\_(.*)\./i",$basename,$matches)) {
 								$sha1 = $matches[2];
 								$filename = $matches[1];
@@ -721,7 +720,7 @@ class Voicemail implements \BMO {
 				return $path . "/" . $filename.".WAV";
 			break;
 			case file_exists($path . "/" . $filename.".gsm"):
-			return $path . "/" . $filename.".gsm";
+				return $path . "/" . $filename.".gsm";
 			break;
 			default:
 				return false;
@@ -742,11 +741,33 @@ class Voicemail implements \BMO {
 				return 'wav';
 			break;
 			case preg_match("/gsm$/", $file):
-			return 'gsm';
+				return 'gsm';
 			break;
 			default:
 				return false;
 			break;
 		}
+	}
+
+	/**
+	* Get the voicemail count from Asterisk
+	* Cache the data after we get it so we dont have to make further requests to Asterisk.
+	*/
+	public function getMailboxCount($exts = array()) {
+		if(!empty($this->boxes)) {
+			return $this->boxes;
+		}
+		$boxes = array();
+		$total = 0;
+		foreach($exts as $extension) {
+			$mailbox = $this->astman->MailboxCount($extension);
+			if($mailbox['Response'] == "Success" && !empty($mailbox['Mailbox']) && $mailbox['Mailbox'] == $extension) {
+				$total = $total + (int)$mailbox['NewMessages'];
+				$boxes['extensions'][$extension] = (int)$mailbox['NewMessages'];
+			}
+		}
+		$boxes['total'] = $total;
+		$this->boxes = $boxes;
+		return $boxes;
 	}
 }

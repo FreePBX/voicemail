@@ -72,7 +72,7 @@ var VoicemailC = UCPMC.extend({
 	poll: function(data) {
 		if (data.status) {
 			var notify = 0,
-					voicemailNotification = {};
+			voicemailNotification = {};
 			if ($("#voicemail-badge").html() < data.total) {
 				notify = data.total - $("#voicemail-badge").html();
 			}
@@ -147,13 +147,13 @@ var VoicemailC = UCPMC.extend({
 					event.preventDefault(); // Necessary. Allows us to drop.
 				}
 				var msg = event.originalEvent.dataTransfer.getData("msg"),
-						folder = $(event.currentTarget).data("folder"),
-						data = { msg:msg, folder:folder, ext:extension };
+				folder = $(event.currentTarget).data("folder"),
+				data = { msg:msg, folder:folder, ext:extension };
 				$.post( "index.php?quietmode=1&module=voicemail&command=moveToFolder", data, function( data ) {
 					if (data.status) {
 						$(this).removeClass("hover");
 						var dragSrc = $(".message-list .vm-message[data-msg=\"" + msg + "\"]"),
-								badge = null;
+						badge = null;
 						dragSrc.remove();
 						$(".vm-temp").remove();
 						badge = $(event.currentTarget).find(".badge");
@@ -218,8 +218,8 @@ var VoicemailC = UCPMC.extend({
 
 					//get our type
 					var target = $(this).data("type"),
-							//ger the incoming type
-							source = event.originalEvent.dataTransfer.getData("type");
+					//ger the incoming type
+					source = event.originalEvent.dataTransfer.getData("type");
 					//dont allow other things to be dragged to this, just ignore them
 					if (source === "") {
 						alert(_("Not a valid Draggable Object"));
@@ -233,7 +233,7 @@ var VoicemailC = UCPMC.extend({
 
 					//Send copy ajax
 					var data = { ext: extension, source: source, target: target },
-							message = $(this).find(".message");
+					message = $(this).find(".message");
 					message.text(_("Copying..."));
 					$.post( "index.php?quietmode=1&module=voicemail&command=copy", data, function( data ) {
 						if (data.status) {
@@ -551,7 +551,15 @@ var VoicemailC = UCPMC.extend({
 			}
 		} else {
 			if (player.data().jPlayer.status.paused) {
-				player.jPlayer("play");
+				if (container.is(":hidden")) {
+					$("#freepbx_container_" + msgid + " .title-text").text(cid);
+					container.slideDown(function(event) {
+						player.jPlayer("play", 0);
+						icon.removeClass("fa-play").addClass("fa-pause");
+					});
+				} else {
+					player.jPlayer("play");
+				}
 			} else {
 				player.jPlayer("pause");
 			}
@@ -623,39 +631,13 @@ var VoicemailC = UCPMC.extend({
 		$(".mailbox .vm-message").on("dragstart", function(event) {
 			$(this).fadeTo( "fast", 0.5);
 			event.originalEvent.dataTransfer.effectAllowed = "move";
-		    event.originalEvent.dataTransfer.setData("msg", $(this).data("msg"));
+			event.originalEvent.dataTransfer.setData("msg", $(this).data("msg"));
 		});
 		$(".mailbox .vm-message").on("dragend", function(event) {
 			$(".vm-temp").remove();
-		    $(this).fadeTo( "fast", 1.0);
+			$(this).fadeTo( "fast", 1.0);
 		});
 		$(".mailbox .vm-message").on("dragenter", function(event) {
-			/* Re-Enable all of the work below when we allow sorting of messages */
-			/*
-			$(".vm-temp").remove();
-			$(this).before( '<tr class="vm-temp" data-msg="h"><td colspan="7">&nbsp;</td></tr>' );
-			$('.vm-temp').on('dragover', function (event) {
-			    if (event.preventDefault) {
-					event.preventDefault(); // Necessary. Allows us to drop.
-			    }
-			});
-			$('.vm-temp').on('drop', function (event) {
-				if (event.stopPropagation) {
-					event.stopPropagation(); // Stops some browsers from redirecting.
-				}
-				if(true) {
-					var msg = event.originalEvent.dataTransfer.getData("msg");
-					if(msg == '') {
-						alert('Not a valid Draggable Object')
-						return false;
-					}
-					var dragSrc = $('.message-list .vm-message[data-msg="'+msg+'"]');
-					$(this).replaceWith('<tr class="vm-message" data-msg="'+msg+'" draggable="true">'+dragSrc.html()+'</tr>');
-					dragSrc.remove();
-					Voicemail.enableDrags();
-				}
-			});
-			*/
 		});
 	},
 	recordGreeting: function(type) {
@@ -671,15 +653,15 @@ var VoicemailC = UCPMC.extend({
 		if ($this.recording) {
 			clearInterval($this.recordTimer);
 			title.text("Recorded Message");
-	        $this.recorder.stop();
-	        $this.recorder.exportWAV(function(blob) {
+			$this.recorder.stop();
+			$this.recorder.exportWAV(function(blob) {
 				$this.soundBlobs[type] = blob;
 				var url = (window.URL || window.webkitURL).createObjectURL(blob);
 				$("#freepbx_player_" + type).jPlayer( "clearMedia" );
 				$("#freepbx_player_" + type).jPlayer( "setMedia", {
 					wav: url
 				});
-	        });
+			});
 			$this.recording = false;
 		} else {
 			window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -688,16 +670,16 @@ var VoicemailC = UCPMC.extend({
 
 			var gUM = Modernizr.prefixed("getUserMedia", navigator);
 			gUM({ audio: true }, function(stream) {
-		        var mediaStreamSource = context.createMediaStreamSource(stream);
-		        $this.recorder = new Recorder(mediaStreamSource,{ workerPath: "assets/js/recorderWorker.js" });
-		        $this.recorder.record();
+				var mediaStreamSource = context.createMediaStreamSource(stream);
+				$this.recorder = new Recorder(mediaStreamSource,{ workerPath: "assets/js/recorderWorker.js" });
+				$this.recorder.record();
 				$this.startTime = new Date();
 				$this.recordTimer = setInterval(function () {
 					var mil = (new Date() - $this.startTime);
 					var temp = (mil / 1000);
 					var min = ("0" + Math.floor((temp %= 3600) / 60)).slice(-2);
-				    var sec = ("0" + Math.round(temp % 60)).slice(-2);
-				    counter.text(min + ":" + sec);
+					var sec = ("0" + Math.round(temp % 60)).slice(-2);
+					counter.text(min + ":" + sec);
 				}, 1000);
 				title.text(_("Recording..."));
 				$this.recording = true;
@@ -722,8 +704,8 @@ var VoicemailC = UCPMC.extend({
 			var data = new FormData();
 			data.append("file", $this.soundBlobs[type]);
 			$.ajax({
-			    type: "POST",
-			    url: "index.php?quietmode=1&module=voicemail&command=record&type=" + type + "&ext=" + extension,
+				type: "POST",
+				url: "index.php?quietmode=1&module=voicemail&command=record&type=" + type + "&ext=" + extension,
 				xhr: function()
 				{
 					var xhr = new window.XMLHttpRequest();
@@ -731,16 +713,16 @@ var VoicemailC = UCPMC.extend({
 					xhr.upload.addEventListener("progress", function(evt) {
 						if (evt.lengthComputable) {
 							var percentComplete = evt.loaded / evt.total,
-									progress = Math.round(percentComplete * 100);
+							progress = Math.round(percentComplete * 100);
 							$("#" + type + " .filedrop .pbar").css("width", progress + "%");
 						}
 					}, false);
 					return xhr;
 				},
-			    data: data,
-			    processData: false,
-			    contentType: false,
-		        success: function(data) {
+				data: data,
+				processData: false,
+				contentType: false,
+				success: function(data) {
 					$("#" + type + " .filedrop .message").text("Drag a New Greeting Here");
 					$("#" + type + " .filedrop .pbar").css("width", "0%");
 					$this.soundBlobs[type] = null;
@@ -752,10 +734,10 @@ var VoicemailC = UCPMC.extend({
 						oga: "?quietmode=1&module=voicemail&command=listen&msgid=" + type + "&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
 					});
 					title.text(title.data("title"));
-		        },
-		        error: function() {
+				},
+				error: function() {
 					//error
-		        }
+				}
 			});
 		}
 	},

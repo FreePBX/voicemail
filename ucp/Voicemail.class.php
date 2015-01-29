@@ -29,14 +29,19 @@ class Voicemail extends Modules{
 	protected $module = 'Voicemail';
 	private $limit = 15;
 	private $break = 5;
+	private $boxes = array();
+	private $extensions = array();
+	private $user = array();
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
-		$this->astman = $this->UCP->FreePBX->astman;
 		$this->Vmx = $this->UCP->FreePBX->Voicemail->Vmx;
 		if($this->UCP->Session->isMobile) {
 			$this->limit = 7;
 		}
+
+		$this->user = $this->UCP->User->getUser();
+		$this->extensions = $this->UCP->getSetting($this->user['username'],$this->module,'assigned');
 	}
 
 	function getDisplay() {
@@ -62,7 +67,7 @@ class Voicemail extends Modules{
 		$html .= $this->load_view(__DIR__.'/views/header.php',$displayvars);
 
 		if(!empty($this->UCP->FreePBX->Voicemail->displayMessage['message'])) {
-				$displayvars['message'] = $this->UCP->FreePBX->Voicemail->displayMessage;
+			$displayvars['message'] = $this->UCP->FreePBX->Voicemail->displayMessage;
 		}
 
 		switch($view) {
@@ -104,16 +109,10 @@ class Voicemail extends Modules{
 		return $html;
 	}
 
-		function poll() {
-				$total = 0;
-				$boxes = array();
-				foreach($this->Modules->getAssignedDevices() as $extension) {
-						$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
-						$total = $total + $mailbox['NewMessages'];
-						$boxes[$extension] = $mailbox['NewMessages'];
-				}
-				return array("status" => true, "total" => $total, "boxes" => $boxes);
-		}
+	function poll() {
+		$boxes = $this->UCP->FreePBX->Voicemail->getMailboxCount($this->extensions);
+		return array("status" => true, "total" => $boxes['total'], "boxes" => $boxes['extensions']);
+	}
 
 	public function getSettingsDisplay($ext) {
 		if($this->Vmx->isInitialized($ext) && $this->Vmx->isEnabled($ext)) {
@@ -214,28 +213,20 @@ class Voicemail extends Modules{
 						$this->Vmx->setMenuOpt($_POST['ext'],$_POST['settings']['value'],'2','temp');
 					break;
 					default:
-						dbug($_POST['settings']['key']);
 						return false;
 					break;
 				}
-
 				$return = array("status" => true, "message" => "Saved", "alert" => "success");
 			break;
-						case 'checkboxes':
-								$total = 0;
-								$boxes = array();
-								foreach($this->Modules->getAssignedDevices() as $extension) {
-										$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
-										$total = $total + $mailbox['NewMessages'];
-										$boxes[$extension] = $mailbox['NewMessages'];
-								}
-								$return = array("status" => true, "total" => $total, "boxes" => $boxes);
-						break;
+			case 'checkboxes':
+				$boxes = $this->UCP->FreePBX->Voicemail->getMailboxCount($this->extensions);
+				return array("status" => true, "total" => $boxes['total'], "boxes" => $boxes['extensions']);
+			break;
 			case 'moveToFolder':
 				$ext = $_POST['ext'];
 				$status = $this->UCP->FreePBX->Voicemail->moveMessageByExtensionFolder($_POST['msg'],$ext,$_POST['folder']);
 				$return = array("status" => $status, "message" => "");
-				break;
+			break;
 			case 'delete':
 				$ext = $_POST['ext'];
 				$status = $this->UCP->FreePBX->Voicemail->deleteMessageByID($_POST['msg'],$ext);
@@ -289,7 +280,7 @@ class Voicemail extends Modules{
 				if ($_FILES["file"]["error"] == UPLOAD_ERR_OK) {
 					$tmp_path = sys_get_temp_dir();
 					$tmp_path = !empty($tmp_path) ? $tmp_path : '/tmp';
-					
+
 					$tmp_name = $_FILES["file"]["tmp_name"];
 					$name = $_FILES["file"]["name"];
 					if(!file_exists($tmp_path."/vmtmp")) {
@@ -335,6 +326,7 @@ class Voicemail extends Modules{
 				$ext = $_REQUEST['ext'];
 				$this->readRemoteFile($msgid,$ext,$format,true);
 				return true;
+			break;
 			case "listen":
 				$msgid = $_REQUEST['msgid'];
 				$format = $_REQUEST['format'];
@@ -350,17 +342,12 @@ class Voicemail extends Modules{
 	}
 
 	public function getBadge() {
-		$total = 0;
-		foreach($this->Modules->getAssignedDevices() as $extension) {
-			$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
-			$total = $total + $mailbox['NewMessages'];
-		}
-		return !empty($total) ? $total : 0;
+		$boxes = $this->UCP->FreePBX->Voicemail->getMailboxCount($this->extensions);
+		return $boxes['total'];
 	}
 
 	public function getMenuItems() {
-		$user = $this->UCP->User->getUser();
-		$extensions = $this->UCP->getSetting($user['username'],$this->module,'assigned');
+		$extensions = $this->extensions;
 		$menu = array();
 		if(!empty($extensions)) {
 			$menu = array(
@@ -368,6 +355,7 @@ class Voicemail extends Modules{
 				"name" => _("Voicemail"),
 				"badge" => $this->getBadge()
 			);
+			$boxes = $this->UCP->FreePBX->Voicemail->getMailboxCount($this->extensions);
 			foreach($extensions as $extension) {
 				$data = $this->UCP->FreePBX->Core->getDevice($extension);
 				if(empty($data) || empty($data['description'])) {
@@ -377,12 +365,11 @@ class Voicemail extends Modules{
 					$name = $data['description'];
 				}
 				$o = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($extension);
-				if(!empty($o)) {
-					$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
+				if(!empty($o) && !empty($boxes['extensions'][$extension])) {
 					$menu["menu"][] = array(
 						"rawname" => $extension,
 						"name" => $extension . " - " . $name,
-						"badge" => $mailbox['NewMessages']
+						"badge" => count($boxes['extensions'][$extension])
 					);
 				}
 			}
@@ -560,8 +547,21 @@ class Voicemail extends Modules{
 	}
 
 	private function _checkExtension($extension) {
-		$user = $this->UCP->User->getUser();
-		$extensions = $this->UCP->getSetting($user['username'],$this->module,'assigned');
+		$extensions = $this->extensions;
 		return in_array($extension,$extensions);
+	}
+
+	private function getMailboxCount() {
+		$boxes = array();
+		$total = 0;
+		foreach($this->Modules->getAssignedDevices() as $extension) {
+			$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
+			if($mailbox['Response'] == "Success" && !empty($mailbox['Mailbox']) && $mailbox['Mailbox'] == $extension) {
+				$total = $total + (int)$mailbox['NewMessages'];
+				$boxes['extensions'][$extension] = (int)$mailbox['NewMessages'];
+			}
+		}
+		$boxes['total'] = $total;
+		return $boxes;
 	}
 }
