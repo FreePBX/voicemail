@@ -29,14 +29,19 @@ class Voicemail extends Modules{
 	protected $module = 'Voicemail';
 	private $limit = 15;
 	private $break = 5;
+	private $boxes = array();
+	private $extensions = array();
+	private $user = array();
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
-		$this->astman = $this->UCP->FreePBX->astman;
 		$this->Vmx = $this->UCP->FreePBX->Voicemail->Vmx;
 		if($this->UCP->Session->isMobile) {
 			$this->limit = 7;
 		}
+
+		$this->user = $this->UCP->User->getUser();
+		$this->extensions = $this->UCP->getSetting($this->user['username'],$this->module,'assigned');
 	}
 
 	function getDisplay() {
@@ -105,7 +110,7 @@ class Voicemail extends Modules{
 	}
 
 	function poll() {
-		$boxes = $this->getMailboxCount();
+		$boxes = $this->UCP->FreePBX->Voicemail->getMailboxCount($this->extensions);
 		return array("status" => true, "total" => $boxes['total'], "boxes" => $boxes['extensions']);
 	}
 
@@ -214,7 +219,7 @@ class Voicemail extends Modules{
 				$return = array("status" => true, "message" => "Saved", "alert" => "success");
 			break;
 			case 'checkboxes':
-				$boxes = $this->getMailboxCount();
+				$boxes = $this->UCP->FreePBX->Voicemail->getMailboxCount($this->extensions);
 				return array("status" => true, "total" => $boxes['total'], "boxes" => $boxes['extensions']);
 			break;
 			case 'moveToFolder':
@@ -337,13 +342,12 @@ class Voicemail extends Modules{
 	}
 
 	public function getBadge() {
-		$boxes = $this->getMailboxCount();
+		$boxes = $this->UCP->FreePBX->Voicemail->getMailboxCount($this->extensions);
 		return $boxes['total'];
 	}
 
 	public function getMenuItems() {
-		$user = $this->UCP->User->getUser();
-		$extensions = $this->UCP->getSetting($user['username'],$this->module,'assigned');
+		$extensions = $this->extensions;
 		$menu = array();
 		if(!empty($extensions)) {
 			$menu = array(
@@ -351,6 +355,7 @@ class Voicemail extends Modules{
 				"name" => _("Voicemail"),
 				"badge" => $this->getBadge()
 			);
+			$boxes = $this->UCP->FreePBX->Voicemail->getMailboxCount($this->extensions);
 			foreach($extensions as $extension) {
 				$data = $this->UCP->FreePBX->Core->getDevice($extension);
 				if(empty($data) || empty($data['description'])) {
@@ -360,11 +365,11 @@ class Voicemail extends Modules{
 					$name = $data['description'];
 				}
 				$o = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($extension);
-				if(!empty($o)) {
+				if(!empty($o) && !empty($boxes['extensions'][$extension])) {
 					$menu["menu"][] = array(
 						"rawname" => $extension,
 						"name" => $extension . " - " . $name,
-						"badge" => count($data['extensions'][$extension])
+						"badge" => count($boxes['extensions'][$extension])
 					);
 				}
 			}
@@ -542,8 +547,7 @@ class Voicemail extends Modules{
 	}
 
 	private function _checkExtension($extension) {
-		$user = $this->UCP->User->getUser();
-		$extensions = $this->UCP->getSetting($user['username'],$this->module,'assigned');
+		$extensions = $this->extensions;
 		return in_array($extension,$extensions);
 	}
 

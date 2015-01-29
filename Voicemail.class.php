@@ -39,6 +39,7 @@ class Voicemail implements \BMO {
 	private $vmPath = null;
 	private $messageCache = array();
 	public $Vmx = null;
+	private $boxes = array();
 
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
@@ -51,6 +52,7 @@ class Voicemail implements \BMO {
 		}
 
 		$this->FreePBX = $freepbx;
+		$this->astman = $this->FreePBX->astman;
 		$this->db = $freepbx->Database;
 		$this->vmPath = $this->FreePBX->Config->get_conf_setting('ASTSPOOLDIR') . "/voicemail";
 		$this->messageLimit = $this->FreePBX->Config->get_conf_setting('UCP_MESSAGE_LIMIT');
@@ -226,7 +228,10 @@ class Voicemail implements \BMO {
 	 */
 	public function getVoicemailBoxByExtension($ext) {
 		if(empty($this->vmBoxData[$ext])) {
-			include_once(__DIR__.'/functions.inc.php');
+			//TODO: Lazy...
+			if(!function_exists('voicemail_mailbox_get')) {
+				include_once(__DIR__.'/functions.inc.php');
+			}
 			$this->vmBoxData[$ext] = voicemail_mailbox_get($ext);
 		}
 		return !empty($this->vmBoxData[$ext]) ? $this->vmBoxData[$ext] : false;
@@ -742,5 +747,27 @@ class Voicemail implements \BMO {
 				return false;
 			break;
 		}
+	}
+
+	/**
+	* Get the voicemail count from Asterisk
+	* Cache the data after we get it so we dont have to make further requests to Asterisk.
+	*/
+	public function getMailboxCount($exts = array()) {
+		if(!empty($this->boxes)) {
+			return $this->boxes;
+		}
+		$boxes = array();
+		$total = 0;
+		foreach($exts as $extension) {
+			$mailbox = $this->astman->MailboxCount($extension);
+			if($mailbox['Response'] == "Success" && !empty($mailbox['Mailbox']) && $mailbox['Mailbox'] == $extension) {
+				$total = $total + (int)$mailbox['NewMessages'];
+				$boxes['extensions'][$extension] = (int)$mailbox['NewMessages'];
+			}
+		}
+		$boxes['total'] = $total;
+		$this->boxes = $boxes;
+		return $boxes;
 	}
 }
