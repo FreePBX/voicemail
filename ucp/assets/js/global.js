@@ -551,7 +551,15 @@ var VoicemailC = UCPMC.extend({
 			}
 		} else {
 			if (player.data().jPlayer.status.paused) {
-				player.jPlayer("play");
+				if (container.is(":hidden")) {
+					$("#freepbx_container_" + msgid + " .title-text").text(cid);
+					container.slideDown(function(event) {
+						player.jPlayer("play", 0);
+						icon.removeClass("fa-play").addClass("fa-pause");
+					});
+				} else {
+					player.jPlayer("play");
+				}
 			} else {
 				player.jPlayer("pause");
 			}
@@ -623,39 +631,13 @@ var VoicemailC = UCPMC.extend({
 		$(".mailbox .vm-message").on("dragstart", function(event) {
 			$(this).fadeTo( "fast", 0.5);
 			event.originalEvent.dataTransfer.effectAllowed = "move";
-		    event.originalEvent.dataTransfer.setData("msg", $(this).data("msg"));
+			event.originalEvent.dataTransfer.setData("msg", $(this).data("msg"));
 		});
 		$(".mailbox .vm-message").on("dragend", function(event) {
 			$(".vm-temp").remove();
-		    $(this).fadeTo( "fast", 1.0);
+			$(this).fadeTo( "fast", 1.0);
 		});
 		$(".mailbox .vm-message").on("dragenter", function(event) {
-			/* Re-Enable all of the work below when we allow sorting of messages */
-			/*
-			$(".vm-temp").remove();
-			$(this).before( '<tr class="vm-temp" data-msg="h"><td colspan="7">&nbsp;</td></tr>' );
-			$('.vm-temp').on('dragover', function (event) {
-			    if (event.preventDefault) {
-					event.preventDefault(); // Necessary. Allows us to drop.
-			    }
-			});
-			$('.vm-temp').on('drop', function (event) {
-				if (event.stopPropagation) {
-					event.stopPropagation(); // Stops some browsers from redirecting.
-				}
-				if(true) {
-					var msg = event.originalEvent.dataTransfer.getData("msg");
-					if(msg == '') {
-						alert('Not a valid Draggable Object')
-						return false;
-					}
-					var dragSrc = $('.message-list .vm-message[data-msg="'+msg+'"]');
-					$(this).replaceWith('<tr class="vm-message" data-msg="'+msg+'" draggable="true">'+dragSrc.html()+'</tr>');
-					dragSrc.remove();
-					Voicemail.enableDrags();
-				}
-			});
-			*/
 		});
 	},
 	recordGreeting: function(type) {

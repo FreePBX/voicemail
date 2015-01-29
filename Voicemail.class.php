@@ -528,6 +528,9 @@ class Voicemail implements \BMO {
 					if(file_exists($txt) && is_readable($txt) && file_exists($wav)) {
 						$data = $this->FreePBX->LoadConfig->getConfig($vm.".txt", $vfolder, 'message');
 						$key = !empty($data['msg_id']) ? $data['msg_id'] : basename($folder)."_".$vm;
+						if(isset($out['messages'][$key])) {
+							$key = rand(0,5000);
+						}
 						$out['messages'][$key] = $data;
 						$out['messages'][$key]['msg_id'] = $key;
 						$out['messages'][$key]['file'] = basename($wav);
@@ -634,10 +637,6 @@ class Voicemail implements \BMO {
 					if(!is_dir($file)) {
 						$basename = basename($file);
 						$dirname = dirname($file);
-						//check for bad files, remove if they are bad (we cant read them no one can)
-						if(!$this->queryAudio($file)) {
-							unlink($file);
-						}
 						if(preg_match("/(.*)\_(.*)\./i",$basename,$matches)) {
 							$sha1 = $matches[2];
 							$filename = $matches[1];
@@ -651,12 +650,6 @@ class Voicemail implements \BMO {
 						foreach (glob($file."/*") as $vmfile) {
 							$basename = basename($vmfile);
 							$dirname = dirname($vmfile);
-							//check for bad files, remove if they are bad (we cant read them no one can)
-							if(!$this->queryAudio($vmfile)) {
-								//TODO: We have text files here as all, dont unlink yet
-								//unlink($vmfile);
-								//dont stop here continue to do cleanups
-							}
 							if(preg_match("/(.*)\_(.*)\./i",$basename,$matches)) {
 								$sha1 = $matches[2];
 								$filename = $matches[1];
