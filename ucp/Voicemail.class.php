@@ -365,7 +365,7 @@ class Voicemail extends Modules{
 					$name = $data['description'];
 				}
 				$o = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($extension);
-				if(!empty($o) && !empty($boxes['extensions'][$extension])) {
+				if(!empty($o) && isset($boxes['extensions'][$extension])) {
 					$menu["menu"][] = array(
 						"rawname" => $extension,
 						"name" => $extension . " - " . $name,
