@@ -62,7 +62,7 @@ class Voicemail extends Modules{
 		$html .= $this->load_view(__DIR__.'/views/header.php',$displayvars);
 
 		if(!empty($this->UCP->FreePBX->Voicemail->displayMessage['message'])) {
-				$displayvars['message'] = $this->UCP->FreePBX->Voicemail->displayMessage;
+			$displayvars['message'] = $this->UCP->FreePBX->Voicemail->displayMessage;
 		}
 
 		switch($view) {
@@ -218,7 +218,6 @@ class Voicemail extends Modules{
 						return false;
 					break;
 				}
-
 				$return = array("status" => true, "message" => "Saved", "alert" => "success");
 			break;
 						case 'checkboxes':
@@ -235,7 +234,7 @@ class Voicemail extends Modules{
 				$ext = $_POST['ext'];
 				$status = $this->UCP->FreePBX->Voicemail->moveMessageByExtensionFolder($_POST['msg'],$ext,$_POST['folder']);
 				$return = array("status" => $status, "message" => "");
-				break;
+			break;
 			case 'delete':
 				$ext = $_POST['ext'];
 				$status = $this->UCP->FreePBX->Voicemail->deleteMessageByID($_POST['msg'],$ext);
@@ -289,7 +288,7 @@ class Voicemail extends Modules{
 				if ($_FILES["file"]["error"] == UPLOAD_ERR_OK) {
 					$tmp_path = sys_get_temp_dir();
 					$tmp_path = !empty($tmp_path) ? $tmp_path : '/tmp';
-					
+
 					$tmp_name = $_FILES["file"]["tmp_name"];
 					$name = $_FILES["file"]["name"];
 					if(!file_exists($tmp_path."/vmtmp")) {
@@ -335,6 +334,7 @@ class Voicemail extends Modules{
 				$ext = $_REQUEST['ext'];
 				$this->readRemoteFile($msgid,$ext,$format,true);
 				return true;
+			break;
 			case "listen":
 				$msgid = $_REQUEST['msgid'];
 				$format = $_REQUEST['format'];

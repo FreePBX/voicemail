@@ -487,9 +487,9 @@ class Voicemail implements \BMO {
 			$fp = fopen($fpath, "rb");
 			fseek($fp, $start);
 			if(!feof($fp) && ($p = ftell($fp)) <= $end) {
-					if ($p + $buffer > $end) {
-							$buffer = $end - $p + 1;
-					}
+				if ($p + $buffer > $end) {
+					$buffer = $end - $p + 1;
+				}
 				$contents = fread($fp, $buffer);
 				fclose($fp);
 				return $contents;
@@ -722,7 +722,7 @@ class Voicemail implements \BMO {
 				return $path . "/" . $filename.".WAV";
 			break;
 			case file_exists($path . "/" . $filename.".gsm"):
-			return $path . "/" . $filename.".gsm";
+				return $path . "/" . $filename.".gsm";
 			break;
 			default:
 				return false;
@@ -743,7 +743,7 @@ class Voicemail implements \BMO {
 				return 'wav';
 			break;
 			case preg_match("/gsm$/", $file):
-			return 'gsm';
+				return 'gsm';
 			break;
 			default:
 				return false;
