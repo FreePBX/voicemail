@@ -459,9 +459,10 @@ function voicemail_configpageload() {
 			"failvalidationmsg" => $msgInvalidVmPwd,
 			"canbeempty" => false,
 			"class" => $class,
-			"disable" => $disable
+			"disable" => $disable,
+			"passwordToggle" => true
 		);
-		$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)),$category);
+		$currentcomponent->addguielem($section, new gui_password(array_merge($guidefaults,$el)),$category);
 		//for passwordless voicemail we need to check some settings
 		//first lets see if there is an entry in the asteriskDB for this device
 		//no entry in the db is the same as yes, meaning we need a voicemail password
