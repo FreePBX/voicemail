@@ -110,7 +110,7 @@ class Voicemail extends Modules{
 	}
 
 	function poll() {
-		$boxes = $this->UCP->FreePBX->Voicemail->getMailboxCount($this->extensions);
+		$boxes = $this->getMailboxCount($this->extensions);
 		return array("status" => true, "total" => $boxes['total'], "boxes" => $boxes['extensions']);
 	}
 
@@ -219,7 +219,7 @@ class Voicemail extends Modules{
 				$return = array("status" => true, "message" => "Saved", "alert" => "success");
 			break;
 			case 'checkboxes':
-				$boxes = $this->UCP->FreePBX->Voicemail->getMailboxCount($this->extensions);
+				$boxes = $this->getMailboxCount($this->extensions);
 				return array("status" => true, "total" => $boxes['total'], "boxes" => $boxes['extensions']);
 			break;
 			case 'moveToFolder':
@@ -342,7 +342,7 @@ class Voicemail extends Modules{
 	}
 
 	public function getBadge() {
-		$boxes = $this->UCP->FreePBX->Voicemail->getMailboxCount($this->extensions);
+		$boxes = $this->getMailboxCount($this->extensions);
 		return $boxes['total'];
 	}
 
@@ -355,7 +355,7 @@ class Voicemail extends Modules{
 				"name" => _("Voicemail"),
 				"badge" => $this->getBadge()
 			);
-			$boxes = $this->UCP->FreePBX->Voicemail->getMailboxCount($this->extensions);
+			$boxes = $this->getMailboxCount($this->extensions);
 			foreach($extensions as $extension) {
 				$data = $this->UCP->FreePBX->Core->getDevice($extension);
 				if(empty($data) || empty($data['description'])) {
@@ -365,7 +365,7 @@ class Voicemail extends Modules{
 					$name = $data['description'];
 				}
 				$o = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($extension);
-				if(!empty($o) && !empty($boxes['extensions'][$extension])) {
+				if(!empty($o) && isset($boxes['extensions'][$extension])) {
 					$menu["menu"][] = array(
 						"rawname" => $extension,
 						"name" => $extension . " - " . $name,
@@ -555,6 +555,10 @@ class Voicemail extends Modules{
 		$boxes = array();
 		$total = 0;
 		foreach($this->Modules->getAssignedDevices() as $extension) {
+			$fvm = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($extension);
+			if(empty($fvm['vmcontext'])) {
+				continue;
+			}
 			$mailbox = $this->UCP->FreePBX->astman->MailboxCount($extension);
 			if($mailbox['Response'] == "Success" && !empty($mailbox['Mailbox']) && $mailbox['Mailbox'] == $extension) {
 				$total = $total + (int)$mailbox['NewMessages'];
