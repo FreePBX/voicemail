@@ -38,21 +38,21 @@ msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-11 18:12-0500\n"
-"PO-Revision-Date: 2014-06-06 08:35+0200\n"
+"PO-Revision-Date: 2015-02-12 14:33+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
-"Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/voicemail/"
-"ja/>\n"
+"Language-Team: Japanese "
+"<http://git.freepbx.org/projects/freepbx/voicemail/ja_JP/>\n"
+"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.1\n"
 
 #: /usr/src/freepbx/voicemail/ucp/views/greetings.php:9
 #: /usr/src/freepbx/voicemail/ucp/views/greetings.php:35
 msgid " Greeting"
-msgstr ""
+msgstr " アナウンス"
 
 #: /usr/src/freepbx/voicemail/page.voicemail.php:440
 #, php-format
@@ -186,11 +186,11 @@ msgstr ""
 
 #: /usr/src/freepbx/voicemail/Voicemail.class.php:113
 msgid "Allowed Voicemail"
-msgstr ""
+msgstr "ボイスメールを許可"
 
 #: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:573
 msgid "Are you sure you wish to delete this voicemail?"
-msgstr ""
+msgstr "このボイスメールを削除しますか？"
 
 #: /usr/src/freepbx/voicemail/page.voicemail.php:301
 msgid "Asterisk language code"
@@ -224,7 +224,7 @@ msgstr "ビジー時のアナウンス："
 
 #: /usr/src/freepbx/voicemail/ucp/views/mailbox.php:15
 msgid "CID"
-msgstr ""
+msgstr "CID"
 
 #: /usr/src/freepbx/voicemail/page.voicemail.php:317
 msgid "Call me number. Can be used from within ARI."
@@ -291,11 +291,11 @@ msgstr ""
 
 #: /usr/src/freepbx/voicemail/ucp/views/mailbox.php:17
 msgid "Controls"
-msgstr ""
+msgstr "コントロール"
 
 #: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:237
 msgid "Copying..."
-msgstr ""
+msgstr "コピー中..."
 
 #: /usr/src/freepbx/voicemail/page.voicemail.php:241
 msgid "Customize the key that fast-forwards message playback"
@@ -361,7 +361,7 @@ msgstr ""
 
 #: /usr/src/freepbx/voicemail/ucp/views/mailbox.php:14
 msgid "Date"
-msgstr ""
+msgstr "日付"
 
 #: /usr/src/freepbx/voicemail/views/dialplan.php:40
 msgid ""
@@ -405,7 +405,7 @@ msgstr "移行した設定の削除中..."
 
 #: /usr/src/freepbx/voicemail/functions.inc.php:512
 msgid "Device"
-msgstr ""
+msgstr "デバイス"
 
 #: /usr/src/freepbx/voicemail/install.php:10
 msgid "Dial Voicemail"
