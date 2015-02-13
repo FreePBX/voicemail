@@ -6,7 +6,7 @@
 		<?php } ?>
 			<div class="col-md-6">
 				<div id="<?php echo $greeting?>" class="greeting-control">
-					<h4><?php echo _($name.' Greeting')?></h4>
+					<h4><?php echo _($name)?></h4>
 					<div id="freepbx_player_<?php echo $greeting?>" class="jp-jplayer"></div>
 					<div id="freepbx_player_<?php echo $greeting?>_1" data-type="<?php echo $greeting?>" class="jp-audio <?php echo !isset($greetings[$greeting]) ? 'greet-hidden' : ''?>" draggable="true">
 					    <div class="jp-type-single">
@@ -32,7 +32,7 @@
 					            <div class="jp-duration"></div>
 						        <div class="jp-title">
 						            <ul>
-						                <li class="title-text" data-title="<?php echo _($name.' Greeting')?>"><?php echo _($name.' Greeting')?></li>
+						                <li class="title-text" data-title="<?php echo _($name)?>"><?php echo _($name)?></li>
 						            </ul>
 						        </div>
 					        </div>
@@ -45,7 +45,7 @@
 					<div class="file-controls">
 						<span class="btn btn-file btn-success btn-xs"><i class="fa fa-cloud-upload"></i> <?php echo _('Upload Greeting')?><input type="file" type="file" name="files[]" multiple /></span>
 						<button class="btn btn-danger btn-xs delete <?php echo !isset($greetings[$greeting]) ? 'greet-hidden' : ''?>" data-id="<?php echo $greeting?>"><i class="fa fa-trash-o fa-lg"></i><?php echo _('Delete')?></button>
-						<button class="btn btn-danger record-greeting-btn btn-xs record" data-id="<?php echo $greeting?>"><i class="fa fa-circle"></i> Record Greeting</button>
+						<button class="btn btn-danger record-greeting-btn btn-xs record" data-id="<?php echo $greeting?>"><i class="fa fa-circle"></i><?php echo _("Record Greeting")?></button>
 					</div>
 					<div class="recording-controls">
 						<button class="btn btn-success btn-xs save" data-id="<?php echo $greeting?>"><i class="fa fa-floppy-o"></i> <?php echo _('Save Greeting')?></button>

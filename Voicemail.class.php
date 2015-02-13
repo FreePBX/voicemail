@@ -16,10 +16,10 @@ class Voicemail implements \BMO {
 
 	//supported greeting names
 	public $greetings = array(
-		'unavail' => 'Unavailable',
-		'greet' => 'Name',
-		'busy' => 'Busy',
-		'temp' => 'Temporary',
+		'unavail' => 'Unavailable Greeting',
+		'greet' => 'Name Greeting',
+		'busy' => 'Busy Greeting',
+		'temp' => 'Temporary Greeting',
 	);
 
 	//Voicemail folders to search
@@ -62,6 +62,18 @@ class Voicemail implements \BMO {
 				"name" => _($folder)
 			);
 		}
+
+		//Force translation for later
+		_("INBOX");
+		_("Family");
+		_("Friends");
+		_("Old");
+		_("Work");
+		_("Urgent");
+		_('Unavailable Greeting');
+		_('Name Greeting');
+		_('Busy Greeting');
+		_('Temporary Greeting');
 	}
 
 	public function doConfigPageInit($page) {

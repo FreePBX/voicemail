@@ -8,6 +8,9 @@ var VoicemailC = UCPMC.extend({
 		this.soundBlobs = {};
 		this.placeholders = [];
 	},
+	getInfo: function() {
+		return { name: _("Voicemail") };
+	},
 	settingsDisplay: function() {
 		var $this = this;
 		$("#ddial, #vmx-p1_enable").change(function() {
