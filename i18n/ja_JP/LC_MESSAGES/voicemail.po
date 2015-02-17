@@ -37,74 +37,69 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-11 18:12-0500\n"
+"POT-Creation-Date: 2015-02-17 18:28-0500\n"
 "PO-Revision-Date: 2015-02-12 16:18+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
-"Language-Team: Japanese "
-"<http://weblate.freepbx.org/projects/freepbx/voicemail/ja_JP/>\n"
-"Language: ja_JP\n"
+"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
+"voicemail/ja_JP/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.1\n"
 
-#: /usr/src/freepbx/voicemail/ucp/views/greetings.php:9
-#: /usr/src/freepbx/voicemail/ucp/views/greetings.php:35
-msgid " Greeting"
-msgstr " アナウンス"
-
-#: /usr/src/freepbx/voicemail/page.voicemail.php:440
+#: page.voicemail.php:440
 #, php-format
 msgid "%s Attempts"
 msgstr "%s 回"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:446
+#: page.voicemail.php:446
 #, php-format
 msgid "%s Retries"
 msgstr "%s リトライ数"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:444
+#: page.voicemail.php:444
 #, php-format
 msgid "%s Retry"
 msgstr "%s リトライ数"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:436
+#: page.voicemail.php:436
 #, php-format
 msgid "%s Sec"
 msgstr "%s秒"
 
-#: /usr/src/freepbx/voicemail/install.php:113
+#: install.php:113
 #, php-format
 msgid "%s added"
 msgstr "%s を追加"
 
-#: /usr/src/freepbx/voicemail/install.php:81
+#: install.php:81
 #, php-format
 msgid "%s adjusted from %s to %s"
 msgstr "%s を %s から %s に調整しました。"
 
-#: /usr/src/freepbx/voicemail/install.php:85
+#: install.php:85
 #, php-format
 msgid "%s adjusted from bad value %s to default no gain"
 msgstr "%s を不正な値 %s からデフォルト値に変更しました"
 
-#: /usr/src/freepbx/voicemail/install.php:76
+#: install.php:76
 #, php-format
 msgid "%s changed from %s to max value 15"
 msgstr "%s は %s から最大値の15へ変更しました。"
 
-#: /usr/src/freepbx/voicemail/install.php:95
+#: install.php:95
 #, php-format
 msgid "%s migrated"
 msgstr "%s を移行しました"
 
-#: /usr/src/freepbx/voicemail/install.php:72
+#: install.php:72
 #, php-format
 msgid "%s no longer used"
 msgstr "%sは現在使われていません"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:234
+#: page.voicemail.php:234
 msgid ""
 "(yes/no) If imapgreetings=yes, then specify which folder to store your "
 "greetings in. If you do not specify a folder, then INBOX will be used."
@@ -112,58 +107,57 @@ msgstr ""
 "（はい/いいえ）もし imapgreetings=yes の場合、グリーティングの保存先フォル"
 "ダーを指定してください。フォルダーの指定がない場合は、INBOXを使用します。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:434
+#: page.voicemail.php:434
 msgid "0 Sec"
 msgstr "0秒"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:430
+#: page.voicemail.php:430
 msgid "12 db"
 msgstr "12 db"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:431
+#: page.voicemail.php:431
 msgid "15 db"
 msgstr "15 db"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:427
+#: page.voicemail.php:427
 msgid "3 db"
 msgstr "3 db"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:428
+#: page.voicemail.php:428
 msgid "6 db"
 msgstr "6 db"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:429
+#: page.voicemail.php:429
 msgid "9 db"
 msgstr "9 db"
 
-#: /usr/src/freepbx/voicemail/views/tz.php:12
+#: views/tz.php:12
 msgid ""
 "A timezone definition specifies how the Voicemail system announces the time."
 msgstr ""
 "timezone 定義により、ボイスメールシステムの時刻アナウンス方法を指定できます。"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:78
-#: /usr/src/freepbx/voicemail/views/usage_system.php:101
+#: views/usage.php:78 views/usage_system.php:101
 msgid "Abandoned Greetings:"
 msgstr "破棄されたアナウンス："
 
-#: /usr/src/freepbx/voicemail/views/settings.php:5
+#: views/settings.php:5
 msgid "Account View Links:"
 msgstr "アカウントビューリンク："
 
-#: /usr/src/freepbx/voicemail/views/settings.php:13
+#: views/settings.php:13
 msgid "Advanced Settings"
 msgstr "高度な設定"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:934
+#: functions.inc.php:964
 msgid "Advanced Settings For: "
 msgstr "高度な設定： "
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:48
+#: views/dialplan.php:48
 msgid "Advanced VmX Locater Settings"
 msgstr "VmXロケータの高度な設定"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:291
+#: page.voicemail.php:291
 msgid ""
 "After notification, the Voicemail is deleted from the server. [per-mailbox "
 "only] This is intended for use with users who wish to receive their "
@@ -175,8 +169,7 @@ msgstr ""
 "ます。通知: deletevoicemailはリアルタイム設定と等価のオプションとして提供され"
 "ています。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:265
-#: /usr/src/freepbx/voicemail/page.voicemail.php:307
+#: page.voicemail.php:265 page.voicemail.php:307
 msgid ""
 "Allow sender to review/rerecord their message before saving it [OFF by "
 "default]"
@@ -184,62 +177,64 @@ msgstr ""
 "送信者がメッセージを保存する前にレビュー/再録音することを許可する [デフォルト"
 "オフ]"
 
-#: /usr/src/freepbx/voicemail/Voicemail.class.php:113
+#: Voicemail.class.php:129
 msgid "Allowed Voicemail"
 msgstr "ボイスメールを許可"
 
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:573
+#: ucp/assets/js/global.js:646
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr "このボイスメールを削除しますか？"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:301
+#: page.voicemail.php:301
 msgid "Asterisk language code"
 msgstr "Asterisk言語コード"
 
-#: /usr/src/freepbx/voicemail/install.php:190
+#: install.php:190
 msgid "Attempting to delete.."
 msgstr "削除を試行中.."
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:927
+#: functions.inc.php:957
 msgid "Basic Settings For: "
 msgstr "基本設定： "
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:929
+#: functions.inc.php:959
 msgid "Basic settings view is for individual accounts."
 msgstr "各アカウントの基本設定。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:259
+#: page.voicemail.php:259
 msgid "Body of message sent to pager."
 msgstr "ページャーに送信されるメッセージボディー"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:421
-#: /usr/src/freepbx/voicemail/ucp/views/vmx.php:11
+#: page.voicemail.php:421 ucp/views/vmx.php:11
 msgid "Busy"
 msgstr "ビジー"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:48
-#: /usr/src/freepbx/voicemail/views/usage_system.php:71
+#: Voicemail.class.php:75
+msgid "Busy Greeting"
+msgstr ""
+
+#: views/usage.php:48 views/usage_system.php:71
 msgid "Busy Greetings:"
 msgstr "ビジー時のアナウンス："
 
-#: /usr/src/freepbx/voicemail/ucp/views/mailbox.php:15
+#: ucp/views/mailbox.php:15
 msgid "CID"
 msgstr "CID"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:317
+#: page.voicemail.php:317
 msgid "Call me number. Can be used from within ARI."
 msgstr "コールミーナンバー。ARI内からで使用されます。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:503
+#: page.voicemail.php:503
 msgid "Call-Me Number"
 msgstr ""
 "名前が定義されていません; これは内線またはユーザーページから設定されます。"
 
-#: /usr/src/freepbx/voicemail/install.php:174
+#: install.php:174
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "接続できません。Asteriskマネージャー "
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:17
+#: views/dialplan.php:17
 msgid ""
 "Check this box to disable the standard voicemail instructions that follow "
 "the user recorded message. These standard instructions tell the caller to "
@@ -251,20 +246,19 @@ msgstr ""
 "い」と言う意味のものです。VMXロケータが有効なユーザーの場合は、個別でコント"
 "ロールできます。"
 
-#: /usr/src/freepbx/voicemail/install.php:65
+#: install.php:65
 msgid "Checking for General Setting migrations.."
 msgstr "一般設定の移行を確認中…"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:214
+#: page.voicemail.php:214
 msgid "Comma separated list of internal contexts to use caller ID."
 msgstr "発信者IDを使用するためのカンマで区切られた内部コンテキストリスト"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:225
+#: page.voicemail.php:225
 msgid "Command specified runs after a user changes his password."
 msgstr "ユーザーがパスワードを変更した後に、指定のコマンドが実行されます。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:212
-#: /usr/src/freepbx/voicemail/page.voicemail.php:290
+#: page.voicemail.php:212 page.voicemail.php:290
 msgid ""
 "Context to call back from; if not listed, calling the sender back will not "
 "be permitted."
@@ -272,16 +266,14 @@ msgstr ""
 "コールバック元のコンテキスト; もしリストアップされていない場合は、送信者への"
 "コールバックが許可されません。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:221
-#: /usr/src/freepbx/voicemail/page.voicemail.php:295
+#: page.voicemail.php:221 page.voicemail.php:295
 msgid ""
 "Context to check for handling * or 0 calls to operator. \"Operator Context\""
 msgstr ""
 "＊、または０のオペレーターへのコールを処理するためのコンテキスト。 \"オペレー"
 "ターコンテキスト\""
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:215
-#: /usr/src/freepbx/voicemail/page.voicemail.php:292
+#: page.voicemail.php:215 page.voicemail.php:292
 msgid ""
 "Context to dial out from [option 4 from the advanced menu] if not listed, "
 "dialing out will not be permitted."
@@ -289,35 +281,39 @@ msgstr ""
 "ダイヤルアウト元のコンテキスト（詳細設定メニューのオプション４）; もしリスト"
 "アップされていない場合は、ダイヤルアウトが許可されません。"
 
-#: /usr/src/freepbx/voicemail/ucp/views/mailbox.php:17
+#: ucp/views/mailbox.php:17
 msgid "Controls"
 msgstr "コントロール"
 
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:237
+#: ucp/assets/js/global.js:292
 msgid "Copying..."
 msgstr "コピー中..."
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:241
+#: voicemail.i18n.php:12
+msgid "Create Voicemail Hints"
+msgstr "ボイスメールのヒントを作成"
+
+#: page.voicemail.php:241
 msgid "Customize the key that fast-forwards message playback"
 msgstr "即時転送メッセージを再生するキーのカスタマイズ"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:242
+#: page.voicemail.php:242
 msgid "Customize the key that pauses/unpauses message playback"
 msgstr "一時停止/停止解除メッセージを再生するキーのカスタマイズ"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:243
+#: page.voicemail.php:243
 msgid "Customize the key that restarts message playback"
 msgstr "再開メッセージを再生するキーのカスタマイズ"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:244
+#: page.voicemail.php:244
 msgid "Customize the key that rewinds message playback"
 msgstr "巻き戻しメッセージを再生するキーのカスタマイズ"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:245
+#: page.voicemail.php:245
 msgid "Customize the key that stops message playback"
 msgstr "停止メッセージを再生するキーのカスタマイズ"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:280
+#: page.voicemail.php:280
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"Please enter your new password followed by the pound key.\""
@@ -325,7 +321,7 @@ msgstr ""
 "\"シャープキーに続いて新しいパスワードを入力してください。\"というデフォルト"
 "プロンプトの代わりに使用される音声ファイルをカスタマイズします。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:283
+#: page.voicemail.php:283
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"Please re-enter your password followed by the pound key\""
@@ -333,7 +329,7 @@ msgstr ""
 "「新しいパスワードを再入力し、最後にシャープを押してください」というデフォル"
 "トプロンプトの代わりに使用される音声ファイルをカスタマイズします"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:279
+#: page.voicemail.php:279
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"The passwords you entered and re-entered did not match.  Please try again."
@@ -343,7 +339,7 @@ msgstr ""
 "ください。\"というデフォルトプロンプトの代わりに使用される音声ファイルをカス"
 "タマイズします。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:281
+#: page.voicemail.php:281
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"Your password has been changed.\""
@@ -351,7 +347,7 @@ msgstr ""
 "\"あなたのパスワードが変更されました。\"というデフォルトプロンプトの代わりに"
 "使用される音声ファイルをカスタマイズします。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:282
+#: page.voicemail.php:282
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"password\""
@@ -359,11 +355,11 @@ msgstr ""
 "\"パスワード\"というデフォルトプロンプトの代わりに使用される音声ファイルをカ"
 "スタマイズします。"
 
-#: /usr/src/freepbx/voicemail/ucp/views/mailbox.php:14
+#: ucp/views/mailbox.php:14
 msgid "Date"
 msgstr "日付"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:40
+#: views/dialplan.php:40
 msgid ""
 "Default number to dial when a voicemail user 'zeros out' if enabled. This "
 "can be overriden for each extension with the VMX Locater option that is "
@@ -376,131 +372,115 @@ msgstr ""
 "書きすることができます。指定できる番号は外部の番号でも構いませんが、未検証の"
 "為、設定後は必ずテストを行ってください。"
 
-#: /usr/src/freepbx/voicemail/ucp/views/greetings.php:47
-#: /usr/src/freepbx/voicemail/ucp/views/mailbox.php:34
-#: /usr/src/freepbx/voicemail/views/tz.php:71
-#: /usr/src/freepbx/voicemail/views/usage.php:8
-#: /usr/src/freepbx/voicemail/views/usage.php:23
-#: /usr/src/freepbx/voicemail/views/usage.php:37
-#: /usr/src/freepbx/voicemail/views/usage.php:52
-#: /usr/src/freepbx/voicemail/views/usage.php:67
-#: /usr/src/freepbx/voicemail/views/usage.php:82
-#: /usr/src/freepbx/voicemail/views/usage_system.php:30
-#: /usr/src/freepbx/voicemail/views/usage_system.php:45
-#: /usr/src/freepbx/voicemail/views/usage_system.php:60
-#: /usr/src/freepbx/voicemail/views/usage_system.php:75
-#: /usr/src/freepbx/voicemail/views/usage_system.php:90
-#: /usr/src/freepbx/voicemail/views/usage_system.php:105
+#: ucp/views/greetings.php:47 ucp/views/mailbox.php:40 views/tz.php:71
+#: views/usage.php:8 views/usage.php:23 views/usage.php:37 views/usage.php:52
+#: views/usage.php:67 views/usage.php:82 views/usage_system.php:30
+#: views/usage_system.php:45 views/usage_system.php:60
+#: views/usage_system.php:75 views/usage_system.php:90
+#: views/usage_system.php:105
 msgid "Delete"
 msgstr "削除"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:519
-#: /usr/src/freepbx/voicemail/page.voicemail.php:502
+#: functions.inc.php:549 page.voicemail.php:502
 msgid "Delete Voicemail"
 msgstr "送信後にボイスメールを削除する"
 
-#: /usr/src/freepbx/voicemail/install.php:119
+#: install.php:119
 msgid "Deleting migrated settings.."
 msgstr "移行した設定の削除中..."
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:512
+#: functions.inc.php:542
 msgid "Device"
 msgstr "デバイス"
 
-#: /usr/src/freepbx/voicemail/install.php:10
+#: install.php:10
 msgid "Dial Voicemail"
 msgstr "ボイスメールへダイヤル"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:940
+#: functions.inc.php:970
 msgid "Dialplan Behavior"
 msgstr "ダイヤルプランの動作"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:25
+#: views/dialplan.php:25
 msgid "Direct Dial Mode"
 msgstr "ダイレクトダイヤルモード"
 
-#: /usr/src/freepbx/voicemail/install.php:12
+#: install.php:12
 msgid "Direct Dial Prefix"
 msgstr "ダイレクトダイヤルプレフィックス"
 
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:646
+#: ucp/assets/js/global.js:716
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr "ご利用のブラウザはダイレクトメディアレコーディングを対応していません。"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:17
+#: views/dialplan.php:17
 msgid "Disable Standard Prompt"
 msgstr "スタンダードプロンプトを無効にする"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:77
+#: views/dialplan.php:77
 msgid "Disable Standard Prompt after Max Loops"
 msgstr "最大ループ数を超えるとスタンダードプロンプトを無効にする"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:85
+#: views/dialplan.php:85
 msgid "Disable Standard Prompt on 'dovm' Extension"
 msgstr "エクステンション dovm でスタンダードプロンプトを無効にする"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:397
-#: /usr/src/freepbx/voicemail/functions.inc.php:400
+#: functions.inc.php:427 functions.inc.php:430
 msgid "Disabled"
 msgstr "無効"
 
-#: /usr/src/freepbx/voicemail/ucp/views/greetings.php:52
+#: ucp/views/greetings.php:52
 msgid "Discard Greeting"
 msgstr "アナウンスを削除する"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:93
-#: /usr/src/freepbx/voicemail/views/usage_system.php:116
+#: views/usage.php:93 views/usage_system.php:116
 msgid "Disk space currently in use by Voicemail data"
 msgstr "現在ボイスメールデータで使用中のディスクスペース"
 
-#: /usr/src/freepbx/voicemail/ucp/views/mailbox.php:31
+#: ucp/views/mailbox.php:37
 msgid "Download"
 msgstr "ダウンロード"
 
-#: /usr/src/freepbx/voicemail/ucp/views/greetings.php:55
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:244
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:305
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:347
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:435
+#: ucp/views/greetings.php:55 ucp/assets/js/global.js:299
+#: ucp/assets/js/global.js:360 ucp/assets/js/global.js:402
+#: ucp/assets/js/global.js:490
 msgid "Drag a New Greeting Here"
 msgstr "新しいアナウンスをここにドラッグしてください"
 
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:230
+#: ucp/assets/js/global.js:285
 msgid "Dragging to yourself is not allowed"
 msgstr "自分にはドラッグできません"
 
-#: /usr/src/freepbx/voicemail/ucp/views/mailbox.php:16
+#: ucp/views/mailbox.php:16
 msgid "Duration"
 msgstr "時間"
 
-#: /usr/src/freepbx/voicemail/install.php:93
+#: install.php:93
 #, php-format
 msgid ""
 "ERROR inserting %s into voicemail_admin during migration, it may alreayd "
 "exist"
-msgstr "エラー：移行処理中に、%s が既に存在していたため、voicemail_admin に挿入できませんでした。"
+msgstr ""
+"エラー：移行処理中に、%s が既に存在していたため、voicemail_admin に挿入できま"
+"せんでした。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:514
-#: /usr/src/freepbx/voicemail/page.voicemail.php:497
-#: /usr/src/freepbx/voicemail/ucp/views/settings.php:12
+#: functions.inc.php:544 page.voicemail.php:497 ucp/views/settings.php:12
 msgid "Email Address"
 msgstr "ボイスメール送信先のEメールアドレス"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:516
-#: /usr/src/freepbx/voicemail/page.voicemail.php:499
+#: functions.inc.php:546 page.voicemail.php:499
 msgid "Email Attachment"
 msgstr "Eメールに添付"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:216
+#: page.voicemail.php:216
 msgid "Email body."
 msgstr "Eメール本文。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:218
+#: page.voicemail.php:218
 msgid "Email subject"
 msgstr "Eメール件名"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:284
-#: /usr/src/freepbx/voicemail/page.voicemail.php:316
+#: page.voicemail.php:284 page.voicemail.php:316
 msgid ""
 "Emails bearing the Voicemail may arrive in a volume too quiet to be heard.  "
 "This parameter allows you to specify how much gain to add to the message "
@@ -512,16 +492,16 @@ msgstr ""
 "インを追加するかを指定することを許可します。注意: このオプションを機能させる"
 "にはsoxがインストールされていなければいけません。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:274
+#: page.voicemail.php:274
 msgid "Enable Simple Message Desk Interface (SMDI) integration"
 msgstr "シンプルメッセージデスクインターフェイス(SMDI)統合を有効にする。"
 
-#: /usr/src/freepbx/voicemail/ucp/views/vmx.php:17
+#: ucp/views/vmx.php:17
 msgid ""
 "Enable VmX Menu options during Voicemail playback for the selected options."
 msgstr "ボイスメール再生中に、VmXメニューオプションを有効にする。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:528
+#: functions.inc.php:558
 msgid ""
 "Enable/Disable the VmX Locater feature for this user. When enabled all "
 "settings are controlled by the user in the User Portal (ARI). Disabling will "
@@ -531,16 +511,15 @@ msgstr ""
 "の設定はユーザーポータル(ARI)内でユーザーによって制御されます。無効にしても既"
 "存のユーザー設定は削除されませんが、機能へのアクセスはできなくなります。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:396
-#: /usr/src/freepbx/voicemail/functions.inc.php:401
+#: functions.inc.php:426 functions.inc.php:431
 msgid "Enabled"
 msgstr "有効"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:252
+#: page.voicemail.php:252
 msgid "Enforce minimum password length"
 msgstr "短いパスワードを制限する"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:638
+#: functions.inc.php:668
 msgid ""
 "Enter an alternate number here, then change your personal Voicemail greeting "
 "to let callers know to press 1 to reach that number. <br/><br/>If you'd like "
@@ -551,21 +530,21 @@ msgstr ""
 "を変更してください。<br/><br/>Follow Me List を使用したくない場合には、「フォ"
 "ローミーに送る」をチェックし、上記フォローミーを無効にしてください。"
 
-#: /usr/src/freepbx/voicemail/ucp/views/vmx.php:37
+#: ucp/views/vmx.php:37
 msgid ""
 "Enter an alternate number here, then change your personal voicemail greeting "
 "to let callers know to press 1 to reach that number. If you'd like to use "
 "your Follow Me List, ucheck the box to disable"
 msgstr ""
-"発信者が「1」を押すと、この番号に転送されます。この機能を発信者に知らせるために、指示をアナウンスに入れるのをおすすめします。自分のフォローミーのリストを"
+"発信者が「1」を押すと、この番号に転送されます。この機能を発信者に知らせるため"
+"に、指示をアナウンスに入れるのをおすすめします。自分のフォローミーのリストを"
 "使う場合は、チェックを外して無効にしてください"
 
-#: /usr/src/freepbx/voicemail/views/tz.php:36
+#: views/tz.php:36
 msgid "Entries below will be written to Voicemail configuration as-is."
 msgstr "以下のエントリーはそのままボイスメール設定に書き込まれます。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:518
-#: /usr/src/freepbx/voicemail/ucp/views/settings.php:41
+#: functions.inc.php:548 ucp/views/settings.php:41
 msgid ""
 "Envelope controls whether or not the Voicemail system will play the message "
 "envelope (date/time) before playing the Voicemail message. This setting does "
@@ -576,65 +555,68 @@ msgstr ""
 "付/時間)メッセージを再生するかどうかを制御します。この設定は高度設定ボイス"
 "メールメニュー内にある冒頭オプションの操作に影響しません。"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:69
+#: views/dialplan.php:69
 msgid "Error Re-tries"
 msgstr "エラーリトライ数"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:222
+#: page.voicemail.php:222
 msgid "Expunge on exit."
 msgstr "終了時に抹消。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:512
+#: functions.inc.php:542
 msgid "Extension"
 msgstr "内線"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:223
+#: page.voicemail.php:223
 msgid "External Voicemail notify application."
 msgstr "外部のボイスメール通知アプリケーション。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:224
+#: page.voicemail.php:224
 msgid "External password changing command (overrides externpassnotify)."
 msgstr "外部パスワードを変更するコマンド（externpassnotifyより優先されます）"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:737
+#: functions.inc.php:767
 #, php-format
 msgid "Failed to delete vmbox: %s@%s"
 msgstr "vmboxの削除に失敗: %s@%s"
 
-#: /usr/src/freepbx/voicemail/install.php:123
+#: Voicemail.class.php:68
+msgid "Family"
+msgstr ""
+
+#: install.php:123
 msgid "Fatal DB error trying to delete globals, trying to carry on"
 msgstr ""
 "グローバル設定の削除中に致命的な DB エラーが発生しました。設定を持ち越します"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:20
-#: /usr/src/freepbx/voicemail/views/usage.php:35
-#: /usr/src/freepbx/voicemail/views/usage.php:50
-#: /usr/src/freepbx/voicemail/views/usage.php:65
+#: views/usage.php:20 views/usage.php:35 views/usage.php:50 views/usage.php:65
 msgid "File timestamp: "
 msgstr "ファイルのタイムスタンプ："
 
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:52
+#: ucp/assets/js/global.js:55
 msgid ""
 "Find me Follow me is disabled when VmX locator option 1 is disabled as well!"
-msgstr "VmXロケータオプション1が無効になっていると、ファインドミー／フォローミーも無効化されます。"
+msgstr ""
+"VmXロケータオプション1が無効になっていると、ファインドミー／フォローミーも無"
+"効化されます。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:230
+#: page.voicemail.php:230
 msgid "For IMAP storage"
 msgstr "IMAPストレージ用"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:235
+#: page.voicemail.php:235
 msgid "For IMAP storage - TCP open timeout in seconds"
 msgstr "IMAPストレージ用 - TCPオープンタイムアウト秒"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:238
+#: page.voicemail.php:238
 msgid "For IMAP storage - TCP read timeout in seconds"
 msgstr "IMAPストレージ用 - TCP読み込みタイムアウト秒"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:240
+#: page.voicemail.php:240
 msgid "For IMAP storage - TCP write timeout in seconds"
 msgstr "IMAPストレージ用 - TCP書き込みタイムアウト秒"
 
-#: /usr/src/freepbx/voicemail/views/tz.php:20
+#: views/tz.php:20
 msgid ""
 "For example, the time a message was left will be announced according to the "
 "user's timezone on message playback."
@@ -642,21 +624,20 @@ msgstr ""
 "たとえば、メッセージが残された時間が、メッセージの再生時にユーザーのタイム"
 "ゾーンに基づいてアナウンスされます。"
 
-#: /usr/src/freepbx/voicemail/ucp/Voicemail.class.php:50
-#: /usr/src/freepbx/voicemail/ucp/Voicemail.class.php:383
+#: ucp/Voicemail.class.php:50 ucp/Voicemail.class.php:447
 msgid "Forbidden"
 msgstr "アクセス拒否"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:227
+#: page.voicemail.php:227
 msgid ""
 "Force a new user to record their name.  A new user is determined by the "
 "password being the same as the mailbox number.  The default is \"yes\"."
 msgstr ""
-"新規ユーザーに自分の名前を録音させます。新規ユーザーかどうかの判断基準は、メールボックス番号とパスワードが同じであることです。この設定のデフォルト値は「は"
-"い」。"
+"新規ユーザーに自分の名前を録音させます。新規ユーザーかどうかの判断基準は、"
+"メールボックス番号とパスワードが同じであることです。この設定のデフォルト値は"
+"「はい」。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:226
-#: /usr/src/freepbx/voicemail/page.voicemail.php:296
+#: page.voicemail.php:226 page.voicemail.php:296
 msgid ""
 "Force new user to record greetings (the same as forcename, except for "
 "recording greetings).  The default is \"no\"."
@@ -664,7 +645,7 @@ msgstr ""
 "強制的に新規ユーザーにグリーティングを録音させます（forcenameと同様）。デフォ"
 "ルトは\"いいえ\"。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:228
+#: page.voicemail.php:228
 msgid ""
 "Formats for writing Voicemail.  Note that when using IMAP storage for "
 "Voicemail, only the first format specified will be used."
@@ -672,44 +653,59 @@ msgstr ""
 "ボイスメールを書くフォーマット。ボイスメール用にIMAPストレージを使用する時"
 "に、指定された最初のフォーマットだけ使用されることに注意してください。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:229
+#: ucp/views/mailbox.php:31 ucp/assets/js/global.js:141
+msgid "Forward"
+msgstr ""
+
+#: ucp/assets/js/global.js:140
+msgid "Forward Voicemail"
+msgstr ""
+
+#: Voicemail.class.php:69
+msgid "Friends"
+msgstr ""
+
+#: page.voicemail.php:229
 msgid "From: string for email"
 msgstr "From:Eメールのための文字列"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:260
+#: page.voicemail.php:260
 msgid "From: string sent to pager."
 msgstr "From: ページャーに送信される文字列"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:12
+#: views/dialplan.php:12
 msgid "General Dialplan Settings"
 msgstr "ダイヤルプランの一般設定"
 
-#: /usr/src/freepbx/voicemail/install.php:118
+#: install.php:118
 msgid "General Settings migrated"
 msgstr "一般設定の移行が完了しました"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:629
-#: /usr/src/freepbx/voicemail/ucp/views/vmx.php:25
+#: functions.inc.php:659 ucp/views/vmx.php:25
 msgid "Go To Operator"
 msgstr "オペレーターへ移動"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:48
+#: ucp/views/nav.php:10
+msgid "Greetings"
+msgstr ""
+
+#: views/usage.php:48
 msgid "Has a recorded busy greeting?"
 msgstr "録音されたビジー挨拶がある?"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:18
+#: views/usage.php:18
 msgid "Has a recorded name greeting?"
 msgstr "録音された名前挨拶がある?"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:63
+#: views/usage.php:63
 msgid "Has a recorded temporary greeting?"
 msgstr "録音された一時挨拶がある?"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:33
+#: views/usage.php:33
 msgid "Has a recorded unavailable greeting?"
 msgstr "録音された無効挨拶がある?"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:298
+#: page.voicemail.php:298
 msgid ""
 "Hide this mailbox from the directory produced by app_directory. The default "
 "is \"no\"."
@@ -717,56 +713,60 @@ msgstr ""
 "app_directoryによって生産されたディレクトリからこのメールボックスを隠す。デ"
 "フォルトは\"いいえ\"。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:273
+#: page.voicemail.php:273
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback"
 msgstr "メッセージ再生時の巻き戻し/早送りの時に進む/戻るをスキップするミリ秒"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:219
+#: page.voicemail.php:219
 msgid "How many seconds of silence before we end the recording"
 msgstr "録音を終了する前に無音を何秒にするか。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:522
+#: functions.inc.php:552
 msgid "IMAP Password"
 msgstr "IMAPパスワード"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:521
+#: functions.inc.php:551
 msgid "IMAP Username"
 msgstr "IMAPユーザー名"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:232
+#: page.voicemail.php:232
 msgid "IMAP Voicemail folder."
 msgstr "IMAPボイスメールフォルダ。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:299
+#: page.voicemail.php:299
 msgid "IMAP password."
 msgstr "IMAPパスワード。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:239
+#: page.voicemail.php:239
 msgid "IMAP server address."
 msgstr "IMAPサーバーアドレス。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:231
+#: page.voicemail.php:231
 msgid "IMAP server flags."
 msgstr "IMAPサーバーフラグ。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:209
+#: page.voicemail.php:209
 msgid "IMAP server master password."
 msgstr "IMAPサーバーマスターパスワード。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:210
+#: page.voicemail.php:210
 msgid "IMAP server master username."
 msgstr "IMAPサーバーマスターユーザー名。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:237
+#: page.voicemail.php:237
 msgid "IMAP server port."
 msgstr "IMAPサーバーポート。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:300
+#: page.voicemail.php:300
 msgid "IMAP user."
 msgstr "IMAPユーザー。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:264
+#: Voicemail.class.php:67
+msgid "INBOX"
+msgstr ""
+
+#: page.voicemail.php:264
 msgid ""
 "If mailboxes are changed anywhere outside of app_voicemail, then this option "
 "must be enabled for MWI to work.  This enables polling mailboxes for "
@@ -783,7 +783,7 @@ msgstr ""
 "メールクライアントを使用する場合は、このオプションを有効にする必要がありま"
 "す。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:513
+#: functions.inc.php:543
 #, php-format
 msgid ""
 "If set to \"no\" then when the user dials %s to access their own voicemail, "
@@ -792,10 +792,12 @@ msgid ""
 "probably be set to \"yes\" in an environment where other users will have "
 "physical access to this extension."
 msgstr ""
-"「いいえ」に設定すると、ユーザーが %s をダイヤルしてボイスメールをアクセスしようとするとパスワードが要求されません。ただし、 %s への発信は例外とし"
-"て必ずパスワードを要求します。セキュリティを考慮して、他のユーザーが内線にアクセスできる可能性がある環境の場合は「はい」に設定することをおすすめします。"
+"「いいえ」に設定すると、ユーザーが %s をダイヤルしてボイスメールをアクセスし"
+"ようとするとパスワードが要求されません。ただし、 %s への発信は例外として必ず"
+"パスワードを要求します。セキュリティを考慮して、他のユーザーが内線にアクセス"
+"できる可能性がある環境の場合は「はい」に設定することをおすすめします。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:519
+#: functions.inc.php:549
 msgid ""
 "If set to \"yes\" the message will be deleted from the Voicemailbox (after "
 "having been emailed). Provides functionality that allows a user to receive "
@@ -810,7 +812,7 @@ msgstr ""
 "注意:\"はい\"を指定する場合には、ボイスメールの Eメールへの添付を有効にしてく"
 "ださい。有効にしないとメッセージは失われてしまいます。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:263
+#: page.voicemail.php:263
 msgid ""
 "If the \"pollmailboxes\" option is enabled, this option sets the polling "
 "frequency.  The default is once every 30 seconds."
@@ -818,7 +820,7 @@ msgstr ""
 "もし\"メールボックスをポーリングする\"オプションが有効な場合、このオプション"
 "はポーリング間隔を設定します。デフォルトは30秒ごとに一回です。"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:77
+#: views/dialplan.php:77
 msgid ""
 "If the Max Loops are reached and the call goes to voicemail, checking this "
 "box will disable the standard voicemail prompt prompt that follows the "
@@ -831,7 +833,7 @@ msgstr ""
 "及びユーザーにおいて、vmx/vmxopts/loops のAstDBエントリーで置き換えることがで"
 "きます。"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:85
+#: views/dialplan.php:85
 msgid ""
 "If the special advanced extension of 'dovm' is used, checking this box will "
 "disable the standard voicemail prompt prompt that follows the user's "
@@ -844,7 +846,7 @@ msgstr ""
 "ユーザーにおいて、vmx/vmxopts/loops のAstDBエントリーで置き換えることができま"
 "す。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:233
+#: page.voicemail.php:233
 msgid ""
 "If using IMAP storage, specify whether Voicemail greetings should be stored "
 "via IMAP. If no, then greetings are stored as if IMAP storage were not "
@@ -854,39 +856,71 @@ msgstr ""
 "を指定します。いいえに設定した場合は、挨拶はIMAPストレージが有効でないものと"
 "して保存されます。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:950
+#: voicemail.i18n.php:11 voicemail.i18n.php:14
+msgid ""
+"Installations that have configured Voicemail with IMAP should set this to "
+"true so that the IMAP username and password fields are provided in the "
+"Voicemail setup screen for extensions. If an extension alread has these "
+"fields populated, they will be displayed even if this is set to false."
+msgstr ""
+"拡張するため、ボイスメールセットアップスクリーンにIMAPユーザーとパスワード"
+"フィールドが提供されるよう、構成されたインストールをtrueに設定しないといけな"
+"い。拡張にあるフィールドはもうすでに提供された場合、falseに設定しても表示され"
+"る。"
+
+#: functions.inc.php:980
 msgid "Invalid Action"
 msgstr "不正な操作"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:217
+#: ucp/Voicemail.class.php:190 ucp/Voicemail.class.php:221
+msgid "Invalid Recipient"
+msgstr ""
+
+#: voicemail.i18n.php:16
+msgid ""
+"Limit the Messages to be Displayed in UCP. If your device has more "
+"processing power you can increase this otherwise lower it if you find your "
+"system not responsive"
+msgstr ""
+
+#: ucp/assets/js/global.js:121
+msgid "Listen"
+msgstr ""
+
+#: ucp/views/mailbox.php:28
+msgid "Listen on your handset"
+msgstr ""
+
+#: ucp/assets/js/global.js:120
+msgid "Listen to Voicemail"
+msgstr ""
+
+#: page.voicemail.php:217
 msgid "Load date format config for Voicemail mail."
 msgstr "ボイスメールメールのための日付フォーマット設定を読み込む。"
 
-#: /usr/src/freepbx/voicemail/ucp/views/mailbox.php:48
+#: ucp/views/mailbox.php:54
 msgid "Loading"
 msgstr "読み込み中"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:246
+#: page.voicemail.php:246
 msgid "Mail command."
 msgstr "メールコマンド。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:248
+#: page.voicemail.php:248
 msgid "Max failed login attempts."
 msgstr "ログイン試行の失敗最大"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:247
+#: page.voicemail.php:247
 msgid "Max message greeting length."
 msgstr "メッセージ挨拶の最大長。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:249
-#: /usr/src/freepbx/voicemail/page.voicemail.php:250
-#: /usr/src/freepbx/voicemail/page.voicemail.php:303
-#: /usr/src/freepbx/voicemail/page.voicemail.php:304
+#: page.voicemail.php:249 page.voicemail.php:250 page.voicemail.php:303
+#: page.voicemail.php:304
 msgid "Max message time length."
 msgstr "メッセージ時間最大長"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:251
-#: /usr/src/freepbx/voicemail/page.voicemail.php:302
+#: page.voicemail.php:251 page.voicemail.php:302
 msgid ""
 "Maximum number of messages per folder.  If not specified, a default value "
 "(100) is used.  Maximum value for this option is 9999."
@@ -894,7 +928,7 @@ msgstr ""
 "1フォルダあたりの最大メッセージ数。指定されない場合は、デフォルト値(100)が使"
 "用されます。このオプションの最大値は 9999 です。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:601
+#: functions.inc.php:631
 msgid ""
 "Menu options below are available during your personal Voicemail greeting "
 "playback. <br/><br/>Check both to use at all times."
@@ -902,7 +936,7 @@ msgstr ""
 "次の2つのチェックボックスは、あなたのボイスメールアナウンス再生中に適用されま"
 "す。<br/><br/>両方チェックするといつでも利用できます。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:253
+#: page.voicemail.php:253
 msgid ""
 "Min message time length - maxsilence should be less than minsecs or you may "
 "get empty messages."
@@ -910,54 +944,58 @@ msgstr ""
 "メッセージの最小時間 - maxsilenceはminsecsより少なくないといけません、でない"
 "と空のメッセージになります。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:254
+#: page.voicemail.php:254
 msgid "Move heard messages to the 'Old' folder automatically.  Defaults to no."
-msgstr "再生済みのメッセージを自動的に「古い」フォルダに移動します。デフォルト値は「いいえ」。"
+msgstr ""
+"再生済みのメッセージを自動的に「古い」フォルダに移動します。デフォルト値は"
+"「いいえ」。"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:53
+#: views/dialplan.php:53
 msgid "Msg Timeout"
 msgstr "メッセージタイムアウト"
 
-#: /usr/src/freepbx/voicemail/install.php:9
+#: install.php:9
 msgid "My Voicemail"
 msgstr "自分のボイスメール"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:474
-#: /usr/src/freepbx/voicemail/views/tz.php:57
+#: page.voicemail.php:474 views/tz.php:57
 msgid "Name"
 msgstr "名前"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:297
+#: Voicemail.class.php:74
+msgid "Name Greeting"
+msgstr ""
+
+#: page.voicemail.php:297
 msgid "Name of Voicemail account"
 msgstr "ボイスメールのユーザー名"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:305
+#: page.voicemail.php:305
 msgid "Name of account/user"
 msgstr "アカウント/ユーザー名"
 
-#: /usr/src/freepbx/voicemail/views/tz.php:83
+#: views/tz.php:83
 msgid "New Name"
 msgstr "新しい名前"
 
-#: /usr/src/freepbx/voicemail/views/tz.php:86
+#: views/tz.php:86
 msgid "New Timezone Definition"
 msgstr "新しいタイムゾーンの定義"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:422
+#: page.voicemail.php:422
 msgid "No Message"
 msgstr "メッセージなし"
 
-#: /usr/src/freepbx/voicemail/ucp/views/mailbox.php:84
+#: ucp/views/mailbox.php:90
 msgid "No Messages"
 msgstr "メッセージなし"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:473
+#: page.voicemail.php:473
 msgid "No name defined; this is configured from the Extensions or Users page."
 msgstr ""
 "名前が定義されていません; これは内線またはユーザーページから設定されます。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:211
-#: /usr/src/freepbx/voicemail/page.voicemail.php:289
+#: page.voicemail.php:211 page.voicemail.php:289
 msgid ""
 "No. of deleted messages saved per mailbox (can be a number or yes/no, yes "
 "meaning MAXMSG, no meaning 0)."
@@ -965,25 +1003,23 @@ msgstr ""
 "メールボックスごとに保存されて削除されたメッセージの番号（番号または はい/い"
 "いえ、はいはMAXMSGを意味し、いいえは 0 を意味します）。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:426
+#: page.voicemail.php:426
 msgid "None"
 msgstr "なし"
 
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:225
+#: ucp/assets/js/global.js:280
 msgid "Not a valid Draggable Object"
 msgstr "ドラッグ可能なデータではありません"
 
-#: /usr/src/freepbx/voicemail/views/usage_system.php:14
+#: views/usage_system.php:14
 msgid "Number of Accounts:"
 msgstr "アカウント数："
 
-#: /usr/src/freepbx/voicemail/views/usage.php:4
-#: /usr/src/freepbx/voicemail/views/usage_system.php:26
+#: views/usage.php:4 views/usage_system.php:26
 msgid "Number of Messages:"
 msgstr "メッセージ数："
 
-#: /usr/src/freepbx/voicemail/views/usage.php:78
-#: /usr/src/freepbx/voicemail/views/usage_system.php:101
+#: views/usage.php:78 views/usage_system.php:101
 msgid ""
 "Number of abandoned greetings. Such greetings were recorded by the user but "
 "were NOT accepted, so the sound file remains on disk but is not used as a "
@@ -993,23 +1029,23 @@ msgstr ""
 "入れられなかったため、音声ファイルはディスク上に残っていますがアナウンスとし"
 "て使用されていません。"
 
-#: /usr/src/freepbx/voicemail/views/usage_system.php:71
+#: views/usage_system.php:71
 msgid "Number of recorded busy greetings"
 msgstr "録音されたビジー時のアナウンス数"
 
-#: /usr/src/freepbx/voicemail/views/usage_system.php:41
+#: views/usage_system.php:41
 msgid "Number of recorded name greetings"
 msgstr "録音された名前アナウンスの数"
 
-#: /usr/src/freepbx/voicemail/views/usage_system.php:86
+#: views/usage_system.php:86
 msgid "Number of recorded temporary greetings"
 msgstr "録音された一時不在時のアナウンス数"
 
-#: /usr/src/freepbx/voicemail/views/usage_system.php:56
+#: views/usage_system.php:56
 msgid "Number of recorded unavailable greetings"
 msgstr "利用不可時のアナウンス録音の数"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:69
+#: views/dialplan.php:69
 msgid ""
 "Number of times to play invalid options and repeat the message upon "
 "receiving an undefined option. One retry means it will repeat at one time "
@@ -1018,7 +1054,7 @@ msgstr ""
 "未定義のオプションを受信した際、メッセージを繰り返し再生する回数。1に設定する"
 "と、最初の失敗からメッセージを1回だけ繰り返すようになります。"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:61
+#: views/dialplan.php:61
 msgid ""
 "Number of times to play the recorded message if the caller does not press "
 "any options and it times out. One attempt means we won't repeat and it will "
@@ -1032,105 +1068,105 @@ msgstr ""
 "て処理される事を意味します。タイムアウトが一般的な動作です。この設定を1回に設"
 "定して、グリーティングの中で説明するケースが多いです。"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:40
+#: Voicemail.class.php:70
+msgid "Old"
+msgstr ""
+
+#: ucp/assets/js/global.js:121
+msgid "On"
+msgstr ""
+
+#: views/dialplan.php:40
 msgid "Operator Extension"
 msgstr "オペレーター内線"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:258
+#: page.voicemail.php:258
 msgid ""
 "Operator break. Allow sender to hit 0 before/after/during leaving a "
 "Voicemail to reach an operator [ON by default]"
-msgstr "発信者がボイスメールシステムに入っていても0を押すとオペレーターに転送します。デフォルトは「オン」"
+msgstr ""
+"発信者がボイスメールシステムに入っていても0を押すとオペレーターに転送します。"
+"デフォルトは「オン」"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:516
-#: /usr/src/freepbx/voicemail/page.voicemail.php:208
-#: /usr/src/freepbx/voicemail/page.voicemail.php:287
+#: functions.inc.php:546 page.voicemail.php:208 page.voicemail.php:287
 msgid "Option to attach Voicemails to email."
 msgstr "ボイスメールメッセージの音声データをEメールに添付します。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:515
-#: /usr/src/freepbx/voicemail/page.voicemail.php:498
-#: /usr/src/freepbx/voicemail/ucp/views/settings.php:17
+#: functions.inc.php:545 page.voicemail.php:498 ucp/views/settings.php:17
 msgid "Pager Email Address"
 msgstr "ポケベルEメールアドレス"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:515
-#: /usr/src/freepbx/voicemail/page.voicemail.php:306
-#: /usr/src/freepbx/voicemail/ucp/views/settings.php:19
+#: functions.inc.php:545 page.voicemail.php:306 ucp/views/settings.php:19
 msgid ""
 "Pager/mobile email address that short Voicemail notifications are sent to."
 msgstr "指定のEメールアドレスに、ボイスメールを受信したことを通知します。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:277
+#: page.voicemail.php:277
 msgid "Permit finding entries for forward/compose from the directory"
 msgstr "ディレクトリから転送/構成するためにエントリーを発見することを許可する"
 
-#: /usr/src/freepbx/voicemail/ucp/views/settings.php:9
+#: ucp/views/settings.php:9
 msgid "Pin Used to Login to Voicemail. This pin can only contain numbers."
 msgstr "ボイスメールにログインするためのPINコード。数字しか使えません。"
 
-#: /usr/src/freepbx/voicemail/ucp/views/mailbox.php:28
+#: ucp/views/mailbox.php:34
 msgid "Play"
 msgstr "再生"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:517
-#: /usr/src/freepbx/voicemail/page.voicemail.php:500
-#: /usr/src/freepbx/voicemail/ucp/views/settings.php:22
+#: functions.inc.php:547 page.voicemail.php:500 ucp/views/settings.php:22
 msgid "Play CID"
 msgstr "CIDを再生する"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:518
-#: /usr/src/freepbx/voicemail/page.voicemail.php:501
-#: /usr/src/freepbx/voicemail/ucp/views/settings.php:33
+#: functions.inc.php:548 page.voicemail.php:501 ucp/views/settings.php:33
 msgid "Play Envelope"
 msgstr "冒頭再生"
 
-#: /usr/src/freepbx/voicemail/views/tz.php:44
+#: views/tz.php:44
 msgid ""
 "Please be sure to follow the format for timezone definitions described below."
 msgstr "タイムゾーンの定義は以下に記述されたフォーマットに従ってください。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:494
+#: functions.inc.php:524
 msgid "Please enter a valid Email Address"
 msgstr "正しいEメールアドレスを入力してください。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:495
+#: functions.inc.php:525
 msgid "Please enter a valid Pager Email Address"
 msgstr "正しいポケベルのEメールアドレスを入力してください"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:493
+#: functions.inc.php:523
 msgid "Please enter a valid Voicemail Password, using digits only"
 msgstr "正しいボイスメールのパスワードを入力してください。数字のみ使えます。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:533
+#: functions.inc.php:563
 msgid "Please enter a valid phone number using number digits only"
 msgstr "数値のみを使用して正しい電話番号を入力してください。"
 
-#: /usr/src/freepbx/voicemail/ucp/views/vmx.php:20
+#: ucp/views/vmx.php:20
 msgid "Press 0"
 msgstr "0を押す"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:622
+#: functions.inc.php:652
 msgid "Press 0:"
 msgstr "0 を押した場合："
 
-#: /usr/src/freepbx/voicemail/ucp/views/vmx.php:30
+#: ucp/views/vmx.php:30
 msgid "Press 1"
 msgstr "1を押す"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:633
+#: functions.inc.php:663
 msgid "Press 1:"
 msgstr "1 を押した場合："
 
-#: /usr/src/freepbx/voicemail/ucp/views/vmx.php:40
+#: ucp/views/vmx.php:40
 msgid "Press 2"
 msgstr "2を押す"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:658
+#: functions.inc.php:688
 msgid "Press 2:"
 msgstr "2を押した場合："
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:622
+#: functions.inc.php:652
 msgid ""
 "Pressing 0 during your personal Voicemail greeting goes to the Operator. "
 "Uncheck to enter another destination here. This feature can be used while "
@@ -1142,14 +1178,19 @@ msgstr ""
 "ターが無効な場合でも、代替のオペレーターエクステンションを使用するために利用"
 "することができます。"
 
-#: /usr/src/freepbx/voicemail/ucp/views/vmx.php:27
+#: ucp/views/vmx.php:27
 msgid ""
 "Pressing 0 during your personal voicemail greeting goes to the Operator. "
 "Check to enter another destination here."
-msgstr "あなたのボイスメールアナウンス再生中に、発信者が0を押すとオペレーターに転送しますが、ここにチェックを入れると違う宛先を設定できます。"
+msgstr ""
+"あなたのボイスメールアナウンス再生中に、発信者が0を押すとオペレーターに転送し"
+"ますが、ここにチェックを入れると違う宛先を設定できます。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:517
-#: /usr/src/freepbx/voicemail/ucp/views/settings.php:30
+#: voicemail.i18n.php:10
+msgid "Provide IMAP Voicemail Fields"
+msgstr "IMAPボイスメールフィールドの提供"
+
+#: functions.inc.php:547 ucp/views/settings.php:30
 msgid ""
 "Read back caller's telephone number prior to playing the incoming message, "
 "and just after announcing the date and time the message was left."
@@ -1157,8 +1198,7 @@ msgstr ""
 "受信したメッセージを再生する前に、メッセージが残された日付と時刻をアナウンス"
 "した直後に発信者の電話番号をアナウンスします。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:266
-#: /usr/src/freepbx/voicemail/page.voicemail.php:308
+#: page.voicemail.php:266 page.voicemail.php:308
 msgid ""
 "Read back caller's telephone number prior to playing the incoming message, "
 "and just after announcing the date and time the message was left. If not "
@@ -1168,79 +1208,80 @@ msgstr ""
 "アナウンスした直後に発信者の電話番号を読み返します。述べられていないとき、ま"
 "たはいいえに設定されているとき、それは冒頭メッセージになります。"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:18
+#: ucp/views/greetings.php:48
+msgid "Record Greeting"
+msgstr ""
+
+#: views/usage.php:18
 msgid "Recorded Name:"
 msgstr "録音名"
 
-#: /usr/src/freepbx/voicemail/views/usage_system.php:41
+#: views/usage_system.php:41
 msgid "Recorded Names:"
 msgstr "録音された名前の数："
 
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:684
+#: ucp/assets/js/global.js:754
 msgid "Recording..."
 msgstr "録音中..."
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:313
+#: page.voicemail.php:313
 msgid "Remind the user that their temporary greeting is set"
 msgstr "ユーザーに一時不在時のアナウンスがセットされたことをリマインドします"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:82
-#: /usr/src/freepbx/voicemail/views/usage_system.php:105
+#: views/usage.php:82 views/usage_system.php:105
 msgid "Remove all abandoned greetings (> 1 day old)"
 msgstr "破棄されたアナウンスを全て削除 (> 1日以上古い)"
 
-#: /usr/src/freepbx/voicemail/views/usage_system.php:75
+#: views/usage_system.php:75
 msgid "Remove all busy greetings"
 msgstr "ビジー時のアナウンスを全て削除"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:8
-#: /usr/src/freepbx/voicemail/views/usage_system.php:30
+#: views/usage.php:8 views/usage_system.php:30
 msgid "Remove all messages"
 msgstr "全てのメッセージを削除"
 
-#: /usr/src/freepbx/voicemail/views/usage_system.php:45
+#: views/usage_system.php:45
 msgid "Remove all recorded names"
 msgstr "録音された名前を全て削除"
 
-#: /usr/src/freepbx/voicemail/views/usage_system.php:90
+#: views/usage_system.php:90
 msgid "Remove all temporary greetings"
 msgstr "一時不在時のアナウンスを全て削除"
 
-#: /usr/src/freepbx/voicemail/views/usage_system.php:60
+#: views/usage_system.php:60
 msgid "Remove all unavailable greetings"
 msgstr "利用不可時のアナウンスを全て削除"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:52
+#: views/usage.php:52
 msgid "Remove busy greeting"
 msgstr "ビジー時のアナウンスを削除"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:23
+#: views/usage.php:23
 msgid "Remove recorded name"
 msgstr "録音名を削除"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:67
+#: views/usage.php:67
 msgid "Remove temporary greeting"
 msgstr "一時不在時のアナウンスを削除"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:204
+#: page.voicemail.php:204
 msgid "Remove the timezone definition"
 msgstr "タイムゾーンの定義を削除"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:37
+#: views/usage.php:37
 msgid "Remove unavailable greeting"
 msgstr "利用不可時のアナウンスを削除"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:513
+#: functions.inc.php:543
 #, php-format
 msgid "Require From Same %s"
 msgstr "同じ %s を条件にする"
 
-#: /usr/src/freepbx/voicemail/ucp/views/greetings.php:51
+#: ucp/views/greetings.php:51
 msgid "Save Greeting"
 msgstr "アナウンスを保存"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:270
-#: /usr/src/freepbx/voicemail/page.voicemail.php:311
+#: page.voicemail.php:270 page.voicemail.php:311
 msgid ""
 "Send Voicemail message. If not listed, sending messages from inside "
 "Voicemail will not be permitted."
@@ -1248,119 +1289,131 @@ msgstr ""
 "ボイスメールメッセージを送信します。リストアップされない場合は、ボイスメール"
 "内のメッセージを送信することは許可されません。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:650
-#: /usr/src/freepbx/voicemail/ucp/views/vmx.php:35
+#: functions.inc.php:680 ucp/views/vmx.php:35
 msgid "Send to Follow-Me"
 msgstr "フォローミーに送る"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:524
+#: functions.inc.php:554
 #, php-format
 msgid "Separate options with pipe ( | )%sie: review=yes|maxmessage=60"
 msgstr ""
 "ボイスメールのオプションを、'|' で区切って指定してください。%s 例) "
 "review=yes|maxmessage=60"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:236
+#: page.voicemail.php:236
 msgid "Set the parent folder (default is to have no parent folder set)."
 msgstr "親フォルダを設定 (デフォルトでは親フォルダセットなし)"
 
-#: /usr/src/freepbx/voicemail/views/settings.php:9
+#: voicemail.i18n.php:15
+msgid ""
+"Setting this flag with generate the required dialplan to integrate with "
+"res_mwi_devstate (res_mwi_blf) which is included with the Official FreePBX "
+"Distro. It allows users to subscribe to other voicemail box and be notified "
+"via BLF of changes."
+msgstr ""
+
+#: ucp/views/nav.php:9 views/settings.php:9 voicemail.i18n.php:4
 msgid "Settings"
 msgstr "設定"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:272
+#: page.voicemail.php:272
 msgid ""
 "Silence threshold (what we consider silence: the lower, the more sensitive)"
 msgstr "無音閾値(無音判定条件:低ければ低いほど敏感になります)"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:262
+#: page.voicemail.php:262
 msgid "Skip the \"[PBX]:\" string from the message title"
 msgstr "メッセージタイトルから\"[PBX]:\"文字をスキップする。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:255
+#: page.voicemail.php:255
 msgid "Skip to the next message after save/delete."
 msgstr "保存/削除後に次のメッセージへスキップする。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:268
-#: /usr/src/freepbx/voicemail/page.voicemail.php:310
+#: page.voicemail.php:268 page.voicemail.php:310
 msgid "Specify in minutes the minimum duration to say. Default is 2 minutes."
 msgstr "お知らせする最小期間を分で指定します。デフォルトは2分です。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:614
+#: functions.inc.php:644
 msgid "Standard Voicemail prompts."
 msgstr "標準ボイスメールプロンプト"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:501
+#: functions.inc.php:531
 msgid "Status"
 msgstr "ボイスメールの有効/無効"
 
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:747
+#: ucp/assets/js/global.js:817
 msgid "Stop the Recording First before trying to delete"
 msgstr "削除する前に録音を止めます"
 
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:699
+#: ucp/assets/js/global.js:769
 msgid "Stop the Recording First before trying to save"
 msgstr "保存する前に録音を止めます"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:93
+#: views/usage.php:93
 msgid "Storage Used"
 msgstr "保存領域使用状況"
 
-#: /usr/src/freepbx/voicemail/views/usage_system.php:116
+#: views/usage_system.php:116
 msgid "Storage Used:"
 msgstr "保存領域使用状況："
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:261
+#: page.voicemail.php:261
 msgid "Subject sent to pager."
 msgstr "ページャーに送信される件名"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:936
+#: functions.inc.php:966
 msgid "System Settings"
 msgstr "システム設定"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:946
+#: functions.inc.php:976
 msgid "System Usage Statistics"
 msgstr "システム使用状況の統計"
 
-#: /usr/src/freepbx/voicemail/views/header.php:13
+#: views/header.php:13
 msgid "System View Links:"
 msgstr "システムビューリンク："
 
-#: /usr/src/freepbx/voicemail/ucp/views/vmx.php:14
+#: ucp/views/vmx.php:14
 msgid "Temp"
 msgstr "一時不在"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:63
+#: Voicemail.class.php:76
+msgid "Temporary Greeting"
+msgstr ""
+
+#: views/usage.php:63
 msgid "Temporary Greeting:"
 msgstr "一時不在時のアナウンス："
 
-#: /usr/src/freepbx/voicemail/views/usage_system.php:86
+#: views/usage_system.php:86
 msgid "Temporary Greetings:"
 msgstr "一時不在時のグリーティング："
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:276
+#: page.voicemail.php:276
 msgid "Temporary greeting reminder."
 msgstr "一時不在時のアナウンスリマインダー"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:207
+#: page.voicemail.php:207
 msgid "The ADSI Voicemail application version number."
 msgstr "ADSIのボイスメールアプリケーションのバージョン番号。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:205
+#: page.voicemail.php:205
 msgid "The ADSI feature descriptor number to download to"
 msgstr "次にダウンロードするADSIの機能の記述子番号"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:206
+#: page.voicemail.php:206
 msgid "The ADSI security lock code"
 msgstr "ADSIセキュリティロックコード"
 
-#: /usr/src/freepbx/voicemail/install.php:13
+#: install.php:13
 msgid ""
 "The Feature Code used to direct dial a users voicemail from their own "
 "extension"
-msgstr "ユーザーが自分の内線から、外線の発信者と同じように自分のボイスメールを直接ダイヤルする機能コード。"
+msgstr ""
+"ユーザーが自分の内線から、外線の発信者と同じように自分のボイスメールを直接ダ"
+"イヤルする機能コード。"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:33
+#: views/dialplan.php:33
 msgid ""
 "The amount of gain to amplify a voicemail message when geing recorded. This "
 "is usually set when users are complaining about hard to hear messages on "
@@ -1371,22 +1424,20 @@ msgstr ""
 "原因で、ユーザーから「メッセージが聞こえにくい」という苦情があった場合に設定"
 "するケースが多いです。増幅の単位はdbで、3 dbごとに音が2倍大きくなります。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:213
+#: page.voicemail.php:213
 msgid "The character set for Voicemail messages"
 msgstr "ボイスメールメッセージのキャラクターセット"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:257
+#: page.voicemail.php:257
 msgid "The default table for ODBC Voicemail storage is voicemessages."
 msgstr ""
 "ODBCボイスメールストレージ用のデフォルトテーブルは、voicemessagesです。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:514
-#: /usr/src/freepbx/voicemail/page.voicemail.php:293
-#: /usr/src/freepbx/voicemail/ucp/views/settings.php:14
+#: functions.inc.php:544 page.voicemail.php:293 ucp/views/settings.php:14
 msgid "The email address that Voicemails are sent to."
 msgstr "ボイスメールの送信先Eメールアドレスを設定します。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:636
+#: functions.inc.php:666
 msgid ""
 "The remaining options can have internal extensions, ringgroups, queues and "
 "external numbers that may be rung. It is often used to include your cell "
@@ -1400,30 +1451,29 @@ msgstr ""
 "たかどうか、番号がいつも機能しているかを確認するためにテストすることをお勧め"
 "します。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:256
+#: page.voicemail.php:256
 msgid ""
 "The value of odbcstorage is the database connection configured in res_odbc."
 "conf."
 msgstr "odbcstorageの値は、res_odbc.conf内で設定されたデータベース接続です。"
 
-#: /usr/src/freepbx/voicemail/Voicemail.class.php:113
+#: Voicemail.class.php:129
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr "UCPでこのユーザーが使える内線を設定します"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:522
+#: functions.inc.php:552
 #, php-format
 msgid "This is the IMAP password, if using IMAP storage"
 msgstr "IMAPを使用する場合のIMAPパスワード"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:521
+#: functions.inc.php:551
 #, php-format
 msgid "This is the IMAP username, if using IMAP storage"
 msgstr "ボイスメールにIMAPを使用する場合には、IMAPのユーザー名を指定します。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:525
-#: /usr/src/freepbx/voicemail/page.voicemail.php:315
+#: functions.inc.php:555 page.voicemail.php:315
 msgid ""
 "This is the Voicemail Context which is normally set to default. Do not "
 "change unless you understand the implications."
@@ -1431,7 +1481,7 @@ msgstr ""
 "通常デフォルトに設定するボイスメールのコンテキストです。変更による影響が分か"
 "らない場合は、設定変更をしないでください。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:503
+#: functions.inc.php:533
 #, php-format
 msgid ""
 "This is the password used to access the Voicemail system.%sThis password can "
@@ -1442,7 +1492,7 @@ msgstr ""
 "ワードには数字のみを組み合わせて指定してください。%s 電話からボイスメールシス"
 "テム (%s) に接続し、ここで入力したパスワードを入力してください。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:286
+#: page.voicemail.php:286
 msgid ""
 "This is the password used to access the Voicemail system.<br /><br />This "
 "password can only contain numbers.<br /><br />A user can change the password "
@@ -1453,11 +1503,15 @@ msgstr ""
 "ら（*98）をダイヤルしてボイスメールシステムにログインした後、ここで入力したパ"
 "スワードを変更することができます。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:203
+#: voicemail.i18n.php:5
+msgid "This module allows you to configure Voicemail for a user or extension"
+msgstr "このモジュールはユーザー又は内線のボイスメール設定を可能にします。"
+
+#: page.voicemail.php:203
 msgid "Time announcement for message playback"
 msgstr "メッセージの再生時間のアナウンス"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:53
+#: views/dialplan.php:53
 msgid ""
 "Time to wait after message has played to timeout and/or repeat the message "
 "if no entry pressed."
@@ -1465,55 +1519,59 @@ msgstr ""
 "メッセージ再生後に、タイムアウトするまでの時間を指定します。発信者の入力がな"
 "い場合は、メッセージをもう一度再生することもできます。"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:61
+#: views/dialplan.php:61
 msgid "Times to Play Message"
 msgstr "メッセージ再生回数："
 
-#: /usr/src/freepbx/voicemail/views/tz.php:60
+#: views/tz.php:60
 msgid "Timezone Definition"
 msgstr "タイムゾーンの定義"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:923
+#: functions.inc.php:953
 msgid "Timezone Definitions"
 msgstr "タイムゾーンの定義"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:202
+#: page.voicemail.php:202
 msgid "Timezone definition name"
 msgstr "タイムゾーンの定義名"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:314
+#: page.voicemail.php:314
 msgid "Timezone from zonemessages context.  Irrelevant if envelope=no."
 msgstr ""
 "ゾーンメッセージコンテキストからのタイムゾーン。envelope=noであれば無関係で"
 "す。"
 
-#: /usr/src/freepbx/voicemail/ucp/views/greetings.php:41
+#: ucp/assets/js/global.js:141
+msgid "To"
+msgstr ""
+
+#: ucp/views/greetings.php:41
 #, php-format
 msgid ""
 "To play the media you will need to either update your browser to a recent "
 "version or update your %s"
-msgstr "メディアを再生するには、ブラウザをアップデートするか、 %s をアップデートしてください"
+msgstr ""
+"メディアを再生するには、ブラウザをアップデートするか、 %s をアップデートして"
+"ください"
 
-#: /usr/src/freepbx/voicemail/ucp/views/mailbox.php:75
+#: ucp/views/mailbox.php:81
 #, php-format
 msgid ""
 "To play the media you will need to either update your browser to a recent "
 "version or update your <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
 msgstr ""
-"メディアを再生するには、ブラウザを更新するか、<a href=\"%s\" target=\"_blank\">Flash "
-"plugin</a>を更新してください。"
+"メディアを再生するには、ブラウザを更新するか、<a href=\"%s\" target=\"_blank"
+"\">Flash plugin</a>を更新してください。"
 
-#: /usr/src/freepbx/voicemail/views/usage_system.php:14
+#: views/usage_system.php:14
 msgid "Total ( Activated / Unactivated / Disabled )"
 msgstr "合計 ( アクティベート済 / 未アクティベート / 無効 )"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:4
-#: /usr/src/freepbx/voicemail/views/usage_system.php:26
+#: views/usage.php:4 views/usage_system.php:26
 msgid "Total ( Messages in inboxes / Messages in other folders )"
 msgstr "合計 ( 受信箱内のメッセージ / その他のフォルダのメッセージ )"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:220
-#: /usr/src/freepbx/voicemail/page.voicemail.php:294
+#: page.voicemail.php:220 page.voicemail.php:294
 msgid ""
 "Turn on/off envelope playback before message playback. [ON by default] This "
 "does NOT affect option 3,3 from the advanced options menu."
@@ -1521,8 +1579,7 @@ msgstr ""
 "メッセージの再生前の冒頭再生をオン／オフにします。[デフォルトはオンです。]こ"
 "れは、高度なオプションメニューのオプション3,3には影響しません。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:267
-#: /usr/src/freepbx/voicemail/page.voicemail.php:309
+#: page.voicemail.php:267 page.voicemail.php:309
 msgid ""
 "Turn on/off saying duration information before the message playback. [ON by "
 "default]"
@@ -1530,64 +1587,79 @@ msgstr ""
 "メッセージが再生される前に、期間情報を知らせるのをオン/オフ切り替えます。 [デ"
 "フォルトオン]"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:420
-#: /usr/src/freepbx/voicemail/ucp/views/vmx.php:8
+#: voicemail.i18n.php:13
+msgid "UCP Message Limit"
+msgstr ""
+
+#: page.voicemail.php:420 ucp/views/vmx.php:8
 msgid "Unavailable"
 msgstr "使用不可"
 
-#: /usr/src/freepbx/voicemail/views/usage.php:33
+#: Voicemail.class.php:73
+msgid "Unavailable Greeting"
+msgstr ""
+
+#: views/usage.php:33
 msgid "Unavailable Greeting:"
 msgstr "利用不可能なアナウンス："
 
-#: /usr/src/freepbx/voicemail/views/usage_system.php:56
+#: views/usage_system.php:56
 msgid "Unavailable Greetings:"
 msgstr "利用不可時のアナウンス："
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:611
+#: functions.inc.php:641
 msgid "Uncheck to play a beep after your personal Voicemail greeting."
 msgstr ""
 "チェックを外すと、あなたのボイスメールグリーティング再生後に「ピー」という発"
 "信音が再生されます。"
 
-#: /usr/src/freepbx/voicemail/ucp/views/mailbox.php:69
+#: ucp/views/mailbox.php:75
 msgid "Unknown"
 msgstr "不明"
 
-#: /usr/src/freepbx/voicemail/ucp/views/greetings.php:40
-#: /usr/src/freepbx/voicemail/ucp/views/mailbox.php:74
+#: ucp/Voicemail.class.php:366
+msgid "Unknown Error"
+msgstr ""
+
+#: ucp/Voicemail.class.php:332
+msgid "Unsupported file format"
+msgstr ""
+
+#: ucp/views/greetings.php:40 ucp/views/mailbox.php:80
 msgid "Update Required"
 msgstr "更新が必要"
 
-#: /usr/src/freepbx/voicemail/ucp/views/greetings.php:46
+#: ucp/views/greetings.php:46
 msgid "Upload Greeting"
 msgstr "アナウンスをアップロードする"
 
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:299
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:341
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:383
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:408
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:429
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:703
+#: ucp/assets/js/global.js:354 ucp/assets/js/global.js:396
+#: ucp/assets/js/global.js:438 ucp/assets/js/global.js:463
+#: ucp/assets/js/global.js:484 ucp/assets/js/global.js:773
 msgid "Uploading..."
 msgstr "アップロード中..."
 
-#: /usr/src/freepbx/voicemail/views/settings.php:11
+#: Voicemail.class.php:72
+msgid "Urgent"
+msgstr ""
+
+#: views/settings.php:11
 msgid "Usage"
 msgstr "使用状況"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:944
+#: functions.inc.php:974
 msgid "Usage Statistics For: "
 msgstr "使用状況の統計: "
 
-#: /usr/src/freepbx/voicemail/ucp/views/vmx.php:5
+#: ucp/views/vmx.php:5
 msgid "Use When"
 msgstr "使用する条件"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:601
+#: functions.inc.php:631
 msgid "Use When:"
 msgstr "使用する条件："
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:658
+#: functions.inc.php:688
 msgid ""
 "Use any extensions, ringgroups, queues or external numbers. <br/><br/"
 ">Remember to re-record your personal Voicemail greeting and include "
@@ -1598,16 +1670,17 @@ msgstr ""
 "方法の説明を追加してください。テストを実行し、番号が動作することを確認してく"
 "ださい。"
 
-#: /usr/src/freepbx/voicemail/ucp/views/vmx.php:42
+#: ucp/views/vmx.php:42
 msgid ""
 "Use any extensions, ringgroups, queues or external numbers. Remember to re-"
 "record your personal voicemail greeting and include instructions. Run a test "
 "to make sure that the number is functional."
 msgstr ""
-"お好みの内線番号、リンググループ、キューや外線番号を使用できます。自分の個人ボイスメールのアナウンスを再度録音しなおし、ユーザーが聞く使い方の説明を追加し"
-"てください。そのあとテストを実行し、番号が動作することを確認してください。"
+"お好みの内線番号、リンググループ、キューや外線番号を使用できます。自分の個人"
+"ボイスメールのアナウンスを再度録音しなおし、ユーザーが聞く使い方の説明を追加"
+"してください。そのあとテストを実行し、番号が動作することを確認してください。"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:278
+#: page.voicemail.php:278
 msgid ""
 "User context is where entries from users.conf are registered.  The default "
 "value is 'default'"
@@ -1615,90 +1688,112 @@ msgstr ""
 "ユーザーコンテキストへusers.confからのエントリーが登録されます。デフォルト値"
 "は'デフォルト'。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:525
+#: functions.inc.php:555
 msgid "VM Context"
 msgstr "ボイスメールのコンテキスト"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:496
+#: functions.inc.php:526
 msgid "VM Context cannot be blank"
 msgstr "VMコンテキストを空にすることはできません。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:524
+#: functions.inc.php:554
 msgid "VM Options"
 msgstr "ボイスメールオプション"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:275
+#: ucp/Voicemail.class.php:202
+msgid "VMAIL"
+msgstr ""
+
+#: page.voicemail.php:275
 msgid ""
 "Valid port as specified in smdi.conf for using smdi for external "
 "notification."
 msgstr "外部通知のためにsmdiを使用するためのsmdi.confに指定された有効なポート"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:527
+#: functions.inc.php:557
 msgid "VmX Locater"
 msgstr "VmXロケーター"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:528
+#: functions.inc.php:558
 msgid "VmX Locater&trade;"
 msgstr "VmXロケーター&トレード；"
 
-#: /usr/src/freepbx/voicemail/ucp/Voicemail.class.php:125
+#: ucp/Voicemail.class.php:125
 msgid "VmX Locator"
 msgstr "VmXロケータ"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:500
-#: /usr/src/freepbx/voicemail/install.php:8
-#: /usr/src/freepbx/voicemail/ucp/Voicemail.class.php:355
+#: functions.inc.php:530 install.php:8 ucp/Voicemail.class.php:419
+#: voicemail.i18n.php:3 ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr "ボイスメール"
 
-#: /usr/src/freepbx/voicemail/install.php:11
+#: install.php:11 voicemail.i18n.php:6
 msgid "Voicemail Admin"
 msgstr "ボイスメールの管理"
 
-#: /usr/src/freepbx/voicemail/install.php:189
+#: install.php:189
 msgid "Voicemail Admin being removed and merged with Voicemail"
 msgstr "ボイスメールアドミンが削除されボイスメールにマージされました"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:920
+#: functions.inc.php:950
 msgid "Voicemail Administration"
 msgstr "ボイスメールの管理"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:611
+#: functions.inc.php:641
 msgid "Voicemail Instructions:"
 msgstr "ボイスメール操作説明："
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:503
-#: /usr/src/freepbx/voicemail/page.voicemail.php:496
+#: ucp/Voicemail.class.php:202
+msgid "Voicemail Message"
+msgstr ""
+
+#: voicemail.i18n.php:7 voicemail.i18n.php:8 voicemail.i18n.php:9
+msgid "Voicemail Module"
+msgstr "ボイスメールモジュール"
+
+#: functions.inc.php:533 page.voicemail.php:496
 msgid "Voicemail Password"
 msgstr "ボイスメールのパスワード"
 
-#: /usr/src/freepbx/voicemail/ucp/views/settings.php:7
+#: ucp/views/settings.php:7
 msgid "Voicemail Pin"
 msgstr "ボイスメールPINコード"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:33
+#: views/dialplan.php:33
 msgid "Voicemail Recording Gain"
 msgstr "ボイスメール録音ゲイン"
 
-#: /usr/src/freepbx/voicemail/ucp/views/settings.php:2
+#: ucp/views/settings.php:2
 msgid "Voicemail Settings"
 msgstr "ボイスメール設定"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:257
+#: functions.inc.php:287
 msgid ""
 "Voicemail is enabled but the Voicemail Password field is empty.  Are you "
 "sure you wish to continue?"
 msgstr ""
 "ボイスメールは有効化されていますが、パスワードが空です。処理を続行しますか？"
 
-#: /usr/src/freepbx/voicemail/Voicemail.class.php:526
+#: ucp/Voicemail.class.php:321 ucp/Voicemail.class.php:355
+#, php-format
+msgid "Voicemail not moved to %s"
+msgstr ""
+
+#: ucp/Voicemail.class.php:326 ucp/Voicemail.class.php:360
+#, php-format
+msgid "Voicemail was empty: %s"
+msgstr ""
+
+#: Voicemail.class.php:667
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
 "will be shown"
-msgstr "注意：表示できるメッセージ数 (%s)を超えているため、 %sつのメッセージしか表示しません。"
+msgstr ""
+"注意：表示できるメッセージ数 (%s)を超えているため、 %sつのメッセージしか表示"
+"しません。"
 
-#: /usr/src/freepbx/voicemail/views/dialplan.php:25
+#: views/dialplan.php:25
 msgid ""
 "Whether to play the busy, unavailable or no message when direct dialing "
 "voicemail"
@@ -1706,16 +1801,19 @@ msgstr ""
 "ボイスメールに直接ダイヤルした際に、「ビジー」、「利用不可」、あるいは「メッ"
 "セージなし」の中からどれを再生するかを選択します"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:288
+#: page.voicemail.php:288
 msgid "Which format of audio file to attach to the email."
 msgstr "どのフォーマットの音声ファイルをEメールに添付するか"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:271
-#: /usr/src/freepbx/voicemail/page.voicemail.php:312
+#: page.voicemail.php:271 page.voicemail.php:312
 msgid "Who the e-mail notification should appear to come from"
 msgstr "Eメール通知が誰から来たように見えるか"
 
-#: /usr/src/freepbx/voicemail/page.voicemail.php:269
+#: Voicemail.class.php:71
+msgid "Work"
+msgstr ""
+
+#: page.voicemail.php:269
 msgid ""
 "Yes to search all contexts, no to search current context (if one is not "
 "specified)."
@@ -1723,95 +1821,91 @@ msgstr ""
 "全てのコンテキストを検索するにははい、現在のコンテキストを検索するにはいい"
 "え。(一つも指定されていない場合)"
 
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:87
+#: ucp/assets/js/global.js:90
 #, perl-format
 msgid "You Have %s New Voicemail"
 msgstr "%sつの新しいメッセージがあります"
 
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:265
+#: ucp/assets/js/global.js:320
 msgid "You have No Drag/Drop Support!"
 msgstr "ドラッグ／ドロップ操作はサポートされていません。"
 
-#: /usr/src/freepbx/voicemail/ucp/assets/js/global.js:690
+#: ucp/assets/js/global.js:760
 msgid "Your Browser Blocked The Recording, Please check your settings"
-msgstr "録音はブラウザによってブロックされた可能性があります。ブラウザの設定を確認してください。"
+msgstr ""
+"録音はブラウザによってブロックされた可能性があります。ブラウザの設定を確認し"
+"てください。"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:605
+#: functions.inc.php:635
 msgid "busy"
 msgstr "通話中"
 
-#: /usr/src/freepbx/voicemail/install.php:183
+#: install.php:183
 msgid "checking if Voicemail Admin (vmailadmin) is installed.."
 msgstr ""
 "ボイスメールアドミン(vmailadmin)がインストールされているかどうかチェック中.."
 
-#: /usr/src/freepbx/voicemail/install.php:144
+#: install.php:144
 msgid "could not delete"
 msgstr "削除できませんでした"
 
-#: /usr/src/freepbx/voicemail/install.php:139
+#: install.php:139
 msgid "deleting VM_PREFIX from globals.."
 msgstr "VM_PREFIXをグローバル値から削除中…"
 
-#: /usr/src/freepbx/voicemail/install.php:125
-#: /usr/src/freepbx/voicemail/install.php:142
+#: install.php:125 install.php:142
 msgid "done"
 msgstr "完了"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:738
+#: functions.inc.php:768
 #, php-format
 msgid "failed with retcode %s while removing %s:"
 msgstr "リターンコード %s で、%s 削除中に失敗しました："
 
-#: /usr/src/freepbx/voicemail/install.php:188
+#: install.php:188
 msgid "installed."
 msgstr "インストール済み。"
 
-#: /usr/src/freepbx/voicemail/install.php:138
+#: install.php:138
 msgid "migrated VM_PREFIX to feature codes"
 msgstr "VM_PREFIXを機能コードに移行しました"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:405
-#: /usr/src/freepbx/voicemail/page.voicemail.php:536
-#: /usr/src/freepbx/voicemail/views/usage.php:20
-#: /usr/src/freepbx/voicemail/views/usage.php:35
-#: /usr/src/freepbx/voicemail/views/usage.php:50
-#: /usr/src/freepbx/voicemail/views/usage.php:65
+#: functions.inc.php:435 page.voicemail.php:536 views/usage.php:20
+#: views/usage.php:35 views/usage.php:50 views/usage.php:65
 msgid "no"
 msgstr "いいえ"
 
-#: /usr/src/freepbx/voicemail/install.php:186
+#: install.php:186
 msgid "not installed, ok"
 msgstr "インストールされてません、ok"
 
-#: /usr/src/freepbx/voicemail/install.php:101
+#: install.php:101
 msgid "not needed"
 msgstr "不要"
 
-#: /usr/src/freepbx/voicemail/install.php:193
+#: install.php:193
 msgid "ok"
 msgstr "ok"
 
-#: /usr/src/freepbx/voicemail/install.php:67
+#: install.php:67
 msgid "preparing"
 msgstr "準備中"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:607
+#: functions.inc.php:637
 msgid "temp"
 msgstr "一時不在"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:603
+#: functions.inc.php:633
 msgid "unavailable"
 msgstr "利用不可"
 
-#: /usr/src/freepbx/voicemail/functions.inc.php:404
-#: /usr/src/freepbx/voicemail/page.voicemail.php:535
-#: /usr/src/freepbx/voicemail/views/usage.php:20
-#: /usr/src/freepbx/voicemail/views/usage.php:35
-#: /usr/src/freepbx/voicemail/views/usage.php:50
-#: /usr/src/freepbx/voicemail/views/usage.php:65
+#: functions.inc.php:434 page.voicemail.php:535 views/usage.php:20
+#: views/usage.php:35 views/usage.php:50 views/usage.php:65
 msgid "yes"
 msgstr "はい"
+
+#~ msgid " Greeting"
+#~ msgstr " アナウンス"
 
 #~ msgid "adding preload for res_mwi_blf.so to modules.conf.."
 #~ msgstr "res_mwi.blf.soのプレロードをmodules.confに追加中…"
@@ -1956,16 +2050,6 @@ msgstr "はい"
 #~ msgstr "分を含む24時間"
 
 #~ msgid ""
-#~ "This module allows you to configure Voicemail for a user or extension"
-#~ msgstr "このモジュールはユーザー又は内線のボイスメール設定を可能にします。"
-
-#~ msgid "Create Voicemail Hints"
-#~ msgstr "ボイスメールのヒントを作成"
-
-#~ msgid "Voicemail Module"
-#~ msgstr "ボイスメールモジュール"
-
-#~ msgid ""
 #~ "Setting this flag with generate the required dialplan to integrate with "
 #~ "res_mwi_blf which is included with the Official FreePBX Distro. It allows "
 #~ "users to subscribe to other voicemail box and be notified via BLF of "
@@ -1975,20 +2059,6 @@ msgstr "はい"
 #~ "れる res_mwi_blf と統合する為に必要とされるダイヤルプランを生成する事が出"
 #~ "来ます。ユーザーが自分以外のボイスメールを購読し、BLFを通じて変更が通知さ"
 #~ "れるようになります。"
-
-#~ msgid "Provide IMAP Voicemail Fields"
-#~ msgstr "IMAPボイスメールフィールドの提供"
-
-#~ msgid ""
-#~ "Installations that have configured Voicemail with IMAP should set this to "
-#~ "true so that the IMAP username and password fields are provided in the "
-#~ "Voicemail setup screen for extensions. If an extension alread has these "
-#~ "fields populated, they will be displayed even if this is set to false."
-#~ msgstr ""
-#~ "拡張するため、ボイスメールセットアップスクリーンにIMAPユーザーとパスワード"
-#~ "フィールドが提供されるよう、構成されたインストールをtrueに設定しないといけ"
-#~ "ない。拡張にあるフィールドはもうすでに提供された場合、falseに設定しても表"
-#~ "示される。"
 
 #~ msgid "undefined"
 #~ msgstr "未定義"
