@@ -63,7 +63,7 @@ class Voicemail extends Modules{
 		$displayvars['ext'] = $ext;
 		$displayvars['folders'] = $folders;
 
-		$html = "<script>var supportedMediaFormats = '".implode(",",array_keys($this->UCP->FreePBX->Voicemail->supportedFormats))."'; var extension = ".$ext."</script>";
+		$html = "<script>var supportedMediaFormats = '".implode(",",array_keys($this->UCP->FreePBX->Voicemail->supportedFormats))."'; var extension = ".$ext."; var mailboxes = ".json_encode($this->extensions).";</script>";
 		$html .= $this->load_view(__DIR__.'/views/header.php',$displayvars);
 
 		if(!empty($this->UCP->FreePBX->Voicemail->displayMessage['message'])) {
@@ -152,7 +152,10 @@ class Voicemail extends Modules{
 			case 'savesettings':
 			case 'upload':
 			case 'copy':
+			case 'forwards':
+			case 'callme':
 			case 'record':
+			case 'forward':
 				return $this->_checkExtension($_REQUEST['ext']);
 			break;
 			case 'vmxsettings':
@@ -177,6 +180,67 @@ class Voicemail extends Modules{
 	function ajaxHandler() {
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
+			case 'callme':
+				$validUsers = array();
+				$users = $this->UCP->FreePBX->Voicemail->getUsersList(true);
+				foreach($users as $user) {
+					$validUsers[] = $user[0];
+				}
+				if(!in_array($_POST['to'],$validUsers)) {
+					$return['message'] = _("Invalid Recipient");
+					return $return;
+				}
+				$message = $this->UCP->FreePBX->Voicemail->getMessageByMessageIDExtension($_POST['id'],$_REQUEST['ext']);
+				if(!empty($message)) {
+					$astman = $this->UCP->FreePBX->astman;
+					$status = $astman->originate(array(
+						"Channel" => "Local/".$_POST['to']."@from-internal",
+						"Exten" => "s",
+						"Context" => "vm-callme",
+						"Priority" => 1,
+						"Async" => "yes",
+						"CallerID" => _("Voicemail Message") . " <"._("VMAIL").">",
+						"Variable" => "MSG=".$message['path'] . "/" . $message['fid'].",MBOX=".$_REQUEST['ext']
+					));
+					if($status['Response'] == "Success") {
+						$return['status'] = true;
+					} else {
+						$return['message'] = $status['Message'];
+					}
+				}
+				$return['message'] = ("Invalid Message ID");
+				return $return;
+			break;
+			case 'forward':
+				$validUsers = array();
+				$users = $this->UCP->FreePBX->Voicemail->getUsersList(true);
+				foreach($users as $user) {
+					$validUsers[] = $user[0];
+				}
+				if(!in_array($_POST['to'],$validUsers)) {
+					$return['message'] = _("Invalid Recipient");
+					return $return;
+				}
+				$message = $this->UCP->FreePBX->Voicemail->getMessageByMessageIDExtension($_POST['id'],$_REQUEST['ext']);
+				if(!empty($message)) {
+					$this->UCP->FreePBX->Voicemail->forwardMessageByExtension($_POST['id'],$_REQUEST['ext'],$_POST['to']);
+				}
+				$return['message'] = ("Invalid Message ID");
+				return $return;
+			break;
+			case 'forwards':
+				$return = array();
+				$users = $this->UCP->FreePBX->Voicemail->getUsersList(true);
+				$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : '';
+				foreach($users as $user) {
+					if(preg_match('/'.$search.'/i',$user[1]) || preg_match('/'.$search.'/i',$user[0])) {
+						$return[] = array(
+							"value" => $user[0],
+							"text" => $user[1] . " (".$user[0].")"
+						);
+					}
+				}
+			break;
 			case 'vmxsettings':
 				switch($_POST['settings']['key']) {
 					case 'vmx-usewhen-unavailable':
@@ -254,18 +318,18 @@ class Voicemail extends Modules{
 							}
 							move_uploaded_file($tmp_name, $tmp_path."/vmtmp/$name");
 							if(!file_exists($tmp_path."/vmtmp/$name")) {
-								$return = array("status" => false, "message" => "Voicemail not moved to ".$tmp_path."/vmtmp/$name");
+								$return = array("status" => false, "message" => sprintf(_("Voicemail not moved to %s"),$tmp_path."/vmtmp/".$name));
 								break;
 							}
 							$contents = file_get_contents($tmp_path."/vmtmp/$name");
 							if(empty($contents)) {
-								$return = array("status" => false, "message" => "Voicemail was empty ".$tmp_path."/vmtmp/$name");
+								$return = array("status" => false, "message" => sprintf(_("Voicemail was empty: %s"),$tmp_path."/vmtmp/".$name));
 								break;
 							}
 							unlink($tmp_path."/tmp/$name");
 							$this->UCP->FreePBX->Voicemail->saveVMGreeting($_REQUEST['ext'],$_REQUEST['type'],$extension,$contents);
 						} else {
-							$return = array("status" => false, "message" => "unsupported file format");
+							$return = array("status" => false, "message" => _("Unsupported file format"));
 							break;
 						}
 					}
@@ -288,18 +352,18 @@ class Voicemail extends Modules{
 					}
 					move_uploaded_file($tmp_name, $tmp_path."/vmtmp/$name");
 					if(!file_exists($tmp_path."/vmtmp/$name")) {
-						$return = array("status" => false, "message" => "Voicemail not moved to ".$tmp_path."/vmtmp/$name");
+						$return = array("status" => false, "message" => sprintf(_("Voicemail not moved to %s"),$tmp_path."/vmtmp/".$name));
 						break;
 					}
 					$contents = file_get_contents($tmp_path."/vmtmp/$name");
 					if(empty($contents)) {
-						$return = array("status" => false, "message" => "Voicemail was empty ".$tmp_path."/vmtmp/$name");
+						$return = array("status" => false, "message" => sprintf(_("Voicemail was empty: %s"),$tmp_path."/vmtmp/".$name));
 						break;
 					}
 					unlink($tmp_path."/vmtmp/$name");
 					$this->UCP->FreePBX->Voicemail->saveVMGreeting($_REQUEST['ext'],$_REQUEST['type'],'wav',$contents);
 				}	else {
-					$return = array("status" => false, "message" => "unknown error");
+					$return = array("status" => false, "message" => _("Unknown Error"));
 					break;
 				}
 				$return = array("status" => true, "message" => "");

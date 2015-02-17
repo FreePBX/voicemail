@@ -69,6 +69,36 @@ function voicemail_get_config($engine) {
 	global $ext;
 	switch($engine) {
 		case "asterisk":
+			/*
+			* vm-callme context plays voicemail over telephone for web click-to-call
+			* MSG and MBOX are channel variables that must be set when originating the call
+			*/
+
+			$context = 'vm-callme';
+
+			$ext->add($context, 's', '', new ext_answer());
+			$ext->add($context, 's', '', new ext_wait(1));
+			$ext->add($context, 's', 'repeat', new ext_background('${MSG}&silence/2&vm-repeat&vm-starmain'));
+			$ext->add($context, 's', '', new ext_waitexten(15));
+
+			$ext->add($context, '5', '', new ext_goto('repeat', 's'));
+
+			$ext->add($context, '#', '', new ext_playback('vm-goodbye'));
+			$ext->add($context, '#', '', new ext_hangup());
+
+			$ext->add($context, '*', '', new ext_macro('get-vmcontext', '${MBOX}'));
+			$ext->add($context, '*', '', new ext_vmmain('${MBOX}@${VMCONTEXT},s'));
+
+			$ext->add($context, 'i', '', new ext_playback('pm-invalid-option'));
+			$ext->add($context, 'i', '', new ext_goto('repeat', 's'));
+
+			$ext->add($context, 't', '', new ext_playback('vm-goodbye'));
+			$ext->add($context, 't', '', new ext_hangup());
+
+			$ext->add($context, 'h', '', new ext_hangup());
+
+			/* end vm-callme context  */
+
 			if (is_array($featurelist = featurecodes_getModuleFeatures($modulename))) {
 				foreach($featurelist as $item) {
 					$featurename = $item['featurename'];

@@ -112,6 +112,58 @@ var VoicemailC = UCPMC.extend({
 			$(".record-greeting-btn").show();
 		}
 
+		$(".vm-message a.listen").click(function() {
+			var id = $(this).data("id"), select = null;
+			$.each(mailboxes, function(i,v) {
+				select = select + "<option value='"+v+"'>"+v+"</option>";
+			});
+			UCP.showDialog(_("Listen to Voicemail"),
+				_("On") + ":</label><select class=\"form-control\" id=\"VMto\">"+select+"</select><button class=\"btn btn-default\" id=\"listenVM\" style=\"margin-left: 72px;\">" + _("Listen") + "</button>",
+				145,
+				250,
+				function() {
+					$("#listenVM").click(function() {
+						var recpt = $("#VMto").val();
+						$this.listenVoicemail(id,recpt);
+					});
+					$("#VMto").keypress(function(event) {
+						if (event.keyCode == 13) {
+							var recpt = $("#VMto").val();
+							$this.listenVoicemail(id,recpt);
+						}
+					});
+				}
+			);
+		});
+		$(".vm-message a.forward").click(function() {
+			var id = $(this).data("id");
+			UCP.showDialog(_("Forward Voicemail"),
+				_("To")+":</label><select class=\"form-control Fill\" id=\"VMto\"></select><button class=\"btn btn-default\" id=\"forwardVM\" style=\"margin-left: 72px;\">" + _("Forward") + "</button>",
+				145,
+				250,
+				function() {
+					$("#VMto").tokenize({
+						newElements: false,
+						maxElements: 1,
+						datas: "index.php?quietmode=1&module=voicemail&command=forwards&ext="+extension
+					});
+					$("#forwardVM").click(function() {
+						setTimeout(function() {
+							var recpt = $("#VMto").val()[0];
+							$this.forwardVoicemail(id,recpt);
+						}, 50);
+					});
+					$("#VMto").keypress(function(event) {
+						if (event.keyCode == 13) {
+							setTimeout(function() {
+								var recpt = $("#VMto").val()[0];
+								$this.forwardVoicemail(id,recpt);
+							}, 50);
+						}
+					});
+				}
+			);
+		});
 		$(".vm-message a.play").click(function() {
 			var id = $(this).data("id");
 			$this.playVoicemail(id);
@@ -568,21 +620,36 @@ var VoicemailC = UCPMC.extend({
 			}
 		}
 	},
+	listenVoicemail: function(msgid, recpt) {
+		var data = {
+			id: msgid,
+			to: recpt
+		};
+		$.post( "index.php?quietmode=1&module=voicemail&command=callme&ext="+extension, data, function( data ) {
+			UCP.closeDialog();
+		});
+	},
+	forwardVoicemail: function(msgid, recpt) {
+		var data = {
+			id: msgid,
+			to: recpt
+		};
+		$.post( "index.php?quietmode=1&module=voicemail&command=forward&ext="+extension, data, function( data ) {
+			UCP.closeDialog();
+		});
+	},
 	//Used to delete a voicemail message
 	deleteVoicemail: function(msgid) {
 		var $this = this,
 				player = $("#freepbx_player"),
 				data = { msg: msgid, ext: extension };
 		if (confirm(_("Are you sure you wish to delete this voicemail?"))) {
-			if ($(".jp-audio").is(":visible") && $this.loaded == msgid) {
-				$(".jp-audio").slideUp();
-				player.jPlayer("pause");
-			}
 			$.post( "index.php?quietmode=1&module=voicemail&command=delete", data, function( data ) {
 				if (data.status) {
 					$(".vm-message[data-msg=\"" + msgid + "\"]").fadeOut("fast", function() {
 						$this.CheckNoMessages();
 					});
+					$("#vm_playback_" + msgid).fadeOut("fast");
 					var num = $(".mailbox .folder-list .folder.active .badge").text();
 					$(".mailbox .folder-list .folder.active .badge").text(num - 1);
 					num = $("#voicemail-badge").text();
