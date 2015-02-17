@@ -104,6 +104,10 @@ class Voicemail implements \BMO {
 		}
 	}
 
+	public function getUsersList() {
+		return $this->FreePBX->Core->listUsers(true);
+	}
+
 	/**
 	 * get the Admin display in UCP
 	 * @param array $user The user array
@@ -360,6 +364,132 @@ class Voicemail implements \BMO {
 	}
 
 	/**
+	* Forward a voicemail message to a new folder
+	* @param string $msg    The message ID
+	* @param int $ext    The voicemail extension message is coming from
+	* @param int $rcpt The recipient, voicemail will wind up in the INBOX
+	*/
+	public function forwardMessageByExtension($msg,$ext,$to) {
+		$fromVM = $this->getVoicemailBoxByExtension($ext);
+		$messages = $this->getMessagesByExtension($ext);
+		if(isset($messages['messages'][$msg])) {
+			$info = $messages['messages'][$msg];
+			$txt = $info['path']."/".$info['fid'].".txt";
+			if(file_exists($txt) && is_readable($txt)) {
+				$toVM = $this->getVoicemailBoxByExtension($to);
+				$context = $toVM['vmcontext'];
+				$toFolder = $this->vmPath . '/'.$context.'/'.$to.'/INBOX';
+				if(file_exists($toFolder) && is_writable($toFolder)) {
+					$files = array();
+					$files[] = $txt;
+					foreach($info['format'] as $format) {
+						if(file_exists($format['path']."/".$format['filename'])) {
+							$files[] = $format['path']."/".$format['filename'];
+						}
+					}
+					//if the folder is empty (meaning we dont have a 0000 file) then set this to 0000
+					$tname = preg_replace('/([0-9]+)/','0000',basename($txt));
+					if(!file_exists($toFolder."/".$tname)) {
+						foreach($files as $file) {
+							$fname = preg_replace('/msg([0-9]+)/','msg0000',basename($file));
+							copy($file, $toFolder."/".$fname);
+						}
+					} else {
+						//Else we have other voicemail data in here so do something else
+
+						//figure out the last file in the directory
+						$oldFiles = glob($toFolder."/*.txt");
+						$numbers = array();
+						foreach($oldFiles as $file) {
+							$file = basename($file);
+							preg_match('/([0-9]+)/',$file,$matches);
+							$numbers[] = $matches[1];
+						}
+						rsort($numbers);
+						$next = sprintf('%04d', ($numbers[0] + 1));
+
+						foreach($files as $file) {
+							$fname = preg_replace('/msg([0-9]+)/',"msg".$next,basename($file));
+							copy($file, $toFolder."/".$fname);
+						}
+					}
+					//Just for sanity sakes recheck the directories hopefully this doesnt take hours though.
+					$this->renumberAllMessages($toFolder);
+					//TODO: Probably send an email to $to, however that was never done in the past?
+				}
+			}
+		}
+	}
+
+	/**
+	* Copy a voicemail message to a new folder
+	* @param string $msg    The message ID
+	* @param int $ext    The voicemail extension
+	* @param string $folder The folder to move the voicemail to
+	*/
+	public function copyMessageByExtensionFolder($msg,$ext,$folder) {
+		if(!$this->folderCheck($folder)) {
+			return false;
+		}
+		$o = $this->getVoicemailBoxByExtension($ext);
+		$context = $o['vmcontext'];
+		$messages = $this->getMessagesByExtension($ext);
+		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
+		$folder = $vmfolder."/".$folder;
+		if(isset($messages['messages'][$msg])) {
+			$info = $messages['messages'][$msg];
+			$txt = $vmfolder."/".$info['folder']."/".$info['fid'].".txt";
+			if(file_exists($txt) && is_readable($txt)) {
+				$files = array();
+				$files[] = $txt;
+				if(!file_exists($folder)) {
+					mkdir($folder);
+				}
+				if(is_writable($folder)) {
+					foreach($info['format'] as $format) {
+						if(file_exists($format['path']."/".$format['filename'])) {
+							$files[] = $format['path']."/".$format['filename'];
+						}
+					}
+					//check to make sure the file doesnt already exist first.
+
+					//if the folder is empty (meaning we dont have a 0000 file) then set this to 0000
+					$tname = preg_replace('/([0-9]+)/','0000',basename($txt));
+					if(!file_exists($folder."/".$tname)) {
+						foreach($files as $file) {
+							$fname = preg_replace('/msg([0-9]+)/','msg0000',basename($file));
+							copy($file, $folder."/".$fname);
+						}
+					} else {
+						//Else we have other voicemail data in here so do something else
+
+						//figure out the last file in the directory
+						$oldFiles = glob($folder."/*.txt");
+						$numbers = array();
+						foreach($oldFiles as $file) {
+							$file = basename($file);
+							preg_match('/([0-9]+)/',$file,$matches);
+							$numbers[] = $matches[1];
+						}
+						rsort($numbers);
+						$next = sprintf('%04d', ($numbers[0] + 1));
+
+						foreach($files as $file) {
+							$fname = preg_replace('/msg([0-9]+)/',"msg".$next,basename($file));
+							copy($file, $folder."/".$fname);
+						}
+					}
+					//Just for sanity sakes recheck the directories hopefully this doesnt take hours though.
+					$this->renumberAllMessages($vmfolder."/".$info['folder']);
+					$this->renumberAllMessages($folder);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	/**
 	 * Move a voicemail message to a new folder
 	 * @param string $msg    The message ID
 	 * @param int $ext    The voicemail extension
@@ -380,7 +510,6 @@ class Voicemail implements \BMO {
 			if(file_exists($txt) && is_readable($txt)) {
 				$files = array();
 				$files[] = $txt;
-				$files[] = $vmfolder."/".$info['folder']."/" . $info['file'];
 				if(!file_exists($folder)) {
 					mkdir($folder);
 				}

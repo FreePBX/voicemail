@@ -25,6 +25,12 @@
 					<td class="hidden-xs"><?php echo $message['duration']?> sec</td>
 					<td class="actions">
 						<div>
+							<a class="listen" alt="<?php echo _('Listen on your handset');?>" data-id="<?php echo $message['msg_id']?>">
+								<i class="fa fa-phone"></i>
+							</a>
+							<a class="forward" alt="<?php echo _('Forward');?>" data-id="<?php echo $message['msg_id']?>">
+								<i class="fa fa-share"></i>
+							</a>
 							<a class="play" alt="<?php echo _('Play');?>" data-id="<?php echo $message['msg_id']?>">
 								<i class="fa fa-play"></i>
 							</a>
