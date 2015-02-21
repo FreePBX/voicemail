@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-17 18:28-0500\n"
+"POT-Creation-Date: 2015-02-20 20:09-0500\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jouniaux <c.jouniauxdiv@laposte.net>\n"
 "Language-Team: \n"
@@ -230,7 +230,7 @@ msgstr ""
 msgid "Copying..."
 msgstr ""
 
-#: voicemail.i18n.php:12
+#: voicemail.i18n.php:8
 msgid "Create Voicemail Hints"
 msgstr ""
 
@@ -723,7 +723,7 @@ msgid ""
 "enabled"
 msgstr ""
 
-#: voicemail.i18n.php:11 voicemail.i18n.php:14
+#: voicemail.i18n.php:16
 msgid ""
 "Installations that have configured Voicemail with IMAP should set this to "
 "true so that the IMAP username and password fields are provided in the "
@@ -739,7 +739,7 @@ msgstr ""
 msgid "Invalid Recipient"
 msgstr ""
 
-#: voicemail.i18n.php:16
+#: voicemail.i18n.php:20
 msgid ""
 "Limit the Messages to be Displayed in UCP. If your device has more "
 "processing power you can increase this otherwise lower it if you find your "
@@ -1021,7 +1021,7 @@ msgid ""
 "Check to enter another destination here."
 msgstr ""
 
-#: voicemail.i18n.php:10
+#: voicemail.i18n.php:14
 msgid "Provide IMAP Voicemail Fields"
 msgstr ""
 
@@ -1135,7 +1135,7 @@ msgstr ""
 msgid "Set the parent folder (default is to have no parent folder set)."
 msgstr ""
 
-#: voicemail.i18n.php:15
+#: voicemail.i18n.php:12
 msgid ""
 "Setting this flag with generate the required dialplan to integrate with "
 "res_mwi_devstate (res_mwi_blf) which is included with the Official FreePBX "
@@ -1234,6 +1234,10 @@ msgstr ""
 
 #: page.voicemail.php:206
 msgid "The ADSI security lock code"
+msgstr ""
+
+#: install.php:14
+msgid "The Feature Code used to dial any voicemail"
 msgstr ""
 
 #: install.php:13
@@ -1392,7 +1396,7 @@ msgid ""
 "default]"
 msgstr ""
 
-#: voicemail.i18n.php:13
+#: voicemail.i18n.php:18
 msgid "UCP Message Limit"
 msgstr ""
 
@@ -1541,7 +1545,7 @@ msgstr "Instructions boîte vocale"
 msgid "Voicemail Message"
 msgstr ""
 
-#: voicemail.i18n.php:7 voicemail.i18n.php:8 voicemail.i18n.php:9
+#: voicemail.i18n.php:10
 msgid "Voicemail Module"
 msgstr ""
 

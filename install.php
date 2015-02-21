@@ -11,7 +11,7 @@ _("Dial Voicemail");
 _("Voicemail Admin");
 _("Direct Dial Prefix");
 _("The Feature Code used to direct dial a users voicemail from their own extension");
--("The Feature Code used to dial any voicemail");
+_("The Feature Code used to dial any voicemail");
 }
 
 global $astman;
