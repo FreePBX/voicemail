@@ -109,7 +109,7 @@ msgstr ""
 
 #: views/usage.php:78 views/usage_system.php:101
 msgid "Abandoned Greetings:"
-msgstr ""
+msgstr "丢弃问候语:"
 
 #: views/settings.php:5
 msgid "Account View Links:"
@@ -117,11 +117,11 @@ msgstr ""
 
 #: views/settings.php:13
 msgid "Advanced Settings"
-msgstr ""
+msgstr "高级设置"
 
 #: functions.inc.php:964
 msgid "Advanced Settings For: "
-msgstr ""
+msgstr "高级设置"
 
 #: views/dialplan.php:48
 msgid "Advanced VmX Locater Settings"
@@ -155,15 +155,15 @@ msgstr ""
 
 #: install.php:190
 msgid "Attempting to delete.."
-msgstr ""
+msgstr "尝试删除"
 
 #: functions.inc.php:957
 msgid "Basic Settings For: "
-msgstr ""
+msgstr "基本设置"
 
 #: functions.inc.php:959
 msgid "Basic settings view is for individual accounts."
-msgstr ""
+msgstr "对每个帐号的基本设置"
 
 #: page.voicemail.php:259
 msgid "Body of message sent to pager."
@@ -179,7 +179,7 @@ msgstr ""
 
 #: views/usage.php:48 views/usage_system.php:71
 msgid "Busy Greetings:"
-msgstr ""
+msgstr "忙音问候语"
 
 #: ucp/views/mailbox.php:15
 msgid "CID"
@@ -337,7 +337,7 @@ msgstr "拨打语音邮件"
 
 #: functions.inc.php:970
 msgid "Dialplan Behavior"
-msgstr ""
+msgstr "拨号规则流程"
 
 #: views/dialplan.php:25
 msgid "Direct Dial Mode"
@@ -410,11 +410,11 @@ msgstr "电子邮件附件"
 
 #: page.voicemail.php:216
 msgid "Email body."
-msgstr ""
+msgstr "邮件内容"
 
 #: page.voicemail.php:218
 msgid "Email subject"
-msgstr ""
+msgstr "邮件标题"
 
 #: page.voicemail.php:284 page.voicemail.php:316
 msgid ""
@@ -512,7 +512,7 @@ msgstr ""
 
 #: views/usage.php:20 views/usage.php:35 views/usage.php:50 views/usage.php:65
 msgid "File timestamp: "
-msgstr ""
+msgstr "文件时间戳"
 
 #: ucp/assets/js/global.js:55
 msgid ""
@@ -628,15 +628,15 @@ msgstr ""
 
 #: page.voicemail.php:219
 msgid "How many seconds of silence before we end the recording"
-msgstr ""
+msgstr "结束录音前的静音时间"
 
 #: functions.inc.php:552
 msgid "IMAP Password"
-msgstr ""
+msgstr "IMAP密码"
 
 #: functions.inc.php:551
 msgid "IMAP Username"
-msgstr ""
+msgstr "IMAP用户名称"
 
 #: page.voicemail.php:232
 msgid "IMAP Voicemail folder."
@@ -743,7 +743,7 @@ msgstr ""
 
 #: functions.inc.php:980
 msgid "Invalid Action"
-msgstr ""
+msgstr "无效动作"
 
 #: ucp/Voicemail.class.php:190 ucp/Voicemail.class.php:221
 msgid "Invalid Recipient"
@@ -770,7 +770,7 @@ msgstr ""
 
 #: page.voicemail.php:217
 msgid "Load date format config for Voicemail mail."
-msgstr ""
+msgstr "为邮件加载日期格式"
 
 #: ucp/views/mailbox.php:54
 msgid "Loading"
@@ -778,20 +778,20 @@ msgstr ""
 
 #: page.voicemail.php:246
 msgid "Mail command."
-msgstr ""
+msgstr "邮件命令"
 
 #: page.voicemail.php:248
 msgid "Max failed login attempts."
-msgstr ""
+msgstr "多次登录失败次数"
 
 #: page.voicemail.php:247
 msgid "Max message greeting length."
-msgstr ""
+msgstr "最大留言长度"
 
 #: page.voicemail.php:249 page.voicemail.php:250 page.voicemail.php:303
 #: page.voicemail.php:304
 msgid "Max message time length."
-msgstr ""
+msgstr "最长留言时间长度"
 
 #: page.voicemail.php:251 page.voicemail.php:302
 msgid ""
@@ -833,11 +833,11 @@ msgstr ""
 
 #: page.voicemail.php:297
 msgid "Name of Voicemail account"
-msgstr ""
+msgstr "语音邮箱帐号名称"
 
 #: page.voicemail.php:305
 msgid "Name of account/user"
-msgstr ""
+msgstr "用户名称"
 
 #: views/tz.php:83
 msgid "New Name"
@@ -875,11 +875,11 @@ msgstr ""
 
 #: views/usage_system.php:14
 msgid "Number of Accounts:"
-msgstr ""
+msgstr "帐号总数"
 
 #: views/usage.php:4 views/usage_system.php:26
 msgid "Number of Messages:"
-msgstr ""
+msgstr "信息数量"
 
 #: views/usage.php:78 views/usage_system.php:101
 msgid ""
@@ -1058,7 +1058,7 @@ msgstr ""
 
 #: views/usage_system.php:41
 msgid "Recorded Names:"
-msgstr ""
+msgstr "记录的名称"
 
 #: ucp/assets/js/global.js:754
 msgid "Recording..."
@@ -1078,11 +1078,11 @@ msgstr ""
 
 #: views/usage.php:8 views/usage_system.php:30
 msgid "Remove all messages"
-msgstr ""
+msgstr "删除所有信息"
 
 #: views/usage_system.php:45
 msgid "Remove all recorded names"
-msgstr ""
+msgstr "删除所有记录的名称"
 
 #: views/usage_system.php:90
 msgid "Remove all temporary greetings"
@@ -1094,23 +1094,23 @@ msgstr ""
 
 #: views/usage.php:52
 msgid "Remove busy greeting"
-msgstr ""
+msgstr "移除忙音提示"
 
 #: views/usage.php:23
 msgid "Remove recorded name"
-msgstr ""
+msgstr "移除记录的名称"
 
 #: views/usage.php:67
 msgid "Remove temporary greeting"
-msgstr ""
+msgstr "移除临时语音提示"
 
 #: page.voicemail.php:204
 msgid "Remove the timezone definition"
-msgstr ""
+msgstr "移除时区定义"
 
 #: views/usage.php:37
 msgid "Remove unavailable greeting"
-msgstr ""
+msgstr "移除无效语音提示"
 
 #: functions.inc.php:543
 #, php-format
@@ -1150,7 +1150,7 @@ msgstr ""
 
 #: ucp/views/nav.php:9 views/settings.php:9 voicemail.i18n.php:4
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: page.voicemail.php:272
 msgid ""
@@ -1171,7 +1171,7 @@ msgstr ""
 
 #: functions.inc.php:644
 msgid "Standard Voicemail prompts."
-msgstr ""
+msgstr "标准语音邮箱提示"
 
 #: functions.inc.php:531
 msgid "Status"
@@ -1187,11 +1187,11 @@ msgstr ""
 
 #: views/usage.php:93
 msgid "Storage Used"
-msgstr ""
+msgstr "已使用的存储空间"
 
 #: views/usage_system.php:116
 msgid "Storage Used:"
-msgstr ""
+msgstr "已使用的存储空间"
 
 #: page.voicemail.php:261
 msgid "Subject sent to pager."
@@ -1199,15 +1199,15 @@ msgstr ""
 
 #: functions.inc.php:966
 msgid "System Settings"
-msgstr ""
+msgstr "系统设置"
 
 #: functions.inc.php:976
 msgid "System Usage Statistics"
-msgstr ""
+msgstr "系统使用统计"
 
 #: views/header.php:13
 msgid "System View Links:"
-msgstr ""
+msgstr "系统查看链接"
 
 #: ucp/views/vmx.php:14
 msgid "Temp"
@@ -1219,11 +1219,11 @@ msgstr ""
 
 #: views/usage.php:63
 msgid "Temporary Greeting:"
-msgstr ""
+msgstr "临时语音提示"
 
 #: views/usage_system.php:86
 msgid "Temporary Greetings:"
-msgstr ""
+msgstr "临时问候语:"
 
 #: page.voicemail.php:276
 msgid "Temporary greeting reminder."
@@ -1334,7 +1334,7 @@ msgstr ""
 
 #: page.voicemail.php:203
 msgid "Time announcement for message playback"
-msgstr ""
+msgstr "对回放进行时间播报"
 
 #: views/dialplan.php:53
 msgid ""
@@ -1352,11 +1352,11 @@ msgstr ""
 
 #: functions.inc.php:953
 msgid "Timezone Definitions"
-msgstr ""
+msgstr "时区定义"
 
 #: page.voicemail.php:202
 msgid "Timezone definition name"
-msgstr ""
+msgstr "时间域定义名称"
 
 #: page.voicemail.php:314
 msgid "Timezone from zonemessages context.  Irrelevant if envelope=no."
@@ -1386,7 +1386,7 @@ msgstr ""
 
 #: views/usage.php:4 views/usage_system.php:26
 msgid "Total ( Messages in inboxes / Messages in other folders )"
-msgstr ""
+msgstr "总数"
 
 #: page.voicemail.php:220 page.voicemail.php:294
 msgid ""
@@ -1414,11 +1414,11 @@ msgstr ""
 
 #: views/usage.php:33
 msgid "Unavailable Greeting:"
-msgstr ""
+msgstr "无效语音提示"
 
 #: views/usage_system.php:56
 msgid "Unavailable Greetings:"
-msgstr ""
+msgstr "无效问候语"
 
 #: functions.inc.php:641
 msgid "Uncheck to play a beep after your personal Voicemail greeting."
@@ -1456,11 +1456,11 @@ msgstr ""
 
 #: views/settings.php:11
 msgid "Usage"
-msgstr ""
+msgstr "使用"
 
 #: functions.inc.php:974
 msgid "Usage Statistics For: "
-msgstr ""
+msgstr "使用统计"
 
 #: ucp/views/vmx.php:5
 msgid "Use When"
@@ -1531,7 +1531,7 @@ msgstr "语音邮件"
 
 #: install.php:11 voicemail.i18n.php:6
 msgid "Voicemail Admin"
-msgstr ""
+msgstr "语音邮箱管理员"
 
 #: install.php:189
 msgid "Voicemail Admin being removed and merged with Voicemail"
@@ -1539,7 +1539,7 @@ msgstr ""
 
 #: functions.inc.php:950
 msgid "Voicemail Administration"
-msgstr ""
+msgstr "语音邮箱管理"
 
 #: functions.inc.php:641
 msgid "Voicemail Instructions:"
@@ -1551,7 +1551,7 @@ msgstr ""
 
 #: voicemail.i18n.php:10
 msgid "Voicemail Module"
-msgstr ""
+msgstr "语音邮箱模块"
 
 #: functions.inc.php:533 page.voicemail.php:496
 msgid "Voicemail Password"
@@ -1635,7 +1635,7 @@ msgstr "忙"
 
 #: install.php:183
 msgid "checking if Voicemail Admin (vmailadmin) is installed.."
-msgstr ""
+msgstr "正在检查如果邮箱管理员已经安装"
 
 #: install.php:144
 msgid "could not delete"
@@ -1656,7 +1656,7 @@ msgstr "发生错误，错误代码为 %s ，在移除 %s 时发生："
 
 #: install.php:188
 msgid "installed."
-msgstr ""
+msgstr "已安装"
 
 #: install.php:138
 msgid "migrated VM_PREFIX to feature codes"
@@ -1669,7 +1669,7 @@ msgstr "否"
 
 #: install.php:186
 msgid "not installed, ok"
-msgstr ""
+msgstr "没有安装，ok"
 
 #: install.php:101
 msgid "not needed"
