@@ -1,24 +1,18 @@
-<div class='content'>
-	<form name='frm_voicemail' action='' method='post'>
-		<input type='hidden' name='type' id='type' value='<?php echo $type ?>' />
-		<input type='hidden' name='display' id='display' value='<?php echo $display ?>' />
-		<input type='hidden' name='ext' id='ext' value='<?php echo $extension ?>' />
-		<input type='hidden' name='page_type' id='page_type' value='<?php echo $action ?>' />
-		<table border='0' cellpadding='0.3px' cellspacing='2px'>
-			<tr>
-				<td colspan='3'><?php echo $title?></td>
-			</tr>
-			<tr>
-				<td>
-					<h5><?php echo _("System View Links:") ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
-				</td>
-				<td colspan='2'>
-					<h5>
-						<a style="<?php echo ($sys_view_flag && $action == "dialplan") ? 'color:#ff9933' : ''?>" href='config.php?display=voicemail&amp;action=dialplan'>Dialplan Behavior</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-						<a style="<?php echo ($sys_view_flag && $action == "settings") ? 'color:#ff9933' : ''?>" href='config.php?display=voicemail&amp;action=settings'>Settings</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-						<a style="<?php echo ($sys_view_flag && $action == "usage") ? 'color:#ff9933' : ''?>" href='config.php?display=voicemail&amp;action=usage'>Usage</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-						<a style="<?php echo ($sys_view_flag && $action == "tz") ? 'color:#ff9933' : ''?>" href='config.php?display=voicemail&amp;action=tz'>Timezone Definitions</a>
-					</h5>
-				</td>
-			</tr>
-		</table>
+<div class="container-fluid">
+	<h1><?php echo _('Voicemail')?></h1>
+	<div class = "display full-border">
+		<div class="row">
+			<div class="col-sm-9">
+				<div class="fpbx-container">
+					<div class="display full-border">
+						<ul class="nav nav-tabs">
+							<li role="presentation" <?php echo ($action == 'usage')? 'class="active"':''?>><a href="config.php?display=voicemail&amp;action=usage"><?php echo _("Usage")?></a></li>
+							<li role="presentation" <?php echo ($action == 'settings')? 'class="active"':''?>><a href="config.php?display=voicemail&amp;action=settings"><?php echo _("Settings")?></a></li>
+							<li role="presentation" <?php echo ($action == 'dialplan')? 'class="active"':''?>><a href="config.php?display=voicemail&amp;action=dialplan"><?php echo _("Dialplan Behavior")?></a></li>
+							<li role="presentation" <?php echo ($action == 'tz')? 'class="active"':''?>><a href="config.php?display=voicemail&amp;action=tz"><?php echo _("Timezone Definitions")?></a></li>
+						</ul>
+						<form class="fpbx-submit" name="frm_extensions" action="" method="post" data-fpbx-delete="" role="form">
+							<input type='hidden' name='type' id='type' value='<?php echo $type ?>' />
+							<input type='hidden' name='display' id='display' value='<?php echo $display ?>' />
+							<input type='hidden' name='ext' id='ext' value='<?php echo $extension ?>' />
+							<input type='hidden' name='page_type' id='page_type' value='<?php echo $action ?>' />

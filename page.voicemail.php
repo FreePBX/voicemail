@@ -74,7 +74,7 @@ if (isset($extens) && is_array($extens)) {
 				$link = "config.php?type=setup&display=users&extdisplay=" . $exten[0] . "#" . $exten[0];
 			}
 		}
-		$rnav_entries[$i] = "\t<li id='voicemail_list_" . $exten[0] . "'${disabled_style}${unactivated_style}><a" . ($extdisplay==$exten[0] ? ' class="current"':'') . "${disabled_style}${unactivated_style} href=\"$link\" onHover='menuUpdatePos();'>{$name} &lt;" . $exten[0] . "&gt;&nbsp;&nbsp;(${c}${disabled_txt})${unactivated_txt}</a></li>\n";
+		$rnav_entries[$i] = "<a" . ($extdisplay==$exten[0] ? ' class="list-group-item active"':' class="list-group-item"') . "${disabled_style}${unactivated_style} href=\"$link\" onHover='menuUpdatePos();'>{$name} &lt;" . $exten[0] . "&gt;&nbsp;&nbsp;(${c}${disabled_txt})${unactivated_txt}</a></li>\n";
 		$i++;
 	}
 }
@@ -377,8 +377,6 @@ if (empty($action)) {
 /* system-wide rnav menu (lists all accounts) */
 $rnav_list = implode("\n", $rnav_entries);
 
-show_view(dirname(__FILE__).'/views/nav.php',array('rnav_list' => $rnav_list));
-
 $title	  = voicemail_get_title($action, $context, $extension);
 $sys_view_flag = empty($extension)?true:false;
 
@@ -628,3 +626,4 @@ switch ($action) {
 	default:
 		break;
 }
+show_view(__DIR__.'/views/footer.php', array('rnav_list' => $rnav_list));
