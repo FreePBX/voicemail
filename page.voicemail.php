@@ -391,7 +391,6 @@ show_view(dirname(__FILE__).'/views/header.php',array(
 );
 //Do we really need to say "UPDATE COMPLETED??"
 if ($need_update && $action != 'usage') {
-	/* set args */
 	$args = array();
 	if (voicemail_update_settings($action, $context, $extension, $_REQUEST)) {
 		$url = "config.php?type=$type&display=$display&action=$action&ext=$extension&updated=true";
@@ -510,7 +509,6 @@ switch ($action) {
 				$val = isset($settings[$key]) ? $settings[$key] : (!empty($descrip["default"]) ? $descrip["default"] : '');
 				unset($settings[$key]);
 				$opt_name = ($action == "bsettings")?$opt_headings[$key]:$key;
-				$output .= "<tr><td><a href='#' class='info'>$opt_name<span>$tooltip</span></a></td>";
 				/* check box or not */
 				if ($descrip["type"] == "flag") {
 					switch ($val) {
@@ -530,12 +528,63 @@ switch ($action) {
 							$undef_selected = "checked=checked";
 							break;
 					}
-					$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<span class='radioset'><input type='radio' name='$id' id='{$id}_yes' tabindex='1' value='yes' $yes_selected /><label for='{$id}_yes'>" . _("yes") . "</label>";
-					$output .= "<input type='radio' name='$id' id='{$id}_no' tabindex='1' value='no' $no_selected /><label for='{$id}_no'>" . _("no") . "</label>";
-					$output .= "</span></td></tr>";
+					$output.= '
+					<!--'.$opt_name.'-->
+					<div class="element-container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-3">
+											<label class="control-label" for="'.$id.'">'. $opt_name .'</label>
+											<i class="fa fa-question-circle fpbx-help-icon" data-for="'.$id.'"></i>
+										</div>
+										<div class="col-md-9 radioset">
+											<input type="radio" class="form-control" id="'.$id.'_yes" name="'.$id.'" value="yes" '.$yes_selected.'>
+											<label for="'.$id.'_yes">'. _("yes") .'</label>
+											<input type="radio" class="form-control" id="'.$id.'_no" name="'.$id.'" value="no" '.$no_selected.'>
+											<label for="'.$id.'_no">'. _("No") .'</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<span id="'.$id.'-help" class="help-block fpbx-help-block">'.$tooltip.'</span>
+							</div>
+						</div>
+					</div>
+					<!--END '.$opt_name.'-->
+					';
 				} else {
 					$text_type = ($key == "pwd" || $key == "authpassword")?"password":"text";
-					$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<input size='$text_size' maxlength='$len' type='$text_type' name='$id' id='$id' tabindex='1' value=\"".htmlentities($val)."\" /></td></tr>";
+					$output.= '
+					<!--'.$opt_name.'-->
+					<div class="element-container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-3">
+											<label class="control-label" for="'.$id.'">'. $opt_name .'</label>
+											<i class="fa fa-question-circle fpbx-help-icon" data-for="'.$id.'"></i>
+										</div>
+										<div class="col-md-9">
+											<input type="'.$text_type.'" maxlength="'.$len.'" class="form-control" id="'.$id.'" name="'.$id.'" value="'.htmlentities($val).'">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<span id="'.$id.'-help" class="help-block fpbx-help-block">'.$tooltip.'</span>
+							</div>
+						</div>
+					</div>
+					<!--END '.$opt_name.'-->
+					';
 				}
 			}
 			unset($id);
@@ -546,13 +595,40 @@ switch ($action) {
 			foreach ($settings as $key => $val) {
 				$id = $id_prefix . "__" . $key;
 				# no tooltip available
-				$output .= "<tr><td>$key</td>";
-				$output .= "<td>&nbsp;&nbsp;&nbsp;&nbsp;<input size='$text_size' type='text' name='$id' id='$id' tabindex='1' value=\"".htmlentities($val)."\" /></td></tr>";
+					$output.= '
+					<!--'.$key.'-->
+					<div class="element-container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-3">
+											<label class="control-label" for="'.$id.'">'. $opt_name .'</label>
+											<i class="fa fa-question-circle fpbx-help-icon" data-for="'.$id.'"></i>
+										</div>
+										<div class="col-md-9">
+											<input type="'.$text_type.'" maxlength="'.$len.'" class="form-control" id="'.$id.'" name="'.$id.'" value="'.htmlentities($val).'">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<span id="'.$id.'-help" class="help-block fpbx-help-block">'.$tooltip.'</span>
+							</div>
+						</div>
+					</div>
+					<!--END '.$key.'-->
+					';				
 			}
 		}
 		$update_notice = ($update_flag === false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";
 		$update_flag === true ? $update_notice = "&nbsp;&nbsp;<b><u>UPDATE COMPLETED</u></b>":"";
-		$output .= "<tr><td></td><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='action' id='action' value='Submit' />" . $update_notice . "</td></tr>";
+		$output .= "<input type='hidden' name='action' id='action' value='Submit' />";
+		if($update_notice != ""){
+			$output .= '<div class="well">'. $update_notice . '</div>';
+		}
 		echo $output;
 		break;
 	case "usage":

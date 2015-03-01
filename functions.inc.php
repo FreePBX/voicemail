@@ -268,7 +268,6 @@ function voicemail_dialvoicemail($c) {
 function voicemail_configpageinit($pagename) {
 	global $currentcomponent;
 	global $amp_conf;
-
 	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
 	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
 	$extension = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
@@ -1133,6 +1132,7 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 					}
 				}
 					/* Add new field, if one was specified */
+					debug($args);
 					if (!empty($args["tznew_name"]) && !empty($args["tznew_def"])) {
 						$vmconf["zonemessages"][$args["tznew_name"]] = $args["tznew_def"];
 					}

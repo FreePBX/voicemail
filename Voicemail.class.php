@@ -911,4 +911,25 @@ class Voicemail implements \BMO {
 		$this->boxes = $boxes;
 		return $boxes;
 	}
+	public function getActionBar($request) {
+		$buttons = array();
+		switch($request['display']) {
+			case 'voicemail':
+				$buttons = array(
+					'reset' => array(
+						'name' => 'reset',
+						'id' => 'reset',
+						'value' => _('Reset')
+					),
+					'submit' => array(
+						'name' => 'submit',
+						'id' => 'submit',
+						'value' => _('Submit')
+					)
+				);
+			break;
+		}
+		return $buttons;
+	}
+
 }

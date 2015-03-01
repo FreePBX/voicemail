@@ -5,28 +5,77 @@
 	<b><?php echo _("Please be sure to follow the format for timezone definitions described below.") ?></b>
 </div>
 <?php foreach ($settings as $key => $val) { ?>
-		
-			<?php echo $key ?>
-
-				<input size='50' type='text' name='tz__<?php echo $key ?>' id='tz__<?php echo $key ?>' tabindex='1' value="<?php echo htmlentities($val) ?>" />
-				&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type='checkbox' name='tzdel__<?php echo $key ?>' id='tzdel__<?php echo $key ?>' value='true' />
-				&nbsp;&nbsp;
-				<a href='#' class='info'><?php echo _("Delete") ?><span><?php echo $tooltips["tz"]["del"] ?></span></a>
-
+	<!--<?php echo $key?>-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="tz__<?php echo $key ?>"><?php echo $key ?></label>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="tz__<?php echo $key ?>" name="tz__<?php echo $key ?>" value="<?php echo htmlentities($val) ?>">
+							<span class="radioset">
+								<input type='checkbox' name='tzdel__<?php echo $key ?>' id='tzdel__<?php echo $key ?>' value='true' />
+								<label for="tzdel__<?php echo $key ?>"><?php echo _("Delete") ?></label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--END <?php echo $key?>-->
 	<?php } ?>
-
-			
-
-			<a href='#' class='info'>
-				<?php echo _("New Name") ?><span><?php echo $tooltips["tz"]["name"] ?></span></a>
-
-				<a href='#' class='info'><?php echo _("New Timezone Definition") ?><span><?php echo $tooltips["tz"]["def"] ?></span></a>
-
-			<input size='10' type='text' name='tznew_name' id='tznew_name' tabindex='1' value='' />
-
-			<input size='50' type='text' name='tznew_def' id='tznew_def' tabindex='1' value='' />
-			<input type='submit' name='action' id='action' value='Submit' />
+	<!--New Name-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="tznew_name"><?php echo _("New Name") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="tznew_name"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="tznew_name" name="tznew_name" value="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="tznew_name-help" class="help-block fpbx-help-block"><?php echo $tooltips["tz"]["name"] ?></span>
+			</div>
+		</div>
+	</div>
+	<!--END New Name-->
+	<!--New Timezone Definition-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="tznew_def"><?php echo _("New Timezone Definition") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="tznew_def"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="tznew_def" name="tznew_def" value="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="tznew_def-help" class="help-block fpbx-help-block"><?php echo $tooltips["tz"]["def"]?></span>
+			</div>
+		</div>
+	</div>
+	<!--END New Timezone Definition-->
+	<input type='hidden' name='action' id='action' value='Submit' />
 
 <div class="well well-info">
 	<?php echo ("Timezone definition format is: ") ?>&nbsp;&nbsp;<b style='font-family:courier;'><?php echo ("timezone|values")?></b>
