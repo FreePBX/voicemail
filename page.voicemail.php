@@ -87,14 +87,14 @@ $gen_settings = array(		"adsifdn" 			=> array("ver" => 1.2, "len" => 4, "type" =
 				"adsisec" 			=> array("ver" => 1.2, "len" => 4, "type" => "char", "default" => ""),
 				"adsiver" 			=> array("ver" => 1.2, "len" => $dlen, "type" => "num", "default" => ""),
 				"attach" 			=> array("ver" => 1.2, "len" => $dlen, "type" => "flag", "default" => "yes"),
-				"authpassword" 			=> array("ver" => 1.4, "len" => $dlen, "type" => "char", "default" => ""),
+				"authpassword" 			=> array("ver" => 1.4, "len" => $dlen, "type" => "charpass", "default" => ""),
         			"authuser" 			=> array("ver" => 1.4, "len" => $dlen, "type" => "char", "default" => ""),
 				"backupdeleted" 		=> array("ver" => 1.6, "len" => $dlen, "type" => "char", "default" => ""),
 				"callback" 			=> array("ver" => 1.2, "len" => 80, "type" => "char", "default" => ""),
 				"charset"  			=> array("ver" => 1.2, "len" => 32, "type" => "char", "default" => ""),
         			"cidinternalcontexts" 		=> array("ver" => 1.2, "len" => 640, "type" => "char", "default" => ""),
 				"dialout"  			=> array("ver" => 1.2, "len" => 80, "type" => "char", "default" => ""),
-				"emailbody" 			=> array("ver" => 1.2, "len" => $dlen, "type" => "char", "default" => ""),
+				"emailbody" 			=> array("ver" => 1.2, "len" => $dlen, "type" => "chararea", "default" => ""),
 				"emaildateformat" 		=> array("ver" => 1.2, "len" => 32, "type" => "char", "default" => ""),
 				"emailsubject"                  => array("ver" => 1.2, "len" => $dlen, "type" => "char", "default" => ""),
 				"envelope"                      => array("ver" => 1.2, "len" => $dlen, "type" => "flag", "default" => "yes"),
@@ -187,7 +187,7 @@ $acct_settings = array(		"attach"			=> array("ver" => 1.2, "len" => 0,  "type" =
 				"name"		                => array("ver" => 1.2, "len" => 80, "type" => "char"),
 	               		"operator"			=> array("ver" => 1.2, "len" => 0,  "type" => "flag"),
 	               		"pager"                         => array("ver" => 1.2, "len" => 80, "type" => "char"),
-				"pwd"                           => array("ver" => 1.2, "len" => 80, "type" => "char"),
+				"pwd"                           => array("ver" => 1.2, "len" => 80, "type" => "charpass"),
 				"review"			=> array("ver" => 1.2, "len" => 0,  "type" => "flag"),
 	               		"saycid"			=> array("ver" => 1.2, "len" => 0,  "type" => "flag"),
 	               		"sayduration"			=> array("ver" => 1.2, "len" => 0,  "type" => "flag"),
@@ -213,7 +213,7 @@ $tooltips = array("tz" 	    => array("name" 				=> _("Timezone definition name")
 				     "charset"				=> _("The character set for Voicemail messages"),
 				     "cidinternalcontexts"		=> _("Comma separated list of internal contexts to use caller ID."),
 				     "dialout"				=> _("Context to dial out from [option 4 from the advanced menu] if not listed, dialing out will not be permitted."),
-				     "emailbody"			=> _("Email body."),
+				     "emailbody"			=> _("Change the email body, variables: VM_NAME, VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_DATE"),
 				     "emaildateformat"			=> _("Load date format config for Voicemail mail."),
 				     "emailsubject"			=> _("Email subject"),
 				     "maxsilence"			=> _("How many seconds of silence before we end the recording"),
@@ -558,7 +558,20 @@ switch ($action) {
 					<!--END '.$opt_name.'-->
 					';
 				} else {
-					$text_type = ($key == "pwd" || $key == "authpassword")?"password":"text";
+					switch($descrip['type']) {
+						case "charpwd":
+							$text_type = "password";
+						break;
+						case "num":
+							$text_type = "number";
+						break;
+						case "chararea":
+							$text_type = "textarea";
+						break;
+						default:
+							$text_type = "text";
+						break;
+					}
 					$output.= '
 					<!--'.$opt_name.'-->
 					<div class="element-container">
@@ -570,9 +583,14 @@ switch ($action) {
 											<label class="control-label" for="'.$id.'">'. $opt_name .'</label>
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="'.$id.'"></i>
 										</div>
-										<div class="col-md-9">
-											<input type="'.$text_type.'" maxlength="'.$len.'" class="form-control" id="'.$id.'" name="'.$id.'" value="'.htmlentities($val).'">
-										</div>
+										<div class="col-md-9">';
+					if($text_type == "textarea") {
+						$val = str_replace(array('\r','\n','\t'),array("\r","\n","\t"),$val);
+						$output.= '<textarea class="form-control" id="'.$id.'" name="'.$id.'" rows="10">'.htmlentities($val).'</textarea>';
+					} else {
+						$output.= '<input type="'.$text_type.'" maxlength="'.$len.'" class="form-control" id="'.$id.'" name="'.$id.'" value="'.htmlentities($val).'">';
+					}
+					$output.= '</div>
 									</div>
 								</div>
 							</div>
@@ -620,7 +638,7 @@ switch ($action) {
 						</div>
 					</div>
 					<!--END '.$key.'-->
-					';				
+					';
 			}
 		}
 		$update_notice = ($update_flag === false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";

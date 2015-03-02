@@ -1142,7 +1142,6 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 					}
 				}
 					/* Add new field, if one was specified */
-					debug($args);
 					if (!empty($args["tznew_name"]) && !empty($args["tznew_def"])) {
 						$vmconf["zonemessages"][$args["tznew_name"]] = $args["tznew_def"];
 					}
@@ -1161,14 +1160,20 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 					foreach ($vmconf["general"] as $key => $val) {
 						$id = "gen__$key";
 						$vmconf["general"][$key] = isset($args[$id])?$args[$id]:$vmconf["general"][$key];
+						//The only reason to use \r is if you're writing to a character terminal
+						//(or more likely a "console window" emulating it) and want the next
+						//line you write to overwrite the last one you just wrote
+						//(sometimes used for goofy "ascii animation" effects of e.g. progress bars)
+						//-- this is getting pretty obsolete in a world of GUIs, though;-).
+						//http://stackoverflow.com/questions/1761051/difference-between-n-and-r
+						$vmconf["general"][$key] = str_replace(array("\r","\n","\t"),array('','\n','\t'),$vmconf["general"][$key]);
 						/* Bad to have empty fields in vmconf. */
 						/* also make sure no boolean undefined fields left in there */
-						if (empty($vmconf["general"][$key]) || $vmconf["general"][$key] == 'undefined' && $gen_settings[$key]['type'] == 'flag') {
+						if ((trim($vmconf["general"][$key]) == "") || $vmconf["general"][$key] == 'undefined' && $gen_settings[$key]['type'] == 'flag') {
 							unset($vmconf["general"][$key]);
 						}
 						unset($args[$id]);
 					}
-					dbug($vmconf);
 					/* Next record any new general opts that were on the page but not already in vmconf. */
 					foreach ($gen_settings as $key => $descrip) {
 						$id = "gen__$key";
