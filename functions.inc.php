@@ -182,13 +182,23 @@ function voicemail_myvoicemail($c) {
 	$ext->add($id, $c, 'mbexist', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/novmpw)}"!=""]','novmpw','vmpw'),'check',101);
 
 	$ext->add($id, $c, 'novmpw', new ext_noop('Verifying channel ${CHANNEL} is actually ${AMPUSER}'));
-	$ext->add($id, $c, '', new ext_gotoif('$["${REGEX("^${DB(DEVICE/${AMPUSER}/dial)}-[0-9a-fx]+$" ${CHANNEL})}"!="1"]','vmpws'));
-	$ext->add($id, $c, '', new ext_vmmain('${AMPUSER}@${VMCONTEXT},s')); // n,VoiceMailMain(${VMCONTEXT})
-	$ext->add($id, $c, '', new ext_goto('vmend'));
+	//$ext->add($id, $c, '', new ext_gotoif('$["${REGEX("^${DB(DEVICE/${AMPUSER}/dial)}-[0-9a-f]+$" ${CHANNEL})}"!="1"]','vmpws'));
+	//$ext->add($id, $c, '', new ext_vmmain('${AMPUSER}@${VMCONTEXT},s')); // n,VoiceMailMain(${VMCONTEXT})
+	//$ext->add($id, $c, '', new ext_goto('vmend'));
 
-	$ext->add($id, $c, 'vmpws', new ext_noop('Channel ${CHANNEL} is NOT ${AMPUSER} forcing VM Password'));
+	//$ext->add($id, $c, 'vmpws', new ext_noop('Channel ${CHANNEL} is NOT ${AMPUSER} forcing VM Password'));
+	$ext->add($id, $c, '', new ext_setvar('DEVICES', '${DB(AMPUSER/${AMPUSER}/device)}'));
+	$ext->add($id, $c, '', new ext_execif('$["${DEVICES}" = ""]', 'Set', 'DEVICES=${AMPUSER}'));
+	$ext->add($id, $c, '', new ext_execif('$["${DEVICES:0:1}" = "&"]', 'Set', 'DEVICES=${DEVICES:1}'));
+	$ext->add($id, $c, '', new ext_while('$["${SET(DEV=${SHIFT(DEVICES,&)})}" != ""]'));
+	$ext->add($id, $c, '', new ext_gotoif('$["${DB(DEVICE/${DEV}/dial)}" = "${CUT(CHANNEL,-,1)}"]','vmpwskip'));
+	$ext->add($id, $c, '', new ext_endwhile(''));
+
+	$ext->add($id, $c, '', new ext_noop('Channel ${CHANNEL} is NOT ${AMPUSER} forcing VM Password'));
 	$ext->add($id, $c, 'vmpw', new ext_vmmain('${AMPUSER}@${VMCONTEXT}'));
 	$ext->add($id, $c, '', new ext_goto('vmend'));
+
+	$ext->add($id, $c, 'vmpwskip', new ext_vmmain('${AMPUSER}@${VMCONTEXT},s')); // n,VoiceMailMain(${VMCONTEXT})
 
 	$ext->add($id, $c, 'vmend', new ext_gotoif('$["${IVR_RETVM}" = "RETURN" & "${IVR_CONTEXT}" != ""]','playret'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
