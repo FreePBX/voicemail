@@ -1168,6 +1168,7 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 						}
 						unset($args[$id]);
 					}
+					dbug($vmconf);
 					/* Next record any new general opts that were on the page but not already in vmconf. */
 					foreach ($gen_settings as $key => $descrip) {
 						$id = "gen__$key";

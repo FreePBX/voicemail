@@ -247,11 +247,26 @@ $set['type'] = CONF_TYPE_INT;
 $freepbx_conf->define_conf_setting('UCP_MESSAGE_LIMIT',$set,true);
 
 /*
-   update modules.conf to make sure it preloads res_mwi_blf.so if they have it
-   This makes sure that the modules.conf has been updated for older systems
-   which assures that mwi blf events are captured when Asterisk first starts
+  update modules.conf to make sure it preloads res_mwi_blf.so if they have it
+  This makes sure that the modules.conf has been updated for older systems
+  which assures that mwi blf events are captured when Asterisk first starts
 */
 $amd = FreePBX::create()->Config->get_conf_setting('ASTMODDIR');
 if(file_exists($amd.'/res_mwi_blf.so')) {
 	FreePBX::create()->ModulesConf->preload('res_mwi_blf.so');
+}
+
+/** FREEPBX-8130 Migrate email body into GUI **/
+$aed = FreePBX::create()->Config->get_conf_setting('ASTETCDIR');
+if(file_exists($aed.'/vm_email.inc')) {
+  $contents = parse_ini_file($aed.'/vm_email.inc');
+  $final = array();
+  foreach($contents as $key => $val) {
+    $final["gen__".$key] = $val;
+  }
+  $contents = file_get_contents($aed.'/voicemail.conf');
+  $contents = preg_replace("/#include vm_email.inc(.*)/m","emailbody=value",$contents);
+  file_put_contents($aed.'/voicemail.conf',$contents);
+  voicemail_update_settings("settings", "", "", $final);
+  unlink($aed.'/vm_email.inc');
 }

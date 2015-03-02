@@ -2,14 +2,15 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.2</version>
+	<version>13.0.3</version>
 	<publisher>FreePBX</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
-		*12.0.2* FREEPBX-8555 Support passwordless voicemail retrieval in device/user mode
+		*13.0.3* FREEPBX-8130 Move emailbody back into voicemail.conf so that it shows up in Voicemail Admin
+		*13.0.2* FREEPBX-8555 Support passwordless voicemail retrieval in device/user mode
 		*13.0.1* Layout changes
 		*12.0.20* pagination fixes
 		*12.0.19* FREEPBX-8211 Improvements to UCP Voicemail/CDR Playback
