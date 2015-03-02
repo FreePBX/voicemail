@@ -1401,6 +1401,9 @@ function voicemail_get_settings($vmconf, $action, $extension="") {
 
 				/* Get Call Me number */
 				global $astman;
+				if(!$astman){
+					die_freepbx(_("Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"));
+				}
 				$cmd 		= "database get AMPUSER $extension/callmenum";
 				$callmenum 	= "";
 				$results 	= $astman->send_request("Command", array("Command" => $cmd));
