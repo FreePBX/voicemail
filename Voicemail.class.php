@@ -96,6 +96,17 @@ class Voicemail implements \BMO {
 
 	}
 
+	public function getQuickCreateDisplay() {
+		return array(
+			1 => array(
+				array(
+					'html' => load_view(__DIR__.'/views/quickCreate.php',array()),
+					'validate' => 'if($("#vm_on").is(":checked") && !isInteger($("#vmpwd").val())) {alert("'._("Voicemail Password must contain only digits").'");jumpPage(2,$("#quickCreate"));return false}'
+				)
+			)
+		);
+	}
+
 	public function processUCPAdminDisplay($user) {
 		if(!empty($_POST['ucp|voicemail'])) {
 			$this->FreePBX->Ucp->setSetting($user['username'],'Voicemail','assigned',$_POST['ucp|voicemail']);

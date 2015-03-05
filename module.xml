@@ -64,6 +64,11 @@
 	<supported>
 		<version>13.0</version>
 	</supported>
+	<hooks>
+			<core namespace="FreePBX\modules" class="Core">
+					<method namespace="FreePBX\modules" class="Voicemail" callingMethod="getQuickCreateDisplay">getQuickCreateDisplay</method>
+			</core>
+	</hooks>
 	<location>release/2.11/voicemail-2.11.1.0.tgz</location>
 	<md5sum>442f0ba3a17bedc96f4cb75c53ccf99b</md5sum>
 </module>
