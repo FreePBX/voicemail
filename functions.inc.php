@@ -420,7 +420,7 @@ function voicemail_configpageload() {
 			$alloptions = array_keys($vmoptions);
 			if (isset($alloptions)) {
 				foreach ($alloptions as $option) {
-					if ( ($option!="attach") && ($option!="envelope") && ($option!="passlogin") && ($option!="saycid") && ($option!="delete") && ($option!="imapuser") && ($option!="imappassword") && ($option!='') )
+					if ( ($option!="attach") && ($option!="envelope") && ($option!="passlogin") && ($option!="novmstar") && ($option!="saycid") && ($option!="delete") && ($option!="imapuser") && ($option!="imappassword") && ($option!='') )
 					    $options .= $option.'='.$vmoptions[$option].'|';
 				}
 				$options = rtrim($options,'|');
@@ -430,6 +430,7 @@ function voicemail_configpageload() {
 			}
 			extract($vmoptions, EXTR_PREFIX_ALL, "vmops");
 		} else {
+			$vmops_novmstar = 'no';
 			$vmops_passlogin = 'yes';
 			$vmops_attach = 'no';
 			$vmops_saycid = 'no';
@@ -517,6 +518,19 @@ function voicemail_configpageload() {
 			"prompttext" => sprintf(_('Require From Same %s'),$extword),
 			"helptext" => sprintf(_("If set to \"no\" then when the user dials %s to access their own voicemail, they will not be asked to enter a password. This does not apply to %s calls, which will always prompt for a password. For security reasons, this should probably be set to \"yes\" in an environment where other users will have physical access to this extension."),$mvm->getCode(),$dvm->getCode()),
 			"currentvalue" => $passlogin,
+			"valarray" => $currentcomponent->getoptlist('vmyn'),
+			"disable" => $disable,
+			"class" => $class
+		);
+		$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)),$category);
+
+		$novmstar = !empty($extdisplay) ? $astman->database_get("AMPUSER", $extdisplay."/novmstar") : 'yes';
+		$novmstar = !empty($novmstar) ? 'yes' : 'no';
+		$el = array(
+			"elemname" => "novmstar",
+			"prompttext" => _("Disable (*) in Voicemail Menu"),
+			"helptext" => sprintf(_("If set to \"yes\" then when someone dials this voicemail box they will not be able to access the voicemail menu by pressing (*). If you have no plans to access your mailbox remotely set this to \"yes\""),$mvm->getCode(),$dvm->getCode()),
+			"currentvalue" => $novmstar,
 			"valarray" => $currentcomponent->getoptlist('vmyn'),
 			"disable" => $disable,
 			"class" => $class

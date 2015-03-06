@@ -333,7 +333,12 @@ class Voicemail implements \BMO {
 			}
 			if(isset($settings['passlogin'])) {
 				$vmoption = explode("=",$settings['passlogin']);
-				$passlogin = $vmoption[1];
+				$settings['passlogin'] = $vmoption[1];
+			}
+
+			if(isset($settings['novmstar'])) {
+				$vmoption = explode("=",$settings['novmstar']);
+				$settings['novmstar'] = $vmoption[1];
 			}
 
 			if(isset($settings['attach'])) {
@@ -373,6 +378,13 @@ class Voicemail implements \BMO {
 			$this->astman->database_put("AMPUSER", $mailbox."/novmpw", 'yes');
 		} else {
 			$this->astman->database_del("AMPUSER", $mailbox."/novmpw");
+		}
+
+		if(isset($settings['novmstar']) && $settings['novmstar'] == 'yes') {
+			//The value doesnt matter, could be yes no f bark
+			$this->astman->database_put("AMPUSER", $mailbox."/novmstar", 'yes');
+		} else {
+			$this->astman->database_del("AMPUSER", $mailbox."/novmstar");
 		}
 
 		// Operator extension can be set even without VmX enabled so that it can be
