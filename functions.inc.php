@@ -541,7 +541,7 @@ function voicemail_configpageload() {
 			"prompttext" => _('Pager Email Address'),
 			"helptext" => _("Pager/mobile email address that short Voicemail notifications are sent to."),
 			"currentvalue" => $pager,
-			"jsvalidation" => "frm_${display}_isVoiceMailEnabled() && !isEmail()",
+			"jsvalidation" => "frm_${display}_isVoiceMailEnabled() && !isEmpty() && !isEmail()",
 			"failvalidationmsg" => $msgInvalidEmail,
 			"canbeempty" => false,
 			"class" => $class,
@@ -770,7 +770,7 @@ function voicemail_draw_vmxgui($extdisplay, $vmdisable) {
 		"currentvalue" => $vmxsettings['option'][0]['value'],
 		"disable" => $vmxsettings['option'][0]['disabled'],
 		"class" => '',
-		"disabled_value" => $vmx_option_0_number,
+		"disabled_value" => $vmxsettings['option'][0]['value'],
 		"cblabel" => _("Go To Operator"),
 		"cbelemname" => "vmx_option_0_system_default",
 		"check_enables" => 'false',
@@ -798,7 +798,7 @@ function voicemail_draw_vmxgui($extdisplay, $vmdisable) {
 			"currentvalue" => $vmxsettings['option'][1]['value'],
 			"disable" => $vmxsettings['option'][1]['disabled'],
 			"class" => '',
-			"disabled_value" => $vmx_option_1_number,
+			"disabled_value" => $vmxsettings['option'][0]['value'],
 			"cblabel" => _("Send to Follow-Me"),
 			"cbelemname" => "vmx_option_1_system_default",
 			"check_enables" => 'false',
@@ -858,216 +858,27 @@ function voicemail_configprocess() {
 }
 
 function voicemail_mailbox_get($mbox) {
-	$uservm = voicemail_getVoicemail();
-	$vmcontexts = array_keys($uservm);
-
-	foreach ($vmcontexts as $vmcontext) {
-		if(isset($uservm[$vmcontext][$mbox])){
-			$vmbox['vmcontext'] = $vmcontext;
-			$vmbox['pwd'] = $uservm[$vmcontext][$mbox]['pwd'];
-			$vmbox['name'] = $uservm[$vmcontext][$mbox]['name'];
-			$vmbox['email'] = str_replace('|',',',$uservm[$vmcontext][$mbox]['email']);
-			$vmbox['pager'] = $uservm[$vmcontext][$mbox]['pager'];
-			$vmbox['options'] = $uservm[$vmcontext][$mbox]['options'];
-			return $vmbox;
-		}
-	}
-
-	return null;
+	return FreePBX::Voicemail()->getMailbox($mbox);
 }
 
 function voicemail_mailbox_remove($mbox) {
-	global $amp_conf;
-	$uservm = voicemail_getVoicemail();
-	$vmcontexts = array_keys($uservm);
-
-	$return = true;
-
-	foreach ($vmcontexts as $vmcontext) {
-		if(isset($uservm[$vmcontext][$mbox])){
-
-			$vm_dir = $amp_conf['ASTSPOOLDIR']."/voicemail/$vmcontext/$mbox";
-			exec("rm -rf $vm_dir",$output,$ret);
-			if ($ret) {
-				$return = false;
-				$text   = sprintf(_("Failed to delete vmbox: %s@%s"),$mbox, $vmcontext);
-				$etext  = sprintf(_("failed with retcode %s while removing %s:"),$ret, $vm_dir)."<br>";
-				$etext .= implode("<br>",$output);
-				$nt =& notifications::create($db);
-				$nt->add_error('voicemail', 'MBOXREMOVE', $text, $etext, '', true, true);
-				//
-				// TODO: this does not work but we should give some sort of feedback that id did not work
-				//
-				// echo "<script>javascript:alert('$text\n"._("See notification panel for details")."')</script>";
-			}
-		}
-	}
-	return $return;
+	return FreePBX::Voicemail()->removeMailbox($mbox);
 }
 
 function voicemail_mailbox_del($mbox) {
-	$uservm = voicemail_getVoicemail();
-	$vmcontexts = array_keys($uservm);
-
-	foreach ($vmcontexts as $vmcontext) {
-		if(isset($uservm[$vmcontext][$mbox])){
-			unset($uservm[$vmcontext][$mbox]);
-			voicemail_saveVoicemail($uservm);
-			return true;
-		}
-	}
-
-	return false;
+	return FreePBX::Voicemail()->delMailbox($mbox);
 }
 
 function voicemail_mailbox_add($mbox, $mboxoptsarray) {
-	global $astman;
-	//check if VM box already exists
-	if ( voicemail_mailbox_get($mbox) != null ) {
-		trigger_error("Voicemail mailbox '$mbox' already exists, call to voicemail_mailbox_add failed");
-		die_freepbx();
-	}
-
-	$uservm = voicemail_getVoicemail();
-	extract($mboxoptsarray);
-	$delete = str_replace("vmdelete","delete",$vmdelete);
-	unset($vmdelete);
-	if ($vm != 'disabled')
-	{
-		// need to check if there are any options entered in the text field
-		if ($options!=''){
-			$options = explode("|",$options);
-			foreach($options as $option) {
-				$vmoption = explode("=",$option);
-				$vmoptions[$vmoption[0]] = $vmoption[1];
-			}
-		}
-		if ($imapuser!='' && $imapuser!='') {
-			$vmoptions['imapuser'] = $imapuser;
-			$vmoptions['imappassword'] = $imappassword;
-		}
-		$vmoption = explode("=",$passlogin);
-			$passlogin = $vmoption[1];
-		$vmoption = explode("=",$attach);
-			$vmoptions[$vmoption[0]] = $vmoption[1];
-		$vmoption = explode("=",$saycid);
-			$vmoptions[$vmoption[0]] = $vmoption[1];
-		$vmoption = explode("=",$envelope);
-			$vmoptions[$vmoption[0]] = $vmoption[1];
-		$vmoption = explode("=",$delete);
-			$vmoptions[$vmoption[0]] = $vmoption[1];
-
-		$uservm[$vmcontext][$extension] = array(
-			'mailbox' => $extension,
-			'pwd' => $vmpwd,
-			'name' => $name,
-			'email' => str_replace(',','|',$email),
-			'pager' => $pager,
-			'options' => $vmoptions
-			);
-	}
-	voicemail_saveVoicemail($uservm);
-
-	if($passlogin == 'no') {
-		//The value doesnt matter, could be yes no f bark
-		$astman->database_put("AMPUSER", $extension."/novmpw", 'yes');
-	} else {
-		$astman->database_del("AMPUSER", $extension."/novmpw");
-	}
-
-	$vmxobj = new vmxObject($extension);
-
-	// Operator extension can be set even without VmX enabled so that it can be
-	// used as an alternate way to provide an operator extension for a user
-	// without VmX enabled.
-	//
-	if (isset($vmx_option_0_system_default) && $vmx_option_0_system_default != '') {
-		$vmxobj->setMenuOpt("",0,'unavail');
-		$vmxobj->setMenuOpt("",0,'busy');
-		$vmxobj->setMenuOpt("",0,'temp');
-	} else {
-    if (!isset($vmx_option_0_number)) {
-		  $vmx_option_0_number = '';
-    }
-		$vmx_option_0_number = preg_replace("/[^0-9]/" ,"", $vmx_option_0_number);
-		$vmxobj->setMenuOpt($vmx_option_0_number,0,'unavail');
-		$vmxobj->setMenuOpt($vmx_option_0_number,0,'busy');
-		$vmxobj->setMenuOpt($vmx_option_0_number,0,'temp');
-	}
-
-	if (isset($vmx_state) && $vmx_state != 'disabled') {
-
-		if (isset($vmx_unavail_enabled) && $vmx_unavail_enabled != '') {
-			$vmxobj->setState('enabled','unavail');
-		} else {
-			$vmxobj->setState('disabled','unavail');
-		}
-
-		if (isset($vmx_busy_enabled) && $vmx_busy_enabled != '') {
-			$vmxobj->setState('enabled','busy');
-		} else {
-			$vmxobj->setState('disabled','busy');
-		}
-
-		if (isset($vmx_temp_enabled) && $vmx_temp_enabled != '') {
-			$vmxobj->setState('enabled','temp');
-		} else {
-			$vmxobj->setState('disabled','temp');
-		}
-
-		if (isset($vmx_play_instructions) && $vmx_play_instructions== 'yes') {
-			$vmxobj->setVmPlay(true,'unavail');
-			$vmxobj->setVmPlay(true,'busy');
-			$vmxobj->setVmPlay(true,'temp');
-		} else {
-			$vmxobj->setVmPlay(false,'unavail');
-			$vmxobj->setVmPlay(false,'busy');
-			$vmxobj->setVmPlay(false,'temp');
-		}
-
-
-		if (isset($vmx_option_1_system_default) && $vmx_option_1_system_default != '') {
-			$vmxobj->setFollowMe(1,'unavail');
-			$vmxobj->setFollowMe(1,'busy');
-			$vmxobj->setFollowMe(1,'temp');
-		} else {
-			$vmx_option_1_number = preg_replace("/[^0-9]/" ,"", $vmx_option_1_number);
-			$vmxobj->setMenuOpt($vmx_option_1_number,1,'unavail');
-			$vmxobj->setMenuOpt($vmx_option_1_number,1,'busy');
-			$vmxobj->setMenuOpt($vmx_option_1_number,1,'temp');
-		}
-		if (isset($vmx_option_2_number)) {
-			$vmx_option_2_number = preg_replace("/[^0-9]/" ,"", $vmx_option_2_number);
-			$vmxobj->setMenuOpt($vmx_option_2_number,2,'unavail');
-			$vmxobj->setMenuOpt($vmx_option_2_number,2,'busy');
-			$vmxobj->setMenuOpt($vmx_option_2_number,2,'temp');
-		}
-	} else {
-		if ($vmxobj->isInitialized()) {
-			$vmxobj->disable();
-		}
-	}
+	return FreePBX::Voicemail()->addMailbox($mbox, $mboxoptsarray);
 }
 
 function voicemail_saveVoicemail($vmconf) {
-	global $amp_conf;
-
-	// just in case someone tries to be sneaky and not call getVoicemail() first..
-	if ($vmconf == null) die_freepbx('Error: Trying to write null Voicemail file! I refuse to continue!');
-
-	// yes, this is hardcoded.. is this a bad thing?
-	write_voicemailconf(rtrim($amp_conf["ASTETCDIR"],"/")."/voicemail.conf", $vmconf, $section);
+	return FreePBX::Voicemail()->saveVoicemail($vmconf);
 }
 
 function voicemail_getVoicemail() {
-	global $amp_conf;
-
-	$vmconf = null;
-	$section = null;
-	// yes, this is hardcoded.. is this a bad thing?
-	parse_voicemailconf(rtrim($amp_conf["ASTETCDIR"],"/")."/voicemail.conf", $vmconf, $section);
-
-	return $vmconf;
+	return FreePBX::Voicemail()->getVoicemail();
 }
 
 //----------------------------------------------------------------------------------------------------------

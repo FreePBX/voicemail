@@ -67,6 +67,7 @@
 	<hooks>
 			<core namespace="FreePBX\modules" class="Core">
 					<method namespace="FreePBX\modules" class="Voicemail" callingMethod="getQuickCreateDisplay">getQuickCreateDisplay</method>
+					<method namespace="FreePBX\modules" class="Voicemail" callingMethod="processQuickCreate">processQuickCreate</method>
 			</core>
 	</hooks>
 	<location>release/2.11/voicemail-2.11.1.0.tgz</location>

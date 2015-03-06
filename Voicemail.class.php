@@ -107,6 +107,347 @@ class Voicemail implements \BMO {
 		);
 	}
 
+	/**
+	 * Quick Create hook
+	 * @param string $tech      The device tech
+	 * @param int $extension The extension number
+	 * @param array $data      The associated data
+	 */
+	public function processQuickCreate($tech, $extension, $data) {
+		if($data['vm'] == "yes" && trim($data['vmpwd'] !== "")) {
+			$this->addMailbox($extension, array(
+				"vm" => "enabled",
+				"name" => $data['name'],
+				"vmpwd" => $data['vmpwd'],
+				"email" => $data['email'],
+				"pager" => $data['email'],
+				"passlogin" => "passlogin=no",
+				"attach" => "attach=no",
+				"envelope" => "envelope=no",
+				"vmdelete" => "vmdelete=no",
+				"playcid" => "playcid=no"
+			));
+			$sql = "UPDATE users SET voicemail = 'default' WHERE extension = ?";
+			$sth = $this->db->prepare($sql);
+			$sth->execute(array($extension));
+			$this->astman->database_put("AMPUSER",$extension."/voicemail",'"default"');
+			$this->setupMailboxSymlinks($extension);
+		}
+	}
+
+	/**
+	 * Setup system symlinks for mailboxes
+	 * @param int $mailbox The mailbox number
+	 */
+	public function setupMailboxSymlinks($mailbox) {
+		if(!is_numeric($mailbox)) {
+			throw new \Exception(_("Mailbox is not in the proper format"));
+		}
+		$user = $this->FreePBX->Core->getUser($mailbox);
+		if(isset($user['voicemail']) && ($user['voicemail'] != "novm")) {
+			$vmcontext = !empty($user['voicemail']) ? $user['voicemail'] : "default";
+
+			//voicemail symlink
+			$spooldir = $this->FreePBX->Config->get('ASTSPOOLDIR');
+			exec("rm -f ".$spooldir."/voicemail/device/".$mailbox);
+			symlink($spooldir."/voicemail/".$vmcontext."/".$mailbox, $spooldir."/voicemail/device/".$mailbox);
+		}
+	}
+
+	/**
+	 * Parse the voicemail.conf file the way we need it to be
+	 * @return array The array of the voicemail.conf file
+	 */
+	public function getVoicemail() {
+		$vm = $this->FreePBX->LoadConfig->getConfig("voicemail.conf");
+
+		//Parse mailbox data into something useful
+		foreach($vm as $name => &$context) {
+			if($name == "general" || $name == "zonemessages") {
+				continue;
+			}
+			foreach($context as $mailbox => &$data) {
+				$options = explode(",",$data);
+				$fopts = array();
+				if(!empty($options[4])) {
+					foreach(explode("|",$options[4]) as $odata) {
+						$t = explode("=",$odata);
+						$fopts[$t[0]] = $t[1];
+					}
+				}
+				$data = array(
+					'mailbox' => $mailbox,
+					'pwd' => $options[0],
+					'name' => $options[1],
+					'email' => $options[2],
+					'pager' => $options[3],
+					'options' => $fopts
+				);
+			}
+		}
+		return $vm;
+	}
+
+	/**
+	 * Get the mailbox options from voicemail.conf parsing
+	 * @param int $mailbox The mailbox number
+	 */
+	public function getMailbox($mailbox) {
+		$uservm = $this->getVoicemail();
+		$vmcontexts = array_keys($uservm);
+
+		foreach ($vmcontexts as $vmcontext) {
+			if($vmcontext == "general" || $vmcontext == "zonemessages") {
+				continue;
+			}
+			if(isset($uservm[$vmcontext][$mailbox])){
+				$vmbox['vmcontext'] = $vmcontext;
+				$vmbox['pwd'] = $uservm[$vmcontext][$mailbox]['pwd'];
+				$vmbox['name'] = $uservm[$vmcontext][$mailbox]['name'];
+				$vmbox['email'] = str_replace('|',',',$uservm[$vmcontext][$mailbox]['email']);
+				$vmbox['pager'] = $uservm[$vmcontext][$mailbox]['pager'];
+				$vmbox['options'] = $uservm[$vmcontext][$mailbox]['options'];
+				return $vmbox;
+			}
+		}
+
+		return null;
+	}
+
+	/**
+	 * Remove the mailbox from the system (hard drive)
+	 * @param int $mailbox The mailbox number
+	 */
+	public function removeMailbox($mailbox) {
+		$uservm = $this->getVoicemail();
+		$vmcontexts = array_keys($uservm);
+
+		$return = true;
+
+		foreach ($vmcontexts as $vmcontext) {
+			if(isset($uservm[$vmcontext][$mailbox])){
+				$vm_dir = $this->FreePBX->Config->get('ASTSPOOLDIR')."/voicemail/$vmcontext/$mailbox";
+				exec("rm -rf $vm_dir",$output,$ret);
+				if ($ret) {
+					$return = false;
+					$text   = sprintf(_("Failed to delete vmbox: %s@%s"),$mailbox, $vmcontext);
+					$etext  = sprintf(_("failed with retcode %s while removing %s:"),$ret, $vm_dir)."<br>";
+					$etext .= implode("<br>",$output);
+					$nt =& \notifications::create($db);
+					$nt->add_error('voicemail', 'MBOXREMOVE', $text, $etext, '', true, true);
+				}
+			}
+		}
+		return $return;
+	}
+
+	/**
+	 * Delete mailbox from voicemail.conf
+	 * @param int $mailbox The mailbox number
+	 */
+	public function delMailbox($mailbox) {
+		$uservm = $this->getVoicemail();
+		$vmcontexts = array_keys($uservm);
+
+		foreach ($vmcontexts as $vmcontext) {
+			if(isset($uservm[$vmcontext][$mailbox])){
+				unset($uservm[$vmcontext][$mailbox]);
+				$this->saveVoicemail($uservm);
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Save Voicemail.conf file
+	 * @param array $vmconf Array of settings which are returned from LoadConfig
+	 */
+	public function saveVoicemail($vmconf) {
+		// just in case someone tries to be sneaky and not call getVoicemail() first..
+		if ($vmconf == null) {
+			throw new \Exception(_("Null value was sent to saveVoicemail() can not continue"));
+		}
+
+		foreach($vmconf as $name => &$context) {
+			if($name == "general" || $name == "zonemessages") {
+				continue;
+			}
+			$cdata = array();
+			foreach($context as $mailbox => $data) {
+				$opts = array();
+				if(!empty($data['options'])) {
+					foreach($data['options'] as $key => $value) {
+						$opts[] = $key."=".$value;
+					}
+				}
+				$data['options'] = implode("|",$opts);
+				unset($data['mailbox']);
+				$cdata[] = $mailbox ." => ". implode(",",$data);
+			}
+			$context = $cdata;
+		}
+
+		$vmconf['general'][0] = "#include #vm_general.inc";
+		$this->FreePBX->WriteConfig->writeConfig("voicemail.conf", $vmconf, false);
+	}
+
+	/**
+	 * Add a Mailbox and all of it's settings
+	 * @param int $mailbox  The mailbox number
+	 * @param array $settings The settings for said mailbox
+	 */
+	public function addMailbox($mailbox, $settings) {
+		global $astman;
+		if(trim($mailbox) == "") {
+			throw new \Exception(_("Mailbox can not be empty"));
+		}
+		//check if VM box already exists
+		$uservm = $this->getMailbox($mailbox);
+		if ($uservm != null) {
+			throw new \Exception(sprintf(_("Voicemail mailbox %s already exists, call to Voicemail::getMailbox() failed"),$mailboxbox));
+		}
+		$vmconf = $this->getVoicemail();
+
+		$settings['vmcontext'] = isset($settings['vmcontext']) ? $settings['vmcontext'] : 'default';
+		$settings['pwd'] = isset($settings['pwd']) ? $settings['pwd'] : '';
+		$settings['name'] = isset($settings['name']) ? $settings['name'] : '';
+		$settings['email'] = isset($settings['email']) ? $settings['email'] : '';
+		$settings['pager'] = isset($settings['pager']) ? $settings['pager'] : '';
+
+
+		if (isset($settings['vm']) && $settings['vm'] != 'disabled') {
+			$vmoptions = array();
+			// need to check if there are any options entered in the text field
+			if (!empty($settings['options'])) {
+				$options = explode("|",$options);
+				foreach($options as $option) {
+					$vmoption = explode("=", $option);
+					$vmoptions[$vmoption[0]] = $vmoption[1];
+				}
+			}
+			if (isset($settings['imapuser']) && trim($settings['imapuser']) != '' && isset($settings['imapuser']) && trim($settings['imapuser']) != '') {
+				$vmoptions['imapuser'] = $settings['imapuser'];
+				$vmoptions['imappassword'] = $settings['imappassword'];
+			}
+			if(isset($settings['passlogin'])) {
+				$vmoption = explode("=",$settings['passlogin']);
+				$passlogin = $vmoption[1];
+			}
+
+			if(isset($settings['attach'])) {
+				$vmoption = explode("=",$settings['attach']);
+				$vmoptions['attach'] = $vmoption[1];
+			}
+
+			if(isset($settings['saycid'])) {
+				$vmoption = explode("=",$settings['saycid']);
+				$vmoptions['saycid'] = $vmoption[1];
+			}
+
+			if(isset($settings['envelope'])) {
+				$vmoption = explode("=",$settings['envelope']);
+				$vmoptions['envelope'] = $vmoption[1];
+			}
+
+			if(isset($settings['vmdelete'])) {
+				$vmoption = explode("=",$settings['vmdelete']);
+				$vmoptions['delete'] = $vmoption[1];
+			}
+
+			$vmconf[$settings['vmcontext']][$mailbox] = array(
+				'mailbox' => $mailbox,
+				'pwd' => $settings['vmpwd'],
+				'name' => $settings['name'],
+				'email' => str_replace(',','|',$settings['email']),
+				'pager' => $settings['pager'],
+				'options' => $vmoptions
+				);
+		}
+
+		$this->saveVoicemail($vmconf);
+
+		if(isset($settings['passlogin']) && $settings['passlogin'] == 'no') {
+			//The value doesnt matter, could be yes no f bark
+			$this->astman->database_put("AMPUSER", $mailbox."/novmpw", 'yes');
+		} else {
+			$this->astman->database_del("AMPUSER", $mailbox."/novmpw");
+		}
+
+		// Operator extension can be set even without VmX enabled so that it can be
+		// used as an alternate way to provide an operator extension for a user
+		// without VmX enabled.
+		//
+		if (isset($settings['vmx_option_0_system_default']) && $settings['vmx_option_0_system_default'] != '') {
+			$this->Vmx->setMenuOpt($mailbox,"",0,'unavail');
+			$this->Vmx->setMenuOpt($mailbox,"",0,'busy');
+			$this->Vmx->setMenuOpt($mailbox,"",0,'temp');
+		} else {
+			if (!isset($settings['vmx_option_0_number'])) {
+				$settings['vmx_option_0_number'] = '';
+			}
+			$settings['vmx_option_0_number'] = preg_replace("/[^0-9]/" ,"", $settings['vmx_option_0_number']);
+			$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_0_number'],0,'unavail');
+			$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_0_number'],0,'busy');
+			$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_0_number'],0,'temp');
+		}
+
+		if (isset($settings['vmx_state']) && $settings['vmx_state'] != 'disabled') {
+
+			if (isset($settings['vmx_unavail_enabled']) && $settings['vmx_unavail_enabled'] != '') {
+				$this->Vmx->setState($mailbox,'enabled','unavail');
+			} else {
+				$this->Vmx->setState($mailbox,'disabled','unavail');
+			}
+
+			if (isset($settings['vmx_busy_enabled']) && $settings['vmx_busy_enabled'] != '') {
+				$this->Vmx->setState($mailbox,'enabled','busy');
+			} else {
+				$this->Vmx->setState($mailbox,'disabled','busy');
+			}
+
+			if (isset($settings['vmx_temp_enabled']) && $settings['vmx_temp_enabled'] != '') {
+				$this->Vmx->setState($mailbox,'enabled','temp');
+			} else {
+				$this->Vmx->setState($mailbox,'disabled','temp');
+			}
+
+			if (isset($settings['vmx_play_instructions']) && $settings['vmx_play_instructions'] == 'yes') {
+				$this->Vmx->setVmPlay($mailbox,true,'unavail');
+				$this->Vmx->setVmPlay($mailbox,true,'busy');
+				$this->Vmx->setVmPlay($mailbox,true,'temp');
+			} else {
+				$this->Vmx->setVmPlay($mailbox,false,'unavail');
+				$this->Vmx->setVmPlay($mailbox,false,'busy');
+				$this->Vmx->setVmPlay($mailbox,false,'temp');
+			}
+
+			if (isset($settings['vmx_option_1_system_default']) && $settings['vmx_option_1_system_default'] != '') {
+				$this->Vmx->setFollowMe($mailbox,1,'unavail');
+				$this->Vmx->setFollowMe($mailbox,1,'busy');
+				$this->Vmx->setFollowMe($mailbox,1,'temp');
+			} else {
+				$settings['vmx_option_1_number'] = preg_replace("/[^0-9]/" ,"", $settings['vmx_option_1_number']);
+				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_1_number'],1,'unavail');
+				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_1_number'],1,'busy');
+				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_1_number'],1,'temp');
+			}
+			if (isset($settings['vmx_option_2_number'])) {
+				$settings['vmx_option_2_number'] = preg_replace("/[^0-9]/" ,"", $settings['vmx_option_2_number']);
+				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_2_number'],2,'unavail');
+				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_2_number'],2,'busy');
+				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_2_number'],2,'temp');
+			}
+		} else {
+			if ($this->Vmx->isInitialized($mailbox)) {
+				$this->Vmx->disable($mailbox);
+			}
+		}
+
+		return true;
+	}
+
 	public function processUCPAdminDisplay($user) {
 		if(!empty($_POST['ucp|voicemail'])) {
 			$this->FreePBX->Ucp->setSetting($user['username'],'Voicemail','assigned',$_POST['ucp|voicemail']);
@@ -115,6 +456,9 @@ class Voicemail implements \BMO {
 		}
 	}
 
+	/**
+	 * Get a list of users
+	 */
 	public function getUsersList() {
 		return $this->FreePBX->Core->listUsers(true);
 	}
@@ -255,11 +599,7 @@ class Voicemail implements \BMO {
 	 */
 	public function getVoicemailBoxByExtension($ext) {
 		if(empty($this->vmBoxData[$ext])) {
-			//TODO: Lazy...
-			if(!function_exists('voicemail_mailbox_get')) {
-				include_once(__DIR__.'/functions.inc.php');
-			}
-			$this->vmBoxData[$ext] = voicemail_mailbox_get($ext);
+			$this->vmBoxData[$ext] = $this->getMailbox($ext);
 		}
 		return !empty($this->vmBoxData[$ext]) ? $this->vmBoxData[$ext] : false;
 	}
@@ -302,14 +642,14 @@ class Voicemail implements \BMO {
 	public function saveVMSettingsByExtension($ext,$pwd,$email,$page,$playcid,$envelope) {
 		$o = $this->getVoicemailBoxByExtension($ext);
 		$context = $o['vmcontext'];
-		$vmconf = voicemail_getVoicemail();
+		$vmconf = $this->getVoicemail();
 		if(!empty($vmconf[$context][$ext])) {
 			$vmconf[$context][$ext]['pwd'] = $pwd;
 			$vmconf[$context][$ext]['email'] = $email;
 			$vmconf[$context][$ext]['pager'] = $page;
 			$vmconf[$context][$ext]['options']['saycid'] = ($playcid) ? 'yes' : 'no';
 			$vmconf[$context][$ext]['options']['envelope'] = ($envelope) ? 'yes' : 'no';
-			voicemail_saveVoicemail($vmconf);
+			$this->saveVoicemail($vmconf);
 			return true;
 		}
 		return false;
