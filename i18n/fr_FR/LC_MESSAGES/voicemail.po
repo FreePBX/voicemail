@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-09 14:53-0400\n"
+"POT-Creation-Date: 2015-03-10 21:23-0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jouniaux <c.jouniauxdiv@laposte.net>\n"
 "Language-Team: \n"
@@ -127,7 +127,7 @@ msgstr ""
 msgid "Activated"
 msgstr ""
 
-#: functions.inc.php:917
+#: functions.inc.php:916
 msgid "Advanced Settings For: "
 msgstr ""
 
@@ -157,7 +157,7 @@ msgstr ""
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr ""
 
-#: functions.inc.php:1246
+#: functions.inc.php:1245
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
@@ -174,11 +174,11 @@ msgstr ""
 msgid "Attempting to delete.."
 msgstr ""
 
-#: functions.inc.php:910
+#: functions.inc.php:909
 msgid "Basic Settings For: "
 msgstr ""
 
-#: functions.inc.php:912
+#: functions.inc.php:911
 msgid "Basic settings view is for individual accounts."
 msgstr ""
 
@@ -386,7 +386,7 @@ msgstr ""
 msgid "Dial Voicemail"
 msgstr "Appel boîte vocale"
 
-#: functions.inc.php:923 views/header.php:11
+#: functions.inc.php:922 views/header.php:11
 msgid "Dialplan Behavior"
 msgstr ""
 
@@ -798,7 +798,7 @@ msgid ""
 "fields populated, they will be displayed even if this is set to false."
 msgstr ""
 
-#: functions.inc.php:933
+#: functions.inc.php:932
 msgid "Invalid Action"
 msgstr ""
 
@@ -1248,11 +1248,11 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: functions.inc.php:919
+#: functions.inc.php:918
 msgid "System Settings"
 msgstr ""
 
-#: functions.inc.php:929
+#: functions.inc.php:928
 msgid "System Usage Statistics"
 msgstr ""
 
@@ -1401,7 +1401,7 @@ msgstr ""
 msgid "Times to Play Message"
 msgstr ""
 
-#: functions.inc.php:906 views/header.php:12
+#: functions.inc.php:905 views/header.php:12
 msgid "Timezone Definitions"
 msgstr ""
 
@@ -1511,7 +1511,7 @@ msgstr ""
 msgid "Usage"
 msgstr ""
 
-#: functions.inc.php:927
+#: functions.inc.php:926
 msgid "Usage Statistics For: "
 msgstr ""
 
@@ -1586,7 +1586,7 @@ msgstr ""
 msgid "Voicemail Admin being removed and merged with Voicemail"
 msgstr ""
 
-#: functions.inc.php:903
+#: functions.inc.php:902
 msgid "Voicemail Administration"
 msgstr ""
 

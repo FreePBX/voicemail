@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-09 14:53-0400\n"
+"POT-Creation-Date: 2015-03-10 21:23-0400\n"
 "PO-Revision-Date: 2014-02-28 04:51+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://example.com/projects/freepbx-211/voicemail/ru/"
@@ -142,7 +142,7 @@ msgstr "Линки на обзор аккаунтов:"
 msgid "Activated"
 msgstr ""
 
-#: functions.inc.php:917
+#: functions.inc.php:916
 msgid "Advanced Settings For: "
 msgstr "Расширенные установки для: "
 
@@ -179,7 +179,7 @@ msgstr ""
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr ""
 
-#: functions.inc.php:1246
+#: functions.inc.php:1245
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
@@ -196,11 +196,11 @@ msgstr ""
 msgid "Attempting to delete.."
 msgstr "Попытка удаления.."
 
-#: functions.inc.php:910
+#: functions.inc.php:909
 msgid "Basic Settings For: "
 msgstr "Основные установки для: "
 
-#: functions.inc.php:912
+#: functions.inc.php:911
 msgid "Basic settings view is for individual accounts."
 msgstr "Основные установки для индивидуальных аккаунтов"
 
@@ -427,7 +427,7 @@ msgstr ""
 msgid "Dial Voicemail"
 msgstr "Набрать номер голосовой почты"
 
-#: functions.inc.php:923 views/header.php:11
+#: functions.inc.php:922 views/header.php:11
 msgid "Dialplan Behavior"
 msgstr ""
 
@@ -893,7 +893,7 @@ msgstr ""
 "внутренний номер уже прописан со значениями в этих полях, то они будут "
 "работать даже если здесь установлено в false."
 
-#: functions.inc.php:933
+#: functions.inc.php:932
 msgid "Invalid Action"
 msgstr "Неверное действие"
 
@@ -1377,11 +1377,11 @@ msgstr "Поле Тема: в сообщении на пейджер."
 msgid "Submit"
 msgstr ""
 
-#: functions.inc.php:919
+#: functions.inc.php:918
 msgid "System Settings"
 msgstr "Системные установки"
 
-#: functions.inc.php:929
+#: functions.inc.php:928
 msgid "System Usage Statistics"
 msgstr "Статистика использования системы"
 
@@ -1543,7 +1543,7 @@ msgstr ""
 msgid "Times to Play Message"
 msgstr ""
 
-#: functions.inc.php:906 views/header.php:12
+#: functions.inc.php:905 views/header.php:12
 msgid "Timezone Definitions"
 msgstr "Установки часового пояса"
 
@@ -1662,7 +1662,7 @@ msgstr ""
 msgid "Usage"
 msgstr "Использование"
 
-#: functions.inc.php:927
+#: functions.inc.php:926
 msgid "Usage Statistics For: "
 msgstr "Использовать статистику для: "
 
@@ -1746,7 +1746,7 @@ msgid "Voicemail Admin being removed and merged with Voicemail"
 msgstr ""
 "Администратор голосовой почты удалён и присоединён в систему Голосовой почты"
 
-#: functions.inc.php:903
+#: functions.inc.php:902
 msgid "Voicemail Administration"
 msgstr "Администрирование голосовой почты"
 

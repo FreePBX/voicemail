@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-09 14:53-0400\n"
+"POT-Creation-Date: 2015-03-10 21:23-0400\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -169,7 +169,7 @@ msgstr "アカウントビューリンク："
 msgid "Activated"
 msgstr ""
 
-#: functions.inc.php:917
+#: functions.inc.php:916
 msgid "Advanced Settings For: "
 msgstr "高度な設定： "
 
@@ -205,7 +205,7 @@ msgstr "ボイスメールを許可"
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr "このボイスメールを削除しますか？"
 
-#: functions.inc.php:1246
+#: functions.inc.php:1245
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
@@ -222,11 +222,11 @@ msgstr ""
 msgid "Attempting to delete.."
 msgstr "削除を試行中.."
 
-#: functions.inc.php:910
+#: functions.inc.php:909
 msgid "Basic Settings For: "
 msgstr "基本設定： "
 
-#: functions.inc.php:912
+#: functions.inc.php:911
 msgid "Basic settings view is for individual accounts."
 msgstr "各アカウントの基本設定。"
 
@@ -456,7 +456,7 @@ msgstr "デバイス"
 msgid "Dial Voicemail"
 msgstr "ボイスメールへダイヤル"
 
-#: functions.inc.php:923 views/header.php:11
+#: functions.inc.php:922 views/header.php:11
 msgid "Dialplan Behavior"
 msgstr "ダイヤルプランの動作"
 
@@ -931,7 +931,7 @@ msgstr ""
 "い。拡張にあるフィールドはもうすでに提供された場合、falseに設定しても表示され"
 "る。"
 
-#: functions.inc.php:933
+#: functions.inc.php:932
 msgid "Invalid Action"
 msgstr "不正な操作"
 
@@ -1408,11 +1408,11 @@ msgstr "ページャーに送信される件名"
 msgid "Submit"
 msgstr ""
 
-#: functions.inc.php:919
+#: functions.inc.php:918
 msgid "System Settings"
 msgstr "システム設定"
 
-#: functions.inc.php:929
+#: functions.inc.php:928
 msgid "System Usage Statistics"
 msgstr "システム使用状況の統計"
 
@@ -1577,7 +1577,7 @@ msgstr ""
 msgid "Times to Play Message"
 msgstr "メッセージ再生回数："
 
-#: functions.inc.php:906 views/header.php:12
+#: functions.inc.php:905 views/header.php:12
 msgid "Timezone Definitions"
 msgstr "タイムゾーンの定義"
 
@@ -1699,7 +1699,7 @@ msgstr ""
 msgid "Usage"
 msgstr "使用状況"
 
-#: functions.inc.php:927
+#: functions.inc.php:926
 msgid "Usage Statistics For: "
 msgstr "使用状況の統計: "
 
@@ -1783,7 +1783,7 @@ msgstr "ボイスメールの管理"
 msgid "Voicemail Admin being removed and merged with Voicemail"
 msgstr "ボイスメールアドミンが削除されボイスメールにマージされました"
 
-#: functions.inc.php:903
+#: functions.inc.php:902
 msgid "Voicemail Administration"
 msgstr "ボイスメールの管理"
 
