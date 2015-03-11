@@ -838,8 +838,7 @@ function voicemail_configprocess() {
 	//create vars from the request
 	extract($_REQUEST);
 	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
-	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
-
+	$extdisplay = isset($_REQUEST['extdisplay']) && trim($_REQUEST['extdisplay']) != "" ? $_REQUEST['extdisplay'] : (isset($_REQUEST['extension']) && trim($_REQUEST['extension']) != "" ? $_REQUEST['extension'] : null);
 	//if submitting form, update database
 	switch ($action) {
 		case "add":
@@ -847,7 +846,7 @@ function voicemail_configprocess() {
 				$usage_arr = framework_check_extension_usage($_REQUEST['extension']);
 				if (!empty($usage_arr)) {
 					$GLOBALS['abort'] = true;
-				} else {
+				} elseif(trim($extdisplay) != "") {
 					voicemail_mailbox_add($extdisplay, $_REQUEST);
 					needreload();
 				}
