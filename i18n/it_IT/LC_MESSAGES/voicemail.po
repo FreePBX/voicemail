@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 21:23-0400\n"
+"POT-Creation-Date: 2015-03-18 22:26-0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -151,7 +151,7 @@ msgid ""
 "default]"
 msgstr ""
 
-#: Voicemail.class.php:496
+#: Voicemail.class.php:495
 msgid "Allowed Voicemail"
 msgstr ""
 
@@ -839,7 +839,7 @@ msgstr ""
 msgid "Mail command."
 msgstr ""
 
-#: Voicemail.class.php:304
+#: Voicemail.class.php:303
 msgid "Mailbox can not be empty"
 msgstr ""
 
@@ -1163,7 +1163,7 @@ msgstr ""
 msgid "Require From Same %s"
 msgstr ""
 
-#: Voicemail.class.php:1285
+#: Voicemail.class.php:1284
 msgid "Reset"
 msgstr ""
 
@@ -1245,7 +1245,7 @@ msgstr ""
 msgid "Subject sent to pager."
 msgstr ""
 
-#: Voicemail.class.php:1290
+#: Voicemail.class.php:1289
 msgid "Submit"
 msgstr ""
 
@@ -1339,7 +1339,7 @@ msgid ""
 "conf."
 msgstr ""
 
-#: Voicemail.class.php:496
+#: Voicemail.class.php:495
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
@@ -1632,7 +1632,7 @@ msgstr ""
 "La Casella Vocale è attivata ma il campo Password è vuoto. Sei sicuro di "
 "voler continuare?"
 
-#: Voicemail.class.php:309
+#: Voicemail.class.php:308
 #, php-format
 msgid ""
 "Voicemail mailbox %s already exists, call to Voicemail::getMailbox() failed"
@@ -1648,7 +1648,7 @@ msgstr ""
 msgid "Voicemail was empty: %s"
 msgstr ""
 
-#: Voicemail.class.php:1030
+#: Voicemail.class.php:1029
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "

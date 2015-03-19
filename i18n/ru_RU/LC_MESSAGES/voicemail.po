@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 21:23-0400\n"
+"POT-Creation-Date: 2015-03-18 22:26-0400\n"
 "PO-Revision-Date: 2014-02-28 04:51+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://example.com/projects/freepbx-211/voicemail/ru/"
@@ -171,7 +171,7 @@ msgstr ""
 "Разрешает отправителю прослушать/перезаписать сообщение перед тем как "
 "сохранить [по умолчанию - выключено]."
 
-#: Voicemail.class.php:496
+#: Voicemail.class.php:495
 msgid "Allowed Voicemail"
 msgstr ""
 
@@ -933,7 +933,7 @@ msgstr ""
 msgid "Mail command."
 msgstr "Почтовые команды."
 
-#: Voicemail.class.php:304
+#: Voicemail.class.php:303
 msgid "Mailbox can not be empty"
 msgstr ""
 
@@ -1285,7 +1285,7 @@ msgstr "Удалить дефиницию чаового пояса"
 msgid "Require From Same %s"
 msgstr ""
 
-#: Voicemail.class.php:1285
+#: Voicemail.class.php:1284
 msgid "Reset"
 msgstr ""
 
@@ -1373,7 +1373,7 @@ msgstr ""
 msgid "Subject sent to pager."
 msgstr "Поле Тема: в сообщении на пейджер."
 
-#: Voicemail.class.php:1290
+#: Voicemail.class.php:1289
 msgid "Submit"
 msgstr ""
 
@@ -1470,7 +1470,7 @@ msgstr ""
 "Параметр odbcstorage есть подключение к базам данных, описанное в res_odbc."
 "conf."
 
-#: Voicemail.class.php:496
+#: Voicemail.class.php:495
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
@@ -1790,7 +1790,7 @@ msgstr ""
 "Голосовая почта включена, но не задан пароль для доступа. Вы собираетесь "
 "продолжить?"
 
-#: Voicemail.class.php:309
+#: Voicemail.class.php:308
 #, php-format
 msgid ""
 "Voicemail mailbox %s already exists, call to Voicemail::getMailbox() failed"
@@ -1806,7 +1806,7 @@ msgstr ""
 msgid "Voicemail was empty: %s"
 msgstr ""
 
-#: Voicemail.class.php:1030
+#: Voicemail.class.php:1029
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "

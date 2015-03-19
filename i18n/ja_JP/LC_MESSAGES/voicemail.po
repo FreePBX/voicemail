@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 21:23-0400\n"
+"POT-Creation-Date: 2015-03-18 22:26-0400\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -197,7 +197,7 @@ msgstr ""
 "送信者がメッセージを保存する前にレビュー/再録音することを許可する [デフォルト"
 "オフ]"
 
-#: Voicemail.class.php:496
+#: Voicemail.class.php:495
 msgid "Allowed Voicemail"
 msgstr "ボイスメールを許可"
 
@@ -970,7 +970,7 @@ msgstr "読み込み中"
 msgid "Mail command."
 msgstr "メールコマンド。"
 
-#: Voicemail.class.php:304
+#: Voicemail.class.php:303
 msgid "Mailbox can not be empty"
 msgstr ""
 
@@ -1319,7 +1319,7 @@ msgstr "タイムゾーンの定義を削除"
 msgid "Require From Same %s"
 msgstr "同じ %s を条件にする"
 
-#: Voicemail.class.php:1285
+#: Voicemail.class.php:1284
 msgid "Reset"
 msgstr ""
 
@@ -1404,7 +1404,7 @@ msgstr ""
 msgid "Subject sent to pager."
 msgstr "ページャーに送信される件名"
 
-#: Voicemail.class.php:1290
+#: Voicemail.class.php:1289
 msgid "Submit"
 msgstr ""
 
@@ -1504,7 +1504,7 @@ msgid ""
 "conf."
 msgstr "odbcstorageの値は、res_odbc.conf内で設定されたデータベース接続です。"
 
-#: Voicemail.class.php:496
+#: Voicemail.class.php:495
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
@@ -1826,7 +1826,7 @@ msgid ""
 msgstr ""
 "ボイスメールは有効化されていますが、パスワードが空です。処理を続行しますか？"
 
-#: Voicemail.class.php:309
+#: Voicemail.class.php:308
 #, php-format
 msgid ""
 "Voicemail mailbox %s already exists, call to Voicemail::getMailbox() failed"
@@ -1842,7 +1842,7 @@ msgstr ""
 msgid "Voicemail was empty: %s"
 msgstr ""
 
-#: Voicemail.class.php:1030
+#: Voicemail.class.php:1029
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
