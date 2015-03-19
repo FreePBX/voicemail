@@ -289,7 +289,6 @@ class Voicemail implements \BMO {
 			$context = $cdata;
 		}
 
-		$vmconf['general'][0] = "#include #vm_general.inc";
 		$this->FreePBX->WriteConfig->writeConfig("voicemail.conf", $vmconf, false);
 	}
 
