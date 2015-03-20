@@ -125,7 +125,7 @@ class Voicemail implements \BMO {
 				"attach" => "attach=no",
 				"envelope" => "envelope=no",
 				"vmdelete" => "vmdelete=no",
-				"playcid" => "playcid=no"
+				"saycid" => "saycid=no"
 			));
 			$sql = "UPDATE users SET voicemail = 'default' WHERE extension = ?";
 			$sth = $this->db->prepare($sql);
