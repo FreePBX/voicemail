@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-24 16:30-0400\n"
+"POT-Creation-Date: 2015-03-24 16:33-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1754,6 +1754,10 @@ msgstr ""
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
 "will be shown"
+msgstr ""
+
+#: functions.inc.php:760
+msgid "When to use VMX"
 msgstr ""
 
 #: views/quickCreate.php:9

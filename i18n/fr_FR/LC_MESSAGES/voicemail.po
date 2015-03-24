@@ -1624,6 +1624,10 @@ msgid ""
 "will be shown"
 msgstr ""
 
+#: functions.inc.php:760
+msgid "When to use VMX"
+msgstr ""
+
 #: views/quickCreate.php:9
 msgid "Whether to enable voicemail for this extension"
 msgstr ""

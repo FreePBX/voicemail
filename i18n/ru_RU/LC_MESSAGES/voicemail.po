@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-24 16:30-0400\n"
+"POT-Creation-Date: 2015-03-24 16:33-0400\n"
 "PO-Revision-Date: 2014-02-28 04:51+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://example.com/projects/freepbx-211/voicemail/ru/"
@@ -1811,6 +1811,10 @@ msgstr ""
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
 "will be shown"
+msgstr ""
+
+#: functions.inc.php:760
+msgid "When to use VMX"
 msgstr ""
 
 #: views/quickCreate.php:9
