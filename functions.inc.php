@@ -757,7 +757,7 @@ function voicemail_draw_vmxgui($extdisplay, $vmdisable) {
 	$el = array(
 		"elemname" => "vmx_use_when",
 		"prompttext" => _('Use When:'),
-		"helptext" => _(""),
+		"helptext" => _("When to use VMX"),
 		"currentvalue" => $uw,
 		"valarray" => $currentcomponent->getoptlist('vmxuw'),
 		"class" => $group,
