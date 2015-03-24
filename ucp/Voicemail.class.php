@@ -433,7 +433,7 @@ class Voicemail extends Modules{
 					$menu["menu"][] = array(
 						"rawname" => $extension,
 						"name" => $extension . " - " . $name,
-						"badge" => count($boxes['extensions'][$extension])
+						"badge" => (int)$boxes['extensions'][$extension]
 					);
 				}
 			}
