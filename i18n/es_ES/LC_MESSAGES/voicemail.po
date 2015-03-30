@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: FreePBX - voicemail module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-24 16:26-0400\n"
-"PO-Revision-Date: 2015-03-30 10:46+0200\n"
+"PO-Revision-Date: 2015-03-30 10:47+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/es_ES/>\n"
@@ -492,7 +492,7 @@ msgstr ""
 "habilitado todas las opciones pueden ser controladas por el usuario desde el "
 "portal del usuario (ARI, Asterisk Recording Interface). Deshabilitando esta "
 "opción, no eliminará ninguna configuración pero deshabilitara el acceso a "
-"esta característica."
+"esta característica"
 
 #: functions.inc.php:426 functions.inc.php:431
 msgid "Enabled"
@@ -1653,7 +1653,7 @@ msgstr "Saludos No Disponibles:"
 msgid "Uncheck to play a beep after your personal Voicemail greeting."
 msgstr ""
 "Desmarque esta casilla para reproducir un \"bip\" después del mensaje "
-"personal del buzón de voz"
+"personal del buzón de voz."
 
 #: ucp/views/mailbox.php:75
 msgid "Unknown"
@@ -1948,7 +1948,7 @@ msgstr "No disponible"
 #: functions.inc.php:434 page.voicemail.php:535 views/usage.php:20
 #: views/usage.php:35 views/usage.php:50 views/usage.php:65
 msgid "yes"
-msgstr "Sí"
+msgstr "si"
 
 #~ msgid "Voicemail & Directory"
 #~ msgstr "Buzón de voz y directorio"
