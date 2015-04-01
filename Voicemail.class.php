@@ -647,10 +647,12 @@ class Voicemail implements \BMO {
 	 * @param string $pwd      The voicemail password/pin
 	 * @param string $email    The voicemail email address
 	 * @param string $page     The voicemail pager number
-	 * @param string $playcid  Whether to play the CID to the caller
-	 * @param string $envelope Whether to play the envelope to the caller
+	 * @param bool $playcid  Whether to play the CID to the caller
+	 * @param bool $envelope Whether to play the envelope to the caller
+	 * @param bool $attach Whether to attach the voicemail to the outgoing email
+	 * @param bool $delete Whether to delete the voicemail from local storage
 	 */
-	public function saveVMSettingsByExtension($ext,$pwd,$email,$page,$playcid,$envelope) {
+	public function saveVMSettingsByExtension($ext,$pwd,$email,$page,$playcid,$envelope, $attach, $delete) {
 		$o = $this->getVoicemailBoxByExtension($ext);
 		$context = $o['vmcontext'];
 		$vmconf = $this->getVoicemail();
@@ -660,6 +662,8 @@ class Voicemail implements \BMO {
 			$vmconf[$context][$ext]['pager'] = $page;
 			$vmconf[$context][$ext]['options']['saycid'] = ($playcid) ? 'yes' : 'no';
 			$vmconf[$context][$ext]['options']['envelope'] = ($envelope) ? 'yes' : 'no';
+			$vmconf[$context][$ext]['options']['attach'] = ($attach) ? 'yes' : 'no';
+			$vmconf[$context][$ext]['options']['delete'] = ($delete) ? 'yes' : 'no';
 			$this->saveVoicemail($vmconf);
 			return true;
 		}
