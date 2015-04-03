@@ -112,6 +112,13 @@ var VoicemailC = UCPMC.extend({
 			$(".record-greeting-btn").show();
 		}
 
+		$(".clickable").click(function(e) {
+			var text = $(this).text();
+			if (UCP.validMethod("Contactmanager", "showActionDialog")) {
+				UCP.Modules.Contactmanager.showActionDialog("number", text, "phone");
+			}
+		});
+
 		$(".vm-message a.listen").click(function() {
 			var id = $(this).data("id"), select = null;
 			$.each(mailboxes, function(i,v) {
