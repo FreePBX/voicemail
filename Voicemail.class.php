@@ -40,6 +40,7 @@ class Voicemail implements \BMO {
 	private $messageCache = array();
 	public $Vmx = null;
 	private $boxes = array();
+	private $validFiles = array();
 
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {

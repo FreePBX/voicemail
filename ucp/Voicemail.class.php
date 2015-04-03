@@ -90,7 +90,10 @@ class Voicemail extends Modules{
 				$displayvars['messages'] = !empty($msgs['messages']) ? $msgs['messages'] : array();
 				$final = array();
 				foreach($displayvars['messages'] as &$m) {
-					$final[] = $this->UCP->FreePBX->Voicemail->getMessageByMessageIDExtension($m['msg_id'], $ext, true);
+					$f = $this->UCP->FreePBX->Voicemail->getMessageByMessageIDExtension($m['msg_id'], $ext, true);
+					$f['callerid'] = htmlentities($f['callerid']);
+					$f['callerid'] = preg_replace("/&lt;(.*)&gt;/i","&lt;<span class='clickable' data-type='number' data-primary='phone'>$1</span>&gt;",$f['callerid']);;
+					$final[] = $f;
 				}
 				$c = $folders[$reqFolder]['count'];
 				$displayvars['messages'] = $final;
