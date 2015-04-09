@@ -461,8 +461,8 @@ class Voicemail implements \BMO {
 	}
 
 	public function processUCPAdminDisplay($user) {
-		if(!empty($_POST['ucp|voicemail'])) {
-			$this->FreePBX->Ucp->setSetting($user['username'],'Voicemail','assigned',$_POST['ucp|voicemail']);
+		if(!empty($_POST['ucp_voicemail'])) {
+			$this->FreePBX->Ucp->setSetting($user['username'],'Voicemail','assigned',$_POST['ucp_voicemail']);
 		} else {
 			$this->FreePBX->Ucp->setSetting($user['username'],'Voicemail','assigned',array());
 		}
@@ -490,11 +490,15 @@ class Voicemail implements \BMO {
 		}
 		$vmassigned = $this->FreePBX->Ucp->getSetting($user['username'],'Voicemail','assigned');
 		$vmassigned = !empty($vmassigned) ? $vmassigned : array();
-		foreach($user['assigned'] as $assigned) {
-			$fpbxusers[] = array("ext" => $assigned, "data" => $cul[$assigned], "selected" => in_array($assigned,$vmassigned));
+		$ausers = array();
+		foreach(core_users_list() as $list) {
+			$cul[$list[0]] = array(
+				"name" => $list[1],
+				"vmcontext" => $list[2]
+			);
+			$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
 		}
-		$html['description'] = '<a href="#" class="info">'._("Allowed Voicemail").':<span>'._("These are the assigned and active extensions which will show up for this user to control and edit in UCP").'</span></a>';
-		$html['content'] = load_view(dirname(__FILE__)."/views/ucp_config.php",array("fpbxusers" => $fpbxusers));
+		$html[] = load_view(dirname(__FILE__)."/views/ucp_config.php",array("ausers" => $ausers, "vmassigned" => $vmassigned));
 		return $html;
 	}
 
