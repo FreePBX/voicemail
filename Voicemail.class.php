@@ -479,18 +479,16 @@ class Voicemail implements \BMO {
 	 * get the Admin display in UCP
 	 * @param array $user The user array
 	 */
-	public function getUCPAdminDisplay($user) {
-		$fpbxusers = array();
-		$cul = array();
-		foreach(core_users_list() as $list) {
-			$cul[$list[0]] = array(
-				"name" => $list[1],
-				"vmcontext" => $list[2]
-			);
-		}
+	public function getUCPAdminDisplay($user, $action) {
 		$vmassigned = $this->FreePBX->Ucp->getSetting($user['username'],'Voicemail','assigned');
 		$vmassigned = !empty($vmassigned) ? $vmassigned : array();
 		$ausers = array();
+		if($action == "showgroup" || $action == "addgroup") {
+			$ausers['self'] = _("User Primary Extension");
+		}
+		if($action == "addgroup") {
+			$vmassigned = array('self');
+		}
 		foreach(core_users_list() as $list) {
 			$cul[$list[0]] = array(
 				"name" => $list[1],
@@ -498,7 +496,11 @@ class Voicemail implements \BMO {
 			);
 			$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
 		}
-		$html[] = load_view(dirname(__FILE__)."/views/ucp_config.php",array("ausers" => $ausers, "vmassigned" => $vmassigned));
+		$html[0] = array(
+			"title" => _("Voicemail"),
+			"rawname" => "voicemail",
+			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("ausers" => $ausers, "vmassigned" => $vmassigned))
+		);
 		return $html;
 	}
 
