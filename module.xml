@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>12.0.34</version>
+	<version>12.0.35</version>
 	<publisher>FreePBX</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*12.0.35* FREEPBX-9081 UCP changing email address in VM settings does not apply
 		*12.0.34* FREEPBX-8982 click to call/copy for voicemail in UCP
 		*12.0.33* FREEPBX-8927 Badge count equal to 1 when no voicemail
 		*12.0.32* Fix bug in UCP when there are no mailboxes assigned
