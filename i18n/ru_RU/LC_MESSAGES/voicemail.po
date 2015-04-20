@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-14 18:28-0400\n"
+"POT-Creation-Date: 2015-04-20 14:39-0400\n"
 "PO-Revision-Date: 2014-02-28 04:51+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://example.com/projects/freepbx-211/voicemail/ru/"
@@ -19,6 +19,14 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.9-dev\n"
+
+#: views/tz.php:242
+msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
+msgstr "\"\" (для сегодня), \"вчера\", день недели, или форматABдГ"
+
+#: views/tz.php:234
+msgid "\"today\", \"yesterday\" or ABdY"
+msgstr "\"сегодня\", \"вчера\" или формат ABдГ"
 
 #: page.voicemail.php:440
 #, php-format
@@ -70,6 +78,20 @@ msgstr ""
 msgid "%s no longer used"
 msgstr ""
 
+#: views/tz.php:153 views/tz.php:169 views/tz.php:185 views/tz.php:223
+#, php-format
+msgid "%s or %s"
+msgstr ""
+
+#: views/tz.php:161
+#, php-format
+msgid "%s or %s or %s"
+msgstr ""
+
+#: views/tz.php:132
+msgid "'filename'"
+msgstr "'filename'"
+
 #: page.voicemail.php:234
 msgid ""
 "(yes/no) If imapgreetings=yes, then specify which folder to store your "
@@ -103,12 +125,21 @@ msgstr ""
 msgid "9 db"
 msgstr ""
 
+#: views/tz.php:121
+msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
+msgstr "<i>Часовые пояса</i> перечислены в /usr/share/zoneinfo"
+
 #: views/tz.php:12
 msgid ""
 "A timezone definition specifies how the Voicemail system announces the time."
 msgstr ""
 "Дефиниции часового пояса устанавливают в каком виде голосовая почта "
 "указывает время."
+
+#: views/tz.php:143
+msgid "A variable to be substituted (see below for supported variable values)"
+msgstr ""
+"Переменная для замены (см. ниже для поддерживаемых значений переменных)"
 
 #: views/usage.php:78 views/usage_system.php:101
 msgid "Abandoned Greetings:"
@@ -330,6 +361,10 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
+#: views/tz.php:156
+msgid "Day of week (Saturday, Sunday, ...)"
+msgstr "День недели (Суббота, Воскресенье, ...)"
+
 #: views/dialplan.php:40
 msgid ""
 "Default number to dial when a voicemail user 'zeros out' if enabled. This "
@@ -364,7 +399,7 @@ msgstr ""
 msgid "Dial Voicemail"
 msgstr "Набрать номер голосовой почты"
 
-#: functions.inc.php:970
+#: functions.inc.php:970 views/header.php:17
 msgid "Dialplan Behavior"
 msgstr ""
 
@@ -678,6 +713,22 @@ msgstr ""
 "Скрывать это почтовый ящик в директории, к которой имеет доступ приложение "
 "app_directory. По умолчанию - значение  \"нет\"."
 
+#: views/tz.php:187
+msgid "Hour, 12 hour clock"
+msgstr "Часы, 12-ти часовой формат"
+
+#: views/tz.php:203
+msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
+msgstr ""
+"Часы, 24-х часовой формат. Одноразрядное представление часа НЕ дополняется "
+"впереди \"oh\")"
+
+#: views/tz.php:195
+msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
+msgstr ""
+"Часы, 24-х часовой формат. одноразрядное представление часа дополняется "
+"впереди \"oh\")"
+
 #: page.voicemail.php:273
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback"
@@ -904,6 +955,18 @@ msgstr ""
 "Минимальная продолжительность сообщения - значение тишины maxsilence должно "
 "быть меньше чем minsecs, в противном случае есть риск получать пустые "
 "сообщения."
+
+#: views/tz.php:218
+msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
+msgstr "Минуты, 00 произносится как \"сто\" (Американский военный стандарт)"
+
+#: views/tz.php:211
+msgid "Minute, with 00 pronounced as \"o'clock\""
+msgstr "Минуты, 00 произносится как \"o'clock\""
+
+#: views/tz.php:164
+msgid "Month name (January, February, ...)"
+msgstr "Месяц (Январь, Февраль, ...)"
 
 #: page.voicemail.php:254
 msgid "Move heard messages to the 'Old' folder automatically.  Defaults to no."
@@ -1276,8 +1339,8 @@ msgid ""
 "via BLF of changes."
 msgstr ""
 
-#: ucp/views/nav.php:9 views/settings.php:9 voicemail.i18n.php:6
-#: voicemail.i18n.php:12
+#: ucp/views/nav.php:9 views/header.php:18 views/settings.php:9
+#: voicemail.i18n.php:6 voicemail.i18n.php:12
 msgid "Settings"
 msgstr "Установки"
 
@@ -1329,6 +1392,14 @@ msgstr "Использовано дискового пространства:"
 msgid "Subject sent to pager."
 msgstr "Поле Тема: в сообщении на пейджер."
 
+#: page.voicemail.php:557
+msgid "Submit"
+msgstr ""
+
+#: views/tz.php:148
+msgid "Supported <i>variables</i>:"
+msgstr "Поддерживаемые <i>переменные</i>:"
+
 #: functions.inc.php:966
 msgid "System Settings"
 msgstr "Системные установки"
@@ -1360,6 +1431,10 @@ msgstr "Временные сообщения о недоступности:"
 #: page.voicemail.php:276
 msgid "Temporary greeting reminder."
 msgstr "Временный напоминатель."
+
+#: views/tz.php:127
+msgid "The <i>values</i> supported in the timezone definition string include:"
+msgstr "<i>значение</i>, поддерживаемое дефиницией часового пояса содержит:"
 
 #: page.voicemail.php:207
 msgid "The ADSI Voicemail application version number."
@@ -1402,6 +1477,10 @@ msgstr "Дефолтная таблица для ODBC хранилища гол�
 #: functions.inc.php:544 page.voicemail.php:293 ucp/views/settings.php:14
 msgid "The email address that Voicemails are sent to."
 msgstr "Адрес электронной почты, на который будут отправляться сообщения."
+
+#: views/tz.php:135
+msgid "The name of a sound file (the file name must be single-quoted)"
+msgstr "Название звукового файла (имя файла должно быть в одинарных кавычках)"
 
 #: functions.inc.php:666
 msgid ""
@@ -1496,9 +1575,13 @@ msgstr ""
 msgid "Timezone Definition"
 msgstr "Дефиниции часового пояса"
 
-#: functions.inc.php:953
+#: functions.inc.php:953 views/header.php:20
 msgid "Timezone Definitions"
 msgstr "Установки часового пояса"
+
+#: views/tz.php:113
+msgid "Timezone definition format is: "
+msgstr "Формат дефиниций часового пояса: "
 
 #: page.voicemail.php:202
 msgid "Timezone definition name"
@@ -1609,7 +1692,7 @@ msgstr ""
 msgid "Urgent"
 msgstr ""
 
-#: views/settings.php:11
+#: views/header.php:19 views/settings.php:11
 msgid "Usage"
 msgstr "Использование"
 
@@ -1776,6 +1859,10 @@ msgstr "Кто является отправителем эл. почты при
 msgid "Work"
 msgstr ""
 
+#: views/tz.php:180
+msgid "Year"
+msgstr "Год"
+
 #: page.voicemail.php:269
 msgid ""
 "Yes to search all contexts, no to search current context (if one is not "
@@ -1813,6 +1900,10 @@ msgstr ""
 msgid "deleting VM_PREFIX from globals.."
 msgstr ""
 
+#: page.voicemail.php:68
+msgid "disabled"
+msgstr ""
+
 #: install.php:125 install.php:142
 msgid "done"
 msgstr ""
@@ -1843,6 +1934,10 @@ msgstr "не инсталлирован, ок"
 msgid "not needed"
 msgstr ""
 
+#: views/tz.php:172
+msgid "numeric day of month (first, second, ..., thirty-first)"
+msgstr "число месяца (первое, второе, ..., тридцать первое)"
+
 #: install.php:193
 msgid "ok"
 msgstr "ok"
@@ -1855,9 +1950,17 @@ msgstr ""
 msgid "temp"
 msgstr ""
 
+#: views/tz.php:113
+msgid "timezone|values"
+msgstr "часовой пояс|значение"
+
 #: functions.inc.php:633
 msgid "unavailable"
 msgstr "недоступен"
+
+#: views/tz.php:140
+msgid "variable"
+msgstr "переменная"
 
 #: functions.inc.php:434 page.voicemail.php:535 views/usage.php:20
 #: views/usage.php:35 views/usage.php:50 views/usage.php:65
@@ -1894,94 +1997,32 @@ msgstr "да"
 #~ "сообщением голосовой почты, чтобы переключиться на оператора [по "
 #~ "умолчанию - выключено]."
 
-#~ msgid "Timezone definition format is: "
-#~ msgstr "Формат дефиниций часового пояса: "
-
-#~ msgid "timezone|values"
-#~ msgstr "часовой пояс|значение"
-
-#~ msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
-#~ msgstr "<i>Часовые пояса</i> перечислены в /usr/share/zoneinfo"
-
-#~ msgid ""
-#~ "The <i>values</i> supported in the timezone definition string include:"
-#~ msgstr "<i>значение</i>, поддерживаемое дефиницией часового пояса содержит:"
-
-#~ msgid "'filename'"
-#~ msgstr "'filename'"
-
-#~ msgid "The name of a sound file (the file name must be single-quoted)"
-#~ msgstr ""
-#~ "Название звукового файла (имя файла должно быть в одинарных кавычках)"
-
-#~ msgid "variable"
-#~ msgstr "переменная"
-
-#~ msgid ""
-#~ "A variable to be substituted (see below for supported variable values)"
-#~ msgstr ""
-#~ "Переменная для замены (см. ниже для поддерживаемых значений переменных)"
-
-#~ msgid "Supported <i>variables</i>:"
-#~ msgstr "Поддерживаемые <i>переменные</i>:"
-
 #~ msgid "A or a"
 #~ msgstr "А или а"
-
-#~ msgid "Day of week (Saturday, Sunday, ...)"
-#~ msgstr "День недели (Суббота, Воскресенье, ...)"
 
 #~ msgid "B or b or h"
 #~ msgstr "Б или b или h"
 
-#~ msgid "Month name (January, February, ...)"
-#~ msgstr "Месяц (Январь, Февраль, ...)"
-
 #~ msgid "d or e"
 #~ msgstr "в или г"
-
-#~ msgid "numeric day of month (first, second, ..., thirty-first)"
-#~ msgstr "число месяца (первое, второе, ..., тридцать первое)"
 
 #~ msgid "Y"
 #~ msgstr "Г"
 
-#~ msgid "Year"
-#~ msgstr "Год"
-
 #~ msgid "I or l"
 #~ msgstr "И или л"
-
-#~ msgid "Hour, 12 hour clock"
-#~ msgstr "Часы, 12-ти часовой формат"
 
 #~ msgid "H"
 #~ msgstr "Ч"
 
-#~ msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
-#~ msgstr ""
-#~ "Часы, 24-х часовой формат. одноразрядное представление часа дополняется "
-#~ "впереди \"oh\")"
-
 #~ msgid "k"
 #~ msgstr "к"
-
-#~ msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
-#~ msgstr ""
-#~ "Часы, 24-х часовой формат. Одноразрядное представление часа НЕ "
-#~ "дополняется впереди \"oh\")"
 
 #~ msgid "M"
 #~ msgstr "М"
 
-#~ msgid "Minute, with 00 pronounced as \"o'clock\""
-#~ msgstr "Минуты, 00 произносится как \"o'clock\""
-
 #~ msgid "N"
 #~ msgstr "N"
-
-#~ msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
-#~ msgstr "Минуты, 00 произносится как \"сто\" (Американский военный стандарт)"
 
 #~ msgid "P or p"
 #~ msgstr "Р или р"
@@ -1992,14 +2033,8 @@ msgstr "да"
 #~ msgid "Q"
 #~ msgstr "Q"
 
-#~ msgid "\"today\", \"yesterday\" or ABdY"
-#~ msgstr "\"сегодня\", \"вчера\" или формат ABдГ"
-
 #~ msgid "q"
 #~ msgstr "q"
-
-#~ msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
-#~ msgstr "\"\" (для сегодня), \"вчера\", день недели, или форматABдГ"
 
 #~ msgid "R"
 #~ msgstr "R"

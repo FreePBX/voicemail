@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-14 18:28-0400\n"
+"POT-Creation-Date: 2015-04-20 14:39-0400\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -48,6 +48,14 @@ msgstr ""
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
+
+#: views/tz.php:242
+msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
+msgstr "\"\" (今日), \"昨日\", 平日, 又は ABdY"
+
+#: views/tz.php:234
+msgid "\"today\", \"yesterday\" or ABdY"
+msgstr "\" 今日\", \"昨日\" 又は ABdY"
 
 #: page.voicemail.php:440
 #, php-format
@@ -99,6 +107,20 @@ msgstr "%s を移行しました"
 msgid "%s no longer used"
 msgstr "%sは現在使われていません"
 
+#: views/tz.php:153 views/tz.php:169 views/tz.php:185 views/tz.php:223
+#, php-format
+msgid "%s or %s"
+msgstr ""
+
+#: views/tz.php:161
+#, php-format
+msgid "%s or %s or %s"
+msgstr ""
+
+#: views/tz.php:132
+msgid "'filename'"
+msgstr "'ファイル名'"
+
 #: page.voicemail.php:234
 msgid ""
 "(yes/no) If imapgreetings=yes, then specify which folder to store your "
@@ -131,11 +153,19 @@ msgstr "6 db"
 msgid "9 db"
 msgstr "9 db"
 
+#: views/tz.php:121
+msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
+msgstr "<i>タイムゾーン</i>は /usr/share/zoneinfoに列挙されております。"
+
 #: views/tz.php:12
 msgid ""
 "A timezone definition specifies how the Voicemail system announces the time."
 msgstr ""
 "timezone 定義により、ボイスメールシステムの時刻アナウンス方法を指定できます。"
+
+#: views/tz.php:143
+msgid "A variable to be substituted (see below for supported variable values)"
+msgstr "置き換えられる変数(サポートされる変数値は以下です)"
 
 #: views/usage.php:78 views/usage_system.php:101
 msgid "Abandoned Greetings:"
@@ -359,6 +389,10 @@ msgstr ""
 msgid "Date"
 msgstr "日付"
 
+#: views/tz.php:156
+msgid "Day of week (Saturday, Sunday, ...)"
+msgstr "曜日(土曜日、日曜日、...)"
+
 #: views/dialplan.php:40
 msgid ""
 "Default number to dial when a voicemail user 'zeros out' if enabled. This "
@@ -397,7 +431,7 @@ msgstr "デバイス"
 msgid "Dial Voicemail"
 msgstr "ボイスメールへダイヤル"
 
-#: functions.inc.php:970
+#: functions.inc.php:970 views/header.php:17
 msgid "Dialplan Behavior"
 msgstr "ダイヤルプランの動作"
 
@@ -713,6 +747,18 @@ msgstr ""
 "app_directoryによって生産されたディレクトリからこのメールボックスを隠す。デ"
 "フォルトは\"いいえ\"。"
 
+#: views/tz.php:187
+msgid "Hour, 12 hour clock"
+msgstr "時間、12時間時計"
+
+#: views/tz.php:203
+msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
+msgstr "時間、24時間(\"oh\"が付いていない一桁の時間)"
+
+#: views/tz.php:195
+msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
+msgstr "時間、24時間(\"oh\"に続く一桁の時間)"
+
 #: page.voicemail.php:273
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback"
@@ -943,6 +989,18 @@ msgid ""
 msgstr ""
 "メッセージの最小時間 - maxsilenceはminsecsより少なくないといけません、でない"
 "と空のメッセージになります。"
+
+#: views/tz.php:218
+msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
+msgstr "\"百\"と発音する00がつく分(USミリタリー時間)"
+
+#: views/tz.php:211
+msgid "Minute, with 00 pronounced as \"o'clock\""
+msgstr "\"時\"と発音する00がつく分"
+
+#: views/tz.php:164
+msgid "Month name (January, February, ...)"
+msgstr "月の名前(一月、二月、...)"
 
 #: page.voicemail.php:254
 msgid "Move heard messages to the 'Old' folder automatically.  Defaults to no."
@@ -1312,8 +1370,8 @@ msgid ""
 "via BLF of changes."
 msgstr ""
 
-#: ucp/views/nav.php:9 views/settings.php:9 voicemail.i18n.php:6
-#: voicemail.i18n.php:12
+#: ucp/views/nav.php:9 views/header.php:18 views/settings.php:9
+#: voicemail.i18n.php:6 voicemail.i18n.php:12
 msgid "Settings"
 msgstr "設定"
 
@@ -1362,6 +1420,14 @@ msgstr "保存領域使用状況："
 msgid "Subject sent to pager."
 msgstr "ページャーに送信される件名"
 
+#: page.voicemail.php:557
+msgid "Submit"
+msgstr ""
+
+#: views/tz.php:148
+msgid "Supported <i>variables</i>:"
+msgstr "サポート<i>変数</i>:"
+
 #: functions.inc.php:966
 msgid "System Settings"
 msgstr "システム設定"
@@ -1393,6 +1459,11 @@ msgstr "一時不在時のグリーティング："
 #: page.voicemail.php:276
 msgid "Temporary greeting reminder."
 msgstr "一時不在時のアナウンスリマインダー"
+
+#: views/tz.php:127
+msgid "The <i>values</i> supported in the timezone definition string include:"
+msgstr ""
+"タイムゾーン定義文字列でサポートされている<i>値</i>には、次が含まれます："
 
 #: page.voicemail.php:207
 msgid "The ADSI Voicemail application version number."
@@ -1441,6 +1512,11 @@ msgstr ""
 #: functions.inc.php:544 page.voicemail.php:293 ucp/views/settings.php:14
 msgid "The email address that Voicemails are sent to."
 msgstr "ボイスメールの送信先Eメールアドレスを設定します。"
+
+#: views/tz.php:135
+msgid "The name of a sound file (the file name must be single-quoted)"
+msgstr ""
+"音声ファイルの名前(ファイル名はシングルクォーテーションで囲む必要があります)"
 
 #: functions.inc.php:666
 msgid ""
@@ -1532,9 +1608,13 @@ msgstr "メッセージ再生回数："
 msgid "Timezone Definition"
 msgstr "タイムゾーンの定義"
 
-#: functions.inc.php:953
+#: functions.inc.php:953 views/header.php:20
 msgid "Timezone Definitions"
 msgstr "タイムゾーンの定義"
+
+#: views/tz.php:113
+msgid "Timezone definition format is: "
+msgstr "タイムゾーンの定義フォーマット："
 
 #: page.voicemail.php:202
 msgid "Timezone definition name"
@@ -1648,7 +1728,7 @@ msgstr "アップロード中..."
 msgid "Urgent"
 msgstr ""
 
-#: views/settings.php:11
+#: views/header.php:19 views/settings.php:11
 msgid "Usage"
 msgstr "使用状況"
 
@@ -1818,6 +1898,10 @@ msgstr "Eメール通知が誰から来たように見えるか"
 msgid "Work"
 msgstr ""
 
+#: views/tz.php:180
+msgid "Year"
+msgstr "年"
+
 #: page.voicemail.php:269
 msgid ""
 "Yes to search all contexts, no to search current context (if one is not "
@@ -1858,6 +1942,10 @@ msgstr "削除できませんでした"
 msgid "deleting VM_PREFIX from globals.."
 msgstr "VM_PREFIXをグローバル値から削除中…"
 
+#: page.voicemail.php:68
+msgid "disabled"
+msgstr ""
+
 #: install.php:125 install.php:142
 msgid "done"
 msgstr "完了"
@@ -1888,6 +1976,10 @@ msgstr "インストールされてません、ok"
 msgid "not needed"
 msgstr "不要"
 
+#: views/tz.php:172
+msgid "numeric day of month (first, second, ..., thirty-first)"
+msgstr "日にち"
+
 #: install.php:193
 msgid "ok"
 msgstr "ok"
@@ -1900,9 +1992,17 @@ msgstr "準備中"
 msgid "temp"
 msgstr "一時不在"
 
+#: views/tz.php:113
+msgid "timezone|values"
+msgstr "タイムゾーン|値"
+
 #: functions.inc.php:633
 msgid "unavailable"
 msgstr "利用不可"
+
+#: views/tz.php:140
+msgid "variable"
+msgstr "変数"
 
 #: functions.inc.php:434 page.voicemail.php:535 views/usage.php:20
 #: views/usage.php:35 views/usage.php:50 views/usage.php:65
@@ -1944,91 +2044,32 @@ msgstr "はい"
 #~ "オペレーターブレイク。オペレーターにつなぐためにボイスメールを残す 前/後/"
 #~ "間に 送信者に0を押すことを許可します。"
 
-#~ msgid "Timezone definition format is: "
-#~ msgstr "タイムゾーンの定義フォーマット："
-
-#~ msgid "timezone|values"
-#~ msgstr "タイムゾーン|値"
-
-#~ msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
-#~ msgstr "<i>タイムゾーン</i>は /usr/share/zoneinfoに列挙されております。"
-
-#~ msgid ""
-#~ "The <i>values</i> supported in the timezone definition string include:"
-#~ msgstr ""
-#~ "タイムゾーン定義文字列でサポートされている<i>値</i>には、次が含まれます："
-
-#~ msgid "'filename'"
-#~ msgstr "'ファイル名'"
-
-#~ msgid "The name of a sound file (the file name must be single-quoted)"
-#~ msgstr ""
-#~ "音声ファイルの名前(ファイル名はシングルクォーテーションで囲む必要がありま"
-#~ "す)"
-
-#~ msgid "variable"
-#~ msgstr "変数"
-
-#~ msgid ""
-#~ "A variable to be substituted (see below for supported variable values)"
-#~ msgstr "置き換えられる変数(サポートされる変数値は以下です)"
-
-#~ msgid "Supported <i>variables</i>:"
-#~ msgstr "サポート<i>変数</i>:"
-
 #~ msgid "A or a"
 #~ msgstr "A 又は a"
-
-#~ msgid "Day of week (Saturday, Sunday, ...)"
-#~ msgstr "曜日(土曜日、日曜日、...)"
 
 #~ msgid "B or b or h"
 #~ msgstr "B 又は b 又は h"
 
-#~ msgid "Month name (January, February, ...)"
-#~ msgstr "月の名前(一月、二月、...)"
-
 #~ msgid "d or e"
 #~ msgstr "d 又は e"
-
-#~ msgid "numeric day of month (first, second, ..., thirty-first)"
-#~ msgstr "日にち"
 
 #~ msgid "Y"
 #~ msgstr "Y"
 
-#~ msgid "Year"
-#~ msgstr "年"
-
 #~ msgid "I or l"
 #~ msgstr "I 又は l"
-
-#~ msgid "Hour, 12 hour clock"
-#~ msgstr "時間、12時間時計"
 
 #~ msgid "H"
 #~ msgstr "H"
 
-#~ msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
-#~ msgstr "時間、24時間(\"oh\"に続く一桁の時間)"
-
 #~ msgid "k"
 #~ msgstr "k"
-
-#~ msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
-#~ msgstr "時間、24時間(\"oh\"が付いていない一桁の時間)"
 
 #~ msgid "M"
 #~ msgstr "M"
 
-#~ msgid "Minute, with 00 pronounced as \"o'clock\""
-#~ msgstr "\"時\"と発音する00がつく分"
-
 #~ msgid "N"
 #~ msgstr "N"
-
-#~ msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
-#~ msgstr "\"百\"と発音する00がつく分(USミリタリー時間)"
 
 #~ msgid "P or p"
 #~ msgstr "P or p"
@@ -2039,14 +2080,8 @@ msgstr "はい"
 #~ msgid "Q"
 #~ msgstr "Q"
 
-#~ msgid "\"today\", \"yesterday\" or ABdY"
-#~ msgstr "\" 今日\", \"昨日\" 又は ABdY"
-
 #~ msgid "q"
 #~ msgstr "q"
-
-#~ msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
-#~ msgstr "\"\" (今日), \"昨日\", 平日, 又は ABdY"
 
 #~ msgid "R"
 #~ msgstr "R"
