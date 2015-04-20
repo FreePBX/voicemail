@@ -220,6 +220,10 @@ msgstr "无法与Asterisk管理器连接"
 msgid "Change the email body, variables: VM_NAME, VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_DATE"
 msgstr ""
 
+#: views/dialplan.php:17
+msgid "Check this box to disable the standard voicemail instructions that follow the user recorded message. These standard instructions tell the caller to leave a message after the beep. This can be individually controlled for users who have VMX locater enabled."
+msgstr ""
+
 #: install.php:65
 msgid "Checking for General Setting migrations.."
 msgstr ""
@@ -608,6 +612,22 @@ msgstr "转到接线员"
 msgid "Greetings"
 msgstr ""
 
+#: views/usage.php:48
+msgid "Has a recorded busy greeting?"
+msgstr ""
+
+#: views/usage.php:18
+msgid "Has a recorded name greeting?"
+msgstr ""
+
+#: views/usage.php:63
+msgid "Has a recorded temporary greeting?"
+msgstr ""
+
+#: views/usage.php:33
+msgid "Has a recorded unavailable greeting?"
+msgstr ""
+
 #: page.voicemail.php:298
 msgid "Hide this mailbox from the directory produced by app_directory. The default is \"no\"."
 msgstr ""
@@ -763,6 +783,10 @@ msgstr "最长留言时间长度"
 msgid "Maximum number of messages per folder.  If not specified, a default value (100) is used.  Maximum value for this option is 9999."
 msgstr ""
 
+#: functions.inc.php:631
+msgid "Menu options below are available during your personal Voicemail greeting playback. <br/><br/>Check both to use at all times."
+msgstr ""
+
 #: views/usage.php:30
 msgid "Messages in inbox"
 msgstr ""
@@ -860,6 +884,26 @@ msgstr ""
 
 #: views/usage.php:25 views/usage_system.php:42
 msgid "Number of Messages"
+msgstr ""
+
+#: views/usage.php:78 views/usage_system.php:101
+msgid "Number of abandoned greetings. Such greetings were recorded by the user but were NOT accepted, so the sound file remains on disk but is not used as a greeting."
+msgstr ""
+
+#: views/usage_system.php:71
+msgid "Number of recorded busy greetings"
+msgstr ""
+
+#: views/usage_system.php:41
+msgid "Number of recorded name greetings"
+msgstr ""
+
+#: views/usage_system.php:86
+msgid "Number of recorded temporary greetings"
+msgstr ""
+
+#: views/usage_system.php:56
+msgid "Number of recorded unavailable greetings"
 msgstr ""
 
 #: views/dialplan.php:203
@@ -990,6 +1034,10 @@ msgstr ""
 msgid "Recorded Name"
 msgstr ""
 
+#: views/usage.php:18
+msgid "Recorded Name:"
+msgstr ""
+
 #: views/usage_system.php:77
 msgid "Recorded Names"
 msgstr ""
@@ -1006,13 +1054,29 @@ msgstr ""
 msgid "Remove Abandoned Greetings (> 1 day old).</br>  Such greetings were recorded by the user but were NOT accepted, so the sound file remains on disk but is not used as a greeting."
 msgstr ""
 
+#: views/usage.php:82 views/usage_system.php:105
+msgid "Remove all abandoned greetings (> 1 day old)"
+msgstr ""
+
 #: views/usage_system.php:220
 msgid "Remove all abandoned greetings (> 1 day old).</br>  Such greetings were recorded by the user but were NOT accepted, so the sound file remains on disk but is not used as a greeting."
+msgstr ""
+
+#: views/usage_system.php:75
+msgid "Remove all busy greetings"
 msgstr ""
 
 #: views/usage.php:48 views/usage_system.php:65
 msgid "Remove all messages"
 msgstr "删除所有信息"
+
+#: views/usage_system.php:90
+msgid "Remove all temporary greetings"
+msgstr ""
+
+#: views/usage_system.php:60
+msgid "Remove all unavailable greetings"
+msgstr ""
 
 #: page.voicemail.php:204
 msgid "Remove the timezone definition"
@@ -1220,6 +1284,10 @@ msgstr ""
 msgid "Times to Play Message"
 msgstr ""
 
+#: views/tz.php:60
+msgid "Timezone Definition"
+msgstr ""
+
 #: functions.inc.php:905 views/header.php:12
 msgid "Timezone Definitions"
 msgstr "时区定义"
@@ -1253,6 +1321,10 @@ msgstr ""
 #: views/usage_system.php:112 views/usage_system.php:143
 #: views/usage_system.php:174 views/usage_system.php:205
 msgid "Total"
+msgstr ""
+
+#: views/usage_system.php:14
+msgid "Total ( Activated / Unactivated / Disabled )"
 msgstr ""
 
 #: page.voicemail.php:220 page.voicemail.php:294
@@ -1543,88 +1615,113 @@ msgstr ""
 msgid "preparing"
 msgstr ""
 
-#: page.voicemail.php:544
-msgid "yes"
-msgstr "是"
-
-#: views/dialplan.php:17
-msgid "Check this box to disable the standard voicemail instructions that follow the user recorded message. These standard instructions tell the caller to leave a message after the beep. This can be individually controlled for users who have VMX locater enabled."
-msgstr ""
-
-#: views/usage.php:48
-msgid "Has a recorded busy greeting?"
-msgstr ""
-
-#: views/usage.php:18
-msgid "Has a recorded name greeting?"
-msgstr ""
-
-#: views/usage.php:63
-msgid "Has a recorded temporary greeting?"
-msgstr ""
-
-#: views/usage.php:33
-msgid "Has a recorded unavailable greeting?"
-msgstr ""
-
-#: functions.inc.php:631
-msgid "Menu options below are available during your personal Voicemail greeting playback. <br/><br/>Check both to use at all times."
-msgstr ""
-
-#: views/usage.php:78 views/usage_system.php:101
-msgid "Number of abandoned greetings. Such greetings were recorded by the user but were NOT accepted, so the sound file remains on disk but is not used as a greeting."
-msgstr ""
-
-#: views/usage_system.php:71
-msgid "Number of recorded busy greetings"
-msgstr ""
-
-#: views/usage_system.php:41
-msgid "Number of recorded name greetings"
-msgstr ""
-
-#: views/usage_system.php:86
-msgid "Number of recorded temporary greetings"
-msgstr ""
-
-#: views/usage_system.php:56
-msgid "Number of recorded unavailable greetings"
-msgstr ""
-
-#: views/usage.php:18
-msgid "Recorded Name:"
-msgstr ""
-
-#: views/usage.php:82 views/usage_system.php:105
-msgid "Remove all abandoned greetings (> 1 day old)"
-msgstr ""
-
-#: views/usage_system.php:75
-msgid "Remove all busy greetings"
-msgstr ""
-
-#: views/usage_system.php:90
-msgid "Remove all temporary greetings"
-msgstr ""
-
-#: views/usage_system.php:60
-msgid "Remove all unavailable greetings"
-msgstr ""
-
-#: views/tz.php:60
-msgid "Timezone Definition"
-msgstr ""
-
-#: views/usage_system.php:14
-msgid "Total ( Activated / Unactivated / Disabled )"
-msgstr ""
-
 #: functions.inc.php:637
 msgid "temp"
 msgstr ""
 
+#: page.voicemail.php:544
+msgid "yes"
+msgstr "是"
+
+#: views/tz.php:242
+msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
+msgstr ""
+
+#: views/tz.php:234
+msgid "\"today\", \"yesterday\" or ABdY"
+msgstr ""
+
+#: views/tz.php:153 views/tz.php:169 views/tz.php:185 views/tz.php:223
+#, php-format
+msgid "%s or %s"
+msgstr ""
+
+#: views/tz.php:161
+#, php-format
+msgid "%s or %s or %s"
+msgstr ""
+
+#: views/tz.php:132
+msgid "'filename'"
+msgstr ""
+
+#: views/tz.php:121
+msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
+msgstr ""
+
+#: views/tz.php:143
+msgid "A variable to be substituted (see below for supported variable values)"
+msgstr ""
+
+#: views/tz.php:156
+msgid "Day of week (Saturday, Sunday, ...)"
+msgstr ""
+
+#: views/tz.php:187
+msgid "Hour, 12 hour clock"
+msgstr ""
+
+#: views/tz.php:203
+msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
+msgstr ""
+
+#: views/tz.php:195
+msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
+msgstr ""
+
+#: views/tz.php:218
+msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
+msgstr ""
+
+#: views/tz.php:211
+msgid "Minute, with 00 pronounced as \"o'clock\""
+msgstr ""
+
+#: views/tz.php:164
+msgid "Month name (January, February, ...)"
+msgstr ""
+
+#: views/tz.php:148
+msgid "Supported <i>variables</i>:"
+msgstr ""
+
+#: views/tz.php:127
+msgid "The <i>values</i> supported in the timezone definition string include:"
+msgstr ""
+
+#: views/tz.php:135
+msgid "The name of a sound file (the file name must be single-quoted)"
+msgstr ""
+
+#: views/tz.php:113
+msgid "Timezone definition format is: "
+msgstr ""
+
+#: views/tz.php:180
+msgid "Year"
+msgstr ""
+
+#: page.voicemail.php:68
+msgid "disabled"
+msgstr ""
+
+#: views/tz.php:172
+msgid "numeric day of month (first, second, ..., thirty-first)"
+msgstr ""
+
+#: views/tz.php:113
+msgid "timezone|values"
+msgstr ""
+
+#: views/tz.php:140
+msgid "variable"
+msgstr ""
+
 #~ msgid "Abandoned Greetings:"
 #~ msgstr "丢弃问候语:"
+
+#~ msgid "unavailable"
+#~ msgstr "不可用"
 
 #~ msgid "Advanced Settings"
 #~ msgstr "高级设置"
@@ -1751,6 +1848,3 @@ msgstr ""
 
 #~ msgid "no"
 #~ msgstr "否"
-
-#~ msgid "unavailable"
-#~ msgstr "不可用"

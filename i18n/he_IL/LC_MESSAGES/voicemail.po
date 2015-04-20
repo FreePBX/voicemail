@@ -118,6 +118,10 @@ msgstr ""
 msgid "Abandoned Greetings"
 msgstr ""
 
+#: views/usage.php:78 views/usage_system.php:101
+msgid "Abandoned Greetings:"
+msgstr ""
+
 #: views/usage.php:2
 msgid "Account"
 msgstr ""
@@ -140,6 +144,10 @@ msgstr ""
 
 #: views/usage_system.php:10
 msgid "Activated"
+msgstr ""
+
+#: views/settings.php:13
+msgid "Advanced Settings"
 msgstr ""
 
 #: functions.inc.php:916
@@ -207,6 +215,10 @@ msgstr ""
 msgid "Busy Greetings"
 msgstr ""
 
+#: views/usage.php:48 views/usage_system.php:71
+msgid "Busy Greetings:"
+msgstr ""
+
 #: ucp/views/mailbox.php:15
 msgid "CID"
 msgstr ""
@@ -225,6 +237,10 @@ msgstr ""
 
 #: page.voicemail.php:216
 msgid "Change the email body, variables: VM_NAME, VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_DATE"
+msgstr ""
+
+#: views/dialplan.php:17
+msgid "Check this box to disable the standard voicemail instructions that follow the user recorded message. These standard instructions tell the caller to leave a message after the beep. This can be individually controlled for users who have VMX locater enabled."
 msgstr ""
 
 #: install.php:65
@@ -454,6 +470,10 @@ msgstr ""
 msgid "Email Attachment"
 msgstr ""
 
+#: page.voicemail.php:216
+msgid "Email body."
+msgstr ""
+
 #: page.voicemail.php:218
 msgid "Email subject"
 msgstr ""
@@ -535,6 +555,10 @@ msgstr ""
 msgid "Fatal DB error trying to delete globals, trying to carry on"
 msgstr ""
 
+#: views/usage.php:20 views/usage.php:35 views/usage.php:50 views/usage.php:65
+msgid "File timestamp: "
+msgstr ""
+
 #: ucp/assets/js/global.js:55
 msgid "Find me Follow me is disabled when VmX locator option 1 is disabled as well!"
 msgstr ""
@@ -613,6 +637,22 @@ msgstr ""
 
 #: ucp/views/nav.php:10
 msgid "Greetings"
+msgstr ""
+
+#: views/usage.php:48
+msgid "Has a recorded busy greeting?"
+msgstr ""
+
+#: views/usage.php:18
+msgid "Has a recorded name greeting?"
+msgstr ""
+
+#: views/usage.php:63
+msgid "Has a recorded temporary greeting?"
+msgstr ""
+
+#: views/usage.php:33
+msgid "Has a recorded unavailable greeting?"
 msgstr ""
 
 #: page.voicemail.php:298
@@ -770,6 +810,10 @@ msgstr ""
 msgid "Maximum number of messages per folder.  If not specified, a default value (100) is used.  Maximum value for this option is 9999."
 msgstr ""
 
+#: functions.inc.php:631
+msgid "Menu options below are available during your personal Voicemail greeting playback. <br/><br/>Check both to use at all times."
+msgstr ""
+
 #: views/usage.php:30
 msgid "Messages in inbox"
 msgstr ""
@@ -865,8 +909,36 @@ msgstr ""
 msgid "Number of Accounts"
 msgstr ""
 
+#: views/usage_system.php:14
+msgid "Number of Accounts:"
+msgstr ""
+
 #: views/usage.php:25 views/usage_system.php:42
 msgid "Number of Messages"
+msgstr ""
+
+#: views/usage.php:4 views/usage_system.php:26
+msgid "Number of Messages:"
+msgstr ""
+
+#: views/usage.php:78 views/usage_system.php:101
+msgid "Number of abandoned greetings. Such greetings were recorded by the user but were NOT accepted, so the sound file remains on disk but is not used as a greeting."
+msgstr ""
+
+#: views/usage_system.php:71
+msgid "Number of recorded busy greetings"
+msgstr ""
+
+#: views/usage_system.php:41
+msgid "Number of recorded name greetings"
+msgstr ""
+
+#: views/usage_system.php:86
+msgid "Number of recorded temporary greetings"
+msgstr ""
+
+#: views/usage_system.php:56
+msgid "Number of recorded unavailable greetings"
 msgstr ""
 
 #: views/dialplan.php:203
@@ -945,6 +1017,10 @@ msgstr ""
 msgid "Please enter a valid Voicemail Password, using digits only"
 msgstr ""
 
+#: functions.inc.php:563
+msgid "Please enter a valid phone number using number digits only"
+msgstr ""
+
 #: ucp/views/vmx.php:21
 msgid "Press 0"
 msgstr ""
@@ -997,8 +1073,16 @@ msgstr ""
 msgid "Recorded Name"
 msgstr ""
 
+#: views/usage.php:18
+msgid "Recorded Name:"
+msgstr ""
+
 #: views/usage_system.php:77
 msgid "Recorded Names"
+msgstr ""
+
+#: views/usage_system.php:41
+msgid "Recorded Names:"
 msgstr ""
 
 #: ucp/assets/js/global.js:761
@@ -1013,16 +1097,52 @@ msgstr ""
 msgid "Remove Abandoned Greetings (> 1 day old).</br>  Such greetings were recorded by the user but were NOT accepted, so the sound file remains on disk but is not used as a greeting."
 msgstr ""
 
+#: views/usage.php:82 views/usage_system.php:105
+msgid "Remove all abandoned greetings (> 1 day old)"
+msgstr ""
+
 #: views/usage_system.php:220
 msgid "Remove all abandoned greetings (> 1 day old).</br>  Such greetings were recorded by the user but were NOT accepted, so the sound file remains on disk but is not used as a greeting."
+msgstr ""
+
+#: views/usage_system.php:75
+msgid "Remove all busy greetings"
 msgstr ""
 
 #: views/usage.php:48 views/usage_system.php:65
 msgid "Remove all messages"
 msgstr ""
 
+#: views/usage_system.php:45
+msgid "Remove all recorded names"
+msgstr ""
+
+#: views/usage_system.php:90
+msgid "Remove all temporary greetings"
+msgstr ""
+
+#: views/usage_system.php:60
+msgid "Remove all unavailable greetings"
+msgstr ""
+
+#: views/usage.php:52
+msgid "Remove busy greeting"
+msgstr ""
+
+#: views/usage.php:23
+msgid "Remove recorded name"
+msgstr ""
+
+#: views/usage.php:67
+msgid "Remove temporary greeting"
+msgstr ""
+
 #: page.voicemail.php:204
 msgid "Remove the timezone definition"
+msgstr ""
+
+#: views/usage.php:37
+msgid "Remove unavailable greeting"
 msgstr ""
 
 #: functions.inc.php:518
@@ -1088,6 +1208,14 @@ msgstr ""
 msgid "Specify in minutes the minimum duration to say. Default is 2 minutes."
 msgstr ""
 
+#: functions.inc.php:644
+msgid "Standard Voicemail prompts."
+msgstr ""
+
+#: functions.inc.php:531
+msgid "Status"
+msgstr ""
+
 #: ucp/assets/js/global.js:824
 msgid "Stop the Recording First before trying to delete"
 msgstr ""
@@ -1098,6 +1226,14 @@ msgstr ""
 
 #: views/usage.php:5 views/usage_system.php:21
 msgid "Storage Usage"
+msgstr ""
+
+#: views/usage.php:93
+msgid "Storage Used"
+msgstr ""
+
+#: views/usage_system.php:116
+msgid "Storage Used:"
 msgstr ""
 
 #: page.voicemail.php:261
@@ -1116,6 +1252,10 @@ msgstr ""
 msgid "System Usage Statistics"
 msgstr ""
 
+#: views/header.php:13
+msgid "System View Links:"
+msgstr ""
+
 #: ucp/views/vmx.php:14
 msgid "Temp"
 msgstr ""
@@ -1128,8 +1268,16 @@ msgstr ""
 msgid "Temporary Greeting"
 msgstr ""
 
+#: views/usage.php:63
+msgid "Temporary Greeting:"
+msgstr ""
+
 #: views/usage_system.php:170
 msgid "Temporary Greetings"
+msgstr ""
+
+#: views/usage_system.php:86
+msgid "Temporary Greetings:"
 msgstr ""
 
 #: page.voicemail.php:276
@@ -1227,6 +1375,10 @@ msgstr ""
 msgid "Times to Play Message"
 msgstr ""
 
+#: views/tz.php:60
+msgid "Timezone Definition"
+msgstr ""
+
 #: functions.inc.php:905 views/header.php:12
 msgid "Timezone Definitions"
 msgstr ""
@@ -1262,6 +1414,14 @@ msgstr ""
 msgid "Total"
 msgstr ""
 
+#: views/usage_system.php:14
+msgid "Total ( Activated / Unactivated / Disabled )"
+msgstr ""
+
+#: views/usage.php:4 views/usage_system.php:26
+msgid "Total ( Messages in inboxes / Messages in other folders )"
+msgstr ""
+
 #: page.voicemail.php:220 page.voicemail.php:294
 msgid "Turn on/off envelope playback before message playback. [ON by default] This does NOT affect option 3,3 from the advanced options menu."
 msgstr ""
@@ -1287,8 +1447,16 @@ msgstr ""
 msgid "Unavailable Greeting"
 msgstr ""
 
+#: views/usage.php:33
+msgid "Unavailable Greeting:"
+msgstr ""
+
 #: views/usage_system.php:108
 msgid "Unavailable Greetings"
+msgstr ""
+
+#: views/usage_system.php:56
+msgid "Unavailable Greetings:"
 msgstr ""
 
 #: functions.inc.php:771
@@ -1371,6 +1539,10 @@ msgstr ""
 
 #: page.voicemail.php:275
 msgid "Valid port as specified in smdi.conf for using smdi for external notification."
+msgstr ""
+
+#: functions.inc.php:557
+msgid "VmX Locater"
 msgstr ""
 
 #: functions.inc.php:663
@@ -1505,6 +1677,10 @@ msgstr ""
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 
+#: functions.inc.php:635
+msgid "busy"
+msgstr ""
+
 #: install.php:183
 msgid "checking if Voicemail Admin (vmailadmin) is installed.."
 msgstr ""
@@ -1534,6 +1710,11 @@ msgstr ""
 msgid "migrated VM_PREFIX to feature codes"
 msgstr ""
 
+#: functions.inc.php:435 page.voicemail.php:536 views/usage.php:20
+#: views/usage.php:35 views/usage.php:50 views/usage.php:65
+msgid "no"
+msgstr ""
+
 #: install.php:186
 msgid "not installed, ok"
 msgstr ""
@@ -1550,195 +1731,108 @@ msgstr ""
 msgid "preparing"
 msgstr ""
 
-#: page.voicemail.php:544
-msgid "yes"
-msgstr ""
-
-#: views/usage.php:78 views/usage_system.php:101
-msgid "Abandoned Greetings:"
-msgstr ""
-
-#: views/settings.php:13
-msgid "Advanced Settings"
-msgstr ""
-
-#: views/usage.php:48 views/usage_system.php:71
-msgid "Busy Greetings:"
-msgstr ""
-
-#: views/dialplan.php:17
-msgid "Check this box to disable the standard voicemail instructions that follow the user recorded message. These standard instructions tell the caller to leave a message after the beep. This can be individually controlled for users who have VMX locater enabled."
-msgstr ""
-
-#: page.voicemail.php:216
-msgid "Email body."
-msgstr ""
-
-#: views/usage.php:20 views/usage.php:35 views/usage.php:50 views/usage.php:65
-msgid "File timestamp: "
-msgstr ""
-
-#: views/usage.php:48
-msgid "Has a recorded busy greeting?"
-msgstr ""
-
-#: views/usage.php:18
-msgid "Has a recorded name greeting?"
-msgstr ""
-
-#: views/usage.php:63
-msgid "Has a recorded temporary greeting?"
-msgstr ""
-
-#: views/usage.php:33
-msgid "Has a recorded unavailable greeting?"
-msgstr ""
-
-#: functions.inc.php:631
-msgid "Menu options below are available during your personal Voicemail greeting playback. <br/><br/>Check both to use at all times."
-msgstr ""
-
-#: views/usage_system.php:14
-msgid "Number of Accounts:"
-msgstr ""
-
-#: views/usage.php:4 views/usage_system.php:26
-msgid "Number of Messages:"
-msgstr ""
-
-#: views/usage.php:78 views/usage_system.php:101
-msgid "Number of abandoned greetings. Such greetings were recorded by the user but were NOT accepted, so the sound file remains on disk but is not used as a greeting."
-msgstr ""
-
-#: views/usage_system.php:71
-msgid "Number of recorded busy greetings"
-msgstr ""
-
-#: views/usage_system.php:41
-msgid "Number of recorded name greetings"
-msgstr ""
-
-#: views/usage_system.php:86
-msgid "Number of recorded temporary greetings"
-msgstr ""
-
-#: views/usage_system.php:56
-msgid "Number of recorded unavailable greetings"
-msgstr ""
-
-#: functions.inc.php:563
-msgid "Please enter a valid phone number using number digits only"
-msgstr ""
-
-#: views/usage.php:18
-msgid "Recorded Name:"
-msgstr ""
-
-#: views/usage_system.php:41
-msgid "Recorded Names:"
-msgstr ""
-
-#: views/usage.php:82 views/usage_system.php:105
-msgid "Remove all abandoned greetings (> 1 day old)"
-msgstr ""
-
-#: views/usage_system.php:75
-msgid "Remove all busy greetings"
-msgstr ""
-
-#: views/usage_system.php:45
-msgid "Remove all recorded names"
-msgstr ""
-
-#: views/usage_system.php:90
-msgid "Remove all temporary greetings"
-msgstr ""
-
-#: views/usage_system.php:60
-msgid "Remove all unavailable greetings"
-msgstr ""
-
-#: views/usage.php:52
-msgid "Remove busy greeting"
-msgstr ""
-
-#: views/usage.php:23
-msgid "Remove recorded name"
-msgstr ""
-
-#: views/usage.php:67
-msgid "Remove temporary greeting"
-msgstr ""
-
-#: views/usage.php:37
-msgid "Remove unavailable greeting"
-msgstr ""
-
-#: functions.inc.php:644
-msgid "Standard Voicemail prompts."
-msgstr ""
-
-#: functions.inc.php:531
-msgid "Status"
-msgstr ""
-
-#: views/usage.php:93
-msgid "Storage Used"
-msgstr ""
-
-#: views/usage_system.php:116
-msgid "Storage Used:"
-msgstr ""
-
-#: views/header.php:13
-msgid "System View Links:"
-msgstr ""
-
-#: views/usage.php:63
-msgid "Temporary Greeting:"
-msgstr ""
-
-#: views/usage_system.php:86
-msgid "Temporary Greetings:"
-msgstr ""
-
-#: views/tz.php:60
-msgid "Timezone Definition"
-msgstr ""
-
-#: views/usage_system.php:14
-msgid "Total ( Activated / Unactivated / Disabled )"
-msgstr ""
-
-#: views/usage.php:4 views/usage_system.php:26
-msgid "Total ( Messages in inboxes / Messages in other folders )"
-msgstr ""
-
-#: views/usage.php:33
-msgid "Unavailable Greeting:"
-msgstr ""
-
-#: views/usage_system.php:56
-msgid "Unavailable Greetings:"
-msgstr ""
-
-#: functions.inc.php:557
-msgid "VmX Locater"
-msgstr ""
-
-#: functions.inc.php:635
-msgid "busy"
-msgstr ""
-
-#: functions.inc.php:435 page.voicemail.php:536 views/usage.php:20
-#: views/usage.php:35 views/usage.php:50 views/usage.php:65
-msgid "no"
-msgstr ""
-
 #: functions.inc.php:637
 msgid "temp"
 msgstr ""
 
 #: functions.inc.php:633
 msgid "unavailable"
+msgstr ""
+
+#: page.voicemail.php:544
+msgid "yes"
+msgstr ""
+
+#: views/tz.php:242
+msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
+msgstr ""
+
+#: views/tz.php:234
+msgid "\"today\", \"yesterday\" or ABdY"
+msgstr ""
+
+#: views/tz.php:153 views/tz.php:169 views/tz.php:185 views/tz.php:223
+#, php-format
+msgid "%s or %s"
+msgstr ""
+
+#: views/tz.php:161
+#, php-format
+msgid "%s or %s or %s"
+msgstr ""
+
+#: views/tz.php:132
+msgid "'filename'"
+msgstr ""
+
+#: views/tz.php:121
+msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
+msgstr ""
+
+#: views/tz.php:143
+msgid "A variable to be substituted (see below for supported variable values)"
+msgstr ""
+
+#: views/tz.php:156
+msgid "Day of week (Saturday, Sunday, ...)"
+msgstr ""
+
+#: views/tz.php:187
+msgid "Hour, 12 hour clock"
+msgstr ""
+
+#: views/tz.php:203
+msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
+msgstr ""
+
+#: views/tz.php:195
+msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
+msgstr ""
+
+#: views/tz.php:218
+msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
+msgstr ""
+
+#: views/tz.php:211
+msgid "Minute, with 00 pronounced as \"o'clock\""
+msgstr ""
+
+#: views/tz.php:164
+msgid "Month name (January, February, ...)"
+msgstr ""
+
+#: views/tz.php:148
+msgid "Supported <i>variables</i>:"
+msgstr ""
+
+#: views/tz.php:127
+msgid "The <i>values</i> supported in the timezone definition string include:"
+msgstr ""
+
+#: views/tz.php:135
+msgid "The name of a sound file (the file name must be single-quoted)"
+msgstr ""
+
+#: views/tz.php:113
+msgid "Timezone definition format is: "
+msgstr ""
+
+#: views/tz.php:180
+msgid "Year"
+msgstr ""
+
+#: page.voicemail.php:68
+msgid "disabled"
+msgstr ""
+
+#: views/tz.php:172
+msgid "numeric day of month (first, second, ..., thirty-first)"
+msgstr ""
+
+#: views/tz.php:113
+msgid "timezone|values"
+msgstr ""
+
+#: views/tz.php:140
+msgid "variable"
 msgstr ""

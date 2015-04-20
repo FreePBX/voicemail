@@ -1576,8 +1576,19 @@ msgstr "準備中"
 msgid "yes"
 msgstr "はい"
 
-#~ msgid " Greeting"
-#~ msgstr " アナウンス"
+#: views/tz.php:153 views/tz.php:169 views/tz.php:185 views/tz.php:223
+#, php-format
+msgid "%s or %s"
+msgstr ""
+
+#: views/tz.php:161
+#, php-format
+msgid "%s or %s or %s"
+msgstr ""
+
+#: page.voicemail.php:68
+msgid "disabled"
+msgstr ""
 
 #~ msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
 #~ msgstr "\"\" (今日), \"昨日\", 平日, 又は ABdY"
@@ -1588,23 +1599,77 @@ msgstr "はい"
 #~ msgid "'filename'"
 #~ msgstr "'ファイル名'"
 
-#~ msgid "24 hour time, including minute"
-#~ msgstr "分を含む24時間"
-
 #~ msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
 #~ msgstr "<i>タイムゾーン</i>は /usr/share/zoneinfoに列挙されております。"
-
-#~ msgid "A or a"
-#~ msgstr "A 又は a"
 
 #~ msgid "A variable to be substituted (see below for supported variable values)"
 #~ msgstr "置き換えられる変数(サポートされる変数値は以下です)"
 
-#~ msgid "AM or PM"
-#~ msgstr "午前 or 午後"
-
 #~ msgid "Abandoned Greetings:"
 #~ msgstr "破棄されたアナウンス："
+
+#~ msgid "Day of week (Saturday, Sunday, ...)"
+#~ msgstr "曜日(土曜日、日曜日、...)"
+
+#~ msgid "Hour, 12 hour clock"
+#~ msgstr "時間、12時間時計"
+
+#~ msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
+#~ msgstr "時間、24時間(\"oh\"が付いていない一桁の時間)"
+
+#~ msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
+#~ msgstr "時間、24時間(\"oh\"に続く一桁の時間)"
+
+#~ msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
+#~ msgstr "\"百\"と発音する00がつく分(USミリタリー時間)"
+
+#~ msgid "Minute, with 00 pronounced as \"o'clock\""
+#~ msgstr "\"時\"と発音する00がつく分"
+
+#~ msgid "Month name (January, February, ...)"
+#~ msgstr "月の名前(一月、二月、...)"
+
+#~ msgid "Supported <i>variables</i>:"
+#~ msgstr "サポート<i>変数</i>:"
+
+#~ msgid "The <i>values</i> supported in the timezone definition string include:"
+#~ msgstr "タイムゾーン定義文字列でサポートされている<i>値</i>には、次が含まれます："
+
+#~ msgid "The name of a sound file (the file name must be single-quoted)"
+#~ msgstr "音声ファイルの名前(ファイル名はシングルクォーテーションで囲む必要があります)"
+
+#~ msgid "Timezone definition format is: "
+#~ msgstr "タイムゾーンの定義フォーマット："
+
+#~ msgid "Year"
+#~ msgstr "年"
+
+#~ msgid "numeric day of month (first, second, ..., thirty-first)"
+#~ msgstr "日にち"
+
+#~ msgid "temp"
+#~ msgstr "一時不在"
+
+#~ msgid "timezone|values"
+#~ msgstr "タイムゾーン|値"
+
+#~ msgid "unavailable"
+#~ msgstr "利用不可"
+
+#~ msgid "variable"
+#~ msgstr "変数"
+
+#~ msgid " Greeting"
+#~ msgstr " アナウンス"
+
+#~ msgid "24 hour time, including minute"
+#~ msgstr "分を含む24時間"
+
+#~ msgid "A or a"
+#~ msgstr "A 又は a"
+
+#~ msgid "AM or PM"
+#~ msgstr "午前 or 午後"
 
 #~ msgid "Advanced Settings"
 #~ msgstr "高度な設定"
@@ -1617,9 +1682,6 @@ msgstr "はい"
 
 #~ msgid "Check this box to disable the standard voicemail instructions that follow the user recorded message. These standard instructions tell the caller to leave a message after the beep. This can be individually controlled for users who have VMX locater enabled."
 #~ msgstr "チェックを入れた場合、ユーザーが録音したメッセージの後に、標準のボイスメール説明を無効にします。標準の説明では「発信音の後にメッセージを録音してください」と言う意味のものです。VMXロケータが有効なユーザーの場合は、個別でコントロールできます。"
-
-#~ msgid "Day of week (Saturday, Sunday, ...)"
-#~ msgstr "曜日(土曜日、日曜日、...)"
 
 #~ msgid "Email body."
 #~ msgstr "Eメール本文。"
@@ -1648,15 +1710,6 @@ msgstr "はい"
 #~ msgid "Has a recorded unavailable greeting?"
 #~ msgstr "録音された無効挨拶がある?"
 
-#~ msgid "Hour, 12 hour clock"
-#~ msgstr "時間、12時間時計"
-
-#~ msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
-#~ msgstr "時間、24時間(\"oh\"が付いていない一桁の時間)"
-
-#~ msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
-#~ msgstr "時間、24時間(\"oh\"に続く一桁の時間)"
-
 #~ msgid "I or l"
 #~ msgstr "I 又は l"
 
@@ -1665,15 +1718,6 @@ msgstr "はい"
 
 #~ msgid "Menu options below are available during your personal Voicemail greeting playback. <br/><br/>Check both to use at all times."
 #~ msgstr "次の2つのチェックボックスは、あなたのボイスメールアナウンス再生中に適用されます。<br/><br/>両方チェックするといつでも利用できます。"
-
-#~ msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
-#~ msgstr "\"百\"と発音する00がつく分(USミリタリー時間)"
-
-#~ msgid "Minute, with 00 pronounced as \"o'clock\""
-#~ msgstr "\"時\"と発音する00がつく分"
-
-#~ msgid "Month name (January, February, ...)"
-#~ msgstr "月の名前(一月、二月、...)"
 
 #~ msgid "Move heard messages to the 'Old' folder automatically.  Defaults to on."
 #~ msgstr "再生済みメッセージを Old フォルダーに移動します。 デフォルトは on です。"
@@ -1768,9 +1812,6 @@ msgstr "はい"
 #~ msgid "Storage Used:"
 #~ msgstr "保存領域使用状況："
 
-#~ msgid "Supported <i>variables</i>:"
-#~ msgstr "サポート<i>変数</i>:"
-
 #~ msgid "System View Links:"
 #~ msgstr "システムビューリンク："
 
@@ -1780,17 +1821,8 @@ msgstr "はい"
 #~ msgid "Temporary Greetings:"
 #~ msgstr "一時不在時のグリーティング："
 
-#~ msgid "The <i>values</i> supported in the timezone definition string include:"
-#~ msgstr "タイムゾーン定義文字列でサポートされている<i>値</i>には、次が含まれます："
-
-#~ msgid "The name of a sound file (the file name must be single-quoted)"
-#~ msgstr "音声ファイルの名前(ファイル名はシングルクォーテーションで囲む必要があります)"
-
 #~ msgid "Timezone Definition"
 #~ msgstr "タイムゾーンの定義"
-
-#~ msgid "Timezone definition format is: "
-#~ msgstr "タイムゾーンの定義フォーマット："
 
 #~ msgid "Total ( Activated / Unactivated / Disabled )"
 #~ msgstr "合計 ( アクティベート済 / 未アクティベート / 無効 )"
@@ -1810,9 +1842,6 @@ msgstr "はい"
 #~ msgid "Y"
 #~ msgstr "Y"
 
-#~ msgid "Year"
-#~ msgstr "年"
-
 #~ msgid "adding preload for res_mwi_blf.so to modules.conf.."
 #~ msgstr "res_mwi.blf.soのプレロードをmodules.confに追加中…"
 
@@ -1828,26 +1857,11 @@ msgstr "はい"
 #~ msgid "no"
 #~ msgstr "いいえ"
 
-#~ msgid "numeric day of month (first, second, ..., thirty-first)"
-#~ msgstr "日にち"
-
 #~ msgid "q"
 #~ msgstr "q"
 
-#~ msgid "temp"
-#~ msgstr "一時不在"
-
-#~ msgid "timezone|values"
-#~ msgstr "タイムゾーン|値"
-
-#~ msgid "unavailable"
-#~ msgstr "利用不可"
-
 #~ msgid "undefined"
 #~ msgstr "未定義"
-
-#~ msgid "variable"
-#~ msgstr "変数"
 
 #~ msgid "you may need to add the line 'preload => res_mwi_blf.so' to your modules.conf manually"
 #~ msgstr "'preload => res_mwi_blf.so' というラインを、手動でmodules.confに入れる必要があるかもしれません。"
