@@ -643,7 +643,7 @@ switch ($action) {
 		}
 		$update_notice = ($update_flag === false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";
 		$update_flag === true ? $update_notice = "&nbsp;&nbsp;<b><u>UPDATE COMPLETED</u></b>":"";
-		$output .= "<input type='hidden' name='action' id='action' value='Submit' />";
+		$output .= "<input type='hidden' name='action' id='action' value='"._('Submit')."' />";
 		if($update_notice != ""){
 			$output .= '<div class="well">'. $update_notice . '</div>';
 		}
