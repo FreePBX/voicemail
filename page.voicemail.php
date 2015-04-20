@@ -65,7 +65,7 @@ if (isset($extens) && is_array($extens)) {
 		} else {
 			/* Voicemail is disabled for this extension. */
 			$vmail_info["disabled_list"][] = $exten[0];
-			$disabled_txt = "disabled";
+			$disabled_txt = _("disabled");
 			$disabled_style = " style='background: #ffffcc; text-decoration: line-through;'";
 			/* Distinguish between "extensions" and "deviceanduser" modes. */
 			if (isset($amp_conf["AMPEXTENSIONS"]) && ($amp_conf["AMPEXTENSIONS"] == "extensions")) {
@@ -554,7 +554,7 @@ switch ($action) {
 		}
 		$update_notice = ($update_flag === false)?"&nbsp;&nbsp;<b><u>UPDATE FAILED</u></b>":"";
 		$update_flag === true ? $update_notice = "&nbsp;&nbsp;<b><u>UPDATE COMPLETED</u></b>":"";
-		$output .= "<tr><td></td><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='action' id='action' value='Submit' />" . $update_notice . "</td></tr>";
+		$output .= "<tr><td></td><td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='action' id='action' value='"._('Submit')."' />" . $update_notice . "</td></tr>";
 		echo $output;
 		break;
 	case "usage":
