@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-20 14:39-0400\n"
-"PO-Revision-Date: 2015-04-22 20:15+0200\n"
+"PO-Revision-Date: 2015-04-23 00:08+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -901,7 +901,7 @@ msgstr ""
 
 #: page.voicemail.php:422
 msgid "No Message"
-msgstr ""
+msgstr "Aucun message"
 
 #: ucp/views/mailbox.php:90
 msgid "No Messages"
