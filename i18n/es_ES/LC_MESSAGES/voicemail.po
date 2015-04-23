@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: FreePBX - voicemail module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-20 14:39-0400\n"
-"PO-Revision-Date: 2015-03-30 10:47+0200\n"
+"PO-Revision-Date: 2015-04-23 06:58+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
-"voicemail/es_ES/>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/voicemail/es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Spanish\n"
@@ -19,11 +19,11 @@ msgstr ""
 
 #: views/tz.php:242
 msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
-msgstr ""
+msgstr "\"\" (para hoy), \"ayer\", día de semana, o ABdY"
 
 #: views/tz.php:234
 msgid "\"today\", \"yesterday\" or ABdY"
-msgstr ""
+msgstr "\"hoy\", \"ayer\", o ABdY"
 
 #: page.voicemail.php:440
 #, php-format
@@ -78,16 +78,16 @@ msgstr "%s no usado mas"
 #: views/tz.php:153 views/tz.php:169 views/tz.php:185 views/tz.php:223
 #, php-format
 msgid "%s or %s"
-msgstr ""
+msgstr "%s o %s"
 
 #: views/tz.php:161
 #, php-format
 msgid "%s or %s or %s"
-msgstr ""
+msgstr "%s o %s o %s"
 
 #: views/tz.php:132
 msgid "'filename'"
-msgstr ""
+msgstr "'nombrearchivo'"
 
 #: page.voicemail.php:234
 msgid ""
@@ -124,7 +124,7 @@ msgstr "9 decibel"
 
 #: views/tz.php:121
 msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
-msgstr ""
+msgstr "<i>Zonahorarias</i> esta listadas en  /usr/share/zoneinfo"
 
 #: views/tz.php:12
 msgid ""
@@ -135,6 +135,8 @@ msgstr ""
 #: views/tz.php:143
 msgid "A variable to be substituted (see below for supported variable values)"
 msgstr ""
+"Una variable a ser sustituida (ver más abajo para valores de variable "
+"admitidos)"
 
 #: views/usage.php:78 views/usage_system.php:101
 msgid "Abandoned Greetings:"
@@ -366,7 +368,7 @@ msgstr "Fecha"
 
 #: views/tz.php:156
 msgid "Day of week (Saturday, Sunday, ...)"
-msgstr ""
+msgstr "Día de la semana (sábado, domingo, ...)"
 
 #: views/dialplan.php:40
 msgid ""
@@ -739,15 +741,16 @@ msgstr ""
 
 #: views/tz.php:187
 msgid "Hour, 12 hour clock"
-msgstr ""
+msgstr "Hora, reloj de 12 horas"
 
 #: views/tz.php:203
 msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
 msgstr ""
+"Hora, reloj de 24 horas (horas de digito simple NO precedida por \"oh\")"
 
 #: views/tz.php:195
 msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
-msgstr ""
+msgstr "Hora, reloj de 24 horas (hora de un solo dígito, precedidos por \"oh\")"
 
 #: page.voicemail.php:273
 msgid ""
@@ -992,15 +995,15 @@ msgstr ""
 
 #: views/tz.php:218
 msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
-msgstr ""
+msgstr "Minuto, con 00 pronunciado como \"cien\" (US hora militar)"
 
 #: views/tz.php:211
 msgid "Minute, with 00 pronounced as \"o'clock\""
-msgstr ""
+msgstr "Minuto, con 00 pronuncia como \"en punto\""
 
 #: views/tz.php:164
 msgid "Month name (January, February, ...)"
-msgstr ""
+msgstr "Nombre del mes (enero, febrero, ...)"
 
 #: page.voicemail.php:254
 msgid "Move heard messages to the 'Old' folder automatically.  Defaults to no."
@@ -1448,11 +1451,11 @@ msgstr "Asunto enviado al buscapersonas."
 
 #: page.voicemail.php:557
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 #: views/tz.php:148
 msgid "Supported <i>variables</i>:"
-msgstr ""
+msgstr "Soportado <i>variables</i>:"
 
 #: functions.inc.php:966
 msgid "System Settings"
@@ -1488,7 +1491,7 @@ msgstr "Recordatorio saludo temporal."
 
 #: views/tz.php:127
 msgid "The <i>values</i> supported in the timezone definition string include:"
-msgstr ""
+msgstr "Los <i>valores,</i> soportados la cadena del uso horario incluyen:"
 
 #: page.voicemail.php:207
 msgid "The ADSI Voicemail application version number."
@@ -1544,6 +1547,8 @@ msgstr "La dirección de email a la que se enviarán los mensajes de voz."
 #: views/tz.php:135
 msgid "The name of a sound file (the file name must be single-quoted)"
 msgstr ""
+"El nombre de un archivo de sonido (el nombre del archivo debe ser comillas "
+"simples)"
 
 #: functions.inc.php:666
 msgid ""
@@ -1651,7 +1656,7 @@ msgstr "Definición Zona Horaria"
 
 #: views/tz.php:113
 msgid "Timezone definition format is: "
-msgstr ""
+msgstr "Formato de Definición de Zona Horaria es: "
 
 #: page.voicemail.php:202
 msgid "Timezone definition name"
@@ -1944,7 +1949,7 @@ msgstr "Trabajo"
 
 #: views/tz.php:180
 msgid "Year"
-msgstr ""
+msgstr "Año"
 
 #: page.voicemail.php:269
 msgid ""
@@ -1985,7 +1990,7 @@ msgstr "Borrando VM_PREFIX de los globales.."
 
 #: page.voicemail.php:68
 msgid "disabled"
-msgstr ""
+msgstr "deshabilitado"
 
 #: install.php:125 install.php:142
 msgid "done"
@@ -2019,7 +2024,7 @@ msgstr "No es necesario"
 
 #: views/tz.php:172
 msgid "numeric day of month (first, second, ..., thirty-first)"
-msgstr ""
+msgstr "día numérico del mes (primero, segundo, .... trigésimo-primero)"
 
 #: install.php:193
 msgid "ok"
@@ -2035,7 +2040,7 @@ msgstr "temporal"
 
 #: views/tz.php:113
 msgid "timezone|values"
-msgstr ""
+msgstr "zona horaria|valores"
 
 #: functions.inc.php:633
 msgid "unavailable"
@@ -2043,7 +2048,7 @@ msgstr "No disponible"
 
 #: views/tz.php:140
 msgid "variable"
-msgstr ""
+msgstr "Variable"
 
 #: functions.inc.php:434 page.voicemail.php:535 views/usage.php:20
 #: views/usage.php:35 views/usage.php:50 views/usage.php:65
