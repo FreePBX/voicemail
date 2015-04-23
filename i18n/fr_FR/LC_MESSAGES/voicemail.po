@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-20 14:39-0400\n"
-"PO-Revision-Date: 2015-04-23 00:08+0200\n"
+"PO-Revision-Date: 2015-04-23 03:29+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -258,7 +258,7 @@ msgstr ""
 
 #: ucp/views/mailbox.php:17
 msgid "Controls"
-msgstr ""
+msgstr "Contrôles"
 
 #: ucp/assets/js/global.js:299
 msgid "Copying..."
@@ -417,7 +417,7 @@ msgstr ""
 
 #: ucp/views/mailbox.php:16
 msgid "Duration"
-msgstr ""
+msgstr "Durée"
 
 #: install.php:93
 #, php-format
@@ -1105,7 +1105,7 @@ msgstr ""
 
 #: ucp/views/greetings.php:48
 msgid "Record Greeting"
-msgstr ""
+msgstr "Enregistrer les messages"
 
 #: views/usage.php:18
 msgid "Recorded Name:"
