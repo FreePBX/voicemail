@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-20 14:39-0400\n"
+"POT-Creation-Date: 2015-04-27 10:42-0400\n"
 "PO-Revision-Date: 2014-02-28 04:51+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://example.com/projects/freepbx-211/voicemail/ru/"
@@ -182,7 +182,7 @@ msgstr ""
 "Разрешает отправителю прослушать/перезаписать сообщение перед тем как "
 "сохранить [по умолчанию - выключено]."
 
-#: Voicemail.class.php:130
+#: Voicemail.class.php:135
 msgid "Allowed Voicemail"
 msgstr ""
 
@@ -214,7 +214,7 @@ msgstr "Тело сообщения пересылаемого на пейдже
 msgid "Busy"
 msgstr ""
 
-#: Voicemail.class.php:76
+#: Voicemail.class.php:80
 msgid "Busy Greeting"
 msgstr ""
 
@@ -585,7 +585,7 @@ msgstr ""
 msgid "Failed to delete vmbox: %s@%s"
 msgstr "Ошибка при удалении ящика голосовой почты: %s@%s"
 
-#: Voicemail.class.php:69
+#: Voicemail.class.php:73
 msgid "Family"
 msgstr ""
 
@@ -661,7 +661,7 @@ msgstr ""
 msgid "Forward Voicemail"
 msgstr ""
 
-#: Voicemail.class.php:70
+#: Voicemail.class.php:74
 msgid "Friends"
 msgstr ""
 
@@ -782,7 +782,7 @@ msgstr "Порт сервера IMAP."
 msgid "IMAP user."
 msgstr "Пользователь IMAP."
 
-#: Voicemail.class.php:68
+#: Voicemail.class.php:72
 msgid "INBOX"
 msgstr ""
 
@@ -984,7 +984,7 @@ msgstr "Моя голосовая почта"
 msgid "Name"
 msgstr "Название"
 
-#: Voicemail.class.php:75
+#: Voicemail.class.php:79
 msgid "Name Greeting"
 msgstr ""
 
@@ -1087,7 +1087,7 @@ msgid ""
 "letting them know it will otherwise go to voicemail as is normal."
 msgstr ""
 
-#: Voicemail.class.php:71
+#: Voicemail.class.php:75
 msgid "Old"
 msgstr ""
 
@@ -1416,7 +1416,7 @@ msgstr "Линки на обзор системы:"
 msgid "Temp"
 msgstr ""
 
-#: Voicemail.class.php:77
+#: Voicemail.class.php:81
 msgid "Temporary Greeting"
 msgstr ""
 
@@ -1505,7 +1505,7 @@ msgstr ""
 "Параметр odbcstorage есть подключение к базам данных, описанное в res_odbc."
 "conf."
 
-#: Voicemail.class.php:130
+#: Voicemail.class.php:135
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
@@ -1644,7 +1644,7 @@ msgstr ""
 msgid "Unavailable"
 msgstr ""
 
-#: Voicemail.class.php:74
+#: Voicemail.class.php:78
 msgid "Unavailable Greeting"
 msgstr ""
 
@@ -1688,7 +1688,7 @@ msgstr ""
 msgid "Uploading..."
 msgstr ""
 
-#: Voicemail.class.php:73
+#: Voicemail.class.php:77
 msgid "Urgent"
 msgstr ""
 
@@ -1834,7 +1834,7 @@ msgstr ""
 msgid "Voicemail was empty: %s"
 msgstr ""
 
-#: Voicemail.class.php:669
+#: Voicemail.class.php:674
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
@@ -1855,7 +1855,7 @@ msgstr "В каком формате присоединять аудио фай�
 msgid "Who the e-mail notification should appear to come from"
 msgstr "Кто является отправителем эл. почты при отправке."
 
-#: Voicemail.class.php:72
+#: Voicemail.class.php:76
 msgid "Work"
 msgstr ""
 

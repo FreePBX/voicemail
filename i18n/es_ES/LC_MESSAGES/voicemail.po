@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - voicemail module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-20 14:39-0400\n"
+"POT-Creation-Date: 2015-04-27 10:42-0400\n"
 "PO-Revision-Date: 2015-04-23 06:58+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish "
-"<http://weblate.freepbx.org/projects/freepbx/voicemail/es_ES/>\n"
-"Language: es_ES\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
+"voicemail/es_ES/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Spanish\n"
@@ -178,7 +178,7 @@ msgstr ""
 "Permitir remitente para revisar/re-grabar su mensaje antes de guardarlo [OFF "
 "por defecto]"
 
-#: Voicemail.class.php:130
+#: Voicemail.class.php:135
 msgid "Allowed Voicemail"
 msgstr "Correo de Voz permitido"
 
@@ -210,7 +210,7 @@ msgstr "Cuerpo del mensaje enviado al buscapersonas."
 msgid "Busy"
 msgstr "Ocupado"
 
-#: Voicemail.class.php:76
+#: Voicemail.class.php:80
 msgid "Busy Greeting"
 msgstr "Saludo Ocupado"
 
@@ -604,7 +604,7 @@ msgstr "Comando cambio Contraseña externa (anula externpassnotify)."
 msgid "Failed to delete vmbox: %s@%s"
 msgstr "No se pudo eliminar el buzón %s@%s"
 
-#: Voicemail.class.php:69
+#: Voicemail.class.php:73
 msgid "Family"
 msgstr "Familia"
 
@@ -687,7 +687,7 @@ msgstr "Transferir"
 msgid "Forward Voicemail"
 msgstr "Transferir Correo de Voz"
 
-#: Voicemail.class.php:70
+#: Voicemail.class.php:74
 msgid "Friends"
 msgstr "Amigos"
 
@@ -750,7 +750,8 @@ msgstr ""
 
 #: views/tz.php:195
 msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
-msgstr "Hora, reloj de 24 horas (hora de un solo dígito, precedidos por \"oh\")"
+msgstr ""
+"Hora, reloj de 24 horas (hora de un solo dígito, precedidos por \"oh\")"
 
 #: page.voicemail.php:273
 msgid ""
@@ -803,7 +804,7 @@ msgstr "Puerto servidor IMAP."
 msgid "IMAP user."
 msgstr "Usuario IMAP."
 
-#: Voicemail.class.php:68
+#: Voicemail.class.php:72
 msgid "INBOX"
 msgstr "INBOX"
 
@@ -1023,7 +1024,7 @@ msgstr "Mi buzón de voz"
 msgid "Name"
 msgstr "Nombre"
 
-#: Voicemail.class.php:75
+#: Voicemail.class.php:79
 msgid "Name Greeting"
 msgstr "Nombre Saludo"
 
@@ -1134,7 +1135,7 @@ msgstr ""
 "pulsar las distintas opciones ahora y dejar suficiente tiempo en el saludo "
 "haciéndoles saber que de lo contrario se irá al correo de voz como es normal."
 
-#: Voicemail.class.php:71
+#: Voicemail.class.php:75
 msgid "Old"
 msgstr "Viejo"
 
@@ -1473,7 +1474,7 @@ msgstr "Vista Enlaces Sistema:"
 msgid "Temp"
 msgstr "Temporal"
 
-#: Voicemail.class.php:77
+#: Voicemail.class.php:81
 msgid "Temporary Greeting"
 msgstr "Saludo Temporal"
 
@@ -1574,7 +1575,7 @@ msgstr ""
 "El valor de odbcstorage es la conexión de base de datos configurada en "
 "res_odbc.conf."
 
-#: Voicemail.class.php:130
+#: Voicemail.class.php:135
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
@@ -1721,7 +1722,7 @@ msgstr "Limite Mensaje UCP"
 msgid "Unavailable"
 msgstr "Indisponible"
 
-#: Voicemail.class.php:74
+#: Voicemail.class.php:78
 msgid "Unavailable Greeting"
 msgstr "Saludo No Disponible"
 
@@ -1765,7 +1766,7 @@ msgstr "Subir Saludo"
 msgid "Uploading..."
 msgstr "Subiendo..."
 
-#: Voicemail.class.php:73
+#: Voicemail.class.php:77
 msgid "Urgent"
 msgstr "Urgente"
 
@@ -1916,7 +1917,7 @@ msgstr "Correo de Voz no movido a %s"
 msgid "Voicemail was empty: %s"
 msgstr "Correo de Voz estaba vacío: %s"
 
-#: Voicemail.class.php:669
+#: Voicemail.class.php:674
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
@@ -1943,7 +1944,7 @@ msgid "Who the e-mail notification should appear to come from"
 msgstr ""
 "De dónde la notificación por correo electrónico deberá parecer provenir"
 
-#: Voicemail.class.php:72
+#: Voicemail.class.php:76
 msgid "Work"
 msgstr "Trabajo"
 
