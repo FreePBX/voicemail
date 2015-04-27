@@ -72,6 +72,16 @@ msgstr ""
 msgid "%s no longer used"
 msgstr ""
 
+#: views/tz.php:153 views/tz.php:169 views/tz.php:185 views/tz.php:223
+#, php-format
+msgid "%s or %s"
+msgstr ""
+
+#: views/tz.php:161
+#, php-format
+msgid "%s or %s or %s"
+msgstr ""
+
 #: page.voicemail.php:234
 msgid "(yes/no) If imapgreetings=yes, then specify which folder to store your greetings in. If you do not specify a folder, then INBOX will be used."
 msgstr "(да/нет) Если указано imapgreetings=yes, то укажите также и директорию, где будут сохраняться персональные сообщения о недоступности. Если не указано, то будет использоваться директория INBOX по умолчанию."
@@ -1518,6 +1528,10 @@ msgstr ""
 msgid "deleting VM_PREFIX from globals.."
 msgstr ""
 
+#: page.voicemail.php:68
+msgid "disabled"
+msgstr ""
+
 #: install.php:125 install.php:142
 msgid "done"
 msgstr ""
@@ -1559,19 +1573,23 @@ msgstr ""
 msgid "yes"
 msgstr "да"
 
-#: views/tz.php:153 views/tz.php:169 views/tz.php:185 views/tz.php:223
-#, php-format
-msgid "%s or %s"
+#: ucp/assets/js/global.js:732
+msgid "Recorded Message"
 msgstr ""
 
-#: views/tz.php:161
-#, php-format
-msgid "%s or %s or %s"
+#: ucp/assets/js/global.js:838
+msgid "There is nothing to delete"
 msgstr ""
 
-#: page.voicemail.php:68
-msgid "disabled"
+#: ucp/assets/js/global.js:693
+msgid "Your settings have been saved"
 msgstr ""
+
+#~ msgid "Recorded Name:"
+#~ msgstr "Записанное название:"
+
+#~ msgid "busy"
+#~ msgstr "занят"
 
 #~ msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
 #~ msgstr "\"\" (для сегодня), \"вчера\", день недели, или форматABдГ"
@@ -1582,71 +1600,23 @@ msgstr ""
 #~ msgid "'filename'"
 #~ msgstr "'filename'"
 
-#~ msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
-#~ msgstr "<i>Часовые пояса</i> перечислены в /usr/share/zoneinfo"
-
-#~ msgid "A variable to be substituted (see below for supported variable values)"
-#~ msgstr "Переменная для замены (см. ниже для поддерживаемых значений переменных)"
-
-#~ msgid "Abandoned Greetings:"
-#~ msgstr "Забытые сообщения о недоступности"
-
-#~ msgid "Day of week (Saturday, Sunday, ...)"
-#~ msgstr "День недели (Суббота, Воскресенье, ...)"
-
-#~ msgid "Hour, 12 hour clock"
-#~ msgstr "Часы, 12-ти часовой формат"
-
-#~ msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
-#~ msgstr "Часы, 24-х часовой формат. Одноразрядное представление часа НЕ дополняется впереди \"oh\")"
-
-#~ msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
-#~ msgstr "Часы, 24-х часовой формат. одноразрядное представление часа дополняется впереди \"oh\")"
-
-#~ msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
-#~ msgstr "Минуты, 00 произносится как \"сто\" (Американский военный стандарт)"
-
-#~ msgid "Minute, with 00 pronounced as \"o'clock\""
-#~ msgstr "Минуты, 00 произносится как \"o'clock\""
-
-#~ msgid "Month name (January, February, ...)"
-#~ msgstr "Месяц (Январь, Февраль, ...)"
-
-#~ msgid "Supported <i>variables</i>:"
-#~ msgstr "Поддерживаемые <i>переменные</i>:"
-
-#~ msgid "The <i>values</i> supported in the timezone definition string include:"
-#~ msgstr "<i>значение</i>, поддерживаемое дефиницией часового пояса содержит:"
-
-#~ msgid "The name of a sound file (the file name must be single-quoted)"
-#~ msgstr "Название звукового файла (имя файла должно быть в одинарных кавычках)"
-
-#~ msgid "Timezone definition format is: "
-#~ msgstr "Формат дефиниций часового пояса: "
-
-#~ msgid "Year"
-#~ msgstr "Год"
-
-#~ msgid "numeric day of month (first, second, ..., thirty-first)"
-#~ msgstr "число месяца (первое, второе, ..., тридцать первое)"
-
-#~ msgid "timezone|values"
-#~ msgstr "часовой пояс|значение"
-
-#~ msgid "unavailable"
-#~ msgstr "недоступен"
-
-#~ msgid "variable"
-#~ msgstr "переменная"
-
 #~ msgid "24 hour time, including minute"
 #~ msgstr "24-х часовой формат, включая минуты"
+
+#~ msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
+#~ msgstr "<i>Часовые пояса</i> перечислены в /usr/share/zoneinfo"
 
 #~ msgid "A or a"
 #~ msgstr "А или а"
 
+#~ msgid "A variable to be substituted (see below for supported variable values)"
+#~ msgstr "Переменная для замены (см. ниже для поддерживаемых значений переменных)"
+
 #~ msgid "AM or PM"
 #~ msgstr "АМ или РМ"
+
+#~ msgid "Abandoned Greetings:"
+#~ msgstr "Забытые сообщения о недоступности"
 
 #~ msgid "Advanced Settings"
 #~ msgstr "Расширенные устанвки"
@@ -1659,6 +1629,9 @@ msgstr ""
 
 #~ msgid "Busy Greetings:"
 #~ msgstr "Персональные сообщения 'занят'"
+
+#~ msgid "Day of week (Saturday, Sunday, ...)"
+#~ msgstr "День недели (Суббота, Воскресенье, ...)"
 
 #~ msgid "Email body."
 #~ msgstr "Тело электронного письма."
@@ -1693,6 +1666,15 @@ msgstr ""
 #~ msgid "Has a recorded unavailable greeting?"
 #~ msgstr "Записанно ли сообщение 'нет на месте'?"
 
+#~ msgid "Hour, 12 hour clock"
+#~ msgstr "Часы, 12-ти часовой формат"
+
+#~ msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
+#~ msgstr "Часы, 24-х часовой формат. Одноразрядное представление часа НЕ дополняется впереди \"oh\")"
+
+#~ msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
+#~ msgstr "Часы, 24-х часовой формат. одноразрядное представление часа дополняется впереди \"oh\")"
+
 #~ msgid "I or l"
 #~ msgstr "И или л"
 
@@ -1707,6 +1689,15 @@ msgstr ""
 
 #~ msgid "Menu options below are available during your personal voicemail greeting playback. <br/><br/>Check both to use at all times."
 #~ msgstr "Опции меню ниже доступны при воспроизведении персонального уведомления голосовой почты. <br><br>Отметить оба для использования."
+
+#~ msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
+#~ msgstr "Минуты, 00 произносится как \"сто\" (Американский военный стандарт)"
+
+#~ msgid "Minute, with 00 pronounced as \"o'clock\""
+#~ msgstr "Минуты, 00 произносится как \"o'clock\""
+
+#~ msgid "Month name (January, February, ...)"
+#~ msgstr "Месяц (Январь, Февраль, ...)"
 
 #~ msgid "Move heard messages to the 'Old' folder automatically.  Defaults to on."
 #~ msgstr "Перемещать прослушанные сообщения в директорию 'Old' автоматически. По умолчанию - включено."
@@ -1759,9 +1750,6 @@ msgstr ""
 #~ msgid "R"
 #~ msgstr "R"
 
-#~ msgid "Recorded Name:"
-#~ msgstr "Записанное название:"
-
 #~ msgid "Recorded Names:"
 #~ msgstr "Записанные имена:"
 
@@ -1807,6 +1795,9 @@ msgstr ""
 #~ msgid "Storage Used:"
 #~ msgstr "Использовано дискового пространства:"
 
+#~ msgid "Supported <i>variables</i>:"
+#~ msgstr "Поддерживаемые <i>переменные</i>:"
+
 #~ msgid "System View Links:"
 #~ msgstr "Линки на обзор системы:"
 
@@ -1816,14 +1807,23 @@ msgstr ""
 #~ msgid "Temporary Greetings:"
 #~ msgstr "Временные сообщения о недоступности:"
 
+#~ msgid "The <i>values</i> supported in the timezone definition string include:"
+#~ msgstr "<i>значение</i>, поддерживаемое дефиницией часового пояса содержит:"
+
 #~ msgid "The email address that voicemails are sent to."
 #~ msgstr "Адрес эл.почты, куда будут отсылаться сообщения."
+
+#~ msgid "The name of a sound file (the file name must be single-quoted)"
+#~ msgstr "Название звукового файла (имя файла должно быть в одинарных кавычках)"
 
 #~ msgid "This is the password used to access the voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the voicemail system (%s) with a phone."
 #~ msgstr "Пароль для доступа к голосовой почте. %sПароль может состоять только из цифр.<br>%sПользователь может сменить установленный здесь пароль набрав (%s) со своего телефона после входа в систему голосовой почты."
 
 #~ msgid "Timezone Definition"
 #~ msgstr "Дефиниции часового пояса"
+
+#~ msgid "Timezone definition format is: "
+#~ msgstr "Формат дефиниций часового пояса: "
 
 #~ msgid "Total ( Activated / Unactivated / Disabled )"
 #~ msgstr "Всего ( Активировано / Неактивировано / Отключено )"
@@ -1852,8 +1852,8 @@ msgstr ""
 #~ msgid "Y"
 #~ msgstr "Г"
 
-#~ msgid "busy"
-#~ msgstr "занят"
+#~ msgid "Year"
+#~ msgstr "Год"
 
 #~ msgid "d or e"
 #~ msgstr "в или г"
@@ -1864,5 +1864,17 @@ msgstr ""
 #~ msgid "no"
 #~ msgstr "нет"
 
+#~ msgid "numeric day of month (first, second, ..., thirty-first)"
+#~ msgstr "число месяца (первое, второе, ..., тридцать первое)"
+
 #~ msgid "q"
 #~ msgstr "q"
+
+#~ msgid "timezone|values"
+#~ msgstr "часовой пояс|значение"
+
+#~ msgid "unavailable"
+#~ msgstr "недоступен"
+
+#~ msgid "variable"
+#~ msgstr "переменная"

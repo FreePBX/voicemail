@@ -448,7 +448,7 @@ var VoicemailC = UCPMC.extend({
 			done: function(e, data) {
 				if (data.result.status) {
 					$("#greet .filedrop .pbar").css("width", "0%");
-					$("#greet .filedrop .message").text("Drag a New Greeting Here");
+					$("#greet .filedrop .message").text(_("Drag a New Greeting Here"));
 					$("#freepbx_player_greet").jPlayer( "setMedia", {
 						wav: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
 						oga: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
@@ -690,7 +690,7 @@ var VoicemailC = UCPMC.extend({
 		$.post( "?quietmode=1&module=voicemail&command=savesettings", data, function( data ) {
 			if (data.status) {
 				$("#message").addClass("alert-success");
-				$("#message").text("Saved!");
+				$("#message").text(_("Your settings have been saved"));
 				$("#message").fadeIn( "slow", function() {
 					setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
 				});
@@ -729,7 +729,7 @@ var VoicemailC = UCPMC.extend({
 		recc = $("#" + type + " .recording-controls");
 		if ($this.recording) {
 			clearInterval($this.recordTimer);
-			title.text("Recorded Message");
+			title.text(_("Recorded Message"));
 			$this.recorder.stop();
 			$this.recorder.exportWAV(function(blob) {
 				$this.soundBlobs[type] = blob;
@@ -835,7 +835,7 @@ var VoicemailC = UCPMC.extend({
 			});
 			title.text(title.data("title"));
 		} else {
-			alert("There is nothing to delete");
+			alert(_("There is nothing to delete"));
 		}
 	},
 	//This function is here solely because firefox caches media downloads so we have to force it to not do that

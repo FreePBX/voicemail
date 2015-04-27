@@ -57,24 +57,29 @@ class Voicemail implements \BMO {
 		$this->db = $freepbx->Database;
 		$this->vmPath = $this->FreePBX->Config->get_conf_setting('ASTSPOOLDIR') . "/voicemail";
 		$this->messageLimit = $this->FreePBX->Config->get_conf_setting('UCP_MESSAGE_LIMIT');
+		\modgettext::push_textdomain("voicemail");
 		foreach($this->folders as $folder) {
 			$this->vmFolders[$folder] = array(
 				"folder" => $folder,
 				"name" => _($folder)
 			);
 		}
+		\modgettext::pop_textdomain();
 
-		//Force translation for later
-		_("INBOX");
-		_("Family");
-		_("Friends");
-		_("Old");
-		_("Work");
-		_("Urgent");
-		_('Unavailable Greeting');
-		_('Name Greeting');
-		_('Busy Greeting');
-		_('Temporary Greeting');
+
+		//Force translation for later pickup
+		if(false) {
+			_("INBOX");
+			_("Family");
+			_("Friends");
+			_("Old");
+			_("Work");
+			_("Urgent");
+			_('Unavailable Greeting');
+			_('Name Greeting');
+			_('Busy Greeting');
+			_('Temporary Greeting');
+		}
 	}
 
 	public function doConfigPageInit($page) {
