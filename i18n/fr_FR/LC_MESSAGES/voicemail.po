@@ -3,84 +3,88 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-20 14:39-0400\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Jouniaux <c.jouniauxdiv@laposte.net>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2015-04-25 00:52+0200\n"
+"Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: views/tz.php:242
 msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
-msgstr ""
+msgstr "\"\" (Pour aujourd'hui) , \"hier\" , jour de la semaine , ou ABdY"
 
 #: views/tz.php:234
 msgid "\"today\", \"yesterday\" or ABdY"
-msgstr ""
+msgstr "«aujourd'hui» , «hier» ou ABdY"
 
 #: page.voicemail.php:440
 #, php-format
 msgid "%s Attempts"
-msgstr ""
+msgstr "%s Tentatives"
 
 #: page.voicemail.php:446
 #, php-format
 msgid "%s Retries"
-msgstr ""
+msgstr "%s Tentatives"
 
 #: page.voicemail.php:444
 #, php-format
 msgid "%s Retry"
-msgstr ""
+msgstr "%s Tentative"
 
 #: page.voicemail.php:436
 #, php-format
 msgid "%s Sec"
-msgstr ""
+msgstr "%s Sec"
 
 #: install.php:113
 #, php-format
 msgid "%s added"
-msgstr ""
+msgstr "%s ajouté"
 
 #: install.php:81
 #, php-format
 msgid "%s adjusted from %s to %s"
-msgstr ""
+msgstr "%s ajusté de %s à %s"
 
 #: install.php:85
 #, php-format
 msgid "%s adjusted from bad value %s to default no gain"
-msgstr ""
+msgstr "%s ajusté d'une mauvaise valeur %s par défaut aucun gain"
 
 #: install.php:76
 #, php-format
 msgid "%s changed from %s to max value 15"
-msgstr ""
+msgstr "%s modifié de %s à la valeur maximale 15"
 
 #: install.php:95
 #, php-format
 msgid "%s migrated"
-msgstr ""
+msgstr "%s migré"
 
 #: install.php:72
 #, php-format
 msgid "%s no longer used"
-msgstr ""
+msgstr "%s n'est plus utilisé"
 
 #: views/tz.php:153 views/tz.php:169 views/tz.php:185 views/tz.php:223
 #, php-format
 msgid "%s or %s"
-msgstr ""
+msgstr "%s ou %s"
 
 #: views/tz.php:161
 #, php-format
 msgid "%s or %s or %s"
-msgstr ""
+msgstr "%s ou %s ou %s"
 
 #: views/tz.php:132
 msgid "'filename'"
-msgstr ""
+msgstr "'nom du fichier'"
 
 #: page.voicemail.php:234
 msgid ""
@@ -90,60 +94,64 @@ msgstr ""
 
 #: page.voicemail.php:434
 msgid "0 Sec"
-msgstr ""
+msgstr "0 Sec"
 
 #: page.voicemail.php:430
 msgid "12 db"
-msgstr ""
+msgstr "12 db"
 
 #: page.voicemail.php:431
 msgid "15 db"
-msgstr ""
+msgstr "15 db"
 
 #: page.voicemail.php:427
 msgid "3 db"
-msgstr ""
+msgstr "3 db"
 
 #: page.voicemail.php:428
 msgid "6 db"
-msgstr ""
+msgstr "6 db"
 
 #: page.voicemail.php:429
 msgid "9 db"
-msgstr ""
+msgstr "9 db"
 
 #: views/tz.php:121
 msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
-msgstr ""
+msgstr "<i>Fuseaux horaires </i> sont énumérés dans /usr/share/zoneinfo"
 
 #: views/tz.php:12
 msgid ""
 "A timezone definition specifies how the Voicemail system announces the time."
 msgstr ""
+"Une définition de fuseau horaire précise comment le système de messagerie "
+"vocale annonce le temps."
 
 #: views/tz.php:143
 msgid "A variable to be substituted (see below for supported variable values)"
 msgstr ""
+"Une variable à substituer (voir ci-dessous pour les valeurs des variables "
+"prises en charge)"
 
 #: views/usage.php:78 views/usage_system.php:101
 msgid "Abandoned Greetings:"
-msgstr ""
+msgstr "Messages abandonnés :"
 
 #: views/settings.php:5
 msgid "Account View Links:"
-msgstr ""
+msgstr "Compte Voir Liens :"
 
 #: views/settings.php:13
 msgid "Advanced Settings"
-msgstr ""
+msgstr "Paramètres avancés"
 
 #: functions.inc.php:964
 msgid "Advanced Settings For: "
-msgstr ""
+msgstr "Paramètres avancé pour : "
 
 #: views/dialplan.php:48
 msgid "Advanced VmX Locater Settings"
-msgstr ""
+msgstr "Paramètres avancés localisation VMX"
 
 #: page.voicemail.php:291
 msgid ""
@@ -161,7 +169,7 @@ msgstr ""
 
 #: Voicemail.class.php:130
 msgid "Allowed Voicemail"
-msgstr ""
+msgstr "Boite vocale autorisée"
 
 #: ucp/assets/js/global.js:653
 msgid "Are you sure you wish to delete this voicemail?"
@@ -193,11 +201,11 @@ msgstr ""
 
 #: Voicemail.class.php:76
 msgid "Busy Greeting"
-msgstr ""
+msgstr "Message occupé"
 
 #: views/usage.php:48 views/usage_system.php:71
 msgid "Busy Greetings:"
-msgstr ""
+msgstr "Message occupé :"
 
 #: ucp/views/mailbox.php:15
 msgid "CID"
@@ -254,7 +262,7 @@ msgstr ""
 
 #: ucp/views/mailbox.php:17
 msgid "Controls"
-msgstr ""
+msgstr "Contrôles"
 
 #: ucp/assets/js/global.js:299
 msgid "Copying..."
@@ -413,7 +421,7 @@ msgstr ""
 
 #: ucp/views/mailbox.php:16
 msgid "Duration"
-msgstr ""
+msgstr "Durée"
 
 #: install.php:93
 #, php-format
@@ -511,7 +519,7 @@ msgstr ""
 
 #: functions.inc.php:542
 msgid "Extension"
-msgstr ""
+msgstr "Poste"
 
 #: page.voicemail.php:223
 msgid "External Voicemail notify application."
@@ -528,7 +536,7 @@ msgstr "Impossible de supprimer la boîte : %s@%s"
 
 #: Voicemail.class.php:69
 msgid "Family"
-msgstr ""
+msgstr "Famille"
 
 #: install.php:123
 msgid "Fatal DB error trying to delete globals, trying to carry on"
@@ -597,7 +605,7 @@ msgstr ""
 
 #: Voicemail.class.php:70
 msgid "Friends"
-msgstr ""
+msgstr "Amis"
 
 #: page.voicemail.php:229
 msgid "From: string for email"
@@ -621,7 +629,7 @@ msgstr "Aller au standard"
 
 #: ucp/views/nav.php:10
 msgid "Greetings"
-msgstr ""
+msgstr "Messages"
 
 #: views/usage.php:48
 msgid "Has a recorded busy greeting?"
@@ -708,7 +716,7 @@ msgstr ""
 
 #: Voicemail.class.php:68
 msgid "INBOX"
-msgstr ""
+msgstr "Nouveau"
 
 #: page.voicemail.php:264
 msgid ""
@@ -877,7 +885,7 @@ msgstr ""
 
 #: Voicemail.class.php:75
 msgid "Name Greeting"
-msgstr ""
+msgstr "Nom"
 
 #: page.voicemail.php:297
 msgid "Name of Voicemail account"
@@ -897,11 +905,11 @@ msgstr ""
 
 #: page.voicemail.php:422
 msgid "No Message"
-msgstr ""
+msgstr "Aucun message"
 
 #: ucp/views/mailbox.php:90
 msgid "No Messages"
-msgstr ""
+msgstr "Aucun messages"
 
 #: page.voicemail.php:473
 msgid "No name defined; this is configured from the Extensions or Users page."
@@ -971,7 +979,7 @@ msgstr ""
 
 #: Voicemail.class.php:71
 msgid "Old"
-msgstr ""
+msgstr "Ancien"
 
 #: ucp/assets/js/global.js:128
 msgid "On"
@@ -1101,7 +1109,7 @@ msgstr ""
 
 #: ucp/views/greetings.php:48
 msgid "Record Greeting"
-msgstr ""
+msgstr "Enregistrer les messages"
 
 #: views/usage.php:18
 msgid "Recorded Name:"
@@ -1204,7 +1212,7 @@ msgstr ""
 #: ucp/views/nav.php:9 views/header.php:18 views/settings.php:9
 #: voicemail.i18n.php:6 voicemail.i18n.php:12
 msgid "Settings"
-msgstr ""
+msgstr "Paramètres"
 
 #: page.voicemail.php:272
 msgid ""
@@ -1277,15 +1285,15 @@ msgstr ""
 
 #: Voicemail.class.php:77
 msgid "Temporary Greeting"
-msgstr ""
+msgstr "Message temporaire"
 
 #: views/usage.php:63
 msgid "Temporary Greeting:"
-msgstr ""
+msgstr "Message temporaire :"
 
 #: views/usage_system.php:86
 msgid "Temporary Greetings:"
-msgstr ""
+msgstr "Message temporaire :"
 
 #: page.voicemail.php:276
 msgid "Temporary greeting reminder."
@@ -1485,15 +1493,15 @@ msgstr ""
 
 #: Voicemail.class.php:74
 msgid "Unavailable Greeting"
-msgstr ""
+msgstr "Message de non-disponibilité"
 
 #: views/usage.php:33
 msgid "Unavailable Greeting:"
-msgstr ""
+msgstr "Message de non-disponibilité :"
 
 #: views/usage_system.php:56
 msgid "Unavailable Greetings:"
-msgstr ""
+msgstr "Message de non-disponibilité :"
 
 #: functions.inc.php:641
 msgid "Uncheck to play a beep after your personal Voicemail greeting."
@@ -1527,7 +1535,7 @@ msgstr ""
 
 #: Voicemail.class.php:73
 msgid "Urgent"
-msgstr ""
+msgstr "Urgent"
 
 #: views/header.php:19 views/settings.php:11
 msgid "Usage"
@@ -1685,7 +1693,7 @@ msgstr ""
 
 #: Voicemail.class.php:72
 msgid "Work"
-msgstr ""
+msgstr "Travail"
 
 #: views/tz.php:180
 msgid "Year"
@@ -1786,7 +1794,7 @@ msgstr "Non disponible"
 
 #: views/tz.php:140
 msgid "variable"
-msgstr ""
+msgstr "variable"
 
 #: functions.inc.php:434 page.voicemail.php:535 views/usage.php:20
 #: views/usage.php:35 views/usage.php:50 views/usage.php:65
