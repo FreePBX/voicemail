@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-27 10:42-0400\n"
+"POT-Creation-Date: 2015-04-27 11:05-0400\n"
 "PO-Revision-Date: 2014-02-28 04:51+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Russian <http://example.com/projects/freepbx-211/voicemail/ru/"
@@ -445,7 +445,7 @@ msgstr ""
 
 #: ucp/views/greetings.php:55 ucp/assets/js/global.js:306
 #: ucp/assets/js/global.js:367 ucp/assets/js/global.js:409
-#: ucp/assets/js/global.js:497
+#: ucp/assets/js/global.js:451 ucp/assets/js/global.js:497
 msgid "Drag a New Greeting Here"
 msgstr ""
 
@@ -1237,6 +1237,10 @@ msgstr ""
 msgid "Record Greeting"
 msgstr ""
 
+#: ucp/assets/js/global.js:732
+msgid "Recorded Message"
+msgstr ""
+
 #: views/usage.php:18
 msgid "Recorded Name:"
 msgstr "Записанное название:"
@@ -1504,6 +1508,10 @@ msgid ""
 msgstr ""
 "Параметр odbcstorage есть подключение к базам данных, описанное в res_odbc."
 "conf."
+
+#: ucp/assets/js/global.js:838
+msgid "There is nothing to delete"
+msgstr ""
 
 #: Voicemail.class.php:135
 msgid ""
@@ -1882,6 +1890,10 @@ msgstr ""
 
 #: ucp/assets/js/global.js:767
 msgid "Your Browser Blocked The Recording, Please check your settings"
+msgstr ""
+
+#: ucp/assets/js/global.js:693
+msgid "Your settings have been saved"
 msgstr ""
 
 #: functions.inc.php:635

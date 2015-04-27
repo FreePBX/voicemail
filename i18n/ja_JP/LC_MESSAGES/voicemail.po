@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-27 10:42-0400\n"
+"POT-Creation-Date: 2015-04-27 11:05-0400\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -477,7 +477,7 @@ msgstr "ダウンロード"
 
 #: ucp/views/greetings.php:55 ucp/assets/js/global.js:306
 #: ucp/assets/js/global.js:367 ucp/assets/js/global.js:409
-#: ucp/assets/js/global.js:497
+#: ucp/assets/js/global.js:451 ucp/assets/js/global.js:497
 msgid "Drag a New Greeting Here"
 msgstr "新しいアナウンスをここにドラッグしてください"
 
@@ -1270,6 +1270,10 @@ msgstr ""
 msgid "Record Greeting"
 msgstr ""
 
+#: ucp/assets/js/global.js:732
+msgid "Recorded Message"
+msgstr ""
+
 #: views/usage.php:18
 msgid "Recorded Name:"
 msgstr "録音名"
@@ -1537,6 +1541,10 @@ msgid ""
 "The value of odbcstorage is the database connection configured in res_odbc."
 "conf."
 msgstr "odbcstorageの値は、res_odbc.conf内で設定されたデータベース接続です。"
+
+#: ucp/assets/js/global.js:838
+msgid "There is nothing to delete"
+msgstr ""
 
 #: Voicemail.class.php:135
 msgid ""
@@ -1924,6 +1932,10 @@ msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 "録音はブラウザによってブロックされた可能性があります。ブラウザの設定を確認し"
 "てください。"
+
+#: ucp/assets/js/global.js:693
+msgid "Your settings have been saved"
+msgstr ""
 
 #: functions.inc.php:635
 msgid "busy"
