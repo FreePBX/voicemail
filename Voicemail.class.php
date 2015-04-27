@@ -460,14 +460,6 @@ class Voicemail implements \BMO {
 		return true;
 	}
 
-	public function processUCPAdminDisplay($user) {
-		if(!empty($_POST['ucp_voicemail'])) {
-			$this->FreePBX->Ucp->setSetting($user['username'],'Voicemail','assigned',$_POST['ucp_voicemail']);
-		} else {
-			$this->FreePBX->Ucp->setSetting($user['username'],'Voicemail','assigned',array());
-		}
-	}
-
 	/**
 	 * Get a list of users
 	 */
@@ -475,12 +467,74 @@ class Voicemail implements \BMO {
 		return $this->FreePBX->Core->listUsers(true);
 	}
 
+	public function ucpDelGroup($id,$display,$data) {
+	}
+
+	public function ucpAddGroup($id, $display, $data) {
+		$this->ucpUpdateGroup($id,$display,$data);
+	}
+
+	public function ucpUpdateGroup($id,$display,$data) {
+		if(!empty($_POST['ucp_voicemail'])) {
+			$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','assigned',$_POST['ucp_voicemail']);
+		} else {
+			$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','assigned',array('self'));
+		}
+		if(!empty($_POST['voicemail_enable']) && $_POST['voicemail_enable'] == "yes") {
+			$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','enable',true);
+		} else {
+			$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','enable',null);
+		}
+	}
+
 	/**
-	 * get the Admin display in UCP
-	 * @param array $user The user array
-	 */
-	public function getUCPAdminDisplay($user, $action) {
-		$vmassigned = $this->FreePBX->Ucp->getSetting($user['username'],'Voicemail','assigned');
+	* Hook functionality from userman when a user is deleted
+	* @param {int} $id      The userman user id
+	* @param {string} $display The display page name where this was executed
+	* @param {array} $data    Array of data to be able to use
+	*/
+	public function ucpDelUser($id, $display, $ucpStatus, $data) {
+
+	}
+
+	/**
+	* Hook functionality from userman when a user is added
+	* @param {int} $id      The userman user id
+	* @param {string} $display The display page name where this was executed
+	* @param {array} $data    Array of data to be able to use
+	*/
+	public function ucpAddUser($id, $display, $ucpStatus, $data) {
+		$this->ucpUpdateUser($id, $display, $ucpStatus, $data);
+	}
+
+	/**
+	* Hook functionality from userman when a user is updated
+	* @param {int} $id      The userman user id
+	* @param {string} $display The display page name where this was executed
+	* @param {array} $data    Array of data to be able to use
+	*/
+	public function ucpUpdateUser($id, $display, $ucpStatus, $data) {
+		if(!empty($_POST['ucp_voicemail'])) {
+			$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','assigned',$_POST['ucp_voicemail']);
+		} else {
+			$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','assigned',array());
+		}
+		if(!empty($_POST['voicemail_enable']) && $_POST['voicemail_enable'] == "yes") {
+			$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','enable',true);
+		} else {
+			$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','enable',null);
+		}
+	}
+
+	public function ucpConfigPage($mode, $user, $action) {
+		if($mode == "group") {
+			$vmassigned = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','assigned');
+			$enable = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','enable');
+		} else {
+			$vmassigned = $this->FreePBX->Ucp->getSettingByID($user['id'],'Voicemail','assigned');
+			$enable = $this->FreePBX->Ucp->getSettingByID($user['id'],'Voicemail','enable');
+		}
+
 		$vmassigned = !empty($vmassigned) ? $vmassigned : array();
 		$ausers = array();
 		if($action == "showgroup" || $action == "addgroup") {
@@ -499,7 +553,7 @@ class Voicemail implements \BMO {
 		$html[0] = array(
 			"title" => _("Voicemail"),
 			"rawname" => "voicemail",
-			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("ausers" => $ausers, "vmassigned" => $vmassigned))
+			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("disable" => !($enable), "ausers" => $ausers, "vmassigned" => $vmassigned))
 		);
 		return $html;
 	}

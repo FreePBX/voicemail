@@ -76,6 +76,15 @@
 					<method namespace="FreePBX\modules" class="Voicemail" callingMethod="getQuickCreateDisplay">getQuickCreateDisplay</method>
 					<method namespace="FreePBX\modules" class="Voicemail" callingMethod="processQuickCreate">processQuickCreate</method>
 			</core>
+			<ucp class="Ucp">
+				<method namespace="FreePBX\modules" class="Voicemail" callingMethod="constructModuleConfigPages">ucpConfigPage</method>
+				<method namespace="FreePBX\modules" class="Voicemail" callingMethod="addUser">ucpAddUser</method>
+				<method namespace="FreePBX\modules" class="Voicemail" callingMethod="updateUser">ucpUpdateUser</method>
+				<method namespace="FreePBX\modules" class="Voicemail" callingMethod="delUser">ucpDelUser</method>
+				<method namespace="FreePBX\modules" class="Voicemail" callingMethod="addGroup">ucpAddGroup</method>
+				<method namespace="FreePBX\modules" class="Voicemail" callingMethod="updateGroup">ucpUpdateGroup</method>
+				<method namespace="FreePBX\modules" class="Voicemail" callingMethod="delGroup">ucpDelGroup</method>
+			</ucp>
 	</hooks>
 	<location>release/2.11/voicemail-2.11.1.0.tgz</location>
 	<md5sum>442f0ba3a17bedc96f4cb75c53ccf99b</md5sum>
