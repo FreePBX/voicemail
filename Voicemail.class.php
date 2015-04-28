@@ -1365,4 +1365,23 @@ class Voicemail implements \BMO {
 		return $buttons;
 	}
 
+	public function bulkhandlerExport($extensions) {
+		$data = NULL;
+
+		foreach ($extensions as $extension) {
+			$mailbox = $this->getMailbox($extension);
+
+			$opts = array();
+			if(!empty($mailbox['options'])) {
+				foreach($mailbox['options'] as $key => $value) {
+					$opts[] = $key."=".$value;
+				}
+			}
+			$mailbox['options'] = implode("|",$opts);
+
+			$data[$extension] = $mailbox;
+		}
+
+		return $data;
+	}
 }
