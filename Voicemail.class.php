@@ -1419,8 +1419,8 @@ class Voicemail implements \BMO {
 					continue;
 				}
 
-				foreach ($uservm[$vmcontext] as $extension => $stuff) {
-					$mailbox = $this->getMailbox($extension);
+				foreach ($uservm[$vmcontext] as $extension => $mailbox) {
+					unset ($mailbox['mailbox']);
 
 					$opts = array();
 					if(!empty($mailbox['options'])) {
