@@ -1368,26 +1368,33 @@ class Voicemail implements \BMO {
 	public function bulkhandlerExport($type) {
 		$data = NULL;
 
-		$uservm = $this->getVoicemail();
-		$vmcontexts = array_keys($uservm);
+		if ($type == 'extensions') {
+			$uservm = $this->getVoicemail();
+			$vmcontexts = array_keys($uservm);
 
-		foreach ($vmcontexts as $vmcontext) {
-			if($vmcontext == "general" || $vmcontext == "zonemessages") {
-				continue;
-			}
-
-			foreach ($uservm[$vmcontext] as $extension => $stuff) {
-				$mailbox = $this->getMailbox($extension);
-
-				$opts = array();
-				if(!empty($mailbox['options'])) {
-					foreach($mailbox['options'] as $key => $value) {
-						$opts[] = $key."=".$value;
-					}
+			foreach ($vmcontexts as $vmcontext) {
+				if($vmcontext == "general" || $vmcontext == "zonemessages") {
+					continue;
 				}
-				$mailbox['options'] = implode("|",$opts);
 
-				$data[$extension] = $mailbox;
+				foreach ($uservm[$vmcontext] as $extension => $stuff) {
+					$mailbox = $this->getMailbox($extension);
+
+					$opts = array();
+					if(!empty($mailbox['options'])) {
+						foreach($mailbox['options'] as $key => $value) {
+							$opts[] = $key."=".$value;
+						}
+					}
+					$mailbox['options'] = implode("|",$opts);
+
+					$pmailbox = array();
+					foreach ($mailbox as $key => $value) {
+						$pmailbox['voicemail_' . $key] = $value;
+					}
+
+					$data[$extension] = $pmailbox;
+				}
 			}
 		}
 
