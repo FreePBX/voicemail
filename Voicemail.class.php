@@ -315,7 +315,7 @@ class Voicemail implements \BMO {
 		}
 		$vmconf = $this->getVoicemail();
 
-		$settings['vmcontext'] = isset($settings['vmcontext']) ? $settings['vmcontext'] : 'default';
+		$settings['vmcontext'] = !empty($settings['vmcontext']) ? $settings['vmcontext'] : 'default';
 		$settings['pwd'] = isset($settings['pwd']) ? $settings['pwd'] : '';
 		$settings['name'] = isset($settings['name']) ? $settings['name'] : '';
 		$settings['email'] = isset($settings['email']) ? $settings['email'] : '';
