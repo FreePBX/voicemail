@@ -326,7 +326,7 @@ class Voicemail implements \BMO {
 			$vmoptions = array();
 			// need to check if there are any options entered in the text field
 			if (!empty($settings['options'])) {
-				$options = explode("|",$options);
+				$options = explode("|",$settings['options']);
 				foreach($options as $option) {
 					$vmoption = explode("=", $option);
 					$vmoptions[$vmoption[0]] = $vmoption[1];
@@ -1365,10 +1365,48 @@ class Voicemail implements \BMO {
 		return $buttons;
 	}
 
+	public function bulkhandlerImport($type, $rawData) {
+		$ret = NULL;
+
+		switch ($type) {
+		case 'extensions':
+			foreach ($rawData as $data) {
+				$mailbox = array();
+
+				$extension = $data['extension'];
+
+				foreach ($data as $key => $value) {
+					if (substr($key, 0, 10) == 'voicemail_') {
+						$mailbox[substr($key, 10)] = $value;
+					}
+				}
+
+				if (count($mailbox) > 0) {
+					$mailbox['vm'] = 'enabled';
+					$this->addMailbox($extension, $mailbox);
+					$sql = "UPDATE users SET voicemail = 'default' WHERE extension = ?";
+					$sth = $this->db->prepare($sql);
+					$sth->execute(array($extension));
+					$this->astman->database_put("AMPUSER",$extension."/voicemail",'"default"');
+					$this->setupMailboxSymlinks($extension);
+				}
+			}
+
+			$ret = array(
+				'status' => true,
+			);
+
+			break;
+		}
+
+		return $ret;
+	}
+
 	public function bulkhandlerExport($type) {
 		$data = NULL;
 
-		if ($type == 'extensions') {
+		switch ($type) {
+		case 'extensions':
 			$uservm = $this->getVoicemail();
 			$vmcontexts = array_keys($uservm);
 
@@ -1390,12 +1428,22 @@ class Voicemail implements \BMO {
 
 					$pmailbox = array();
 					foreach ($mailbox as $key => $value) {
-						$pmailbox['voicemail_' . $key] = $value;
+						switch ($key) {
+						case 'pwd':
+							$settingname = 'vmpwd';
+							break;
+						default:
+							$settingname = $key;
+							break;
+						}
+						$pmailbox['voicemail_' . $settingname] = $value;
 					}
 
 					$data[$extension] = $pmailbox;
 				}
 			}
+
+			break;
 		}
 
 		return $data;
