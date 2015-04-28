@@ -1383,7 +1383,11 @@ class Voicemail implements \BMO {
 
 				if (count($mailbox) > 0) {
 					$mailbox['vm'] = 'enabled';
-					$this->addMailbox($extension, $mailbox);
+					try {
+						$this->addMailbox($extension, $mailbox);
+					} catch (\Exception $e) {
+						return array("status" => false, "message" => $e->getMessage());
+					}
 					$sql = "UPDATE users SET voicemail = 'default' WHERE extension = ?";
 					$sth = $this->db->prepare($sql);
 					$sth->execute(array($extension));
