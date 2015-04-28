@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-27 11:05-0400\n"
-"PO-Revision-Date: 2015-04-25 00:52+0200\n"
+"PO-Revision-Date: 2015-04-28 02:43+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
-"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/voicemail/"
-"fr_FR/>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -91,6 +91,9 @@ msgid ""
 "(yes/no) If imapgreetings=yes, then specify which folder to store your "
 "greetings in. If you do not specify a folder, then INBOX will be used."
 msgstr ""
+"(yes/no) Si imapgreetings = yes, puis spécifiez le dossier ou placer vos "
+"messages . Si vous ne spécifiez pas de dossier,  le dossier INBOX sera "
+"utilisé."
 
 #: page.voicemail.php:434
 msgid "0 Sec"
@@ -160,12 +163,19 @@ msgid ""
 "Voicemail ONLY by email. Note:  deletevoicemail is provided as an equivalent "
 "option for Realtime configuration."
 msgstr ""
+"Après notification, le message vocale est supprimé du serveur. [ par boîte "
+"aux lettres uniquement] Ceci est destiné à être utilisé avec les "
+"utilisateurs qui souhaitent recevoir leur messagerie vocale SEULEMENT par "
+"courriel. Note: deletevoicemail est une option équivalente pour la "
+"configuration en temps réel."
 
 #: page.voicemail.php:265 page.voicemail.php:307
 msgid ""
 "Allow sender to review/rerecord their message before saving it [OFF by "
 "default]"
 msgstr ""
+"Laisser l'expéditeur examiner/ré-enregistrer leur message avant de "
+"l'enregistrer [ Déactivé par défaut ]"
 
 #: Voicemail.class.php:135
 msgid "Allowed Voicemail"
@@ -173,31 +183,31 @@ msgstr "Boite vocale autorisée"
 
 #: ucp/assets/js/global.js:653
 msgid "Are you sure you wish to delete this voicemail?"
-msgstr ""
+msgstr "Êtes- vous sûr de vouloir supprimer ce message vocale ?"
 
 #: page.voicemail.php:301
 msgid "Asterisk language code"
-msgstr ""
+msgstr "Code de langue d'Asterisk"
 
 #: install.php:190
 msgid "Attempting to delete.."
-msgstr ""
+msgstr "Tenter de supprimer .."
 
 #: functions.inc.php:957
 msgid "Basic Settings For: "
-msgstr ""
+msgstr "Réglages de base pour : "
 
 #: functions.inc.php:959
 msgid "Basic settings view is for individual accounts."
-msgstr ""
+msgstr "Vue des réglages de base pour les comptes individuels."
 
 #: page.voicemail.php:259
 msgid "Body of message sent to pager."
-msgstr ""
+msgstr "Le corps du message envoyé au téléavertisseur."
 
 #: page.voicemail.php:421 ucp/views/vmx.php:11
 msgid "Busy"
-msgstr ""
+msgstr "Occupé"
 
 #: Voicemail.class.php:80
 msgid "Busy Greeting"
@@ -209,15 +219,15 @@ msgstr "Message occupé :"
 
 #: ucp/views/mailbox.php:15
 msgid "CID"
-msgstr ""
+msgstr "CID"
 
 #: page.voicemail.php:317
 msgid "Call me number. Can be used from within ARI."
-msgstr ""
+msgstr "Numéro appelez-moi . Peut être utilisé à l'intérieur de l'ARI."
 
 #: page.voicemail.php:503
 msgid "Call-Me Number"
-msgstr ""
+msgstr "Numéro appelez-moi"
 
 #: install.php:174
 msgid "Cannot connect to Asterisk Manager with "
@@ -230,18 +240,26 @@ msgid ""
 "leave a message after the beep. This can be individually controlled for "
 "users who have VMX locater enabled."
 msgstr ""
+"Cochez cette case pour désactiver les instructions vocales standard qui "
+"suivent le message de l'utilisateur. Ces instructions standard disent à "
+"l'appelant de laisser un message après le bip. Cela peut être contrôlé "
+"individuellement pour les utilisateurs qui ont la localisation VMX d'activé."
 
 #: install.php:65
 msgid "Checking for General Setting migrations.."
-msgstr ""
+msgstr "Vérification des migrations pour les paramètres généraux  .."
 
 #: page.voicemail.php:214
 msgid "Comma separated list of internal contexts to use caller ID."
 msgstr ""
+"Liste des contextes internes séparé par virgule à utiliser l'identifiant de "
+"l'appelant."
 
 #: page.voicemail.php:225
 msgid "Command specified runs after a user changes his password."
 msgstr ""
+"La commande spécifiée s’exécute après qu'un utilisateur change son mot de "
+"passe."
 
 #: page.voicemail.php:212 page.voicemail.php:290
 msgid ""
