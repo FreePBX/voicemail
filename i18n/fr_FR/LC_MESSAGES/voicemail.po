@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-27 11:05-0400\n"
-"PO-Revision-Date: 2015-04-28 02:43+0200\n"
+"PO-Revision-Date: 2015-04-28 19:46+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -266,17 +266,23 @@ msgid ""
 "Context to call back from; if not listed, calling the sender back will not "
 "be permitted."
 msgstr ""
+"Contexte à partir duquel il faut rappeler; si pas listé, rappeler le "
+"demandeur ne sera pas autorisé."
 
 #: page.voicemail.php:221 page.voicemail.php:295
 msgid ""
 "Context to check for handling * or 0 calls to operator. \"Operator Context\""
 msgstr ""
+"Contexte pour vérifier le traitement des appels à l'opérateur via  * ou 0. \""
+"Contexte de l'opérateur\""
 
 #: page.voicemail.php:215 page.voicemail.php:292
 msgid ""
 "Context to dial out from [option 4 from the advanced menu] if not listed, "
 "dialing out will not be permitted."
 msgstr ""
+"Contexte à partir duquel composer [l'option 4 du menu avancé] si pas listé, "
+"appeler ne sera pas autorisé."
 
 #: ucp/views/mailbox.php:17
 msgid "Controls"
@@ -284,43 +290,49 @@ msgstr "Contrôles"
 
 #: ucp/assets/js/global.js:299
 msgid "Copying..."
-msgstr ""
+msgstr "Copie ..."
 
 #: voicemail.i18n.php:14
 msgid "Create Voicemail Hints"
-msgstr ""
+msgstr "Créer les conseils de boîte vocale"
 
 #: page.voicemail.php:241
 msgid "Customize the key that fast-forwards message playback"
-msgstr ""
+msgstr "Personnalisez la touche de la lecture du message en avance rapide"
 
 #: page.voicemail.php:242
 msgid "Customize the key that pauses/unpauses message playback"
-msgstr ""
+msgstr "Personnalisez la touche qui arrête/reprend  la lecture du message"
 
 #: page.voicemail.php:243
 msgid "Customize the key that restarts message playback"
-msgstr ""
+msgstr "Personnalisez la touche qui redémarre la lecture du message"
 
 #: page.voicemail.php:244
 msgid "Customize the key that rewinds message playback"
-msgstr ""
+msgstr "Personnalisez la touche qui recule la lecture du message"
 
 #: page.voicemail.php:245
 msgid "Customize the key that stops message playback"
-msgstr ""
+msgstr "Personnalisez la touche qui arrête la lecture du message"
 
 #: page.voicemail.php:280
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"Please enter your new password followed by the pound key.\""
 msgstr ""
+"Personnalisez quel fichier sonore est utilisé à la place du mesaage par "
+"défaut qui dit : \"Veuillez entrez votre nouveau mot de passe suivi de la "
+"touche dièse.\""
 
 #: page.voicemail.php:283
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"Please re-enter your password followed by the pound key\""
 msgstr ""
+"Personnalisez quel fichier sonore est utilisé à la place du message par "
+"défaut qui dit : \"Veuillez entrer de nouveau votre mot de passe suivi de la "
+"touche dièse\""
 
 #: page.voicemail.php:279
 msgid ""
@@ -328,26 +340,33 @@ msgid ""
 "\"The passwords you entered and re-entered did not match.  Please try again."
 "\""
 msgstr ""
+"Personnalisez quel fichier sonore est utilisé à la place du message par "
+"défaut qui dit : \" . Les mots de passe saisis ne correspondent pas. "
+"Veuillez essayer à nouveau.\""
 
 #: page.voicemail.php:281
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"Your password has been changed.\""
 msgstr ""
+"Personnalisez quel fichier sonore est utilisé à la place du message par "
+"défaut qui dit : \"Votre mot de passe a été modifié.\""
 
 #: page.voicemail.php:282
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"password\""
 msgstr ""
+"Personnalisez quel fichier sonore est utilisé à la place du message par "
+"défaut qui dit : \"mot de passe\""
 
 #: ucp/views/mailbox.php:14
 msgid "Date"
-msgstr ""
+msgstr "Date"
 
 #: views/tz.php:156
 msgid "Day of week (Saturday, Sunday, ...)"
-msgstr ""
+msgstr "Jour de la semaine (Samedi, Dimanche, ...)"
 
 #: views/dialplan.php:40
 msgid ""
@@ -357,6 +376,12 @@ msgid ""
 "an external number and there is NO VALIDATION so it should be tested after "
 "configuration."
 msgstr ""
+"Numéro par défaut à composer quand un utilisateur de la messagerie vocale "
+"est mis à zéro si activé. Cela peut être substituée pour chaque poste avec "
+"l'option Localisation VMX qui est valide même lorsque la Localisation VMX "
+"n'est pas activé . Cela peut être n'importe quel numéro, y compris un numéro "
+"externe et il n'y a pas de validation de sorte qu'il doit être testé après "
+"la configuration."
 
 #: ucp/views/greetings.php:47 ucp/views/mailbox.php:40 views/tz.php:71
 #: views/usage.php:8 views/usage.php:23 views/usage.php:37 views/usage.php:52
@@ -365,47 +390,48 @@ msgstr ""
 #: views/usage_system.php:75 views/usage_system.php:90
 #: views/usage_system.php:105
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 #: functions.inc.php:549 page.voicemail.php:502
 msgid "Delete Voicemail"
-msgstr "Suppression boîte vocale"
+msgstr "Suppression de la boîte vocale"
 
 #: install.php:119
 msgid "Deleting migrated settings.."
-msgstr ""
+msgstr "Suppression des paramètres migrés .."
 
 #: functions.inc.php:542
 msgid "Device"
-msgstr ""
+msgstr "Appareil"
 
 #: install.php:10
 msgid "Dial Voicemail"
-msgstr "Appel boîte vocale"
+msgstr "Appeler la messagerie vocale"
 
 #: functions.inc.php:970 views/header.php:17
 msgid "Dialplan Behavior"
-msgstr ""
+msgstr "Comportement du plan d'appel"
 
 #: views/dialplan.php:25
 msgid "Direct Dial Mode"
-msgstr ""
+msgstr "Mode d'appel direct"
 
 #: install.php:12
 msgid "Direct Dial Prefix"
-msgstr ""
+msgstr "Préfixe d’appel direct"
 
 #: ucp/assets/js/global.js:723
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr ""
+"L'enregistrement direct n'est pas pris en charge dans votre Navigateur !"
 
 #: views/dialplan.php:17
 msgid "Disable Standard Prompt"
-msgstr ""
+msgstr "Désactiver le message standard"
 
 #: views/dialplan.php:77
 msgid "Disable Standard Prompt after Max Loops"
-msgstr ""
+msgstr "Désactiver le message standard après boucle Max"
 
 #: views/dialplan.php:85
 msgid "Disable Standard Prompt on 'dovm' Extension"
@@ -431,7 +457,7 @@ msgstr ""
 #: ucp/assets/js/global.js:367 ucp/assets/js/global.js:409
 #: ucp/assets/js/global.js:451 ucp/assets/js/global.js:497
 msgid "Drag a New Greeting Here"
-msgstr ""
+msgstr "Faites glisser un nouveau message ici"
 
 #: ucp/assets/js/global.js:292
 msgid "Dragging to yourself is not allowed"
@@ -489,8 +515,8 @@ msgid ""
 msgstr ""
 "Actice/désactive l'option VmW Locater pour cet utilisateur. Quand activé, "
 "tous les règlages sont contrôlées par l'utilisateur dans le portail "
-"utilisateur (ARI). Désactivé ne modifie les réglages mais bloque l'accès à "
-"cette fontion."
+"utilisateur (ARI). Désactivé ne supprime pas les paramètres utilisateurs "
+"mais bloque l'accès à cette fonction"
 
 #: functions.inc.php:426 functions.inc.php:431
 msgid "Enabled"
@@ -1019,7 +1045,7 @@ msgstr ""
 
 #: functions.inc.php:545 page.voicemail.php:498 ucp/views/settings.php:17
 msgid "Pager Email Address"
-msgstr "Adresse courriel du Pager"
+msgstr "Adresse courriel du téléavertisseur"
 
 #: functions.inc.php:545 page.voicemail.php:306 ucp/views/settings.php:19
 msgid ""
@@ -1061,11 +1087,13 @@ msgstr "Adresse courriel Pager invalide"
 
 #: functions.inc.php:523
 msgid "Please enter a valid Voicemail Password, using digits only"
-msgstr "Un mot de passe de boîte vocale ne contient que des chiffres."
+msgstr ""
+"Veuillez entrer un mot de passe de boîte vocale valide, en utilisant que des "
+"chiffres"
 
 #: functions.inc.php:563
 msgid "Please enter a valid phone number using number digits only"
-msgstr "Entrez un numéro de téléphone valide composé uniquement de chiffres."
+msgstr "Entrez un numéro de téléphone valide composé uniquement de chiffres"
 
 #: ucp/views/vmx.php:20
 msgid "Press 0"
@@ -1551,7 +1579,7 @@ msgstr ""
 
 #: ucp/views/greetings.php:46
 msgid "Upload Greeting"
-msgstr ""
+msgstr "Téléverser un message"
 
 #: ucp/assets/js/global.js:361 ucp/assets/js/global.js:403
 #: ucp/assets/js/global.js:445 ucp/assets/js/global.js:470
@@ -1668,7 +1696,7 @@ msgstr "Mot de passe boîte vocale"
 
 #: ucp/views/settings.php:7
 msgid "Voicemail Pin"
-msgstr ""
+msgstr "Mot de passe de la boîte vocale"
 
 #: views/dialplan.php:33
 msgid "Voicemail Recording Gain"
@@ -1676,7 +1704,7 @@ msgstr ""
 
 #: ucp/views/settings.php:2
 msgid "Voicemail Settings"
-msgstr ""
+msgstr "Paramètres de la boîte vocale"
 
 #: functions.inc.php:287
 msgid ""
@@ -1684,7 +1712,7 @@ msgid ""
 "sure you wish to continue?"
 msgstr ""
 "La boîte vocale est activé mais il n'y a pas de mot de passe. Voulez vous "
-"continuer?"
+"continuer ?"
 
 #: ucp/Voicemail.class.php:324 ucp/Voicemail.class.php:358
 #, php-format
@@ -1775,7 +1803,7 @@ msgstr ""
 #: functions.inc.php:768
 #, php-format
 msgid "failed with retcode %s while removing %s:"
-msgstr "Echec avec code erreur %s pendant le retrait de %s:"
+msgstr "Echec avec code erreur %s pendant le retrait de %s :"
 
 #: install.php:188
 msgid "installed."
