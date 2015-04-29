@@ -1381,7 +1381,7 @@ class Voicemail implements \BMO {
 					}
 				}
 
-				if (count($mailbox) > 0) {
+				if (count($mailbox) > 0 && !empty($mailbox['vmpwd'])) {
 					$mailbox['vm'] = 'enabled';
 					try {
 						$this->addMailbox($extension, $mailbox);
@@ -1420,7 +1420,7 @@ class Voicemail implements \BMO {
 				}
 
 				foreach ($uservm[$vmcontext] as $extension => $mailbox) {
-					unset ($mailbox['mailbox']);
+					unset($mailbox['mailbox']);
 
 					$opts = array();
 					if(!empty($mailbox['options'])) {
