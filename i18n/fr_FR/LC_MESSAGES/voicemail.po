@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-27 11:05-0400\n"
-"PO-Revision-Date: 2015-04-28 19:46+0200\n"
+"PO-Revision-Date: 2015-04-29 21:39+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -435,7 +435,7 @@ msgstr "Désactiver le message standard après boucle Max"
 
 #: views/dialplan.php:85
 msgid "Disable Standard Prompt on 'dovm' Extension"
-msgstr ""
+msgstr "Désactiver le message standard sur le poste 'dovm'"
 
 #: functions.inc.php:427 functions.inc.php:430
 msgid "Disabled"
@@ -443,15 +443,16 @@ msgstr "Désactivé"
 
 #: ucp/views/greetings.php:52
 msgid "Discard Greeting"
-msgstr ""
+msgstr "Ignorer le message"
 
 #: views/usage.php:93 views/usage_system.php:116
 msgid "Disk space currently in use by Voicemail data"
 msgstr ""
+"L'espace disque en cours d'utilisation par des données de messagerie vocale"
 
 #: ucp/views/mailbox.php:37
 msgid "Download"
-msgstr ""
+msgstr "Télécharger"
 
 #: ucp/views/greetings.php:55 ucp/assets/js/global.js:306
 #: ucp/assets/js/global.js:367 ucp/assets/js/global.js:409
@@ -461,7 +462,7 @@ msgstr "Faites glisser un nouveau message ici"
 
 #: ucp/assets/js/global.js:292
 msgid "Dragging to yourself is not allowed"
-msgstr ""
+msgstr "Glisser vers vous n'est pas permis"
 
 #: ucp/views/mailbox.php:16
 msgid "Duration"
@@ -473,6 +474,8 @@ msgid ""
 "ERROR inserting %s into voicemail_admin during migration, it may alreayd "
 "exist"
 msgstr ""
+"Erreur en insérant %s dans voicemail_admin lors de la migration, il peut "
+"déjà exister"
 
 #: functions.inc.php:544 page.voicemail.php:497 ucp/views/settings.php:12
 msgid "Email Address"
@@ -484,11 +487,11 @@ msgstr "Pièce jointe"
 
 #: page.voicemail.php:216
 msgid "Email body."
-msgstr ""
+msgstr "Message du courriel."
 
 #: page.voicemail.php:218
 msgid "Email subject"
-msgstr ""
+msgstr "Sujet du courriel"
 
 #: page.voicemail.php:284 page.voicemail.php:316
 msgid ""
@@ -497,15 +500,21 @@ msgid ""
 "when sending a Voicemail. NOTE: sox must be installed for this option to "
 "work."
 msgstr ""
+"Les courriels des messages vocaux peuvent arriver dans un volume trop bas "
+"pour être entendu. Ce paramètre vous permet de spécifier combien de gain en "
+"db ajouter au message lors de l'envoi d'un message vocale. NOTE: sox doit "
+"être installé pour que cette option fonctionne."
 
 #: page.voicemail.php:274
 msgid "Enable Simple Message Desk Interface (SMDI) integration"
-msgstr ""
+msgstr "Activer l'intégration de l'interface simple de message de bureau (SMDI)"
 
 #: ucp/views/vmx.php:17
 msgid ""
 "Enable VmX Menu options during Voicemail playback for the selected options."
 msgstr ""
+"Activer les options de menu VMX pendant la lecture du message vocale pour "
+"les options sélectionnées."
 
 #: functions.inc.php:558
 msgid ""
@@ -524,7 +533,7 @@ msgstr "Activé"
 
 #: page.voicemail.php:252
 msgid "Enforce minimum password length"
-msgstr ""
+msgstr "Imposer la longueur minimale du mot de passe"
 
 #: functions.inc.php:668
 msgid ""
@@ -552,6 +561,10 @@ msgid ""
 "not affect the operation of the envelope option in the advanced Voicemail "
 "menu."
 msgstr ""
+"Cette option contrôle si le système de messagerie vocale joue l'enveloppe du "
+"message (date / heure) avant de jouer le message vocal. Ce paramètre "
+"n'affecte pas le fonctionnement de l'option d'enveloppe dans le menu avancé "
+"de messagerie vocale."
 
 #: views/dialplan.php:69
 msgid "Error Re-tries"
@@ -1045,12 +1058,14 @@ msgstr ""
 
 #: functions.inc.php:545 page.voicemail.php:498 ucp/views/settings.php:17
 msgid "Pager Email Address"
-msgstr "Adresse courriel du téléavertisseur"
+msgstr "Adresse courriel du téléavertisseur ou cellulaire"
 
 #: functions.inc.php:545 page.voicemail.php:306 ucp/views/settings.php:19
 msgid ""
 "Pager/mobile email address that short Voicemail notifications are sent to."
 msgstr ""
+"Adresse courriel du téléavertisseur/cellulaire vers laquelle les messages "
+"vocaux court sont envoyés."
 
 #: page.voicemail.php:277
 msgid "Permit finding entries for forward/compose from the directory"
@@ -1059,6 +1074,8 @@ msgstr ""
 #: ucp/views/settings.php:9
 msgid "Pin Used to Login to Voicemail. This pin can only contain numbers."
 msgstr ""
+"Le mot de passe pour se connecter à la messagerie vocale. Ce mot de passe ne "
+"doit contenir que des chiffres."
 
 #: ucp/views/mailbox.php:34
 msgid "Play"
@@ -1393,7 +1410,7 @@ msgstr ""
 
 #: functions.inc.php:544 page.voicemail.php:293 ucp/views/settings.php:14
 msgid "The email address that Voicemails are sent to."
-msgstr ""
+msgstr "L'adresse courriel vers laquelle les messages vocaux sont envoyés."
 
 #: views/tz.php:135
 msgid "The name of a sound file (the file name must be single-quoted)"
@@ -1774,7 +1791,7 @@ msgstr ""
 
 #: ucp/assets/js/global.js:693
 msgid "Your settings have been saved"
-msgstr ""
+msgstr "Vos paramètres ont été enregistrés"
 
 #: functions.inc.php:635
 msgid "busy"
