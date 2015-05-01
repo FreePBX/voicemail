@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-27 11:05-0400\n"
-"PO-Revision-Date: 2015-04-29 21:39+0200\n"
+"PO-Revision-Date: 2015-04-30 21:37+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -542,6 +542,11 @@ msgid ""
 "to use your Follow Me List, check \"Send to Follow Me\" and disable Follow "
 "Me above."
 msgstr ""
+"Entrez un autre numéro ici, puis changez votre message d'accueil de "
+"messagerie vocale personnelle pour indiquer aux appelants d'appuyer sur 1 "
+"pour atteindre ce numéro. <br/><br/>Si vous souhaitez utiliser votre liste "
+"de suivez-moi, cochez la case \" Envoyer à suivez-moi \" et désactiver "
+"suivez-moi ci-dessus."
 
 #: ucp/views/vmx.php:37
 msgid ""
@@ -549,10 +554,16 @@ msgid ""
 "to let callers know to press 1 to reach that number. If you'd like to use "
 "your Follow Me List, ucheck the box to disable"
 msgstr ""
+"Entrez un autre numéro ici, puis changer votre message d'accueil personnel "
+"pour indiquer aux appelants d'appuyer sur 1 pour atteindre ce numéro . Si "
+"vous souhaitez utiliser votre liste de suivez-moi, décocher la case pour "
+"désactiver"
 
 #: views/tz.php:36
 msgid "Entries below will be written to Voicemail configuration as-is."
 msgstr ""
+"Les entrées ci-dessous seront écrites dans la configuration de la messagerie "
+"vocale comme tel."
 
 #: functions.inc.php:548 ucp/views/settings.php:41
 msgid ""
@@ -568,11 +579,11 @@ msgstr ""
 
 #: views/dialplan.php:69
 msgid "Error Re-tries"
-msgstr ""
+msgstr "Erreur réessaie"
 
 #: page.voicemail.php:222
 msgid "Expunge on exit."
-msgstr ""
+msgstr "Effacer à la sortie."
 
 #: functions.inc.php:542
 msgid "Extension"
