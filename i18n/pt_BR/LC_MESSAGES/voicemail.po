@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: FreePbx 2.5.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-27 11:05-0400\n"
-"PO-Revision-Date: 2015-04-29 08:50+0200\n"
+"PO-Revision-Date: 2015-05-02 06:09+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/pt_BR/>\n"
@@ -36,75 +36,75 @@ msgstr ""
 
 #: views/tz.php:242
 msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
-msgstr ""
+msgstr "\"\" (para hoje), \"ontem\", dia da semana, ou ABdY"
 
 #: views/tz.php:234
 msgid "\"today\", \"yesterday\" or ABdY"
-msgstr ""
+msgstr "\"hoje\", \"ontem\" ou ABdY"
 
 #: page.voicemail.php:440
 #, php-format
 msgid "%s Attempts"
-msgstr ""
+msgstr "%s Tentativas"
 
 #: page.voicemail.php:446
 #, php-format
 msgid "%s Retries"
-msgstr ""
+msgstr "%s Tentativas"
 
 #: page.voicemail.php:444
 #, php-format
 msgid "%s Retry"
-msgstr ""
+msgstr "%s Tentar"
 
 #: page.voicemail.php:436
 #, php-format
 msgid "%s Sec"
-msgstr ""
+msgstr "%s Seg"
 
 #: install.php:113
 #, php-format
 msgid "%s added"
-msgstr ""
+msgstr "%s adicionado"
 
 #: install.php:81
 #, php-format
 msgid "%s adjusted from %s to %s"
-msgstr ""
+msgstr "%s ajustado de %s a %s"
 
 #: install.php:85
 #, php-format
 msgid "%s adjusted from bad value %s to default no gain"
-msgstr ""
+msgstr "%s ajustado de valor ruim %s para padrão nenhum ganho"
 
 #: install.php:76
 #, php-format
 msgid "%s changed from %s to max value 15"
-msgstr ""
+msgstr "%s mudado de %s para valor máximo 15"
 
 #: install.php:95
 #, php-format
 msgid "%s migrated"
-msgstr ""
+msgstr "%s migrado"
 
 #: install.php:72
 #, php-format
 msgid "%s no longer used"
-msgstr ""
+msgstr "%s não mais usado"
 
 #: views/tz.php:153 views/tz.php:169 views/tz.php:185 views/tz.php:223
 #, php-format
 msgid "%s or %s"
-msgstr ""
+msgstr "%s ou %s"
 
 #: views/tz.php:161
 #, php-format
 msgid "%s or %s or %s"
-msgstr ""
+msgstr "%s ou %s ou %s"
 
 #: views/tz.php:132
 msgid "'filename'"
-msgstr ""
+msgstr "'nome de arquivo'"
 
 #: page.voicemail.php:234
 msgid ""
@@ -488,7 +488,7 @@ msgstr ""
 "Habilita/Desabilita o recurso de localizador VmX para este usuário. Quando "
 "habilitado, todas as configurações serão controladas pelo usuário no portal "
 "de usuário (ARI). Desabilitar não apaga as configurações de um usuário "
-"existente, mas desabilita o acesso ao recurso. "
+"existente, mas desabilita o acesso ao recurso"
 
 #: functions.inc.php:426 functions.inc.php:431
 msgid "Enabled"
@@ -1017,7 +1017,7 @@ msgstr ""
 
 #: functions.inc.php:545 page.voicemail.php:498 ucp/views/settings.php:17
 msgid "Pager Email Address"
-msgstr "Endereço de email do pager. "
+msgstr "Endereço de Email Pager"
 
 #: functions.inc.php:545 page.voicemail.php:306 ucp/views/settings.php:19
 msgid ""
@@ -1620,11 +1620,11 @@ msgstr ""
 
 #: functions.inc.php:557
 msgid "VmX Locater"
-msgstr "VmX Locater"
+msgstr "Localizador VmX"
 
 #: functions.inc.php:558
 msgid "VmX Locater&trade;"
-msgstr "VmX Locater&trade;"
+msgstr "Locater&trade VmX;"
 
 #: ucp/Voicemail.class.php:128
 msgid "VmX Locator"
