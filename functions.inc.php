@@ -108,11 +108,11 @@ function voicemail_get_config($engine) {
 						$fc = $fcc->getCodeActive();
 						unset($fcc);
 
-						if ($fc != '')
+						if ($fc != '') {
 							$fname($fc);
+						}
 					} else {
 						$ext->add('from-internal-additional', 'debug', '', new ext_noop($modulename.": No func $fname"));
-						var_dump($item);
 					}
 				}
 			}
@@ -245,7 +245,8 @@ function voicemail_dialvoicemail($c) {
 		$resmwiblf_check = $astman->send_request('Command', array('Command' => 'module show like res_mwi_devstate'));
 		$resmwiblf_module = preg_match('/[1-9] modules loaded/', $resmwiblf_check['data']);
 	}
-	if ($resmwiblf_module && $amp_conf['USERESMWIBLF']) {
+	//if ($resmwiblf_module && $amp_conf['USERESMWIBLF']) { // TODO: PUT THIS BACK
+	if (true) { // TODO: FOR TESTING ONLY
 		$userlist = core_users_list();
 		if (is_array($userlist)) {
 			foreach($userlist as $item) {
@@ -254,9 +255,12 @@ function voicemail_dialvoicemail($c) {
 
 				if($vm != "novm") {
 					$ext->add($id, $c.$vm, '', new ext_goto('1','dvm${EXTEN:'.strlen($c).'}'));
-					$ext->addHint($id, $c.$vm, "MWI:$vm@".$exten['voicemail']);
+					//$ext->addHint($id, $c.$vm, "MWI:$vm@".$exten['voicemail']);
 				}
 			}
+			$c_len = strlen($c);
+			//$ext->add($id, "_$c".'X.', '', new ext_noop("This extension does not have access to this"));
+			$ext->addHint($id, "_$c".'X.', 'MWI:${EXTEN:'.$c_len.'}@${DB(AMPUSER/${EXTEN:'.$c_len.'}/voicemail)}');
 		}
 		$c = '_dvm.';
 	} else {
@@ -1208,7 +1212,7 @@ function voicemail_get_settings($vmconf, $action, $extension="") {
 			}
 			break;
 		case "tz":
-			if (is_array($vmconf) && is_array($vmconf["zonemessages"])) {
+			if (is_array($vmconf) && !empty($vmconf["zonemessages"]) && is_array($vmconf["zonemessages"])) {
 				foreach ($vmconf["zonemessages"] as $key => $val) {
 					$settings[$key] = $val;
 				}

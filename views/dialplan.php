@@ -42,11 +42,11 @@
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="VM_DDTYPE"></i>
 						</div>
 						<div class="col-md-9 radioset">
-							<input type="radio" name="VM_DDTYPE" id="VM_DDTYPEu" value="u" <?php echo ($VM_DDTYPE == "u"?"CHECKED":"") ?>>
+							<input type="radio" name="VM_DDTYPE" id="VM_DDTYPEu" value="u" <?php echo ($settings['VM_DDTYPE'] == "u"?"CHECKED":"") ?>>
 							<label for="VM_DDTYPEu"><?php echo _("Unavailable");?></label>
-							<input type="radio" name="VM_DDTYPE" id="VM_DDTYPEb" value="b" <?php echo ($VM_DDTYPE == "b"?"CHECKED":"") ?>>
+							<input type="radio" name="VM_DDTYPE" id="VM_DDTYPEb" value="b" <?php echo ($settings['VM_DDTYPE'] == "b"?"CHECKED":"") ?>>
 							<label for="VM_DDTYPEb"><?php echo _("Busy");?></label>
-							<input type="radio" name="VM_DDTYPE" id="VM_DDTYPEs" value="s" <?php echo ($VM_DDTYPE == "s"?"CHECKED":"") ?>>
+							<input type="radio" name="VM_DDTYPE" id="VM_DDTYPEs" value="s" <?php echo ($settings['VM_DDTYPE'] == "s"?"CHECKED":"") ?>>
 							<label for="VM_DDTYPEs"><?php echo _("No Message");?></label>
 						</div>
 					</div>
@@ -71,17 +71,17 @@
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="VM_GAIN"></i>
 						</div>
 						<div class="col-md-9 radioset">
-							<input type="radio" name="VM_GAIN" id="VM_GAIN0" value="" <?php echo ($VM_GAIN == ""?"CHECKED":"") ?>>
+							<input type="radio" name="VM_GAIN" id="VM_GAIN0" value="" <?php echo ($settings['VM_GAIN'] == ""?"CHECKED":"") ?>>
 							<label for="VM_GAIN0"><?php echo _("None");?></label>
-							<input type="radio" name="VM_GAIN" id="VM_GAIN3" value="3" <?php echo ($VM_GAIN == "3"?"CHECKED":"") ?>>
+							<input type="radio" name="VM_GAIN" id="VM_GAIN3" value="3" <?php echo ($settings['VM_GAIN'] == "3"?"CHECKED":"") ?>>
 							<label for="VM_GAIN3"><?php echo _("3 db");?></label>
-							<input type="radio" name="VM_GAIN" id="VM_GAIN6" value="6" <?php echo ($VM_GAIN == "6"?"CHECKED":"") ?>>
+							<input type="radio" name="VM_GAIN" id="VM_GAIN6" value="6" <?php echo ($settings['VM_GAIN'] == "6"?"CHECKED":"") ?>>
 							<label for="VM_GAIN6"><?php echo _("6 db");?></label>
-							<input type="radio" name="VM_GAIN" id="VM_GAIN9" value="9" <?php echo ($VM_GAIN == "9"?"CHECKED":"") ?>>
+							<input type="radio" name="VM_GAIN" id="VM_GAIN9" value="9" <?php echo ($settings['VM_GAIN'] == "9"?"CHECKED":"") ?>>
 							<label for="VM_GAIN9"><?php echo _("9 db");?></label>
-							<input type="radio" name="VM_GAIN" id="VM_GAIN12" value="12" <?php echo ($VM_GAIN == "12"?"CHECKED":"") ?>>
+							<input type="radio" name="VM_GAIN" id="VM_GAIN12" value="12" <?php echo ($settings['VM_GAIN'] == "12"?"CHECKED":"") ?>>
 							<label for="VM_GAIN12"><?php echo _("12 db");?></label>
-							<input type="radio" name="VM_GAIN" id="VM_GAIN15" value="15" <?php echo ($VM_GAIN == "15"?"CHECKED":"") ?>>
+							<input type="radio" name="VM_GAIN" id="VM_GAIN15" value="15" <?php echo ($settings['VM_GAIN'] == "15"?"CHECKED":"") ?>>
 							<label for="VM_GAIN15"><?php echo _("15 db");?></label>
 						</div>
 					</div>
@@ -260,4 +260,3 @@
 	</div>
 	<!--END Disable Standard Prompt on 'dovm' Extension-->
 </div>
-
