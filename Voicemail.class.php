@@ -1365,6 +1365,25 @@ class Voicemail implements \BMO {
 		return $buttons;
 	}
 
+	public function bulkhandlerGetHeaders($type) {
+		switch ($type) {
+		case 'extensions':
+			$headers = array(
+				'voicemail_vmpwd' => array(
+					'description' => _('Voicemail Password'),
+				),
+				'voicemail_email' => array(
+					'description' => _('Voicemail E-Mail'),
+				),
+				'voicemail_options' => array(
+					'description' => _('Voicemail Options is a pipe-delimited list of options.  Example: attach=no|delete=no'),
+				),
+			);
+
+			return $headers;
+		}
+	}
+
 	public function bulkhandlerImport($type, $rawData) {
 		$ret = NULL;
 
