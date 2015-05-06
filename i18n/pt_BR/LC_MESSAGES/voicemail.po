@@ -19,15 +19,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePbx 2.5.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-27 11:05-0400\n"
+"POT-Creation-Date: 2015-05-06 15:50-0400\n"
 "PO-Revision-Date: 2015-05-02 20:35+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
-"Language-Team: Portuguese (Brazil) "
-"<http://weblate.freepbx.org/projects/freepbx/voicemail/pt_BR/>\n"
-"Language: pt_BR\n"
+"Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
+"freepbx/voicemail/pt_BR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Portuguese\n"
@@ -182,18 +182,18 @@ msgid ""
 "Voicemail ONLY by email. Note:  deletevoicemail is provided as an equivalent "
 "option for Realtime configuration."
 msgstr ""
-"Após notificação, o Correo de Voz é apagado do servidor. [per-mailbox apenas]"
-" Este é destinado para uso com usuários que desejam receber seus Correios de "
-"Voz APENAS por email. Note:  deletevoicemail é fornecido como uma opção "
-"equivalente para configuração Realtime."
+"Após notificação, o Correo de Voz é apagado do servidor. [per-mailbox "
+"apenas] Este é destinado para uso com usuários que desejam receber seus "
+"Correios de Voz APENAS por email. Note:  deletevoicemail é fornecido como "
+"uma opção equivalente para configuração Realtime."
 
 #: page.voicemail.php:265 page.voicemail.php:307
 msgid ""
 "Allow sender to review/rerecord their message before saving it [OFF by "
 "default]"
 msgstr ""
-"Permitir remetente revisar/regravar sua mensagem antes de salve-la ["
-"DESLIGADO por padrão]"
+"Permitir remetente revisar/regravar sua mensagem antes de salve-la "
+"[DESLIGADO por padrão]"
 
 #: Voicemail.class.php:135
 msgid "Allowed Voicemail"
@@ -307,10 +307,6 @@ msgstr "Controles"
 msgid "Copying..."
 msgstr "Copiando..."
 
-#: voicemail.i18n.php:14
-msgid "Create Voicemail Hints"
-msgstr "Criar Dicas de Correio de Voz"
-
 #: page.voicemail.php:241
 msgid "Customize the key that fast-forwards message playback"
 msgstr "Personalizar a chave que avança a reprodução da mensagem"
@@ -336,8 +332,8 @@ msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"Please enter your new password followed by the pound key.\""
 msgstr ""
-"Personalizar qual arquivo de som é usado ao invés da mensagem padrão que diz:"
-" \"Por favor digite sua nova senha seguida pela chave cerquilha.\""
+"Personalizar qual arquivo de som é usado ao invés da mensagem padrão que "
+"diz: \"Por favor digite sua nova senha seguida pela chave cerquilha.\""
 
 #: page.voicemail.php:283
 msgid ""
@@ -836,8 +832,8 @@ msgstr ""
 "Se defino para \"não\" então quando o usuário discar %s para acessar seu "
 "próprio correio de voz, eles não serão pedidos para entrar com sua senha. "
 "Isto não se aplica para chamadas %s, que sempre perguntará por sua senha. "
-"Por razões de segurança, isto deveria provavelmente estar definido para \""
-"sim\" em um ambiente onde outros usuários terão acesso físico a este ramal."
+"Por razões de segurança, isto deveria provavelmente estar definido para \"sim"
+"\" em um ambiente onde outros usuários terão acesso físico a este ramal."
 
 #: functions.inc.php:549
 msgid ""
@@ -848,8 +844,8 @@ msgid ""
 "HAVE attach Voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE "
 "LOST FOREVER."
 msgstr ""
-"Se definido para \"sim\" a mensagem será apagada da caixa de Correio de Voz ("
-"após ter sido enviada por email). Fornece a funcionalidade que permite ao "
+"Se definido para \"sim\" a mensagem será apagada da caixa de Correio de Voz "
+"(após ter sido enviada por email). Fornece a funcionalidade que permite ao "
 "usuário receber seu Correio de Voz via email apenas, preferivelmente do que "
 "ter o Correio de Voz capaz de ser recuperado da Interface Web ou do Ramal. "
 "CUIDADO: DEVE TER anexar Correio de Voz para email DEFINIDO COMO SIM CASO "
@@ -886,27 +882,12 @@ msgid ""
 "enabled"
 msgstr ""
 
-#: voicemail.i18n.php:22
-msgid ""
-"Installations that have configured Voicemail with IMAP should set this to "
-"true so that the IMAP username and password fields are provided in the "
-"Voicemail setup screen for extensions. If an extension alread has these "
-"fields populated, they will be displayed even if this is set to false."
-msgstr ""
-
 #: functions.inc.php:980
 msgid "Invalid Action"
 msgstr ""
 
 #: ucp/Voicemail.class.php:193 ucp/Voicemail.class.php:224
 msgid "Invalid Recipient"
-msgstr ""
-
-#: voicemail.i18n.php:26
-msgid ""
-"Limit the Messages to be Displayed in UCP. If your device has more "
-"processing power you can increase this otherwise lower it if you find your "
-"system not responsive"
 msgstr ""
 
 #: ucp/assets/js/global.js:128
@@ -1197,10 +1178,6 @@ msgid ""
 "Check to enter another destination here."
 msgstr ""
 
-#: voicemail.i18n.php:20
-msgid "Provide IMAP Voicemail Fields"
-msgstr ""
-
 #: functions.inc.php:547 ucp/views/settings.php:30
 msgid ""
 "Read back caller's telephone number prior to playing the incoming message, "
@@ -1312,16 +1289,7 @@ msgstr "Separe as opções com o pipe ( | )%s ex: review=yes|maxmessage=60"
 msgid "Set the parent folder (default is to have no parent folder set)."
 msgstr ""
 
-#: voicemail.i18n.php:18
-msgid ""
-"Setting this flag with generate the required dialplan to integrate with "
-"res_mwi_devstate (res_mwi_blf) which is included with the Official FreePBX "
-"Distro. It allows users to subscribe to other voicemail box and be notified "
-"via BLF of changes."
-msgstr ""
-
 #: ucp/views/nav.php:9 views/header.php:18 views/settings.php:9
-#: voicemail.i18n.php:6 voicemail.i18n.php:12
 msgid "Settings"
 msgstr ""
 
@@ -1523,10 +1491,6 @@ msgid ""
 "you enter here after logging into the Voicemail system (*98) with a phone."
 msgstr ""
 
-#: voicemail.i18n.php:8
-msgid "This module allows you to configure Voicemail for a user or extension"
-msgstr ""
-
 #: page.voicemail.php:203
 msgid "Time announcement for message playback"
 msgstr ""
@@ -1597,10 +1561,6 @@ msgstr ""
 msgid ""
 "Turn on/off saying duration information before the message playback. [ON by "
 "default]"
-msgstr ""
-
-#: voicemail.i18n.php:24
-msgid "UCP Message Limit"
 msgstr ""
 
 #: page.voicemail.php:420 ucp/views/vmx.php:8
@@ -1724,11 +1684,11 @@ msgid "VmX Locator"
 msgstr ""
 
 #: functions.inc.php:530 install.php:8 ucp/Voicemail.class.php:422
-#: voicemail.i18n.php:4 ucp/assets/js/global.js:12
+#: ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr "Correio de voz"
 
-#: install.php:11 voicemail.i18n.php:10
+#: install.php:11
 msgid "Voicemail Admin"
 msgstr ""
 
@@ -1746,10 +1706,6 @@ msgstr "Instruções de mensagens de voz"
 
 #: ucp/Voicemail.class.php:205
 msgid "Voicemail Message"
-msgstr ""
-
-#: voicemail.i18n.php:16
-msgid "Voicemail Module"
 msgstr ""
 
 #: functions.inc.php:533 page.voicemail.php:496
@@ -1920,6 +1876,9 @@ msgstr ""
 #: views/usage.php:35 views/usage.php:50 views/usage.php:65
 msgid "yes"
 msgstr "sim"
+
+#~ msgid "Create Voicemail Hints"
+#~ msgstr "Criar Dicas de Correio de Voz"
 
 #~ msgid "Voicemail & Directory"
 #~ msgstr "Correio de voz & Diretório"
