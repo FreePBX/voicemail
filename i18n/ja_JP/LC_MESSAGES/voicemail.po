@@ -1025,6 +1025,10 @@ msgstr "入ってきたメッセージを再生する前に、そして、メッ
 msgid "Record Greeting"
 msgstr ""
 
+#: ucp/assets/js/global.js:732
+msgid "Recorded Message"
+msgstr ""
+
 #: views/usage.php:60
 msgid "Recorded Name"
 msgstr ""
@@ -1211,6 +1215,10 @@ msgstr "残りのオプションは、電話が鳴る可能性のある内線、
 #: page.voicemail.php:256
 msgid "The value of odbcstorage is the database connection configured in res_odbc.conf."
 msgstr "odbcstorageの値は、res_odbc.conf内で設定されたデータベース接続です。"
+
+#: ucp/assets/js/global.js:838
+msgid "There is nothing to delete"
+msgstr ""
 
 #: Voicemail.class.php:496
 msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
@@ -1537,6 +1545,10 @@ msgstr "ドラッグ／ドロップ操作はサポートされていません。
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr "録音はブラウザによってブロックされた可能性があります。ブラウザの設定を確認してください。"
 
+#: ucp/assets/js/global.js:693
+msgid "Your settings have been saved"
+msgstr ""
+
 #: install.php:183
 msgid "checking if Voicemail Admin (vmailadmin) is installed.."
 msgstr "ボイスメールアドミン(vmailadmin)がインストールされているかどうかチェック中.."
@@ -1589,24 +1601,6 @@ msgstr "準備中"
 #: page.voicemail.php:544
 msgid "yes"
 msgstr "はい"
-
-#: ucp/assets/js/global.js:732
-msgid "Recorded Message"
-msgstr ""
-
-#: ucp/assets/js/global.js:838
-msgid "There is nothing to delete"
-msgstr ""
-
-#: ucp/assets/js/global.js:693
-msgid "Your settings have been saved"
-msgstr ""
-
-#~ msgid "Recorded Name:"
-#~ msgstr "録音名"
-
-#~ msgid "busy"
-#~ msgstr "通話中"
 
 #~ msgid " Greeting"
 #~ msgstr " アナウンス"
@@ -1749,6 +1743,9 @@ msgstr ""
 #~ msgid "R"
 #~ msgstr "R"
 
+#~ msgid "Recorded Name:"
+#~ msgstr "録音名"
+
 #~ msgid "Recorded Names:"
 #~ msgstr "録音された名前の数："
 
@@ -1844,6 +1841,9 @@ msgstr ""
 
 #~ msgid "adding preload for res_mwi_blf.so to modules.conf.."
 #~ msgstr "res_mwi.blf.soのプレロードをmodules.confに追加中…"
+
+#~ msgid "busy"
+#~ msgstr "通話中"
 
 #~ msgid "d or e"
 #~ msgstr "d 又は e"

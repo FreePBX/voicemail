@@ -1,17 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: 2.5\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-20 14:39-0400\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
-"Language-Team: Italian\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Italian\n"
-"X-Poedit-Country: ITALY\n"
-
 #: page.voicemail.php:109
 msgid " PBX Voicemail"
 msgstr ""
@@ -1111,6 +1097,10 @@ msgstr ""
 msgid "Record Greeting"
 msgstr ""
 
+#: ucp/assets/js/global.js:732
+msgid "Recorded Message"
+msgstr ""
+
 #: views/usage.php:60
 msgid "Recorded Name"
 msgstr ""
@@ -1376,10 +1366,14 @@ msgstr ""
 
 #: functions.inc.php:666
 msgid "The remaining options can have internal extensions, ringgroups, queues and external numbers that may be rung. It is often used to include your cell phone. You should run a test to make sure that the number is functional any time a change is made so you don't leave a caller stranded or receiving invalid number messages."
-msgstr "Le opzioni rimamanenti permettono l'utilizzo di qualsiasi interno, gruppo di chiamata, coda o numero esterno. Spesso si inserisce il proprio numero di telefono cellulare. Dovresti effettuare un test per assicurarsi che il numero funzioni correttamente così da non inviare il chiamante verso numerazioni non raggiungibili o inesistenti."
+msgstr ""
 
 #: page.voicemail.php:256
 msgid "The value of odbcstorage is the database connection configured in res_odbc.conf."
+msgstr ""
+
+#: ucp/assets/js/global.js:838
+msgid "There is nothing to delete"
 msgstr ""
 
 #: Voicemail.class.php:496
@@ -1612,7 +1606,7 @@ msgid "VmX Locator"
 msgstr ""
 
 #: functions.inc.php:530 install.php:8 ucp/Voicemail.class.php:422
-#: voicemail.i18n.php:4 ucp/assets/js/global.js:12
+#: ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr ""
 
@@ -1739,9 +1733,13 @@ msgstr ""
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 
+#: ucp/assets/js/global.js:693
+msgid "Your settings have been saved"
+msgstr ""
+
 #: functions.inc.php:635
 msgid "busy"
-msgstr "Occupato"
+msgstr ""
 
 #: install.php:183
 msgid "checking if Voicemail Admin (vmailadmin) is installed.."
@@ -1811,7 +1809,7 @@ msgstr ""
 
 #: functions.inc.php:633
 msgid "unavailable"
-msgstr "Non disponibile"
+msgstr ""
 
 #: views/tz.php:140
 msgid "variable"
@@ -1820,16 +1818,4 @@ msgstr ""
 #: functions.inc.php:434 page.voicemail.php:535 views/usage.php:20
 #: views/usage.php:35 views/usage.php:50 views/usage.php:65
 msgid "yes"
-msgstr "sì"
-
-#: ucp/assets/js/global.js:732
-msgid "Recorded Message"
-msgstr ""
-
-#: ucp/assets/js/global.js:838
-msgid "There is nothing to delete"
-msgstr ""
-
-#: ucp/assets/js/global.js:693
-msgid "Your settings have been saved"
 msgstr ""
