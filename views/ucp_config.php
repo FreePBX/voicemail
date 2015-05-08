@@ -8,10 +8,14 @@
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="voicemailenable"></i>
 					</div>
 					<div class="col-md-9 radioset">
-						<input type="radio" name="voicemail_enable" id="voicemail_enable_yes" value="yes" <?php echo !($disable) ? 'checked' : ''?>>
+						<input type="radio" name="voicemail_enable" id="voicemail_enable_yes" value="yes" <?php echo $enable ? 'checked' : ''?>>
 						<label for="voicemail_enable_yes"><?php echo _("Yes")?></label>
-						<input type="radio" name="voicemail_enable" id="voicemail_enable_no" value="no" <?php echo ($disable) ? 'checked' : ''?>>
+						<input type="radio" name="voicemail_enable" id="voicemail_enable_no" value="no" <?php echo (!is_null($enable) && !$enable) ? 'checked' : ''?>>
 						<label for="voicemail_enable_no"><?php echo _("No")?></label>
+						<?php if($mode == "user") {?>
+							<input type="radio" id="voicemail_enable_inherit" name="voicemail_enable" value='inherit' <?php echo is_null($enable) ? 'checked' : ''?>>
+							<label for="voicemail_enable_inherit"><?php echo _('Inherit')?></label>
+						<?php } ?>
 					</div>
 				</div>
 			</div>
@@ -33,7 +37,7 @@
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="ucp_voicemail"></i>
 					</div>
 					<div class="col-md-9">
-						<select data-placeholder="Extensions" id="ucp_voicemail" class="form-control chosenmultiselect ucp-voicemail" name="ucp_voicemail[]" multiple="multiple" <?php echo ($disable) ? "disabled" : ""?>>
+						<select data-placeholder="Extensions" id="ucp_voicemail" class="form-control chosenmultiselect ucp-voicemail" name="ucp_voicemail[]" multiple="multiple" <?php echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
 							<?php foreach($ausers as $key => $value) {?>
 								<option value="<?php echo $key?>" <?php echo in_array($key,$vmassigned) ? 'selected' : '' ?>><?php echo $value?></option>
 							<?php } ?>
@@ -51,7 +55,7 @@
 </div>
 <script>
 	$("input[name=voicemail_enable]").change(function() {
-		if($(this).val() == "yes") {
+		if($(this).val() == "yes" || $(this).val() == "inherit") {
 			$(".ucp-voicemail").prop("disabled",false).trigger("chosen:updated");;
 		} else {
 			$(".ucp-voicemail").prop("disabled",true).trigger("chosen:updated");;

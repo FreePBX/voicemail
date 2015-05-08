@@ -41,7 +41,8 @@ class Voicemail extends Modules{
 		}
 
 		$this->user = $this->UCP->User->getUser();
-		$this->extensions = $this->UCP->getSetting($this->user['username'],$this->module,'assigned');
+		$this->enabled = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'enable');
+		$this->extensions = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'assigned');
 	}
 
 	function getDisplay() {
@@ -114,7 +115,7 @@ class Voicemail extends Modules{
 
 	function poll() {
 		$boxes = $this->getMailboxCount($this->extensions);
-		return array("status" => ($boxes['total'] > 0), "total" => $boxes['total'], "boxes" => $boxes['extensions']);
+		return array("status" => ($boxes['total'] > 0), "total" => $boxes['total'], "boxes" => isset($boxes['extensions']) ? $boxes['extensions'] : '');
 	}
 
 	public function getSettingsDisplay($ext) {
@@ -416,6 +417,9 @@ class Voicemail extends Modules{
 	}
 
 	public function getMenuItems() {
+		if(!$this->enabled) {
+			return array();
+		}
 		$extensions = $this->extensions;
 		$menu = array();
 		if(!empty($extensions)) {
@@ -616,6 +620,9 @@ class Voicemail extends Modules{
 	}
 
 	private function _checkExtension($extension) {
+		if(!$this->enabled) {
+			return false;
+		}
 		$extensions = $this->extensions;
 		return in_array($extension,$extensions);
 	}

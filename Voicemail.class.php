@@ -522,11 +522,13 @@ class Voicemail implements \BMO {
 		if(!empty($_POST['ucp_voicemail'])) {
 			$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','assigned',$_POST['ucp_voicemail']);
 		} else {
-			$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','assigned',array());
+			$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','assigned',null);
 		}
 		if(!empty($_POST['voicemail_enable']) && $_POST['voicemail_enable'] == "yes") {
 			$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','enable',true);
-		} else {
+		} elseif(!empty($_POST['voicemail_enable']) && $_POST['voicemail_enable'] == "no") {
+			$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','enable',false);
+		} elseif(!empty($_POST['voicemail_enable']) && $_POST['voicemail_enable'] == "inherit") {
 			$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','enable',null);
 		}
 	}
@@ -535,6 +537,7 @@ class Voicemail implements \BMO {
 		if($mode == "group") {
 			$vmassigned = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','assigned');
 			$enable = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','enable');
+			$enable = !($enable) ? false : true;
 		} else {
 			$vmassigned = $this->FreePBX->Ucp->getSettingByID($user['id'],'Voicemail','assigned');
 			$enable = $this->FreePBX->Ucp->getSettingByID($user['id'],'Voicemail','enable');
@@ -558,7 +561,7 @@ class Voicemail implements \BMO {
 		$html[0] = array(
 			"title" => _("Voicemail"),
 			"rawname" => "voicemail",
-			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("disable" => !($enable), "ausers" => $ausers, "vmassigned" => $vmassigned))
+			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("mode" => $mode, "enable" => $enable, "ausers" => $ausers, "vmassigned" => $vmassigned))
 		);
 		return $html;
 	}
