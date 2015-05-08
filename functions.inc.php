@@ -993,10 +993,12 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 						unset($args[$id]);
 					}
 					/* Next record any new general opts that were on the page but not already in vmconf. */
-					foreach ($gen_settings as $key => $descrip) {
-						$id = "gen__$key";
-						if (isset($args[$id]) && !empty($args[$id])) {
-							$vmconf["general"][$key] = $args[$id];
+					if(!empty($gen_settings)) {
+						foreach ($gen_settings as $key => $descrip) {
+							$id = "gen__$key";
+							if (isset($args[$id]) && !empty($args[$id])) {
+								$vmconf["general"][$key] = $args[$id];
+							}
 						}
 					}
 				} else if (!empty($extension)) {

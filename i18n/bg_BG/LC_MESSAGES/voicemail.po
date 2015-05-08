@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 19:04-0400\n"
+"POT-Creation-Date: 2015-05-08 19:15-0400\n"
 "PO-Revision-Date: 2014-07-22 14:35+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/voicemail/"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "%s Sec"
 msgstr ""
 
-#: install.php:113
+#: install.php:114
 #, php-format
 msgid "%s added"
 msgstr ""
@@ -207,7 +207,7 @@ msgstr ""
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr ""
 
-#: functions.inc.php:1239
+#: functions.inc.php:1241
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
@@ -220,7 +220,7 @@ msgstr ""
 msgid "Attempt(s)"
 msgstr ""
 
-#: install.php:190
+#: install.php:192
 msgid "Attempting to delete.."
 msgstr ""
 
@@ -261,7 +261,7 @@ msgstr ""
 msgid "Call-Me Number"
 msgstr ""
 
-#: install.php:174
+#: install.php:176
 msgid "Cannot connect to Asterisk Manager with "
 msgstr ""
 
@@ -428,7 +428,7 @@ msgstr ""
 msgid "Delete:"
 msgstr ""
 
-#: install.php:119
+#: install.php:121
 msgid "Deleting migrated settings.."
 msgstr ""
 
@@ -629,7 +629,7 @@ msgstr ""
 msgid "Family"
 msgstr ""
 
-#: install.php:123
+#: install.php:125
 msgid "Fatal DB error trying to delete globals, trying to carry on"
 msgstr ""
 
@@ -706,7 +706,7 @@ msgstr ""
 msgid "General Dialplan Settings"
 msgstr ""
 
-#: install.php:118
+#: install.php:120
 msgid "General Settings migrated"
 msgstr ""
 
@@ -1651,7 +1651,7 @@ msgstr "Гласова Поща"
 msgid "Voicemail Admin"
 msgstr "Гласова Поща Админ"
 
-#: install.php:189
+#: install.php:191
 msgid "Voicemail Admin being removed and merged with Voicemail"
 msgstr ""
 
@@ -1780,19 +1780,19 @@ msgstr ""
 msgid "Your settings have been saved"
 msgstr ""
 
-#: install.php:183
+#: install.php:185
 msgid "checking if Voicemail Admin (vmailadmin) is installed.."
 msgstr ""
 
-#: install.php:144
+#: install.php:146
 msgid "could not delete"
 msgstr ""
 
-#: install.php:139
+#: install.php:141
 msgid "deleting VM_PREFIX from globals.."
 msgstr ""
 
-#: install.php:125 install.php:142
+#: install.php:127 install.php:144
 msgid "done"
 msgstr ""
 
@@ -1801,15 +1801,15 @@ msgstr ""
 msgid "failed with retcode %s while removing %s:"
 msgstr ""
 
-#: install.php:188
+#: install.php:190
 msgid "installed."
 msgstr ""
 
-#: install.php:138
+#: install.php:140
 msgid "migrated VM_PREFIX to feature codes"
 msgstr ""
 
-#: install.php:186
+#: install.php:188
 msgid "not installed, ok"
 msgstr ""
 
@@ -1821,7 +1821,7 @@ msgstr ""
 msgid "numeric day of month (first, second, ..., thirty-first)"
 msgstr ""
 
-#: install.php:193
+#: install.php:195
 msgid "ok"
 msgstr ""
 

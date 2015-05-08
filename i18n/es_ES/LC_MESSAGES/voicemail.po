@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - voicemail module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 19:04-0400\n"
+"POT-Creation-Date: 2015-05-08 19:15-0400\n"
 "PO-Revision-Date: 2015-04-27 23:25+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -49,7 +49,7 @@ msgstr "%s Reintento"
 msgid "%s Sec"
 msgstr "%s Seg"
 
-#: install.php:113
+#: install.php:114
 #, php-format
 msgid "%s added"
 msgstr "%s agregados"
@@ -214,7 +214,7 @@ msgstr "Correo de Voz permitido"
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr "Esta seguro que desea eliminar este correo de voz?"
 
-#: functions.inc.php:1239
+#: functions.inc.php:1241
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
@@ -227,7 +227,7 @@ msgstr "Código languaje Asterisk"
 msgid "Attempt(s)"
 msgstr ""
 
-#: install.php:190
+#: install.php:192
 msgid "Attempting to delete.."
 msgstr "Intentando borrar.."
 
@@ -268,7 +268,7 @@ msgstr "Número Llámame. Se puede utilizar dentro de ARI."
 msgid "Call-Me Number"
 msgstr "Número Llámame"
 
-#: install.php:174
+#: install.php:176
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "No se pudo conectar con el gestor de Asterisk con"
 
@@ -464,7 +464,7 @@ msgstr ""
 msgid "Delete:"
 msgstr ""
 
-#: install.php:119
+#: install.php:121
 msgid "Deleting migrated settings.."
 msgstr "Borrando configuración migrada.."
 
@@ -694,7 +694,7 @@ msgstr "No se pudo eliminar el buzón %s@%s"
 msgid "Family"
 msgstr "Familia"
 
-#: install.php:123
+#: install.php:125
 msgid "Fatal DB error trying to delete globals, trying to carry on"
 msgstr "Error Fatal DB tratando de eliminar globales, tratando de continuar"
 
@@ -785,7 +785,7 @@ msgstr "From: cadena enviada al buscapersonas."
 msgid "General Dialplan Settings"
 msgstr "Configuración general de plan de marcacion"
 
-#: install.php:118
+#: install.php:120
 msgid "General Settings migrated"
 msgstr "Configuración General Migrada"
 
@@ -1883,7 +1883,7 @@ msgstr "Buzón de voz"
 msgid "Voicemail Admin"
 msgstr "Admin Correo Vocal"
 
-#: install.php:189
+#: install.php:191
 msgid "Voicemail Admin being removed and merged with Voicemail"
 msgstr "Admin correo de voz se elimina y se fusiona con correo de voz"
 
@@ -2022,19 +2022,19 @@ msgstr "Su Navegador bloqueo la Grabación. Por favor chequee su configuración"
 msgid "Your settings have been saved"
 msgstr "Su Configuración ha sido Salvada"
 
-#: install.php:183
+#: install.php:185
 msgid "checking if Voicemail Admin (vmailadmin) is installed.."
 msgstr "verificando si Admin Correo vocal (vmailadmin) está instalado.."
 
-#: install.php:144
+#: install.php:146
 msgid "could not delete"
 msgstr "No puede borrarse"
 
-#: install.php:139
+#: install.php:141
 msgid "deleting VM_PREFIX from globals.."
 msgstr "Borrando VM_PREFIX de los globales.."
 
-#: install.php:125 install.php:142
+#: install.php:127 install.php:144
 msgid "done"
 msgstr "hecho"
 
@@ -2043,15 +2043,15 @@ msgstr "hecho"
 msgid "failed with retcode %s while removing %s:"
 msgstr "Fallo con código %s al eliminar %s:"
 
-#: install.php:188
+#: install.php:190
 msgid "installed."
 msgstr "instalado."
 
-#: install.php:138
+#: install.php:140
 msgid "migrated VM_PREFIX to feature codes"
 msgstr "VM_PREFIX migrado a códigos de función"
 
-#: install.php:186
+#: install.php:188
 msgid "not installed, ok"
 msgstr "no instalado, ok"
 
@@ -2063,7 +2063,7 @@ msgstr "No es necesario"
 msgid "numeric day of month (first, second, ..., thirty-first)"
 msgstr "día numérico del mes (primero, segundo, .... trigésimo-primero)"
 
-#: install.php:193
+#: install.php:195
 msgid "ok"
 msgstr "ok"
 

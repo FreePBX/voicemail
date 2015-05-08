@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 19:04-0400\n"
+"POT-Creation-Date: 2015-05-08 19:15-0400\n"
 "PO-Revision-Date: 2015-05-04 00:31+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "%s Sec"
 msgstr ""
 
-#: install.php:113
+#: install.php:114
 #, php-format
 msgid "%s added"
 msgstr ""
@@ -218,7 +218,7 @@ msgstr ""
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr ""
 
-#: functions.inc.php:1239
+#: functions.inc.php:1241
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
@@ -231,7 +231,7 @@ msgstr "Код языка Астериск"
 msgid "Attempt(s)"
 msgstr ""
 
-#: install.php:190
+#: install.php:192
 msgid "Attempting to delete.."
 msgstr "Попытка удаления.."
 
@@ -272,7 +272,7 @@ msgstr "Номер Позвони-мне. Может быть задейство
 msgid "Call-Me Number"
 msgstr "Номер Позвони-мне"
 
-#: install.php:174
+#: install.php:176
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "Невозможно подключиться к управлению Астриск с "
 
@@ -458,7 +458,7 @@ msgstr ""
 msgid "Delete:"
 msgstr ""
 
-#: install.php:119
+#: install.php:121
 msgid "Deleting migrated settings.."
 msgstr ""
 
@@ -680,7 +680,7 @@ msgstr "Ошибка при удалении ящика голосовой по�
 msgid "Family"
 msgstr ""
 
-#: install.php:123
+#: install.php:125
 msgid "Fatal DB error trying to delete globals, trying to carry on"
 msgstr ""
 
@@ -764,7 +764,7 @@ msgstr "Поле От: в сообщении на пейджер."
 msgid "General Dialplan Settings"
 msgstr ""
 
-#: install.php:118
+#: install.php:120
 msgid "General Settings migrated"
 msgstr ""
 
@@ -1808,7 +1808,7 @@ msgstr "Голосовая почта"
 msgid "Voicemail Admin"
 msgstr "Администратор голосовой почты"
 
-#: install.php:189
+#: install.php:191
 msgid "Voicemail Admin being removed and merged with Voicemail"
 msgstr ""
 "Администратор голосовой почты удалён и присоединён в систему Голосовой почты"
@@ -1942,19 +1942,19 @@ msgstr ""
 msgid "Your settings have been saved"
 msgstr ""
 
-#: install.php:183
+#: install.php:185
 msgid "checking if Voicemail Admin (vmailadmin) is installed.."
 msgstr "проверяем установлен ли администратор голосовой почты (vmailadmin).."
 
-#: install.php:144
+#: install.php:146
 msgid "could not delete"
 msgstr ""
 
-#: install.php:139
+#: install.php:141
 msgid "deleting VM_PREFIX from globals.."
 msgstr ""
 
-#: install.php:125 install.php:142
+#: install.php:127 install.php:144
 msgid "done"
 msgstr ""
 
@@ -1963,15 +1963,15 @@ msgstr ""
 msgid "failed with retcode %s while removing %s:"
 msgstr "ошибка с кодом %s при удалении %s:"
 
-#: install.php:188
+#: install.php:190
 msgid "installed."
 msgstr "инсталлирован."
 
-#: install.php:138
+#: install.php:140
 msgid "migrated VM_PREFIX to feature codes"
 msgstr ""
 
-#: install.php:186
+#: install.php:188
 msgid "not installed, ok"
 msgstr "не инсталлирован, ок"
 
@@ -1983,7 +1983,7 @@ msgstr ""
 msgid "numeric day of month (first, second, ..., thirty-first)"
 msgstr "число месяца (первое, второе, ..., тридцать первое)"
 
-#: install.php:193
+#: install.php:195
 msgid "ok"
 msgstr "ok"
 

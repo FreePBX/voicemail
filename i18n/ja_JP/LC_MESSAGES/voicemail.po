@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 19:04-0400\n"
+"POT-Creation-Date: 2015-05-08 19:15-0400\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -81,7 +81,7 @@ msgstr "%s リトライ数"
 msgid "%s Sec"
 msgstr "%s秒"
 
-#: install.php:113
+#: install.php:114
 #, php-format
 msgid "%s added"
 msgstr "%s を追加"
@@ -243,7 +243,7 @@ msgstr "ボイスメールを許可"
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr "このボイスメールを削除しますか？"
 
-#: functions.inc.php:1239
+#: functions.inc.php:1241
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
@@ -256,7 +256,7 @@ msgstr "Asterisk言語コード"
 msgid "Attempt(s)"
 msgstr ""
 
-#: install.php:190
+#: install.php:192
 msgid "Attempting to delete.."
 msgstr "削除を試行中.."
 
@@ -298,7 +298,7 @@ msgid "Call-Me Number"
 msgstr ""
 "名前が定義されていません; これは内線またはユーザーページから設定されます。"
 
-#: install.php:174
+#: install.php:176
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "接続できません。Asteriskマネージャー "
 
@@ -486,7 +486,7 @@ msgstr ""
 msgid "Delete:"
 msgstr ""
 
-#: install.php:119
+#: install.php:121
 msgid "Deleting migrated settings.."
 msgstr "移行した設定の削除中..."
 
@@ -705,7 +705,7 @@ msgstr "vmboxの削除に失敗: %s@%s"
 msgid "Family"
 msgstr ""
 
-#: install.php:123
+#: install.php:125
 msgid "Fatal DB error trying to delete globals, trying to carry on"
 msgstr ""
 "グローバル設定の削除中に致命的な DB エラーが発生しました。設定を持ち越します"
@@ -794,7 +794,7 @@ msgstr "From: ページャーに送信される文字列"
 msgid "General Dialplan Settings"
 msgstr "ダイヤルプランの一般設定"
 
-#: install.php:118
+#: install.php:120
 msgid "General Settings migrated"
 msgstr "一般設定の移行が完了しました"
 
@@ -1847,7 +1847,7 @@ msgstr "ボイスメール"
 msgid "Voicemail Admin"
 msgstr "ボイスメールの管理"
 
-#: install.php:189
+#: install.php:191
 msgid "Voicemail Admin being removed and merged with Voicemail"
 msgstr "ボイスメールアドミンが削除されボイスメールにマージされました"
 
@@ -1985,20 +1985,20 @@ msgstr ""
 msgid "Your settings have been saved"
 msgstr ""
 
-#: install.php:183
+#: install.php:185
 msgid "checking if Voicemail Admin (vmailadmin) is installed.."
 msgstr ""
 "ボイスメールアドミン(vmailadmin)がインストールされているかどうかチェック中.."
 
-#: install.php:144
+#: install.php:146
 msgid "could not delete"
 msgstr "削除できませんでした"
 
-#: install.php:139
+#: install.php:141
 msgid "deleting VM_PREFIX from globals.."
 msgstr "VM_PREFIXをグローバル値から削除中…"
 
-#: install.php:125 install.php:142
+#: install.php:127 install.php:144
 msgid "done"
 msgstr "完了"
 
@@ -2007,15 +2007,15 @@ msgstr "完了"
 msgid "failed with retcode %s while removing %s:"
 msgstr "リターンコード %s で、%s 削除中に失敗しました："
 
-#: install.php:188
+#: install.php:190
 msgid "installed."
 msgstr "インストール済み。"
 
-#: install.php:138
+#: install.php:140
 msgid "migrated VM_PREFIX to feature codes"
 msgstr "VM_PREFIXを機能コードに移行しました"
 
-#: install.php:186
+#: install.php:188
 msgid "not installed, ok"
 msgstr "インストールされてません、ok"
 
@@ -2027,7 +2027,7 @@ msgstr "不要"
 msgid "numeric day of month (first, second, ..., thirty-first)"
 msgstr "日にち"
 
-#: install.php:193
+#: install.php:195
 msgid "ok"
 msgstr "ok"
 

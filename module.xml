@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.1alpha11</version>
+	<version>13.0.1alpha12</version>
 	<publisher>FreePBX</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.1alpha12* Invalid Foreach fixes
 		*13.0.1alpha11* Groups in usermanager
 		*13.0.1alpha10* FREEPBX-8982 click to call/copy for voicemail in UCP
 		*13.0.1alpha9* FREEPBX-8946 Add attach and delete options to user settings
