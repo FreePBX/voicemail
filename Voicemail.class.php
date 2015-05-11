@@ -615,6 +615,9 @@ class Voicemail implements \BMO {
 		$file = $this->checkFileType($vmfolder, $type);
 		if(isset($this->greetings[$type]) && !empty($file)) {
 			foreach(glob($vmfolder."/".$type."*.*") as $filename) {
+				if(!file_exists($filename)) {
+					continue;
+				}
 				if(!unlink($filename)) {
 					return false;
 				}
@@ -634,6 +637,9 @@ class Voicemail implements \BMO {
 		$o = $this->getVoicemailBoxByExtension($ext);
 		$context = $o['vmcontext'];
 		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
+		if(!file_exists($vmfolder)) {
+			mkdir($vmfolder);
+		}
 		if(isset($this->greetings[$source]) && isset($this->greetings[$target])) {
 			$tfile = $this->checkFileType($vmfolder, $target);
 			if(!empty($tfile)) {
@@ -658,6 +664,9 @@ class Voicemail implements \BMO {
 		$o = $this->getVoicemailBoxByExtension($ext);
 		$context = $o['vmcontext'];
 		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
+		if(!file_exists($vmfolder)) {
+			mkdir($vmfolder);
+		}
 		if(isset($this->greetings[$type])) {
 			$file = $this->checkFileType($vmfolder, $type);
 			$tempf = $vmfolder . "/" . $type . "_tmp.".$format;
