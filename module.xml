@@ -79,6 +79,7 @@
 			<method namespace="FreePBX\modules" class="Voicemail" callingMethod="processQuickCreate">processQuickCreate</method>
 		</core>
 		<bulkhandler namespace="FreePBX\modules" class="Bulkhandler">
+			<method namespace="FreePBX\modules" class="Voicemail" callingMethod="getHeaders">bulkhandlerGetHeaders</method>
 			<method namespace="FreePBX\modules" class="Voicemail" callingMethod="import">bulkhandlerImport</method>
 			<method namespace="FreePBX\modules" class="Voicemail" callingMethod="export">bulkhandlerExport</method>
 		</bulkhandler>
