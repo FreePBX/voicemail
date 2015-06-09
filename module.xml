@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.1alpha13</version>
+	<version>13.0.1alpha14</version>
 	<publisher>FreePBX</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.1alpha14* Better quick create visuals
 		*13.0.1alpha13* Add hooks for bulk handler
 		*13.0.1alpha12* Invalid Foreach fixes
 		*13.0.1alpha11* Groups in usermanager
