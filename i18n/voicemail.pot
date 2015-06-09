@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-21 16:22-0400\n"
+"POT-Creation-Date: 2015-06-09 15:24-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -578,7 +578,7 @@ msgid ""
 "Enable VmX Menu options during Voicemail playback for the selected options."
 msgstr ""
 
-#: views/quickCreate.php:2
+#: views/quickCreate.php:7
 msgid "Enable Voicemail"
 msgstr ""
 
@@ -1041,7 +1041,7 @@ msgstr ""
 #: views/dialplan.php:21
 #: views/dialplan.php:222
 #: views/dialplan.php:249
-#: views/quickCreate.php:7
+#: views/quickCreate.php:15
 #: views/ucp_config.php:14
 #: views/usage.php:39
 #: views/usage.php:70
@@ -1529,7 +1529,7 @@ msgid ""
 "you enter here after logging into the Voicemail system (*98) with a phone."
 msgstr ""
 
-#: views/quickCreate.php:19
+#: views/quickCreate.php:51
 msgid ""
 "This is the password used to access the Voicemail system.<br><br>This "
 "password can only contain numbers.<br><br>A user can change the password you "
@@ -1789,7 +1789,7 @@ msgstr ""
 #: Voicemail.class.php:1390
 #: functions.inc.php:489
 #: page.voicemail.php:493
-#: views/quickCreate.php:12
+#: views/quickCreate.php:34
 msgid "Voicemail Password"
 msgstr ""
 
@@ -1844,7 +1844,7 @@ msgstr ""
 msgid "When to use VMX"
 msgstr ""
 
-#: views/quickCreate.php:9
+#: views/quickCreate.php:24
 msgid "Whether to enable voicemail for this extension"
 msgstr ""
 
@@ -1877,7 +1877,7 @@ msgstr ""
 #: views/dialplan.php:19
 #: views/dialplan.php:220
 #: views/dialplan.php:247
-#: views/quickCreate.php:5
+#: views/quickCreate.php:13
 #: views/ucp_config.php:12
 #: views/usage.php:37
 #: views/usage.php:68

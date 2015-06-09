@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePbx 2.5.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-21 16:22-0400\n"
+"POT-Creation-Date: 2015-06-09 15:24-0400\n"
 "PO-Revision-Date: 2015-05-13 09:06+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -599,7 +599,7 @@ msgstr ""
 "Habilitar opções de Menu VmX durante a reprodução do Correio de Voz para as "
 "opções selecionadas."
 
-#: views/quickCreate.php:2
+#: views/quickCreate.php:7
 msgid "Enable Voicemail"
 msgstr ""
 
@@ -1096,7 +1096,7 @@ msgstr ""
 
 #: functions.inc.php:354 functions.inc.php:358 functions.inc.php:362
 #: page.voicemail.php:546 views/dialplan.php:21 views/dialplan.php:222
-#: views/dialplan.php:249 views/quickCreate.php:7 views/ucp_config.php:14
+#: views/dialplan.php:249 views/quickCreate.php:15 views/ucp_config.php:14
 #: views/usage.php:39 views/usage.php:70 views/usage.php:101
 #: views/usage.php:132 views/usage.php:163 views/usage.php:194
 #: views/usage_system.php:56 views/usage_system.php:87
@@ -1558,7 +1558,7 @@ msgid ""
 "you enter here after logging into the Voicemail system (*98) with a phone."
 msgstr ""
 
-#: views/quickCreate.php:19
+#: views/quickCreate.php:51
 msgid ""
 "This is the password used to access the Voicemail system.<br><br>This "
 "password can only contain numbers.<br><br>A user can change the password you "
@@ -1791,7 +1791,7 @@ msgid ""
 msgstr ""
 
 #: Voicemail.class.php:1390 functions.inc.php:489 page.voicemail.php:493
-#: views/quickCreate.php:12
+#: views/quickCreate.php:34
 msgid "Voicemail Password"
 msgstr "Senha do correio de voz"
 
@@ -1846,7 +1846,7 @@ msgstr ""
 msgid "When to use VMX"
 msgstr ""
 
-#: views/quickCreate.php:9
+#: views/quickCreate.php:24
 msgid "Whether to enable voicemail for this extension"
 msgstr ""
 
@@ -1874,7 +1874,7 @@ msgstr ""
 
 #: functions.inc.php:353 functions.inc.php:357 functions.inc.php:361
 #: views/dialplan.php:19 views/dialplan.php:220 views/dialplan.php:247
-#: views/quickCreate.php:5 views/ucp_config.php:12 views/usage.php:37
+#: views/quickCreate.php:13 views/ucp_config.php:12 views/usage.php:37
 #: views/usage.php:68 views/usage.php:99 views/usage.php:130
 #: views/usage.php:161 views/usage.php:192 views/usage_system.php:54
 #: views/usage_system.php:85 views/usage_system.php:116
