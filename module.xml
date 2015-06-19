@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.1alpha14</version>
+	<version>13.0.2</version>
 	<publisher>FreePBX</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.2* Version bump Beta
 		*13.0.1alpha14* Better quick create visuals
 		*13.0.1alpha13* Add hooks for bulk handler
 		*13.0.1alpha12* Invalid Foreach fixes
@@ -76,23 +77,23 @@
 		<version>13.0</version>
 	</supported>
 	<hooks>
-		<core namespace="FreePBX\modules" class="Core">
-			<method namespace="FreePBX\modules" class="Voicemail" callingMethod="getQuickCreateDisplay">getQuickCreateDisplay</method>
-			<method namespace="FreePBX\modules" class="Voicemail" callingMethod="processQuickCreate">processQuickCreate</method>
+		<core class="Core" namespace="FreePBX\modules">
+			<method callingMethod="getQuickCreateDisplay" class="Voicemail" namespace="FreePBX\modules">getQuickCreateDisplay</method>
+			<method callingMethod="processQuickCreate" class="Voicemail" namespace="FreePBX\modules">processQuickCreate</method>
 		</core>
-		<bulkhandler namespace="FreePBX\modules" class="Bulkhandler">
-			<method namespace="FreePBX\modules" class="Voicemail" callingMethod="getHeaders">bulkhandlerGetHeaders</method>
-			<method namespace="FreePBX\modules" class="Voicemail" callingMethod="import">bulkhandlerImport</method>
-			<method namespace="FreePBX\modules" class="Voicemail" callingMethod="export">bulkhandlerExport</method>
+		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
+			<method callingMethod="getHeaders" class="Voicemail" namespace="FreePBX\modules">bulkhandlerGetHeaders</method>
+			<method callingMethod="import" class="Voicemail" namespace="FreePBX\modules">bulkhandlerImport</method>
+			<method callingMethod="export" class="Voicemail" namespace="FreePBX\modules">bulkhandlerExport</method>
 		</bulkhandler>
 		<ucp class="Ucp">
-			<method namespace="FreePBX\modules" class="Voicemail" callingMethod="constructModuleConfigPages">ucpConfigPage</method>
-			<method namespace="FreePBX\modules" class="Voicemail" callingMethod="addUser">ucpAddUser</method>
-			<method namespace="FreePBX\modules" class="Voicemail" callingMethod="updateUser">ucpUpdateUser</method>
-			<method namespace="FreePBX\modules" class="Voicemail" callingMethod="delUser">ucpDelUser</method>
-			<method namespace="FreePBX\modules" class="Voicemail" callingMethod="addGroup">ucpAddGroup</method>
-			<method namespace="FreePBX\modules" class="Voicemail" callingMethod="updateGroup">ucpUpdateGroup</method>
-			<method namespace="FreePBX\modules" class="Voicemail" callingMethod="delGroup">ucpDelGroup</method>
+			<method callingMethod="constructModuleConfigPages" class="Voicemail" namespace="FreePBX\modules">ucpConfigPage</method>
+			<method callingMethod="addUser" class="Voicemail" namespace="FreePBX\modules">ucpAddUser</method>
+			<method callingMethod="updateUser" class="Voicemail" namespace="FreePBX\modules">ucpUpdateUser</method>
+			<method callingMethod="delUser" class="Voicemail" namespace="FreePBX\modules">ucpDelUser</method>
+			<method callingMethod="addGroup" class="Voicemail" namespace="FreePBX\modules">ucpAddGroup</method>
+			<method callingMethod="updateGroup" class="Voicemail" namespace="FreePBX\modules">ucpUpdateGroup</method>
+			<method callingMethod="delGroup" class="Voicemail" namespace="FreePBX\modules">ucpDelGroup</method>
 		</ucp>
 	</hooks>
 	<location>release/2.11/voicemail-2.11.1.0.tgz</location>
