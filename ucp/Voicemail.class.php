@@ -630,7 +630,9 @@ class Voicemail extends Modules{
 	private function getMailboxCount() {
 		$boxes = array();
 		$total = 0;
-		foreach($this->extensions as $extension) {
+		$extensions = $this->extensions;
+		$extensions = is_array($extensions)?$extensions:array();
+		foreach($extensions as $extension) {
 			$fvm = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($extension);
 			if(empty($fvm['vmcontext'])) {
 				continue;
