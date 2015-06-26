@@ -263,8 +263,10 @@ $aed = FreePBX::create()->Config->get_conf_setting('ASTETCDIR');
 if(file_exists($aed.'/vm_email.inc')) {
   $contents = parse_ini_file($aed.'/vm_email.inc');
   $final = array();
-  foreach($contents as $key => $val) {
-    $final["gen__".$key] = $val;
+  if(!empty($contents) && is_array($contents)) {
+    foreach($contents as $key => $val) {
+      $final["gen__".$key] = $val;
+    }
   }
   if(!function_exists('voicemail_update_settings')) {
     include(__DIR__.'/functions.inc.php');
@@ -275,8 +277,10 @@ if(file_exists($aed.'/vm_email.inc')) {
 if(file_exists($aed.'/vm_general.inc')) {
   $contents = parse_ini_file($aed.'/vm_general.inc');
   $final = array();
-  foreach($contents as $key => $val) {
-    $final["gen__".$key] = $val;
+  if(!empty($contents) && is_array($contents)) {
+    foreach($contents as $key => $val) {
+      $final["gen__".$key] = $val;
+    }
   }
   if(!function_exists('voicemail_update_settings')) {
     include(__DIR__.'/functions.inc.php');
