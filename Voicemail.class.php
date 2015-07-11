@@ -308,11 +308,6 @@ class Voicemail implements \BMO {
 		if(trim($mailbox) == "") {
 			throw new \Exception(_("Mailbox can not be empty"));
 		}
-		//check if VM box already exists
-		$uservm = $this->getMailbox($mailbox);
-		if ($uservm != null) {
-			throw new \Exception(sprintf(_("Voicemail mailbox %s already exists, call to Voicemail::getMailbox() failed"),$mailboxbox));
-		}
 		$vmconf = $this->getVoicemail();
 
 		$settings['vmcontext'] = !empty($settings['vmcontext']) ? $settings['vmcontext'] : 'default';

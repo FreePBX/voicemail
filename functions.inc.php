@@ -285,6 +285,10 @@ function voicemail_configpageinit($pagename) {
 		// JS function needed for checking voicemail = Enabled
 		$js = 'return (theForm.vm.value == "enabled");';
 		$currentcomponent->addjsfunc('isVoiceMailEnabled(notused)',$js);
+
+		$js = 'return (theForm.attach.value == "attach=yes");';
+		$currentcomponent->addjsfunc('isEmailAttachment(notused)',$js);
+
 		// JS for verifying an empty password is OK
 		$msg = _('Voicemail is enabled but the Voicemail Password field is empty.  Are you sure you wish to continue?');
 		$js = 'if(theForm.vmpwd.value.match(/^[0-9A-D\*#]*$/i)) {return true;}else{return false;}';
@@ -535,7 +539,7 @@ function voicemail_configpageload() {
 			"prompttext" => _('Email Address'),
 			"helptext" => _("The email address that Voicemails are sent to."),
 			"currentvalue" => $email,
-			"jsvalidation" => "frm_${display}_isVoiceMailEnabled() && !isEmail()",
+			"jsvalidation" => "frm_${display}_isVoiceMailEnabled() && frm_${display}_isEmailAttachment() && !isEmail()",
 			"failvalidationmsg" => $msgInvalidEmail,
 			"canbeempty" => false,
 			"class" => $class,
