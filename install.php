@@ -268,10 +268,12 @@ if(file_exists($aed.'/vm_email.inc')) {
       $final["gen__".$key] = $val;
     }
   }
-  if(!function_exists('voicemail_update_settings')) {
-    include(__DIR__.'/functions.inc.php');
+  if(!empty($final)) {
+    if(!function_exists('voicemail_update_settings')) {
+      include(__DIR__.'/functions.inc.php');
+    }
+    voicemail_update_settings("settings", "", "", $final);
   }
-  voicemail_update_settings("settings", "", "", $final);
   unlink($aed.'/vm_email.inc');
 }
 if(file_exists($aed.'/vm_general.inc')) {
@@ -282,9 +284,11 @@ if(file_exists($aed.'/vm_general.inc')) {
       $final["gen__".$key] = $val;
     }
   }
-  if(!function_exists('voicemail_update_settings')) {
-    include(__DIR__.'/functions.inc.php');
+  if(!empty($final)) {
+    if(!function_exists('voicemail_update_settings')) {
+      include(__DIR__.'/functions.inc.php');
+    }
+    voicemail_update_settings("settings", "", "", $final);
   }
-  voicemail_update_settings("settings", "", "", $final);
   unlink($aed.'/vm_general.inc');
 }
