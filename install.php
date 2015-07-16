@@ -262,10 +262,10 @@ if(file_exists($amd.'/res_mwi_blf.so')) {
 $aed = FreePBX::create()->Config->get_conf_setting('ASTETCDIR');
 global $gen_settings;
 if(file_exists($aed.'/vm_email.inc')) {
-  $contents = @parse_ini_file($aed.'/vm_email.inc');
+  $contents = FreePBX::LoadConfig()->getConfig('vm_email.inc');
   $final = array();
-  if(!empty($contents) && is_array($contents)) {
-    foreach($contents as $key => $val) {
+  if(!empty($contents['HEADER']) && is_array($contents['HEADER'])) {
+    foreach($contents['HEADER'] as $key => $val) {
       $final["gen__".$key] = $val;
       $gen_settings[$key] = "";
     }
@@ -279,10 +279,10 @@ if(file_exists($aed.'/vm_email.inc')) {
   unlink($aed.'/vm_email.inc');
 }
 if(file_exists($aed.'/vm_general.inc')) {
-  $contents = @parse_ini_file($aed.'/vm_general.inc');
+  $contents = FreePBX::LoadConfig()->getConfig('vm_general.inc');
   $final = array();
-  if(!empty($contents) && is_array($contents)) {
-    foreach($contents as $key => $val) {
+  if(!empty($contents['HEADER']) && is_array($contents['HEADER'])) {
+    foreach($contents['HEADER'] as $key => $val) {
       $final["gen__".$key] = $val;
       $gen_settings[$key] = "";
     }
