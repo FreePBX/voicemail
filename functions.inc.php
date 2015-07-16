@@ -953,6 +953,7 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 		switch ($action) {
 			case "tz":
 				/* First update all zonemessages opts that are already in vmconf */
+				$vmconf["zonemessages"] = is_array($vmconf["zonemessages"]) ? $vmconf["zonemessages"] : array();
 				foreach ($vmconf["zonemessages"] as $key => $val) {
 					$id = "tz__$key";
 					$vmconf["zonemessages"][$key]	= isset($args[$id])?$args[$id]:$vmconf["zonemessages"][$key];
@@ -968,16 +969,19 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 					}
 					unset($args[$id]);
 				/* Next record any new zonemessages opts that were on the page but not already in vmconf. */
-				foreach ($tz_settings as $key) {
-					$id = "tz__$key";
-					if (isset($args[$id]) && !empty($args[$id])) {
-						$vmconf["zonemessages"][$key] = $args[$id];
+				if(is_array($tz_settings)) {
+					foreach ($tz_settings as $key) {
+						$id = "tz__$key";
+						if (isset($args[$id]) && !empty($args[$id])) {
+							$vmconf["zonemessages"][$key] = $args[$id];
+						}
 					}
 				}
 				break;
 			case "settings":
 				if (empty($extension) && $action == "settings") {
 					/* First update all general opts that are already in vmconf */
+					$vmconf["general"] = is_array($vmconf["general"]) ? $vmconf["general"] : array();
 					foreach ($vmconf["general"] as $key => $val) {
 						$id = "gen__$key";
 						$vmconf["general"][$key] = isset($args[$id])?$args[$id]:$vmconf["general"][$key];
@@ -996,7 +1000,7 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 						unset($args[$id]);
 					}
 					/* Next record any new general opts that were on the page but not already in vmconf. */
-					if(!empty($gen_settings)) {
+					if(is_array($gen_settings)) {
 						foreach ($gen_settings as $key => $descrip) {
 							$id = "gen__$key";
 							if (isset($args[$id]) && !empty($args[$id])) {
@@ -1028,6 +1032,7 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 
 					/* Now handle the options. */
 					$options = array();
+					$acct_settings = is_array($acct_settings) ? $acct_settings : array();
 					foreach ($acct_settings as $key => $descrip) {
 						$id = "acct__$key";
 						if (isset($args[$id]) && !empty($args[$id]) && $args[$id] != "undefined") {

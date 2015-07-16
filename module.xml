@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.6</version>
+	<version>13.0.7</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.7* Try to catch more errors
 		*13.0.6* FREEPBX-9726 ignore comment warnings
 		*13.0.5* Dont write to files if the array is empty
 		*13.0.4* FREEPBX-9685 dont require an email address unless attachment is set to yes, FREEPBX-9686 dont throw exception when vmailbox exists

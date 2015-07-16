@@ -168,6 +168,7 @@ class Voicemail implements \BMO {
 		$vm = $this->FreePBX->LoadConfig->getConfig("voicemail.conf");
 
 		//Parse mailbox data into something useful
+		$vm = is_array($vm) ? $vm : array();
 		foreach($vm as $name => &$context) {
 			if($name == "general" || $name == "zonemessages") {
 				continue;
