@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-10 23:16-0400\n"
+"POT-Creation-Date: 2015-07-16 14:21-0400\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -243,7 +243,7 @@ msgstr "ボイスメールを許可"
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr "このボイスメールを削除しますか？"
 
-#: functions.inc.php:1244
+#: functions.inc.php:1249
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
@@ -696,7 +696,7 @@ msgstr "外部のボイスメール通知アプリケーション。"
 msgid "External password changing command (overrides externpassnotify)."
 msgstr "外部パスワードを変更するコマンド（externpassnotifyより優先されます）"
 
-#: Voicemail.class.php:239
+#: Voicemail.class.php:240
 #, php-format
 msgid "Failed to delete vmbox: %s@%s"
 msgstr "vmboxの削除に失敗: %s@%s"
@@ -1017,7 +1017,7 @@ msgstr "読み込み中"
 msgid "Mail command."
 msgstr "メールコマンド。"
 
-#: Voicemail.class.php:309
+#: Voicemail.class.php:310
 msgid "Mailbox can not be empty"
 msgstr ""
 
@@ -1156,7 +1156,7 @@ msgstr "なし"
 msgid "Not a valid Draggable Object"
 msgstr "ドラッグ可能なデータではありません"
 
-#: Voicemail.class.php:276
+#: Voicemail.class.php:277
 msgid "Null value was sent to saveVoicemail() can not continue"
 msgstr ""
 
@@ -1378,7 +1378,7 @@ msgstr "タイムゾーンの定義を削除"
 msgid "Require From Same %s"
 msgstr "同じ %s を条件にする"
 
-#: Voicemail.class.php:1367
+#: Voicemail.class.php:1368
 msgid "Reset"
 msgstr ""
 
@@ -1454,7 +1454,7 @@ msgstr ""
 msgid "Subject sent to pager."
 msgstr "ページャーに送信される件名"
 
-#: Voicemail.class.php:1372 page.voicemail.php:646
+#: Voicemail.class.php:1373 page.voicemail.php:646
 msgid "Submit"
 msgstr ""
 
@@ -1796,7 +1796,7 @@ msgstr ""
 "ボイスメールのアナウンスを再度録音しなおし、ユーザーが聞く使い方の説明を追加"
 "してください。そのあとテストを実行し、番号が動作することを確認してください。"
 
-#: Voicemail.class.php:549
+#: Voicemail.class.php:550
 msgid "User Primary Extension"
 msgstr ""
 
@@ -1838,7 +1838,7 @@ msgstr "VmXロケーター&トレード；"
 msgid "VmX Locator"
 msgstr "VmXロケータ"
 
-#: Voicemail.class.php:562 functions.inc.php:460 install.php:8
+#: Voicemail.class.php:563 functions.inc.php:460 install.php:8
 #: ucp/Voicemail.class.php:428 views/header.php:2 ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr "ボイスメール"
@@ -1855,7 +1855,7 @@ msgstr "ボイスメールアドミンが削除されボイスメールにマー
 msgid "Voicemail Administration"
 msgstr "ボイスメールの管理"
 
-#: Voicemail.class.php:1388
+#: Voicemail.class.php:1389
 msgid "Voicemail E-Mail"
 msgstr ""
 
@@ -1867,13 +1867,13 @@ msgstr "ボイスメール操作説明："
 msgid "Voicemail Message"
 msgstr ""
 
-#: Voicemail.class.php:1391
+#: Voicemail.class.php:1392
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
 msgstr ""
 
-#: Voicemail.class.php:1385 functions.inc.php:492 page.voicemail.php:493
+#: Voicemail.class.php:1386 functions.inc.php:492 page.voicemail.php:493
 #: views/quickCreate.php:34
 msgid "Voicemail Password"
 msgstr "ボイスメールのパスワード"
@@ -1911,7 +1911,7 @@ msgstr ""
 msgid "Voicemail was empty: %s"
 msgstr ""
 
-#: Voicemail.class.php:1112
+#: Voicemail.class.php:1113
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
@@ -2007,7 +2007,7 @@ msgstr "VM_PREFIXをグローバル値から削除中…"
 msgid "done"
 msgstr "完了"
 
-#: Voicemail.class.php:240
+#: Voicemail.class.php:241
 #, php-format
 msgid "failed with retcode %s while removing %s:"
 msgstr "リターンコード %s で、%s 削除中に失敗しました："
