@@ -261,7 +261,7 @@ if(file_exists($amd.'/res_mwi_blf.so')) {
 /** FREEPBX-8130 Migrate email body into GUI **/
 $aed = FreePBX::create()->Config->get_conf_setting('ASTETCDIR');
 if(file_exists($aed.'/vm_email.inc')) {
-  $contents = parse_ini_file($aed.'/vm_email.inc');
+  $contents = @parse_ini_file($aed.'/vm_email.inc');
   $final = array();
   if(!empty($contents) && is_array($contents)) {
     foreach($contents as $key => $val) {
@@ -277,7 +277,7 @@ if(file_exists($aed.'/vm_email.inc')) {
   unlink($aed.'/vm_email.inc');
 }
 if(file_exists($aed.'/vm_general.inc')) {
-  $contents = parse_ini_file($aed.'/vm_general.inc');
+  $contents = @parse_ini_file($aed.'/vm_general.inc');
   $final = array();
   if(!empty($contents) && is_array($contents)) {
     foreach($contents as $key => $val) {
