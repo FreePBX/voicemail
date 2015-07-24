@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.8</version>
+	<version>13.0.9</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.9* Use proper astman checks
 		*13.0.8* Use internal parsing engine
 		*13.0.7* Try to catch more errors
 		*13.0.6* FREEPBX-9726 ignore comment warnings
