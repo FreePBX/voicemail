@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-16 14:21-0400\n"
+"POT-Creation-Date: 2015-08-02 15:04-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -578,7 +578,7 @@ msgid ""
 "Enable VmX Menu options during Voicemail playback for the selected options."
 msgstr ""
 
-#: views/quickCreate.php:7
+#: views/quickCreate.php:5
 msgid "Enable Voicemail"
 msgstr ""
 
@@ -1041,7 +1041,7 @@ msgstr ""
 #: views/dialplan.php:21
 #: views/dialplan.php:222
 #: views/dialplan.php:249
-#: views/quickCreate.php:15
+#: views/quickCreate.php:12
 #: views/ucp_config.php:14
 #: views/usage.php:39
 #: views/usage.php:70
@@ -1507,6 +1507,12 @@ msgstr ""
 msgid "This is the IMAP username, if using IMAP storage"
 msgstr ""
 
+#: views/quickCreate.php:37
+msgid ""
+"This is the PIN used to access the Voicemail system. It should be between 4 "
+"and 12 numbers in length."
+msgstr ""
+
 #: functions.inc.php:643
 #: page.voicemail.php:315
 msgid ""
@@ -1527,13 +1533,6 @@ msgid ""
 "This is the password used to access the Voicemail system.<br /><br />This "
 "password can only contain numbers.<br /><br />A user can change the password "
 "you enter here after logging into the Voicemail system (*98) with a phone."
-msgstr ""
-
-#: views/quickCreate.php:51
-msgid ""
-"This is the password used to access the Voicemail system.<br><br>This "
-"password can only contain numbers.<br><br>A user can change the password you "
-"enter here after logging into the Voicemail system (*98) with a phone."
 msgstr ""
 
 #: page.voicemail.php:203
@@ -1786,10 +1785,13 @@ msgid ""
 "delete=no"
 msgstr ""
 
+#: views/quickCreate.php:22
+msgid "Voicemail PIN"
+msgstr ""
+
 #: Voicemail.class.php:1386
 #: functions.inc.php:492
 #: page.voicemail.php:493
-#: views/quickCreate.php:34
 msgid "Voicemail Password"
 msgstr ""
 
@@ -1838,10 +1840,6 @@ msgstr ""
 msgid "When to use VMX"
 msgstr ""
 
-#: views/quickCreate.php:24
-msgid "Whether to enable voicemail for this extension"
-msgstr ""
-
 #: views/dialplan.php:58
 msgid ""
 "Whether to play the busy, unavailable or no message when direct dialing "
@@ -1871,7 +1869,7 @@ msgstr ""
 #: views/dialplan.php:19
 #: views/dialplan.php:220
 #: views/dialplan.php:247
-#: views/quickCreate.php:13
+#: views/quickCreate.php:10
 #: views/ucp_config.php:12
 #: views/usage.php:37
 #: views/usage.php:68

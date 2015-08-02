@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-16 14:21-0400\n"
+"POT-Creation-Date: 2015-08-02 15:04-0700\n"
 "PO-Revision-Date: 2015-07-13 20:16+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -583,7 +583,7 @@ msgid ""
 "Enable VmX Menu options during Voicemail playback for the selected options."
 msgstr ""
 
-#: views/quickCreate.php:7
+#: views/quickCreate.php:5
 msgid "Enable Voicemail"
 msgstr ""
 
@@ -1085,7 +1085,7 @@ msgstr "Новая дефиниция часового пояса"
 
 #: functions.inc.php:357 functions.inc.php:361 functions.inc.php:365
 #: page.voicemail.php:546 views/dialplan.php:21 views/dialplan.php:222
-#: views/dialplan.php:249 views/quickCreate.php:15 views/ucp_config.php:14
+#: views/dialplan.php:249 views/quickCreate.php:12 views/ucp_config.php:14
 #: views/usage.php:39 views/usage.php:70 views/usage.php:101
 #: views/usage.php:132 views/usage.php:163 views/usage.php:194
 #: views/usage_system.php:56 views/usage_system.php:87
@@ -1555,6 +1555,12 @@ msgstr "Пароль для доступа по протоколу IMAP"
 msgid "This is the IMAP username, if using IMAP storage"
 msgstr "Имя пользователя, если используется протокол IMAP"
 
+#: views/quickCreate.php:37
+msgid ""
+"This is the PIN used to access the Voicemail system. It should be between 4 "
+"and 12 numbers in length."
+msgstr ""
+
 #: functions.inc.php:643 page.voicemail.php:315
 msgid ""
 "This is the Voicemail Context which is normally set to default. Do not "
@@ -1584,13 +1590,6 @@ msgstr ""
 "содержать только цифры.<br /><br />Пользователь может изменить пароль, "
 "указанный зжесь, после того, как залогинится в систему голосовой почты (*98) "
 "с телефона."
-
-#: views/quickCreate.php:51
-msgid ""
-"This is the password used to access the Voicemail system.<br><br>This "
-"password can only contain numbers.<br><br>A user can change the password you "
-"enter here after logging into the Voicemail system (*98) with a phone."
-msgstr ""
 
 #: page.voicemail.php:203
 msgid "Time announcement for message playback"
@@ -1835,8 +1834,11 @@ msgid ""
 "delete=no"
 msgstr ""
 
+#: views/quickCreate.php:22
+msgid "Voicemail PIN"
+msgstr ""
+
 #: Voicemail.class.php:1386 functions.inc.php:492 page.voicemail.php:493
-#: views/quickCreate.php:34
 msgid "Voicemail Password"
 msgstr "Пароль на голосовую почту"
 
@@ -1885,10 +1887,6 @@ msgstr ""
 msgid "When to use VMX"
 msgstr ""
 
-#: views/quickCreate.php:24
-msgid "Whether to enable voicemail for this extension"
-msgstr ""
-
 #: views/dialplan.php:58
 msgid ""
 "Whether to play the busy, unavailable or no message when direct dialing "
@@ -1913,7 +1911,7 @@ msgstr "Год"
 
 #: functions.inc.php:356 functions.inc.php:360 functions.inc.php:364
 #: views/dialplan.php:19 views/dialplan.php:220 views/dialplan.php:247
-#: views/quickCreate.php:13 views/ucp_config.php:12 views/usage.php:37
+#: views/quickCreate.php:10 views/ucp_config.php:12 views/usage.php:37
 #: views/usage.php:68 views/usage.php:99 views/usage.php:130
 #: views/usage.php:161 views/usage.php:192 views/usage_system.php:54
 #: views/usage_system.php:85 views/usage_system.php:116
