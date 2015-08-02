@@ -5,7 +5,6 @@
 				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="vm"><?php echo _('Enable Voicemail')?></label>
-						<i class="fa fa-question-circle fpbx-help-icon" data-for="vm"></i>
 					</div>
 					<div class="col-md-9">
 						<span class="radioset">
@@ -19,11 +18,6 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<span id="vm-help" class="help-block fpbx-help-block"><?php echo _('Whether to enable voicemail for this extension')?></span>
-		</div>
-	</div>
 </div>
 <div class="element-container">
 	<div class="row">
@@ -31,7 +25,7 @@
 			<div class="row">
 				<div class="form-group">
 					<div class="col-md-3">
-						<label class="control-label" for="vmpwd"><?php echo _('Voicemail Password')?></label>
+						<label class="control-label" for="vmpwd"><?php echo _('Voicemail PIN')?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="vmpwd"></i>
 					</div>
 					<div class="col-md-9">
@@ -48,7 +42,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="vmpwd-help" class="help-block fpbx-help-block"><?php echo _('This is the password used to access the Voicemail system.<br><br>This password can only contain numbers.<br><br>A user can change the password you enter here after logging into the Voicemail system (*98) with a phone.')?></span>
+			<span id="vmpwd-help" class="help-block fpbx-help-block"><?php echo _('This is the PIN used to access the Voicemail system. It should be between 4 and 12 numbers in length.')?></span>
 		</div>
 	</div>
 </div>
