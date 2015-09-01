@@ -144,7 +144,7 @@
 	</tr>
 	<tr>
 		<td style='max-width: 60px'>
-			<?php sprintf(_("%s or %s"),"I","l")?>
+			<?php echo sprintf(_("%s or %s"),"I","l")?>
 		</td><td style='max-width: 60px' colspan='2'>
 			<?php echo _("Hour, 12 hour clock")?>
 		</td>
@@ -182,7 +182,7 @@
 		</tr>
 		<tr>
 			<td style='max-width: 60px'>
-				<?php sprintf(_("%s or %s"),"P","p")?>
+				<?php echo sprintf(_("%s or %s"),"P","p")?>
 			</td>
 			<td style='max-width: 60px' colspan='2'>
 				<?php echo _("AM or PM")?>
