@@ -9,7 +9,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
-		*13.0.10* FREEPBX-10100 fix help text, FREEPBX-10096 fix extra includes
+		*13.0.10* FREEPBX-10100 fix help text, FREEPBX-10096 fix extra includes, FREEPBX-10126 VMX
 		*13.0.9.1* Minor layout tweaks
 		*13.0.9* Use proper astman checks
 		*13.0.8* Use internal parsing engine
