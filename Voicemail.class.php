@@ -184,11 +184,11 @@ class Voicemail implements \BMO {
 				}
 				$data = array(
 					'mailbox' => $mailbox,
-					'pwd' => $options[0],
-					'name' => $options[1],
-					'email' => $options[2],
-					'pager' => $options[3],
-					'options' => $fopts
+					'pwd' => isset($options[0]) ? $options[0] : '',
+					'name' => isset($options[1]) ? $options[1] : '',
+					'email' => isset($options[2]) ? $options[2] : '',
+					'pager' => isset($options[3]) ? $options[3] : '',
+					'options' => isset($fopts) ? $fopts : ''
 				);
 			}
 		}
@@ -485,6 +485,22 @@ class Voicemail implements \BMO {
 			$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','enable',true);
 		} else {
 			$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','enable',false);
+		}
+	}
+
+	/**
+	 * Delete user function, it's run twice because of scemantics with
+	 * old freepbx but it's harmless
+	 * @param  string $extension The extension number
+	 * @param  bool $editmode  If we are in edit mode or not
+	 */
+	public function delUser($extension, $editmode=false) {
+		if(!$editmode) {
+			if(!function_exists('voicemail_mailbox_remove')) {
+				$this->FreePBX->Modules->loadFunctionsInc('voicemail');
+			}
+			voicemail_mailbox_remove($extension);
+			voicemail_mailbox_del($extension);
 		}
 	}
 

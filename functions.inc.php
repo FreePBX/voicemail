@@ -227,12 +227,14 @@ function voicemail_dialvoicemail($c) {
 	$ext->add($id, $c, '', new ext_goto('1','return','${IVR_CONTEXT}'));
 
 	//res_mwi_blf allows you to subscribe to voicemail hints, the following code generates the dialplan for doing so
-	$resmwiblf_check = $astman->send_request('Command', array('Command' => 'module show like res_mwi_blf'));
-	$resmwiblf_module = preg_match('/[1-9] modules loaded/', $resmwiblf_check['data']);
-
-	if(!$resmwiblf_module) {
-		$resmwiblf_check = $astman->send_request('Command', array('Command' => 'module show like res_mwi_devstate'));
+	if($astman->connected()) {
+		$resmwiblf_check = $astman->send_request('Command', array('Command' => 'module show like res_mwi_blf'));
 		$resmwiblf_module = preg_match('/[1-9] modules loaded/', $resmwiblf_check['data']);
+
+		if(!$resmwiblf_module) {
+			$resmwiblf_check = $astman->send_request('Command', array('Command' => 'module show like res_mwi_devstate'));
+			$resmwiblf_module = preg_match('/[1-9] modules loaded/', $resmwiblf_check['data']);
+		}
 	}
 	//if ($resmwiblf_module && $amp_conf['USERESMWIBLF']) { // TODO: PUT THIS BACK
 	if (true) { // TODO: FOR TESTING ONLY
@@ -503,7 +505,7 @@ function voicemail_configpageload() {
 		//for passwordless voicemail we need to check some settings
 		//first lets see if there is an entry in the asteriskDB for this device
 		//no entry in the db is the same as yes, meaning we need a voicemail password
-		$passlogin = !empty($extdisplay) ? $astman->database_get("AMPUSER", $extdisplay."/novmpw") : 'yes';
+		$passlogin = !empty($extdisplay) ? $astman->connected() && $astman->database_get("AMPUSER", $extdisplay."/novmpw") : 'yes';
 		$passlogin = !empty($passlogin) ? 'no' : 'yes';
 		//now lets get our featurecodes for helptext display niceties
 		$mvm = new featurecode('voicemail', 'myvoicemail');
@@ -521,7 +523,7 @@ function voicemail_configpageload() {
 		);
 		$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)),$category);
 
-		$novmstar = !empty($extdisplay) ? $astman->database_get("AMPUSER", $extdisplay."/novmstar") : 'yes';
+		$novmstar = !empty($extdisplay) ? $astman->connected() && $astman->database_get("AMPUSER", $extdisplay."/novmstar") : 'yes';
 		$novmstar = !empty($novmstar) ? 'yes' : 'no';
 		$el = array(
 			"elemname" => "novmstar",
@@ -1053,7 +1055,9 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 					$callmenum = (isset($args["acct__callmenum"]) && !empty($args["acct__callmenum"]))?$args["acct__callmenum"]:$extension;
 					// Save call me num.
 					$cmd = "database put AMPUSER $extension/callmenum $callmenum";
-					$astman->send_request("Command", array("Command" => $cmd));
+					if($astman->connected()) {
+						$astman->send_request("Command", array("Command" => $cmd));
+					}
 				}
 				break;
 			case "bsettings":
@@ -1107,14 +1111,18 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 					$callmenum = (isset($args["acct__callmenum"]) && !empty($args["acct__callmenum"]))?$args["acct__callmenum"]:$extension;
 					// Save call me num.
 					$cmd = "database put AMPUSER $extension/callmenum $callmenum";
-					$astman->send_request("Command", array("Command" => $cmd));
+					if($astman->connected()) {
+						$astman->send_request("Command", array("Command" => $cmd));
+					}
 				}
 				break;
 			default:
 				return false;
 		}
 		voicemail_saveVoicemail($vmconf);
-		$astman->send_request("Command", array("Command" => "reload app_voicemail.so"));
+		if($astman->connected()) {
+			$astman->send_request("Command", array("Command" => "reload app_voicemail.so"));
+		}
 		return true;
 
 		// Special Case dialplan since no voicemail.conf related configs
@@ -1245,7 +1253,7 @@ function voicemail_get_settings($vmconf, $action, $extension="") {
 
 				/* Get Call Me number */
 				global $astman;
-				if(!$astman){
+				if(!$astman->connected()){
 					die_freepbx(_("Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"));
 				}
 				$cmd 		= "database get AMPUSER $extension/callmenum";
