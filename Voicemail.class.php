@@ -409,21 +409,21 @@ class Voicemail implements \BMO {
 		if (isset($settings['vmx_state']) && $settings['vmx_state'] != 'disabled') {
 
 			if (isset($settings['vmx_unavail_enabled']) && $settings['vmx_unavail_enabled'] != '') {
-				$this->Vmx->setState($mailbox,'enabled','unavail');
+				$this->Vmx->setState($mailbox,'unavail','enabled');
 			} else {
-				$this->Vmx->setState($mailbox,'disabled','unavail');
+				$this->Vmx->setState($mailbox,'unavail','disabled');
 			}
 
 			if (isset($settings['vmx_busy_enabled']) && $settings['vmx_busy_enabled'] != '') {
-				$this->Vmx->setState($mailbox,'enabled','busy');
+				$this->Vmx->setState($mailbox,'busy','enabled');
 			} else {
-				$this->Vmx->setState($mailbox,'disabled','busy');
+				$this->Vmx->setState($mailbox,'busy','disabled');
 			}
 
 			if (isset($settings['vmx_temp_enabled']) && $settings['vmx_temp_enabled'] != '') {
-				$this->Vmx->setState($mailbox,'enabled','temp');
+				$this->Vmx->setState($mailbox,'temp','enabled');
 			} else {
-				$this->Vmx->setState($mailbox,'disabled','temp');
+				$this->Vmx->setState($mailbox,'temp','disabled');
 			}
 
 			if (isset($settings['vmx_play_instructions']) && $settings['vmx_play_instructions'] == 'yes') {
