@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-02 14:42-0700\n"
+"POT-Creation-Date: 2015-09-02 18:11-0700\n"
 "PO-Revision-Date: 2015-07-13 20:16+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -1320,7 +1320,7 @@ msgstr "Удалить дефиницию чаового пояса"
 msgid "Require From Same %s"
 msgstr ""
 
-#: Voicemail.class.php:1384
+#: Voicemail.class.php:1386
 msgid "Reset"
 msgstr ""
 
@@ -1399,7 +1399,7 @@ msgstr ""
 msgid "Subject sent to pager."
 msgstr "Поле Тема: в сообщении на пейджер."
 
-#: Voicemail.class.php:1389 page.voicemail.php:649
+#: Voicemail.class.php:1391 page.voicemail.php:649
 msgid "Submit"
 msgstr ""
 
@@ -1785,7 +1785,7 @@ msgstr ""
 msgid "Voicemail Administration"
 msgstr "Администрирование голосовой почты"
 
-#: Voicemail.class.php:1405
+#: Voicemail.class.php:1407
 msgid "Voicemail E-Mail"
 msgstr ""
 
@@ -1797,7 +1797,7 @@ msgstr "Инструкции к голосовой почте:"
 msgid "Voicemail Message"
 msgstr ""
 
-#: Voicemail.class.php:1408
+#: Voicemail.class.php:1410
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
@@ -1807,7 +1807,7 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr ""
 
-#: Voicemail.class.php:1402 functions.inc.php:494 page.voicemail.php:495
+#: Voicemail.class.php:1404 functions.inc.php:494 page.voicemail.php:495
 msgid "Voicemail Password"
 msgstr "Пароль на голосовую почту"
 
@@ -1845,7 +1845,7 @@ msgstr ""
 msgid "Voicemail was empty: %s"
 msgstr ""
 
-#: Voicemail.class.php:1129
+#: Voicemail.class.php:1131
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "

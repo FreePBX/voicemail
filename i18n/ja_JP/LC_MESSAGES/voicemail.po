@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-02 14:42-0700\n"
+"POT-Creation-Date: 2015-09-02 18:11-0700\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -1347,7 +1347,7 @@ msgstr "タイムゾーンの定義を削除"
 msgid "Require From Same %s"
 msgstr "同じ %s を条件にする"
 
-#: Voicemail.class.php:1384
+#: Voicemail.class.php:1386
 msgid "Reset"
 msgstr ""
 
@@ -1423,7 +1423,7 @@ msgstr ""
 msgid "Subject sent to pager."
 msgstr "ページャーに送信される件名"
 
-#: Voicemail.class.php:1389 page.voicemail.php:649
+#: Voicemail.class.php:1391 page.voicemail.php:649
 msgid "Submit"
 msgstr ""
 
@@ -1819,7 +1819,7 @@ msgstr "ボイスメールアドミンが削除されボイスメールにマー
 msgid "Voicemail Administration"
 msgstr "ボイスメールの管理"
 
-#: Voicemail.class.php:1405
+#: Voicemail.class.php:1407
 msgid "Voicemail E-Mail"
 msgstr ""
 
@@ -1831,7 +1831,7 @@ msgstr "ボイスメール操作説明："
 msgid "Voicemail Message"
 msgstr ""
 
-#: Voicemail.class.php:1408
+#: Voicemail.class.php:1410
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
@@ -1841,7 +1841,7 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr ""
 
-#: Voicemail.class.php:1402 functions.inc.php:494 page.voicemail.php:495
+#: Voicemail.class.php:1404 functions.inc.php:494 page.voicemail.php:495
 msgid "Voicemail Password"
 msgstr "ボイスメールのパスワード"
 
@@ -1878,7 +1878,7 @@ msgstr ""
 msgid "Voicemail was empty: %s"
 msgstr ""
 
-#: Voicemail.class.php:1129
+#: Voicemail.class.php:1131
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
