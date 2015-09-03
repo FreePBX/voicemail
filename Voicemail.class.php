@@ -1118,7 +1118,9 @@ class Voicemail implements \BMO {
 		$o = $this->getVoicemailBoxByExtension($extension);
 		$context = $o['vmcontext'];
 
-		$out = array();
+		$out = array(
+			"messages" => array()
+		);
 		$vmfolder = $this->vmPath . '/'.$context.'/'.$extension;
 		if (is_dir($vmfolder) && is_readable($vmfolder)) {
 			$count = 1;
