@@ -11,8 +11,9 @@
 							<li role="presentation" <?php echo ($action == 'dialplan')? 'class="active"':''?>><a href="config.php?display=voicemail&amp;action=dialplan"><?php echo _("Dialplan Behavior")?></a></li>
 							<li role="presentation" <?php echo ($action == 'tz')? 'class="active"':''?>><a href="config.php?display=voicemail&amp;action=tz"><?php echo _("Timezone Definitions")?></a></li>
 						</ul>
-						<form class="fpbx-submit" name="frm_extensions" action="" method="post" data-fpbx-delete="" role="form">
+						<form class="fpbx-submit" name="frm_voicemail" action="" method="post" data-fpbx-delete="" role="form">
 							<input type='hidden' name='type' id='type' value='<?php echo $type ?>' />
 							<input type='hidden' name='display' id='display' value='<?php echo $display ?>' />
 							<input type='hidden' name='ext' id='ext' value='<?php echo $extension ?>' />
 							<input type='hidden' name='page_type' id='page_type' value='<?php echo $action ?>' />
+							<input type='hidden' name='action' id='action' value='Submit' />

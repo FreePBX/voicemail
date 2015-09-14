@@ -1,5 +1,3 @@
-
-
 <div class="section-title" data-for="vmdpgeneral">
 	<h3><i class="fa fa-minus"></i><?php echo _("General Dialplan Settings")?></h3>
 </div>
@@ -190,7 +188,7 @@
 						</div>
 						<div class="col-md-9">
 							<div class="input-group">
-								<input type="number" min="2" max="4" class="form-control" id="VMX_LOOPS" name="VMX_LOOPS" value="<?php echo $settings['VMX_LOOPS']?>">
+								<input type="number" min="1" max="4" class="form-control" id="VMX_LOOPS" name="VMX_LOOPS" value="<?php echo $settings['VMX_LOOPS']?>">
 								<span class="input-group-addon" id="vmxlooplabel"><?php echo _("Retries")?></span>
 							</div>
 						</div>

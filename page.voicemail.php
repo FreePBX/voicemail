@@ -3,7 +3,6 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //	License for all code of this FreePBX module can be found in the license file inside the module directory
 //	Copyright 2013 Schmooze Com Inc.
 //
-
 $display_data = array();
 
 /* All extensions. */
@@ -351,20 +350,22 @@ if (isset($_REQUEST["ext"])) {
 	$context	 = "";
 	$extension = "";
 }
-
-/* Special handling for action specified by form submission. */
-if ($action == "Go") {
-	/* This is for viewing a particular context's usage. */
-	$action = "usage";
-	/* Clear extension */
-	$extension = "";
-} else if ($action == "Submit") {
-	/* "Submit" is for performing some kind of update to settings (for page type of general, account OR timezone settings) OR to the files on disk. */
-	/* page_type can be settings, account, tz or usage. */
-	$action = (isset($_REQUEST["page_type"]) && !empty($_REQUEST["page_type"]))?$_REQUEST["page_type"]:"";;
-	$need_update = true;
-} else {
-	$need_update = false;
+switch ($action) {
+	case 'Go':
+		/* This is for viewing a particular context's usage. */
+		$action = "usage";
+		/* Clear extension */
+		$extension = "";
+	break;
+	case 'Submit':
+		/* "Submit" is for performing some kind of update to settings (for page type of general, account OR timezone settings) OR to the files on disk. */
+		/* page_type can be settings, account, tz or usage. */
+		$action = (isset($_REQUEST["page_type"]) && !empty($_REQUEST["page_type"]))?$_REQUEST["page_type"]:"";;
+		$need_update = true;
+	break;
+	default:
+		$need_update = false;
+	break;
 }
 
 /* If no action specified, default to a view of the entire system's usage. */
