@@ -588,9 +588,9 @@ switch ($action) {
 										<div class="col-md-9">';
 					if($text_type == "textarea") {
 						$val = str_replace(array('\r','\n','\t'),array("\r","\n","\t"),$val);
-						$output.= '<textarea class="form-control" id="'.$id.'" name="'.$id.'" rows="10">'.htmlentities($val).'</textarea>';
+						$output.= '<textarea class="form-control" id="'.$id.'" name="'.$id.'" rows="10">'.htmlentities($val,ENT_COMPAT | ENT_HTML401, "UTF-8").'</textarea>';
 					} else {
-						$output.= '<input type="'.$text_type.'" maxlength="'.$len.'" class="form-control" id="'.$id.'" name="'.$id.'" value="'.htmlentities($val).'">';
+						$output.= '<input type="'.$text_type.'" maxlength="'.$len.'" class="form-control" id="'.$id.'" name="'.$id.'" value="'.htmlentities($val,ENT_COMPAT | ENT_HTML401, "UTF-8").'">';
 					}
 					$output.= '</div>
 									</div>
@@ -628,7 +628,7 @@ switch ($action) {
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="'.$id.'"></i>
 										</div>
 										<div class="col-md-9">
-											<input type="'.$text_type.'" maxlength="'.$len.'" class="form-control" id="'.$id.'" name="'.$id.'" value="'.htmlentities($val).'">
+											<input type="'.$text_type.'" maxlength="'.$len.'" class="form-control" id="'.$id.'" name="'.$id.'" value="'.htmlentities($val,ENT_COMPAT | ENT_HTML401, "UTF-8").'">
 										</div>
 									</div>
 								</div>

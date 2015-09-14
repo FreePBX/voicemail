@@ -15,7 +15,7 @@
 							<label class="control-label" for="tz__<?php echo $key ?>"><?php echo $key ?></label>
 						</div>
 						<div class="col-md-9">
-							<input type="text" class="form-control" id="tz__<?php echo $key ?>" name="tz__<?php echo $key ?>" value="<?php echo htmlentities($val) ?>">
+							<input type="text" class="form-control" id="tz__<?php echo $key ?>" name="tz__<?php echo $key ?>" value="<?php echo htmlentities($val,ENT_COMPAT | ENT_HTML401, "UTF-8") ?>">
 							<span class="radioset">
 								<input type='checkbox' name='tzdel__<?php echo $key ?>' id='tzdel__<?php echo $key ?>' value='true' />
 								<label for="tzdel__<?php echo $key ?>"><?php echo _("Delete") ?></label>
