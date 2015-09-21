@@ -1119,6 +1119,9 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 			default:
 				return false;
 		}
+		if(!empty($vmconf)) {
+			$vmconf['general']['charset'] = "UTF-8";
+		}
 		voicemail_saveVoicemail($vmconf);
 		if($astman->connected()) {
 			$astman->send_request("Command", array("Command" => "reload app_voicemail.so"));
