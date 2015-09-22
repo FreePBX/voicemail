@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX voicemail\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-21 12:10-0700\n"
+"POT-Creation-Date: 2015-09-22 13:24-0700\n"
 "PO-Revision-Date: 2008-10-19 18:52+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -1238,7 +1238,7 @@ msgstr ""
 msgid "Require From Same %s"
 msgstr ""
 
-#: Voicemail.class.php:1386
+#: Voicemail.class.php:1390
 msgid "Reset"
 msgstr ""
 
@@ -1310,7 +1310,7 @@ msgstr ""
 msgid "Subject sent to pager."
 msgstr ""
 
-#: Voicemail.class.php:1391 page.voicemail.php:648
+#: Voicemail.class.php:1395 page.voicemail.php:648
 msgid "Submit"
 msgstr ""
 
@@ -1604,7 +1604,7 @@ msgid ""
 "to make sure that the number is functional."
 msgstr ""
 
-#: Voicemail.class.php:566
+#: Voicemail.class.php:570
 msgid "User Primary Extension"
 msgstr ""
 
@@ -1644,7 +1644,7 @@ msgstr ""
 msgid "VmX Locator"
 msgstr ""
 
-#: Voicemail.class.php:579 functions.inc.php:462 install.php:8
+#: Voicemail.class.php:583 functions.inc.php:462 install.php:8
 #: ucp/Voicemail.class.php:428 views/header.php:2 ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr "Röstbrevlådor"
@@ -1661,7 +1661,7 @@ msgstr ""
 msgid "Voicemail Administration"
 msgstr ""
 
-#: Voicemail.class.php:1407
+#: Voicemail.class.php:1411
 msgid "Voicemail E-Mail"
 msgstr ""
 
@@ -1673,7 +1673,7 @@ msgstr ""
 msgid "Voicemail Message"
 msgstr ""
 
-#: Voicemail.class.php:1410
+#: Voicemail.class.php:1414
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
@@ -1683,7 +1683,7 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr ""
 
-#: Voicemail.class.php:1404 functions.inc.php:494 page.voicemail.php:494
+#: Voicemail.class.php:1408 functions.inc.php:494 page.voicemail.php:494
 msgid "Voicemail Password"
 msgstr "Lösenord för röstbrevlåda"
 
@@ -1719,7 +1719,7 @@ msgstr ""
 msgid "Voicemail was empty: %s"
 msgstr ""
 
-#: Voicemail.class.php:1131
+#: Voicemail.class.php:1135
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
