@@ -476,15 +476,17 @@ class Voicemail implements \BMO {
 	}
 
 	public function ucpUpdateGroup($id,$display,$data) {
-		if(!empty($_POST['ucp_voicemail'])) {
-			$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','assigned',$_POST['ucp_voicemail']);
-		} else {
-			$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','assigned',array('self'));
-		}
-		if(!empty($_POST['voicemail_enable']) && $_POST['voicemail_enable'] == "yes") {
-			$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','enable',true);
-		} else {
-			$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','enable',false);
+		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'group') {
+			if(!empty($_POST['ucp_voicemail'])) {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','assigned',$_POST['ucp_voicemail']);
+			} else {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','assigned',array('self'));
+			}
+			if(!empty($_POST['voicemail_enable']) && $_POST['voicemail_enable'] == "yes") {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','enable',true);
+			} else {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','enable',false);
+			}
 		}
 	}
 
@@ -531,17 +533,19 @@ class Voicemail implements \BMO {
 	* @param {array} $data    Array of data to be able to use
 	*/
 	public function ucpUpdateUser($id, $display, $ucpStatus, $data) {
-		if(!empty($_POST['ucp_voicemail'])) {
-			$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','assigned',$_POST['ucp_voicemail']);
-		} else {
-			$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','assigned',null);
-		}
-		if(!empty($_POST['voicemail_enable']) && $_POST['voicemail_enable'] == "yes") {
-			$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','enable',true);
-		} elseif(!empty($_POST['voicemail_enable']) && $_POST['voicemail_enable'] == "no") {
-			$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','enable',false);
-		} elseif(!empty($_POST['voicemail_enable']) && $_POST['voicemail_enable'] == "inherit") {
-			$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','enable',null);
+		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'user') {
+			if(!empty($_POST['ucp_voicemail'])) {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','assigned',$_POST['ucp_voicemail']);
+			} else {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','assigned',null);
+			}
+			if(!empty($_POST['voicemail_enable']) && $_POST['voicemail_enable'] == "yes") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','enable',true);
+			} elseif(!empty($_POST['voicemail_enable']) && $_POST['voicemail_enable'] == "no") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','enable',false);
+			} elseif(!empty($_POST['voicemail_enable']) && $_POST['voicemail_enable'] == "inherit") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','enable',null);
+			}
 		}
 	}
 
