@@ -33,32 +33,32 @@ msgstr ""
 #: page.voicemail.php:440
 #, php-format
 msgid "%s Attempts"
-msgstr ""
+msgstr "%s Опита"
 
 #: page.voicemail.php:446
 #, php-format
 msgid "%s Retries"
-msgstr ""
+msgstr "%s Повторения"
 
 #: page.voicemail.php:444
 #, php-format
 msgid "%s Retry"
-msgstr ""
+msgstr "%s Повторение"
 
 #: page.voicemail.php:436
 #, php-format
 msgid "%s Sec"
-msgstr ""
+msgstr "%s Сек"
 
 #: install.php:113
 #, php-format
 msgid "%s added"
-msgstr ""
+msgstr "%s добавени"
 
 #: install.php:81
 #, php-format
 msgid "%s adjusted from %s to %s"
-msgstr ""
+msgstr "%s е променен от %s на %s"
 
 #: install.php:85
 #, php-format
@@ -73,12 +73,12 @@ msgstr ""
 #: install.php:95
 #, php-format
 msgid "%s migrated"
-msgstr ""
+msgstr "%s преместени"
 
 #: install.php:72
 #, php-format
 msgid "%s no longer used"
-msgstr ""
+msgstr "%s вече не се изплозва"
 
 #: views/tz.php:153 views/tz.php:169 views/tz.php:185 views/tz.php:223
 #, php-format
@@ -102,27 +102,27 @@ msgstr ""
 
 #: page.voicemail.php:434
 msgid "0 Sec"
-msgstr ""
+msgstr "0 Сек"
 
 #: page.voicemail.php:430
 msgid "12 db"
-msgstr ""
+msgstr "12 db"
 
 #: page.voicemail.php:431
 msgid "15 db"
-msgstr ""
+msgstr "15 db"
 
 #: page.voicemail.php:427
 msgid "3 db"
-msgstr ""
+msgstr "3 db"
 
 #: page.voicemail.php:428
 msgid "6 db"
-msgstr ""
+msgstr "6 db"
 
 #: page.voicemail.php:429
 msgid "9 db"
-msgstr ""
+msgstr "9 db"
 
 #: views/tz.php:121
 msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
@@ -147,7 +147,7 @@ msgstr ""
 
 #: views/settings.php:13
 msgid "Advanced Settings"
-msgstr ""
+msgstr "Допълнителни Настройки"
 
 #: functions.inc.php:964
 msgid "Advanced Settings For: "
@@ -181,7 +181,7 @@ msgstr ""
 
 #: page.voicemail.php:301
 msgid "Asterisk language code"
-msgstr ""
+msgstr "Астериск код на езика"
 
 #: install.php:190
 msgid "Attempting to delete.."
@@ -201,7 +201,7 @@ msgstr ""
 
 #: page.voicemail.php:421 ucp/views/vmx.php:11
 msgid "Busy"
-msgstr ""
+msgstr "Заето"
 
 #: Voicemail.class.php:80
 msgid "Busy Greeting"
@@ -221,7 +221,7 @@ msgstr ""
 
 #: page.voicemail.php:503
 msgid "Call-Me Number"
-msgstr ""
+msgstr "Набери-Ме Номер"
 
 #: install.php:174
 msgid "Cannot connect to Asterisk Manager with "
@@ -325,7 +325,7 @@ msgstr ""
 
 #: ucp/views/mailbox.php:14
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: views/tz.php:156
 msgid "Day of week (Saturday, Sunday, ...)"
@@ -347,7 +347,7 @@ msgstr ""
 #: views/usage_system.php:75 views/usage_system.php:90
 #: views/usage_system.php:105
 msgid "Delete"
-msgstr ""
+msgstr "Изтрий"
 
 #: functions.inc.php:549 page.voicemail.php:502
 msgid "Delete Voicemail"
@@ -355,11 +355,11 @@ msgstr "Изтрий Гласова Поща"
 
 #: install.php:119
 msgid "Deleting migrated settings.."
-msgstr ""
+msgstr "Изтриване на преместените настройки.."
 
 #: functions.inc.php:542
 msgid "Device"
-msgstr ""
+msgstr "Устройство"
 
 #: install.php:10
 msgid "Dial Voicemail"
@@ -367,7 +367,7 @@ msgstr "Избери Гласова Поща"
 
 #: functions.inc.php:970 views/header.php:17
 msgid "Dialplan Behavior"
-msgstr ""
+msgstr "Режим на Работа за План на Избиране"
 
 #: views/dialplan.php:25
 msgid "Direct Dial Mode"
@@ -375,7 +375,7 @@ msgstr ""
 
 #: install.php:12
 msgid "Direct Dial Prefix"
-msgstr ""
+msgstr "Префикс за Директно Избиране"
 
 #: ucp/assets/js/global.js:723
 msgid "Direct Media Recording is Unsupported in your Broswer!"
@@ -407,7 +407,7 @@ msgstr ""
 
 #: ucp/views/mailbox.php:37
 msgid "Download"
-msgstr ""
+msgstr "Изтегли"
 
 #: ucp/views/greetings.php:55 ucp/assets/js/global.js:306
 #: ucp/assets/js/global.js:367 ucp/assets/js/global.js:409
@@ -421,7 +421,7 @@ msgstr ""
 
 #: ucp/views/mailbox.php:16
 msgid "Duration"
-msgstr ""
+msgstr "Продължителност"
 
 #: install.php:93
 #, php-format
@@ -522,11 +522,11 @@ msgstr ""
 
 #: page.voicemail.php:222
 msgid "Expunge on exit."
-msgstr ""
+msgstr "Изтриване при изход."
 
 #: functions.inc.php:542
 msgid "Extension"
-msgstr ""
+msgstr "Вътрешна Линия"
 
 #: page.voicemail.php:223
 msgid "External Voicemail notify application."
@@ -543,7 +543,7 @@ msgstr "Не мога да изтрия vmbox: %s@%s"
 
 #: Voicemail.class.php:73
 msgid "Family"
-msgstr ""
+msgstr "Семейство"
 
 #: install.php:123
 msgid "Fatal DB error trying to delete globals, trying to carry on"
@@ -560,7 +560,7 @@ msgstr ""
 
 #: page.voicemail.php:230
 msgid "For IMAP storage"
-msgstr ""
+msgstr "За IMAP съхранение"
 
 #: page.voicemail.php:235
 msgid "For IMAP storage - TCP open timeout in seconds"
@@ -612,11 +612,11 @@ msgstr ""
 
 #: Voicemail.class.php:74
 msgid "Friends"
-msgstr ""
+msgstr "Приятели"
 
 #: page.voicemail.php:229
 msgid "From: string for email"
-msgstr ""
+msgstr "От: поле за email"
 
 #: page.voicemail.php:260
 msgid "From: string sent to pager."
@@ -628,7 +628,7 @@ msgstr ""
 
 #: install.php:118
 msgid "General Settings migrated"
-msgstr ""
+msgstr "Общите Настройки са преместени"
 
 #: functions.inc.php:659 ucp/views/vmx.php:25
 msgid "Go To Operator"
@@ -691,19 +691,19 @@ msgstr "IMAP Потребителско Име"
 
 #: page.voicemail.php:232
 msgid "IMAP Voicemail folder."
-msgstr ""
+msgstr "IMAP директория на Гласова Поща."
 
 #: page.voicemail.php:299
 msgid "IMAP password."
-msgstr ""
+msgstr "IMAP парола."
 
 #: page.voicemail.php:239
 msgid "IMAP server address."
-msgstr ""
+msgstr "IMAP адрес на сървър."
 
 #: page.voicemail.php:231
 msgid "IMAP server flags."
-msgstr ""
+msgstr "IMAP флаг на сървъра."
 
 #: page.voicemail.php:209
 msgid "IMAP server master password."
@@ -715,15 +715,15 @@ msgstr ""
 
 #: page.voicemail.php:237
 msgid "IMAP server port."
-msgstr ""
+msgstr "IMAP порт на сървъра."
 
 #: page.voicemail.php:300
 msgid "IMAP user."
-msgstr ""
+msgstr "IMAP потребител."
 
 #: Voicemail.class.php:72
 msgid "INBOX"
-msgstr ""
+msgstr "INBOX"
 
 #: page.voicemail.php:264
 msgid ""
@@ -819,7 +819,7 @@ msgstr ""
 
 #: page.voicemail.php:246
 msgid "Mail command."
-msgstr ""
+msgstr "Mail команда."
 
 #: page.voicemail.php:248
 msgid "Max failed login attempts."
@@ -827,12 +827,12 @@ msgstr ""
 
 #: page.voicemail.php:247
 msgid "Max message greeting length."
-msgstr ""
+msgstr "Максимално време на съобщение за приветсвие."
 
 #: page.voicemail.php:249 page.voicemail.php:250 page.voicemail.php:303
 #: page.voicemail.php:304
 msgid "Max message time length."
-msgstr ""
+msgstr "Максимално време за съобщение."
 
 #: page.voicemail.php:251 page.voicemail.php:302
 msgid ""
@@ -881,7 +881,7 @@ msgstr "Моя Гласова Поща"
 
 #: page.voicemail.php:474 views/tz.php:57
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 #: Voicemail.class.php:79
 msgid "Name Greeting"
@@ -889,15 +889,15 @@ msgstr ""
 
 #: page.voicemail.php:297
 msgid "Name of Voicemail account"
-msgstr ""
+msgstr "Име на акаунт на Гласова Поща"
 
 #: page.voicemail.php:305
 msgid "Name of account/user"
-msgstr ""
+msgstr "Име на акаунт/потребителr"
 
 #: views/tz.php:83
 msgid "New Name"
-msgstr ""
+msgstr "Ново Име"
 
 #: views/tz.php:86
 msgid "New Timezone Definition"
@@ -905,7 +905,7 @@ msgstr ""
 
 #: page.voicemail.php:422
 msgid "No Message"
-msgstr ""
+msgstr "Без Съобщение"
 
 #: ucp/views/mailbox.php:90
 msgid "No Messages"
@@ -923,7 +923,7 @@ msgstr ""
 
 #: page.voicemail.php:426
 msgid "None"
-msgstr ""
+msgstr "Няма"
 
 #: ucp/assets/js/global.js:287
 msgid "Not a valid Draggable Object"
@@ -979,7 +979,7 @@ msgstr ""
 
 #: Voicemail.class.php:75
 msgid "Old"
-msgstr ""
+msgstr "Стари"
 
 #: ucp/assets/js/global.js:128
 msgid "On"
@@ -1020,7 +1020,7 @@ msgstr ""
 
 #: ucp/views/mailbox.php:34
 msgid "Play"
-msgstr ""
+msgstr "Възпроизведи"
 
 #: functions.inc.php:547 page.voicemail.php:500 ucp/views/settings.php:22
 msgid "Play CID"
@@ -1109,6 +1109,9 @@ msgid ""
 "and just after announcing the date and time the message was left. If not "
 "described, or set to no, it will be in the envelope."
 msgstr ""
+"Прочита телефонния номер на обаждащия се преди да възпроизведе входящото "
+"съобщение и след представянето на датата и часа на съобщението. Ако не е "
+"описано или установено на не, ще бъде в обшивката."
 
 #: ucp/views/greetings.php:48
 msgid "Record Greeting"
@@ -1168,7 +1171,7 @@ msgstr ""
 
 #: views/usage.php:67
 msgid "Remove temporary greeting"
-msgstr ""
+msgstr "Премахни временното приветствие"
 
 #: page.voicemail.php:204
 msgid "Remove the timezone definition"
@@ -1208,7 +1211,7 @@ msgstr ""
 
 #: ucp/views/nav.php:9 views/header.php:18 views/settings.php:9
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: page.voicemail.php:272
 msgid ""
@@ -1245,7 +1248,7 @@ msgstr ""
 
 #: views/usage.php:93
 msgid "Storage Used"
-msgstr ""
+msgstr "Използвана Памет"
 
 #: views/usage_system.php:116
 msgid "Storage Used:"
@@ -1253,11 +1256,11 @@ msgstr ""
 
 #: page.voicemail.php:261
 msgid "Subject sent to pager."
-msgstr ""
+msgstr "Тема изпратена към пейджър."
 
 #: page.voicemail.php:557
 msgid "Submit"
-msgstr ""
+msgstr "Приеми"
 
 #: views/tz.php:148
 msgid "Supported <i>variables</i>:"
@@ -1293,7 +1296,7 @@ msgstr ""
 
 #: page.voicemail.php:276
 msgid "Temporary greeting reminder."
-msgstr ""
+msgstr "Временен поздрав за напомняне."
 
 #: views/tz.php:127
 msgid "The <i>values</i> supported in the timezone definition string include:"
@@ -1409,6 +1412,9 @@ msgid ""
 "password can only contain numbers.<br /><br />A user can change the password "
 "you enter here after logging into the Voicemail system (*98) with a phone."
 msgstr ""
+"Паролата използвана за достъп до гласова поща.<br /><br />Може да съдържа "
+"само цифри.<br /><br />Потребителят може да смени въведената тук парола след "
+"като влезе в системата за Гласова Поща (*98) чрез телефон."
 
 #: page.voicemail.php:203
 msgid "Time announcement for message playback"
@@ -1419,6 +1425,8 @@ msgid ""
 "Time to wait after message has played to timeout and/or repeat the message "
 "if no entry pressed."
 msgstr ""
+"Времето за изчакване след възпроизвеждане на съобщението до време на "
+"изчакване и/или повтаряне на съобщението ако нищо не е натиснато."
 
 #: views/dialplan.php:61
 msgid "Times to Play Message"
@@ -1484,7 +1492,7 @@ msgstr ""
 
 #: page.voicemail.php:420 ucp/views/vmx.php:8
 msgid "Unavailable"
-msgstr ""
+msgstr "Недостъпен"
 
 #: Voicemail.class.php:78
 msgid "Unavailable Greeting"
@@ -1506,7 +1514,7 @@ msgstr ""
 
 #: ucp/views/mailbox.php:75
 msgid "Unknown"
-msgstr ""
+msgstr "Непознат"
 
 #: ucp/Voicemail.class.php:369
 msgid "Unknown Error"
@@ -1606,7 +1614,7 @@ msgstr "Гласова Поща Намери Ме"
 
 #: ucp/Voicemail.class.php:128
 msgid "VmX Locator"
-msgstr ""
+msgstr "VmX Локатор"
 
 #: functions.inc.php:530 install.php:8 ucp/Voicemail.class.php:422
 #: ucp/assets/js/global.js:12
@@ -1690,7 +1698,7 @@ msgstr ""
 
 #: Voicemail.class.php:76
 msgid "Work"
-msgstr ""
+msgstr "Работа"
 
 #: views/tz.php:180
 msgid "Year"
@@ -1729,7 +1737,7 @@ msgstr "проверка дали Гласова Поща Админ (vmailadmin
 
 #: install.php:144
 msgid "could not delete"
-msgstr ""
+msgstr "не мога да изтрия"
 
 #: install.php:139
 msgid "deleting VM_PREFIX from globals.."
@@ -1737,11 +1745,11 @@ msgstr ""
 
 #: page.voicemail.php:68
 msgid "disabled"
-msgstr ""
+msgstr "забранен"
 
 #: install.php:125 install.php:142
 msgid "done"
-msgstr ""
+msgstr "изпълнено"
 
 #: functions.inc.php:768
 #, php-format
@@ -1767,7 +1775,7 @@ msgstr "не е инсталиран, ok"
 
 #: install.php:101
 msgid "not needed"
-msgstr ""
+msgstr "не е необходимо"
 
 #: views/tz.php:172
 msgid "numeric day of month (first, second, ..., thirty-first)"
@@ -1779,7 +1787,7 @@ msgstr "ok"
 
 #: install.php:67
 msgid "preparing"
-msgstr ""
+msgstr "подготовка"
 
 #: functions.inc.php:637
 msgid "temp"
