@@ -106,12 +106,14 @@ if (count($globals)) {
 if (isset($globals_convert['VMX_OPTS_TIMEOUT'])) {
 	unset($globals_convert['VMX_OPTS_TIMEOUT']);
 }
-foreach ($global_convert as $key => $value) {
-	$sql = 'INSERT INTO `voicemail_admin` (`variable`, `value`) VALUES ("' . $key . '","' . $value . '")';;
-	$result = $db->query($sql);
-	if(!DB::IsError($result)) {
-		out(sprintf(_("%s added"),$key));
-	}
+if(!empty($global_convert)) {
+  foreach ($global_convert as $key => $value) {
+  	$sql = 'INSERT INTO `voicemail_admin` (`variable`, `value`) VALUES ("' . $key . '","' . $value . '")';;
+  	$result = $db->query($sql);
+  	if(!DB::IsError($result)) {
+  		out(sprintf(_("%s added"),$key));
+  	}
+  }
 }
 
 if (count($globals)) {
@@ -247,11 +249,49 @@ $set['type'] = CONF_TYPE_INT;
 $freepbx_conf->define_conf_setting('UCP_MESSAGE_LIMIT',$set,true);
 
 /*
-   update modules.conf to make sure it preloads res_mwi_blf.so if they have it
-   This makes sure that the modules.conf has been updated for older systems
-   which assures that mwi blf events are captured when Asterisk first starts
+  update modules.conf to make sure it preloads res_mwi_blf.so if they have it
+  This makes sure that the modules.conf has been updated for older systems
+  which assures that mwi blf events are captured when Asterisk first starts
 */
 $amd = FreePBX::create()->Config->get_conf_setting('ASTMODDIR');
 if(file_exists($amd.'/res_mwi_blf.so')) {
 	FreePBX::create()->ModulesConf->preload('res_mwi_blf.so');
+}
+
+/** FREEPBX-8130 Migrate email body into GUI **/
+$aed = FreePBX::create()->Config->get_conf_setting('ASTETCDIR');
+global $gen_settings;
+if(file_exists($aed.'/vm_email.inc')) {
+  $contents = FreePBX::LoadConfig()->getConfig('vm_email.inc');
+  $final = array();
+  if(!empty($contents['HEADER']) && is_array($contents['HEADER'])) {
+    foreach($contents['HEADER'] as $key => $val) {
+      $final["gen__".$key] = $val;
+      $gen_settings[$key] = "";
+    }
+  }
+  if(!empty($final)) {
+    if(!function_exists('voicemail_update_settings')) {
+      include(__DIR__.'/functions.inc.php');
+    }
+    voicemail_update_settings("settings", "", "", $final);
+  }
+  unlink($aed.'/vm_email.inc');
+}
+if(file_exists($aed.'/vm_general.inc')) {
+  $contents = FreePBX::LoadConfig()->getConfig('vm_general.inc');
+  $final = array();
+  if(!empty($contents['HEADER']) && is_array($contents['HEADER'])) {
+    foreach($contents['HEADER'] as $key => $val) {
+      $final["gen__".$key] = $val;
+      $gen_settings[$key] = "";
+    }
+  }
+  if(!empty($final)) {
+    if(!function_exists('voicemail_update_settings')) {
+      include(__DIR__.'/functions.inc.php');
+    }
+    voicemail_update_settings("settings", "", "", $final);
+  }
+  unlink($aed.'/vm_general.inc');
 }

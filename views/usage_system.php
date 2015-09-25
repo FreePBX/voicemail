@@ -1,131 +1,227 @@
-<table>
-	<tr>
-		<td colspan='3'>
-			<br />
-		</td>
-	</tr>
-	<tr>
-		<td colspan='3'>
-			<hr />
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<a href='#' class='info'><?php echo _("Number of Accounts:") ?><span><?php echo _("Total ( Activated / Unactivated / Disabled )") ?></span></a>
-		</td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $acts_total ?>&nbsp;&nbsp;(&nbsp;<?php echo $acts_act ?>&nbsp;/&nbsp;<?php echo $acts_unact ?>&nbsp;/&nbsp;<?php echo $disabled_count ?>&nbsp;)</td>
-	</tr>
-	<tr>
-		<td colspan='3'>
-			<hr style='height:0.1px;' />
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-			<a href='#' class='info'><?php echo _("Number of Messages:") ?><span><?php echo _("Total ( Messages in inboxes / Messages in other folders )") ?></span></a>
-		</td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $msg_total ?>&nbsp;&nbsp;(&nbsp;<?php echo $msg_in ?>&nbsp;/&nbsp;<?php echo $msg_other ?>&nbsp;)</td>
-		<td>
-			<input type='checkbox' name='del_msgs' id='del_msgs' value='true' />&nbsp;<a href='#' class='info'><?php echo _("Delete") ?><span><?php echo _("Remove all messages") ?></span></a>
-		</td>
-	</tr>
-	<tr>
-		<td colspan='3'>
-			<hr style='height:0.1px;' />
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-			<a href='#' class='info'><?php echo _("Recorded Names:") ?><span><?php echo _("Number of recorded name greetings") ?></span></a>
-		</td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $name ?></td>
-		<td>
-			<input type='checkbox' name='del_names' id='del_names' value='true' />&nbsp;<a href='#' class='info'><?php echo _("Delete") ?><span><?php echo _("Remove all recorded names") ?></span></a>
-		</td>
-	</tr>
-	<tr>
-		<td colspan='3'>
-			<hr style='height:0.1px;' />
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-			<a href='#' class='info'><?php echo _("Unavailable Greetings:") ?><span><?php echo _("Number of recorded unavailable greetings") ?></span></a>
-		</td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $unavail ?></td>
-		<td>
-			<input type='checkbox' name='del_unavail' id='del_unavail' value='true' />&nbsp;<a href='#' class='info'><?php echo _("Delete") ?><span><?php echo _("Remove all unavailable greetings") ?></span></a>
-		</td>
-	</tr>
-	<tr>
-		<td colspan='3'>
-			<hr style='height:0.1px;' />
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-			<a href='#' class='info'><?php echo _("Busy Greetings:") ?><span><?php echo _("Number of recorded busy greetings") ?></span></a>
-		</td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $busy ?></td>
-		<td>
-			<input type='checkbox' name='del_busy' id='del_busy' value='true' />&nbsp;<a href='#' class='info'><?php echo _("Delete") ?><span><?php echo _("Remove all busy greetings") ?></span></a>
-		</td>
-	</tr>
-	<tr>
-		<td colspan='3'>
-			<hr style='height:0.1px;' />
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-			<a href='#' class='info'><?php echo _("Temporary Greetings:") ?><span><?php echo _("Number of recorded temporary greetings") ?></span></a>
-		</td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $temp ?></td>
-		<td>
-			<input type='checkbox' name='del_temp' id='del_temp' value='true' />&nbsp;<a href='#' class='info'><?php echo _("Delete") ?><span><?php echo _("Remove all temporary greetings") ?></span></a>
-		</td>
-	</tr>
-	<tr>
-		<td colspan='3'>
-			<hr style='height:0.1px;' />
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-			<a href='#' class='info'><?php echo _("Abandoned Greetings:") ?><span><?php echo _("Number of abandoned greetings. Such greetings were recorded by the user but were NOT accepted, so the sound file remains on disk but is not used as a greeting.") ?></span></a>
-		</td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $abandoned ?></td>
-		<td>
-			<input type='checkbox' name='del_abandoned' id='del_abandoned' value='true' />&nbsp;<a href='#' class='info'><?php echo _("Delete") ?><span><?php echo _("Remove all abandoned greetings (> 1 day old)") ?></span></a>
-		</td>
-	</tr>
-	<tr>
-		<td colspan='3'>
-			<hr style='height:0.1px;' />
-		</td>
-	</tr>
-
-	<tr>
-		<td>
-			<a href='#' class='info'><?php echo _("Storage Used:") ?><span><?php echo _("Disk space currently in use by Voicemail data") ?></span></a>
-		</td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $storage ?></td>
-	</tr>
-	<tr>
-		<td colspan='3'>
-			<hr style='height:0.1px;' />
-		</td>
-	</tr>
-	<tr>
-		<td>
-			
-		</td>
-		<td colspan='2'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='submit' name='action' id='action' value='Submit' /></td>
-	</tr>
-</table>
+<br/>
+<div class="row">
+	<div class="col-sm-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><?php echo _("Number of Accounts")?></h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped">
+					<tr><td><?php echo _("Activated")?></td><td><?php echo $acts_act ?></td></tr>
+					<tr><td><?php echo _("Unactivated")?></td><td><?php echo $acts_unact ?></td></tr>
+					<tr><td><?php echo _("Disabled")?></td><td><?php echo $disabled_count ?></td></tr>
+					<tr><td><?php echo _("Total")?></td><td><?php echo $acts_total?></td></tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><?php echo _("Storage Usage")?></h3>
+			</div>
+			<div class="panel-body">
+				<div class="well"><?php echo _("Disk space currently in use by Voicemail data")?></div>
+				<table class="table"><tr><td><b><?php echo _("Total")?></b></td><td><?php echo $storage?$storage:_("Unknown")?></td></tr></table>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title"><?php echo _("General Usage")?></h3>
+		</div>
+		<div class="panel-body">
+			<!--Number of Messages-->
+			<div class="element-container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-3">
+									<label class="control-label" for="del_msgs"><?php echo _("Number of Messages") ?></label>
+									<i class="fa fa-question-circle fpbx-help-icon" data-for="del_msgs"></i>
+								</div>
+								<div class="col-md-9">
+									<table class="table">
+										<tr><td><b><?php echo _("Messages in inboxes")?></b></td><td><?php echo $msg_in?></td></tr>
+										<tr><td><b><?php echo _("Messages in other folders")?></b></td><td><?php echo $msg_other?></td></tr>
+										<tr><td><b><?php echo _("Total")?></b></td><td><?php echo $msg_total?></td></tr>
+									</table>
+									<span class="radioset">
+									<b><?php echo _("Delete:")?>&nbsp;</b>
+									<input type="radio" name="del_msgs" id="del_msgsyes" value="true">
+									<label for="del_msgsyes"><?php echo _("Yes");?></label>
+									<input type="radio" name="del_msgs" id="del_msgsno" value="" CHECKED>
+									<label for="del_msgsno"><?php echo _("No");?></label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<span id="del_msgs-help" class="help-block fpbx-help-block"><?php echo _("Remove all messages")?></span>
+					</div>
+				</div>
+			</div>
+			<!--END Number of Messages-->
+			<!--Recorded Names-->
+			<div class="element-container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-3">
+									<label class="control-label" for="del_names"><?php echo _("Recorded Names") ?></label>
+									<i class="fa fa-question-circle fpbx-help-icon" data-for="del_names"></i>
+								</div>
+								<div class="col-md-9">
+									<table class="table"><tr><td><b><?php echo _("Total")?></b></td><td><?php echo $name?></td></tr></table>
+									<span class="radioset">
+									<b><?php echo _("Delete:")?>&nbsp;</b>
+									<input type="radio" name="del_names" id="del_namesyes" value="true">
+									<label for="del_namesyes"><?php echo _("Yes");?></label>
+									<input type="radio" name="del_names" id="del_namesno" value="" CHECKED>
+									<label for="del_namesno"><?php echo _("No");?></label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<span id="del_names-help" class="help-block fpbx-help-block"><?php echo _("Delete all Recorded Names")?></span>
+					</div>
+				</div>
+			</div>
+			<!--END Recorded Names-->
+			<!--Unavailable Greetings-->
+			<div class="element-container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-3">
+									<label class="control-label" for="del_unavail"><?php echo _("Unavailable Greetings") ?></label>
+									<i class="fa fa-question-circle fpbx-help-icon" data-for="del_unavail"></i>
+								</div>
+								<div class="col-md-9">
+									<table class="table"><tr><td><b><?php echo _("Total")?></b></td><td><?php echo $unavail?></td></tr></table>
+									<span class="radioset">
+									<b><?php echo _("Delete:")?>&nbsp;</b>
+									<input type="radio" name="del_unavail" id="del_unavailyes" value="true">
+									<label for="del_unavailyes"><?php echo _("Yes");?></label>
+									<input type="radio" name="del_unavail" id="del_unavailno" value="" CHECKED>
+									<label for="del_unavailno"><?php echo _("No");?></label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<span id="del_unavail-help" class="help-block fpbx-help-block"><?php echo _("Delete All Unavailible Greetings")?></span>
+					</div>
+				</div>
+			</div>
+			<!--END Unavailable Greetings-->
+			<!--Busy Greetings-->
+			<div class="element-container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-3">
+									<label class="control-label" for="del_busy"><?php echo _("Busy Greetings") ?></label>
+									<i class="fa fa-question-circle fpbx-help-icon" data-for="del_busy"></i>
+								</div>
+								<div class="col-md-9">
+									<table class="table"><tr><td><b><?php echo _("Total")?></b></td><td><?php echo $busy?></td></tr></table>
+									<span class="radioset">
+									<b><?php echo _("Delete:")?>&nbsp;</b>
+									<input type="radio" name="del_busy" id="del_busyyes" value="true">
+									<label for="del_busyyes"><?php echo _("Yes");?></label>
+									<input type="radio" name="del_busy" id="del_busyno" value="" CHECKED>
+									<label for="del_busyno"><?php echo _("No");?></label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<span id="del_busy-help" class="help-block fpbx-help-block"><?php echo _("Delete all Busy Messages")?></span>
+					</div>
+				</div>
+			</div>
+			<!--END Busy Greetings-->
+			<!--Temporary Greetings-->
+			<div class="element-container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-3">
+									<label class="control-label" for="del_temp"><?php echo _("Temporary Greetings") ?></label>
+									<i class="fa fa-question-circle fpbx-help-icon" data-for="del_temp"></i>
+								</div>
+								<div class="col-md-9">
+									<table class="table"><tr><td><b><?php echo _("Total")?></b></td><td><?php echo $temp?></td></tr></table>
+									<span class="radioset">
+									<b><?php echo _("Delete:")?>&nbsp;</b>
+									<input type="radio" name="del_temp" id="del_tempyes" value="true">
+									<label for="del_tempyes"><?php echo _("Yes");?></label>
+									<input type="radio" name="del_temp" id="del_tempno" value="" CHECKED>
+									<label for="del_tempno"><?php echo _("No");?></label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<span id="del_temp-help" class="help-block fpbx-help-block"><?php echo _("Delete All Temporary Greetings")?></span>
+					</div>
+				</div>
+			</div>
+			<!--END Temporary Greetings-->
+			<!--Abandoned Greetings-->
+			<div class="element-container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-3">
+									<label class="control-label" for="del_abandoned"><?php echo _("Abandoned Greetings") ?></label>
+									<i class="fa fa-question-circle fpbx-help-icon" data-for="del_abandoned"></i>
+								</div>
+								<div class="col-md-9">
+									<table class="table"><tr><td><b><?php echo _("Total")?></b></td><td><?php echo $abandoned?></td></tr></table>
+									<span class="radioset">
+									<b><?php echo _("Delete:")?>&nbsp;</b>
+									<input type="radio" name="del_abandoned" id="del_abandonedyes" value="true">
+									<label for="del_abandonedyes"><?php echo _("Yes");?></label>
+									<input type="radio" name="del_abandond" id="del_abandonedno" value="" CHECKED>
+									<label for="del_abandonedno"><?php echo _("No");?></label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<span id="del_abandoned-help" class="help-block fpbx-help-block"><?php echo _("Remove all abandoned greetings (> 1 day old).</br>  Such greetings were recorded by the user but were NOT accepted, so the sound file remains on disk but is not used as a greeting.")?></span>
+					</div>
+				</div>
+			</div>
+			<!--END Abandoned Greetings-->
+	</div>	
+</div>	
+<input type="hidden" name="action" id="action" value="Submit">

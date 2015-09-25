@@ -15,29 +15,31 @@ class Vmx {
 	 * @param {int} $ext Extension Number
 	 */
 	public function getSettings($ext) {
-		$vmx = $this->astman->database_show('AMPUSER/'.$ext.'/vmx');
 		$final = array();
-		foreach($vmx as $family => $value) {
-			$family = str_replace('/AMPUSER/'.$ext.'/vmx/','',$family);
-			$e = explode("/",$family);
-			switch(count($e)) {
-				case 1:
-					$final[$e[0]] = $value;
-				break;
-				case 2:
-					$final[$e[0]][$e[1]] = $value;
-				break;
-				case 3:
-					$final[$e[0]][$e[1]][$e[2]] = $value;
-				break;
-				case 4:
-					$final[$e[0]][$e[1]][$e[2]][$e[3]] = $value;
-				break;
-				case 5:
-					$final[$e[0]][$e[1]][$e[2]][$e[3]][$e[4]] = $value;
-				break;
-				default:
-				break;
+		if($this->astman->connected()) {
+			$vmx = $this->astman->database_show('AMPUSER/'.$ext.'/vmx');
+			foreach($vmx as $family => $value) {
+				$family = str_replace('/AMPUSER/'.$ext.'/vmx/','',$family);
+				$e = explode("/",$family);
+				switch(count($e)) {
+					case 1:
+						$final[$e[0]] = $value;
+					break;
+					case 2:
+						$final[$e[0]][$e[1]] = $value;
+					break;
+					case 3:
+						$final[$e[0]][$e[1]][$e[2]] = $value;
+					break;
+					case 4:
+						$final[$e[0]][$e[1]][$e[2]][$e[3]] = $value;
+					break;
+					case 5:
+						$final[$e[0]][$e[1]][$e[2]][$e[3]][$e[4]] = $value;
+					break;
+					default:
+					break;
+				}
 			}
 		}
 		return $final;
@@ -50,7 +52,7 @@ class Vmx {
 	 * @param {string} $state="enabled" State: enabled, disabled, blocked
 	 */
 	public function setState($ext,$mode="unavail",$state="enabled") {
-		if ($this->astman && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
+		if ($this->astman->connected() && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
 			$this->astman->database_put("AMPUSER", $ext."/vmx/".$mode."/state", "$state");
 			return true;
 		} else {
@@ -64,7 +66,7 @@ class Vmx {
 	 * @param {string} $mode="unavail"  The mode, can be: unavail, busy, temp
 	 */
 	public function getState($ext,$mode="unavail") {
-		if ($this->astman && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
+		if ($this->astman->connected() && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
 			return trim($this->astman->database_get("AMPUSER",$ext."/vmx/$mode/state"));
 		} else {
 			return false;
@@ -85,7 +87,7 @@ class Vmx {
 	 * @param {string} $mode="unavail"  The mode, can be: unavail, busy, temp
 	 */
 	public function isInitialized($ext,$mode="unavail") {
-		if ($this->astman && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
+		if ($this->astman->connected() && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
 			$vmx_state=trim($this->astman->database_get("AMPUSER",$ext."/vmx/$mode/state"));
 			if (isset($vmx_state) && ($vmx_state == 'enabled' || $vmx_state == 'disabled') || $vmx_state == 'blocked') {
 				return true;
@@ -102,7 +104,7 @@ class Vmx {
 	 * @param {string} $mode="unavail"  The mode, can be: unavail, busy, temp
 	 */
 	public function isEnabled($ext,$mode="unavail") {
-		if ($this->astman && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
+		if ($this->astman->connected() && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
 			$vmx_state=trim($this->astman->database_get("AMPUSER",$ext."/vmx/$mode/state"));
 			if (isset($vmx_state) && ($vmx_state == 'enabled' || $vmx_state == 'disabled')) {
 				return true;
@@ -119,7 +121,7 @@ class Vmx {
 	 * @param {string} $mode="unavail" The mode, can be: unavail, busy, temp
 	 */
 	public function getVmPlay($ext,$mode="unavail") {
-		if ($this->astman && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
+		if ($this->astman->connected() && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
 			return (trim($this->astman->database_get("AMPUSER",$ext."/vmx/$mode/vmxopts/timeout")) != 's');
 		} else {
 			return false;
@@ -133,7 +135,7 @@ class Vmx {
 	 * @param {bool} $opts Whether to play voicemail instructions or not
 	 */
 	public function setVmPlay($ext, $mode="unavail", $opts=true) {
-		if ($this->astman && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
+		if ($this->astman->connected() && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
 			$val = $opts ? '' : 's';
 			$this->astman->database_put("AMPUSER", $ext."/vmx/$mode/vmxopts/timeout", $val);
 			return true;
@@ -147,7 +149,7 @@ class Vmx {
 	 * @param {int} $ext            Extension Number
 	 */
 	public function hasFollowMe($ext) {
-		if ($this->astman) {
+		if ($this->astman->connected()) {
 			return ($this->astman->database_get("AMPUSER",$ext."/followme/ddial")) == "" ? false : true;
 		} else {
 			return false;
@@ -161,7 +163,7 @@ class Vmx {
 	 * @param {string} $mode="unavail" The mode, can be: unavail, busy, temp
 	 */
 	public function isFollowMe($ext, $digit="1", $mode="unavail") {
-		if ($this->astman && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
+		if ($this->astman->connected() && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
 			return $this->astman->database_get("AMPUSER",$ext."/vmx/$mode/$digit/ext") == 'FM'.$ext ? true : false;
 		} else {
 			return false;
@@ -177,7 +179,7 @@ class Vmx {
 	 * @param {int} $priority='1'               The Find Me Follow Me Priority
 	 */
 	public function setFollowMe($ext, $digit="1", $mode="unavail", $context='ext-findmefollow', $priority='1') {
-		if ($this->astman && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
+		if ($this->astman->connected() && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
 			$this->astman->database_put("AMPUSER", $ext."/vmx/$mode/$digit/ext", "FM".$ext);
 			$this->astman->database_put("AMPUSER", $ext."/vmx/$mode/$digit/context", $context);
 			$this->astman->database_put("AMPUSER", $ext."/vmx/$mode/$digit/pri", $priority);
@@ -194,7 +196,7 @@ class Vmx {
 	 * @param {string} $mode="unavail" The mode, can be: unavail, busy, temp
 	 */
 	public function getMenuOpt($ext, $digit="0", $mode="unavail") {
-		if ($this->astman && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
+		if ($this->astman->connected() && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
 			return trim($this->astman->database_get("AMPUSER",$ext."/vmx/$mode/$digit/ext"));
 		} else {
 			return false;
@@ -211,7 +213,7 @@ class Vmx {
 	 * @param {int} $priority='1'               The Find Me Follow Me Priority
 	 */
 	public function setMenuOpt($ext,$opt="", $digit="0", $mode="unavail", $context="from-internal", $priority="1") {
-		if ($this->astman && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
+		if ($this->astman->connected() && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
 			if ($opt != "" && ctype_digit($opt)) {
 				$opt = preg_replace("/[^0-9]/" ,"", $opt);
 				$this->astman->database_put("AMPUSER", $ext."/vmx/$mode/$digit/ext", $opt);

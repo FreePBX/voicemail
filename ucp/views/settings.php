@@ -19,6 +19,17 @@
 				<span class="help-block help-hidden" data-for="pager"><?php echo _('Pager/mobile email address that short Voicemail notifications are sent to.')?></span>
 			</div>
 			<div class="form-group">
+				<label for="attach-h" class="help"><?php echo _('Email Attachment')?> <i class="fa fa-question-circle"></i></label>
+				<div class="onoffswitch">
+					<input type="checkbox" name="attach" class="onoffswitch-checkbox" id="attach" <?php echo ($settings['options']['attach'] == 'yes') ? 'checked' : ''?> value="yes">
+					<label class="onoffswitch-label" for="attach">
+						<div class="onoffswitch-inner"></div>
+						<div class="onoffswitch-switch"></div>
+					</label>
+				</div>
+				<span class="help-block help-hidden" data-for="attach-h"><?php echo _('Controls whether to attach the voicemail to the email')?></span>
+			</div>
+			<div class="form-group">
 				<label for="saycid-h" class="help"><?php echo _('Play CID')?> <i class="fa fa-question-circle"></i></label>
 				<div class="onoffswitch">
 					<input type="checkbox" name="saycid" class="onoffswitch-checkbox" id="saycid" <?php echo ($settings['options']['saycid'] == 'yes') ? 'checked' : ''?> value="yes">
@@ -39,6 +50,17 @@
 					</label>
 				</div>
 				<span class="help-block help-hidden" data-for="envelope-h"><?php echo _('Envelope controls whether or not the Voicemail system will play the message envelope (date/time) before playing the Voicemail message. This setting does not affect the operation of the envelope option in the advanced Voicemail menu.')?></span>
+			</div>
+			<div class="form-group">
+				<label for="vmdelete-h" class="help"><?php echo _('Delete Voicemail')?> <i class="fa fa-question-circle"></i></label>
+				<div class="onoffswitch">
+					<input type="checkbox" name="vmdelete" class="onoffswitch-checkbox" id="vmdelete" <?php echo ($settings['options']['delete'] == 'yes') ? 'checked' : ''?> value="yes">
+					<label class="onoffswitch-label" for="vmdelete">
+						<div class="onoffswitch-inner"></div>
+						<div class="onoffswitch-switch"></div>
+					</label>
+				</div>
+				<span class="help-block help-hidden" data-for="vmdelete-h"><?php echo _('If set to "yes" the message will be deleted from the Voicemailbox (after having been emailed). Provides functionality that allows a user to receive their Voicemail via email alone, rather than having the Voicemail able to be retrieved from the Webinterface or the Extension handset.  CAUTION: MUST HAVE attach Voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE LOST FOREVER.')?></span>
 			</div>
 		</form>
 	</div>

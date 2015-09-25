@@ -1,126 +1,88 @@
-<table border='0' cellpadding='0.3px' cellspacing='2px' width="80%">
-	<tr>
-		<td colspan='2'>
-			<hr />
-		</td>
-		<td>
-
-		</td>
-	</tr>
-	<tr>
-		<td style='max-width: 60px' colspan='2'>
-			<?php echo _("A timezone definition specifies how the Voicemail system announces the time.") ?>
-		</td>
-		<td>
-
-		</td>
-	</tr>
-	<tr>
-		<td style='max-width: 60px' colspan='2'>
-			<?php echo  _("For example, the time a message was left will be announced according to the user's timezone on message playback.") ?>
-		</td>
-		<td>
-
-		</td>
-	</tr>
-	<tr>
-		<td>
-
-		</td>
-		<td>
-
-		</td>
-	</tr>
-	<tr>
-		<td style='max-width: 60px' colspan='2'>
-			<b><?php echo _("Entries below will be written to Voicemail configuration as-is.") ?></b>
-		</td>
-		<td>
-
-		</td>
-	</tr>
-	<tr>
-		<td style='max-width: 60px' colspan='2'>
-			<b><?php echo _("Please be sure to follow the format for timezone definitions described below.") ?></b>
-		</td>
-	</tr>
-	<tr>
-		<td colspan='2'>
-			<hr />
-		</td>
-		<td>
-
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<a href='#' class='info'><?php echo _("Name") ?><span><?php echo $tooltips["tz"]["name"] ?></span></a>
-		</td>
-		<td>
-			<a href='#' class='info'><?php echo _("Timezone Definition") ?><span><?php echo $tooltips["tz"]["def"] ?></span></a>
-		</td>
-	</tr>
-	<?php foreach ($settings as $key => $val) { ?>
-		<tr>
-			<td><?php echo $key ?></td>
-			<td>
-				<input size='50' type='text' name='tz__<?php echo $key ?>' id='tz__<?php echo $key ?>' tabindex='1' value="<?php echo htmlentities($val) ?>" />
-				&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type='checkbox' name='tzdel__<?php echo $key ?>' id='tzdel__<?php echo $key ?>' value='true' />
-				&nbsp;&nbsp;
-				<a href='#' class='info'><?php echo _("Delete") ?><span><?php echo $tooltips["tz"]["del"] ?></span></a>
-			</td>
-		</tr>
+<div class="well well-info">
+	<?php echo _("A timezone definition specifies how the Voicemail system announces the time.") ?>
+	<?php echo  _("For example, the time a message was left will be announced according to the user's timezone on message playback.") ?><br />
+	<b><?php echo _("Entries below will be written to Voicemail configuration as-is.") ?></b><br />
+	<b><?php echo _("Please be sure to follow the format for timezone definitions described below.") ?></b>
+</div>
+<?php foreach ($settings as $key => $val) { ?>
+	<!--<?php echo $key?>-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="tz__<?php echo $key ?>"><?php echo $key ?></label>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="tz__<?php echo $key ?>" name="tz__<?php echo $key ?>" value="<?php echo htmlentities($val,ENT_COMPAT | ENT_HTML401, "UTF-8") ?>">
+							<span class="radioset">
+								<input type='checkbox' name='tzdel__<?php echo $key ?>' id='tzdel__<?php echo $key ?>' value='true' />
+								<label for="tzdel__<?php echo $key ?>"><?php echo _("Delete") ?></label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--END <?php echo $key?>-->
 	<?php } ?>
-	<tr>
-		<td coslpan='2'>
+	<!--New Name-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="tznew_name"><?php echo _("New Name") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="tznew_name"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="tznew_name" name="tznew_name" value="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="tznew_name-help" class="help-block fpbx-help-block"><?php echo $tooltips["tz"]["name"] ?></span>
+			</div>
+		</div>
+	</div>
+	<!--END New Name-->
+	<!--New Timezone Definition-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="tznew_def"><?php echo _("New Timezone Definition") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="tznew_def"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="tznew_def" name="tznew_def" value="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="tznew_def-help" class="help-block fpbx-help-block"><?php echo $tooltips["tz"]["def"]?></span>
+			</div>
+		</div>
+	</div>
+	<!--END New Timezone Definition-->
+	<input type='hidden' name='action' id='action' value='Submit' />
 
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<a href='#' class='info'>
-				<?php echo _("New Name") ?><span><?php echo $tooltips["tz"]["name"] ?></span></a>
-			</td>
-			<td>
-				<a href='#' class='info'><?php echo _("New Timezone Definition") ?><span><?php echo $tooltips["tz"]["def"] ?></span></a>
-			</td>
-	<tr>
-		<td>
-			<input size='10' type='text' name='tznew_name' id='tznew_name' tabindex='1' value='' />
-		</td>
-		<td>
-			<input size='50' type='text' name='tznew_def' id='tznew_def' tabindex='1' value='' />
-		</td>
-	</tr>
-	<tr>
-		<td>
+<div class="well well-info">
+	<?php echo _("Timezone definition format is: ") ?>&nbsp;&nbsp;<b style='font-family:courier;'><?php echo _("timezone|values")?></b>
+	<br /><br/><b><?php echo _("<i>Timezones</i> are listed in /usr/share/zoneinfo")?>
+</div>
 
-		</td>
-		<td colspan='2'>
-			<input type='submit' name='action' id='action' value='Submit' />
-		</td>
-	</tr>
-
-	<tr>
-		<td colspan='2'>
-			<hr />
-		</td>
-	</tr>
-
-	<tr>
-		<td style='max-width: 60px' colspan='2'>
-			<?php echo _("Timezone definition format is: ") ?>&nbsp;&nbsp;<b style='font-family:courier;'><?php echo _("timezone|values")?></b>
-		</td>
-		<td>
-
-		</td>
-	</tr>
-	<tr>
-		<td style='max-width: 60px' colspan='2'>
-			<br /><b><?php echo _("<i>Timezones</i> are listed in /usr/share/zoneinfo")?>
-		</td>
-	</tr>
+	<table class="table table-striped">
 
 	<tr>
 		<td style='max-width: 60px' colspan='2'>
@@ -182,7 +144,7 @@
 	</tr>
 	<tr>
 		<td style='max-width: 60px'>
-			<?php sprintf(_("%s or %s"),"I","l")?>
+			<?php echo sprintf(_("%s or %s"),"I","l")?>
 		</td><td style='max-width: 60px' colspan='2'>
 			<?php echo _("Hour, 12 hour clock")?>
 		</td>
@@ -220,10 +182,10 @@
 		</tr>
 		<tr>
 			<td style='max-width: 60px'>
-				<?php sprintf(_("%s or %s"),"P","p")?>
+				<?php echo sprintf(_("%s or %s"),"P","p")?>
 			</td>
 			<td style='max-width: 60px' colspan='2'>
-				<?php echo ("AM or PM")?>
+				<?php echo _("AM or PM")?>
 			</td>
 		</tr>
 		<tr>
@@ -247,7 +209,7 @@
 				R
 			</td>
 			<td style='max-width: 60px' colspan='2'>
-				<?php echo ("24 hour time, including minute")?>
+				<?php echo _("24 hour time, including minute")?>
 			</td>
 		</tr>
 	</tr>

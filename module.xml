@@ -2,33 +2,43 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>12.0.40</version>
-	<publisher>FreePBX</publisher>
+	<version>13.0.16</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
-		*12.0.40* FREEPBX-9139 UCP doesn't create voicemail extensions directory for new extensions
-		*12.0.39* Add x in regular expression for channel matching
-		*12.0.38* Language updates
-		*12.0.37* Language updates
-		*12.0.36* Localization Fixes
-		*12.0.35* FREEPBX-9081 UCP changing email address in VM settings does not apply
-		*12.0.34* FREEPBX-8982 click to call/copy for voicemail in UCP
-		*12.0.33* FREEPBX-8927 Badge count equal to 1 when no voicemail
-		*12.0.32* Fix bug in UCP when there are no mailboxes assigned
-		*12.0.31* FREEPBX-8275 Missed Features from ARI Voicemail interface
-		*12.0.30* Remove commented out code, centralize voicemail counter
-		*12.0.29* Bug fixes
-		*12.0.28* FREEPBX-8602, FREEPBX-8575, FREEPBX-8348, plus speed improvements
-		*12.0.27* Audio playback progress and error reporting in UCP
-		*12.0.26* FREEPBX-7723 - allow minpassword to be set from voicemail admin
-		*12.0.25* FREEPBX-8226 Names dont show up on virtual extensions in UCP
-		*12.0.24* Dont support range on a download, cleanup so that cdr and this look similar
-		*12.0.23* Declare the wav file as a usable format
-		*12.0.22* Fixes to allow playback in Safari and Mobile devices (yes including apple and android)
-		*12.0.21* Speeds up load page exponentially in UCP
+		*13.0.16* Fix permission management in User Manager
+		*13.0.15* FREEPBX-10209 Force charset UTF-8 in voicemail.conf
+		*13.0.14* FREEPBX-10223 Fix form sumbition
+		*13.0.13* FREEPBX-10209 htmlentities need to use UTF-8
+		*13.0.12* Invalid array fix
+		*13.0.11* FREEPBX-10129 Deleting extension does not delete voicemail user
+		*13.0.10* FREEPBX-10100 fix help text, FREEPBX-10096 fix extra includes, FREEPBX-10126 VMX
+		*13.0.9.1* Minor layout tweaks
+		*13.0.9* Use proper astman checks
+		*13.0.8* Use internal parsing engine
+		*13.0.7* Try to catch more errors
+		*13.0.6* FREEPBX-9726 ignore comment warnings
+		*13.0.5* Dont write to files if the array is empty
+		*13.0.4* FREEPBX-9685 dont require an email address unless attachment is set to yes, FREEPBX-9686 dont throw exception when vmailbox exists
+		*13.0.3* Invalid loop errors
+		*13.0.2* Version bump Beta
+		*13.0.1alpha14* Better quick create visuals
+		*13.0.1alpha13* Add hooks for bulk handler
+		*13.0.1alpha12* Invalid Foreach fixes
+		*13.0.1alpha11* Groups in usermanager
+		*13.0.1alpha10* FREEPBX-8982 click to call/copy for voicemail in UCP
+		*13.0.1alpha9* FREEPBX-8946 Add attach and delete options to user settings
+		*13.0.1alpha8* FREEPBX-8927 Badge count equal to 1 when no voicemail
+		*13.0.1alpha7* saycid not playcid
+		*13.0.1alpha6* Migrate vm_general.inc to voicemail.conf
+		*13.0.1alpha5* Dont pound the actual file
+		*13.0.1alpha4* Dont fatal during mailbox add
+		*13.0.1alpha3* FREEPBX-8130 Move emailbody back into voicemail.conf so that it shows up in Voicemail Admin
+		*13.0.1alpha2* FREEPBX-8555 Support passwordless voicemail retrieval in device/user mode
+		*13.0.1alpha1* Layout changes
 		*12.0.20* pagination fixes
 		*12.0.19* FREEPBX-8211 Improvements to UCP Voicemail/CDR Playback
 		*12.0.18* Restructure Voicemail in UCP, FREEPBX-8198 Add pagination, FREEPBX-8207 fix converting process
@@ -49,6 +59,25 @@
 		*12.0.3* Work on GUI for button work in Framework, numerous changes and additions for User Control Panel on the backend
 		*12.0.2* FREEPBX-6471 allow asterisk in password field
 		*12.0.1* Use BMO object to add the Asterisk mwi module if it exists
+		*12.0.0* Added back the ability to have an extension call voicemail and not have to enter a password, re FREEPBX-5323
+		*2.11.1.1* Fix #6967 (missing help popups) and PBXAC-12 (unable to delete greetings/recordings)
+		*2.11.1.0* Reorganize and rework module. Clean up and fixed #6769
+		*2.11.0.4* #6712
+		*2.11.0.3* #6246
+		*2.11.0.2* #6111
+		*2.11.0.1* install_amp corner case error fix
+		*2.11.0.0* #6015
+		*2.10.0.4* #5894
+		*2.10.0.3* #5639
+		*2.10.0.2* #5135, #5168
+		*2.10.0.1* #5478
+		*2.10.0.0* new version changes
+		*2.9.0.5* #5072
+		*2.9.0.4* #5036, #5062
+		*2.9.0.3* #5000
+		*2.9.0.2* #4401
+		*2.9.0.1* removed duplicate functions
+		*2.9.0.0* #4653, #4734, #4736, merge vmailadmin
 	</changelog>
 	<description>This module allows you to configure Voicemail for a user or extension</description>
 	<category>Settings</category>
@@ -56,12 +85,32 @@
 		<voicemail>Voicemail Admin</voicemail>
 	</menuitems>
 	<depends>
-		<module>core ge 12.0.23</module>
+		<module>core ge 12.0.1alpha26</module>
 		<version>12.0.1alpha54</version>
 	</depends>
 	<supported>
-		<version>12.0</version>
+		<version>13.0</version>
 	</supported>
+	<hooks>
+		<core class="Core" namespace="FreePBX\modules">
+			<method callingMethod="getQuickCreateDisplay" class="Voicemail" namespace="FreePBX\modules">getQuickCreateDisplay</method>
+			<method callingMethod="processQuickCreate" class="Voicemail" namespace="FreePBX\modules">processQuickCreate</method>
+		</core>
+		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
+			<method callingMethod="getHeaders" class="Voicemail" namespace="FreePBX\modules">bulkhandlerGetHeaders</method>
+			<method callingMethod="import" class="Voicemail" namespace="FreePBX\modules">bulkhandlerImport</method>
+			<method callingMethod="export" class="Voicemail" namespace="FreePBX\modules">bulkhandlerExport</method>
+		</bulkhandler>
+		<ucp class="Ucp">
+			<method callingMethod="constructModuleConfigPages" class="Voicemail" namespace="FreePBX\modules">ucpConfigPage</method>
+			<method callingMethod="addUser" class="Voicemail" namespace="FreePBX\modules">ucpAddUser</method>
+			<method callingMethod="updateUser" class="Voicemail" namespace="FreePBX\modules">ucpUpdateUser</method>
+			<method callingMethod="delUser" class="Voicemail" namespace="FreePBX\modules">ucpDelUser</method>
+			<method callingMethod="addGroup" class="Voicemail" namespace="FreePBX\modules">ucpAddGroup</method>
+			<method callingMethod="updateGroup" class="Voicemail" namespace="FreePBX\modules">ucpUpdateGroup</method>
+			<method callingMethod="delGroup" class="Voicemail" namespace="FreePBX\modules">ucpDelGroup</method>
+		</ucp>
+	</hooks>
 	<location>release/2.11/voicemail-2.11.1.0.tgz</location>
 	<md5sum>442f0ba3a17bedc96f4cb75c53ccf99b</md5sum>
 </module>

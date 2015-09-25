@@ -41,7 +41,8 @@ class Voicemail extends Modules{
 		}
 
 		$this->user = $this->UCP->User->getUser();
-		$this->extensions = $this->UCP->getSetting($this->user['username'],$this->module,'assigned');
+		$this->enabled = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'enable');
+		$this->extensions = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'assigned');
 	}
 
 	function getDisplay() {
@@ -91,7 +92,7 @@ class Voicemail extends Modules{
 				$final = array();
 				foreach($displayvars['messages'] as &$m) {
 					$f = $this->UCP->FreePBX->Voicemail->getMessageByMessageIDExtension($m['msg_id'], $ext, true);
-					$f['callerid'] = htmlentities($f['callerid']);
+					$f['callerid'] = htmlentities($f['callerid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 					$f['callerid'] = preg_replace("/&lt;(.*)&gt;/i","&lt;<span class='clickable' data-type='number' data-primary='phone'>$1</span>&gt;",$f['callerid']);;
 					$final[] = $f;
 				}
@@ -114,7 +115,7 @@ class Voicemail extends Modules{
 
 	function poll() {
 		$boxes = $this->getMailboxCount($this->extensions);
-		return array("status" => ($boxes['total'] > 0), "total" => $boxes['total'], "boxes" => $boxes['extensions']);
+		return array("status" => ($boxes['total'] > 0), "total" => $boxes['total'], "boxes" => isset($boxes['extensions']) ? $boxes['extensions'] : '');
 	}
 
 	public function getSettingsDisplay($ext) {
@@ -303,7 +304,9 @@ class Voicemail extends Modules{
 				$ext = $_POST['ext'];
 				$saycid = ($_POST['saycid'] == 'true') ? true : false;
 				$envelope = ($_POST['envelope'] == 'true') ? true : false;
-				$status = $this->UCP->FreePBX->Voicemail->saveVMSettingsByExtension($ext,$_POST['pwd'],$_POST['email'],$_POST['pager'],$saycid,$envelope);
+				$delete = ($_POST['vmdelete'] == 'true') ? true : false;
+				$attach = ($_POST['attach'] == 'true') ? true : false;
+				$status = $this->UCP->FreePBX->Voicemail->saveVMSettingsByExtension($ext,$_POST['pwd'],$_POST['email'],$_POST['pager'],$saycid,$envelope, $attach, $delete);
 				$return = array("status" => $status, "message" => "");
 			break;
 			case "upload":
@@ -414,6 +417,9 @@ class Voicemail extends Modules{
 	}
 
 	public function getMenuItems() {
+		if(!$this->enabled) {
+			return array();
+		}
 		$extensions = $this->extensions;
 		$menu = array();
 		if(!empty($extensions)) {
@@ -614,6 +620,9 @@ class Voicemail extends Modules{
 	}
 
 	private function _checkExtension($extension) {
+		if(!$this->enabled) {
+			return false;
+		}
 		$extensions = $this->extensions;
 		return in_array($extension,$extensions);
 	}
@@ -621,7 +630,9 @@ class Voicemail extends Modules{
 	private function getMailboxCount() {
 		$boxes = array();
 		$total = 0;
-		foreach($this->Modules->getAssignedDevices() as $extension) {
+		$extensions = $this->extensions;
+		$extensions = is_array($extensions)?$extensions:array();
+		foreach($extensions as $extension) {
 			$fvm = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($extension);
 			if(empty($fvm['vmcontext'])) {
 				continue;

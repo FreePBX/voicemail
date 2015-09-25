@@ -14,6 +14,7 @@
 				<input type="checkbox" name="vmx-usewhen-temp"> <?php echo _('Temp')?>
 			</label>
 		</div>
+		<br/>
 		<span class="help-block help-hidden" data-for="vmx-usewhen-h"><?php echo _('Enable VmX Menu options during Voicemail playback for the selected options.')?></span>
 	</div>
 	<div class="form-group">
