@@ -411,7 +411,7 @@ class Voicemail implements \BMO {
 						foreach($files as $file) {
 							$fname = preg_replace('/msg([0-9]+)/','msg0000',basename($file));
 							copy($file, $toFolder."/".$fname);
-							$movedFiles[] = $toFolder."/".$fname
+							$movedFiles[] = $toFolder."/".$fname;
 						}
 					} else {
 						//Else we have other voicemail data in here so do something else
