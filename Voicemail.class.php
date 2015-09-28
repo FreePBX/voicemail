@@ -314,7 +314,7 @@ class Voicemail implements \BMO {
 			$vmconf[$context][$ext]['options']['saycid'] = ($playcid) ? 'yes' : 'no';
 			$vmconf[$context][$ext]['options']['envelope'] = ($envelope) ? 'yes' : 'no';
 			voicemail_saveVoicemail($vmconf);
-			$this->astman->Reload("voicemail");
+			$this->astman->Command("voicemail reload");
 			return true;
 		}
 		return false;
