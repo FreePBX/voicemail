@@ -886,41 +886,74 @@ class Voicemail implements \BMO {
 
 					//send email from/to new mailbox
 					$vm = $this->FreePBX->LoadConfig->getConfig("voicemail.conf");
-					if(isset($vm['general']['emailbody']) && isset($vm['general']['emailsubject'])) {
-						$body = str_replace(array(
+					$emailInfo = array(
+						"normal" => array(
+							"body" => !empty($vm['general']['emailbody']) ? $vm['general']['emailbody'] : 'Dear ${VM_NAME}:\n\n\tjust wanted to let you know you were just left a ${VM_DUR} long message (number ${VM_MSGNUM})\nin mailbox ${VM_MAILBOX} from ${VM_CALLERID}, on ${VM_DATE}, so you might\nwant to check it when you get a chance.  Thanks!\n\n\t\t\t\t--Asterisk\n',
+							"subject" => !empty($vm['general']['emailsubject']) ? $vm['general']['emailsubject'] : ((isset($vm['general']['pbxskip']) && $vm['general']['pbxskip'] == "no") ? "[PBX]: " : "").'New message ${VM_MSGNUM} in mailbox ${VM_MAILBOX}',
+							"fromstring" => !empty($vm['general']['fromstring']) ? $vm['general']['fromstring'] : 'The Asterisk PBX'
+						),
+						"pager" => array(
+							"body" => !empty($vm['general']['pagerbody']) ? $vm['general']['pagerbody'] : 'New ${VM_DUR} long msg in box ${VM_MAILBOX}\nfrom ${VM_CALLERID}, on ${VM_DATE}',
+							"subject" => !empty($vm['general']['pagersubject']) ? $vm['general']['pagersubject'] : 'New VM',
+							"fromstring" => !empty($vm['general']['pagerfromstring']) ? $vm['general']['pagerfromstring'] : 'The Asterisk PBX'
+						)
+					);
+					$processUser = posix_getpwuid(posix_geteuid());
+					$from = !empty($vm['general']['serveremail']) ? $vm['general']['serveremail'] : $processUser['name'].'@'.gethostname();
+					foreach($emailInfo as &$einfo) {
+						$einfo['body'] = str_replace(array(
 							'${VM_NAME}',
 							'${VM_MAILBOX}',
 							'${VM_CALLERID}',
 							'${VM_DUR}',
-							'${VM_DATE}'
+							'${VM_DATE}',
+							'${VM_MSGNUM}'
 						),
 						array(
 							$toVM['name'],
 							$to,
 							$info['callerid'],
 							$info['duration'],
-							$info['origdate']
-						),$vm['general']['emailbody']);
+							$info['origdate'],
+							$info['msg_id']
+						),$einfo['body']);
 
-						if(!empty($toVM['email'])) {
-							$em = new \CI_Email();
-							if($toVM['attach'] == "yes") {
-								$em->attach($info['path']."/".$info['file']);
-							}
-							$em->from($from);
-							$em->to($toVM['email']);
-							$em->subject($vm['general']['emailsubject']);
-							$em->message($body);
-							$em->send();
+						$einfo['subject'] = str_replace(array(
+							'${VM_NAME}',
+							'${VM_MAILBOX}',
+							'${VM_CALLERID}',
+							'${VM_DUR}',
+							'${VM_DATE}',
+							'${VM_MSGNUM}'
+						),
+						array(
+							$toVM['name'],
+							$to,
+							$info['callerid'],
+							$info['duration'],
+							$info['origdate'],
+							$info['msg_id']
+						),$einfo['subject']);
+					}
+
+					if(!empty($toVM['email'])) {
+						$em = new \CI_Email();
+						if($toVM['attach'] == "yes") {
+							$em->attach($info['path']."/".$info['file']);
 						}
-						if(!empty($toVM['pager'])) {
-							$em = new \CI_Email();
-							$em->from($from);
-							$em->to($toVM['email']);
-							$em->subject($vm['general']['emailsubject']);
-							$em->message($body);
-							$em->send();
-						}
+						$em->from($from, $emailInfo['normal']['fromstring']);
+						$em->to($toVM['email']);
+						$em->subject($emailInfo['normal']['subject']);
+						$em->message($emailInfo['normal']['body']);
+						$em->send();
+					}
+					if(!empty($toVM['pager'])) {
+						$em = new \CI_Email();
+						$em->from($from, $emailInfo['pager']['fromstring']);
+						$em->to($toVM['email']);
+						$em->subject($emailInfo['pager']['subject']);
+						$em->message($emailInfo['pager']['body']);
+						$em->send();
 					}
 					if($toVM['delete'] == "yes") {
 						//now delete the voicemail wtf.
@@ -930,7 +963,6 @@ class Voicemail implements \BMO {
 					}
 					//Just for sanity sakes recheck the directories hopefully this doesnt take hours though.
 					$this->renumberAllMessages($toFolder);
-					//TODO: Probably send an email to $to, however that was never done in the past?
 				}
 			}
 		}
