@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-11 13:20-0400\n"
+"POT-Creation-Date: 2015-09-28 09:36-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1700,7 +1700,7 @@ msgstr ""
 msgid "Voicemail was empty: %s"
 msgstr ""
 
-#: Voicemail.class.php:683
+#: Voicemail.class.php:732
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
