@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - voicemail module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-28 09:36-0700\n"
+"POT-Creation-Date: 2015-09-28 10:43-0700\n"
 "PO-Revision-Date: 2015-04-27 23:25+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -1867,7 +1867,7 @@ msgstr "Correo de Voz no movido a %s"
 msgid "Voicemail was empty: %s"
 msgstr "Correo de Voz estaba vacío: %s"
 
-#: Voicemail.class.php:732
+#: Voicemail.class.php:764
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "

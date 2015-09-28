@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePbx 2.5.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-28 09:36-0700\n"
+"POT-Creation-Date: 2015-09-28 10:43-0700\n"
 "PO-Revision-Date: 2015-05-02 20:35+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -1742,7 +1742,7 @@ msgstr ""
 msgid "Voicemail was empty: %s"
 msgstr ""
 
-#: Voicemail.class.php:732
+#: Voicemail.class.php:764
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
