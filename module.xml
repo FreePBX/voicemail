@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.18</version>
+	<version>13.0.19</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.19* Use proper reload when in UCP
 		*13.0.18* FREEPBX-9855 remove features that are no longer in voicemail			
 		*13.0.17* FREEPBX-8275 Send email when forwarding if setup
 		*13.0.16* Fix permission management in User Manager
