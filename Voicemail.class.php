@@ -398,6 +398,7 @@ class Voicemail implements \BMO {
 				if(file_exists($toFolder) && is_writable($toFolder)) {
 					$files = array();
 					$files[] = $txt;
+					$movedFiles = array();
 					foreach($info['format'] as $format) {
 						if(file_exists($format['path']."/".$format['filename'])) {
 							$files[] = $format['path']."/".$format['filename'];
@@ -405,10 +406,12 @@ class Voicemail implements \BMO {
 					}
 					//if the folder is empty (meaning we dont have a 0000 file) then set this to 0000
 					$tname = preg_replace('/([0-9]+)/','0000',basename($txt));
+					$vminfotxt = '';
 					if(!file_exists($toFolder."/".$tname)) {
 						foreach($files as $file) {
 							$fname = preg_replace('/msg([0-9]+)/','msg0000',basename($file));
 							copy($file, $toFolder."/".$fname);
+							$movedFiles[] = $toFolder."/".$fname
 						}
 					} else {
 						//Else we have other voicemail data in here so do something else
@@ -427,6 +430,52 @@ class Voicemail implements \BMO {
 						foreach($files as $file) {
 							$fname = preg_replace('/msg([0-9]+)/',"msg".$next,basename($file));
 							copy($file, $toFolder."/".$fname);
+							$movedFiles[] = $toFolder."/".$fname
+						}
+					}
+
+					//send email from/to new mailbox
+					$vm = $this->FreePBX->LoadConfig->getConfig("voicemail.conf");
+					if(isset($vm['general']['emailbody']) && isset($vm['general']['emailsubject'])) {
+						$body = str_replace(array(
+							'${VM_NAME}',
+							'${VM_MAILBOX}',
+							'${VM_CALLERID}',
+							'${VM_DUR}',
+							'${VM_DATE}'
+						),
+						array(
+							$toVM['name'],
+							$to,
+							$info['callerid'],
+							$info['duration'],
+							$info['origdate']
+						),$vm['general']['emailbody']);
+
+						if(!empty($toVM['email'])) {
+							$em = new \CI_Email();
+							if($toVM['attach'] == "yes") {
+								$em->attach($info['path']."/".$info['file']);
+							}
+							$em->from($from);
+							$em->to($toVM['email']);
+							$em->subject($vm['general']['emailsubject']);
+							$em->message($body);
+							$em->send();
+						}
+						if(!empty($toVM['pager'])) {
+							$em = new \CI_Email();
+							$em->from($from);
+							$em->to($toVM['email']);
+							$em->subject($vm['general']['emailsubject']);
+							$em->message($body);
+							$em->send();
+						}
+					}
+					if($toVM['delete'] == "yes") {
+						//now delete the voicemail wtf.
+						foreach($movedFiles as $file) {
+							unlink($file);
 						}
 					}
 					//Just for sanity sakes recheck the directories hopefully this doesnt take hours though.
