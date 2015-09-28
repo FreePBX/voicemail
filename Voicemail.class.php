@@ -764,7 +764,7 @@ class Voicemail implements \BMO {
 			$vmconf[$context][$ext]['options']['attach'] = ($attach) ? 'yes' : 'no';
 			$vmconf[$context][$ext]['options']['delete'] = ($delete) ? 'yes' : 'no';
 			$this->saveVoicemail($vmconf);
-			$this->astman->Reload("voicemail");
+			$this->astman->Command("voicemail reload");
 			return true;
 		}
 		return false;
