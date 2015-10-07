@@ -2,6 +2,32 @@
 	<?php if(!empty($message)) { ?>
 		<div class="alert alert-<?php echo $message['type']?>"><?php echo $message['message']?></div>
 	<?php } ?>
+	<table id="fax-grid"
+				data-url="index.php?quietmode=1&amp;module=voicemail&amp;command=grid&amp;folder=<?php echo $folder?>&amp;ext=<?php echo $ext?>"
+				data-cache="false"
+				data-state-save="true"
+				data-state-save-id-table="ucp-fax-table"
+				data-maintain-selected="true"
+				data-show-columns="true"
+				data-show-toggle="true"
+				data-toggle="table"
+				data-pagination="true"
+				data-side-pagination="server"
+				data-unique-id="msg_id"
+				data-show-refresh="true"
+				class="table table-hover table-bordered cdr-table">
+		<thead>
+						<tr class="message-header">
+						<th data-field="origtime" data-formatter="UCP.Modules.Voicemail.dateFormatter"><?php echo _("Date")?></th>
+						<th data-field="callerid"><?php echo _("CID")?></th>
+						<th data-field="playback" data-formatter="UCP.Modules.Voicemail.playbackFormatter"><?php echo _("Playback")?></th>
+						<th data-field="duration" data-formatter="UCP.Modules.Voicemail.durationFormatter"><?php echo _("Duration")?></th>
+						<th data-field="controls" data-formatter="UCP.Modules.Voicemail.controlFormatter"><?php echo _("Controls")?></th>
+				</tr>
+		</thead>
+</table>
+</div>
+<!--
 	<div class="row">
 		<div class="col-sm-12">
 			<?php echo $pagnation;?>
@@ -40,7 +66,6 @@
 							<a class="delete" alt="<?php echo _('Delete');?>" data-id="<?php echo $message['msg_id']?>">
 								<i class="fa fa-trash-o"></i>
 							</a>
-							<!--preload-->
 							<img class="hidden" src="modules/Voicemail/assets/images/pause_control.png">
 						</div>
 					</td>
@@ -98,3 +123,4 @@
 		</div>
 	</div>
 </div>
+-->

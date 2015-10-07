@@ -98,6 +98,7 @@ class Voicemail extends Modules{
 				}
 				$c = $folders[$reqFolder]['count'];
 				$displayvars['messages'] = $final;
+				$displayvars['folder'] = $reqFolder;
 				$totalPages = (ceil($c/$this->limit) > 0) ? ceil($c/$this->limit) : 1;
 				$displayvars['pagnation'] = $this->UCP->Template->generatePagnation($totalPages,$page,"?display=dashboard&mod=voicemail&sub=".$ext."&folder=".$reqFolder."&view=folder",$this->break);
 				$mainDisplay = $this->load_view(__DIR__.'/views/mailbox.php',$displayvars);
@@ -149,6 +150,7 @@ class Voicemail extends Modules{
 	*/
 	function ajaxRequest($command, $settings) {
 		switch($command) {
+			case 'grid':
 			case 'download':
 			case 'listen':
 			case 'moveToFolder':
@@ -184,6 +186,22 @@ class Voicemail extends Modules{
 	function ajaxHandler() {
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
+			case 'grid':
+
+
+				$folder = $_REQUEST['folder'];
+				$limit = $_REQUEST['limit'];
+				$order = $_REQUEST['order'];
+				$orderby = $_REQUEST['sort'];
+				$ext = $_REQUEST['ext'];
+				$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : "";
+				$offset = $_REQUEST['offset'];
+				$data = $this->UCP->FreePBX->Voicemail->getMessagesByExtensionFolder($ext,$folder,$offset,$limit);
+				return array(
+					"total" => $this->UCP->FreePBX->Voicemail->getMessagesCountByExtensionFolder($ext,$folder),
+					"rows" => $data['messages']
+				);
+			break;
 			case 'callme':
 				$validUsers = array();
 				$users = $this->UCP->FreePBX->Voicemail->getUsersList(true);

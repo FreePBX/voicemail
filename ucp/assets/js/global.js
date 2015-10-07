@@ -196,7 +196,7 @@ var VoicemailC = UCPMC.extend({
 			$this.deleteGreeting(id);
 		});
 		//Nothing on this page will really work without drag and drop at this point
-		if (Modernizr.draganddrop) {
+		if (true) {
 			/* MailBox Binds */
 			$this.enableDrags();
 
@@ -324,7 +324,7 @@ var VoicemailC = UCPMC.extend({
 			/** END GREETING BINDS **/
 		} else {
 			// Fallback to a library solution?
-			alert(_("You have No Drag/Drop Support!"));
+			//alert(_("You have No Drag/Drop Support!"));
 
 		}
 		//clear old binds
@@ -841,5 +841,17 @@ var VoicemailC = UCPMC.extend({
 	//This function is here solely because firefox caches media downloads so we have to force it to not do that
 	generateRandom: function() {
 		return Math.round(new Date().getTime() / 1000);
+	},
+	dateFormatter: function(value, row, index) {
+		return UCP.dateFormatter(value);
+	},
+	playbackFormatter: function (value, row, index) {
+		return '';
+	},
+	durationFormatter: function (value, row, index) {
+		return sprintf(_("%s seconds"),value);
+	},
+	controlFormatter: function (value, row, index) {
+		return '';
 	}
 });
