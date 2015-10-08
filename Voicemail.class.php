@@ -589,31 +589,6 @@ class Voicemail implements \BMO {
 	}
 
 	/**
-	 * Query the audio file and make sure it's actually audio
-	 * @param string $file The full file path to check
-	 */
-	public function queryAudio($file) {
-		if(!file_exists($file) || !is_readable($file)) {
-			return false;
-		}
-		if(in_array($file,$this->validFiles)) {
-			return true;
-		}
-		$last = exec('sox '.$file.' -n stat 2>&1',$output,$ret);
-		if($ret > 0 || preg_match('/not sound/',$last)) {
-			return false;
-		}
-		$data = array();
-		foreach($output as $o) {
-			$parts = explode(":",$o);
-			$key = preg_replace("/\W/","",$parts[0]);
-			$data[$key] = trim($parts[1]);
-		}
-		$this->validFiles[] = $file;
-		return $data;
-	}
-
-	/**
 	 * Delete vm greeting from system
 	 * @param int $ext  The voicemail extension
 	 * @param string $type the type to remove
@@ -1122,35 +1097,6 @@ class Voicemail implements \BMO {
 	}
 
 	/**
-	 * Read Message Binary Data by message ID
-	 * Used during playback to intercommunicate with UCP
-	 * @param string  $msgid  The message ID
-	 * @param int  $ext    The voicemail extension
-	 * @param string  $format The format of the file to use
-	 * @param int $start  The starting byte position
-	 * @param int $buffer The buffer size to pass
-	 */
-	public function readMessageBinaryByMessageIDExtension($msgid,$ext,$format,$start=0,$buffer=8192) {
-		$message = $this->getMessageByMessageIDExtension($msgid,$ext);
-		$fpath = $message['format'][$format]['path']."/".$message['format'][$format]['filename'];
-		if(!empty($message) && !empty($message['format'][$format]) && $this->queryAudio($fpath)) {
-			$end = $message['format'][$format]['length'] - 1;
-			$fp = fopen($fpath, "rb");
-			fseek($fp, $start);
-			if(!feof($fp) && ($p = ftell($fp)) <= $end) {
-				if ($p + $buffer > $end) {
-					$buffer = $end - $p + 1;
-				}
-				$contents = fread($fp, $buffer);
-				fclose($fp);
-				return $contents;
-			}
-			fclose($fp);
-		}
-		return false;
-	}
-
-	/**
 	 * Get all messages for an extension
 	 * @param int $extension The voicemail extension
 	 */
@@ -1238,7 +1184,7 @@ class Voicemail implements \BMO {
 			return strcmp($a[$orderby],$b[$orderby]);
 		});
 		$aMsgs['messages'] = array_values($aMsgs['messages']);
-		$aMsgs['messages'] = ($order == 'desc') ? array_reverse($aMsgs['messages']) : $aMsgs['messages'];
+		$aMsgs['messages'] = ($order == 'asc') ? array_reverse($aMsgs['messages']) : $aMsgs['messages'];
 		$out = array();
 		for($i=$start;$i<($start+$limit);$i++) {
 			if(empty($aMsgs['messages'][$i])) {

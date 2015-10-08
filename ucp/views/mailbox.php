@@ -38,6 +38,8 @@
 				data-show-columns="true"
 				data-show-toggle="true"
 				data-toggle="table"
+				data-sort-order="desc"
+				data-sort-name="origtime"
 				data-pagination="true"
 				data-side-pagination="server"
 				data-unique-id="msg_id"
