@@ -7,40 +7,38 @@
 			<div class="col-md-6">
 				<div id="<?php echo $greeting?>" class="greeting-control">
 					<h4><?php echo _($name)?></h4>
-					<div id="freepbx_player_<?php echo $greeting?>" class="jp-jplayer"></div>
-					<div id="freepbx_player_<?php echo $greeting?>_1" data-type="<?php echo $greeting?>" class="jp-audio <?php echo !isset($greetings[$greeting]) ? 'greet-hidden' : ''?>" draggable="true">
-					    <div class="jp-type-single">
-					        <div class="jp-gui jp-interface">
-					            <ul class="jp-controls">
-					                <li class="jp-play-wrapper"><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
-					                <li class="jp-pause-wrapper"><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
-					                <li class="jp-stop-wrapper"><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
-													<li class="jp-record-wrapper"><a data-id="<?php echo $greeting?>" class="jp-record" tabindex="1">record</a></li>
-					                <li class="jp-mute-wrapper"><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
-					                <li class="jp-unmute-wrapper"><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
-					                <li class="jp-volume-max-wrapper"><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
-					            </ul>
-					            <div class="jp-progress">
-					                <div class="jp-seek-bar">
-					                    <div class="jp-play-bar"></div>
-					                </div>
-					            </div>
-					            <div class="jp-volume-bar">
-					                <div class="jp-volume-bar-value"></div>
-					            </div>
-					            <div class="jp-current-time"></div>
-					            <div class="jp-duration"></div>
-						        <div class="jp-title">
-						            <ul>
-						                <li class="title-text" data-title="<?php echo _($name)?>"><?php echo _($name)?></li>
-						            </ul>
-						        </div>
-					        </div>
-					        <div class="jp-no-solution">
-					            <span><?php echo _('Update Required')?></span>
-					            <?php echo sprintf(_('To play the media you will need to either update your browser to a recent version or update your %s'),'<a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>')?>.
-					        </div>
-					    </div>
+					<div id="freepbx_player_<?php echo $greeting?>" data-id="<?php echo $greeting?>" data-container="#jp_container_<?php echo $greeting?>" class="jp-jplayer"></div>
+					<div id="jp_container_<?php echo $greeting?>" data-player="freepbx_player_<?php echo $greeting?>" data-type="<?php echo $greeting?>" class="jp-audio-freepbx <?php echo !isset($greetings[$greeting]) ? 'greet-hidden' : ''?>" draggable="true" role="application" aria-label="media player">
+						<div class="jp-type-single">
+							<div class="jp-gui jp-interface">
+								<div class="jp-controls">
+									<i class="fa fa-play jp-play"></i>
+									<i class="fa fa-circle jp-record" data-id="<?php echo $greeting?>"></i>
+								</div>
+								<div class="jp-progress">
+									<div class="jp-seek-bar progress">
+										<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+										<div class="progress-bar progress-bar-striped active" style="width: 100%;"></div>
+										<div class="jp-play-bar progress-bar"></div>
+										<div class="jp-play-bar">
+											<div class="jp-ball"></div>
+										</div>
+										<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+									</div>
+								</div>
+								<div class="jp-volume-controls">
+									<i class="fa fa-volume-up jp-mute"></i>
+									<i class="fa fa-volume-off jp-unmute"></i>
+								</div>
+							</div>
+							<div class="jp-details">
+								<div class="jp-title" aria-label="title" data-title="<?php echo _($name)?>"><?php echo _($name)?></div>
+							</div>
+							<div class="jp-no-solution">
+								<span><?php echo _("Update Required")?></span>
+								<?php echo sprintf(_("To play the media you will need to either update your browser to a recent version or update your %s"),'<a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>')?>
+							</div>
+						</div>
 					</div>
 					<div class="file-controls">
 						<span class="btn btn-file btn-success btn-xs"><i class="fa fa-cloud-upload"></i> <?php echo _('Upload Greeting')?><input type="file" type="file" name="files[]" multiple /></span>

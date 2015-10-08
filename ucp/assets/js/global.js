@@ -79,12 +79,10 @@ var VoicemailC = UCPMC.extend({
 			if ($("#voicemail-badge").html() < data.total) {
 				notify = data.total - $("#voicemail-badge").html();
 			}
-			$("#voicemail-badge").html(data.total);
 			$.each( data.boxes, function( extension, messages ) {
 				if ($("#voicemail-" + extension + "-badge").html() < messages) {
 					notify = (messages - $("#voicemail-badge").html()) + notify;
 				}
-				$("#voicemail-" + extension + "-badge").html(messages);
 			});
 			voicemailNotification = new Notify("Voicemail", {
 				body: sprintf(_("You Have %s New Voicemail"), notify),
@@ -94,8 +92,8 @@ var VoicemailC = UCPMC.extend({
 				if (UCP.notify) {
 					voicemailNotification.show();
 				}
-				//reload the page
-				$(".mailbox .folder-list .folder.active a").click();
+				this.refreshFolderCount();
+				$('#voicemail-grid').bootstrapTable('refresh');
 			}
 		}
 	},
@@ -112,38 +110,143 @@ var VoicemailC = UCPMC.extend({
 			$(".record-greeting-btn").show();
 		}
 
-		$(".clickable").click(function(e) {
-			var text = $(this).text();
-			if (UCP.validMethod("Contactmanager", "showActionDialog")) {
-				UCP.Modules.Contactmanager.showActionDialog("number", text, "phone");
+		if($.url().param("view") == "greetings") {
+			$this.bindPlayers(Modernizr.getusermedia);
+		}
+
+		$('#voicemail-grid').on("post-body.bs.table", function () {
+			$this.bindPlayers();
+			$("#voicemail-grid a.listen").click(function() {
+				var id = $(this).data("id"), select = null;
+				$.each(mailboxes, function(i,v) {
+					select = select + "<option value='"+v+"'>"+v+"</option>";
+				});
+				UCP.showDialog(_("Listen to Voicemail"),
+					_("On") + ":</label><select class=\"form-control\" id=\"VMto\">"+select+"</select><button class=\"btn btn-default\" id=\"listenVM\" style=\"margin-left: 72px;\">" + _("Listen") + "</button>",
+					145,
+					250,
+					function() {
+						$("#listenVM").click(function() {
+							var recpt = $("#VMto").val();
+							$this.listenVoicemail(id,recpt);
+						});
+						$("#VMto").keypress(function(event) {
+							if (event.keyCode == 13) {
+								var recpt = $("#VMto").val();
+								$this.listenVoicemail(id,recpt);
+							}
+						});
+					}
+				);
+			});
+			$("#voicemail-grid a.forward").click(function() {
+				var id = $(this).data("id");
+				UCP.showDialog(_("Forward Voicemail"),
+					_("To")+":</label><select class=\"form-control Fill\" id=\"VMto\"></select><button class=\"btn btn-default\" id=\"forwardVM\" style=\"margin-left: 72px;\">" + _("Forward") + "</button>",
+					145,
+					250,
+					function() {
+						$("#VMto").tokenize({
+							newElements: false,
+							maxElements: 1,
+							datas: "index.php?quietmode=1&module=voicemail&command=forwards&ext="+extension
+						});
+						$("#forwardVM").click(function() {
+							setTimeout(function() {
+								var recpt = $("#VMto").val()[0];
+								$this.forwardVoicemail(id,recpt);
+							}, 50);
+						});
+						$("#VMto").keypress(function(event) {
+							if (event.keyCode == 13) {
+								setTimeout(function() {
+									var recpt = $("#VMto").val()[0];
+									$this.forwardVoicemail(id,recpt);
+								}, 50);
+							}
+						});
+					}
+				);
+			});
+			$("#voicemail-grid a.delete").click(function() {
+				var id = $(this).data("id");
+				if (confirm(_("Are you sure you wish to delete this voicemail?"))) {
+					$this.deleteVoicemail(id);
+				}
+			});
+		});
+		$('#voicemail-grid').on("check.bs.table uncheck.bs.table", function () {
+			var sel = $(this).bootstrapTable('getAllSelections'),
+					dis = true;
+			if(sel.length) {
+				dis = false;
 			}
+			$("#delete-selection").prop("disabled",dis);
+			$("#forward-selection").prop("disabled",dis);
+			$("#move-selection").prop("disabled",dis);
 		});
 
-		$(".vm-message a.listen").click(function() {
-			var id = $(this).data("id"), select = null;
-			$.each(mailboxes, function(i,v) {
-				select = select + "<option value='"+v+"'>"+v+"</option>";
+		$("#move-selection").click(function() {
+			var opts = '', cur = $.url().param("folder"), sel = $('#voicemail-grid').bootstrapTable('getAllSelections');
+			$.each($(".folder-list .folder"), function(i, v){
+				var folder = $(v).data("folder");
+				if(folder != cur) {
+					opts += '<option>'+$(v).data("name")+'</option>';
+				}
 			});
-			UCP.showDialog(_("Listen to Voicemail"),
-				_("On") + ":</label><select class=\"form-control\" id=\"VMto\">"+select+"</select><button class=\"btn btn-default\" id=\"listenVM\" style=\"margin-left: 72px;\">" + _("Listen") + "</button>",
+			UCP.showDialog(_("Move Voicemail"),
+				_("To")+":</label><select class=\"form-control\" id=\"VMmove\">"+opts+"</select><button class=\"btn btn-default\" id=\"moveVM\" style=\"margin-left: 72px;\">" + _("Move") + "</button>",
 				145,
 				250,
 				function() {
-					$("#listenVM").click(function() {
-						var recpt = $("#VMto").val();
-						$this.listenVoicemail(id,recpt);
+					var total = sel.length, processed = 0;
+					$("#moveVM").click(function() {
+						$.each(sel, function(i, v){
+							$this.moveVoicemail(v.msg_id, $("#VMmove").val(), extension, function(data) {
+								if(data.status) {
+									$('#voicemail-grid').bootstrapTable('hideRow', {index: v.msg_id, isIdField: true});
+								}
+								processed++;
+								if(processed == total) {
+									UCP.closeDialog();
+								}
+							});
+						});
 					});
-					$("#VMto").keypress(function(event) {
+					$("#VMmove").keypress(function(event) {
 						if (event.keyCode == 13) {
-							var recpt = $("#VMto").val();
-							$this.listenVoicemail(id,recpt);
+							$.each(sel, function(i, v){
+								$this.moveVoicemail(v.msg_id, $("#VMmove").val(), extension, function(data) {
+									if(data.status) {
+										$('#voicemail-grid').bootstrapTable('hideRow', {index: v.msg_id, isIdField: true});
+									}
+									processed++;
+									if(processed == total) {
+										UCP.closeDialog();
+									}
+								});
+							});
 						}
 					});
 				}
 			);
 		});
-		$(".vm-message a.forward").click(function() {
-			var id = $(this).data("id");
+		$("#delete-selection").click(function() {
+			if (confirm(_("Are you sure you wish to delete this voicemail?"))) {
+				var sel = $('#voicemail-grid').bootstrapTable('getAllSelections');
+				$.each(sel, function(i, v){
+					$this.deleteVoicemail(v.msg_id, function(data) {
+						if(data.status) {
+							$('#voicemail-grid').bootstrapTable('hideRow', {index: v.msg_id, isIdField: true});
+						}
+					});
+				});
+				$('#voicemail-grid').bootstrapTable('refresh');
+				$("#delete-selection").prop("disabled",true);
+			}
+		});
+		$("#forward-selection").click(function() {
+			var sel = $('#voicemail-grid').bootstrapTable('getAllSelections');
 			UCP.showDialog(_("Forward Voicemail"),
 				_("To")+":</label><select class=\"form-control Fill\" id=\"VMto\"></select><button class=\"btn btn-default\" id=\"forwardVM\" style=\"margin-left: 72px;\">" + _("Forward") + "</button>",
 				145,
@@ -157,27 +260,32 @@ var VoicemailC = UCPMC.extend({
 					$("#forwardVM").click(function() {
 						setTimeout(function() {
 							var recpt = $("#VMto").val()[0];
-							$this.forwardVoicemail(id,recpt);
+							$.each(sel, function(i, v){
+								$this.forwardVoicemail(v.msg_id,recpt);
+							});
 						}, 50);
 					});
 					$("#VMto").keypress(function(event) {
 						if (event.keyCode == 13) {
 							setTimeout(function() {
 								var recpt = $("#VMto").val()[0];
-								$this.forwardVoicemail(id,recpt);
+								$.each(sel, function(i, v){
+									$this.forwardVoicemail(v.msg_id,recpt);
+								});
 							}, 50);
 						}
 					});
 				}
 			);
+			$('#voicemail-grid').bootstrapTable('uncheckAll');
 		});
-		$(".vm-message a.play").click(function() {
-			var id = $(this).data("id");
-			$this.playVoicemail(id);
-		});
-		$(".vm-message a.delete").click(function() {
-			var id = $(this).data("id");
-			$this.deleteVoicemail(id);
+
+
+		$(".clickable").click(function(e) {
+			var text = $(this).text();
+			if (UCP.validMethod("Contactmanager", "showActionDialog")) {
+				UCP.Modules.Contactmanager.showActionDialog("number", text, "phone");
+			}
 		});
 		$(".recording-controls .save").click(function() {
 			var id = $(this).data("id");
@@ -214,7 +322,7 @@ var VoicemailC = UCPMC.extend({
 				$.post( "index.php?quietmode=1&module=voicemail&command=moveToFolder", data, function( data ) {
 					if (data.status) {
 						$(this).removeClass("hover");
-						var dragSrc = $(".message-list .vm-message[data-msg=\"" + msg + "\"]"),
+						var dragSrc = $(".message-list #voicemail-grid[data-msg=\"" + msg + "\"]"),
 						badge = null;
 						dragSrc.remove();
 						$(".vm-temp").remove();
@@ -341,18 +449,6 @@ var VoicemailC = UCPMC.extend({
 		/* END MESSAGE PLAYER BINDS */
 
 		/* GREETING PLAYER BINDS */
-		$("#freepbx_player_unavail").jPlayer({
-			ready: function(event) {
-				$(this).jPlayer( "setMedia", {
-					wav: "?quietmode=1&module=voicemail&command=listen&msgid=unavail&format=wav&ext=" + extension,
-					oga: "?quietmode=1&module=voicemail&command=listen&msgid=unavail&format=oga&ext=" + extension
-				});
-			},
-			swfPath: "assets/js",
-			supplied: supportedMediaFormats,
-			warningAlerts: false,
-			cssSelectorAncestor: "#freepbx_player_unavail_1"
-		});
 		$("#unavail input[type=\"file\"]").fileupload({
 			url: "?quietmode=1&module=voicemail&command=upload&type=unavail&ext=" + extension,
 			dropZone: $("#unavail .filedrop"),
@@ -382,19 +478,6 @@ var VoicemailC = UCPMC.extend({
 				$("#unavail .filedrop").removeClass("hover");
 			}
 		});
-
-		$("#freepbx_player_busy").jPlayer({
-			ready: function(event) {
-				$(this).jPlayer( "setMedia", {
-					wav: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=wav&ext=" + extension + "&rand=" + $this.generateRandom() + "&rand=" + $this.generateRandom(),
-					oga: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=oga&ext=" + extension + "&rand=" + $this.generateRandom() + "&rand=" + $this.generateRandom()
-				});
-			},
-			swfPath: "assets/js",
-			supplied: supportedMediaFormats,
-			warningAlerts: false,
-			cssSelectorAncestor: "#freepbx_player_busy_1"
-		});
 		$("#busy input[type=\"file\"]").fileupload({
 			url: "?quietmode=1&module=voicemail&command=upload&type=busy&ext=" + extension,
 			dropZone: $("#busy .filedrop"),
@@ -423,19 +506,6 @@ var VoicemailC = UCPMC.extend({
 			drop: function(e, data) {
 				$("#busy .filedrop").removeClass("hover");
 			}
-		});
-
-		$("#freepbx_player_greet").jPlayer({
-			ready: function(event) {
-				$(this).jPlayer( "setMedia", {
-					wav: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
-					oga: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
-				});
-			},
-			swfPath: "assets/js",
-			supplied: supportedMediaFormats,
-			warningAlerts: false,
-			cssSelectorAncestor: "#freepbx_player_greet_1"
 		});
 		$("#greet input[type=\"file\"]").fileupload({
 			url: "?quietmode=1&module=voicemail&command=upload&type=greet&ext=" + extension,
@@ -471,18 +541,6 @@ var VoicemailC = UCPMC.extend({
 			}
 		});
 
-		$("#freepbx_player_temp").jPlayer({
-			ready: function(event) {
-				$(this).jPlayer( "setMedia", {
-					wav: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
-					oga: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
-				});
-			},
-			swfPath: "assets/js",
-			supplied: supportedMediaFormats,
-			warningAlerts: false,
-			cssSelectorAncestor: "#freepbx_player_temp_1"
-		});
 		$("#temp input[type=\"file\"]").fileupload({
 			url: "?quietmode=1&module=voicemail&command=upload&type=temp&ext=" + extension,
 			dropZone: $("#temp .filedrop"),
@@ -527,14 +585,8 @@ var VoicemailC = UCPMC.extend({
 		/* end settings changes binds */
 	},
 	hide: function(event) {
-		$(".vm-message a.play").off("click");
-		$(".vm-message a.delete").off("click");
-	},
-	//Added a "No Voicemail Messages Message"
-	CheckNoMessages: function() {
-		if (!$(".vm-message").length) {
-			//TODO: add no messages
-		}
+		$("#voicemail-grid a.play").off("click");
+		$("#voicemail-grid a.delete").off("click");
 	},
 	//Delete a voicemail greeting
 	deleteGreeting: function(type) {
@@ -548,124 +600,57 @@ var VoicemailC = UCPMC.extend({
 			}
 		});
 	},
-	//Used to play a voicemail message
-	playVoicemail: function(msgid) {
-		var player = $("#freepbx_player_" + msgid),
-				cid = $(".vm-message[data-msg=\"" + msgid + "\"] .cid").text(),
-				container = $("#vm_playback_" + msgid),
-				icon = $(".vm-message[data-msg=\"" + msgid + "\"] .play i");
-
-		/* MESSAGE PLAYER BINDS */
-		player.jPlayer({
-			ready: function(event) {},
-			swfPath: "assets/js",
-			supplied: supportedMediaFormats, //this is dynamic from the page
-			warningAlerts: false,
-			cssSelectorAncestor: "#freepbx_container_" + msgid
-		}).bind($.jPlayer.event.loadstart, function(event) {
-			$("#freepbx_container_" + msgid + " .jp-message-window").show();
-			$("#freepbx_container_" + msgid + " .jp-message-window .message").css("color","");
-			$("#freepbx_container_" + msgid + " .jp-seek-bar").css("background", 'url("modules/Cdr/assets/images/jplayer.blue.monday.seeking.gif") 0 0 repeat-x');
-		});
-		//play binds
-
-		player.bind($.jPlayer.event.play, function(event) {
-			icon.removeClass("fa-play").addClass("fa-pause");
-		});
-
-		player.bind($.jPlayer.event.pause, function(event) {
-			icon.removeClass("fa-pause").addClass("fa-play");
-		});
-
-		player.bind($.jPlayer.event.canplay, function(event) {
-			$(".jp-message-window").fadeOut("fast");
-			$("#freepbx_container_" + msgid + " .jp-seek-bar").css("background","");
-		});
-
-		player.bind($.jPlayer.event.error, function(event) {
-			$("#freepbx_container_" + msgid + " .jp-message-window").show();
-			$("#freepbx_container_" + msgid + " .message").text(event.jPlayer.error.message).css("color","red");
-			$("#freepbx_container_" + msgid + " .jp-seek-bar").css("background","");
-		});
-
-		if (this.loaded !== null && this.loaded != msgid) {
-			$("#freepbx_player_" + this.loaded).jPlayer("pause");
-			$("#vm_playback_" + this.loaded).slideUp("fast");
-		}
-
-		this.loaded = msgid;
-
-		if (player.data().jPlayer.status.waitForLoad) {
-			player.jPlayer( "setMedia", {
-				wav: "?quietmode=1&module=voicemail&command=listen&msgid=" + msgid + "&format=wav&ext=" + extension,
-				oga: "?quietmode=1&module=voicemail&command=listen&msgid=" + msgid + "&format=oga&ext=" + extension
-			});
-			if (container.is(":hidden")) {
-				$("#freepbx_container_" + msgid + " .title-text").text(cid);
-				container.slideDown(function(event) {
-					player.jPlayer("play");
-					icon.removeClass("fa-play").addClass("fa-pause");
+	refreshFolderCount: function() {
+		var data = {
+			ext: extension
+		};
+		$.post( "index.php?quietmode=1&module=voicemail&command=refreshfoldercount", data, function( data ) {
+			if(data.status) {
+				$.each(data.folders, function(i,v) {
+					$(".mailbox .folder-list .folder[data-name='"+v.folder+"'] .badge").text(v.count);
 				});
-			} else {
-				player.jPlayer("play", 0);
-				icon.removeClass("fa-play").addClass("fa-pause");
-				$("#freepbx_container_" + msgid + " .title-text").text(cid);
 			}
-		} else {
-			if (player.data().jPlayer.status.paused) {
-				if (container.is(":hidden")) {
-					$("#freepbx_container_" + msgid + " .title-text").text(cid);
-					container.slideDown(function(event) {
-						player.jPlayer("play", 0);
-						icon.removeClass("fa-play").addClass("fa-pause");
-					});
-				} else {
-					player.jPlayer("play");
-				}
-			} else {
-				player.jPlayer("pause");
-			}
-		}
-	},
-	listenVoicemail: function(msgid, recpt) {
-		var data = {
-			id: msgid,
-			to: recpt
-		};
-		$.post( "index.php?quietmode=1&module=voicemail&command=callme&ext="+extension, data, function( data ) {
-			UCP.closeDialog();
 		});
 	},
-	forwardVoicemail: function(msgid, recpt) {
+	moveVoicemail: function(msgid, folder, extension, callback) {
+		var data = {
+			msg: msgid,
+			folder: folder,
+			ext: extension
+		},
+		$this = this;
+		$.post( "index.php?quietmode=1&module=voicemail&command=moveToFolder", data, function(data) {
+			$this.refreshFolderCount();
+			if(typeof callback === "function") {
+				callback(data);
+			}
+		});
+	},
+	forwardVoicemail: function(msgid, recpt, callback) {
 		var data = {
 			id: msgid,
 			to: recpt
 		};
-		$.post( "index.php?quietmode=1&module=voicemail&command=forward&ext="+extension, data, function( data ) {
-			UCP.closeDialog();
+		$.post( "index.php?quietmode=1&module=voicemail&command=forward&ext="+extension, data, function(data) {
+			if(typeof callback === "function") {
+				callback(data);
+			}
 		});
 	},
 	//Used to delete a voicemail message
-	deleteVoicemail: function(msgid) {
-		var $this = this,
-				player = $("#freepbx_player"),
-				data = { msg: msgid, ext: extension };
-		if (confirm(_("Are you sure you wish to delete this voicemail?"))) {
-			$.post( "index.php?quietmode=1&module=voicemail&command=delete", data, function( data ) {
-				if (data.status) {
-					$(".vm-message[data-msg=\"" + msgid + "\"]").fadeOut("fast", function() {
-						$this.CheckNoMessages();
-					});
-					$("#vm_playback_" + msgid).fadeOut("fast");
-					var num = $(".mailbox .folder-list .folder.active .badge").text();
-					$(".mailbox .folder-list .folder.active .badge").text(num - 1);
-					num = $("#voicemail-badge").text();
-					$("#voicemail-badge").text(num - 1);
-				} else {
-					return false;
-				}
-			});
-		}
+	deleteVoicemail: function(msgid, callback) {
+		var data = {
+			msg: msgid,
+			ext: extension
+		},
+		$this = this;
+
+		$.post( "index.php?quietmode=1&module=voicemail&command=delete", data, function( data ) {
+			$this.refreshFolderCount();
+			if(typeof callback === "function") {
+				callback(data);
+			}
+		});
 	},
 	//Toggle the html5 player for greeting
 	toggleGreeting: function(type, visible) {
@@ -703,18 +688,18 @@ var VoicemailC = UCPMC.extend({
 	},
 	//Enables all draggable elements
 	enableDrags: function() {
-		$(".mailbox .vm-message").on("drop", function(event) {
+		$(".mailbox #voicemail-grid").on("drop", function(event) {
 		});
-		$(".mailbox .vm-message").on("dragstart", function(event) {
+		$(".mailbox #voicemail-grid").on("dragstart", function(event) {
 			$(this).fadeTo( "fast", 0.5);
 			event.originalEvent.dataTransfer.effectAllowed = "move";
 			event.originalEvent.dataTransfer.setData("msg", $(this).data("msg"));
 		});
-		$(".mailbox .vm-message").on("dragend", function(event) {
+		$(".mailbox #voicemail-grid").on("dragend", function(event) {
 			$(".vm-temp").remove();
 			$(this).fadeTo( "fast", 1.0);
 		});
-		$(".mailbox .vm-message").on("dragenter", function(event) {
+		$(".mailbox #voicemail-grid").on("dragenter", function(event) {
 		});
 	},
 	recordGreeting: function(type) {
@@ -723,10 +708,12 @@ var VoicemailC = UCPMC.extend({
 			alert(_("Direct Media Recording is Unsupported in your Broswer!"));
 			return false;
 		}
-		counter = $("#" + type + " .jp-current-time");
-		title = $("#" + type + " .title-text");
+		counter = $("#jp_container_" + type + " .jp-current-time");
+		title = $("#jp_container_" + type + " .title-text");
 		filec = $("#" + type + " .file-controls");
 		recc = $("#" + type + " .recording-controls");
+		var controls = $("#jp_container_" + type + " .jp-controls");
+		controls.toggleClass("recording");
 		if ($this.recording) {
 			clearInterval($this.recordTimer);
 			title.text(_("Recorded Message"));
@@ -740,6 +727,8 @@ var VoicemailC = UCPMC.extend({
 				});
 			});
 			$this.recording = false;
+			recc.show();
+			filec.hide();
 		} else {
 			window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
@@ -760,9 +749,9 @@ var VoicemailC = UCPMC.extend({
 				}, 1000);
 				title.text(_("Recording..."));
 				$this.recording = true;
-				filec.hide();
-				recc.show();
-				$("#" + type + " .jp-audio").slideDown();
+				$("#jp_container_" + type).removeClass("greet-hidden");
+				recc.hide();
+				filec.show();
 			}, function(e) {
 				alert(_("Your Browser Blocked The Recording, Please check your settings"));
 				$this.recording = false;
@@ -770,8 +759,10 @@ var VoicemailC = UCPMC.extend({
 		}
 	},
 	saveRecording: function(type) {
-		var $this = this;
-		title = $("#" + type + " .title-text");
+		var $this = this,
+				filec = $("#" + type + " .file-controls"),
+				recc = $("#" + type + " .recording-controls");
+				title = $("#" + type + " .title-text");
 		if ($this.recording) {
 			alert(_("Stop the Recording First before trying to save"));
 			return false;
@@ -803,37 +794,35 @@ var VoicemailC = UCPMC.extend({
 					$("#" + type + " .filedrop .message").text("Drag a New Greeting Here");
 					$("#" + type + " .filedrop .pbar").css("width", "0%");
 					$this.soundBlobs[type] = null;
+					$("#freepbx_player_" + type).jPlayer("supplied",supportedHTML5);
+					$("#freepbx_player_" + type).jPlayer( "clearMedia" );
+					title.text(title.data("title"));
 					filec.show();
 					recc.hide();
-					$("#freepbx_player_" + type).jPlayer( "clearMedia" );
-					$("#freepbx_player_" + type).jPlayer( "setMedia", {
-						wav: "?quietmode=1&module=voicemail&command=listen&msgid=" + type + "&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
-						oga: "?quietmode=1&module=voicemail&command=listen&msgid=" + type + "&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
-					});
-					title.text(title.data("title"));
 				},
 				error: function() {
 					//error
+					filec.show();
+					recc.hide();
 				}
 			});
 		}
 	},
 	deleteRecording: function(type) {
-		var $this = this;
+		var $this = this,
+				filec = $("#" + type + " .file-controls"),
+				recc = $("#" + type + " .recording-controls");
 		if ($this.recording) {
 			alert(_("Stop the Recording First before trying to delete"));
 			return false;
 		}
 		if ((typeof($this.soundBlobs[type]) !== "undefined") && $this.soundBlobs[type] !== null) {
 			$this.soundBlobs[type] = null;
+			$("#freepbx_player_" + type).jPlayer("supplied",supportedHTML5);
+			$("#freepbx_player_" + type).jPlayer( "clearMedia" );
+			title.text(title.data("title"));
 			filec.show();
 			recc.hide();
-			$("#freepbx_player_" + type).jPlayer( "clearMedia" );
-			$("#freepbx_player_" + type).jPlayer( "setMedia", {
-				wav: "?quietmode=1&module=voicemail&command=listen&msgid=" + type + "&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
-				oga: "?quietmode=1&module=voicemail&command=listen&msgid=" + type + "&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
-			});
-			title.text(title.data("title"));
 		} else {
 			alert(_("There is nothing to delete"));
 		}
@@ -845,13 +834,167 @@ var VoicemailC = UCPMC.extend({
 	dateFormatter: function(value, row, index) {
 		return UCP.dateFormatter(value);
 	},
+	listenVoicemail: function(msgid, recpt) {
+		var data = {
+			id: msgid,
+			to: recpt
+		};
+		$.post( "index.php?quietmode=1&module=voicemail&command=callme&ext="+extension, data, function( data ) {
+			UCP.closeDialog();
+		});
+	},
 	playbackFormatter: function (value, row, index) {
-		return '';
+		if(row.duration === 0) {
+			return '';
+		}
+		return '<div id="jquery_jplayer_'+row.msg_id+'" class="jp-jplayer" data-container="#jp_container_'+row.msg_id+'" data-id="'+row.msg_id+'"></div><div id="jp_container_'+row.msg_id+'" data-player="jquery_jplayer_'+row.msg_id+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
+			'<div class="jp-type-single">'+
+				'<div class="jp-gui jp-interface">'+
+					'<div class="jp-controls">'+
+						'<i class="fa fa-play jp-play"></i>'+
+						'<i class="fa fa-repeat jp-repeat"></i>'+
+					'</div>'+
+					'<div class="jp-progress">'+
+						'<div class="jp-seek-bar progress">'+
+							'<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>'+
+							'<div class="progress-bar progress-bar-striped active" style="width: 100%;"></div>'+
+							'<div class="jp-play-bar progress-bar"></div>'+
+							'<div class="jp-play-bar">'+
+								'<div class="jp-ball"></div>'+
+							'</div>'+
+							'<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>'+
+						'</div>'+
+					'</div>'+
+					'<div class="jp-volume-controls">'+
+						'<i class="fa fa-volume-up jp-mute"></i>'+
+						'<i class="fa fa-volume-off jp-unmute"></i>'+
+					'</div>'+
+				'</div>'+
+				'<div class="jp-no-solution">'+
+					'<span>Update Required</span>'+
+					sprintf(_("You are missing support for playback in this browser. To fully support HTML5 browser playback you will need to install programs that can not be distributed with the PBX. If you'd like to install the binaries needed for these conversions click <a href='%s'>here</a>"),"http://wiki.freepbx.org/display/FOP/Installing+Media+Conversion+Libraries")+
+				'</div>'+
+			'</div>'+
+		'</div>';
 	},
 	durationFormatter: function (value, row, index) {
 		return sprintf(_("%s seconds"),value);
 	},
 	controlFormatter: function (value, row, index) {
-		return '';
+		return '<a class="listen" alt="'+_('Listen on your handset')+'" data-id="'+row.msg_id+'"><i class="fa fa-phone"></i></a>'+
+						'<a class="forward" alt="'+_('Forward')+'" data-id="'+row.msg_id+'"><i class="fa fa-share"></i></a>'+
+						'<a class="download" alt="'+_('Download')+'" href="?quietmode=1&amp;module=voicemail&amp;command=download&amp;msgid='+row.msg_id+'&amp;format=wav&amp;ext='+extension+'" target="_blank"><i class="fa fa-cloud-download"></i></a>'+
+						'<a class="delete" alt="'+_('Delete')+'" data-id="'+row.msg_id+'"><i class="fa fa-trash-o"></i></a>';
+	},
+	bindPlayers: function(getusermedia) {
+		var soundBlob = typeof getusermedia !== "undefined" ? getusermedia : false, $this = this;
+		if(soundBlob) {
+			supportedHTML5 = supportedHTML5.split("wav");
+			if(supportedHTML5.indexOf("wav") === -1) {
+				supportedHTML5.push("wav");
+			}
+			supportedHTML5 = supportedHTML5.join(",");
+		}
+		$(".jp-jplayer").each(function() {
+			var container = $(this).data("container"),
+					player = $(this),
+					msg_id = $(this).data("id");
+			$(this).jPlayer({
+				ready: function() {
+					$(container + " .jp-play").click(function() {
+						if($(this).parents(".jp-controls").hasClass("recording")) {
+							var type = $(this).parents(".jp-audio-freepbx").data("type");
+							$this.recordGreeting(type);
+							return;
+						}
+						if(!player.data("jPlayer").status.srcSet) {
+							$(container).addClass("jp-state-loading");
+							$.ajax({
+								type: 'POST',
+								url: "index.php?quietmode=1",
+								data: {module: "voicemail", command: "gethtml5", msg_id: msg_id, ext: extension},
+								dataType: 'json',
+								timeout: 30000,
+								success: function(data) {
+									if(data.status) {
+										player.on($.jPlayer.event.error, function(event) {
+											$(container).removeClass("jp-state-loading");
+											console.log(event);
+										});
+										player.one($.jPlayer.event.canplay, function(event) {
+											$(container).removeClass("jp-state-loading");
+											player.jPlayer("play");
+										});
+										player.jPlayer( "setMedia", data.files);
+									} else {
+										alert(data.message);
+										$(container).removeClass("jp-state-loading");
+									}
+								}
+							});
+						}
+					});
+				},
+				timeupdate: function(event) {
+					$(container).find(".jp-ball").css("left",event.jPlayer.status.currentPercentAbsolute + "%");
+				},
+				ended: function(event) {
+					$(container).find(".jp-ball").css("left","0%");
+				},
+				swfPath: "/js",
+				supplied: supportedHTML5,
+				cssSelectorAncestor: container,
+				wmode: "window",
+				useStateClassSkin: true,
+				autoBlur: false,
+				keyEnabled: true,
+				remainingDuration: true,
+				toggleDuration: true
+			});
+			$(this).on($.jPlayer.event.play, function(event) {
+				$(this).jPlayer("pauseOthers");
+			});
+		});
+
+		var acontainer = null;
+		$('.jp-play-bar').mousedown(function (e) {
+			acontainer = $(this).parents(".jp-audio-freepbx");
+			updatebar(e.pageX);
+		});
+		$(document).mouseup(function (e) {
+			if (acontainer) {
+				updatebar(e.pageX);
+				acontainer = null;
+			}
+		});
+		$(document).mousemove(function (e) {
+			if (acontainer) {
+				updatebar(e.pageX);
+			}
+		});
+
+		//update Progress Bar control
+		var updatebar = function (x) {
+			var player = $("#" + acontainer.data("player")),
+					progress = acontainer.find('.jp-progress'),
+					maxduration = player.data("jPlayer").status.duration,
+					position = x - progress.offset().left,
+					percentage = 100 * position / progress.width();
+
+			//Check within range
+			if (percentage > 100) {
+				percentage = 100;
+			}
+			if (percentage < 0) {
+				percentage = 0;
+			}
+
+			player.jPlayer("playHead", percentage);
+
+			//Update progress bar and video currenttime
+			acontainer.find('.jp-ball').css('left', percentage+'%');
+			acontainer.find('.jp-play-bar').css('width', percentage + '%');
+			player.jPlayer.currentTime = maxduration * percentage / 100;
+		};
 	}
 });

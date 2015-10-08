@@ -64,7 +64,7 @@ class Voicemail extends Modules{
 		$displayvars['ext'] = $ext;
 		$displayvars['folders'] = $folders;
 
-		$html = "<script>var supportedMediaFormats = '".implode(",",array_keys($this->UCP->FreePBX->Voicemail->supportedFormats))."'; var extension = '".$ext."'; var mailboxes = ".json_encode($this->extensions).";</script>";
+		$html = "<script>var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';var supportedMediaFormats = '".implode(",",array_keys($this->UCP->FreePBX->Voicemail->supportedFormats))."'; var extension = '".$ext."'; var mailboxes = ".json_encode($this->extensions).";</script>";
 		$html .= $this->load_view(__DIR__.'/views/header.php',$displayvars);
 
 		if(!empty($this->UCP->FreePBX->Voicemail->displayMessage['message'])) {
@@ -150,6 +150,8 @@ class Voicemail extends Modules{
 	*/
 	function ajaxRequest($command, $settings) {
 		switch($command) {
+			case "gethtml5":
+			case "playback":
 			case 'grid':
 			case 'download':
 			case 'listen':
@@ -162,6 +164,7 @@ class Voicemail extends Modules{
 			case 'callme':
 			case 'record':
 			case 'forward':
+			case 'refreshfoldercount';
 				return $this->_checkExtension($_REQUEST['ext']);
 			break;
 			case 'vmxsettings':
@@ -186,20 +189,42 @@ class Voicemail extends Modules{
 	function ajaxHandler() {
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
+			case 'refreshfoldercount':
+				$folders = $this->UCP->FreePBX->Voicemail->getFolders();
+				foreach($folders as $folder) {
+					$folders[$folder['folder']]['count'] = $this->UCP->FreePBX->Voicemail->getMessagesCountByExtensionFolder($_REQUEST['ext'],$folder['folder']);
+				}
+				return array("status" => true, "folders" => $folders);
+			break;
+			case 'gethtml5':
+				$media = $this->UCP->FreePBX->Media();
+				$message = $this->UCP->FreePBX->Voicemail->getMessageByMessageIDExtension($_REQUEST['msg_id'],$_REQUEST['ext']);
+				$file = $message['path']."/".$message['file'];
+				if (file_exists($file))	{
+					$media->load($file);
+					$files = $media->generateHTML5();
+					$final = array();
+					foreach($files as $format => $name) {
+						$final[$format] = "index.php?quietmode=1&module=voicemail&command=playback&file=".$name."&ext=".$_REQUEST['ext'];
+					}
+					return array("status" => true, "files" => $final);
+				} else {
+					return array("status" => false, "message" => _("File does not exist"));
+				}
+				break;
+			break;
 			case 'grid':
-
-
 				$folder = $_REQUEST['folder'];
 				$limit = $_REQUEST['limit'];
 				$order = $_REQUEST['order'];
-				$orderby = $_REQUEST['sort'];
+				$orderby = !empty($_REQUEST['sort']) ? $_REQUEST['sort'] : "date";
 				$ext = $_REQUEST['ext'];
 				$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : "";
 				$offset = $_REQUEST['offset'];
 				$data = $this->UCP->FreePBX->Voicemail->getMessagesByExtensionFolder($ext,$folder,$offset,$limit);
 				return array(
 					"total" => $this->UCP->FreePBX->Voicemail->getMessagesCountByExtensionFolder($ext,$folder),
-					"rows" => $data['messages']
+					"rows" => !empty($data['messages']) ? $data['messages'] : array()
 				);
 			break;
 			case 'callme':
@@ -408,18 +433,16 @@ class Voicemail extends Modules{
 	*/
 	function ajaxCustomHandler() {
 		switch($_REQUEST['command']) {
+			case "playback":
+				$media = $this->UCP->FreePBX->Media();
+				$media->getHTML5File($_REQUEST['file']);
+				return true;
+			break;
 			case "download":
 				$msgid = $_REQUEST['msgid'];
 				$format = $_REQUEST['format'];
 				$ext = $_REQUEST['ext'];
 				$this->readRemoteFile($msgid,$ext,$format,true);
-				return true;
-			break;
-			case "listen":
-				$msgid = $_REQUEST['msgid'];
-				$format = $_REQUEST['format'];
-				$ext = $_REQUEST['ext'];
-				$this->readRemoteFile($msgid,$ext,$format);
 				return true;
 			break;
 			default:
