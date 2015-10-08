@@ -93,7 +93,9 @@ var VoicemailC = UCPMC.extend({
 					voicemailNotification.show();
 				}
 				this.refreshFolderCount();
-				$('#voicemail-grid').bootstrapTable('refresh');
+				if(typeof $.cookie('vm-refresh') === "undefined" || $.cookie('vm-refresh') == 1) {
+					$('#voicemail-grid').bootstrapTable('refresh',{silent: true});
+				}
 			}
 		}
 	},
@@ -110,12 +112,26 @@ var VoicemailC = UCPMC.extend({
 			$(".record-greeting-btn").show();
 		}
 
+		$("#vm-refresh").change(function() {
+			if($(this).is(":checked")) {
+				$.cookie('vm-refresh', 1);
+			} else {
+				$.cookie('vm-refresh', 0);
+			}
+		});
+		if(typeof $.cookie('vm-refresh') === "undefined" || $.cookie('vm-refresh') == 1) {
+			$("#vm-refresh").prop("checked",true);
+		} else {
+			$("#vm-refresh").prop("checked",false);
+		}
+
 		if($.url().param("view") == "greetings") {
 			$this.bindPlayers(Modernizr.getusermedia);
 		}
 
 		$('#voicemail-grid').on("post-body.bs.table", function () {
 			$this.bindPlayers();
+			$this.enableDrags();
 			$("#voicemail-grid a.listen").click(function() {
 				var id = $(this).data("id"), select = null;
 				$.each(mailboxes, function(i,v) {
@@ -175,7 +191,7 @@ var VoicemailC = UCPMC.extend({
 				}
 			});
 		});
-		$('#voicemail-grid').on("check.bs.table uncheck.bs.table", function () {
+		$('#voicemail-grid').on("check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table", function () {
 			var sel = $(this).bootstrapTable('getAllSelections'),
 					dis = true;
 			if(sel.length) {
@@ -232,7 +248,7 @@ var VoicemailC = UCPMC.extend({
 			);
 		});
 		$("#delete-selection").click(function() {
-			if (confirm(_("Are you sure you wish to delete this voicemail?"))) {
+			if (confirm(_("Are you sure you wish to delete these voicemails?"))) {
 				var sel = $('#voicemail-grid').bootstrapTable('getAllSelections');
 				$.each(sel, function(i, v){
 					$this.deleteVoicemail(v.msg_id, function(data) {
@@ -277,6 +293,7 @@ var VoicemailC = UCPMC.extend({
 					});
 				}
 			);
+			$("#forward-selection").prop("disabled",true);
 			$('#voicemail-grid').bootstrapTable('uncheckAll');
 		});
 
@@ -305,9 +322,6 @@ var VoicemailC = UCPMC.extend({
 		});
 		//Nothing on this page will really work without drag and drop at this point
 		if (true) {
-			/* MailBox Binds */
-			$this.enableDrags();
-
 			//Bind to the mailbox folders, listen for a drop
 			$(".mailbox .folder-list .folder").on("drop", function(event) {
 				if (event.stopPropagation) {
@@ -363,12 +377,12 @@ var VoicemailC = UCPMC.extend({
 
 			/** START GREETING BINDS **/
 			//Bind to drag start for the html5 audio element
-			$(".greeting-control .jp-audio").on("dragstart", function(event) {
+			$(".greeting-control .jp-audio-freepbx").on("dragstart", function(event) {
 				event.originalEvent.dataTransfer.effectAllowed = "move";
 				event.originalEvent.dataTransfer.setData("type", $(this).data("type"));
 				$(this).fadeTo( "fast", 0.5);
 			});
-			$(".greeting-control .jp-audio").on("dragend", function(event) {
+			$(".greeting-control .jp-audio-freepbx").on("dragend", function(event) {
 				$(this).fadeTo( "fast", 1.0);
 			});
 
@@ -385,7 +399,6 @@ var VoicemailC = UCPMC.extend({
 					}
 					//remove the hover event
 					$(this).removeClass("hover");
-
 					//get our type
 					var target = $(this).data("type"),
 					//ger the incoming type
@@ -407,11 +420,8 @@ var VoicemailC = UCPMC.extend({
 					message.text(_("Copying..."));
 					$.post( "index.php?quietmode=1&module=voicemail&command=copy", data, function( data ) {
 						if (data.status) {
-							$("#freepbx_player_" + target).jPlayer( "setMedia", {
-								wav: "?quietmode=1&module=voicemail&command=listen&msgid=" + target + "&format=wav&ext=" + extension,
-								oga: "?quietmode=1&module=voicemail&command=listen&msgid=" + target + "&format=oga&ext=" + extension
-							});
-							message.text(_("Drag a New Greeting Here"));
+							$("#freepbx_player_" + target).removeClass("greet-hidden");
+							message.text(message.data("message"));
 							$this.toggleGreeting(target, true);
 						} else {
 							return false;
@@ -442,7 +452,6 @@ var VoicemailC = UCPMC.extend({
 			$(document).on("click", "[vm-pjax] a, a[vm-pjax]", function(event) {
 				var container = $("#dashboard-content");
 				$.pjax.click(event, { container: container });
-				$this.enableDrags();
 			});
 		}
 
@@ -454,17 +463,27 @@ var VoicemailC = UCPMC.extend({
 			dropZone: $("#unavail .filedrop"),
 			dataType: "json",
 			add: function(e, data) {
-				$("#unavail .filedrop .message").text(_("Uploading..."));
-				data.submit();
+				//TODO: Need to check all supported formats
+				var sup = "\.("+supportedRegExp+")$",
+						patt = new RegExp(sup),
+						submit = true;
+				$.each(data.files, function(k, v) {
+					if(!patt.test(v.name)) {
+						submit = false;
+						alert(_("Unsupported file type"));
+						return false;
+					}
+				});
+				if(submit) {
+					$("#unavail .filedrop .message").text(_("Uploading..."));
+					data.submit();
+				}
 			},
 			done: function(e, data) {
 				if (data.result.status) {
 					$("#unavail .filedrop .pbar").css("width", "0%");
-					$("#unavail .filedrop .message").text(_("Drag a New Greeting Here"));
-					$("#freepbx_player_unavail").jPlayer( "setMedia", {
-						wav: "?quietmode=1&module=voicemail&command=listen&msgid=unavail&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
-						oga: "?quietmode=1&module=voicemail&command=listen&msgid=unavail&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
-					});
+					$("#unavail .filedrop .message").text($("#unavail .filedrop .message").data("message"));
+					$("#freepbx_player_unavail").removeClass("greet-hidden");
 					$this.toggleGreeting("unavail", true);
 				} else {
 					console.log(data.result.message);
@@ -483,17 +502,27 @@ var VoicemailC = UCPMC.extend({
 			dropZone: $("#busy .filedrop"),
 			dataType: "json",
 			add: function(e, data) {
-				$("#busy .filedrop .message").text(_("Uploading..."));
-				data.submit();
+				//TODO: Need to check all supported formats
+				var sup = "\.("+supportedRegExp+")$",
+						patt = new RegExp(sup),
+						submit = true;
+				$.each(data.files, function(k, v) {
+					if(!patt.test(v.name)) {
+						submit = false;
+						alert(_("Unsupported file type"));
+						return false;
+					}
+				});
+				if(submit) {
+					$("#busy .filedrop .message").text(_("Uploading..."));
+					data.submit();
+				}
 			},
 			done: function(e, data) {
 				if (data.result.status) {
 					$("#busy .filedrop .pbar").css("width", "0%");
-					$("#busy .filedrop .message").text(_("Drag a New Greeting Here"));
-					$("#freepbx_player_busy").jPlayer( "setMedia", {
-						wav: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
-						oga: "?quietmode=1&module=voicemail&command=listen&msgid=busy&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
-					});
+					$("#busy .filedrop .message").text($("#busy .filedrop .message").data("message"));
+					$("#freepbx_player_busy").removeClass("greet-hidden");
 					$this.toggleGreeting("busy", true);
 				} else {
 					console.log(data.result.message);
@@ -512,17 +541,27 @@ var VoicemailC = UCPMC.extend({
 			dropZone: $("#greet .filedrop"),
 			dataType: "json",
 			add: function(e, data) {
-				$("#greet .filedrop .message").text(_("Uploading..."));
-				data.submit();
+				//TODO: Need to check all supported formats
+				var sup = "\.("+supportedRegExp+")$",
+						patt = new RegExp(sup),
+						submit = true;
+				$.each(data.files, function(k, v) {
+					if(!patt.test(v.name)) {
+						submit = false;
+						alert(_("Unsupported file type"));
+						return false;
+					}
+				});
+				if(submit) {
+					$("#greet .filedrop .message").text(_("Uploading..."));
+					data.submit();
+				}
 			},
 			done: function(e, data) {
 				if (data.result.status) {
 					$("#greet .filedrop .pbar").css("width", "0%");
-					$("#greet .filedrop .message").text(_("Drag a New Greeting Here"));
-					$("#freepbx_player_greet").jPlayer( "setMedia", {
-						wav: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
-						oga: "?quietmode=1&module=voicemail&command=listen&msgid=greet&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
-					});
+					$("#greet .filedrop .message").text($("#greet .filedrop .message").data("message"));
+					$("#freepbx_player_greet").removeClass("greet-hidden");
 					$this.toggleGreeting("greet", true);
 				} else {
 					console.log(data.result.message);
@@ -546,17 +585,27 @@ var VoicemailC = UCPMC.extend({
 			dropZone: $("#temp .filedrop"),
 			dataType: "json",
 			add: function(e, data) {
-				$("#temp .filedrop .message").text(_("Uploading..."));
-				data.submit();
+				//TODO: Need to check all supported formats
+				var sup = "\.("+supportedRegExp+")$",
+						patt = new RegExp(sup),
+						submit = true;
+				$.each(data.files, function(k, v) {
+					if(!patt.test(v.name)) {
+						submit = false;
+						alert(_("Unsupported file type"));
+						return false;
+					}
+				});
+				if(submit) {
+					$("#temp .filedrop .message").text(_("Uploading..."));
+					data.submit();
+				}
 			},
 			done: function(e, data) {
 				if (data.result.status) {
 					$("#temp .filedrop .pbar").css("width", "0%");
-					$("#temp .filedrop .message").text(_("Drag a New Greeting Here"));
-					$("#freepbx_player_temp").jPlayer( "setMedia", {
-						wav: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=wav&ext=" + extension + "&rand=" + $this.generateRandom(),
-						oga: "?quietmode=1&module=voicemail&command=listen&msgid=temp&format=oga&ext=" + extension + "&rand=" + $this.generateRandom()
-					});
+					$("#temp .filedrop .message").text($("#temp .filedrop .message").data("message"));
+					$("#freepbx_player_temp").removeClass("greet-hidden");
 					$this.toggleGreeting("temp", true);
 				} else {
 					console.log(data.result.message);
@@ -593,8 +642,8 @@ var VoicemailC = UCPMC.extend({
 		var $this = this, data = { msg: type, ext: extension };
 		$.post( "index.php?quietmode=1&module=voicemail&command=delete", data, function( data ) {
 			if (data.status) {
-				$this.toggleGreeting(type, false);
 				$("#freepbx_player_" + type).jPlayer( "clearMedia" );
+				$this.toggleGreeting(type, false);
 			} else {
 				return false;
 			}
@@ -655,11 +704,11 @@ var VoicemailC = UCPMC.extend({
 	//Toggle the html5 player for greeting
 	toggleGreeting: function(type, visible) {
 		if (visible === true) {
-			$("#" + type + " button").fadeIn();
-			$("#freepbx_player_" + type + "_1").slideDown();
+			$("#" + type + " button.delete").show();
+			$("#jp_container_" + type).removeClass("greet-hidden");
 		} else {
-			$("#" + type + " button").fadeOut();
-			$("#freepbx_player_" + type + "_1").slideUp();
+			$("#" + type + " button.delete").hide();
+			$("#jp_container_" + type).addClass("greet-hidden");
 		}
 	},
 	//Save Voicemail Settings
@@ -688,18 +737,19 @@ var VoicemailC = UCPMC.extend({
 	},
 	//Enables all draggable elements
 	enableDrags: function() {
-		$(".mailbox #voicemail-grid").on("drop", function(event) {
+		$(".mailbox #voicemail-grid tr").prop("draggable",true);
+		$(".mailbox #voicemail-grid tr").on("drop", function(event) {
 		});
-		$(".mailbox #voicemail-grid").on("dragstart", function(event) {
+		$(".mailbox #voicemail-grid tr").on("dragstart", function(event) {
 			$(this).fadeTo( "fast", 0.5);
 			event.originalEvent.dataTransfer.effectAllowed = "move";
 			event.originalEvent.dataTransfer.setData("msg", $(this).data("msg"));
 		});
-		$(".mailbox #voicemail-grid").on("dragend", function(event) {
+		$(".mailbox #voicemail-grid tr").on("dragend", function(event) {
 			$(".vm-temp").remove();
 			$(this).fadeTo( "fast", 1.0);
 		});
-		$(".mailbox #voicemail-grid").on("dragenter", function(event) {
+		$(".mailbox #voicemail-grid tr").on("dragenter", function(event) {
 		});
 	},
 	recordGreeting: function(type) {
@@ -791,7 +841,7 @@ var VoicemailC = UCPMC.extend({
 				processData: false,
 				contentType: false,
 				success: function(data) {
-					$("#" + type + " .filedrop .message").text("Drag a New Greeting Here");
+					$("#" + type + " .filedrop .message").text($("#" + type + " .filedrop .message").data("message"));
 					$("#" + type + " .filedrop .pbar").css("width", "0%");
 					$this.soundBlobs[type] = null;
 					$("#freepbx_player_" + type).jPlayer("supplied",supportedHTML5);
@@ -823,6 +873,7 @@ var VoicemailC = UCPMC.extend({
 			title.text(title.data("title"));
 			filec.show();
 			recc.hide();
+			$this.toggleGreeting(type, false);
 		} else {
 			alert(_("There is nothing to delete"));
 		}

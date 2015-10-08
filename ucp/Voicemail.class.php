@@ -64,7 +64,8 @@ class Voicemail extends Modules{
 		$displayvars['ext'] = $ext;
 		$displayvars['folders'] = $folders;
 
-		$html = "<script>var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';var supportedMediaFormats = '".implode(",",array_keys($this->UCP->FreePBX->Voicemail->supportedFormats))."'; var extension = '".$ext."'; var mailboxes = ".json_encode($this->extensions).";</script>";
+		$sf = $this->UCP->FreePBX->Media->getSupportedFormats();
+		$html = "<script>var supportedRegExp = '".implode("|",array_keys($sf['in']))."';var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';var extension = '".$ext."'; var mailboxes = ".json_encode($this->extensions).";</script>";
 		$html .= $this->load_view(__DIR__.'/views/header.php',$displayvars);
 
 		if(!empty($this->UCP->FreePBX->Voicemail->displayMessage['message'])) {
@@ -78,6 +79,7 @@ class Voicemail extends Modules{
 				$displayvars['activeList'] = 'settings';
 			break;
 			case "greetings":
+				$displayvars['supported'] = $sf;
 				$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
 				$displayvars['greetings'] = $this->UCP->FreePBX->Voicemail->getGreetingsByExtension($ext);
 				$displayvars['short_greetings'] = $this->UCP->FreePBX->Voicemail->greetings;
@@ -86,16 +88,8 @@ class Voicemail extends Modules{
 				$displayvars['activeList'] = 'greetings';
 			break;
 			case "folder":
-				$start = (($page - 1) * $this->limit);
-				$msgs = $this->UCP->FreePBX->Voicemail->getMessagesByExtensionFolder($ext,$reqFolder,$start,$this->limit);
-				$displayvars['messages'] = !empty($msgs['messages']) ? $msgs['messages'] : array();
+				$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
 				$final = array();
-				foreach($displayvars['messages'] as &$m) {
-					$f = $this->UCP->FreePBX->Voicemail->getMessageByMessageIDExtension($m['msg_id'], $ext, true);
-					$f['callerid'] = htmlentities($f['callerid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
-					$f['callerid'] = preg_replace("/&lt;(.*)&gt;/i","&lt;<span class='clickable' data-type='number' data-primary='phone'>$1</span>&gt;",$f['callerid']);;
-					$final[] = $f;
-				}
 				$c = $folders[$reqFolder]['count'];
 				$displayvars['messages'] = $final;
 				$displayvars['folder'] = $reqFolder;
@@ -221,7 +215,7 @@ class Voicemail extends Modules{
 				$ext = $_REQUEST['ext'];
 				$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : "";
 				$offset = $_REQUEST['offset'];
-				$data = $this->UCP->FreePBX->Voicemail->getMessagesByExtensionFolder($ext,$folder,$offset,$limit);
+				$data = $this->UCP->FreePBX->Voicemail->getMessagesByExtensionFolder($ext,$folder,$order,$orderby,$offset,$limit);
 				return array(
 					"total" => $this->UCP->FreePBX->Voicemail->getMessagesCountByExtensionFolder($ext,$folder),
 					"rows" => !empty($data['messages']) ? $data['messages'] : array()
@@ -359,7 +353,8 @@ class Voicemail extends Modules{
 						$tmp_path = !empty($tmp_path) ? $tmp_path : '/tmp';
 
 						$extension = pathinfo($_FILES["files"]["name"][$key], PATHINFO_EXTENSION);
-						if($extension == 'wav' || $extension == 'ogg') {
+						$supported = $this->UCP->FreePBX->Media->getSupportedFormats();
+						if(in_array($extension,$supported['in'])) {
 							$tmp_name = $_FILES["files"]["tmp_name"][$key];
 							$name = $_FILES["files"]["name"][$key];
 							if(!file_exists($tmp_path."/vmtmp")) {
@@ -370,13 +365,7 @@ class Voicemail extends Modules{
 								$return = array("status" => false, "message" => sprintf(_("Voicemail not moved to %s"),$tmp_path."/vmtmp/".$name));
 								break;
 							}
-							$contents = file_get_contents($tmp_path."/vmtmp/$name");
-							if(empty($contents)) {
-								$return = array("status" => false, "message" => sprintf(_("Voicemail was empty: %s"),$tmp_path."/vmtmp/".$name));
-								break;
-							}
-							unlink($tmp_path."/tmp/$name");
-							$this->UCP->FreePBX->Voicemail->saveVMGreeting($_REQUEST['ext'],$_REQUEST['type'],$extension,$contents);
+							$this->UCP->FreePBX->Voicemail->saveVMGreeting($_REQUEST['ext'],$_REQUEST['type'],$extension,$tmp_path."/vmtmp/$name");
 						} else {
 							$return = array("status" => false, "message" => _("Unsupported file format"));
 							break;

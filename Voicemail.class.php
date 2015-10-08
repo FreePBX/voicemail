@@ -8,12 +8,6 @@ class Voicemail implements \BMO {
 		"message" => ""
 	);
 
-	//supported playback formats
-	public $supportedFormats = array(
-		"oga" => "ogg",
-		"wav" => "wav"
-	);
-
 	//supported greeting names
 	public $greetings = array(
 		'unavail' => 'Unavailable Greeting',
@@ -664,7 +658,6 @@ class Voicemail implements \BMO {
 			$file = $this->checkFileType($vmfolder, $source);
 			$extension = $this->getFileExtension($vmfolder, $source);
 			copy($file, $vmfolder."/".$target.".".$extension);
-			$this->generateAdditionalMediaFormats($vmfolder."/".$target.".".$extension,false);
 		}
 		return true;
 	}
@@ -674,9 +667,10 @@ class Voicemail implements \BMO {
 	 * @param int $ext      The voicemail extension
 	 * @param string $type     The voicemail type
 	 * @param string $format   The file format
-	 * @param string $contents The binary file data
+	 * @param string $file		The full path to the file
 	 */
-	public function saveVMGreeting($ext,$type,$format,$contents) {
+	public function saveVMGreeting($ext,$type,$format,$file) {
+		$media = $this->FreePBX->Media;
 		$o = $this->getVoicemailBoxByExtension($ext);
 		$context = $o['vmcontext'];
 		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
@@ -684,19 +678,9 @@ class Voicemail implements \BMO {
 			mkdir($vmfolder);
 		}
 		if(isset($this->greetings[$type])) {
-			$file = $this->checkFileType($vmfolder, $type);
-			$tempf = $vmfolder . "/" . $type . "_tmp.".$format;
-			if(file_exists($file)) {
-				if(!unlink($file)) {
-					return false;
-				}
-			}
-			file_put_contents($tempf,$contents);
-			$file = $vmfolder . "/" . $type . ".".$format;
-			//convert the file here using sox I guess
-			exec("sox " . $tempf . " -r 8000 -c1 " . $file . " > /dev/null 2>&1");
-			unlink($tempf);
-			$this->generateAdditionalMediaFormats($file,false);
+			$media->load($file);
+			$media->convert($vmfolder . "/" . $type . ".wav");
+			unlink($file);
 			return true;
 		} else {
 			return false;
@@ -717,9 +701,8 @@ class Voicemail implements \BMO {
 	/**
 	 * Get all greetings by extension
 	 * @param int $ext   The extension number
-	 * @param bool $cache Whether to regenerate html5 assets
 	 */
-	public function getGreetingsByExtension($ext,$cache = false) {
+	public function getGreetingsByExtension($ext) {
 		$o = $this->getVoicemailBoxByExtension($ext);
 		//temp greeting <--overrides (temp.wav)
 		//unaval (unavail.wav)
@@ -732,9 +715,6 @@ class Voicemail implements \BMO {
 			$file = $this->checkFileType($vmfolder, $greeting);
 			if(file_exists($file)) {
 				$files[$greeting] = $file;
-				if(!$cache) {
-					$this->generateAdditionalMediaFormats($file);
-				}
 			}
 		}
 		return $files;
@@ -1117,24 +1097,6 @@ class Voicemail implements \BMO {
 		if(isset($greetings[$greeting])) {
 			$data['path'] = $this->vmPath . '/'.$context.'/'.$ext;
 			$data['file'] = basename($greetings[$greeting]);
-			$sha1 = sha1_file($data['path'] . "/" . $data['file']);
-			foreach($this->supportedFormats as $format => $extension) {
-				switch($extension) {
-					case "wav":
-						$mf = $data['path']."/".$greeting.".".$extension;
-					break;
-					default:
-						$mf = $data['path']."/".$greeting."_".$sha1.".".$extension;
-					break;
-				}
-				if(file_exists($mf)) {
-					$data['format'][$format] = array(
-						"filename" => basename($mf),
-						"path" => $data['path'],
-						"length" => filesize($mf)
-					);
-				}
-			}
 		}
 		return $data;
 	}
@@ -1143,9 +1105,8 @@ class Voicemail implements \BMO {
 	 * Get a message by ID and Extension
 	 * @param string $msgid         The message ID
 	 * @param int $ext           The voicemail extension
-	 * @param bool $generateMedia Whether to generate HTML5 assets
 	 */
-	public function getMessageByMessageIDExtension($msgid,$ext,$generateMedia = false) {
+	public function getMessageByMessageIDExtension($msgid,$ext) {
 		if(isset($this->greetings[$msgid])) {
 			$out = $this->getGreetingByExtension($msgid,$ext);
 			return !empty($out) ? $out : false;
@@ -1153,9 +1114,6 @@ class Voicemail implements \BMO {
 			$messages = $this->getMessagesByExtension($ext);
 			if(!empty($messages['messages'][$msgid])) {
 				$msg = $messages['messages'][$msgid];
-				if($generateMedia) {
-					$this->generateAdditionalMediaFormats($msg['path']."/".$msg['file'],false);
-				}
 				return $messages['messages'][$msgid];
 			} else {
 				return false;
@@ -1242,18 +1200,6 @@ class Voicemail implements \BMO {
 							"path" => $folder,
 							"length" => filesize($wav)
 						);
-
-						$sha = sha1_file($wav);
-						foreach($this->supportedFormats as $format => $extension) {
-							$mf = $vfolder."/".$vm."_".$sha.".".$extension;
-							if(file_exists($mf)) {
-								$out['messages'][$key]['format'][$format] = array(
-									"filename" => basename($mf),
-									"path" => $folder,
-									"length" => filesize($mf)
-								);
-							}
-						}
 						$out['total'] = $count++;
 					}
 				}
@@ -1270,7 +1216,7 @@ class Voicemail implements \BMO {
 	 * @param int $start     The starting position
 	 * @param int $limit     The amount of messages to return
 	 */
-	public function getMessagesByExtensionFolder($extension,$folder,$start,$limit) {
+	public function getMessagesByExtensionFolder($extension,$folder,$order,$orderby,$start,$limit) {
 		$messages = $this->getMessagesByExtension($extension);
 		$count = 1;
 		$aMsgs = array();
@@ -1287,11 +1233,12 @@ class Voicemail implements \BMO {
 		}
 		$aMsgs['count'] = $count;
 
-		usort($aMsgs['messages'], function($a, $b) {
-			return $b['origtime'] - $a['origtime'];
+		//https://bugs.php.net/bug.php?id=50688
+		@usort($aMsgs['messages'], function($a, $b) {
+			return strcmp($a[$orderby],$b[$orderby]);
 		});
 		$aMsgs['messages'] = array_values($aMsgs['messages']);
-
+		$aMsgs['messages'] = ($order == 'desc') ? array_reverse($aMsgs['messages']) : $aMsgs['messages'];
 		$out = array();
 		for($i=$start;$i<($start+$limit);$i++) {
 			if(empty($aMsgs['messages'][$i])) {
@@ -1360,31 +1307,6 @@ class Voicemail implements \BMO {
 				}
 			}
 		}
-	}
-
-	/**
-	 * Generate Media Formats for use in HTML5 playback
-	 * @param string $file       The filename
-	 * @param bool $background Whether to background this process or stall PHP
-	 */
-	private function generateAdditionalMediaFormats($file,$background = true) {
-		$b = ($background) ? '&' : ''; //this is so very important
-		$path = dirname($file);
-		$filename = pathinfo($file,PATHINFO_FILENAME);
-		if(!$this->queryAudio($file)) {
-			return false;
-		}
-		$sha1 = sha1_file($file);
-		foreach($this->supportedFormats as $format) {
-			switch($format) {
-				case "ogg":
-					if(!file_exists($path . "/" . $filename . "_".$sha1.".ogg")) {
-						exec("sox $file " . $path . "/" . $filename . "_".$sha1.".ogg > /dev/null 2>&1 ".$b);
-					}
-				break;
-			}
-		}
-		return true;
 	}
 
 	/**

@@ -1,4 +1,17 @@
 #module-page-voicemail{
+	.supported-formats {
+		border: 1px dashed;
+		border-radius: 10px;
+		margin-top: 5px;
+		background-color: #eaeaea;
+		overflow: hidden;
+		width: 58%;
+		padding: 5px;
+		font-style: italic;
+		margin: auto;
+		font-size: 90%;
+		text-align: center;
+	}
 	.vm-playback {
 		display: none;
 	}
@@ -12,7 +25,8 @@
 		margin-top: 5px;
 		padding: 5px;
 		@media only screen and (max-width : 991px) {
-			border: 1px dotted;
+			border: 1px dashed;
+			background-color: #eaeaea;
 		}
 	    .jp-audio {
 	        cursor:move;
@@ -34,10 +48,9 @@
 		background-color: #eaeaea;
 		overflow: hidden;
 		.message {
-			width: 100%;
-			height: 100%;
+			width: 90%;
 			text-align: center;
-			margin-top: 20px;
+			margin-top: 10px;
 			position: absolute;
 			font-weight: bold;
 			font-size: 120%;

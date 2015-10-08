@@ -1,4 +1,5 @@
 <div class="col-md-10">
+	<div class="supported-formats"><?php echo sprintf(_("Supported Formats: %s"),implode(", ",$supported['in']))?></div>
 	<?php $count = 1;?>
 	<?php foreach($short_greetings as $greeting => $name) {?>
 		<?php if($count % 2) {?>
@@ -50,7 +51,7 @@
 						<button class="btn btn-danger btn-xs delete" data-id="<?php echo $greeting?>"><i class="fa fa-trash-o fa-lg"></i> <?php echo _('Discard Greeting')?></button>
 					</div>
 					<div data-type="<?php echo $greeting?>" class="filedrop hidden-xs hidden-sm">
-						<div class="message"><?php echo _('Drag a New Greeting Here')?></div>
+						<div class="message" data-message="<?php echo _('Upload a New Greeting or Drag an Old Greeting Here')?>"><?php echo _('Upload a New Greeting or Drag an Old Greeting Here')?></div>
 						<div class="pbar"></div>
 					</div>
 				</div>
