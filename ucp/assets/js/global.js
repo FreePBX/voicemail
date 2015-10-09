@@ -203,7 +203,7 @@ var VoicemailC = UCPMC.extend({
 		});
 
 		$("#move-selection").click(function() {
-			var opts = '', cur = $.url().param("folder"), sel = $('#voicemail-grid').bootstrapTable('getAllSelections');
+			var opts = '', cur = (typeof $.url().param("folder") !== "undefined") ? $.url().param("folder") : "INBOX", sel = $('#voicemail-grid').bootstrapTable('getAllSelections');
 			$.each($(".folder-list .folder"), function(i, v){
 				var folder = $(v).data("folder");
 				if(folder != cur) {
@@ -895,7 +895,7 @@ var VoicemailC = UCPMC.extend({
 		});
 	},
 	playbackFormatter: function (value, row, index) {
-		if(row.duration === 0) {
+		if(showPlayback === 0 || row.duration === 0) {
 			return '';
 		}
 		return '<div id="jquery_jplayer_'+row.msg_id+'" class="jp-jplayer" data-container="#jp_container_'+row.msg_id+'" data-id="'+row.msg_id+'"></div><div id="jp_container_'+row.msg_id+'" data-player="jquery_jplayer_'+row.msg_id+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
@@ -932,10 +932,16 @@ var VoicemailC = UCPMC.extend({
 		return sprintf(_("%s seconds"),value);
 	},
 	controlFormatter: function (value, row, index) {
-		return '<a class="listen" alt="'+_('Listen on your handset')+'" data-id="'+row.msg_id+'"><i class="fa fa-phone"></i></a>'+
-						'<a class="forward" alt="'+_('Forward')+'" data-id="'+row.msg_id+'"><i class="fa fa-share"></i></a>'+
-						'<a class="download" alt="'+_('Download')+'" href="?quietmode=1&amp;module=voicemail&amp;command=download&amp;msgid='+row.msg_id+'&amp;ext='+extension+'"><i class="fa fa-cloud-download"></i></a>'+
-						'<a class="delete" alt="'+_('Delete')+'" data-id="'+row.msg_id+'"><i class="fa fa-trash-o"></i></a>';
+		var html = '<a class="listen" alt="'+_('Listen on your handset')+'" data-id="'+row.msg_id+'"><i class="fa fa-phone"></i></a>'+
+						'<a class="forward" alt="'+_('Forward')+'" data-id="'+row.msg_id+'"><i class="fa fa-share"></i></a>';
+
+		if(showDownload === 1) {
+			html += '<a class="download" alt="'+_('Download')+'" href="?quietmode=1&amp;module=voicemail&amp;command=download&amp;msgid='+row.msg_id+'&amp;ext='+extension+'"><i class="fa fa-cloud-download"></i></a>';
+		}
+
+		html += '<a class="delete" alt="'+_('Delete')+'" data-id="'+row.msg_id+'"><i class="fa fa-trash-o"></i></a>';
+
+		return html;
 	},
 	bindPlayers: function(getusermedia) {
 		var soundBlob = typeof getusermedia !== "undefined" ? getusermedia : false, $this = this;

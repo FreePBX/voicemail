@@ -43,6 +43,14 @@ class Voicemail extends Modules{
 		$this->user = $this->UCP->User->getUser();
 		$this->enabled = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'enable');
 		$this->extensions = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'assigned');
+		$this->playback = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'playback');
+		$this->playback = !is_null($this->playback) ? $this->playback : true;
+		$this->download = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'download');
+		$this->download = !is_null($this->download) ? $this->download : true;
+		$this->settings = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'settings');
+		$this->settings = !is_null($this->settings) ? $this->settings : true;
+		$this->greetings = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'greetings');
+		$this->greetings = !is_null($this->greetings) ? $this->greetings : true;
 	}
 
 	function getDisplay() {
@@ -60,18 +68,28 @@ class Voicemail extends Modules{
 			$folders[$folder['folder']]['count'] = $this->UCP->FreePBX->Voicemail->getMessagesCountByExtensionFolder($ext,$folder['folder']);
 		}
 
-		$displayvars = array();
+		$displayvars = array(
+			"showPlayback" => $this->playback,
+			"showDownload" => $this->download,
+			"showSettings" => $this->settings,
+			"showGreetings" => $this->greetings
+		);
 		$displayvars['ext'] = $ext;
 		$displayvars['folders'] = $folders;
 
 		$sf = $this->UCP->FreePBX->Media->getSupportedFormats();
-		$html = "<script>var supportedRegExp = '".implode("|",array_keys($sf['in']))."';var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';var extension = '".$ext."'; var mailboxes = ".json_encode($this->extensions).";</script>";
+		$html = "<script>var showDownload = ".json_decode($this->download)."; var showPlayback = ".json_decode($this->playback).";var supportedRegExp = '".implode("|",array_keys($sf['in']))."';var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';var extension = '".$ext."'; var mailboxes = ".json_encode($this->extensions).";</script>";
 		$html .= $this->load_view(__DIR__.'/views/header.php',$displayvars);
 
 		if(!empty($this->UCP->FreePBX->Voicemail->displayMessage['message'])) {
 			$displayvars['message'] = $this->UCP->FreePBX->Voicemail->displayMessage;
 		}
-
+		if($view == "settings" && !$this->settings) {
+			$view = "";
+		}
+		if($view == "greetings" && !$this->greetings) {
+			$view = "";
+		}
 		switch($view) {
 			case "settings":
 				$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
@@ -144,22 +162,30 @@ class Voicemail extends Modules{
 	*/
 	function ajaxRequest($command, $settings) {
 		switch($command) {
-			case "gethtml5":
-			case "playback":
 			case 'grid':
-			case 'download':
 			case 'listen':
 			case 'moveToFolder':
 			case 'delete':
-			case 'savesettings':
-			case 'upload':
-			case 'copy':
 			case 'forwards':
 			case 'callme':
-			case 'record':
 			case 'forward':
 			case 'refreshfoldercount';
 				return $this->_checkExtension($_REQUEST['ext']);
+			break;
+			case "gethtml5":
+			case "playback":
+				return $this->playback && $this->_checkExtension($_REQUEST['ext']);
+			break;
+			case 'download':
+				return $this->download && $this->_checkExtension($_REQUEST['ext']);
+			break;
+			case 'record':
+			case "copy":
+			case 'upload':
+				return $this->greetings && $this->_checkExtension($_REQUEST['ext']);
+			break;
+			case 'savesettings':
+				return $this->settings && $this->_checkExtension($_REQUEST['ext']);
 			break;
 			case 'vmxsettings':
 				$ext = $_REQUEST['ext'];

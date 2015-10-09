@@ -481,6 +481,26 @@ class Voicemail implements \BMO {
 			} else {
 				$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','enable',false);
 			}
+			if(!empty($_POST['voicemail_playback']) && $_POST['voicemail_playback'] == "yes") {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','playback',true);
+			} else {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','playback',false);
+			}
+			if(!empty($_POST['voicemail_download']) && $_POST['voicemail_download'] == "yes") {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','download',true);
+			} else {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','download',false);
+			}
+			if(!empty($_POST['voicemail_settings']) && $_POST['voicemail_settings'] == "yes") {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','settings',true);
+			} else {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','settings',false);
+			}
+			if(!empty($_POST['voicemail_greetings']) && $_POST['voicemail_greetings'] == "yes") {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','greetings',true);
+			} else {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','greetings',false);
+			}
 		}
 	}
 
@@ -540,21 +560,65 @@ class Voicemail implements \BMO {
 			} elseif(!empty($_POST['voicemail_enable']) && $_POST['voicemail_enable'] == "inherit") {
 				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','enable',null);
 			}
+			if(!empty($_POST['voicemail_playback']) && $_POST['voicemail_playback'] == "yes") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','playback',true);
+			} elseif(!empty($_POST['voicemail_playback']) && $_POST['voicemail_playback'] == "no") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','playback',false);
+			} elseif(!empty($_POST['voicemail_playback']) && $_POST['voicemail_playback'] == "inherit") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','playback',null);
+			}
+			if(!empty($_POST['voicemail_download']) && $_POST['voicemail_download'] == "yes") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','download',true);
+			} elseif(!empty($_POST['voicemail_download']) && $_POST['voicemail_download'] == "no") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','download',false);
+			} elseif(!empty($_POST['voicemail_download']) && $_POST['voicemail_download'] == "inherit") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','download',null);
+			}
+			if(!empty($_POST['voicemail_settings']) && $_POST['voicemail_settings'] == "yes") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','settings',true);
+			} elseif(!empty($_POST['voicemail_settings']) && $_POST['voicemail_settings'] == "no") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','settings',false);
+			} elseif(!empty($_POST['voicemail_settings']) && $_POST['voicemail_settings'] == "inherit") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','settings',null);
+			}
+			if(!empty($_POST['voicemail_greetings']) && $_POST['voicemail_greetings'] == "yes") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','greetings',true);
+			} elseif(!empty($_POST['voicemail_greetings']) && $_POST['voicemail_greetings'] == "no") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','greetings',false);
+			} elseif(!empty($_POST['voicemail_greetings']) && $_POST['voicemail_greetings'] == "inherit") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','greetings',null);
+			}
 		}
 	}
 
 	public function ucpConfigPage($mode, $user, $action) {
 		if(empty($user)) {
 			$enable = ($mode == 'group') ? true : null;
+			$playback = ($mode == 'group') ? true : null;
+			$download = ($mode == 'group') ? true : null;
+			$settings = ($mode == 'group') ? true : null;
+			$greetings = ($mode == 'group') ? true : null;
 		} else {
 			if($mode == "group") {
 				$vmassigned = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','assigned');
 				$enable = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','enable');
 				$enable = !($enable) ? false : true;
 				$vmassigned = !empty($vmassigned) ? $vmassigned : array('self');
+				$playback = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','playback');
+				$playback = !($playback) ? false : true;
+				$download = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','download');
+				$download = !($download) ? false : true;
+				$settings = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','settings');
+				$settings = !($settings) ? false : true;
+				$greetings = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','greetings');
+				$greetings = !($greetings) ? false : true;
 			} else {
 				$vmassigned = $this->FreePBX->Ucp->getSettingByID($user['id'],'Voicemail','assigned');
 				$enable = $this->FreePBX->Ucp->getSettingByID($user['id'],'Voicemail','enable');
+				$playback = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','playback');
+				$download = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','download');
+				$settings = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','settings');
+				$greetings = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','greetings');
 			}
 		}
 		$vmassigned = !empty($vmassigned) ? $vmassigned : array();
@@ -576,7 +640,7 @@ class Voicemail implements \BMO {
 		$html[0] = array(
 			"title" => _("Voicemail"),
 			"rawname" => "voicemail",
-			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("mode" => $mode, "enable" => $enable, "ausers" => $ausers, "vmassigned" => $vmassigned))
+			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("playback" => $playback, "download" => $download, "settings" => $settings, "greetings" => $greetings, "mode" => $mode, "enable" => $enable, "ausers" => $ausers, "vmassigned" => $vmassigned))
 		);
 		return $html;
 	}
