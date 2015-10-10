@@ -31,9 +31,9 @@
 	<table id="voicemail-grid"
 				data-url="index.php?quietmode=1&amp;module=voicemail&amp;command=grid&amp;folder=<?php echo $folder?>&amp;ext=<?php echo $ext?>"
 				data-cache="false"
-				data-state-save="true"
 				data-toolbar="#voicemail-toolbar"
-				data-state-save-id-table="ucp-voicemail-table"
+				data-cookie="true"
+				data-cookie-id-table="ucp-voicemail-table"
 				data-maintain-selected="true"
 				data-show-columns="true"
 				data-show-toggle="true"
@@ -44,7 +44,11 @@
 				data-side-pagination="server"
 				data-unique-id="msg_id"
 				data-show-refresh="true"
-				class="table table-hover table-bordered cdr-table">
+				data-silent-sort="false"
+				data-mobile-responsive="true"
+				data-check-on-init="true"
+				data-min-width="992"
+				class="table table-hover">
 		<thead>
 					<tr class="message-header">
 						<th data-checkbox="true"></th>
