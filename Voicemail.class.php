@@ -159,6 +159,9 @@ class Voicemail implements \BMO {
 	 * @return array The array of the voicemail.conf file
 	 */
 	public function getVoicemail() {
+		if(!empty($this->vmCache)) {
+			return $this->vmCache;
+		}
 		$vm = $this->FreePBX->LoadConfig->getConfig("voicemail.conf");
 
 		//Parse mailbox data into something useful
@@ -186,7 +189,8 @@ class Voicemail implements \BMO {
 				);
 			}
 		}
-		return $vm;
+		$this->vmCache = $vm;
+		return $this->vmCache;
 	}
 
 	/**
