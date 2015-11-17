@@ -10,54 +10,58 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-02 10:45-0800\n"
-"PO-Revision-Date: 2015-10-10 12:29-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2015-11-04 11:21+0200\n"
+"Last-Translator: Media <mousavi.media@gmail.com>\n"
+"Language-Team: Persian "
+"<http://weblate.freepbx.org/projects/freepbx/voicemail/fa/>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: page.voicemail.php:107
 msgid " PBX Voicemail"
-msgstr ""
+msgstr " میل PBX"
 
 #: views/tz.php:204
 msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
-msgstr ""
+msgstr "\"\"(برای امروز), \"دیروز\", روزهفته, یا ABdY"
 
 #: views/tz.php:196
 msgid "\"today\", \"yesterday\" or ABdY"
-msgstr ""
+msgstr "\"امروز\", \"دیروز\", یاABdY"
 
 #: page.voicemail.php:432
 #, php-format
 msgid "%s Attempts"
-msgstr ""
+msgstr "%sتلاش ها"
 
 #: page.voicemail.php:438
 #, php-format
 msgid "%s Retries"
-msgstr ""
+msgstr "%s تلاش مجدد"
 
 #: page.voicemail.php:436
 #, php-format
 msgid "%s Retry"
-msgstr ""
+msgstr "%s تلاش مجدد"
 
 #: page.voicemail.php:428
 #, php-format
 msgid "%s Sec"
-msgstr ""
+msgstr "%s ثانیه"
 
 #: install.php:114
 #, php-format
 msgid "%s added"
-msgstr ""
+msgstr "%s اضافه شده"
 
 #: install.php:81
 #, php-format
 msgid "%s adjusted from %s to %s"
-msgstr ""
+msgstr "%s تنظیم شده از %s تا %s"
 
 #: install.php:85
 #, php-format
@@ -72,31 +76,31 @@ msgstr ""
 #: install.php:95
 #, php-format
 msgid "%s migrated"
-msgstr ""
+msgstr "%s منتقل شده"
 
 #: install.php:72
 #, php-format
 msgid "%s no longer used"
-msgstr ""
+msgstr "%s استفاده نشده"
 
 #: views/tz.php:115 views/tz.php:131 views/tz.php:147 views/tz.php:185
 #, php-format
 msgid "%s or %s"
-msgstr ""
+msgstr "%s یا %s"
 
 #: views/tz.php:123
 #, php-format
 msgid "%s or %s or %s"
-msgstr ""
+msgstr "%s یا %s یا %s"
 
 #: ucp/assets/js/global.js:932
 #, perl-format
 msgid "%s seconds"
-msgstr ""
+msgstr "%s ثانیه"
 
 #: views/tz.php:94
 msgid "'filename'"
-msgstr ""
+msgstr "'نام فایل'"
 
 #: page.voicemail.php:230
 msgid ""
@@ -106,31 +110,31 @@ msgstr ""
 
 #: page.voicemail.php:426
 msgid "0 Sec"
-msgstr ""
+msgstr "0 ثانیه"
 
 #: page.voicemail.php:422 views/dialplan.php:81
 msgid "12 db"
-msgstr ""
+msgstr "۱۲db"
 
 #: page.voicemail.php:423 views/dialplan.php:83
 msgid "15 db"
-msgstr ""
+msgstr "۱۵ db"
 
 #: views/tz.php:212
 msgid "24 hour time, including minute"
-msgstr ""
+msgstr "۲۴ساعت, شامل دقیقه"
 
 #: page.voicemail.php:419 views/dialplan.php:75
 msgid "3 db"
-msgstr ""
+msgstr "۳ db"
 
 #: page.voicemail.php:420 views/dialplan.php:77
 msgid "6 db"
-msgstr ""
+msgstr "۶ db"
 
 #: page.voicemail.php:421 views/dialplan.php:79
 msgid "9 db"
-msgstr ""
+msgstr "۹ db"
 
 #: views/tz.php:82
 msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
@@ -147,7 +151,7 @@ msgstr ""
 
 #: views/tz.php:188
 msgid "AM or PM"
-msgstr ""
+msgstr "قبل ظهر یا بعدظهر"
 
 #: views/usage.php:184 views/usage_system.php:201
 msgid "Abandoned Greetings"
@@ -155,35 +159,35 @@ msgstr ""
 
 #: views/usage.php:2
 msgid "Account"
-msgstr ""
+msgstr "حساب"
 
 #: views/settings.php:6
 msgid "Account Advanced Settings"
-msgstr ""
+msgstr "تنظیمات پیشرفته حساب"
 
 #: views/settings.php:4
 msgid "Account Settings"
-msgstr ""
+msgstr "تنظیمات حساب"
 
 #: views/settings.php:5
 msgid "Account Usage"
-msgstr ""
+msgstr "حساب نصرفی"
 
 #: views/settings.php:2
 msgid "Account View Links:"
-msgstr ""
+msgstr "لینک های مشاهده حساب："
 
 #: views/usage_system.php:10
 msgid "Activated"
-msgstr ""
+msgstr "فعال"
 
 #: functions.inc.php:915
 msgid "Advanced Settings For: "
-msgstr ""
+msgstr "تنظیمات پیشرفته برای： "
 
 #: views/dialplan.php:122
 msgid "Advanced VmX Locater Settings"
-msgstr ""
+msgstr "تنظیمات پیشرفته VmX Locater"
 
 #: page.voicemail.php:285
 msgid ""
@@ -195,19 +199,19 @@ msgstr ""
 
 #: views/ucp_config.php:91
 msgid "Allow Voicemail Download"
-msgstr ""
+msgstr "مجوز دانلود پست صوتی"
 
 #: views/ucp_config.php:149
 msgid "Allow Voicemail Greetings"
-msgstr ""
+msgstr "مجوز سلام پست صوتی"
 
 #: views/ucp_config.php:62
 msgid "Allow Voicemail Playback"
-msgstr ""
+msgstr "مجوز مجدد پست صوتی"
 
 #: views/ucp_config.php:120
 msgid "Allow Voicemail Settings"
-msgstr ""
+msgstr "مجوز تنظیمات پست صوتی"
 
 #: page.voicemail.php:260 page.voicemail.php:300
 msgid ""
@@ -217,44 +221,44 @@ msgstr ""
 
 #: views/ucp_config.php:36
 msgid "Allowed Voicemail"
-msgstr ""
+msgstr "پست صوتی مجاز"
 
 #: ucp/assets/js/global.js:251
 msgid "Are you sure you wish to delete these voicemails?"
-msgstr ""
+msgstr "آیا از حذف این پست های مطمئن هستید؟"
 
 #: ucp/assets/js/global.js:189
 msgid "Are you sure you wish to delete this voicemail?"
-msgstr ""
+msgstr "آیا از حذف این پست صوتی مطمئن هستید؟"
 
 #: functions.inc.php:1260
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
-msgstr ""
+msgstr "استریسک اجرا نشده, نمیتوان به مدیریت استریسک وصل شد"
 
 #: page.voicemail.php:295
 msgid "Asterisk language code"
-msgstr ""
+msgstr "کد زبان استریسک"
 
 #: views/dialplan.php:165
 msgid "Attempt(s)"
-msgstr ""
+msgstr "تلاش(ها)"
 
 #: install.php:192
 msgid "Attempting to delete.."
-msgstr ""
+msgstr "تلاش برای حذف.."
 
 #: ucp/views/mailbox.php:28
 msgid "Auto-Refresh"
-msgstr ""
+msgstr "بازنشانی خودکار"
 
 #: functions.inc.php:908
 msgid "Basic Settings For: "
-msgstr ""
+msgstr "تنظیمات عمومی برای： "
 
 #: functions.inc.php:910
 msgid "Basic settings view is for individual accounts."
-msgstr ""
+msgstr "مشاهده تنظیمات عمومی برای حساب های معمولی."
 
 #: page.voicemail.php:254
 msgid "Body of message sent to pager."
