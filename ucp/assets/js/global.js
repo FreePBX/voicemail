@@ -13,7 +13,7 @@ var VoicemailC = UCPMC.extend({
 	},
 	settingsDisplay: function() {
 		var $this = this;
-		$("#ddial, #vmx-p1_enable").change(function() {
+		$("#ddial, #vmx-p1_enable, #vmx-state").change(function() {
 			$this.findmeFollowState();
 		});
 		this.findmeFollowState();
@@ -25,6 +25,9 @@ var VoicemailC = UCPMC.extend({
 				$this.saveVmXSettings($(this).prop("name"), $(this).val());
 				$(this).off("blur");
 			});
+		});
+		$("#module-Voicemail #vmx-state").change(function() {
+			$this.saveVmXSettings("vmx-state", $(this).is(":checked"));
 		});
 		$("#module-Voicemail .input-group input[type=\"checkbox\"]").change(function() {
 			var el = $(this).data("el");
@@ -48,11 +51,11 @@ var VoicemailC = UCPMC.extend({
 	settingsHide: function() {
 		$("#module-Voicemail input[type=\"text\"], #module-Findmefollow textarea").off("change");
 		$("#module-Voicemail input[type=\"checkbox\"]").off("change");
-		$("#ddial, #vmx-p1_enable").off("change");
+		$("#ddial, #vmx-p1_enable, #vmx-state").off("change");
 	},
 	findmeFollowState: function() {
-		if (!$("#vmx-p1_enable").is(":checked") && !$("#ddial").is(":checked")) {
-			$("#vmxerror").text(_("Find me Follow me is disabled when VmX locator option 1 is disabled as well!")).addClass("alert-danger").fadeIn("fast");
+		if (!$("#vmx-p1_enable").is(":checked") && $("#ddial").is(":checked") && $("#vmx-state").is(":checked")) {
+			$("#vmxerror").text(_("Find me Follow me is enabled when VmX locator option 1 is disabled. This means VmX Locator will be skipped, instead going directly to Find Me/Follow Me")).addClass("alert-danger").fadeIn("fast");
 		} else {
 			$("#vmxerror").fadeOut("fast");
 		}

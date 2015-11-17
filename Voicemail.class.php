@@ -81,7 +81,16 @@ class Voicemail implements \BMO {
 	}
 
 	public function install() {
-
+		if($this->FreePBX->Modules()->checkStatus("userman")) {
+		  $users = $this->FreePBX->Userman()->getAllUsers();
+		  foreach($users as $user) {
+		    if($user['default_extension'] != 'none') {
+		      if($this->Vmx->isInitialized($user['default_extension']) && $this->Vmx->isEnabled($user['default_extension'])) {
+						$this->FreePBX->Ucp->setSettingByID($user['id'],'Voicemail','vmxlocater',true);
+					}
+		    }
+		  }
+		}
 	}
 	public function uninstall() {
 
@@ -505,6 +514,11 @@ class Voicemail implements \BMO {
 			} else {
 				$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','greetings',false);
 			}
+			if(!empty($_POST['vmxlocater']) && $_POST['vmxlocater'] == "yes") {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','vmxlocater',true);
+			} else {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Voicemail','vmxlocater',false);
+			}
 		}
 	}
 
@@ -592,6 +606,13 @@ class Voicemail implements \BMO {
 			} elseif(!empty($_POST['voicemail_greetings']) && $_POST['voicemail_greetings'] == "inherit") {
 				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','greetings',null);
 			}
+			if(!empty($_POST['vmxlocater']) && $_POST['vmxlocater'] == "yes") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','vmxlocater',true);
+			} elseif(!empty($_POST['vmxlocater']) && $_POST['vmxlocater'] == "no") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','vmxlocater',false);
+			} elseif(!empty($_POST['vmxlocater']) && $_POST['vmxlocater'] == "inherit") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Voicemail','vmxlocater',null);
+			}
 		}
 	}
 
@@ -602,6 +623,7 @@ class Voicemail implements \BMO {
 			$download = ($mode == 'group') ? true : null;
 			$settings = ($mode == 'group') ? true : null;
 			$greetings = ($mode == 'group') ? true : null;
+			$vmxlocater = ($mode == 'group') ? true : null;
 		} else {
 			if($mode == "group") {
 				$vmassigned = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','assigned');
@@ -616,6 +638,8 @@ class Voicemail implements \BMO {
 				$settings = !($settings) ? false : true;
 				$greetings = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','greetings');
 				$greetings = !($greetings) ? false : true;
+				$vmxlocater = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','vmxlocater');
+				$vmxlocater = !($vmxlocater) ? false : true;
 			} else {
 				$vmassigned = $this->FreePBX->Ucp->getSettingByID($user['id'],'Voicemail','assigned');
 				$enable = $this->FreePBX->Ucp->getSettingByID($user['id'],'Voicemail','enable');
@@ -623,6 +647,7 @@ class Voicemail implements \BMO {
 				$download = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','download');
 				$settings = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','settings');
 				$greetings = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','greetings');
+				$vmxlocater = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','vmxlocater');
 			}
 		}
 		$vmassigned = !empty($vmassigned) ? $vmassigned : array();
@@ -644,7 +669,7 @@ class Voicemail implements \BMO {
 		$html[0] = array(
 			"title" => _("Voicemail"),
 			"rawname" => "voicemail",
-			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("playback" => $playback, "download" => $download, "settings" => $settings, "greetings" => $greetings, "mode" => $mode, "enable" => $enable, "ausers" => $ausers, "vmassigned" => $vmassigned))
+			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("vmxlocater" => $vmxlocater, "playback" => $playback, "download" => $download, "settings" => $settings, "greetings" => $greetings, "mode" => $mode, "enable" => $enable, "ausers" => $ausers, "vmassigned" => $vmassigned))
 		);
 		return $html;
 	}

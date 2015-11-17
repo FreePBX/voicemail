@@ -742,7 +742,7 @@ function voicemail_draw_vmxgui($extdisplay, $vmdisable) {
 	$el = array(
 		"elemname" => "vmx_state",
 		"prompttext" => _('Enabled'),
-		"helptext" => _("Enable/Disable the VmX Locater feature for this user. When enabled all settings are controlled by the user in the User Portal (ARI). Disabling will not delete any existing user settings but will disable access to the feature"),
+		"helptext" => _("Enable/Disable the VmX (Virtual Machine eXtension) Locater feature for this user. The VMX locator allows for advanced control of a user's voicemail system. It is somewhat similar to the Follow Me feature; however it gives callers more control. In essence, the VMX locater is a mini-IVR (interactive voice response) for voicemail"),
 		"currentvalue" => (($disable) ? 'disabled' : 'enabled'),
 		"valarray" => $currentcomponent->getoptlist('vmena'),
 		"jsonclick" => "frm_${display}_vmxEnabled()",
@@ -807,7 +807,7 @@ function voicemail_draw_vmxgui($extdisplay, $vmdisable) {
 		$el = array(
 			"elemname" => "vmx_option_1_number",
 			"prompttext" => _("Press 1:"),
-			"helptext" => _("Enter an alternate number here, then change your personal Voicemail greeting to let callers know to press 1 to reach that number. <br/><br/>If you'd like to use your Follow Me List, check \"Send to Follow Me\" and disable Follow Me above."),
+			"helptext" => _("Enter an alternate number here, then change your personal Voicemail greeting to let callers know to press 1 to reach that number. <br/><br/>If you'd like to use your Follow Me List, check \"Send to Follow Me\" and disable Follow Me otherwise the call will go to Follow Me first and skip VmX Locater."),
 			"currentvalue" => $vmxsettings['option'][1]['value'],
 			"disable" => $vmxsettings['option'][1]['disabled'],
 			"class" => '',

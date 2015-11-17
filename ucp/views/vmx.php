@@ -2,6 +2,17 @@
 <div id="vmxmessage" class="message alert" style="display:none;"></div>
 <form role="form">
 	<div class="form-group">
+		<label for="vmx-state-h" class="help"><?php echo _('Enable')?> <i class="fa fa-question-circle"></i></label>
+		<div class="onoffswitch">
+			<input type="checkbox" name="vmx-state" class="onoffswitch-checkbox" id="vmx-state" <?php echo ($enabled) ? 'checked' : ''?>>
+			<label class="onoffswitch-label" for="vmx-state">
+				<div class="onoffswitch-inner"></div>
+				<div class="onoffswitch-switch"></div>
+			</label>
+		</div>
+		<span class="help-block help-hidden" data-for="vmx-state-h"><?php echo _("Enable/Disable the VmX (Virtual Machine eXtension) Locater feature. The VMX locator allows for advanced control of your voicemail system. It is somewhat similar to the Follow Me feature; however it gives callers more control. In essence, the VMX locater is a mini-IVR (interactive voice response) for voicemail")?></span>
+	</div>
+	<div class="form-group">
 		<label for="vmx-usewhen-h" class="help"><?php echo _('Use When')?> <i class="fa fa-question-circle"></i></label>
 		<div class="btn-group dests" data-toggle="buttons">
 			<label class="btn btn-default <?php echo ($settings['unavail']['state'] == 'enabled') ? 'active' : ''?>">
@@ -35,7 +46,7 @@
 			</span>
 			<input type="text" class="form-control" id="vmx-p1" name="vmx-opt1" data-type="vmx-p1" placeholder="<?php echo _('Send to Follow-Me')?>" data-ph="<?php echo _('Send to Follow-Me')?>" value="<?php echo (!empty($settings['unavail'][1]['ext']) && $settings['unavail'][1]['ext'] != $fmfm) ? $settings['unavail'][1]['ext'] : ''?>">
 		</div>
-		<span class="help-block help-hidden" data-for="vmx-p1-h"><?php echo _('Enter an alternate number here, then change your personal voicemail greeting to let callers know to press 1 to reach that number. If you\'d like to use your Follow Me List, ucheck the box to disable')?></span>
+		<span class="help-block help-hidden" data-for="vmx-p1-h"><?php echo _('Enter an alternate number here, then change your personal voicemail greeting to let callers know to press 1 to reach that number. If you\'d like to use your Follow Me List, uncheck the box to disable, otherwise the call will go to Follow Me first and skip VmX Locater')?></span>
 	</div>
 	<div class="form-group">
 		<label for="vmx-p2-h" class="help"><?php echo _('Press 2')?> <i class="fa fa-question-circle"></i></label>

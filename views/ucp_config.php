@@ -169,6 +169,35 @@
 		</div>
 	</div>
 </div>
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="vmxlocater"><?php echo _("Allow VmX Locater Settings") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="vmxlocater"></i>
+					</div>
+					<div class="col-md-9 radioset">
+						<input type="radio" name="vmxlocater" class="ucp-voicemail" id="vmxlocater_yes" value="yes" <?php echo $vmxlocater ? 'checked' : ''?>>
+						<label for="vmxlocater_yes"><?php echo _("Yes")?></label>
+						<input type="radio" name="vmxlocater" class="ucp-voicemail" id="vmxlocater_no" value="no" <?php echo (!is_null($vmxlocater) && !$vmxlocater) ? 'checked' : ''?>>
+						<label for="vmxlocater_no"><?php echo _("No")?></label>
+						<?php if($mode == "user") {?>
+							<input type="radio" id="vmxlocater_inherit" class="ucp-voicemail" name="vmxlocater" value='inherit' <?php echo is_null($vmxlocater) ? 'checked' : ''?>>
+							<label for="vmxlocater_inherit"><?php echo _('Inherit')?></label>
+						<?php } ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="vmxlocater-help" class="help-block fpbx-help-block"><?php echo _("Enable VmX Locater in UCP for this user")?></span>
+		</div>
+	</div>
+</div>
 <script>
 	$("input[name=voicemail_enable]").change(function() {
 		if($(this).val() == "yes" || $(this).val() == "inherit") {

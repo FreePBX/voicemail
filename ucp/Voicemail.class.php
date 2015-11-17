@@ -42,6 +42,7 @@ class Voicemail extends Modules{
 
 		$this->user = $this->UCP->User->getUser();
 		$this->enabled = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'enable');
+		$this->vmxenabled = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'vmxlocater');
 		$this->extensions = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'assigned');
 		$this->playback = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'playback');
 		$this->playback = !is_null($this->playback) ? $this->playback : true;
@@ -51,6 +52,8 @@ class Voicemail extends Modules{
 		$this->settings = !is_null($this->settings) ? $this->settings : true;
 		$this->greetings = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'greetings');
 		$this->greetings = !is_null($this->greetings) ? $this->greetings : true;
+		$this->vmxlocator = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'vmxlocator');
+		$this->vmxlocator = !is_null($this->vmxlocator) ? $this->vmxlocator : true;
 	}
 
 	function getDisplay() {
@@ -132,23 +135,23 @@ class Voicemail extends Modules{
 	}
 
 	public function getSettingsDisplay($ext) {
-		if($this->Vmx->isInitialized($ext) && $this->Vmx->isEnabled($ext)) {
-			$displayvars = array(
-				'settings' => $this->Vmx->getSettings($ext),
-				'fmfm' => 'FM'.$ext
-			);
-			$out = array(
-				array(
-					"title" => _('VmX Locator'),
-					"content" => $this->load_view(__DIR__.'/views/vmx.php',$displayvars),
-					"size" => 6,
-					"order" => 1
-				)
-			);
-			return $out;
-		} else {
+		if(!$this->_checkVmX($ext)) {
 			return array();
 		}
+		$displayvars = array(
+			'settings' => $this->Vmx->getSettings($ext),
+			'fmfm' => 'FM'.$ext,
+			'enabled' => $this->Vmx->isInitialized($ext) && $this->Vmx->isEnabled($ext)
+		);
+		$out = array(
+			array(
+				"title" => _('VmX Locator'),
+				"content" => $this->load_view(__DIR__.'/views/vmx.php',$displayvars),
+				"size" => 6,
+				"order" => 1
+			)
+		);
+		return $out;
 	}
 
 	/**
@@ -189,7 +192,7 @@ class Voicemail extends Modules{
 			break;
 			case 'vmxsettings':
 				$ext = $_REQUEST['ext'];
-				return $this->_checkExtension($ext) && $this->Vmx->isInitialized($ext) && $this->Vmx->isEnabled($ext);
+				return $this->_checkExtension($ext);
 			break;
 			case 'checkboxes':
 				return true;
@@ -308,7 +311,18 @@ class Voicemail extends Modules{
 				}
 			break;
 			case 'vmxsettings':
+				if(!$this->_checkVmX($_POST['ext'])) {
+					return false;
+				}
 				switch($_POST['settings']['key']) {
+					case 'vmx-state':
+						$m = ($_POST['settings']['value'] == 'true') ? 'enabled' : 'disabled';
+						if ($m == "disabled" && $this->Vmx->isInitialized($_POST['ext'])) {
+							$this->Vmx->disable($_POST['ext']);
+						} else {
+							$this->Vmx->setState($_POST['ext'],'unavail','disabled');
+						}
+					break;
 					case 'vmx-usewhen-unavailable':
 						$m = ($_POST['settings']['value'] == 'true') ? 'enabled' : 'disabled';
 						$this->Vmx->setState($_POST['ext'],'unavail',$m);
@@ -548,6 +562,19 @@ class Voicemail extends Modules{
 	 */
 	private function _checkExtension($extension) {
 		if(!$this->enabled) {
+			return false;
+		}
+		$extensions = $this->extensions;
+		return in_array($extension,$extensions);
+	}
+
+	/**
+	 * Check to make sure extension is valid for this user
+	 * @param  int $extension The extension number
+	 * @return boolean            True is do
+	 */
+	private function _checkVmX($extension) {
+		if(!$this->vmxenabled) {
 			return false;
 		}
 		$extensions = $this->extensions;
