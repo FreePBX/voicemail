@@ -448,6 +448,9 @@ class Voicemail implements \BMO {
 				$this->Vmx->setFollowMe($mailbox,1,'busy');
 				$this->Vmx->setFollowMe($mailbox,1,'temp');
 			} else {
+				if (!isset($settings['vmx_option_1_number'])) {
+					$settings['vmx_option_1_number'] = '';
+				}
 				$settings['vmx_option_1_number'] = preg_replace("/[^0-9]/" ,"", $settings['vmx_option_1_number']);
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_1_number'],1,'unavail');
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_1_number'],1,'busy');

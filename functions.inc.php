@@ -701,16 +701,19 @@ function voicemail_draw_vmxgui($extdisplay, $vmdisable) {
 				"checked" => true
 			);
 		} else {
+			$val = !$disable ? $vmxobj->getMenuOpt(1) : '';
 			$vmxsettings['option'][1] = array(
-				"disabled" => false,
-				"value" => !$disable ? $vmxobj->getMenuOpt(1) : '',
-				"checked" => false
+				"disabled" => empty($val),
+				"value" => $val,
+				"checked" => empty($val)
 			);
 		}
 	} else {
+		$val = !$disable ? $vmxobj->getMenuOpt(1) : '';
 		$vmxsettings['option'][1] = array(
-			"disabled" => false,
-			"value" => !$disable ? $vmxobj->getMenuOpt(1) : ''
+			"disabled" => empty($val),
+			"value" => $val,
+			"checked" => empty($val)
 		);
 	}
 
