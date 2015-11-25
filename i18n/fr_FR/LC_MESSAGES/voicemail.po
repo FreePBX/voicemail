@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-17 15:31-0800\n"
+"POT-Creation-Date: 2015-11-25 13:14-0800\n"
 "PO-Revision-Date: 2015-04-30 21:37+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "%s or %s or %s"
 msgstr ""
 
-#: ucp/assets/js/global.js:935
+#: ucp/assets/js/global.js:934
 #, perl-format
 msgid "%s seconds"
 msgstr ""
@@ -146,7 +146,7 @@ msgstr ""
 msgid "AM or PM"
 msgstr ""
 
-#: views/usage.php:184 views/usage_system.php:201
+#: views/usage.php:184 views/usage_system.php:203
 msgid "Abandoned Greetings"
 msgstr ""
 
@@ -220,11 +220,11 @@ msgstr ""
 msgid "Allowed Voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:254
+#: ucp/assets/js/global.js:253
 msgid "Are you sure you wish to delete these voicemails?"
 msgstr ""
 
-#: ucp/assets/js/global.js:192
+#: ucp/assets/js/global.js:191
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr ""
 
@@ -270,7 +270,7 @@ msgstr ""
 msgid "Busy Greeting"
 msgstr ""
 
-#: views/usage_system.php:139
+#: views/usage_system.php:141
 msgid "Busy Greetings"
 msgstr ""
 
@@ -333,7 +333,7 @@ msgstr ""
 msgid "Controls whether to attach the voicemail to the email"
 msgstr ""
 
-#: ucp/assets/js/global.js:423
+#: ucp/assets/js/global.js:422
 msgid "Copying..."
 msgstr ""
 
@@ -406,15 +406,15 @@ msgid ""
 msgstr ""
 
 #: ucp/views/greetings.php:46 ucp/views/mailbox.php:10 views/tz.php:21
-#: ucp/assets/js/global.js:945
+#: ucp/assets/js/global.js:944
 msgid "Delete"
 msgstr ""
 
-#: views/usage_system.php:189
+#: views/usage_system.php:191
 msgid "Delete All Temporary Greetings"
 msgstr ""
 
-#: views/usage_system.php:127
+#: views/usage_system.php:129
 msgid "Delete All Unavailible Greetings"
 msgstr ""
 
@@ -438,19 +438,19 @@ msgstr ""
 msgid "Delete Voicemail"
 msgstr ""
 
-#: views/usage_system.php:158
+#: views/usage_system.php:160
 msgid "Delete all Busy Messages"
 msgstr ""
 
-#: views/usage_system.php:96
+#: views/usage_system.php:98
 msgid "Delete all Recorded Names"
 msgstr ""
 
 #: views/usage.php:35 views/usage.php:66 views/usage.php:97
 #: views/usage.php:128 views/usage.php:159 views/usage.php:190
-#: views/usage_system.php:52 views/usage_system.php:83
-#: views/usage_system.php:114 views/usage_system.php:145
-#: views/usage_system.php:176 views/usage_system.php:207
+#: views/usage_system.php:54 views/usage_system.php:85
+#: views/usage_system.php:116 views/usage_system.php:147
+#: views/usage_system.php:178 views/usage_system.php:209
 msgid "Delete:"
 msgstr ""
 
@@ -478,7 +478,7 @@ msgstr ""
 msgid "Direct Dial Prefix"
 msgstr ""
 
-#: ucp/assets/js/global.js:761
+#: ucp/assets/js/global.js:760
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr ""
 
@@ -518,11 +518,11 @@ msgstr ""
 msgid "Disk space currently in use by Voicemail data"
 msgstr ""
 
-#: ucp/assets/js/global.js:942
+#: ucp/assets/js/global.js:941
 msgid "Download"
 msgstr ""
 
-#: ucp/assets/js/global.js:416
+#: ucp/assets/js/global.js:415
 msgid "Dragging to yourself is not allowed"
 msgstr ""
 
@@ -740,12 +740,12 @@ msgid ""
 "Voicemail, only the first format specified will be used."
 msgstr ""
 
-#: ucp/views/mailbox.php:13 ucp/assets/js/global.js:164
-#: ucp/assets/js/global.js:270 ucp/assets/js/global.js:939
+#: ucp/views/mailbox.php:13 ucp/assets/js/global.js:163
+#: ucp/assets/js/global.js:269 ucp/assets/js/global.js:938
 msgid "Forward"
 msgstr ""
 
-#: ucp/assets/js/global.js:163 ucp/assets/js/global.js:269
+#: ucp/assets/js/global.js:162 ucp/assets/js/global.js:268
 msgid "Forward Voicemail"
 msgstr ""
 
@@ -932,15 +932,15 @@ msgstr ""
 msgid "Invalid Recipient"
 msgstr ""
 
-#: ucp/assets/js/global.js:144
+#: ucp/assets/js/global.js:143
 msgid "Listen"
 msgstr ""
 
-#: ucp/assets/js/global.js:938
+#: ucp/assets/js/global.js:937
 msgid "Listen on your handset"
 msgstr ""
 
-#: ucp/assets/js/global.js:143
+#: ucp/assets/js/global.js:142
 msgid "Listen to Voicemail"
 msgstr ""
 
@@ -982,11 +982,11 @@ msgstr ""
 msgid "Messages in inbox"
 msgstr ""
 
-#: views/usage_system.php:47
+#: views/usage_system.php:49
 msgid "Messages in inboxes"
 msgstr ""
 
-#: views/usage.php:31 views/usage_system.php:48
+#: views/usage.php:31 views/usage_system.php:50
 msgid "Messages in other folders"
 msgstr ""
 
@@ -1008,11 +1008,11 @@ msgstr ""
 msgid "Month name (January, February, ...)"
 msgstr ""
 
-#: ucp/views/mailbox.php:16 ucp/assets/js/global.js:217
+#: ucp/views/mailbox.php:16 ucp/assets/js/global.js:216
 msgid "Move"
 msgstr ""
 
-#: ucp/assets/js/global.js:216
+#: ucp/assets/js/global.js:215
 msgid "Move Voicemail"
 msgstr ""
 
@@ -1058,10 +1058,10 @@ msgstr ""
 #: views/ucp_config.php:69 views/ucp_config.php:98 views/ucp_config.php:127
 #: views/ucp_config.php:156 views/ucp_config.php:185 views/usage.php:39
 #: views/usage.php:70 views/usage.php:101 views/usage.php:132
-#: views/usage.php:163 views/usage.php:194 views/usage_system.php:56
-#: views/usage_system.php:87 views/usage_system.php:118
-#: views/usage_system.php:149 views/usage_system.php:180
-#: views/usage_system.php:211
+#: views/usage.php:163 views/usage.php:194 views/usage_system.php:58
+#: views/usage_system.php:89 views/usage_system.php:120
+#: views/usage_system.php:151 views/usage_system.php:182
+#: views/usage_system.php:213
 msgid "No"
 msgstr ""
 
@@ -1087,7 +1087,7 @@ msgstr ""
 msgid "Not Found"
 msgstr ""
 
-#: ucp/assets/js/global.js:411
+#: ucp/assets/js/global.js:410
 msgid "Not a valid Draggable Object"
 msgstr ""
 
@@ -1099,7 +1099,7 @@ msgstr ""
 msgid "Number of Accounts"
 msgstr ""
 
-#: views/usage.php:25 views/usage_system.php:42
+#: views/usage.php:25 views/usage_system.php:44
 msgid "Number of Messages"
 msgstr ""
 
@@ -1124,7 +1124,7 @@ msgstr ""
 msgid "Old"
 msgstr ""
 
-#: ucp/assets/js/global.js:144
+#: ucp/assets/js/global.js:143
 msgid "On"
 msgstr ""
 
@@ -1247,7 +1247,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr ""
 
-#: ucp/assets/js/global.js:772
+#: ucp/assets/js/global.js:771
 msgid "Recorded Message"
 msgstr ""
 
@@ -1255,11 +1255,11 @@ msgstr ""
 msgid "Recorded Name"
 msgstr ""
 
-#: views/usage_system.php:77
+#: views/usage_system.php:79
 msgid "Recorded Names"
 msgstr ""
 
-#: ucp/assets/js/global.js:803
+#: ucp/assets/js/global.js:802
 msgid "Recording..."
 msgstr ""
 
@@ -1274,14 +1274,14 @@ msgid ""
 "not used as a greeting."
 msgstr ""
 
-#: views/usage_system.php:220
+#: views/usage_system.php:222
 msgid ""
 "Remove all abandoned greetings (> 1 day old).</br>  Such greetings were "
 "recorded by the user but were NOT accepted, so the sound file remains on "
 "disk but is not used as a greeting."
 msgstr ""
 
-#: views/usage.php:48 views/usage_system.php:65
+#: views/usage.php:48 views/usage_system.php:67
 msgid "Remove all messages"
 msgstr ""
 
@@ -1351,11 +1351,11 @@ msgstr ""
 msgid "Specify in minutes the minimum duration to say. Default is 2 minutes."
 msgstr ""
 
-#: ucp/assets/js/global.js:869
+#: ucp/assets/js/global.js:868
 msgid "Stop the Recording First before trying to delete"
 msgstr ""
 
-#: ucp/assets/js/global.js:820
+#: ucp/assets/js/global.js:819
 msgid "Stop the Recording First before trying to save"
 msgstr ""
 
@@ -1400,7 +1400,7 @@ msgstr ""
 msgid "Temporary Greeting"
 msgstr ""
 
-#: views/usage_system.php:170
+#: views/usage_system.php:172
 msgid "Temporary Greetings"
 msgstr ""
 
@@ -1469,7 +1469,7 @@ msgid ""
 "conf."
 msgstr ""
 
-#: ucp/assets/js/global.js:881
+#: ucp/assets/js/global.js:880
 msgid "There is nothing to delete"
 msgstr ""
 
@@ -1550,8 +1550,8 @@ msgstr ""
 msgid "Timezone from zonemessages context.\tIrrelevant if envelope=no."
 msgstr ""
 
-#: ucp/assets/js/global.js:164 ucp/assets/js/global.js:217
-#: ucp/assets/js/global.js:270
+#: ucp/assets/js/global.js:163 ucp/assets/js/global.js:216
+#: ucp/assets/js/global.js:269
 msgid "To"
 msgstr ""
 
@@ -1565,9 +1565,9 @@ msgstr ""
 #: views/usage.php:9 views/usage.php:32 views/usage.php:64 views/usage.php:95
 #: views/usage.php:126 views/usage.php:157 views/usage.php:188
 #: views/usage_system.php:13 views/usage_system.php:25
-#: views/usage_system.php:49 views/usage_system.php:81
-#: views/usage_system.php:112 views/usage_system.php:143
-#: views/usage_system.php:174 views/usage_system.php:205
+#: views/usage_system.php:51 views/usage_system.php:83
+#: views/usage_system.php:114 views/usage_system.php:145
+#: views/usage_system.php:176 views/usage_system.php:207
 msgid "Total"
 msgstr ""
 
@@ -1596,7 +1596,7 @@ msgstr ""
 msgid "Unavailable Greeting"
 msgstr ""
 
-#: views/usage_system.php:108
+#: views/usage_system.php:110
 msgid "Unavailable Greetings"
 msgstr ""
 
@@ -1616,8 +1616,8 @@ msgstr ""
 msgid "Unsupported file format"
 msgstr ""
 
-#: ucp/assets/js/global.js:476 ucp/assets/js/global.js:515
-#: ucp/assets/js/global.js:554 ucp/assets/js/global.js:598
+#: ucp/assets/js/global.js:475 ucp/assets/js/global.js:514
+#: ucp/assets/js/global.js:553 ucp/assets/js/global.js:597
 msgid "Unsupported file type"
 msgstr ""
 
@@ -1633,9 +1633,9 @@ msgstr ""
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
 msgstr ""
 
-#: ucp/assets/js/global.js:481 ucp/assets/js/global.js:520
-#: ucp/assets/js/global.js:559 ucp/assets/js/global.js:582
-#: ucp/assets/js/global.js:603 ucp/assets/js/global.js:824
+#: ucp/assets/js/global.js:480 ucp/assets/js/global.js:519
+#: ucp/assets/js/global.js:558 ucp/assets/js/global.js:581
+#: ucp/assets/js/global.js:602 ucp/assets/js/global.js:823
 msgid "Uploading..."
 msgstr ""
 
@@ -1800,6 +1800,10 @@ msgid ""
 "will be shown"
 msgstr ""
 
+#: views/usage_system.php:35
+msgid "Warning: the actions below are global and will affect ALL users."
+msgstr ""
+
 #: functions.inc.php:762
 msgid "When to use VMX"
 msgstr ""
@@ -1832,9 +1836,9 @@ msgstr ""
 #: views/ucp_config.php:96 views/ucp_config.php:125 views/ucp_config.php:154
 #: views/ucp_config.php:183 views/usage.php:37 views/usage.php:68
 #: views/usage.php:99 views/usage.php:130 views/usage.php:161
-#: views/usage.php:192 views/usage_system.php:54 views/usage_system.php:85
-#: views/usage_system.php:116 views/usage_system.php:147
-#: views/usage_system.php:178 views/usage_system.php:209
+#: views/usage.php:192 views/usage_system.php:56 views/usage_system.php:87
+#: views/usage_system.php:118 views/usage_system.php:149
+#: views/usage_system.php:180 views/usage_system.php:211
 msgid "Yes"
 msgstr ""
 
@@ -1844,12 +1848,12 @@ msgid ""
 "specified)."
 msgstr ""
 
-#: ucp/assets/js/global.js:91
+#: ucp/assets/js/global.js:90
 #, perl-format
 msgid "You Have %s New Voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:929
+#: ucp/assets/js/global.js:928
 #, perl-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -1858,15 +1862,15 @@ msgid ""
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
 
-#: ucp/assets/js/global.js:448
+#: ucp/assets/js/global.js:447
 msgid "You have No Drag/Drop Support!"
 msgstr ""
 
-#: ucp/assets/js/global.js:809
+#: ucp/assets/js/global.js:808
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 
-#: ucp/assets/js/global.js:730
+#: ucp/assets/js/global.js:729
 msgid "Your settings have been saved"
 msgstr ""
 
