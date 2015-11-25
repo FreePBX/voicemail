@@ -31,6 +31,8 @@
 		<div class="panel-heading">
 			<h3 class="panel-title"><?php echo _("General Usage")?></h3>
 		</div>
+		<br/>
+		<div class="alert alert-danger"><strong><?php echo _("Warning: the actions below are global and will affect ALL users.")?></strong></div>
 		<div class="panel-body">
 			<!--Number of Messages-->
 			<div class="element-container">
@@ -222,6 +224,14 @@
 				</div>
 			</div>
 			<!--END Abandoned Greetings-->
-	</div>	
-</div>	
+	</div>
+</div>
 <input type="hidden" name="action" id="action" value="Submit">
+<script>
+
+$("[name^='del_']").change(function(){
+	if($(this).val() == 'true'){
+		alert(_("This will affect all mailboxes on the system."));
+	}
+});
+</script>
