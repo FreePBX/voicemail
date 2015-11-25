@@ -79,13 +79,12 @@ var VoicemailC = UCPMC.extend({
 		if (data.status) {
 			var notify = 0,
 			voicemailNotification = {};
-			if ($("#voicemail-badge").html() < data.total) {
-				notify = data.total - $("#voicemail-badge").html();
+			if (parseInt($("#voicemail-badge").text()) < data.total) {
+				notify = data.total - parseInt($("#voicemail-badge").text());
 			}
+			$("#voicemail-badge").text(data.total);
 			$.each( data.boxes, function( extension, messages ) {
-				if ($("#voicemail-" + extension + "-badge").html() < messages) {
-					notify = (messages - $("#voicemail-badge").html()) + notify;
-				}
+				$("#voicemail-" + extension + "-badge").text(messages);
 			});
 			voicemailNotification = new Notify("Voicemail", {
 				body: sprintf(_("You Have %s New Voicemail"), notify),
