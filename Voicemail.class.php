@@ -646,11 +646,11 @@ class Voicemail implements \BMO {
 			} else {
 				$vmassigned = $this->FreePBX->Ucp->getSettingByID($user['id'],'Voicemail','assigned');
 				$enable = $this->FreePBX->Ucp->getSettingByID($user['id'],'Voicemail','enable');
-				$playback = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','playback');
-				$download = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','download');
-				$settings = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','settings');
-				$greetings = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','greetings');
-				$vmxlocater = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Voicemail','vmxlocater');
+				$playback = $this->FreePBX->Ucp->getSettingByID($user['id'],'Voicemail','playback');
+				$download = $this->FreePBX->Ucp->getSettingByID($user['id'],'Voicemail','download');
+				$settings = $this->FreePBX->Ucp->getSettingByID($user['id'],'Voicemail','settings');
+				$greetings = $this->FreePBX->Ucp->getSettingByID($user['id'],'Voicemail','greetings');
+				$vmxlocater = $this->FreePBX->Ucp->getSettingByID($user['id'],'Voicemail','vmxlocater');
 			}
 		}
 		$vmassigned = !empty($vmassigned) ? $vmassigned : array();
