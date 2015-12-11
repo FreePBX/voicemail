@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.24</version>
+	<version>13.0.25</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.25* FREEPBX-10797 revert handling of temporary greetings
 		*13.0.24* FREEPBX-10577 FREEPBX-10593 FREEPBX-10668			
 		*13.0.23* FREEPBX-10572 VmX is always an option in UCP
 		*13.0.22* Speed up voicemail parser by caching
@@ -47,45 +48,6 @@
 		*13.0.1alpha3* FREEPBX-8130 Move emailbody back into voicemail.conf so that it shows up in Voicemail Admin
 		*13.0.1alpha2* FREEPBX-8555 Support passwordless voicemail retrieval in device/user mode
 		*13.0.1alpha1* Layout changes
-		*12.0.20* pagination fixes
-		*12.0.19* FREEPBX-8211 Improvements to UCP Voicemail/CDR Playback
-		*12.0.18* Restructure Voicemail in UCP, FREEPBX-8198 Add pagination, FREEPBX-8207 fix converting process
-		*12.0.17* Add res_mwi_devstate now for 12 installations
-		*12.0.16* Tweaks for UCP
-		*12.0.15* Stop playing voicemails in UCP when they are deleted
-		*12.0.14* FREEPBX-7542 fixes UCP not renumbering voicemails
-		*12.0.13* FREEPBX-7500 Make User voicemail settings uniform
-		*12.0.12* FREEPBX-7326 fixes issue of enabling setting if module doesnt exist.
-		*12.0.11* VmX Temp addition and Fixes and UCP conflict fixes
-		*12.0.10* Part fix for #6923 language not being set.
-		*12.0.9* Restructure Parts of UCP
-		*12.0.8* Cleanup in UCP
-		*12.0.7* Auto Saving for UCP
-		*12.0.6* UCP Module Adjustments
-		*12.0.5* Small fixes for UCP FREEPBX-7293
-		*12.0.4* Set message limit for UCP display
-		*12.0.3* Work on GUI for button work in Framework, numerous changes and additions for User Control Panel on the backend
-		*12.0.2* FREEPBX-6471 allow asterisk in password field
-		*12.0.1* Use BMO object to add the Asterisk mwi module if it exists
-		*12.0.0* Added back the ability to have an extension call voicemail and not have to enter a password, re FREEPBX-5323
-		*2.11.1.1* Fix #6967 (missing help popups) and PBXAC-12 (unable to delete greetings/recordings)
-		*2.11.1.0* Reorganize and rework module. Clean up and fixed #6769
-		*2.11.0.4* #6712
-		*2.11.0.3* #6246
-		*2.11.0.2* #6111
-		*2.11.0.1* install_amp corner case error fix
-		*2.11.0.0* #6015
-		*2.10.0.4* #5894
-		*2.10.0.3* #5639
-		*2.10.0.2* #5135, #5168
-		*2.10.0.1* #5478
-		*2.10.0.0* new version changes
-		*2.9.0.5* #5072
-		*2.9.0.4* #5036, #5062
-		*2.9.0.3* #5000
-		*2.9.0.2* #4401
-		*2.9.0.1* removed duplicate functions
-		*2.9.0.0* #4653, #4734, #4736, merge vmailadmin
 	</changelog>
 	<description>This module allows you to configure Voicemail for a user or extension</description>
 	<category>Settings</category>
@@ -93,7 +55,7 @@
 		<voicemail>Voicemail Admin</voicemail>
 	</menuitems>
 	<depends>
-		<module>core ge 12.0.1alpha26</module>
+		<module>core ge 13.0.16</module>
 		<version>12.0.1alpha54</version>
 	</depends>
 	<supported>
