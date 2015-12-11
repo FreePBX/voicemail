@@ -369,7 +369,8 @@ function voicemail_applyhooks() {
 
 	$currentcomponent->addoptlistitem('vmxuw', 'vmx_unavail_enabled', _('Unavailable'));
 	$currentcomponent->addoptlistitem('vmxuw', 'vmx_busy_enabled', _('Busy'));
-	$currentcomponent->addoptlistitem('vmxuw', 'vmx_temp_enabled', _('Temporary'));
+// Removed FREEPBX-10797
+//	$currentcomponent->addoptlistitem('vmxuw', 'vmx_temp_enabled', _('Temporary'));
 	$currentcomponent->setoptlistopts('vmxuw', 'sort', false);
 
 	// Add the 'proces' function
