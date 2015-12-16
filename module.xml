@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.25</version>
+	<version>13.0.26</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.26* Make sure UCP is installed first
 		*13.0.25* FREEPBX-10797 revert handling of temporary greetings
 		*13.0.24* FREEPBX-10577 FREEPBX-10593 FREEPBX-10668			
 		*13.0.23* FREEPBX-10572 VmX is always an option in UCP

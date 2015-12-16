@@ -81,11 +81,11 @@ class Voicemail implements \BMO {
 	}
 
 	public function install() {
-		if($this->FreePBX->Modules()->checkStatus("userman")) {
+		if($this->FreePBX->Modules->checkStatus("userman")) {
 		  $users = $this->FreePBX->Userman()->getAllUsers();
 		  foreach($users as $user) {
 		    if($user['default_extension'] != 'none') {
-		      if($this->Vmx->isInitialized($user['default_extension']) && $this->Vmx->isEnabled($user['default_extension'])) {
+		      if($this->FreePBX->Modules->checkStatus("ucp") && $this->Vmx->isInitialized($user['default_extension']) && $this->Vmx->isEnabled($user['default_extension'])) {
 						$this->FreePBX->Ucp->setSettingByID($user['id'],'Voicemail','vmxlocater',true);
 					}
 		    }
