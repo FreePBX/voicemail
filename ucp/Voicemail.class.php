@@ -437,8 +437,7 @@ class Voicemail extends Modules{
 						$return = array("status" => false, "message" => sprintf(_("Voicemail was empty: %s"),$tmp_path."/vmtmp/".$name));
 						break;
 					}
-					unlink($tmp_path."/vmtmp/$name");
-					$this->UCP->FreePBX->Voicemail->saveVMGreeting($_REQUEST['ext'],$_REQUEST['type'],'wav',$contents);
+					$this->UCP->FreePBX->Voicemail->saveVMGreeting($_REQUEST['ext'],$_REQUEST['type'],'wav',$tmp_path."/vmtmp/$name");
 				}	else {
 					$return = array("status" => false, "message" => _("Unknown Error"));
 					break;

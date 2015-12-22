@@ -708,6 +708,7 @@ var VoicemailC = UCPMC.extend({
 		if (visible === true) {
 			$("#" + type + " button.delete").show();
 			$("#jp_container_" + type).removeClass("greet-hidden");
+			$("#freepbx_player_"+ type).jPlayer( "clearMedia" );
 		} else {
 			$("#" + type + " button.delete").hide();
 			$("#jp_container_" + type).addClass("greet-hidden");
