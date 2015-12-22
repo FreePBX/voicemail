@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-21 09:55-0800\n"
+"POT-Creation-Date: 2015-12-21 17:59-0800\n"
 "PO-Revision-Date: 2015-02-05 21:26+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -90,7 +90,7 @@ msgstr ""
 msgid "%s or %s or %s"
 msgstr ""
 
-#: ucp/assets/js/global.js:934
+#: ucp/assets/js/global.js:935
 #, perl-format
 msgid "%s seconds"
 msgstr ""
@@ -404,7 +404,7 @@ msgid ""
 msgstr ""
 
 #: ucp/views/greetings.php:46 ucp/views/mailbox.php:10 views/tz.php:21
-#: ucp/assets/js/global.js:944
+#: ucp/assets/js/global.js:945
 msgid "Delete"
 msgstr ""
 
@@ -476,7 +476,7 @@ msgstr ""
 msgid "Direct Dial Prefix"
 msgstr ""
 
-#: ucp/assets/js/global.js:760
+#: ucp/assets/js/global.js:761
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr ""
 
@@ -516,7 +516,7 @@ msgstr ""
 msgid "Disk space currently in use by Voicemail data"
 msgstr ""
 
-#: ucp/assets/js/global.js:941
+#: ucp/assets/js/global.js:942
 msgid "Download"
 msgstr ""
 
@@ -728,7 +728,7 @@ msgid ""
 "user's timezone on message playback."
 msgstr ""
 
-#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:537
+#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:536
 msgid "Forbidden"
 msgstr ""
 
@@ -751,7 +751,7 @@ msgid ""
 msgstr ""
 
 #: ucp/views/mailbox.php:13 ucp/assets/js/global.js:163
-#: ucp/assets/js/global.js:269 ucp/assets/js/global.js:938
+#: ucp/assets/js/global.js:269 ucp/assets/js/global.js:939
 msgid "Forward"
 msgstr ""
 
@@ -946,7 +946,7 @@ msgstr ""
 msgid "Listen"
 msgstr ""
 
-#: ucp/assets/js/global.js:937
+#: ucp/assets/js/global.js:938
 msgid "Listen on your handset"
 msgstr ""
 
@@ -1094,7 +1094,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: ucp/Voicemail.class.php:554
+#: ucp/Voicemail.class.php:553
 msgid "Not Found"
 msgstr ""
 
@@ -1254,7 +1254,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr ""
 
-#: ucp/assets/js/global.js:771
+#: ucp/assets/js/global.js:772
 msgid "Recorded Message"
 msgstr ""
 
@@ -1266,7 +1266,7 @@ msgstr ""
 msgid "Recorded Names"
 msgstr ""
 
-#: ucp/assets/js/global.js:802
+#: ucp/assets/js/global.js:803
 msgid "Recording..."
 msgstr ""
 
@@ -1358,11 +1358,11 @@ msgstr ""
 msgid "Specify in minutes the minimum duration to say. Default is 2 minutes."
 msgstr ""
 
-#: ucp/assets/js/global.js:868
+#: ucp/assets/js/global.js:869
 msgid "Stop the Recording First before trying to delete"
 msgstr ""
 
-#: ucp/assets/js/global.js:819
+#: ucp/assets/js/global.js:820
 msgid "Stop the Recording First before trying to save"
 msgstr ""
 
@@ -1476,7 +1476,7 @@ msgid ""
 "conf."
 msgstr ""
 
-#: ucp/assets/js/global.js:880
+#: ucp/assets/js/global.js:881
 msgid "There is nothing to delete"
 msgstr ""
 
@@ -1615,7 +1615,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ucp/Voicemail.class.php:443
+#: ucp/Voicemail.class.php:442
 msgid "Unknown Error"
 msgstr ""
 
@@ -1642,7 +1642,7 @@ msgstr ""
 
 #: ucp/assets/js/global.js:480 ucp/assets/js/global.js:519
 #: ucp/assets/js/global.js:558 ucp/assets/js/global.js:581
-#: ucp/assets/js/global.js:602 ucp/assets/js/global.js:823
+#: ucp/assets/js/global.js:602 ucp/assets/js/global.js:824
 msgid "Uploading..."
 msgstr ""
 
@@ -1721,7 +1721,7 @@ msgid "VmX Locator"
 msgstr ""
 
 #: Voicemail.class.php:673 functions.inc.php:463 install.php:8
-#: ucp/Voicemail.class.php:504 views/header.php:2 voicemail.i18n.php:4
+#: ucp/Voicemail.class.php:503 views/header.php:2 voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr "语音邮件"
@@ -1860,7 +1860,7 @@ msgstr ""
 msgid "You Have %s New Voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:928
+#: ucp/assets/js/global.js:929
 #, perl-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -1873,11 +1873,11 @@ msgstr ""
 msgid "You have No Drag/Drop Support!"
 msgstr ""
 
-#: ucp/assets/js/global.js:808
+#: ucp/assets/js/global.js:809
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 
-#: ucp/assets/js/global.js:729
+#: ucp/assets/js/global.js:730
 msgid "Your settings have been saved"
 msgstr ""
 

@@ -19,15 +19,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePbx 2.5.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-21 09:55-0800\n"
+"POT-Creation-Date: 2015-12-21 17:59-0800\n"
 "PO-Revision-Date: 2015-12-22 03:36+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
-"Language-Team: Portuguese (Brazil) "
-"<http://weblate.freepbx.org/projects/freepbx/voicemail/pt_BR/>\n"
-"Language: pt_BR\n"
+"Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
+"freepbx/voicemail/pt_BR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Portuguese\n"
@@ -102,7 +102,7 @@ msgstr "%s ou %s"
 msgid "%s or %s or %s"
 msgstr "%s ou %s ou %s"
 
-#: ucp/assets/js/global.js:934
+#: ucp/assets/js/global.js:935
 #, perl-format
 msgid "%s seconds"
 msgstr "%s segundos"
@@ -453,7 +453,7 @@ msgstr ""
 "HÁ VALIDAÇÃO então deve ser testado após a configuração."
 
 #: ucp/views/greetings.php:46 ucp/views/mailbox.php:10 views/tz.php:21
-#: ucp/assets/js/global.js:944
+#: ucp/assets/js/global.js:945
 msgid "Delete"
 msgstr "Apagar"
 
@@ -525,7 +525,7 @@ msgstr "Modo Discagem Direta"
 msgid "Direct Dial Prefix"
 msgstr "Prefixo Discagem Direta"
 
-#: ucp/assets/js/global.js:760
+#: ucp/assets/js/global.js:761
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr "Gravação de Mídia Direta não é Suportada em seu Navegador!"
 
@@ -569,7 +569,7 @@ msgstr "Descartar Saudação"
 msgid "Disk space currently in use by Voicemail data"
 msgstr "Espaço de disco atualmente em uso pelos dados de Correio de Voz"
 
-#: ucp/assets/js/global.js:941
+#: ucp/assets/js/global.js:942
 msgid "Download"
 msgstr "Baixar"
 
@@ -674,8 +674,8 @@ msgstr ""
 "Ativar/Desativar o recurso Localizador VmX (Ramal de Maquina Virtual) para "
 "este usuário. O localizador VmX permite controle avançado do sistema de "
 "correio de voz do usuário. É parecido com o recurso Siga-Me; no entanto ela "
-"dá mais controle ao chamador. Em essência, o localizador VmX é uma mini-URA ("
-"Unidade de Resposta Audível) para correio de voz"
+"dá mais controle ao chamador. Em essência, o localizador VmX é uma mini-URA "
+"(Unidade de Resposta Audível) para correio de voz"
 
 #: ucp/views/vmx.php:13
 msgid ""
@@ -805,7 +805,7 @@ msgstr ""
 "Por exemplo, o hora que uma mensagem foi deixada será anunciada de acordo "
 "com o timezone do usuário na reprodução da mensagem."
 
-#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:537
+#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:536
 msgid "Forbidden"
 msgstr "Proibido"
 
@@ -834,7 +834,7 @@ msgstr ""
 "para Correio de Voz, apenas o primeiro formato especificado será usado."
 
 #: ucp/views/mailbox.php:13 ucp/assets/js/global.js:163
-#: ucp/assets/js/global.js:269 ucp/assets/js/global.js:938
+#: ucp/assets/js/global.js:269 ucp/assets/js/global.js:939
 msgid "Forward"
 msgstr "Avançar"
 
@@ -1053,7 +1053,7 @@ msgstr ""
 msgid "Listen"
 msgstr ""
 
-#: ucp/assets/js/global.js:937
+#: ucp/assets/js/global.js:938
 msgid "Listen on your handset"
 msgstr ""
 
@@ -1201,7 +1201,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: ucp/Voicemail.class.php:554
+#: ucp/Voicemail.class.php:553
 msgid "Not Found"
 msgstr ""
 
@@ -1364,7 +1364,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr ""
 
-#: ucp/assets/js/global.js:771
+#: ucp/assets/js/global.js:772
 msgid "Recorded Message"
 msgstr ""
 
@@ -1376,7 +1376,7 @@ msgstr ""
 msgid "Recorded Names"
 msgstr ""
 
-#: ucp/assets/js/global.js:802
+#: ucp/assets/js/global.js:803
 msgid "Recording..."
 msgstr ""
 
@@ -1468,11 +1468,11 @@ msgstr ""
 msgid "Specify in minutes the minimum duration to say. Default is 2 minutes."
 msgstr ""
 
-#: ucp/assets/js/global.js:868
+#: ucp/assets/js/global.js:869
 msgid "Stop the Recording First before trying to delete"
 msgstr ""
 
-#: ucp/assets/js/global.js:819
+#: ucp/assets/js/global.js:820
 msgid "Stop the Recording First before trying to save"
 msgstr ""
 
@@ -1591,7 +1591,7 @@ msgid ""
 "conf."
 msgstr ""
 
-#: ucp/assets/js/global.js:880
+#: ucp/assets/js/global.js:881
 msgid "There is nothing to delete"
 msgstr ""
 
@@ -1732,7 +1732,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ucp/Voicemail.class.php:443
+#: ucp/Voicemail.class.php:442
 msgid "Unknown Error"
 msgstr ""
 
@@ -1759,7 +1759,7 @@ msgstr ""
 
 #: ucp/assets/js/global.js:480 ucp/assets/js/global.js:519
 #: ucp/assets/js/global.js:558 ucp/assets/js/global.js:581
-#: ucp/assets/js/global.js:602 ucp/assets/js/global.js:823
+#: ucp/assets/js/global.js:602 ucp/assets/js/global.js:824
 msgid "Uploading..."
 msgstr ""
 
@@ -1838,7 +1838,7 @@ msgid "VmX Locator"
 msgstr ""
 
 #: Voicemail.class.php:673 functions.inc.php:463 install.php:8
-#: ucp/Voicemail.class.php:504 views/header.php:2 voicemail.i18n.php:4
+#: ucp/Voicemail.class.php:503 views/header.php:2 voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr "Correio de voz"
@@ -1979,7 +1979,7 @@ msgstr ""
 msgid "You Have %s New Voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:928
+#: ucp/assets/js/global.js:929
 #, perl-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -1992,11 +1992,11 @@ msgstr ""
 msgid "You have No Drag/Drop Support!"
 msgstr ""
 
-#: ucp/assets/js/global.js:808
+#: ucp/assets/js/global.js:809
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 
-#: ucp/assets/js/global.js:729
+#: ucp/assets/js/global.js:730
 msgid "Your settings have been saved"
 msgstr ""
 
