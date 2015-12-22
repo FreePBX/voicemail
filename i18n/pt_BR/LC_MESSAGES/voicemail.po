@@ -20,14 +20,14 @@ msgstr ""
 "Project-Id-Version: FreePbx 2.5.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-21 09:55-0800\n"
-"PO-Revision-Date: 2015-05-13 09:06+0200\n"
+"PO-Revision-Date: 2015-12-22 03:36+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
-"Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
-"freepbx/voicemail/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://weblate.freepbx.org/projects/freepbx/voicemail/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Portuguese\n"
@@ -105,7 +105,7 @@ msgstr "%s ou %s ou %s"
 #: ucp/assets/js/global.js:934
 #, perl-format
 msgid "%s seconds"
-msgstr ""
+msgstr "%s segundos"
 
 #: views/tz.php:94
 msgid "'filename'"
@@ -133,7 +133,7 @@ msgstr "15 db"
 
 #: views/tz.php:212
 msgid "24 hour time, including minute"
-msgstr ""
+msgstr "tempo em 24 horas, incluindo minutos"
 
 #: page.voicemail.php:427 views/dialplan.php:75
 msgid "3 db"
@@ -166,27 +166,27 @@ msgstr ""
 
 #: views/tz.php:188
 msgid "AM or PM"
-msgstr ""
+msgstr "AM ou PM"
 
 #: views/usage.php:184 views/usage_system.php:203
 msgid "Abandoned Greetings"
-msgstr ""
+msgstr "Saudações Abandonadas"
 
 #: views/usage.php:2
 msgid "Account"
-msgstr ""
+msgstr "Conta"
 
 #: views/settings.php:6
 msgid "Account Advanced Settings"
-msgstr ""
+msgstr "Configurações Avançadas da Conta"
 
 #: views/settings.php:4
 msgid "Account Settings"
-msgstr ""
+msgstr "Configurações de Conta"
 
 #: views/settings.php:5
 msgid "Account Usage"
-msgstr ""
+msgstr "Uso da Conta"
 
 #: views/settings.php:2
 msgid "Account View Links:"
@@ -194,7 +194,7 @@ msgstr "Links de Visualização da Conta:"
 
 #: views/usage_system.php:10
 msgid "Activated"
-msgstr ""
+msgstr "Ativada"
 
 #: functions.inc.php:919
 msgid "Advanced Settings For: "
@@ -218,23 +218,23 @@ msgstr ""
 
 #: views/ucp_config.php:178
 msgid "Allow VmX Locater Settings"
-msgstr ""
+msgstr "Permitir Configurações Localizador VmX"
 
 #: views/ucp_config.php:91
 msgid "Allow Voicemail Download"
-msgstr ""
+msgstr "Permitir Baixar Correio de Voz"
 
 #: views/ucp_config.php:149
 msgid "Allow Voicemail Greetings"
-msgstr ""
+msgstr "Permitir Saudações de Correio de Voz"
 
 #: views/ucp_config.php:62
 msgid "Allow Voicemail Playback"
-msgstr ""
+msgstr "Permitir Reprodução de Correio de Voz"
 
 #: views/ucp_config.php:120
 msgid "Allow Voicemail Settings"
-msgstr ""
+msgstr "Permitir Configurações de Correio de Voz"
 
 #: page.voicemail.php:266 page.voicemail.php:308
 msgid ""
@@ -250,7 +250,7 @@ msgstr "Correio de Voz Permitido"
 
 #: ucp/assets/js/global.js:253
 msgid "Are you sure you wish to delete these voicemails?"
-msgstr ""
+msgstr "Você está certo de que deseja apagar estes correios de voz?"
 
 #: ucp/assets/js/global.js:191
 msgid "Are you sure you wish to delete this voicemail?"
@@ -260,6 +260,8 @@ msgstr "Você tem certeza que deseja apagar este correio de voz?"
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
+"O Asterisk não parece estar rodando, Não pôde conectar com o Gerenciador "
+"Asterisk"
 
 #: page.voicemail.php:302
 msgid "Asterisk language code"
@@ -267,7 +269,7 @@ msgstr "Código de idioma Asterisk"
 
 #: views/dialplan.php:165
 msgid "Attempt(s)"
-msgstr ""
+msgstr "Tentativa(s)"
 
 #: install.php:192
 msgid "Attempting to delete.."
@@ -275,7 +277,7 @@ msgstr "Tentando apagar.."
 
 #: ucp/views/mailbox.php:28
 msgid "Auto-Refresh"
-msgstr ""
+msgstr "Auto-Atualizar"
 
 #: functions.inc.php:912
 msgid "Basic Settings For: "
@@ -300,7 +302,7 @@ msgstr "Saudação Ocupado"
 
 #: views/usage_system.php:141
 msgid "Busy Greetings"
-msgstr ""
+msgstr "Saudações de Ocupado"
 
 #: ucp/views/mailbox.php:56
 msgid "CID"
@@ -360,7 +362,7 @@ msgstr "Controles"
 
 #: ucp/views/settings.php:30
 msgid "Controls whether to attach the voicemail to the email"
-msgstr ""
+msgstr "Controla se incluir o correio de voz no email"
 
 #: ucp/assets/js/global.js:422
 msgid "Copying..."
@@ -457,27 +459,27 @@ msgstr "Apagar"
 
 #: views/usage_system.php:191
 msgid "Delete All Temporary Greetings"
-msgstr ""
+msgstr "Apagar Todoas as Saudações Temporárias"
 
 #: views/usage_system.php:129
 msgid "Delete All Unavailible Greetings"
-msgstr ""
+msgstr "Apagar Todas as Saudações de Não Disponível"
 
 #: views/usage.php:141
 msgid "Delete Busy Message"
-msgstr ""
+msgstr "Apagar Mensagem de Ocupado"
 
 #: views/usage.php:79
 msgid "Delete Recorded Name"
-msgstr ""
+msgstr "Apagar Nome Gravado"
 
 #: views/usage.php:172
 msgid "Delete Temporary Greeting"
-msgstr ""
+msgstr "Apagar Saudação Temporária"
 
 #: views/usage.php:110
 msgid "Delete Unavailible Greeting"
-msgstr ""
+msgstr "Apagar Saudação de Não Disponível"
 
 #: functions.inc.php:601 page.voicemail.php:502 ucp/views/settings.php:55
 msgid "Delete Voicemail"
@@ -485,11 +487,11 @@ msgstr "Apagar Correio de Voz"
 
 #: views/usage_system.php:160
 msgid "Delete all Busy Messages"
-msgstr ""
+msgstr "Apagar Todas as Mensagens de Ocupado"
 
 #: views/usage_system.php:98
 msgid "Delete all Recorded Names"
-msgstr ""
+msgstr "Apagar Todos os Nomes Gravados"
 
 #: views/usage.php:35 views/usage.php:66 views/usage.php:97
 #: views/usage.php:128 views/usage.php:159 views/usage.php:190
@@ -497,7 +499,7 @@ msgstr ""
 #: views/usage_system.php:116 views/usage_system.php:147
 #: views/usage_system.php:178 views/usage_system.php:209
 msgid "Delete:"
-msgstr ""
+msgstr "Apagar:"
 
 #: install.php:121
 msgid "Deleting migrated settings.."
@@ -529,7 +531,7 @@ msgstr "Gravação de Mídia Direta não é Suportada em seu Navegador!"
 
 #: functions.inc.php:531
 msgid "Disable (*) in Voicemail Menu"
-msgstr ""
+msgstr "Desabilita (*) no Menu do Correio de Voz"
 
 #: views/dialplan.php:12
 msgid "Disable Standard Prompt"
@@ -550,6 +552,10 @@ msgid ""
 "after the beep. This can be individually controlled for users who have VMX "
 "locater enabled."
 msgstr ""
+"Desabilita as instruções de correio de voz padrão que seguem as mensagens "
+"gravadas do usuário. Estas instruções padrão dizem ao chamador para deixar "
+"uma mensagem após o beep. Isto pode ser controlado individualmente para "
+"usuários que tem o localizador VMX habilitado."
 
 #: views/usage_system.php:12
 msgid "Disabled"
@@ -612,7 +618,7 @@ msgstr ""
 
 #: ucp/views/vmx.php:5
 msgid "Enable"
-msgstr ""
+msgstr "Ativar"
 
 #: page.voicemail.php:275
 msgid "Enable Simple Message Desk Interface (SMDI) integration"
@@ -620,7 +626,7 @@ msgstr "Habilitar integração Interface de Mesa de Mensagem Simples (SMDI)"
 
 #: views/ucp_config.php:197
 msgid "Enable VmX Locater in UCP for this user"
-msgstr ""
+msgstr "Ativar o Localizador VmX na PCU para este usuário"
 
 #: ucp/views/vmx.php:29
 msgid ""
@@ -631,31 +637,31 @@ msgstr ""
 
 #: views/quickCreate.php:5
 msgid "Enable Voicemail"
-msgstr ""
+msgstr "Ativar Correio de Voz"
 
 #: views/ucp_config.php:7
 msgid "Enable Voicemail Access"
-msgstr ""
+msgstr "Ativar Acesso ao Correio de Voz"
 
 #: views/ucp_config.php:26
 msgid "Enable the voicemail Access in UCP for this user"
-msgstr ""
+msgstr "Ativar o acesso ao correio de voz no PCU para este usuário"
 
 #: views/ucp_config.php:110
 msgid "Enable voicemail download in UCP for this user"
-msgstr ""
+msgstr "Ativar baixar correio de voz no PCU para este usuário"
 
 #: views/ucp_config.php:168
 msgid "Enable voicemail greetings in UCP for this user"
-msgstr ""
+msgstr "Ativar saudações de correio de voz no PCU para este usuário"
 
 #: views/ucp_config.php:81
 msgid "Enable voicemail playback in UCP for this user"
-msgstr ""
+msgstr "Ativar reprodução de correio de voz no PCU para este usuário"
 
 #: views/ucp_config.php:139
 msgid "Enable voicemail settings in UCP for this user"
-msgstr ""
+msgstr "Ativar configurações de correio de voz no PCU para este usuário"
 
 #: functions.inc.php:749
 msgid ""
@@ -665,6 +671,11 @@ msgid ""
 "callers more control. In essence, the VMX locater is a mini-IVR (interactive "
 "voice response) for voicemail"
 msgstr ""
+"Ativar/Desativar o recurso Localizador VmX (Ramal de Maquina Virtual) para "
+"este usuário. O localizador VmX permite controle avançado do sistema de "
+"correio de voz do usuário. É parecido com o recurso Siga-Me; no entanto ela "
+"dá mais controle ao chamador. Em essência, o localizador VmX é uma mini-URA ("
+"Unidade de Resposta Audível) para correio de voz"
 
 #: ucp/views/vmx.php:13
 msgid ""
@@ -674,6 +685,11 @@ msgid ""
 "essence, the VMX locater is a mini-IVR (interactive voice response) for "
 "voicemail"
 msgstr ""
+"Ativar/Desativar o recurso Localizador VmX (Ramal de Máquina Virtual). O "
+"localizador VmX permite controle avançado a seu sistema de correio de voz. É "
+"similar ao recurso Siga-Me; entretanto dá mais controle aos chamadores. Em "
+"essência, o localizador VmX é uma mini-URA (Unidade de Resposta Audível) "
+"para o correio de voz"
 
 #: functions.inc.php:484 functions.inc.php:748
 msgid "Enabled"
