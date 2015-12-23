@@ -880,7 +880,7 @@ class Voicemail implements \BMO {
 					if(!is_dir($file)) {
 						$basename = basename($file);
 						$dirname = dirname($file);
-						if(preg_match("/(.*)\_(.*)\./i",$basename,$matches)) {
+						if(preg_match("/(.*)\_[0-9a-f]{40}\./i",$basename,$matches)) {
 							$sha1 = $matches[2];
 							$filename = $matches[1];
 							$filepath = $this->checkFileType($dirname,$filename);
@@ -893,7 +893,7 @@ class Voicemail implements \BMO {
 						foreach (glob($file."/*") as $vmfile) {
 							$basename = basename($vmfile);
 							$dirname = dirname($vmfile);
-							if(preg_match("/(.*)\_(.*)\./i",$basename,$matches)) {
+							if(preg_match("/(.*)\_[0-9a-f]{40}\./i",$basename,$matches)) {
 								$sha1 = $matches[2];
 								$filename = $matches[1];
 								$filepath = $this->checkFileType($dirname,$filename);
