@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-28 10:43-0700\n"
+"POT-Creation-Date: 2015-12-23 14:40-0800\n"
 "PO-Revision-Date: 2015-05-04 00:31+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -1307,6 +1307,7 @@ msgstr ""
 "директории)."
 
 #: ucp/views/nav.php:9 views/header.php:18 views/settings.php:9
+#: voicemail.i18n.php:6 voicemail.i18n.php:12
 msgid "Settings"
 msgstr "Установки"
 
@@ -1521,6 +1522,12 @@ msgstr ""
 "указанный зжесь, после того, как залогинится в систему голосовой почты (*98) "
 "с телефона."
 
+#: voicemail.i18n.php:8
+msgid "This module allows you to configure Voicemail for a user or extension"
+msgstr ""
+"Этот модуль позволяет сконфигурировать голосовую почту для пользователя или "
+"внутреннего номера"
+
 #: page.voicemail.php:203
 msgid "Time announcement for message playback"
 msgstr "Предупреждение о часовом поясе при воспроизведении сообщения"
@@ -1731,11 +1738,11 @@ msgid "VmX Locator"
 msgstr ""
 
 #: functions.inc.php:530 install.php:8 ucp/Voicemail.class.php:422
-#: ucp/assets/js/global.js:12
+#: voicemail.i18n.php:4 ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr "Голосовая почта"
 
-#: install.php:11
+#: install.php:11 voicemail.i18n.php:10
 msgid "Voicemail Admin"
 msgstr "Администратор голосовой почты"
 
@@ -1941,12 +1948,6 @@ msgstr "да"
 
 #~ msgid "Provide IMAP Voicemail Fields"
 #~ msgstr "Обеспечивает поля голосовой почты IMAP"
-
-#~ msgid ""
-#~ "This module allows you to configure Voicemail for a user or extension"
-#~ msgstr ""
-#~ "Этот модуль позволяет сконфигурировать голосовую почту для пользователя "
-#~ "или внутреннего номера"
 
 #~ msgid "Voicemail Module"
 #~ msgstr "Модуль голосовой почты"

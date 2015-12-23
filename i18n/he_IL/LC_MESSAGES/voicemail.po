@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-28 10:43-0700\n"
+"POT-Creation-Date: 2015-12-23 14:40-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1184,6 +1184,7 @@ msgid "Set the parent folder (default is to have no parent folder set)."
 msgstr ""
 
 #: ucp/views/nav.php:9 views/header.php:18 views/settings.php:9
+#: voicemail.i18n.php:6 voicemail.i18n.php:12
 msgid "Settings"
 msgstr ""
 
@@ -1376,6 +1377,10 @@ msgid ""
 "This is the password used to access the Voicemail system.<br /><br />This "
 "password can only contain numbers.<br /><br />A user can change the password "
 "you enter here after logging into the Voicemail system (*98) with a phone."
+msgstr ""
+
+#: voicemail.i18n.php:8
+msgid "This module allows you to configure Voicemail for a user or extension"
 msgstr ""
 
 #: page.voicemail.php:203
@@ -1571,11 +1576,11 @@ msgid "VmX Locator"
 msgstr ""
 
 #: functions.inc.php:530 install.php:8 ucp/Voicemail.class.php:422
-#: ucp/assets/js/global.js:12
+#: voicemail.i18n.php:4 ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr ""
 
-#: install.php:11
+#: install.php:11 voicemail.i18n.php:10
 msgid "Voicemail Admin"
 msgstr ""
 

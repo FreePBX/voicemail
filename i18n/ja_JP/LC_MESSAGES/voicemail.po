@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-28 10:43-0700\n"
+"POT-Creation-Date: 2015-12-23 14:40-0800\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -1340,6 +1340,7 @@ msgid "Set the parent folder (default is to have no parent folder set)."
 msgstr "親フォルダを設定 (デフォルトでは親フォルダセットなし)"
 
 #: ucp/views/nav.php:9 views/header.php:18 views/settings.php:9
+#: voicemail.i18n.php:6 voicemail.i18n.php:12
 msgid "Settings"
 msgstr "設定"
 
@@ -1555,6 +1556,10 @@ msgstr ""
 "><br />このパスワードは数字のみが使用できます。<br /><br />ユーザは、電話機か"
 "ら（*98）をダイヤルしてボイスメールシステムにログインした後、ここで入力したパ"
 "スワードを変更することができます。"
+
+#: voicemail.i18n.php:8
+msgid "This module allows you to configure Voicemail for a user or extension"
+msgstr "このモジュールはユーザー又は内線のボイスメール設定を可能にします。"
 
 #: page.voicemail.php:203
 msgid "Time announcement for message playback"
@@ -1772,11 +1777,11 @@ msgid "VmX Locator"
 msgstr "VmXロケータ"
 
 #: functions.inc.php:530 install.php:8 ucp/Voicemail.class.php:422
-#: ucp/assets/js/global.js:12
+#: voicemail.i18n.php:4 ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr "ボイスメール"
 
-#: install.php:11
+#: install.php:11 voicemail.i18n.php:10
 msgid "Voicemail Admin"
 msgstr "ボイスメールの管理"
 
@@ -1989,10 +1994,6 @@ msgstr "はい"
 
 #~ msgid "Provide IMAP Voicemail Fields"
 #~ msgstr "IMAPボイスメールフィールドの提供"
-
-#~ msgid ""
-#~ "This module allows you to configure Voicemail for a user or extension"
-#~ msgstr "このモジュールはユーザー又は内線のボイスメール設定を可能にします。"
 
 #~ msgid "Voicemail Module"
 #~ msgstr "ボイスメールモジュール"
