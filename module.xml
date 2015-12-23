@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.28</version>
+	<version>13.0.29</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.29* FREEPBX-11080 look for 40 character hashes
 		*13.0.28* FREEPBX-10989
 		*13.0.27* FREEPBX-6164
 		*13.0.26* Make sure UCP is installed first
