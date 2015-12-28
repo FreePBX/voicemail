@@ -388,14 +388,16 @@ class Voicemail extends Modules{
 			case "upload":
 				foreach ($_FILES["files"]["error"] as $key => $error) {
 					if ($error == UPLOAD_ERR_OK) {
-						$tmp_path = sys_get_temp_dir();
-						$tmp_path = !empty($tmp_path) ? $tmp_path : '/tmp';
+						$tmp_path = \FreePBX::Config()->get("ASTSPOOLDIR") . "/tmp";
+						if(!file_exists($tmp_path)) {
+							mkdir($tmp_path,0777,true);
+						}
 
 						$extension = pathinfo($_FILES["files"]["name"][$key], PATHINFO_EXTENSION);
 						$supported = $this->UCP->FreePBX->Media->getSupportedFormats();
 						if(in_array($extension,$supported['in'])) {
 							$tmp_name = $_FILES["files"]["tmp_name"][$key];
-							$name = $_FILES["files"]["name"][$key];
+							$name = \Media\Media::cleanFileName($_FILES["files"]["name"][$key]);
 							if(!file_exists($tmp_path."/vmtmp")) {
 								mkdir($tmp_path."/vmtmp");
 							}
