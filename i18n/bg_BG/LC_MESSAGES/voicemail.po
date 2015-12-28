@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-23 15:04-0800\n"
+"POT-Creation-Date: 2015-12-28 12:21-0800\n"
 "PO-Revision-Date: 2014-07-22 14:35+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/voicemail/"
@@ -728,7 +728,7 @@ msgid ""
 "user's timezone on message playback."
 msgstr ""
 
-#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:536
+#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:538
 msgid "Forbidden"
 msgstr ""
 
@@ -1094,7 +1094,7 @@ msgstr ""
 msgid "None"
 msgstr "Няма"
 
-#: ucp/Voicemail.class.php:553
+#: ucp/Voicemail.class.php:555
 msgid "Not Found"
 msgstr ""
 
@@ -1625,11 +1625,11 @@ msgstr ""
 msgid "Unknown"
 msgstr "Непознат"
 
-#: ucp/Voicemail.class.php:442
+#: ucp/Voicemail.class.php:444
 msgid "Unknown Error"
 msgstr ""
 
-#: ucp/Voicemail.class.php:409
+#: ucp/Voicemail.class.php:411
 msgid "Unsupported file format"
 msgstr ""
 
@@ -1731,7 +1731,7 @@ msgid "VmX Locator"
 msgstr "VmX Локатор"
 
 #: Voicemail.class.php:673 functions.inc.php:463 install.php:8
-#: ucp/Voicemail.class.php:503 views/header.php:2 voicemail.i18n.php:4
+#: ucp/Voicemail.class.php:505 views/header.php:2 voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr "Гласова Поща"
@@ -1800,12 +1800,12 @@ msgid ""
 "sure you wish to continue?"
 msgstr ""
 
-#: ucp/Voicemail.class.php:404 ucp/Voicemail.class.php:432
+#: ucp/Voicemail.class.php:406 ucp/Voicemail.class.php:434
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
 
-#: ucp/Voicemail.class.php:437
+#: ucp/Voicemail.class.php:439
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""
