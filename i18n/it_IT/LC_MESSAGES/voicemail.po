@@ -246,7 +246,7 @@ msgstr ""
 msgid "Busy"
 msgstr ""
 
-#: Voicemail.class.php:74 views/usage.php:122
+#: Voicemail.class.php:75 views/usage.php:122
 msgid "Busy Greeting"
 msgstr ""
 
@@ -658,12 +658,12 @@ msgstr ""
 msgid "External password verification script."
 msgstr ""
 
-#: Voicemail.class.php:247
+#: Voicemail.class.php:251
 #, php-format
 msgid "Failed to delete vmbox: %s@%s"
 msgstr ""
 
-#: Voicemail.class.php:67
+#: Voicemail.class.php:68
 msgid "Family"
 msgstr ""
 
@@ -735,7 +735,7 @@ msgstr ""
 msgid "Forward Voicemail"
 msgstr ""
 
-#: Voicemail.class.php:68
+#: Voicemail.class.php:69
 msgid "Friends"
 msgstr ""
 
@@ -834,7 +834,7 @@ msgstr ""
 msgid "IMAP user."
 msgstr ""
 
-#: Voicemail.class.php:66
+#: Voicemail.class.php:67
 msgid "INBOX"
 msgstr ""
 
@@ -938,11 +938,11 @@ msgstr ""
 msgid "Mail command."
 msgstr ""
 
-#: Voicemail.class.php:317
+#: Voicemail.class.php:324
 msgid "Mailbox can not be empty"
 msgstr ""
 
-#: Voicemail.class.php:153
+#: Voicemail.class.php:154
 msgid "Mailbox is not in the proper format"
 msgstr ""
 
@@ -1019,7 +1019,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: Voicemail.class.php:73
+#: Voicemail.class.php:74
 msgid "Name Greeting"
 msgstr ""
 
@@ -1078,7 +1078,7 @@ msgstr ""
 msgid "Not a valid Draggable Object"
 msgstr ""
 
-#: Voicemail.class.php:284
+#: Voicemail.class.php:289
 msgid "Null value was sent to saveVoicemail() can not continue"
 msgstr ""
 
@@ -1107,7 +1107,7 @@ msgid ""
 "letting them know it will otherwise go to voicemail as is normal."
 msgstr ""
 
-#: Voicemail.class.php:69
+#: Voicemail.class.php:70
 msgid "Old"
 msgstr ""
 
@@ -1277,7 +1277,7 @@ msgstr ""
 msgid "Require From Same %s"
 msgstr ""
 
-#: Voicemail.class.php:1437
+#: Voicemail.class.php:1443
 msgid "Reset"
 msgstr ""
 
@@ -1350,7 +1350,7 @@ msgstr ""
 msgid "Subject sent to pager."
 msgstr ""
 
-#: Voicemail.class.php:1442 page.voicemail.php:650
+#: Voicemail.class.php:1448 page.voicemail.php:650
 msgid "Submit"
 msgstr ""
 
@@ -1375,7 +1375,7 @@ msgstr ""
 msgid "Temp"
 msgstr ""
 
-#: Voicemail.class.php:75 views/usage.php:153
+#: Voicemail.class.php:76 views/usage.php:153
 msgid "Temporary Greeting"
 msgstr ""
 
@@ -1566,6 +1566,10 @@ msgid ""
 "default]"
 msgstr ""
 
+#: Voicemail.class.php:1510
+msgid "Unable to add mailbox!"
+msgstr ""
+
 #: views/usage_system.php:11
 msgid "Unactivated"
 msgstr ""
@@ -1575,7 +1579,7 @@ msgstr ""
 msgid "Unavailable"
 msgstr ""
 
-#: Voicemail.class.php:72 views/usage.php:91
+#: Voicemail.class.php:73 views/usage.php:91
 msgid "Unavailable Greeting"
 msgstr ""
 
@@ -1622,7 +1626,7 @@ msgstr ""
 msgid "Uploading..."
 msgstr ""
 
-#: Voicemail.class.php:71
+#: Voicemail.class.php:72
 msgid "Urgent"
 msgstr ""
 
@@ -1656,7 +1660,7 @@ msgid ""
 "to make sure that the number is functional."
 msgstr ""
 
-#: Voicemail.class.php:660
+#: Voicemail.class.php:666
 msgid "User Primary Extension"
 msgstr ""
 
@@ -1696,7 +1700,7 @@ msgstr ""
 msgid "VmX Locator"
 msgstr ""
 
-#: Voicemail.class.php:673 functions.inc.php:463 install.php:8
+#: Voicemail.class.php:679 functions.inc.php:463 install.php:8
 #: ucp/Voicemail.class.php:505 views/header.php:2 voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
 msgid "Voicemail"
@@ -1718,8 +1722,12 @@ msgstr ""
 msgid "Voicemail Auto Delete is on. New messages will not show up here."
 msgstr ""
 
-#: Voicemail.class.php:1458
+#: Voicemail.class.php:1467
 msgid "Voicemail E-Mail"
+msgstr ""
+
+#: Voicemail.class.php:1461
+msgid "Voicemail Enable [Blank to disable]"
 msgstr ""
 
 #: functions.inc.php:773
@@ -1730,7 +1738,7 @@ msgstr ""
 msgid "Voicemail Message"
 msgstr ""
 
-#: Voicemail.class.php:1461
+#: Voicemail.class.php:1470
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
@@ -1740,11 +1748,11 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr ""
 
-#: Voicemail.class.php:1455 functions.inc.php:495 page.voicemail.php:496
+#: Voicemail.class.php:1464 functions.inc.php:495 page.voicemail.php:496
 msgid "Voicemail Password"
 msgstr ""
 
-#: Voicemail.class.php:113
+#: Voicemail.class.php:114
 msgid "Voicemail Password must contain only digits"
 msgstr ""
 
@@ -1776,7 +1784,7 @@ msgstr ""
 msgid "Voicemail was empty: %s"
 msgstr ""
 
-#: Voicemail.class.php:1216
+#: Voicemail.class.php:1222
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
@@ -1805,7 +1813,7 @@ msgstr ""
 msgid "Who the e-mail notification should appear to come from"
 msgstr ""
 
-#: Voicemail.class.php:70
+#: Voicemail.class.php:71
 msgid "Work"
 msgstr ""
 
@@ -1873,7 +1881,7 @@ msgstr ""
 msgid "done"
 msgstr ""
 
-#: Voicemail.class.php:248
+#: Voicemail.class.php:252
 #, php-format
 msgid "failed with retcode %s while removing %s:"
 msgstr ""

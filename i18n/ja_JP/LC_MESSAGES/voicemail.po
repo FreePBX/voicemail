@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-28 12:21-0800\n"
+"POT-Creation-Date: 2016-01-08 17:32-0800\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -306,7 +306,7 @@ msgstr "ページャーに送信されるメッセージボディー"
 msgid "Busy"
 msgstr "ビジー"
 
-#: Voicemail.class.php:74 views/usage.php:122
+#: Voicemail.class.php:75 views/usage.php:122
 msgid "Busy Greeting"
 msgstr ""
 
@@ -749,12 +749,12 @@ msgstr "外部パスワードを変更するコマンド（externpassnotifyよ�
 msgid "External password verification script."
 msgstr ""
 
-#: Voicemail.class.php:247
+#: Voicemail.class.php:251
 #, php-format
 msgid "Failed to delete vmbox: %s@%s"
 msgstr "vmboxの削除に失敗: %s@%s"
 
-#: Voicemail.class.php:67
+#: Voicemail.class.php:68
 msgid "Family"
 msgstr ""
 
@@ -836,7 +836,7 @@ msgstr ""
 msgid "Forward Voicemail"
 msgstr ""
 
-#: Voicemail.class.php:68
+#: Voicemail.class.php:69
 msgid "Friends"
 msgstr ""
 
@@ -937,7 +937,7 @@ msgstr "IMAPサーバーポート。"
 msgid "IMAP user."
 msgstr "IMAPユーザー。"
 
-#: Voicemail.class.php:66
+#: Voicemail.class.php:67
 msgid "INBOX"
 msgstr ""
 
@@ -1072,11 +1072,11 @@ msgstr "ボイスメールメールのための日付フォーマット設定を
 msgid "Mail command."
 msgstr "メールコマンド。"
 
-#: Voicemail.class.php:317
+#: Voicemail.class.php:324
 msgid "Mailbox can not be empty"
 msgstr ""
 
-#: Voicemail.class.php:153
+#: Voicemail.class.php:154
 msgid "Mailbox is not in the proper format"
 msgstr ""
 
@@ -1159,7 +1159,7 @@ msgstr "自分のボイスメール"
 msgid "Name"
 msgstr "名前"
 
-#: Voicemail.class.php:73
+#: Voicemail.class.php:74
 msgid "Name Greeting"
 msgstr ""
 
@@ -1221,7 +1221,7 @@ msgstr ""
 msgid "Not a valid Draggable Object"
 msgstr "ドラッグ可能なデータではありません"
 
-#: Voicemail.class.php:284
+#: Voicemail.class.php:289
 msgid "Null value was sent to saveVoicemail() can not continue"
 msgstr ""
 
@@ -1256,7 +1256,7 @@ msgstr ""
 "て処理される事を意味します。タイムアウトが一般的な動作です。この設定を1回に設"
 "定して、グリーティングの中で説明するケースが多いです。"
 
-#: Voicemail.class.php:69
+#: Voicemail.class.php:70
 msgid "Old"
 msgstr ""
 
@@ -1439,7 +1439,7 @@ msgstr "タイムゾーンの定義を削除"
 msgid "Require From Same %s"
 msgstr "同じ %s を条件にする"
 
-#: Voicemail.class.php:1437
+#: Voicemail.class.php:1443
 msgid "Reset"
 msgstr ""
 
@@ -1516,7 +1516,7 @@ msgstr ""
 msgid "Subject sent to pager."
 msgstr "ページャーに送信される件名"
 
-#: Voicemail.class.php:1442 page.voicemail.php:650
+#: Voicemail.class.php:1448 page.voicemail.php:650
 msgid "Submit"
 msgstr ""
 
@@ -1541,7 +1541,7 @@ msgstr "システム使用状況の統計"
 msgid "Temp"
 msgstr "一時不在"
 
-#: Voicemail.class.php:75 views/usage.php:153
+#: Voicemail.class.php:76 views/usage.php:153
 msgid "Temporary Greeting"
 msgstr ""
 
@@ -1764,6 +1764,10 @@ msgstr ""
 "メッセージが再生される前に、期間情報を知らせるのをオン/オフ切り替えます。 [デ"
 "フォルトオン]"
 
+#: Voicemail.class.php:1510
+msgid "Unable to add mailbox!"
+msgstr ""
+
 #: views/usage_system.php:11
 msgid "Unactivated"
 msgstr ""
@@ -1773,7 +1777,7 @@ msgstr ""
 msgid "Unavailable"
 msgstr "使用不可"
 
-#: Voicemail.class.php:72 views/usage.php:91
+#: Voicemail.class.php:73 views/usage.php:91
 msgid "Unavailable Greeting"
 msgstr ""
 
@@ -1822,7 +1826,7 @@ msgstr ""
 msgid "Uploading..."
 msgstr "アップロード中..."
 
-#: Voicemail.class.php:71
+#: Voicemail.class.php:72
 msgid "Urgent"
 msgstr ""
 
@@ -1863,7 +1867,7 @@ msgstr ""
 "ボイスメールのアナウンスを再度録音しなおし、ユーザーが聞く使い方の説明を追加"
 "してください。そのあとテストを実行し、番号が動作することを確認してください。"
 
-#: Voicemail.class.php:660
+#: Voicemail.class.php:666
 msgid "User Primary Extension"
 msgstr ""
 
@@ -1905,7 +1909,7 @@ msgstr "VmXロケーター&トレード；"
 msgid "VmX Locator"
 msgstr "VmXロケータ"
 
-#: Voicemail.class.php:673 functions.inc.php:463 install.php:8
+#: Voicemail.class.php:679 functions.inc.php:463 install.php:8
 #: ucp/Voicemail.class.php:505 views/header.php:2 voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
 msgid "Voicemail"
@@ -1927,8 +1931,12 @@ msgstr "ボイスメールの管理"
 msgid "Voicemail Auto Delete is on. New messages will not show up here."
 msgstr ""
 
-#: Voicemail.class.php:1458
+#: Voicemail.class.php:1467
 msgid "Voicemail E-Mail"
+msgstr ""
+
+#: Voicemail.class.php:1461
+msgid "Voicemail Enable [Blank to disable]"
 msgstr ""
 
 #: functions.inc.php:773
@@ -1939,7 +1947,7 @@ msgstr "ボイスメール操作説明："
 msgid "Voicemail Message"
 msgstr ""
 
-#: Voicemail.class.php:1461
+#: Voicemail.class.php:1470
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
@@ -1949,11 +1957,11 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr ""
 
-#: Voicemail.class.php:1455 functions.inc.php:495 page.voicemail.php:496
+#: Voicemail.class.php:1464 functions.inc.php:495 page.voicemail.php:496
 msgid "Voicemail Password"
 msgstr "ボイスメールのパスワード"
 
-#: Voicemail.class.php:113
+#: Voicemail.class.php:114
 msgid "Voicemail Password must contain only digits"
 msgstr ""
 
@@ -1986,7 +1994,7 @@ msgstr ""
 msgid "Voicemail was empty: %s"
 msgstr ""
 
-#: Voicemail.class.php:1216
+#: Voicemail.class.php:1222
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
@@ -2019,7 +2027,7 @@ msgstr "どのフォーマットの音声ファイルをEメールに添付す�
 msgid "Who the e-mail notification should appear to come from"
 msgstr "Eメール通知が誰から来たように見えるか"
 
-#: Voicemail.class.php:70
+#: Voicemail.class.php:71
 msgid "Work"
 msgstr ""
 
@@ -2092,7 +2100,7 @@ msgstr "VM_PREFIXをグローバル値から削除中…"
 msgid "done"
 msgstr "完了"
 
-#: Voicemail.class.php:248
+#: Voicemail.class.php:252
 #, php-format
 msgid "failed with retcode %s while removing %s:"
 msgstr "リターンコード %s で、%s 削除中に失敗しました："
