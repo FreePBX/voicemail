@@ -35,6 +35,7 @@ class Voicemail implements \BMO {
 	public $Vmx = null;
 	private $boxes = array();
 	private $validFiles = array();
+	private $vmCache = array();
 
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
@@ -165,10 +166,11 @@ class Voicemail implements \BMO {
 
 	/**
 	 * Parse the voicemail.conf file the way we need it to be
+	 * @param bool $cached If true then attempt to get cached values
 	 * @return array The array of the voicemail.conf file
 	 */
-	public function getVoicemail() {
-		if(!empty($this->vmCache)) {
+	public function getVoicemail($cached = true) {
+		if($cached && !empty($this->vmCache)) {
 			return $this->vmCache;
 		}
 		$vm = $this->FreePBX->LoadConfig->getConfig("voicemail.conf");
@@ -205,9 +207,10 @@ class Voicemail implements \BMO {
 	/**
 	 * Get the mailbox options from voicemail.conf parsing
 	 * @param int $mailbox The mailbox number
+	 * @param bool $cached Attempt to get cached voicemail file
 	 */
-	public function getMailbox($mailbox) {
-		$uservm = $this->getVoicemail();
+	public function getMailbox($mailbox, $cached = true) {
+		$uservm = $this->getVoicemail($cached);
 		$vmcontexts = array_keys($uservm);
 
 		foreach ($vmcontexts as $vmcontext) {
@@ -230,10 +233,11 @@ class Voicemail implements \BMO {
 
 	/**
 	 * Remove the mailbox from the system (hard drive)
+	 * @param bool $cached If true then attempt to get cached values
 	 * @param int $mailbox The mailbox number
 	 */
-	public function removeMailbox($mailbox) {
-		$uservm = $this->getVoicemail();
+	public function removeMailbox($mailbox, $cached = true) {
+		$uservm = $this->getVoicemail($cached);
 		$vmcontexts = array_keys($uservm);
 
 		$return = true;
@@ -257,10 +261,11 @@ class Voicemail implements \BMO {
 
 	/**
 	 * Delete mailbox from voicemail.conf
+	 * @param bool $cached If true then attempt to get cached values
 	 * @param int $mailbox The mailbox number
 	 */
-	public function delMailbox($mailbox) {
-		$uservm = $this->getVoicemail();
+	public function delMailbox($mailbox, $cached = true) {
+		$uservm = $this->getVoicemail($cached);
 		$vmcontexts = array_keys($uservm);
 
 		foreach ($vmcontexts as $vmcontext) {
@@ -304,26 +309,27 @@ class Voicemail implements \BMO {
 		}
 
 		$this->FreePBX->WriteConfig->writeConfig("voicemail.conf", $vmconf, false);
+		$this->vmCache = array();
 	}
 
 	/**
 	 * Add a Mailbox and all of it's settings
 	 * @param int $mailbox  The mailbox number
 	 * @param array $settings The settings for said mailbox
+	 * @param bool $cached If true then attempt to get cached values
 	 */
-	public function addMailbox($mailbox, $settings) {
+	public function addMailbox($mailbox, $settings, $cached = true) {
 		global $astman;
 		if(trim($mailbox) == "") {
 			throw new \Exception(_("Mailbox can not be empty"));
 		}
-		$vmconf = $this->getVoicemail();
+		$vmconf = $this->getVoicemail($cached);
 
 		$settings['vmcontext'] = !empty($settings['vmcontext']) ? $settings['vmcontext'] : 'default';
 		$settings['pwd'] = isset($settings['pwd']) ? $settings['pwd'] : '';
 		$settings['name'] = isset($settings['name']) ? $settings['name'] : '';
 		$settings['email'] = isset($settings['email']) ? $settings['email'] : '';
 		$settings['pager'] = isset($settings['pager']) ? $settings['pager'] : '';
-
 
 		if (isset($settings['vm']) && $settings['vm'] != 'disabled') {
 			$vmoptions = array();
@@ -1451,6 +1457,9 @@ class Voicemail implements \BMO {
 		switch ($type) {
 		case 'extensions':
 			$headers = array(
+				'voicemail_enable' => array(
+					'description' => _('Voicemail Enable [Blank to disable]'),
+				),
 				'voicemail_vmpwd' => array(
 					'description' => _('Voicemail Password'),
 				),
@@ -1482,10 +1491,12 @@ class Voicemail implements \BMO {
 					}
 				}
 
-				if (count($mailbox) > 0 && !empty($mailbox['vmpwd'])) {
+				if (count($mailbox) > 0 && !empty($mailbox['enable'])) {
 					$mailbox['vm'] = 'enabled';
+					$mailbox['name'] = $data['name'];
+					unset($mailbox['enable']);
 					try {
-						$this->addMailbox($extension, $mailbox);
+						$this->addMailbox($extension, $mailbox, false);
 					} catch (\Exception $e) {
 						return array("status" => false, "message" => $e->getMessage());
 					}
@@ -1494,6 +1505,13 @@ class Voicemail implements \BMO {
 					$sth->execute(array($extension));
 					$this->astman->database_put("AMPUSER",$extension."/voicemail",'"default"');
 					$this->setupMailboxSymlinks($extension);
+					$mailbox = $this->getMailbox($extension, false);
+					if(empty($mailbox)) {
+						return array("status" => false, "message" => _("Unable to add mailbox!"));
+					}
+				} else {
+					$this->removeMailbox($extension, false);
+					$this->delMailbox($extension, false);
 				}
 			}
 
@@ -1531,12 +1549,16 @@ class Voicemail implements \BMO {
 					}
 					$mailbox['options'] = implode("|",$opts);
 
-					$pmailbox = array();
+					$pmailbox = array(
+						"voicemail_enable" => "yes"
+					);
 					foreach ($mailbox as $key => $value) {
 						switch ($key) {
 						case 'pwd':
 							$settingname = 'vmpwd';
 							break;
+						case "name":
+						break;
 						default:
 							$settingname = $key;
 							break;

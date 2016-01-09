@@ -873,8 +873,8 @@ function voicemail_configprocess() {
 	}
 }
 
-function voicemail_mailbox_get($mbox) {
-	return FreePBX::Voicemail()->getMailbox($mbox);
+function voicemail_mailbox_get($mbox,$cached = true) {
+	return FreePBX::Voicemail()->getMailbox($mbox, $cached);
 }
 
 function voicemail_mailbox_remove($mbox) {
