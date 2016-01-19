@@ -1012,7 +1012,7 @@ class Voicemail implements \BMO {
 						$em->message($emailInfo['pager']['body']);
 						$em->send();
 					}
-					if($toVM['delete'] == "yes") {
+					if(isset($toVM['delete']) && $toVM['delete'] == "yes") {
 						//now delete the voicemail wtf.
 						foreach($movedFiles as $file) {
 							unlink($file);
@@ -1555,12 +1555,13 @@ class Voicemail implements \BMO {
 						"voicemail_enable" => "yes"
 					);
 					foreach ($mailbox as $key => $value) {
+						if($key == "name") {
+							continue;
+						}
 						switch ($key) {
 						case 'pwd':
 							$settingname = 'vmpwd';
 							break;
-						case "name":
-						break;
 						default:
 							$settingname = $key;
 							break;
