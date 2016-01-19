@@ -198,7 +198,11 @@ var VoicemailC = UCPMC.extend({
 			$("#voicemail-grid a.delete").click(function() {
 				var id = $(this).data("id");
 				if (confirm(_("Are you sure you wish to delete this voicemail?"))) {
-					$this.deleteVoicemail(id);
+					$this.deleteVoicemail(id, function(data) {
+						if(data.status) {
+							$('#voicemail-grid').bootstrapTable('remove', {field: "msg_id", values: [String(id)]});
+						}
+					});
 				}
 			});
 		});
@@ -264,11 +268,11 @@ var VoicemailC = UCPMC.extend({
 				$.each(sel, function(i, v){
 					$this.deleteVoicemail(v.msg_id, function(data) {
 						if(data.status) {
-							$('#voicemail-grid').bootstrapTable('hideRow', {index: v.msg_id, isIdField: true});
+							$('#voicemail-grid').bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
 						}
 					});
 				});
-				$('#voicemail-grid').bootstrapTable('refresh');
+				//$('#voicemail-grid').bootstrapTable('refresh');
 				$("#delete-selection").prop("disabled",true);
 			}
 		});
