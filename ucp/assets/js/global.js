@@ -133,7 +133,6 @@ var VoicemailC = UCPMC.extend({
 
 		$('#voicemail-grid').on("post-body.bs.table", function () {
 			$this.bindPlayers();
-			$this.enableDrags();
 			$("#voicemail-grid a.listen").click(function() {
 				var id = $(this).data("id"), select = null;
 				$.each(mailboxes, function(i,v) {
@@ -736,23 +735,6 @@ var VoicemailC = UCPMC.extend({
 				$("#message").text(data.message);
 				return false;
 			}
-		});
-	},
-	//Enables all draggable elements
-	enableDrags: function() {
-		$(".mailbox #voicemail-grid tr").prop("draggable",true);
-		$(".mailbox #voicemail-grid tr").on("drop", function(event) {
-		});
-		$(".mailbox #voicemail-grid tr").on("dragstart", function(event) {
-			$(this).fadeTo( "fast", 0.5);
-			event.originalEvent.dataTransfer.effectAllowed = "move";
-			event.originalEvent.dataTransfer.setData("msg", $(this).data("msg"));
-		});
-		$(".mailbox #voicemail-grid tr").on("dragend", function(event) {
-			$(".vm-temp").remove();
-			$(this).fadeTo( "fast", 1.0);
-		});
-		$(".mailbox #voicemail-grid tr").on("dragenter", function(event) {
 		});
 	},
 	recordGreeting: function(type) {
