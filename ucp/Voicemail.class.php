@@ -293,8 +293,10 @@ class Voicemail extends Modules{
 				$message = $this->UCP->FreePBX->Voicemail->getMessageByMessageIDExtension($_POST['id'],$_REQUEST['ext']);
 				if(!empty($message)) {
 					$this->UCP->FreePBX->Voicemail->forwardMessageByExtension($_POST['id'],$_REQUEST['ext'],$_POST['to']);
+					$return['status'] = true;
+				} else {
+					$return['message'] = ("Invalid Message ID");
 				}
-				$return['message'] = ("Invalid Message ID");
 				return $return;
 			break;
 			case 'forwards':
@@ -309,6 +311,7 @@ class Voicemail extends Modules{
 						);
 					}
 				}
+				return $return;
 			break;
 			case 'vmxsettings':
 				if(!$this->_checkVmX($_POST['ext'])) {

@@ -1230,8 +1230,10 @@ class Voicemail implements \BMO {
 						$data = $this->FreePBX->LoadConfig->getConfig($vm.".txt", $vfolder, 'message');
 						$key = !empty($data['msg_id']) ? $data['msg_id'] : basename($folder)."_".$vm;
 						if(isset($out['messages'][$key])) {
-							//this is wrong, there can't be duplicates
-							continue;
+							$key = $key."_".basename($folder)."_".$vm;
+							if(isset($out['messages'][$key])) {
+								continue;
+							}
 						}
 						$out['messages'][$key] = $data;
 						$out['messages'][$key]['self'] = $filename;
