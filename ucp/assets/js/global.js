@@ -171,14 +171,24 @@ var VoicemailC = UCPMC.extend({
 						$("#forwardVM").click(function() {
 							setTimeout(function() {
 								var recpt = $("#VMto").val()[0];
-								$this.forwardVoicemail(id,recpt);
+								$this.forwardVoicemail(id,recpt, function(data) {
+									if(data.status) {
+										alert(sprintf(_("Successfully forwarded voicemail to %s"),recpt));
+										UCP.closeDialog();
+									}
+								});
 							}, 50);
 						});
 						$("#VMto").keypress(function(event) {
 							if (event.keyCode == 13) {
 								setTimeout(function() {
 									var recpt = $("#VMto").val()[0];
-									$this.forwardVoicemail(id,recpt);
+									$this.forwardVoicemail(id,recpt, function(data) {
+										if(data.status) {
+											alert(sprintf(_("Successfully forwarded voicemail to %s"),recpt));
+											UCP.closeDialog();
+										}
+									});
 								}, 50);
 							}
 						});
@@ -278,7 +288,13 @@ var VoicemailC = UCPMC.extend({
 						setTimeout(function() {
 							var recpt = $("#VMto").val()[0];
 							$.each(sel, function(i, v){
-								$this.forwardVoicemail(v.msg_id,recpt);
+								$this.forwardVoicemail(v.msg_id,recpt, function(data) {
+									if(data.status) {
+										alert(sprintf(_("Successfully forwarded voicemail to %s"),recpt));
+										$('#voicemail-grid').bootstrapTable('uncheckAll');
+										UCP.closeDialog();
+									}
+								});
 							});
 						}, 50);
 					});
@@ -287,7 +303,13 @@ var VoicemailC = UCPMC.extend({
 							setTimeout(function() {
 								var recpt = $("#VMto").val()[0];
 								$.each(sel, function(i, v){
-									$this.forwardVoicemail(v.msg_id,recpt);
+									$this.forwardVoicemail(v.msg_id,recpt, function(data) {
+										if(data.status) {
+											alert(sprintf(_("Successfully forwarded voicemail to %s"),recpt));
+											$('#voicemail-grid').bootstrapTable('uncheckAll');
+											UCP.closeDialog();
+										}
+									});
 								});
 							}, 50);
 						}
