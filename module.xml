@@ -71,6 +71,7 @@
 		<core class="Core" namespace="FreePBX\modules">
 			<method callingMethod="getQuickCreateDisplay" class="Voicemail" namespace="FreePBX\modules">getQuickCreateDisplay</method>
 			<method callingMethod="processQuickCreate" class="Voicemail" namespace="FreePBX\modules">processQuickCreate</method>
+			<method callingMethod="delUser" class="Voicemail" namespace="FreePBX\modules">delUser</method>
 		</core>
 		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
 			<method callingMethod="getHeaders" class="Voicemail" namespace="FreePBX\modules">bulkhandlerGetHeaders</method>
