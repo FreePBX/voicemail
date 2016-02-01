@@ -547,6 +547,7 @@ class Voicemail extends Modules{
 				header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 				header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 				header('Content-Disposition: attachment;filename="' . $message['file'].'"');
+				header('Content-type: ' . mime_content_type($file));
 				readfile($file);
 				return;
 			}
