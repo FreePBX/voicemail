@@ -541,13 +541,14 @@ class Voicemail extends Modules{
 		$message = $this->UCP->FreePBX->Voicemail->getMessageByMessageIDExtension($msgid,$ext);
 		if(!empty($message)) {
 			$file = $message['path'] . "/" . $message['file'];
-
+			$media = $this->UCP->FreePBX->Media;
+			$mimetype = $media->getMIMEtype($file);
 			if (is_file($file)){
 				header("Content-length: " . filesize($file));
 				header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 				header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 				header('Content-Disposition: attachment;filename="' . $message['file'].'"');
-				header('Content-type: ' . mime_content_type($file));
+				header('Content-type: ' . $mimetype);
 				readfile($file);
 				return;
 			}
