@@ -126,7 +126,6 @@ $gen_settings = array(		"adsifdn" 			=> array("ver" => 1.2, "len" => 4, "type" =
 				"mailcmd"                       => array("ver" => 1.2, "len" => $dlen, "type" => "char", "default" => ""),
 				"maxgreet"                      => array("ver" => 1.2, "len" => $dlen, "type" => "num", "default" => ""),
 				"maxlogins"                     => array("ver" => 1.2, "len" => $dlen, "type" => "num", "default" => ""),
-				"maxmessage"			=> array("ver" => 1.2, "len" => $dlen, "type" => "num", "default" => ""),
 				"maxmsg"                        => array("ver" => 1.2, "len" => $dlen, "type" => "num", "default" => ""),
 				"minpassword"                   => array("ver" => 1.8, "len" => 4, "type" => "num", "default" => ""),
 				"maxsecs"                       => array("ver" => 1.6, "len" => $dlen, "type" => "num", "default" => ""),
