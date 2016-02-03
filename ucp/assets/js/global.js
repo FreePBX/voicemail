@@ -84,6 +84,9 @@ var VoicemailC = UCPMC.extend({
 			}
 			$("#voicemail-badge").text(data.total);
 			$.each( data.boxes, function( extension, messages ) {
+				if(typeof extension === "undefined") {
+					return false;
+				}
 				$("#voicemail-" + extension + "-badge").text(messages);
 			});
 			voicemailNotification = new Notify("Voicemail", {
