@@ -1284,7 +1284,7 @@ class Voicemail implements \BMO {
 		$aMsgs['count'] = $count;
 
 		//https://bugs.php.net/bug.php?id=50688
-		@usort($aMsgs['messages'], function($a, $b) {
+		@usort($aMsgs['messages'], function($a, $b) use ($orderby) {
 			return strcmp($a[$orderby],$b[$orderby]);
 		});
 		$aMsgs['messages'] = array_values($aMsgs['messages']);
