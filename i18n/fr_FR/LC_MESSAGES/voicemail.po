@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-03 15:44-0800\n"
-"PO-Revision-Date: 2016-02-02 07:32+0200\n"
+"PO-Revision-Date: 2016-02-08 09:22+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
-"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/voicemail/"
-"fr_FR/>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -1789,7 +1789,7 @@ msgstr ""
 
 #: functions.inc.php:773
 msgid "Voicemail Instructions:"
-msgstr ""
+msgstr "Instructions de la messagerie vocale :"
 
 #: ucp/Voicemail.class.php:271
 msgid "Voicemail Message"
@@ -1797,7 +1797,7 @@ msgstr ""
 
 #: voicemail.i18n.php:16 voicemail.i18n.php:22 voicemail.i18n.php:28
 msgid "Voicemail Module"
-msgstr ""
+msgstr "Module de messagerie vocale"
 
 #: Voicemail.class.php:1472
 msgid ""
@@ -1858,7 +1858,7 @@ msgstr ""
 
 #: functions.inc.php:763
 msgid "When to use VMX"
-msgstr ""
+msgstr "Quand utiliser VMX"
 
 #: views/dialplan.php:56
 msgid ""
@@ -1876,11 +1876,11 @@ msgstr ""
 
 #: Voicemail.class.php:71
 msgid "Work"
-msgstr ""
+msgstr "Travail"
 
 #: views/tz.php:142
 msgid "Year"
-msgstr ""
+msgstr "Année"
 
 #: functions.inc.php:358 functions.inc.php:362 functions.inc.php:366
 #: views/dialplan.php:17 views/dialplan.php:218 views/dialplan.php:245
@@ -1892,7 +1892,7 @@ msgstr ""
 #: views/usage_system.php:118 views/usage_system.php:149
 #: views/usage_system.php:180 views/usage_system.php:211
 msgid "Yes"
-msgstr ""
+msgstr "Oui"
 
 #: page.voicemail.php:269
 msgid ""
@@ -1903,7 +1903,7 @@ msgstr ""
 #: ucp/assets/js/global.js:93
 #, perl-format
 msgid "You Have %s New Voicemail"
-msgstr ""
+msgstr "Vous avez %s nouveau(x) message(s)"
 
 #: ucp/assets/js/global.js:940
 #, perl-format
@@ -1913,6 +1913,10 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
+"Le support pour l'écoute dans ce navigateur est absent. Pour supporter "
+"l'écoute en HTML5, vous devez installer des programmes qui ne peuvent pas "
+"être distribués avec le PBX. Si vous désirez installer les exécutables "
+"requis pour ces conversions cliquer <a href='%s'>ici</a>"
 
 #: ucp/assets/js/global.js:475
 msgid "You have No Drag/Drop Support!"
@@ -1924,7 +1928,7 @@ msgstr ""
 
 #: ucp/assets/js/global.js:758
 msgid "Your settings have been saved"
-msgstr ""
+msgstr "Vos paramètres ont été enregistrés"
 
 #: install.php:185
 msgid "checking if Voicemail Admin (vmailadmin) is installed.."
@@ -1940,7 +1944,7 @@ msgstr ""
 
 #: install.php:127 install.php:144
 msgid "done"
-msgstr ""
+msgstr "complété"
 
 #: Voicemail.class.php:252
 #, php-format
@@ -1949,7 +1953,7 @@ msgstr ""
 
 #: install.php:190
 msgid "installed."
-msgstr ""
+msgstr "installé."
 
 #: install.php:140
 msgid "migrated VM_PREFIX to feature codes"
@@ -1961,7 +1965,7 @@ msgstr ""
 
 #: install.php:101
 msgid "not needed"
-msgstr ""
+msgstr "non nécessaire"
 
 #: views/tz.php:134
 msgid "numeric day of month (first, second, ..., thirty-first)"
@@ -1969,11 +1973,11 @@ msgstr ""
 
 #: install.php:195
 msgid "ok"
-msgstr ""
+msgstr "ok"
 
 #: install.php:67
 msgid "preparing"
-msgstr ""
+msgstr "en préparation"
 
 #: views/tz.php:81
 msgid "timezone|values"
@@ -1981,8 +1985,8 @@ msgstr ""
 
 #: views/tz.php:102
 msgid "variable"
-msgstr ""
+msgstr "variable"
 
 #: page.voicemail.php:546
 msgid "yes"
-msgstr ""
+msgstr "oui"
