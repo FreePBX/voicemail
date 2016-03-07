@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.33</version>
+	<version>13.0.35</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.35* Simplify settings
 		*13.0.33* FREEPBX-11425 correct ucp sorting problems
 		*13.0.32* FREEPBX-11466 Add media class method to try and determine asterisk mimetypes
 		*13.0.31* FREEPBX-10680 and FREEPBX-10961
@@ -64,7 +65,7 @@
 	</menuitems>
 	<depends>
 		<module>core ge 13.0.16</module>
-		<version>13.0.56</version>
+		<version>13.0.75</version>
 	</depends>
 	<supported>
 		<version>13.0</version>

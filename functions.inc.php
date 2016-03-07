@@ -513,6 +513,18 @@ function voicemail_configpageload() {
 		$dvm = new featurecode('voicemail', 'dialvoicemail');
 		$extword = ($display == 'extensions') ? _('Extension') : _('Device');
 
+		$display_mode = "advanced";
+		$mode = \FreePBX::Config()->get("FPBXOPMODE");
+		if(!empty($mode)) {
+			$display_mode = $mode;
+		}
+		if($display_mode == "basic") {
+			$tb = $rb = "gui_hidden";
+		} else {
+			$tb = "gui_textbox";
+			$rb = "gui_radio";
+		}
+
 		$el = array(
 			"elemname" => "passlogin",
 			"prompttext" => sprintf(_('Require From Same %s'),$extword),
@@ -522,7 +534,7 @@ function voicemail_configpageload() {
 			"disable" => $disable,
 			"class" => $class
 		);
-		$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)),$category);
+		$currentcomponent->addguielem($section, new $rb(array_merge($guidefaults,$el)),$category);
 
 		$novmstar = !empty($extdisplay) ? $astman->connected() && $astman->database_get("AMPUSER", $extdisplay."/novmstar") : 'yes';
 		$novmstar = !empty($novmstar) ? 'yes' : 'no';
@@ -535,7 +547,7 @@ function voicemail_configpageload() {
 			"disable" => $disable,
 			"class" => $class
 		);
-		$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)),$category);
+		$currentcomponent->addguielem($section, new $rb(array_merge($guidefaults,$el)),$category);
 
 		$el = array(
 			"elemname" => "email",
@@ -561,7 +573,7 @@ function voicemail_configpageload() {
 			"class" => $class,
 			"disable" => $disable
 		);
-		$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)),$category);
+		$currentcomponent->addguielem($section, new $tb(array_merge($guidefaults,$el)),$category);
 
 		$el = array(
 			"elemname" => "attach",
@@ -572,7 +584,7 @@ function voicemail_configpageload() {
 			"disable" => $disable,
 			"class" => $class
 		);
-		$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)),$category);
+		$currentcomponent->addguielem($section, new $rb(array_merge($guidefaults,$el)),$category);
 
 		$el = array(
 			"elemname" => "saycid",
@@ -583,7 +595,7 @@ function voicemail_configpageload() {
 			"disable" => $disable,
 			"class" => $class
 		);
-		$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)),$category);
+		$currentcomponent->addguielem($section, new $rb(array_merge($guidefaults,$el)),$category);
 
 		$el = array(
 			"elemname" => "envelope",
@@ -594,7 +606,7 @@ function voicemail_configpageload() {
 			"disable" => $disable,
 			"class" => $class
 		);
-		$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)),$category);
+		$currentcomponent->addguielem($section, new $rb(array_merge($guidefaults,$el)),$category);
 
 		$el = array(
 			"elemname" => "vmdelete",
@@ -605,7 +617,7 @@ function voicemail_configpageload() {
 			"disable" => $disable,
 			"class" => $class
 		);
-		$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)),$category);
+		$currentcomponent->addguielem($section, new $rb(array_merge($guidefaults,$el)),$category);
 
 
 		if ($amp_conf['VM_SHOW_IMAP'] || $vmops_imapuser || $vmops_imappassword) {
@@ -617,7 +629,7 @@ function voicemail_configpageload() {
 				"class" => $class,
 				"disable" => $disable
 			);
-			$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)),$category);
+			$currentcomponent->addguielem($section, new $tb(array_merge($guidefaults,$el)),$category);
 
 			$el = array(
 				"elemname" => "imappassword",
@@ -627,7 +639,7 @@ function voicemail_configpageload() {
 				"class" => $class,
 				"disable" => $disable
 			);
-			$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)),$category);
+			$currentcomponent->addguielem($section, new $tb(array_merge($guidefaults,$el)),$category);
 		}
 
 		$el = array(
@@ -638,7 +650,7 @@ function voicemail_configpageload() {
 			"class" => $class,
 			"disable" => $disable
 		);
-		$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)),$category);
+		$currentcomponent->addguielem($section, new $tb(array_merge($guidefaults,$el)),$category);
 
 		$el = array(
 			"elemname" => "vmcontext",
@@ -650,7 +662,7 @@ function voicemail_configpageload() {
 			"jsvalidation" => "frm_${display}_isVoiceMailEnabled() && isEmpty()",
 			"failvalidationmsg" => $msgInvalidVMContext,
 		);
-		$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)),$category);
+		$currentcomponent->addguielem($section, new $tb(array_merge($guidefaults,$el)),$category);
 
 		voicemail_draw_vmxgui($extdisplay, $disable);
 	}
@@ -659,6 +671,15 @@ function voicemail_configpageload() {
 function voicemail_draw_vmxgui($extdisplay, $vmdisable) {
 	global $currentcomponent;
 	global $display;
+
+	$display_mode = "advanced";
+	$mode = \FreePBX::Config()->get("FPBXOPMODE");
+	if(!empty($mode)) {
+		$display_mode = $mode;
+	}
+	if($display_mode == "basic") {
+		return true;
+	}
 
 	$section = _("VmX Locater&trade;");
 	$group = "vmxgroup";
