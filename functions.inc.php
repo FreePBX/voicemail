@@ -131,15 +131,14 @@ function voicemail_get_config($engine) {
 function voicemail_directdialvoicemail($c) {
 	global $ext;
 
-	$userlist = core_users_list();
+	$userlist = FreePBX::Core()->getAllUsers();
 	if (is_array($userlist)) {
 		foreach($userlist as $item) {
-			$exten = core_users_get($item[0]);
-			$vm = ((($exten['voicemail'] == "novm") || ($exten['voicemail'] == "disabled") || ($exten['voicemail'] == "")) ? "novm" : $exten['extension']);
+			$vm = ((($item['voicemail'] == "novm") || ($item['voicemail'] == "disabled") || ($item['voicemail'] == "")) ? "novm" : $item['extension']);
 
 			if($vm != "novm") {
 				$context = 'ext-local';
-				$exten_num = $exten['extension'];
+				$exten_num = $item['extension'];
 				// This usually gets called from macro-exten-vm but if follow-me destination need to go this route
 				$ext->add($context, $c.$exten_num, '', new ext_macro('vm',$vm.',DIRECTDIAL,${IVR_RETVM}'));
 				$ext->add($context, $c.$exten_num, '', new ext_goto('1','vmret'));
@@ -238,15 +237,13 @@ function voicemail_dialvoicemail($c) {
 	}
 	//if ($resmwiblf_module && $amp_conf['USERESMWIBLF']) { // TODO: PUT THIS BACK
 	if (true) { // TODO: FOR TESTING ONLY
-		$userlist = core_users_list();
+		$userlist = FreePBX::Core()->getAllUsers();
 		if (is_array($userlist)) {
 			foreach($userlist as $item) {
-				$exten = core_users_get($item[0]);
-				$vm = ((($exten['voicemail'] == "novm") || ($exten['voicemail'] == "disabled") || ($exten['voicemail'] == "")) ? "novm" : $exten['extension']);
+				$vm = ((($item['voicemail'] == "novm") || ($item['voicemail'] == "disabled") || ($item['voicemail'] == "")) ? "novm" : $item['extension']);
 
 				if($vm != "novm") {
 					$ext->add($id, $c.$vm, '', new ext_goto('1','dvm${EXTEN:'.strlen($c).'}'));
-					//$ext->addHint($id, $c.$vm, "MWI:$vm@".$exten['voicemail']);
 				}
 			}
 			$c_len = strlen($c);
@@ -1699,4 +1696,3 @@ function voicemail_get_greeting_timestamps($name=0, $unavail=0, $busy=0, $temp=0
 	}
 	return $ts;
 }
-?>
