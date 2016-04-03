@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-07 15:49-0800\n"
-"PO-Revision-Date: 2016-03-08 17:56+0300\n"
+"PO-Revision-Date: 2016-04-02 20:43+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fa/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4\n"
 
 #: views/tz.php:204
 msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
@@ -677,15 +677,15 @@ msgstr "داخلی"
 
 #: page.voicemail.php:222
 msgid "External Voicemail notify application."
-msgstr "هشدار به نرم افزار خارجی ایمیل صوتی"
+msgstr "هشدار به نرم افزار خارجی ایمیل صوتی."
 
 #: page.voicemail.php:223
 msgid "External password changing command (overrides externpassnotify)."
-msgstr "دستور تغییر کلمه عبور از خارج برنامه"
+msgstr "دستور تغییر کلمه عبور از خارج برنامه (overrides externpassnotify)."
 
 #: page.voicemail.php:224
 msgid "External password verification script."
-msgstr "اسکریپت تایید کلمه عبور خارجی"
+msgstr "اسکریپت تایید کلمه عبور خارجی."
 
 #: Voicemail.class.php:251
 #, php-format
@@ -992,7 +992,7 @@ msgstr "صندوق ایمیل در فرمت مناسبی نیست"
 
 #: page.voicemail.php:248
 msgid "Max failed login attempts."
-msgstr "حداکثر تعداد تلاش ناموفق برای ورود"
+msgstr "حداکثر تعداد تلاش ناموفق برای ورود."
 
 #: page.voicemail.php:247
 msgid "Max message greeting length."
@@ -1425,7 +1425,7 @@ msgstr ""
 #: ucp/views/greetings.php:2
 #, php-format
 msgid "Supported Formats: %s"
-msgstr "فرمت پشتیبانی شده:%%s"
+msgstr "فرمت پشتیبانی شده: %s"
 
 #: functions.inc.php:942
 msgid "System Settings"
@@ -1704,7 +1704,7 @@ msgstr "مصرفی"
 
 #: functions.inc.php:950
 msgid "Usage Statistics For: "
-msgstr "آمار مصرفی برای:"
+msgstr "آمار مصرفی برای: "
 
 #: ucp/views/vmx.php:16
 msgid "Use When"
