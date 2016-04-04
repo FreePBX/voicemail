@@ -1245,6 +1245,10 @@ class Voicemail implements \BMO {
 						$out['messages'][$key]['path'] = $folder;
 
 						$extension = $this->getFileExtension($vfolder, $vm);
+						if(!file_exists($wav)) {
+							unset($out['messages'][$key]);
+							continue;
+						}
 						$out['messages'][$key]['format'][$extension] = array(
 							"filename" => basename($wav),
 							"path" => $folder,
