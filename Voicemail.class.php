@@ -140,7 +140,7 @@ class Voicemail implements \BMO {
 			$sql = "UPDATE users SET voicemail = 'default' WHERE extension = ?";
 			$sth = $this->db->prepare($sql);
 			$sth->execute(array($extension));
-			$this->astman->database_put("AMPUSER",$extension."/voicemail",'"default"');
+			$this->astman->database_put("AMPUSER",$extension."/voicemail",'default');
 			$this->setupMailboxSymlinks($extension);
 		}
 	}
@@ -1509,7 +1509,7 @@ class Voicemail implements \BMO {
 					$sql = "UPDATE users SET voicemail = 'default' WHERE extension = ?";
 					$sth = $this->db->prepare($sql);
 					$sth->execute(array($extension));
-					$this->astman->database_put("AMPUSER",$extension."/voicemail",'"default"');
+					$this->astman->database_put("AMPUSER",$extension."/voicemail",'default');
 					$this->setupMailboxSymlinks($extension);
 					$mailbox = $this->getMailbox($extension, false);
 					if(empty($mailbox)) {
