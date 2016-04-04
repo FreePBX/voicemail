@@ -125,6 +125,7 @@ class Voicemail implements \BMO {
 	 */
 	public function processQuickCreate($tech, $extension, $data) {
 		if($data['vm'] == "yes" && trim($data['vmpwd'] !== "")) {
+
 			$this->addMailbox($extension, array(
 				"vm" => "enabled",
 				"name" => $data['name'],
@@ -301,6 +302,7 @@ class Voicemail implements \BMO {
 						$opts[] = $key."=".$value;
 					}
 				}
+				$data['name'] = $this->sanatizeName($data['name']);
 				$data['options'] = implode("|",$opts);
 				unset($data['mailbox']);
 				$cdata[] = $mailbox ." => ". implode(",",$data);
@@ -1457,6 +1459,13 @@ class Voicemail implements \BMO {
 			break;
 		}
 		return $buttons;
+	}
+
+	Public function sanatizeName($string){
+		if(strpos($string,",") === false){
+			return $string;
+		}
+		return str_replace(',' , '', $string);
 	}
 
 	public function bulkhandlerGetHeaders($type) {
