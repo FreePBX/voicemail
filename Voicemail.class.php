@@ -1461,10 +1461,7 @@ class Voicemail implements \BMO {
 		return $buttons;
 	}
 
-	Public function sanatizeName($string){
-		if(strpos($string,",") === false){
-			return $string;
-		}
+	public function sanatizeName($string) {
 		return str_replace(',' , '', $string);
 	}
 
