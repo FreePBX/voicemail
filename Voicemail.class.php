@@ -125,7 +125,6 @@ class Voicemail implements \BMO {
 	 */
 	public function processQuickCreate($tech, $extension, $data) {
 		if($data['vm'] == "yes" && trim($data['vmpwd'] !== "")) {
-
 			$this->addMailbox($extension, array(
 				"vm" => "enabled",
 				"name" => $data['name'],
@@ -151,6 +150,9 @@ class Voicemail implements \BMO {
 	 * @param int $mailbox The mailbox number
 	 */
 	public function setupMailboxSymlinks($mailbox) {
+		if($mailbox == 'none'){
+			return;
+		}
 		if(!is_numeric($mailbox)) {
 			throw new \Exception(_("Mailbox is not in the proper format"));
 		}
@@ -302,7 +304,6 @@ class Voicemail implements \BMO {
 						$opts[] = $key."=".$value;
 					}
 				}
-				$data['name'] = $this->sanatizeName($data['name']);
 				$data['options'] = implode("|",$opts);
 				unset($data['mailbox']);
 				$cdata[] = $mailbox ." => ". implode(",",$data);
@@ -1247,10 +1248,6 @@ class Voicemail implements \BMO {
 						$out['messages'][$key]['path'] = $folder;
 
 						$extension = $this->getFileExtension($vfolder, $vm);
-						if(!file_exists($wav)) {
-							unset($out['messages'][$key]);
-							continue;
-						}
 						$out['messages'][$key]['format'][$extension] = array(
 							"filename" => basename($wav),
 							"path" => $folder,
@@ -1459,10 +1456,6 @@ class Voicemail implements \BMO {
 			break;
 		}
 		return $buttons;
-	}
-
-	public function sanatizeName($string) {
-		return str_replace(',' , '', $string);
 	}
 
 	public function bulkhandlerGetHeaders($type) {
