@@ -235,8 +235,7 @@ function voicemail_dialvoicemail($c) {
 			$resmwiblf_module = preg_match('/[1-9] modules loaded/', $resmwiblf_check['data']);
 		}
 	}
-	//if ($resmwiblf_module && $amp_conf['USERESMWIBLF']) { // TODO: PUT THIS BACK
-	if (true) { // TODO: FOR TESTING ONLY
+	if ($resmwiblf_module && $amp_conf['USERESMWIBLF']) { // TODO: PUT THIS BACK
 		$userlist = FreePBX::Core()->getAllUsers();
 		if (is_array($userlist)) {
 			foreach($userlist as $item) {
@@ -248,7 +247,7 @@ function voicemail_dialvoicemail($c) {
 			}
 			$c_len = strlen($c);
 			//$ext->add($id, "_$c".'X.', '', new ext_noop("This extension does not have access to this"));
-			$ext->addHint($id, "_$c".'X.', 'MWI:${EXTEN:'.$c_len.'}@${DB(AMPUSER/${EXTEN:'.$c_len.'}/voicemail)}');
+			$ext->addHint($id, "_$c".'X.', 'MWI:${EXTEN:'.$c_len.'}@${IF($[${DB(AMPUSER/${EXTEN:'.$c_len.'}/voicemail)} != ""]?${DB(AMPUSER/${EXTEN:'.$c_len.'}/voicemail)}:default)}');
 		}
 		$c = '_dvm.';
 	} else {
