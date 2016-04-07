@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-04 16:02-0700\n"
-"PO-Revision-Date: 2016-04-02 20:43+0200\n"
+"PO-Revision-Date: 2016-04-06 23:06+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/"
-"voicemail/fa/>\n"
+"Language-Team: Persian "
+"<http://weblate.freepbx.org/projects/freepbx/voicemail/fa/>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -62,12 +62,12 @@ msgstr "%s تنظیم شده از %s تا %s"
 #: install.php:85
 #, php-format
 msgid "%s adjusted from bad value %s to default no gain"
-msgstr ""
+msgstr "%s تنظیم شده با مقدار نامناسب %s به پیشفرض بی فایده"
 
 #: install.php:76
 #, php-format
 msgid "%s changed from %s to max value 15"
-msgstr ""
+msgstr "تغییر از %s به %s بیشترین مقدار 15"
 
 #: install.php:95
 #, php-format
@@ -103,6 +103,8 @@ msgid ""
 "(yes/no) If imapgreetings=yes, then specify which folder to store your "
 "greetings in. If you do not specify a folder, then INBOX will be used."
 msgstr ""
+"(بله/خیر) اگر  imapgreetings=بله ،  then specify which folder to store your "
+"greetings in. If you do not specify a folder, then INBOX will be used."
 
 #: page.voicemail.php:433
 msgid "0 Sec"
@@ -134,16 +136,16 @@ msgstr "۹ db"
 
 #: views/tz.php:82
 msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
-msgstr ""
+msgstr "<i>زمان محلی</i> فهرست شده در  /usr/share/zoneinfo"
 
 #: views/tz.php:2
 msgid ""
 "A timezone definition specifies how the Voicemail system announces the time."
-msgstr ""
+msgstr "تععین زمان محلی به چگونگی صندوق صوتی در بیان ساعت کمک میکند."
 
 #: views/tz.php:105
 msgid "A variable to be substituted (see below for supported variable values)"
-msgstr ""
+msgstr "متغییر جایگزین شده (برای مقادیر پشتیبانی شده به پایین نگاه کنید)"
 
 #: views/tz.php:188
 msgid "AM or PM"
@@ -151,7 +153,7 @@ msgstr "قبل ظهر یا بعدظهر"
 
 #: views/usage.php:184 views/usage_system.php:203
 msgid "Abandoned Greetings"
-msgstr ""
+msgstr "خوش آمدید های رها شده"
 
 #: views/usage.php:2
 msgid "Account"
