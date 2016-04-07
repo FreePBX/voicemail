@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-06 11:27-0700\n"
-"PO-Revision-Date: 2016-04-07 03:59+0200\n"
+"PO-Revision-Date: 2016-04-07 04:14+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fa/>\n"
@@ -1617,11 +1617,11 @@ msgstr "شماره نسخه درخواست ایمیل صوتی ADSI."
 
 #: page.voicemail.php:204
 msgid "The ADSI feature descriptor number to download to"
-msgstr ""
+msgstr "تعداد ویژگی توصیفی ADSI برای دانلود به"
 
 #: page.voicemail.php:205
 msgid "The ADSI security lock code"
-msgstr ""
+msgstr "کد قفل امنیتی ADSI"
 
 #: install.php:14
 msgid "The Feature Code used to dial any voicemail"
@@ -1640,14 +1640,18 @@ msgid ""
 "your system, often caused by very quiet analog lines. The gain is in "
 "Decibels which doubles for every 3 db."
 msgstr ""
+"The amount  of gain to amplify a voicemail message when geing recorded. This "
+"is usually set when users are complaining about hard to hear messages on "
+"your system, often caused by very quiet analog lines. The gain is in "
+"Decibels which doubles for every 3 db."
 
 #: page.voicemail.php:212
 msgid "The character set for Voicemail messages"
-msgstr ""
+msgstr "The character set  for Voicemail messages"
 
 #: page.voicemail.php:257
 msgid "The default table for ODBC Voicemail storage is voicemessages."
-msgstr ""
+msgstr "جدول پیشفرض ODBC ذخیره ایمیل صوتی در پیام های صوتی."
 
 #: functions.inc.php:551 page.voicemail.php:293 ucp/views/settings.php:14
 msgid "The email address that Voicemails are sent to."
@@ -1655,7 +1659,7 @@ msgstr "آدرس ایمیلی که ایمیل صوتی به آن ارسال شد
 
 #: views/tz.php:97
 msgid "The name of a sound file (the file name must be single-quoted)"
-msgstr ""
+msgstr "نام فایل صوتی (نام فایل باید single-quoted باشد)"
 
 #: functions.inc.php:821
 msgid ""
@@ -1665,12 +1669,19 @@ msgid ""
 "time a change is made so you don't leave a caller stranded or receiving "
 "invalid number messages."
 msgstr ""
+"The remaining  options can have internal extensions, ringgroups, queues and "
+"external numbers that may be rung. It is often used to include your cell "
+"phone. You should run a test to make sure that the number is functional any "
+"time a change is made so you don't leave a caller stranded or receiving "
+"invalid number messages."
 
 #: page.voicemail.php:256
 msgid ""
 "The value of odbcstorage is the database connection configured in res_odbc."
 "conf."
 msgstr ""
+"The value of  odbcstorage is the database connection configured in "
+"res_odbc.conf."
 
 #: ucp/assets/js/global.js:892
 msgid "There is nothing to delete"
@@ -1681,28 +1692,34 @@ msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
+"داخلی های فعال و مشخصی وجود دارد که به این کاربر در پنل کاربری ویرایش شده و "
+"نمایش داده میشوند"
 
 #: functions.inc.php:633
 #, php-format
 msgid "This is the IMAP password, if using IMAP storage"
-msgstr ""
+msgstr "این کلمه عبور IMAP است, اگر از ذخیره IMAP استفاده میکنید"
 
 #: functions.inc.php:623
 #, php-format
 msgid "This is the IMAP username, if using IMAP storage"
-msgstr ""
+msgstr "این نام کاربری IMAP است, اگر از ذخیره IMAP استفاده میکنید"
 
 #: views/quickCreate.php:37
 msgid ""
 "This is the PIN used to access the Voicemail system. It should be between 4 "
 "and 12 numbers in length."
 msgstr ""
+"این پین استفاده شده برای دسترسی به سیستم ایمیل صوتی است.طولش باید بین 4 و12 "
+"رقم باشد."
 
 #: functions.inc.php:654 page.voicemail.php:315
 msgid ""
 "This is the Voicemail Context which is normally set to default. Do not "
 "change unless you understand the implications."
 msgstr ""
+"این متن ایمیل صوتی است که معمولا به صورت پیشفرض تنظیم میشود. اگر نیازی نیست "
+"تغییر ندهید."
 
 #: functions.inc.php:492
 #, php-format
@@ -1711,6 +1728,9 @@ msgid ""
 "only contain numbers.%sA user can change the password you enter here after "
 "logging into the Voicemail system (%s) with a phone."
 msgstr ""
+"This is the password used to access the  Voicemail system.%sThis password "
+"can only contain numbers.%sA user can change the password you enter here "
+"after logging into the Voicemail system (%s) with a phone."
 
 #: page.voicemail.php:286
 msgid ""
@@ -1718,20 +1738,23 @@ msgid ""
 "password can only contain numbers.<br /><br />A user can change the password "
 "you enter here after logging into the Voicemail system (*98) with a phone."
 msgstr ""
+"This is the password  used to access the Voicemail system.<br /><br />This "
+"password can only contain numbers.<br /><br />A user can change the password "
+"you enter here after logging into the Voicemail system (*98) with a phone."
 
 #: voicemail.i18n.php:8
 msgid "This module allows you to configure Voicemail for a user or extension"
-msgstr ""
+msgstr "ماژول به شما اجازه تنظیمات ایمیل صوتی برای کاربر یا داخلی میدهد"
 
 #: page.voicemail.php:202
 msgid "Time announcement for message playback"
-msgstr ""
+msgstr "اعلام زمان برای پخش پیام"
 
 #: views/dialplan.php:147
 msgid ""
 "Time to wait after message has played to timeout and/or repeat the message "
 "if no entry pressed."
-msgstr ""
+msgstr "زمان انتظار بعد از پخش پیام و/یا تکرار پیام اگر دیتایی وارد نشد."
 
 #: views/dialplan.php:159
 msgid "Times to Play Message"
@@ -1751,7 +1774,7 @@ msgstr "نام منطقه زمانی تعریف شده"
 
 #: page.voicemail.php:314
 msgid "Timezone from zonemessages context.  Irrelevant if envelope=no."
-msgstr ""
+msgstr "Timezone from  zonemessages context.  Irrelevant if envelope=no."
 
 #: ucp/assets/js/global.js:165 ucp/assets/js/global.js:232
 #: ucp/assets/js/global.js:285
@@ -1763,7 +1786,7 @@ msgstr "به"
 msgid ""
 "To play the media you will need to either update your browser to a recent "
 "version or update your %s"
-msgstr ""
+msgstr "برای پخش باید مرورگر را به نسخه %s به روز کنید"
 
 #: views/usage.php:9 views/usage.php:32 views/usage.php:64 views/usage.php:95
 #: views/usage.php:126 views/usage.php:157 views/usage.php:188
@@ -1779,12 +1802,15 @@ msgid ""
 "Turn on/off envelope playback before message playback. [ON by default] This "
 "does NOT affect option 3,3 from the advanced options menu."
 msgstr ""
+"Turn on/off envelope  playback before message playback. [ON by default] This "
+"does NOT affect option 3,3 from the advanced options menu."
 
 #: page.voicemail.php:267 page.voicemail.php:309
 msgid ""
 "Turn on/off saying duration information before the message playback. [ON by "
 "default]"
 msgstr ""
+"روشن/خاموش کردن گفتن اطلاعات قبل از پخش مجدد پیام. [روشن در حالت پیشفرض]"
 
 #: voicemail.i18n.php:26
 msgid "UCP Message Limit"
@@ -2099,6 +2125,10 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
+"You are missing  support for playback in this browser. To fully support "
+"HTML5 browser playback you will need to install programs that can not be "
+"distributed with the PBX. If you'd like to install the binaries needed for "
+"these conversions click <a href='%s'>here</a>"
 
 #: ucp/assets/js/global.js:475
 msgid "You have No Drag/Drop Support!"
