@@ -44,7 +44,11 @@ class Voicemail implements \BMO {
 
 		if(!class_exists('FreePBX\modules\Voicemail\Vmx') && file_exists(__DIR__.'/Vmx.class.php')) {
 			include(__DIR__.'/Vmx.class.php');
+		}
+		if(!is_object($this->Vmx) && class_exists('FreePBX\modules\Voicemail\Vmx')) {
 			$this->Vmx = new Voicemail\Vmx($freepbx);
+		} elseif(!class_exists('FreePBX\modules\Voicemail\Vmx')) {
+			throw new \Exception("Unable to load VmX Locator class");
 		}
 
 		$this->FreePBX = $freepbx;
@@ -82,7 +86,7 @@ class Voicemail implements \BMO {
 	}
 
 	public function install() {
-		if($this->FreePBX->Modules->checkStatus("userman")) {
+		if($this->FreePBX->Modules->checkStatus("userman") && is_object($this->Vmx)) {
 		  $users = $this->FreePBX->Userman()->getAllUsers();
 		  foreach($users as $user) {
 		    if($user['default_extension'] != 'none') {

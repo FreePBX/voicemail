@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.38</version>
+	<version>13.0.39</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.39* Make sure VmX locator is actually loaded
 		*13.0.38* FREEPBX-11223 Another attempt. If there is nothing in the DB then just assume default
 		*13.0.37* FREEPBX-11103 FREEPBX-11223
 		*13.0.36* FREEPBX-10571 remove repeat add restart button to player
