@@ -447,13 +447,13 @@ class Voicemail implements \BMO {
 			}
 
 			if (isset($settings['vmx_play_instructions']) && $settings['vmx_play_instructions'] == 'yes') {
-				$this->Vmx->setVmPlay($mailbox,true,'unavail');
-				$this->Vmx->setVmPlay($mailbox,true,'busy');
-				$this->Vmx->setVmPlay($mailbox,true,'temp');
+				$this->Vmx->setVmPlay($mailbox,'unavail',true);
+				$this->Vmx->setVmPlay($mailbox,'busy',true);
+				$this->Vmx->setVmPlay($mailbox,'temp',true);
 			} else {
-				$this->Vmx->setVmPlay($mailbox,false,'unavail');
-				$this->Vmx->setVmPlay($mailbox,false,'busy');
-				$this->Vmx->setVmPlay($mailbox,false,'temp');
+				$this->Vmx->setVmPlay($mailbox,'unavail',false);
+				$this->Vmx->setVmPlay($mailbox,'busy',false);
+				$this->Vmx->setVmPlay($mailbox,'temp',false);
 			}
 
 			if (isset($settings['vmx_option_1_system_default']) && $settings['vmx_option_1_system_default'] != '') {
