@@ -843,6 +843,7 @@ class Voicemail implements \BMO {
 		if(isset($this->greetings[$msg])) {
 			return $this->deleteVMGreeting($ext,$msg);
 		} else {
+			$o = $this->getVoicemailBoxByExtension($ext);
 			$message = $this->getMessageByMessageIDExtension($msg,$ext);
 			if(!empty($message)) {
 				foreach(glob($message['path']."/".$message['fid'].".*") as $filename) {
@@ -856,6 +857,7 @@ class Voicemail implements \BMO {
 					}
 				}
 				$this->renumberAllMessages($message['path']);
+				$this->astman->VoicemailRefresh($o['vmcontext'],$ext);
 				return true;
 			}
 		}
@@ -1030,6 +1032,12 @@ class Voicemail implements \BMO {
 				}
 			}
 		}
+		if(!empty($fromVM['context'])) {
+			$this->astman->VoicemailRefresh($fromVM['context'],$ext);
+		}
+		if(!empty($toVM['context'])) {
+			$this->astman->VoicemailRefresh($toVM['context'],$to);
+		}
 	}
 
 	/**
@@ -1093,6 +1101,7 @@ class Voicemail implements \BMO {
 					//Just for sanity sakes recheck the directories hopefully this doesnt take hours though.
 					$this->renumberAllMessages($vmfolder."/".$info['folder']);
 					$this->renumberAllMessages($folder);
+					$this->astman->VoicemailRefresh($context,$ext);
 					return true;
 				}
 			}
@@ -1161,6 +1170,7 @@ class Voicemail implements \BMO {
 					//Just for sanity sakes recheck the directories hopefully this doesnt take hours though.
 					$this->renumberAllMessages($vmfolder."/".$info['folder']);
 					$this->renumberAllMessages($folder);
+					$this->astman->VoicemailRefresh($context,$ext);
 					return true;
 				}
 			}
