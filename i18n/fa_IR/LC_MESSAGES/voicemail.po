@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-26 13:52-0700\n"
+"POT-Creation-Date: 2016-04-27 15:58-0700\n"
 "PO-Revision-Date: 2016-04-07 04:14+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/"
@@ -1476,7 +1476,7 @@ msgstr "حذف منطقه زمانی تعریف شده"
 msgid "Require From Same %s"
 msgstr "درخواست از %s"
 
-#: Voicemail.class.php:1452
+#: Voicemail.class.php:1462
 msgid "Reset"
 msgstr "بازنشانی"
 
@@ -1564,7 +1564,7 @@ msgstr "فضای مصرفی"
 msgid "Subject sent to pager."
 msgstr "عنوان ارسال شده برای پیام گیر."
 
-#: Voicemail.class.php:1457 page.voicemail.php:649
+#: Voicemail.class.php:1467 page.voicemail.php:649
 msgid "Submit"
 msgstr "ارسال"
 
@@ -1817,7 +1817,7 @@ msgstr ""
 msgid "UCP Message Limit"
 msgstr "محدودیت پیام پنل کاربری"
 
-#: Voicemail.class.php:1519
+#: Voicemail.class.php:1529
 msgid "Unable to add mailbox!"
 msgstr "عدم توانایی افزودن صندوق ایمیل!"
 
@@ -1983,11 +1983,11 @@ msgstr "مدیریت کردن ایمیل صوتی"
 msgid "Voicemail Auto Delete is on. New messages will not show up here."
 msgstr "حذف خودکار ایمیل صوتی روشن است. پیام جدید اینجا نمایش داده میشود."
 
-#: Voicemail.class.php:1476
+#: Voicemail.class.php:1486
 msgid "Voicemail E-Mail"
 msgstr "ایمیل ایمیل صوتی"
 
-#: Voicemail.class.php:1470
+#: Voicemail.class.php:1480
 msgid "Voicemail Enable [Blank to disable]"
 msgstr "فعال کردن ایمیل صوتی [خالی برای غیرفعال کردن]"
 
@@ -2003,7 +2003,7 @@ msgstr "پیام ایمیل صوتی"
 msgid "Voicemail Module"
 msgstr "ماژول ایمیل صوتی"
 
-#: Voicemail.class.php:1479
+#: Voicemail.class.php:1489
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
@@ -2015,7 +2015,7 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr "پین ایمیل صوتی"
 
-#: Voicemail.class.php:1473 functions.inc.php:493 page.voicemail.php:495
+#: Voicemail.class.php:1483 functions.inc.php:493 page.voicemail.php:495
 msgid "Voicemail Password"
 msgstr "کلمه عبور ایمیل صوتی"
 
@@ -2053,7 +2053,7 @@ msgstr "ایمیل صوتی منتقل نشد به%s"
 msgid "Voicemail was empty: %s"
 msgstr "پیام صوتی خالی بود:%s"
 
-#: Voicemail.class.php:1229
+#: Voicemail.class.php:1239
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "

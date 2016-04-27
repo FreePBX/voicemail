@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX voicemail\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-26 13:52-0700\n"
+"POT-Creation-Date: 2016-04-27 15:58-0700\n"
 "PO-Revision-Date: 2008-10-19 18:52+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -1333,7 +1333,7 @@ msgstr ""
 msgid "Require From Same %s"
 msgstr ""
 
-#: Voicemail.class.php:1452
+#: Voicemail.class.php:1462
 msgid "Reset"
 msgstr ""
 
@@ -1414,7 +1414,7 @@ msgstr ""
 msgid "Subject sent to pager."
 msgstr ""
 
-#: Voicemail.class.php:1457 page.voicemail.php:649
+#: Voicemail.class.php:1467 page.voicemail.php:649
 msgid "Submit"
 msgstr ""
 
@@ -1640,7 +1640,7 @@ msgstr ""
 msgid "UCP Message Limit"
 msgstr ""
 
-#: Voicemail.class.php:1519
+#: Voicemail.class.php:1529
 msgid "Unable to add mailbox!"
 msgstr ""
 
@@ -1796,11 +1796,11 @@ msgstr ""
 msgid "Voicemail Auto Delete is on. New messages will not show up here."
 msgstr ""
 
-#: Voicemail.class.php:1476
+#: Voicemail.class.php:1486
 msgid "Voicemail E-Mail"
 msgstr ""
 
-#: Voicemail.class.php:1470
+#: Voicemail.class.php:1480
 msgid "Voicemail Enable [Blank to disable]"
 msgstr ""
 
@@ -1816,7 +1816,7 @@ msgstr ""
 msgid "Voicemail Module"
 msgstr ""
 
-#: Voicemail.class.php:1479
+#: Voicemail.class.php:1489
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
@@ -1826,7 +1826,7 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr ""
 
-#: Voicemail.class.php:1473 functions.inc.php:493 page.voicemail.php:495
+#: Voicemail.class.php:1483 functions.inc.php:493 page.voicemail.php:495
 msgid "Voicemail Password"
 msgstr "Lösenord för röstbrevlåda"
 
@@ -1862,7 +1862,7 @@ msgstr ""
 msgid "Voicemail was empty: %s"
 msgstr ""
 
-#: Voicemail.class.php:1229
+#: Voicemail.class.php:1239
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
