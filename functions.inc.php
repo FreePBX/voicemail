@@ -706,7 +706,7 @@ function voicemail_draw_vmxgui($extdisplay, $vmdisable) {
 
 	$vmxsettings['option'][0] = array(
 		"disabled" => false,
-		"value" => !$disable ? $vmxobj->getMenuOpt(0) : '',
+		"value" =>  $vmxobj->getMenuOpt(0),
 		"checked" => false
 	);
 	if($vmxsettings['option'][0]['value'] == '') {
@@ -798,19 +798,18 @@ function voicemail_draw_vmxgui($extdisplay, $vmdisable) {
 		"pairedvalues" => false
 	);
 	$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)), $category);
-
 	$el = array(
 		"elemname" => "vmx_option_0_number",
 		"prompttext" => _("Press 0:"),
 		"helptext" => _("Pressing 0 during your personal Voicemail greeting goes to the Operator. Uncheck to enter another destination here. This feature can be used while still disabling VmX to allow an alternative Operator extension without requiring the VmX feature for the user."),
 		"currentvalue" => $vmxsettings['option'][0]['value'],
-		"disable" => $vmxsettings['option'][0]['disabled'],
+		"disable" => false,
 		"class" => '',
 		"disabled_value" => $vmxsettings['option'][0]['value'],
 		"cblabel" => _("Go To Operator"),
 		"cbelemname" => "vmx_option_0_system_default",
 		"check_enables" => 'false',
-		"cbdisable" => $disable,
+		"cbdisable" => false,
 		"cbclass" => $group,
 		"cbchecked" => $vmxsettings['option'][0]['checked']
 	);
