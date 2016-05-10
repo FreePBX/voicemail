@@ -516,7 +516,7 @@ var VoicemailC = UCPMC.extend({
 					$("#freepbx_player_unavail").removeClass("greet-hidden");
 					$this.toggleGreeting("unavail", true);
 				} else {
-					console.log(data.result.message);
+					console.warn(data.result.message);
 				}
 			},
 			progressall: function(e, data) {
@@ -555,7 +555,7 @@ var VoicemailC = UCPMC.extend({
 					$("#freepbx_player_busy").removeClass("greet-hidden");
 					$this.toggleGreeting("busy", true);
 				} else {
-					console.log(data.result.message);
+					console.warn(data.result.message);
 				}
 			},
 			progressall: function(e, data) {
@@ -594,7 +594,7 @@ var VoicemailC = UCPMC.extend({
 					$("#freepbx_player_greet").removeClass("greet-hidden");
 					$this.toggleGreeting("greet", true);
 				} else {
-					console.log(data.result.message);
+					console.warn(data.result.message);
 				}
 			},
 			progressall: function(e, data) {
@@ -638,7 +638,7 @@ var VoicemailC = UCPMC.extend({
 					$("#freepbx_player_temp").removeClass("greet-hidden");
 					$this.toggleGreeting("temp", true);
 				} else {
-					console.log(data.result.message);
+					console.warn(data.result.message);
 				}
 			},
 			progressall: function(e, data) {
@@ -990,7 +990,7 @@ var VoicemailC = UCPMC.extend({
 									if(data.status) {
 										player.on($.jPlayer.event.error, function(event) {
 											$(container).removeClass("jp-state-loading");
-											console.log(event);
+											console.warn(event);
 										});
 										player.one($.jPlayer.event.canplay, function(event) {
 											$(container).removeClass("jp-state-loading");

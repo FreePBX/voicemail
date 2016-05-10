@@ -131,7 +131,7 @@ class Voicemail extends Modules{
 
 	function poll() {
 		$boxes = $this->getMailboxCount($this->extensions);
-		return array("status" => ($boxes['total'] > 0), "total" => $boxes['total'], "boxes" => isset($boxes['extensions']) ? $boxes['extensions'] : '');
+		return array("status" => !empty($boxes['extensions']), "total" => $boxes['total'], "boxes" => isset($boxes['extensions']) ? $boxes['extensions'] : '');
 	}
 
 	public function getSettingsDisplay($ext) {
