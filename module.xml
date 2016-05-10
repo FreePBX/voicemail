@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.43</version>
+	<version>13.0.44</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.44* FREEPBX-11597 set voicemail to yes
 		*13.0.43* FREEPBX-12168 Support voicemailRefresh when changing mailboxes
 		*13.0.42* Revert the work done in 41, bring back dynamic hints
 		*13.0.41* FREEPBX-11223 for res_mwi_blf dont use dynamic hints
@@ -72,7 +73,7 @@
 		<voicemail>Voicemail Admin</voicemail>
 	</menuitems>
 	<depends>
-		<module>core ge 13.0.16</module>
+		<module>core ge 13.0.84</module>
 		<version>13.0.111</version>
 	</depends>
 	<supported>
