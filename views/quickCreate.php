@@ -6,9 +6,9 @@
 			</div>
 			<div class="col-md-9">
 				<span class="radioset">
-					<input type="radio" name="vm" id="vm_on" value="yes">
+					<input type="radio" name="vm" id="vm_on" value="yes" checked>
 					<label for="vm_on"><?php echo _('Yes')?></label>
-					<input type="radio" name="vm" id="vm_off" value="no" checked>
+					<input type="radio" name="vm" id="vm_off" value="no">
 					<label for="vm_off"><?php echo _('No')?></label>
 				</span>
 			</div>
@@ -24,9 +24,9 @@
 			</div>
 			<div class="col-md-9">
 				<div class="input-group">
-					<input type="password" name="vmpwd" class="form-control" id="vmpwd" disabled>
+					<input type="password" name="vmpwd" class="form-control" id="vmpwd" value="<?php echo $startExt?>">
 					<span class="input-group-btn">
-						<button data-id="vmpwd" class="btn btn-default toggle-password" type="button" disabled><i class="fa fa-eye fa-2x" style="margin-top:-4px;"></i></button>
+						<button data-id="vmpwd" class="btn btn-default toggle-password" type="button"><i class="fa fa-eye fa-2x" style="margin-top:-4px;"></i></button>
 					</span>
 				</div>
 			</div>
@@ -46,5 +46,9 @@
 	$("#vm_off").click(function() {
 		$("#vmpwd").prop("disabled",true);
 		$(".toggle-password[data-id=vmpwd]").prop("disabled",true);
+	});
+	$("#vmpwd").val($("#extension").val());
+	$("#extension").on("propertychange change click keyup input paste", function() {
+		$("#vmpwd").val($("#extension").val());
 	});
 </script>
