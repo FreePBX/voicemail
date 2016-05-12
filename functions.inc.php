@@ -140,10 +140,16 @@ function voicemail_directdialvoicemail($c) {
 				$context = 'ext-local';
 				$exten_num = $item['extension'];
 				// This usually gets called from macro-exten-vm but if follow-me destination need to go this route
+				$ext->add($context, $c.$exten_num, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
+				$ext->add($context, $c.$exten_num, '', new ext_set('CONNECTEDLINE(name,i)',sprintf(_("%s Voicemail"),$exten_num)));
+				$ext->add($context, $c.$exten_num, '', new ext_set('CONNECTEDLINE(num,i)',$exten_num));
 				$ext->add($context, $c.$exten_num, '', new ext_macro('vm',$vm.',DIRECTDIAL,${IVR_RETVM}'));
 				$ext->add($context, $c.$exten_num, '', new ext_goto('1','vmret'));
 
 				$ivr_context = 'from-did-direct-ivr';
+				$ext->add($ivr_context, $c.$exten_num, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
+				$ext->add($ivr_context, $c.$exten_num, '', new ext_set('CONNECTEDLINE(name,i)',sprintf(_("%s Voicemail"),$exten_num)));
+				$ext->add($ivr_context, $c.$exten_num, '', new ext_set('CONNECTEDLINE(num,i)',$exten_num));
 				$ext->add($ivr_context, $c.$exten_num, '', new ext_macro('blkvm-clr'));
 				$ext->add($ivr_context, $c.$exten_num, '', new ext_setvar('__NODEST', ''));
 				$ext->add($ivr_context, $c.$exten_num, '', new ext_macro('vm',$vm.',DIRECTDIAL,${IVR_RETVM}'));
@@ -161,9 +167,12 @@ function voicemail_myvoicemail($c) {
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 
+	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
+	$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(name,i)',_("My Voicemail")));
+	$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(num,i)','${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
 	$ext->add($id, $c, '', new ext_macro('get-vmcontext','${AMPUSER}'));
 	$ext->add($id, $c, 'check', new ext_vmexists('${AMPUSER}@${VMCONTEXT}')); // n,VoiceMailMain(${VMCONTEXT})
 	$ext->add($id, $c, '', new ext_gotoif('$["${VMBOXEXISTSSTATUS}" = "SUCCESS"]', 'mbexist'));
@@ -201,6 +210,9 @@ function voicemail_dialvoicemail($c) {
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 
 	$ext->add($id, $c, '', new ext_macro('user-callerid'));
+	$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
+	$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(name,i)',_("Dial Voicemail")));
+	$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(num,i)','${EXTEN}'));
 	$ext->add($id, $c, '', new ext_answer(''));
 	$ext->add($id, $c, 'start', new ext_wait('1'));
 	$ext->add($id, $c, '', new ext_noop($id.': Asking for mailbox'));
@@ -211,6 +223,7 @@ function voicemail_dialvoicemail($c) {
 	$ext->add($id, $c, '', new ext_gotoif('$["${VMBOXEXISTSSTATUS}" = "SUCCESS"]', 'good', 'bad'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 	$ext->add($id, $c, 'good', new ext_noop($id.': Good mailbox ${MAILBOX}@${VMCONTEXT}'));
+	//$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(num)','${MAILBOX}')); //makes audio stutter on the phone
 	$ext->add($id, $c, '', new ext_vmmain('${MAILBOX}@${VMCONTEXT}'));
 	$ext->add($id, $c, '', new ext_gotoif('$["${IVR_RETVM}" = "RETURN" & "${IVR_CONTEXT}" != ""]','playret'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
@@ -258,10 +271,13 @@ function voicemail_dialvoicemail($c) {
 		$c = "_$c.";
 	}
 
-	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
-	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	// How long is the command? We need to strip that off the front
 	$clen = strlen($c)-2;
+	$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
+	$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(name,i)',_("Dial Voicemail")));
+	$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(num,i)','${EXTEN:'.$clen.'}'));
+	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
+	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
 	$ext->add($id, $c, '', new ext_macro('get-vmcontext','${EXTEN:'.$clen.'}'));
 	$ext->add($id, $c, '', new ext_vmmain('${EXTEN:'.$clen.'}@${VMCONTEXT}')); // n,VoiceMailMain(${VMCONTEXT})
 	$ext->add($id, $c, '', new ext_gotoif('$["${IVR_RETVM}" = "RETURN" & "${IVR_CONTEXT}" != ""]','${IVR_CONTEXT},return,1'));
