@@ -974,6 +974,15 @@ class Voicemail implements \BMO {
 					$from = !empty($vm['general']['serveremail']) ? $vm['general']['serveremail'] : $processUser['name'].'@'.gethostname();
 					foreach($emailInfo as &$einfo) {
 						$einfo['body'] = str_replace(array(
+							'\n',
+							'\t'
+						),
+						array(
+							"\n",
+							"\t"
+						),
+						$einfo['body']);
+						$einfo['body'] = str_replace(array(
 							'${VM_NAME}',
 							'${VM_MAILBOX}',
 							'${VM_CALLERID}',
