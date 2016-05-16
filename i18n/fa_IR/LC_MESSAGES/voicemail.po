@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-16 12:43-0700\n"
+"POT-Creation-Date: 2016-05-16 15:42-0700\n"
 "PO-Revision-Date: 2016-04-07 04:14+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/"
@@ -801,7 +801,7 @@ msgstr ""
 "For example,  the time a message was left will be announced according to the "
 "user's timezone on message playback."
 
-#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:550
+#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:549
 msgid "Forbidden"
 msgstr "ممنوع"
 
@@ -890,14 +890,14 @@ msgstr "ساعت, 24 ساعتی"
 msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
 msgstr "Hour, 24 hour  clock (single digit hours preceded by \"oh\")"
 
+#: page.voicemail.php:218
+msgid "How many miliseconds of silence before we end the recording"
+msgstr ""
+
 #: page.voicemail.php:273
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback"
 msgstr "لغو چند میلی ثانیه در هنگام مرور سریع یا جلو/عقب کردن پیام"
-
-#: page.voicemail.php:218
-msgid "How many seconds of silence before we end the recording"
-msgstr "چند ثانیه سکوت قبل از اتمام ضبط پیام"
 
 #: functions.inc.php:650
 msgid "IMAP Password"
@@ -1064,7 +1064,7 @@ msgstr ""
 msgid "Invalid Action"
 msgstr "فعالیت نامعتبر"
 
-#: ucp/Voicemail.class.php:268 ucp/Voicemail.class.php:299
+#: ucp/Voicemail.class.php:267 ucp/Voicemail.class.php:298
 msgid "Invalid Recipient"
 msgstr "گیرنده نامعتبر"
 
@@ -1237,7 +1237,7 @@ msgstr ""
 msgid "None"
 msgstr "هیچ"
 
-#: ucp/Voicemail.class.php:569
+#: ucp/Voicemail.class.php:568
 msgid "Not Found"
 msgstr "یافت نشد"
 
@@ -1481,7 +1481,7 @@ msgstr "حذف منطقه زمانی تعریف شده"
 msgid "Require From Same %s"
 msgstr "درخواست از %s"
 
-#: Voicemail.class.php:1468
+#: Voicemail.class.php:1477
 msgid "Reset"
 msgstr "بازنشانی"
 
@@ -1569,7 +1569,7 @@ msgstr "فضای مصرفی"
 msgid "Subject sent to pager."
 msgstr "عنوان ارسال شده برای پیام گیر."
 
-#: Voicemail.class.php:1473 page.voicemail.php:649
+#: Voicemail.class.php:1482 page.voicemail.php:649
 msgid "Submit"
 msgstr "ارسال"
 
@@ -1822,7 +1822,7 @@ msgstr ""
 msgid "UCP Message Limit"
 msgstr "محدودیت پیام پنل کاربری"
 
-#: Voicemail.class.php:1535
+#: Voicemail.class.php:1544
 msgid "Unable to add mailbox!"
 msgstr "عدم توانایی افزودن صندوق ایمیل!"
 
@@ -1851,11 +1851,11 @@ msgstr "بدون علامت کنید برای پخش بوق بعد از پیام
 msgid "Unknown"
 msgstr "ناشناخته"
 
-#: ucp/Voicemail.class.php:456
+#: ucp/Voicemail.class.php:455
 msgid "Unknown Error"
 msgstr "خطای ناشناخته"
 
-#: ucp/Voicemail.class.php:423
+#: ucp/Voicemail.class.php:422
 msgid "Unsupported file format"
 msgstr "فرمت فایل پشتیبانی نشده"
 
@@ -1946,7 +1946,7 @@ msgstr "متن ایمیل صوتی نمیتواند خالی باشد"
 msgid "VM Options"
 msgstr "گزینه های ایمیل صوتی"
 
-#: ucp/Voicemail.class.php:280
+#: ucp/Voicemail.class.php:279
 msgid "VMAIL"
 msgstr "ایمیل صوتی"
 
@@ -1967,7 +1967,7 @@ msgid "VmX Locator"
 msgstr "VmX  Locator"
 
 #: Voicemail.class.php:692 functions.inc.php:477 install.php:8
-#: ucp/Voicemail.class.php:517 views/header.php:2 voicemail.i18n.php:4
+#: ucp/Voicemail.class.php:516 views/header.php:2 voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr "ایمیل صوتی"
@@ -1988,11 +1988,11 @@ msgstr "مدیریت کردن ایمیل صوتی"
 msgid "Voicemail Auto Delete is on. New messages will not show up here."
 msgstr "حذف خودکار ایمیل صوتی روشن است. پیام جدید اینجا نمایش داده میشود."
 
-#: Voicemail.class.php:1492
+#: Voicemail.class.php:1501
 msgid "Voicemail E-Mail"
 msgstr "ایمیل ایمیل صوتی"
 
-#: Voicemail.class.php:1486
+#: Voicemail.class.php:1495
 msgid "Voicemail Enable [Blank to disable]"
 msgstr "فعال کردن ایمیل صوتی [خالی برای غیرفعال کردن]"
 
@@ -2000,7 +2000,7 @@ msgstr "فعال کردن ایمیل صوتی [خالی برای غیرفعال 
 msgid "Voicemail Instructions:"
 msgstr "ساختارهای ایمیل صوتی:"
 
-#: ucp/Voicemail.class.php:280
+#: ucp/Voicemail.class.php:279
 msgid "Voicemail Message"
 msgstr "پیام ایمیل صوتی"
 
@@ -2008,7 +2008,7 @@ msgstr "پیام ایمیل صوتی"
 msgid "Voicemail Module"
 msgstr "ماژول ایمیل صوتی"
 
-#: Voicemail.class.php:1495
+#: Voicemail.class.php:1504
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
@@ -2020,7 +2020,7 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr "پین ایمیل صوتی"
 
-#: Voicemail.class.php:1489 functions.inc.php:509 page.voicemail.php:495
+#: Voicemail.class.php:1498 functions.inc.php:509 page.voicemail.php:495
 msgid "Voicemail Password"
 msgstr "کلمه عبور ایمیل صوتی"
 
@@ -2048,17 +2048,17 @@ msgstr ""
 "ایمیل صوتی فعال است ولی فیلد کلمه عبور ایمیل صوتی خالی است. آیا از ادامه "
 "مطمئن هستید؟"
 
-#: ucp/Voicemail.class.php:418 ucp/Voicemail.class.php:446
+#: ucp/Voicemail.class.php:417 ucp/Voicemail.class.php:445
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr "ایمیل صوتی منتقل نشد به%s"
 
-#: ucp/Voicemail.class.php:451
+#: ucp/Voicemail.class.php:450
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr "پیام صوتی خالی بود:%s"
 
-#: Voicemail.class.php:1245
+#: Voicemail.class.php:1254
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
@@ -2208,6 +2208,9 @@ msgstr "متغیر"
 #: page.voicemail.php:546
 msgid "yes"
 msgstr "بله"
+
+#~ msgid "How many seconds of silence before we end the recording"
+#~ msgstr "چند ثانیه سکوت قبل از اتمام ضبط پیام"
 
 #~ msgid " PBX Voicemail"
 #~ msgstr " میل PBX"

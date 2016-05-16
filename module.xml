@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.45</version>
+	<version>13.0.46</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.46* FREEPBX-10998 FREEPBX-12036 FREEPBX-11479 FREEPBX-12218
 		*13.0.45* FREEPBX-11617 UCP Quick Link(s) to Return Calls to Voicemail
 		*13.0.44* FREEPBX-11597 set voicemail to yes
 		*13.0.43* FREEPBX-12168 Support voicemailRefresh when changing mailboxes

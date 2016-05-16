@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX voicemail\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-16 12:43-0700\n"
+"POT-Creation-Date: 2016-05-16 15:42-0700\n"
 "PO-Revision-Date: 2008-10-19 18:52+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -744,7 +744,7 @@ msgid ""
 "user's timezone on message playback."
 msgstr ""
 
-#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:550
+#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:549
 msgid "Forbidden"
 msgstr ""
 
@@ -825,13 +825,13 @@ msgstr ""
 msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
 msgstr ""
 
+#: page.voicemail.php:218
+msgid "How many miliseconds of silence before we end the recording"
+msgstr ""
+
 #: page.voicemail.php:273
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback"
-msgstr ""
-
-#: page.voicemail.php:218
-msgid "How many seconds of silence before we end the recording"
 msgstr ""
 
 #: functions.inc.php:650
@@ -962,7 +962,7 @@ msgstr ""
 msgid "Invalid Action"
 msgstr ""
 
-#: ucp/Voicemail.class.php:268 ucp/Voicemail.class.php:299
+#: ucp/Voicemail.class.php:267 ucp/Voicemail.class.php:298
 msgid "Invalid Recipient"
 msgstr ""
 
@@ -1125,7 +1125,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: ucp/Voicemail.class.php:569
+#: ucp/Voicemail.class.php:568
 msgid "Not Found"
 msgstr ""
 
@@ -1338,7 +1338,7 @@ msgstr ""
 msgid "Require From Same %s"
 msgstr ""
 
-#: Voicemail.class.php:1468
+#: Voicemail.class.php:1477
 msgid "Reset"
 msgstr ""
 
@@ -1419,7 +1419,7 @@ msgstr ""
 msgid "Subject sent to pager."
 msgstr ""
 
-#: Voicemail.class.php:1473 page.voicemail.php:649
+#: Voicemail.class.php:1482 page.voicemail.php:649
 msgid "Submit"
 msgstr ""
 
@@ -1645,7 +1645,7 @@ msgstr ""
 msgid "UCP Message Limit"
 msgstr ""
 
-#: Voicemail.class.php:1535
+#: Voicemail.class.php:1544
 msgid "Unable to add mailbox!"
 msgstr ""
 
@@ -1674,11 +1674,11 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ucp/Voicemail.class.php:456
+#: ucp/Voicemail.class.php:455
 msgid "Unknown Error"
 msgstr ""
 
-#: ucp/Voicemail.class.php:423
+#: ucp/Voicemail.class.php:422
 msgid "Unsupported file format"
 msgstr ""
 
@@ -1761,7 +1761,7 @@ msgstr ""
 msgid "VM Options"
 msgstr ""
 
-#: ucp/Voicemail.class.php:280
+#: ucp/Voicemail.class.php:279
 msgid "VMAIL"
 msgstr ""
 
@@ -1780,7 +1780,7 @@ msgid "VmX Locator"
 msgstr ""
 
 #: Voicemail.class.php:692 functions.inc.php:477 install.php:8
-#: ucp/Voicemail.class.php:517 views/header.php:2 voicemail.i18n.php:4
+#: ucp/Voicemail.class.php:516 views/header.php:2 voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr "Röstbrevlådor"
@@ -1801,11 +1801,11 @@ msgstr ""
 msgid "Voicemail Auto Delete is on. New messages will not show up here."
 msgstr ""
 
-#: Voicemail.class.php:1492
+#: Voicemail.class.php:1501
 msgid "Voicemail E-Mail"
 msgstr ""
 
-#: Voicemail.class.php:1486
+#: Voicemail.class.php:1495
 msgid "Voicemail Enable [Blank to disable]"
 msgstr ""
 
@@ -1813,7 +1813,7 @@ msgstr ""
 msgid "Voicemail Instructions:"
 msgstr ""
 
-#: ucp/Voicemail.class.php:280
+#: ucp/Voicemail.class.php:279
 msgid "Voicemail Message"
 msgstr ""
 
@@ -1821,7 +1821,7 @@ msgstr ""
 msgid "Voicemail Module"
 msgstr ""
 
-#: Voicemail.class.php:1495
+#: Voicemail.class.php:1504
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
@@ -1831,7 +1831,7 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr ""
 
-#: Voicemail.class.php:1489 functions.inc.php:509 page.voicemail.php:495
+#: Voicemail.class.php:1498 functions.inc.php:509 page.voicemail.php:495
 msgid "Voicemail Password"
 msgstr "Lösenord för röstbrevlåda"
 
@@ -1857,17 +1857,17 @@ msgid ""
 "sure you wish to continue?"
 msgstr ""
 
-#: ucp/Voicemail.class.php:418 ucp/Voicemail.class.php:446
+#: ucp/Voicemail.class.php:417 ucp/Voicemail.class.php:445
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
 
-#: ucp/Voicemail.class.php:451
+#: ucp/Voicemail.class.php:450
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""
 
-#: Voicemail.class.php:1245
+#: Voicemail.class.php:1254
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "

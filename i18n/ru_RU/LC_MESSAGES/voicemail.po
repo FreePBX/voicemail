@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-16 12:43-0700\n"
+"POT-Creation-Date: 2016-05-16 15:42-0700\n"
 "PO-Revision-Date: 2015-07-13 20:16+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -782,7 +782,7 @@ msgstr ""
 "Например - время сообщения остаётся в том формате, который установлен "
 "часовым поясом у пользователдя при воспроизведении."
 
-#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:550
+#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:549
 msgid "Forbidden"
 msgstr ""
 
@@ -872,18 +872,16 @@ msgstr ""
 "Часы, 24-х часовой формат. одноразрядное представление часа дополняется "
 "впереди \"oh\")"
 
+#: page.voicemail.php:218
+msgid "How many miliseconds of silence before we end the recording"
+msgstr ""
+
 #: page.voicemail.php:273
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback"
 msgstr ""
 "Сколько миллисекунд делать пропуск во время прокрутки вперёд/назад при "
 "воспроизведении"
-
-#: page.voicemail.php:218
-msgid "How many seconds of silence before we end the recording"
-msgstr ""
-"Сколько секунд тишины ожидать при записи голосового сообщения для "
-"прекращения записи"
 
 #: functions.inc.php:650
 msgid "IMAP Password"
@@ -1037,7 +1035,7 @@ msgstr ""
 msgid "Invalid Action"
 msgstr "Неверное действие"
 
-#: ucp/Voicemail.class.php:268 ucp/Voicemail.class.php:299
+#: ucp/Voicemail.class.php:267 ucp/Voicemail.class.php:298
 msgid "Invalid Recipient"
 msgstr ""
 
@@ -1212,7 +1210,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: ucp/Voicemail.class.php:569
+#: ucp/Voicemail.class.php:568
 msgid "Not Found"
 msgstr ""
 
@@ -1442,7 +1440,7 @@ msgstr "Удалить дефиницию чаового пояса"
 msgid "Require From Same %s"
 msgstr ""
 
-#: Voicemail.class.php:1468
+#: Voicemail.class.php:1477
 msgid "Reset"
 msgstr ""
 
@@ -1530,7 +1528,7 @@ msgstr ""
 msgid "Subject sent to pager."
 msgstr "Поле Тема: в сообщении на пейджер."
 
-#: Voicemail.class.php:1473 page.voicemail.php:649
+#: Voicemail.class.php:1482 page.voicemail.php:649
 msgid "Submit"
 msgstr ""
 
@@ -1782,7 +1780,7 @@ msgstr ""
 msgid "UCP Message Limit"
 msgstr ""
 
-#: Voicemail.class.php:1535
+#: Voicemail.class.php:1544
 msgid "Unable to add mailbox!"
 msgstr ""
 
@@ -1813,11 +1811,11 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ucp/Voicemail.class.php:456
+#: ucp/Voicemail.class.php:455
 msgid "Unknown Error"
 msgstr ""
 
-#: ucp/Voicemail.class.php:423
+#: ucp/Voicemail.class.php:422
 msgid "Unsupported file format"
 msgstr ""
 
@@ -1906,7 +1904,7 @@ msgstr "Контекст голосовой почты не может быть 
 msgid "VM Options"
 msgstr "Опции голосовой почты"
 
-#: ucp/Voicemail.class.php:280
+#: ucp/Voicemail.class.php:279
 msgid "VMAIL"
 msgstr ""
 
@@ -1927,7 +1925,7 @@ msgid "VmX Locator"
 msgstr ""
 
 #: Voicemail.class.php:692 functions.inc.php:477 install.php:8
-#: ucp/Voicemail.class.php:517 views/header.php:2 voicemail.i18n.php:4
+#: ucp/Voicemail.class.php:516 views/header.php:2 voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr "Голосовая почта"
@@ -1949,11 +1947,11 @@ msgstr "Администрирование голосовой почты"
 msgid "Voicemail Auto Delete is on. New messages will not show up here."
 msgstr ""
 
-#: Voicemail.class.php:1492
+#: Voicemail.class.php:1501
 msgid "Voicemail E-Mail"
 msgstr ""
 
-#: Voicemail.class.php:1486
+#: Voicemail.class.php:1495
 msgid "Voicemail Enable [Blank to disable]"
 msgstr ""
 
@@ -1961,7 +1959,7 @@ msgstr ""
 msgid "Voicemail Instructions:"
 msgstr "Инструкции к голосовой почте:"
 
-#: ucp/Voicemail.class.php:280
+#: ucp/Voicemail.class.php:279
 msgid "Voicemail Message"
 msgstr ""
 
@@ -1969,7 +1967,7 @@ msgstr ""
 msgid "Voicemail Module"
 msgstr "Модуль голосовой почты"
 
-#: Voicemail.class.php:1495
+#: Voicemail.class.php:1504
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
@@ -1979,7 +1977,7 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr ""
 
-#: Voicemail.class.php:1489 functions.inc.php:509 page.voicemail.php:495
+#: Voicemail.class.php:1498 functions.inc.php:509 page.voicemail.php:495
 msgid "Voicemail Password"
 msgstr "Пароль на голосовую почту"
 
@@ -2007,17 +2005,17 @@ msgstr ""
 "Голосовая почта включена, но не задан пароль для доступа. Вы собираетесь "
 "продолжить?"
 
-#: ucp/Voicemail.class.php:418 ucp/Voicemail.class.php:446
+#: ucp/Voicemail.class.php:417 ucp/Voicemail.class.php:445
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
 
-#: ucp/Voicemail.class.php:451
+#: ucp/Voicemail.class.php:450
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""
 
-#: Voicemail.class.php:1245
+#: Voicemail.class.php:1254
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
@@ -2160,6 +2158,11 @@ msgstr "переменная"
 #: page.voicemail.php:546
 msgid "yes"
 msgstr "да"
+
+#~ msgid "How many seconds of silence before we end the recording"
+#~ msgstr ""
+#~ "Сколько секунд тишины ожидать при записи голосового сообщения для "
+#~ "прекращения записи"
 
 #~ msgid "A or a"
 #~ msgstr "А или а"
