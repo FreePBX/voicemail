@@ -308,9 +308,15 @@ class Voicemail implements \BMO {
 						$opts[] = $key."=".$value;
 					}
 				}
+				$data['email'] = str_replace(",","|",$data['email']);
+				$data['pager'] = str_replace(",","|",$data['pager']);
 				$data['options'] = implode("|",$opts);
-				unset($data['mailbox']);
-				$cdata[] = $mailbox ." => ". implode(",",$data);
+				$cdata[] = $mailbox ." => " .
+									$data['pwd'] . "," .
+									$data['name'] . "," .
+									$data['email'] . "," .
+									$data['pager'] . "," .
+									$data['options'];
 			}
 			$context = $cdata;
 		}
