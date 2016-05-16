@@ -1019,7 +1019,7 @@ class Voicemail implements \BMO {
 
 					if(!empty($toVM['email'])) {
 						$em = new \CI_Email();
-						if($toVM['attach'] == "yes") {
+						if($toVM['options']['attach'] == "yes") {
 							$em->attach($info['path']."/".$info['file']);
 						}
 						$em->from($from, $emailInfo['normal']['fromstring']);
