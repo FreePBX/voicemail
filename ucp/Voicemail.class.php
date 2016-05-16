@@ -252,7 +252,6 @@ class Voicemail extends Modules{
 						$messages[] = $message;
 					}
 				}
-				dbug($messages);
 				return array(
 					"total" => $this->UCP->FreePBX->Voicemail->getMessagesCountByExtensionFolder($ext,$folder),
 					"rows" => $messages

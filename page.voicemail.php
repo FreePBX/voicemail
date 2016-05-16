@@ -215,7 +215,7 @@ $tooltips = array("tz" 	    => array("name" 				=> _("Timezone definition name")
 				     "emailbody"			=> _("Email body."),
 				     "emaildateformat"			=> _("Load date format config for Voicemail mail."),
 				     "emailsubject"			=> _("Email subject"),
-				     "maxsilence"			=> _("How many seconds of silence before we end the recording"),
+				     "maxsilence"			=> _("How many miliseconds of silence before we end the recording"),
 				     "envelope"				=> _("Turn on/off envelope playback before message playback. [ON by default] This does NOT affect option 3,3 from the advanced options menu."),
 				     "exitcontext"			=> _("Context to check for handling * or 0 calls to operator. \"Operator Context\""),
 				     "expungeonhangup"			=> _("Expunge on exit."),
