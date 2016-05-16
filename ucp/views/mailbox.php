@@ -33,7 +33,7 @@
 				data-cache="false"
 				data-toolbar="#voicemail-toolbar"
 				data-cookie="true"
-				data-cookie-id-table="ucp-voicemail-table"
+				data-cookie-id-table="ucp-voicemail-table-<?php echo $folder?>"
 				data-maintain-selected="true"
 				data-show-columns="true"
 				data-show-toggle="true"
