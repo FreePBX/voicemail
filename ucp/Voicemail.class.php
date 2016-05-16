@@ -244,9 +244,18 @@ class Voicemail extends Modules{
 				$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : "";
 				$offset = $_REQUEST['offset'];
 				$data = $this->UCP->FreePBX->Voicemail->getMessagesByExtensionFolder($ext,$folder,$order,$orderby,$offset,$limit);
+				$messages = array();
+				if(!empty($data['messages'])) {
+					foreach($data['messages'] as $message) {
+						$message['callerid'] = htmlentities($message['callerid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$message['callerid'] = preg_replace("/&lt;(.*)&gt;/i","&lt;<span class='clickable' data-type='number' data-primary='phone'>$1</span>&gt;",$message['callerid']);
+						$messages[] = $message;
+					}
+				}
+				dbug($messages);
 				return array(
 					"total" => $this->UCP->FreePBX->Voicemail->getMessagesCountByExtensionFolder($ext,$folder),
-					"rows" => !empty($data['messages']) ? $data['messages'] : array()
+					"rows" => $messages
 				);
 			break;
 			case 'callme':

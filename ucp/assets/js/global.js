@@ -159,6 +159,12 @@ var VoicemailC = UCPMC.extend({
 					}
 				);
 			});
+			$("#voicemail-grid .clickable").click(function(e) {
+				var text = $(this).text();
+				if (UCP.validMethod("Contactmanager", "showActionDialog")) {
+					UCP.Modules.Contactmanager.showActionDialog("number", text, "phone");
+				}
+			});
 			$("#voicemail-grid a.forward").click(function() {
 				var id = $(this).data("id");
 				UCP.showDialog(_("Forward Voicemail"),
