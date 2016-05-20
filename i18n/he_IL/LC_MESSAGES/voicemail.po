@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-16 15:42-0700\n"
+"POT-Creation-Date: 2016-05-20 08:47-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -189,7 +189,7 @@ msgstr ""
 msgid "Activated"
 msgstr ""
 
-#: functions.inc.php:954
+#: functions.inc.php:953
 msgid "Advanced Settings For: "
 msgstr ""
 
@@ -243,7 +243,7 @@ msgstr ""
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr ""
 
-#: functions.inc.php:1299
+#: functions.inc.php:1298
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
@@ -264,11 +264,11 @@ msgstr ""
 msgid "Auto-Refresh"
 msgstr ""
 
-#: functions.inc.php:947
+#: functions.inc.php:946
 msgid "Basic Settings For: "
 msgstr ""
 
-#: functions.inc.php:949
+#: functions.inc.php:948
 msgid "Basic settings view is for individual accounts."
 msgstr ""
 
@@ -479,7 +479,7 @@ msgstr ""
 msgid "Dial Voicemail"
 msgstr ""
 
-#: functions.inc.php:960 views/header.php:11
+#: functions.inc.php:959 views/header.php:11
 msgid "Dialplan Behavior"
 msgstr ""
 
@@ -645,7 +645,7 @@ msgstr ""
 msgid "Enforce minimum password length"
 msgstr ""
 
-#: functions.inc.php:849
+#: functions.inc.php:848
 msgid ""
 "Enter an alternate number here, then change your personal Voicemail greeting "
 "to let callers know to press 1 to reach that number. <br/><br/>If you'd like "
@@ -786,6 +786,10 @@ msgstr ""
 msgid "From: string sent to pager."
 msgstr ""
 
+#: functions.inc.php:1462
+msgid "GB"
+msgstr ""
+
 #: views/dialplan.php:2
 msgid "General Dialplan Settings"
 msgstr ""
@@ -798,7 +802,7 @@ msgstr ""
 msgid "General Usage"
 msgstr ""
 
-#: functions.inc.php:826 ucp/views/vmx.php:37
+#: functions.inc.php:825 ucp/views/vmx.php:37
 msgid "Go To Operator"
 msgstr ""
 
@@ -957,12 +961,16 @@ msgid ""
 "fields populated, they will be displayed even if this is set to false."
 msgstr ""
 
-#: functions.inc.php:970
+#: functions.inc.php:969
 msgid "Invalid Action"
 msgstr ""
 
 #: ucp/Voicemail.class.php:267 ucp/Voicemail.class.php:298
 msgid "Invalid Recipient"
+msgstr ""
+
+#: functions.inc.php:1462
+msgid "KB"
 msgstr ""
 
 #: voicemail.i18n.php:30
@@ -986,6 +994,10 @@ msgstr ""
 
 #: page.voicemail.php:216
 msgid "Load date format config for Voicemail mail."
+msgstr ""
+
+#: functions.inc.php:1462
+msgid "MB"
 msgstr ""
 
 #: page.voicemail.php:246
@@ -1233,7 +1245,7 @@ msgstr ""
 msgid "Press 0"
 msgstr ""
 
-#: functions.inc.php:820
+#: functions.inc.php:819
 msgid "Press 0:"
 msgstr ""
 
@@ -1241,7 +1253,7 @@ msgstr ""
 msgid "Press 1"
 msgstr ""
 
-#: functions.inc.php:838 functions.inc.php:848
+#: functions.inc.php:837 functions.inc.php:847
 msgid "Press 1:"
 msgstr ""
 
@@ -1249,11 +1261,11 @@ msgstr ""
 msgid "Press 2"
 msgstr ""
 
-#: functions.inc.php:866
+#: functions.inc.php:865
 msgid "Press 2:"
 msgstr ""
 
-#: functions.inc.php:821
+#: functions.inc.php:820
 msgid ""
 "Pressing 0 during your personal Voicemail greeting goes to the Operator. "
 "Uncheck to enter another destination here. This feature can be used while "
@@ -1357,7 +1369,7 @@ msgid ""
 "Voicemail will not be permitted."
 msgstr ""
 
-#: functions.inc.php:854 ucp/views/vmx.php:47
+#: functions.inc.php:853 ucp/views/vmx.php:47
 msgid "Send to Follow-Me"
 msgstr ""
 
@@ -1435,12 +1447,16 @@ msgstr ""
 msgid "Supported Formats: %s"
 msgstr ""
 
-#: functions.inc.php:956
+#: functions.inc.php:955
 msgid "System Settings"
 msgstr ""
 
-#: functions.inc.php:966
+#: functions.inc.php:965
 msgid "System Usage Statistics"
+msgstr ""
+
+#: functions.inc.php:1462
+msgid "TB"
 msgstr ""
 
 #: ucp/views/vmx.php:25
@@ -1509,7 +1525,7 @@ msgstr ""
 msgid "The name of a sound file (the file name must be single-quoted)"
 msgstr ""
 
-#: functions.inc.php:839
+#: functions.inc.php:838
 msgid ""
 "The remaining options can have internal extensions, ringgroups, queues and "
 "external numbers that may be rung. It is often used to include your cell "
@@ -1589,7 +1605,7 @@ msgstr ""
 msgid "Times to Play Message"
 msgstr ""
 
-#: functions.inc.php:943 views/header.php:12
+#: functions.inc.php:942 views/header.php:12
 msgid "Timezone Definitions"
 msgstr ""
 
@@ -1710,7 +1726,7 @@ msgstr ""
 msgid "Usage"
 msgstr ""
 
-#: functions.inc.php:964
+#: functions.inc.php:963
 msgid "Usage Statistics For: "
 msgstr ""
 
@@ -1722,7 +1738,7 @@ msgstr ""
 msgid "Use When:"
 msgstr ""
 
-#: functions.inc.php:867
+#: functions.inc.php:866
 msgid ""
 "Use any extensions, ringgroups, queues or external numbers. <br/><br/"
 ">Remember to re-record your personal Voicemail greeting and include "
@@ -1790,7 +1806,7 @@ msgstr ""
 msgid "Voicemail Admin being removed and merged with Voicemail"
 msgstr ""
 
-#: functions.inc.php:940
+#: functions.inc.php:939
 msgid "Voicemail Administration"
 msgstr ""
 

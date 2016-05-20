@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-16 15:42-0700\n"
+"POT-Creation-Date: 2016-05-20 08:47-0700\n"
 "PO-Revision-Date: 2015-07-13 20:16+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -187,7 +187,7 @@ msgstr "Линки на обзор аккаунтов:"
 msgid "Activated"
 msgstr ""
 
-#: functions.inc.php:954
+#: functions.inc.php:953
 msgid "Advanced Settings For: "
 msgstr "Расширенные установки для: "
 
@@ -248,7 +248,7 @@ msgstr ""
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr ""
 
-#: functions.inc.php:1299
+#: functions.inc.php:1298
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
@@ -269,11 +269,11 @@ msgstr "Попытка удаления.."
 msgid "Auto-Refresh"
 msgstr ""
 
-#: functions.inc.php:947
+#: functions.inc.php:946
 msgid "Basic Settings For: "
 msgstr "Основные установки для: "
 
-#: functions.inc.php:949
+#: functions.inc.php:948
 msgid "Basic settings view is for individual accounts."
 msgstr "Основные установки для индивидуальных аккаунтов."
 
@@ -503,7 +503,7 @@ msgstr ""
 msgid "Dial Voicemail"
 msgstr "Набрать номер голосовой почты"
 
-#: functions.inc.php:960 views/header.php:11
+#: functions.inc.php:959 views/header.php:11
 msgid "Dialplan Behavior"
 msgstr ""
 
@@ -676,7 +676,7 @@ msgstr "Включено"
 msgid "Enforce minimum password length"
 msgstr ""
 
-#: functions.inc.php:849
+#: functions.inc.php:848
 msgid ""
 "Enter an alternate number here, then change your personal Voicemail greeting "
 "to let callers know to press 1 to reach that number. <br/><br/>If you'd like "
@@ -828,6 +828,10 @@ msgstr "Поле От: для эл. сообщений голосовой поч
 msgid "From: string sent to pager."
 msgstr "Поле От: в сообщении на пейджер."
 
+#: functions.inc.php:1462
+msgid "GB"
+msgstr ""
+
 #: views/dialplan.php:2
 msgid "General Dialplan Settings"
 msgstr ""
@@ -840,7 +844,7 @@ msgstr ""
 msgid "General Usage"
 msgstr ""
 
-#: functions.inc.php:826 ucp/views/vmx.php:37
+#: functions.inc.php:825 ucp/views/vmx.php:37
 msgid "Go To Operator"
 msgstr "Перенаправление на Оператора"
 
@@ -1031,12 +1035,16 @@ msgstr ""
 "внутренний номер уже прописан со значениями в этих полях, то они будут "
 "работать даже если здесь установлено в false."
 
-#: functions.inc.php:970
+#: functions.inc.php:969
 msgid "Invalid Action"
 msgstr "Неверное действие"
 
 #: ucp/Voicemail.class.php:267 ucp/Voicemail.class.php:298
 msgid "Invalid Recipient"
+msgstr ""
+
+#: functions.inc.php:1462
+msgid "KB"
 msgstr ""
 
 #: voicemail.i18n.php:30
@@ -1062,6 +1070,10 @@ msgstr ""
 msgid "Load date format config for Voicemail mail."
 msgstr ""
 "Загружать конфигурацию формата даты для электронных писем голосовой почты."
+
+#: functions.inc.php:1462
+msgid "MB"
+msgstr ""
 
 #: page.voicemail.php:246
 msgid "Mail command."
@@ -1328,7 +1340,7 @@ msgstr ""
 msgid "Press 0"
 msgstr ""
 
-#: functions.inc.php:820
+#: functions.inc.php:819
 msgid "Press 0:"
 msgstr "Нажать 0:"
 
@@ -1336,7 +1348,7 @@ msgstr "Нажать 0:"
 msgid "Press 1"
 msgstr ""
 
-#: functions.inc.php:838 functions.inc.php:848
+#: functions.inc.php:837 functions.inc.php:847
 msgid "Press 1:"
 msgstr "Нажать 1:"
 
@@ -1344,11 +1356,11 @@ msgstr "Нажать 1:"
 msgid "Press 2"
 msgstr ""
 
-#: functions.inc.php:866
+#: functions.inc.php:865
 msgid "Press 2:"
 msgstr "Нажать 2:"
 
-#: functions.inc.php:821
+#: functions.inc.php:820
 msgid ""
 "Pressing 0 during your personal Voicemail greeting goes to the Operator. "
 "Uncheck to enter another destination here. This feature can be used while "
@@ -1464,7 +1476,7 @@ msgstr ""
 "Посылать сообщения голосовой почты. Если не указано, посылка внутренних "
 "сообщений от системы голосовой почты невозможна."
 
-#: functions.inc.php:854 ucp/views/vmx.php:47
+#: functions.inc.php:853 ucp/views/vmx.php:47
 msgid "Send to Follow-Me"
 msgstr "Послать в Следуйте-сюда"
 
@@ -1547,13 +1559,17 @@ msgstr "Поддерживаемые <i>переменные</i>:"
 msgid "Supported Formats: %s"
 msgstr ""
 
-#: functions.inc.php:956
+#: functions.inc.php:955
 msgid "System Settings"
 msgstr "Системные установки"
 
-#: functions.inc.php:966
+#: functions.inc.php:965
 msgid "System Usage Statistics"
 msgstr "Статистика использования системы"
+
+#: functions.inc.php:1462
+msgid "TB"
+msgstr ""
 
 #: ucp/views/vmx.php:25
 msgid "Temp"
@@ -1621,7 +1637,7 @@ msgstr "Адрес электронной почты, на который буд
 msgid "The name of a sound file (the file name must be single-quoted)"
 msgstr "Название звукового файла (имя файла должно быть в одинарных кавычках)"
 
-#: functions.inc.php:839
+#: functions.inc.php:838
 msgid ""
 "The remaining options can have internal extensions, ringgroups, queues and "
 "external numbers that may be rung. It is often used to include your cell "
@@ -1720,7 +1736,7 @@ msgstr ""
 msgid "Times to Play Message"
 msgstr ""
 
-#: functions.inc.php:943 views/header.php:12
+#: functions.inc.php:942 views/header.php:12
 msgid "Timezone Definitions"
 msgstr "Установки часового пояса"
 
@@ -1850,7 +1866,7 @@ msgstr ""
 msgid "Usage"
 msgstr "Использование"
 
-#: functions.inc.php:964
+#: functions.inc.php:963
 msgid "Usage Statistics For: "
 msgstr "Использовать статистику для: "
 
@@ -1862,7 +1878,7 @@ msgstr ""
 msgid "Use When:"
 msgstr "Использовать при:"
 
-#: functions.inc.php:867
+#: functions.inc.php:866
 msgid ""
 "Use any extensions, ringgroups, queues or external numbers. <br/><br/"
 ">Remember to re-record your personal Voicemail greeting and include "
@@ -1939,7 +1955,7 @@ msgid "Voicemail Admin being removed and merged with Voicemail"
 msgstr ""
 "Администратор голосовой почты удалён и присоединён в систему Голосовой почты"
 
-#: functions.inc.php:940
+#: functions.inc.php:939
 msgid "Voicemail Administration"
 msgstr "Администрирование голосовой почты"
 
