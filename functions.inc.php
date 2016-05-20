@@ -1448,39 +1448,21 @@ function voicemail_del_greeting_files($vmail_root, $context="", $exten="", $name
 	}
 }
 function voicemail_get_storage($path) {
-	$storage_result = array();
-	$matches        = array();
-	foreach (glob($path) as $filename) {
-		$storage_result[] = $filename;
-	}
-	if (preg_match("/[0-9]*\.*[0-9]*[a-zA-Z]*/", $storage_result[0], $matches) > 0) {
-		$storage = $matches[0];
-		unset($matches);
-		$matches = array();
-		# Expecting storage value as #.#U where # = number, . = dot, and U = units (e.g. M, K, etc.)
-		# Massage the string so that there is a space between the number value and character(s)
-		# denoting the unit
-		#
-		# Extract the numeric part. /[0-9]*\.*[0-9]*[a-zA-Z]*/
-		if (preg_match("/[0-9]*\.*[0-9]*/", $storage, $matches)) {
-			$st_num = $matches[0];
-		} else {
-			$st_num = "0";
+	$bytes = 0;
+	$path = realpath($path);
+	if($path!==false){
+		foreach(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path, FilesystemIterator::SKIP_DOTS)) as $object){
+			if($object->isLink()){
+				continue;
+			}
+			$bytes += $object->getSize();
 		}
-		unset($matches);
-		$matches = array();
-		if (preg_match("/[a-zA-Z]+$/", $storage, $matches)) {
-			$st_unit = $matches[0];
-		} else {
-			$st_unit = "";
-		}
-		# reset $storage to new string
-		$storage = $st_num . "&nbsp;" . $st_unit;
-	} else {
-		$storage = "unknown";
 	}
-	return $storage;
+	$base = log($bytes, 1024);
+	$suffixes = array('', _('KB'), _('MB'), _('GB'), _('TB'));
+	return sprintf('%1.2f %s',round(pow(1024, $base - floor($base)), 5),$suffixes[floor($base)]);
 }
+
 function voicemail_get_usage($vmail_info, $scope, &$acts_total, &$acts_act, &$acts_unact, &$disabled_count,
 							&$msg_total, &$msg_in, &$msg_other,&$name, &$unavail, &$busy, &$temp, &$abandoned,
 							&$storage, $context="", $extension="") {
