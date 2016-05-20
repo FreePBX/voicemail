@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-16 15:42-0700\n"
-"PO-Revision-Date: 2016-04-07 04:14+0200\n"
+"PO-Revision-Date: 2016-05-20 11:32+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/"
-"voicemail/fa/>\n"
+"Language-Team: Persian (Iran) "
+"<http://weblate.freepbx.org/projects/freepbx/voicemail/fa_IR/>\n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -52,7 +52,7 @@ msgstr "%s ثانیه"
 #: functions.inc.php:144 functions.inc.php:151
 #, php-format
 msgid "%s Voicemail"
-msgstr ""
+msgstr "ایمیل صوتی %s"
 
 #: install.php:114
 #, php-format
@@ -892,7 +892,7 @@ msgstr "Hour, 24 hour  clock (single digit hours preceded by \"oh\")"
 
 #: page.voicemail.php:218
 msgid "How many miliseconds of silence before we end the recording"
-msgstr ""
+msgstr "مدت زمان سکوت برای خاتمه ضبط تماس براساس میلی ثانیه"
 
 #: page.voicemail.php:273
 msgid ""
