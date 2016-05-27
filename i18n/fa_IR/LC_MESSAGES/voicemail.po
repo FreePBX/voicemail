@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-20 08:47-0700\n"
-"PO-Revision-Date: 2016-05-26 18:59+0200\n"
+"PO-Revision-Date: 2016-05-26 19:02+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fa_IR/>\n"
@@ -851,9 +851,8 @@ msgid "From: string sent to pager."
 msgstr "از: جمله برای ارسال به پیام گیر."
 
 #: functions.inc.php:1462
-#, fuzzy
 msgid "GB"
-msgstr "GB"
+msgstr "گیگا بایت"
 
 #: views/dialplan.php:2
 msgid "General Dialplan Settings"
@@ -1075,7 +1074,7 @@ msgstr "گیرنده نامعتبر"
 
 #: functions.inc.php:1462
 msgid "KB"
-msgstr ""
+msgstr "کیلو بایت"
 
 #: voicemail.i18n.php:30
 msgid ""
@@ -1105,7 +1104,7 @@ msgstr "فراخوانی تنظیم فرمت تاریخ در ایمیل صوتی
 
 #: functions.inc.php:1462
 msgid "MB"
-msgstr ""
+msgstr "مگا بایت"
 
 #: page.voicemail.php:246
 msgid "Mail command."
@@ -1611,7 +1610,7 @@ msgstr "آمار مصرفی سیستم"
 
 #: functions.inc.php:1462
 msgid "TB"
-msgstr ""
+msgstr "ترا بایت"
 
 #: ucp/views/vmx.php:25
 msgid "Temp"
