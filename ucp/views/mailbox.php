@@ -29,7 +29,7 @@
 		</div>
 	</div>
 	<table id="voicemail-grid"
-				data-url="index.php?quietmode=1&amp;module=voicemail&amp;command=grid&amp;folder=<?php echo $folder?>&amp;ext=<?php echo $ext?>"
+				data-url="index.php?quietmode=1&amp;module=voicemail&amp;command=grid&amp;folder=<?php echo htmlentities($folder)?>&amp;ext=<?php echo htmlentities($ext)?>"
 				data-cache="false"
 				data-toolbar="#voicemail-toolbar"
 				data-cookie="true"

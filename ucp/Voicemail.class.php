@@ -81,7 +81,7 @@ class Voicemail extends Modules{
 		$displayvars['folders'] = $folders;
 
 		$sf = $this->UCP->FreePBX->Media->getSupportedFormats();
-		$html = "<script>var showDownload = ".json_decode($this->download)."; var showPlayback = ".json_decode($this->playback).";var supportedRegExp = '".implode("|",array_keys($sf['in']))."';var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';var extension = '".$ext."'; var mailboxes = ".json_encode($this->extensions).";</script>";
+		$html = "<script>var showDownload = ".json_decode($this->download)."; var showPlayback = ".json_decode($this->playback).";var supportedRegExp = '".implode("|",array_keys($sf['in']))."';var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';var extension = '".htmlentities($ext)."'; var mailboxes = ".json_encode($this->extensions).";</script>";
 		$html .= $this->load_view(__DIR__.'/views/header.php',$displayvars);
 
 		if(!empty($this->UCP->FreePBX->Voicemail->displayMessage['message'])) {
@@ -397,6 +397,7 @@ class Voicemail extends Modules{
 				$return = array("status" => $status, "message" => "");
 			break;
 			case "upload":
+				$return = array("status" => true, "message" => "");
 				foreach ($_FILES["files"]["error"] as $key => $error) {
 					if ($error == UPLOAD_ERR_OK) {
 						$tmp_path = \FreePBX::Config()->get("ASTSPOOLDIR") . "/tmp";
@@ -424,13 +425,13 @@ class Voicemail extends Modules{
 						}
 					}
 				}
-				$return = array("status" => true, "message" => "");
 			break;
 			case "copy":
 				$status = $this->UCP->FreePBX->Voicemail->copyVMGreeting($_POST['ext'],$_POST['source'],$_POST['target']);
 				$return = array("status" => $status, "message" => "");
 			break;
 			case "record":
+				$return = array("status" => true, "message" => "");
 				if ($_FILES["file"]["error"] == UPLOAD_ERR_OK) {
 					$tmp_path = sys_get_temp_dir();
 					$tmp_path = !empty($tmp_path) ? $tmp_path : '/tmp';
@@ -455,7 +456,6 @@ class Voicemail extends Modules{
 					$return = array("status" => false, "message" => _("Unknown Error"));
 					break;
 				}
-				$return = array("status" => true, "message" => "");
 			break;
 			default:
 				return false;
