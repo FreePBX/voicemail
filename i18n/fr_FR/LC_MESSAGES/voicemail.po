@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-20 08:47-0700\n"
+"POT-Creation-Date: 2016-06-20 11:14-0700\n"
 "PO-Revision-Date: 2016-02-08 09:22+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -1673,11 +1673,11 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ucp/Voicemail.class.php:455
+#: ucp/Voicemail.class.php:456
 msgid "Unknown Error"
 msgstr ""
 
-#: ucp/Voicemail.class.php:422
+#: ucp/Voicemail.class.php:423
 msgid "Unsupported file format"
 msgstr ""
 
@@ -1856,12 +1856,12 @@ msgid ""
 "sure you wish to continue?"
 msgstr ""
 
-#: ucp/Voicemail.class.php:417 ucp/Voicemail.class.php:445
+#: ucp/Voicemail.class.php:418 ucp/Voicemail.class.php:446
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
 
-#: ucp/Voicemail.class.php:450
+#: ucp/Voicemail.class.php:451
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""

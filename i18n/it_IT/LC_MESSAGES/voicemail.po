@@ -1657,11 +1657,11 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ucp/Voicemail.class.php:455
+#: ucp/Voicemail.class.php:456
 msgid "Unknown Error"
 msgstr ""
 
-#: ucp/Voicemail.class.php:422
+#: ucp/Voicemail.class.php:423
 msgid "Unsupported file format"
 msgstr ""
 
@@ -1840,12 +1840,12 @@ msgid ""
 "sure you wish to continue?"
 msgstr ""
 
-#: ucp/Voicemail.class.php:417 ucp/Voicemail.class.php:445
+#: ucp/Voicemail.class.php:418 ucp/Voicemail.class.php:446
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
 
-#: ucp/Voicemail.class.php:450
+#: ucp/Voicemail.class.php:451
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""
