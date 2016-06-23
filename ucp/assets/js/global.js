@@ -244,7 +244,7 @@ var VoicemailC = UCPMC.extend({
 						$.each(sel, function(i, v){
 							$this.moveVoicemail(v.msg_id, $("#VMmove").val(), extension, function(data) {
 								if(data.status) {
-									$('#voicemail-grid').bootstrapTable('hideRow', {index: v.msg_id, isIdField: true});
+									$('#voicemail-grid').bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
 								}
 								processed++;
 								if(processed == total) {
@@ -258,7 +258,7 @@ var VoicemailC = UCPMC.extend({
 							$.each(sel, function(i, v){
 								$this.moveVoicemail(v.msg_id, $("#VMmove").val(), extension, function(data) {
 									if(data.status) {
-										$('#voicemail-grid').bootstrapTable('hideRow', {index: v.msg_id, isIdField: true});
+										$('#voicemail-grid').bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
 									}
 									processed++;
 									if(processed == total) {
