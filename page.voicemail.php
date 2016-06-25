@@ -391,7 +391,7 @@ show_view(dirname(__FILE__).'/views/header.php',array(
 	'title' =>$title,
 		)
 );
-//Do we really need to say "UPDATE COMPLETED??"
+//TODO: Do we really need to say "UPDATE COMPLETED??"
 if ($need_update && $action != 'usage') {
 	$args = array();
 	if (voicemail_update_settings($action, $context, $extension, $_REQUEST)) {
@@ -449,12 +449,25 @@ switch ($action) {
 
 	case "bsettings":
 	case "settings":
-		$output = '';
+		if(!empty($extension)) {
+			$level = "account";
+			$id_prefix = "acct";
+		} else {
+			$level = "general";
+			$id_prefix = "gen";
+		}
+		$level = !empty($extension) ? "account" : "general";
+		$d = \FreePBX::Voicemail()->constructSettings($level);
 		/* get settings */
 		$settings = voicemail_get_settings($uservm, $action, $extension);
+		dbug($settings);
 		/* Get Asterisk version. */
 		$ast_info = engine_getinfo();
 		$version = $ast_info["version"];
+
+		show_view(dirname(__FILE__).'/views/ssettings.php',array('d' => $d, 'action' => $action, 'extension' => $extension, 'version' => $version, 'settings' => $settings, 'tooltips' => $tooltips, 'display_settings' => $acct_settings, 'display_tips' => $tooltips["account"], 'id_prefix' => $id_prefix));
+		break;
+		$output = '';
 		$text_size = 40;
 		if (!empty($extension)) {
 			show_view(dirname(__FILE__).'/views/settings.php',array('action' => $action, 'extension' => $extension, 'version' => $version, 'settings' => $settings, 'tooltips' => $tooltips, 'display_settings' => $acct_settings, 'display_tips' => $tooltips["account"], 'id_prefix' => 'acct'));

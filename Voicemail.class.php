@@ -1610,4 +1610,756 @@ class Voicemail implements \BMO {
 
 		return $data;
 	}
+
+	public function constructSettings($level="general") {
+		$settings = array(
+			"general" => array(
+				"name" => _("General"),
+				"helptext" => "",
+				"settings" => array(
+					"envelope" => array(
+						"level" => array("general","account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Envelope Playback"),
+						"helptext" => _("Turn on/off envelope playback before message playback") . " [envelopw]"
+					),
+					"delete" => array(
+						"level" => array("account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Delete Voicemail"),
+						"helptext" => _("After notification, the voicemail is deleted from the server. [per-mailbox only] This is intended for use with users who wish to receive their voicemail ONLY by email.") . " [delete]"
+					),
+					"pager" => array(
+						"level" => array("account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Pager Email Address"),
+						"helptext" => _("Pager/mobile email address that short Voicemail notifications are sent to.") . " [pager]"
+					),
+					"email" => array(
+						"level" => array("account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Email Address"),
+						"helptext" => _("The email address that Voicemails are sent to.") . " [email]"
+					),
+					"backupdeleted" => array(
+						"level" => array("general","account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Max Number of Deleted Messages"),
+						"helptext" => _("No. of deleted messages saved per mailbox (can be a number or yes/no, yes meaning MAXMSG, no meaning 0).") . " [backupdeleted]"
+					),
+					"externnotify" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("External Notify"),
+						"helptext" => _("External Voicemail notify application.") . " [externnotify]"
+					),
+					"externpass" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("External Password"),
+						"helptext" => _("External password changing command (overrides 'External Password Notify'). The arguments passed to the application are: [context] [mailbox] [newpassword] Note: If this is set, the password will NOT be changed in voicemail.conf If you would like to also change the password in voicemail.conf, use the 'External Password Notify' option below instead.") . " [externpass]"
+					),
+					"externpassnotify" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("External Password Notify"),
+						"helptext" => _("Command specified runs after a user changes their password. The arguments passed to the application are: [context] [mailbox] [newpassword] Note: This will also update the voicemail.conf file") . " [externpassnotify]"
+					),
+					"forcename" => array(
+						"level" => array("general","account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Force Greetings"),
+						"helptext" => _("Force a new user to record their name. A new user is determined by the password being the same as the mailbox number. Default is 'Yes'"). " [forcename]"
+					),
+					"forcegreetings" => array(
+						"level" => array("general","account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "no",
+						"description" => _("Force Greetings"),
+						"helptext" => _("This is the same as Force Name, except for recording greetings. Default is 'No'"). " [forcegreetings]"
+					),
+					"format" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("File Format"),
+						"helptext" => _("Formats for writing Voicemail. Note that when using IMAP storage for Voicemail, only the first format specified will be used."). " [format]"
+					),
+					"attachfmt" => array(
+						"level" => array("account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("File Format"),
+						"helptext" => _("Which format to attach to the email.  Normally this is the first format specified in the format parameter above, but this option lets you customize the format sent to particular mailboxes. Useful if Windows users want wav49, but Linux users want gsm."). " [attachfmt]"
+					),
+					"listen-control-forward-key" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Fast-Foward Keys"),
+						"helptext" => _("Customize the key that fast-forwards message playback"). " [listen-control-forward-key]"
+					),
+					"listen-control-reverse-key" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Reverse Keys"),
+						"helptext" => _("Customize the key that fast-forwards message playback"). " [listen-control-reverse-key]"
+					),
+					"listen-control-pause-key" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Pause Keys"),
+						"helptext" => _("Customize the key that fast-forwards message playback"). " [listen-control-pause-key]"
+					),
+					"listen-control-restart-key" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Restart Keys"),
+						"helptext" => _("Customize the key that fast-forwards message playback"). " [listen-control-restart-key]"
+					),
+					"listen-control-stop-key" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Stop Keys"),
+						"helptext" => _("Customize the key that fast-forwards message playback"). " [listen-control-stop-key]"
+					),
+					"operator" => array(
+						"level" => array("general", "account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Operator"),
+						"helptext" => _("Allow sender to hit 0 before/after/during leaving a voicemail to reach an operator"). " [operator]"
+					),
+					"pollfreq" => array(
+						"level" => array("general"),
+						"type" => "number",
+						"default" => "30",
+						"description" => _("Poll Frequency"),
+						"helptext" => _("External Voicemail notify application.") . " [pollfreq]"
+					),
+					"pollmailboxes" => array(
+						"level" => array("general"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Poll Mailboxes"),
+						"helptext" => _("If mailboxes are changed anywhere outside of app_voicemail, then this option must be enabled for MWI to work. This enables polling mailboxes for changes.  Normally, it will expect that changes are only made when someone called in to one of the voicemail applications. Examples of situations that would require this option are web interfaces to voicemail or an email client in the case of using IMAP storage."). " [pollmailboxes]"
+					),
+					"review" => array(
+						"level" => array("general","account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "no",
+						"description" => _("Review Message"),
+						"helptext" => _("Allow sender to review/rerecord their message before saving it"). " [review]"
+					),
+					"saycid" => array(
+						"level" => array("general","account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "no",
+						"description" => _("Say CID"),
+						"helptext" => _("Read back caller's telephone number prior to playing the incoming message, and just after announcing the date and time the message was left. If not described, or set to no, it will be in the envelope."). " [saycid]"
+					),
+					"sayduration" => array(
+						"level" => array("general","account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Say Duration"),
+						"helptext" => _("Turn on/off saying duration information before the message playback."). " [sayduration]"
+					),
+					"saydurationm" => array(
+						"level" => array("general","account"),
+						"type" => "number",
+						"default" => "",
+						"description" => _("Say Duration"),
+						"helptext" => _("Specify in minutes the minimum duration to say. Default is 2 minutes. (in minutes)"). " [saydurationm]"
+					),
+					"searchcontexts" => array(
+						"level" => array("general"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "no",
+						"description" => _("Search Contexts"),
+						"helptext" => _("Current default behavior is to search only the default context if one is not specified.  The older behavior was to search all contexts. This option restores the old behavior [DEFAULT=no] Note: If you have this option enabled, then you will be required to have unique mailbox names across all contexts. Otherwise, an ambiguity is created since it is impossible to know which mailbox to retrieve when one is requested."). " [searchcontexts]"
+					),
+					"sendvoicemail" => array(
+						"level" => array("general","account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Send Voicemail"),
+						"helptext" => _("Allow the user to compose and send a voicemail while inside VoiceMailMain() [option 5 from mailbox's advanced menu]. If set to 'no', option 5 will not be listed."). " [sendvoicemail]"
+					),
+					"tempgreetwarn" => array(
+						"level" => array("general","account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Temporary Greeting Warn"),
+						"helptext" => _("Remind the user that their temporary greeting is set"). " [tempgreetwarn]"
+					),
+					"usedirectory" => array(
+						"level" => array("general"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Use Directory"),
+						"helptext" => _("Permit finding entries for forward/compose from the directory"). " [usedirectory]"
+					),
+					"tz" => array(
+						"level" => array("account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Timezone"),
+						"helptext" => _("Timezone") . " [tz]"
+					),
+					"callmenum" => array(
+						"level" => array("account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Call-Me Number"),
+						"helptext" => _("Call me number. Can be used from within ARI.") . " [callmenum]"
+					),
+					"volgain" => array(
+						"level" => array("general","account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Volume Gain"),
+						"helptext" => _("Emails bearing the Voicemail may arrive in a volume too quiet to be heard. This parameter allows you to specify how much gain to add to the message when sending a Voicemail. NOTE: sox must be installed for this option to work.") . " [volgain]"
+					),
+					"hidefromdir" => array(
+						"level" => array("general","account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "no",
+						"description" => _("Hide From Directory"),
+						"helptext" => _("Hide this mailbox from the directory produced by app_directory") . " [hidefromdir]"
+					),
+					"name" => array(
+						"level" => array("account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Name of account/user"),
+						"helptext" => _("Name of account/user") . " [name]"
+					),
+					"smdienable" => array(
+						"level" => array("general"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "no",
+						"description" => _("Enable SMDI notification"),
+						"helptext" => _("Enable SMDI notification"). " [smdienable]"
+					),
+					"smdiport" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("SMDI Port"),
+						"helptext" => _("Set to a valid port as specified in smdi.conf"). " [smdiport]"
+					),
+					"adsifdn" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("ADSI feature descriptor"),
+						"helptext" => _("The ADSI feature descriptor number to download to"). " [adsifdn]"
+					),
+					"adsisec" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("ADSI Security Lock Code"),
+						"helptext" => _("The ADSI security lock code"). " [adsisec]"
+					),
+				)
+			),
+			"email" => array(
+				"name" => _("Email Config"),
+				"helptext" => _("These settings apply to Voicemail Email Configuration"),
+				"settings" => array(
+					"emailsubject" => array(
+						"level" => array("general","account"),
+						"type" => "text",
+						"default" => 'PBX Voicemail Notification',
+						"description" => _("Email Subject"),
+						"helptext" => _("The email subject")." [emailsubject]"
+					),
+					"emailbody" => array(
+						"level" => array("general"),
+						"type" => "textbox",
+						"default" => '${VM_NAME},\n\nThere is a new voicemail in mailbox ${VM_MAILBOX}:\n\n\tFrom:\t${VM_CALLERID}\n\tLength:\t${VM_DUR} seconds\n\tDate:\t${VM_DATE}\n\nDial *98 to access your voicemail by phone.\nVisit http://AMPWEBADDRESS/ucp to check your voicemail with a web browser.\n',
+						"len" => 512,
+						"description" => _("Email Body"),
+						"helptext" => _('The email body. Change the from, body and/or subject, variables: VM_NAME, VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. Additionally, on forwarded messages, you have the variables: ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE You can select between two variables by using dialplan functions, e.g. ${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}.') . " [emailbody]"
+					),
+					"fromstring" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => 'PBX Phone System',
+						"description" => _("Email From String"),
+						"helptext" => _("From: string for email")." [fromstring]"
+					),
+					"emaildateformat" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => '%A, %B %d, %Y at %r',
+						"description" => _("Email Date Format"),
+						"helptext" => _("Set the date format on outgoing mails. Valid arguments can be found on the strftime(3) man page")." [emaildateformat]"
+					),
+					"pagersubject" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => 'PBX Voicemail Notification',
+						"description" => _("Pager Subject"),
+						"helptext" => _("The pager subject")." [pagersubject]"
+					),
+					"pagerbody" => array(
+						"level" => array("general"),
+						"type" => "textbox",
+						"default" => 'New ${VM_DUR} long msg in box ${VM_MAILBOX}\nfrom ${VM_CALLERID}, on ${VM_DATE}',
+						"len" => 512,
+						"description" => _("Pager Body"),
+						"helptext" => _('The pager body. Change the from, body and/or subject, variables: VM_NAME, VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. Additionally, on forwarded messages, you have the variables: ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE You can select between two variables by using dialplan functions, e.g. ${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}.') . " [emailbody]"
+					),
+					"pagerfromstring" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => 'PBX Phone System',
+						"description" => _("Pager From String"),
+						"helptext" => _("From: string for email")." [pagerfromstring]"
+					),
+					"pagerdateformat" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => '%A, %B %d, %Y at %r',
+						"description" => _("Pager Date Format"),
+						"helptext" => _("Set the date format on outgoing pager mails. Valid arguments can be found on the strftime(3) man page")." [pagerdateformat]"
+					),
+					"serveremail" => array(
+						"level" => array("general","account"),
+						"type" => "text",
+						"default" => '',
+						"description" => _("Server Email"),
+						"helptext" => _("Who the e-mail notification should appear to come from")." [serveremail]"
+					),
+					"pbxskip" => array(
+						"level" => array("general"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "no",
+						"description" => _("Skip PBX String"),
+						"helptext" => _('Skip the "[PBX]:" string from the message title'). " [pbxskip]"
+					),
+					"attach" => array(
+						"level" => array("general"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Attach Voicemail"),
+						"helptext" => _("Option to attach Voicemails to email.") . " [attach]"
+					),
+					"language" => array(
+						"level" => array("account"),
+						"type" => "text",
+						"default" => '',
+						"description" => _("Language"),
+						"helptext" => _("Language code for voicemail")." [language]"
+					),
+					"moveheard" => array(
+						"level" => array("general","account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Move Heard"),
+						"helptext" => _("Move heard messages to the 'Old' folder automagically.  Defaults to Yes.") . " [moveheard]"
+					),
+					"nextaftercmd" => array(
+						"level" => array("general"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Next after command"),
+						"helptext" => _("Skips to the next message after hitting 7 or 9 to delete/save current message.") . " [nextaftercmd]"
+					),
+					"mailcmd" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => '',
+						"description" => _("Mail Command"),
+						"helptext" => _("Specify what command is called for outbound E-mail")." [mailcmd]"
+					),
+				)
+			),
+			"limits" => array(
+				"name" => _("Limits"),
+				"helptext" => "",
+				"settings" => array(
+					"maxgreet" => array(
+						"level" => array("general"),
+						"type" => "number",
+						"default" => '60',
+						"description" => _("Max Greeting Length"),
+						"helptext" => _("Max message greeting length. (in seconds)")." [maxgreet]"
+					),
+					"maxlogins" => array(
+						"level" => array("general"),
+						"type" => "number",
+						"default" => '3',
+						"description" => _("Max Failed Logins"),
+						"helptext" => _("Max failed login attempts.")." [maxlogins]"
+					),
+					"maxmsg" => array(
+						"level" => array("general","account"),
+						"type" => "number",
+						"options" => array("0","9999"),
+						"default" => '100',
+						"description" => _("Max Messages"),
+						"helptext" => _("Maximum number of messages per folder. If not specified, a default value (100) is used. Maximum value for this option is 9999.")." [maxmsg]"
+					),
+					"minpassword" => array(
+						"level" => array("general"),
+						"type" => "number",
+						"options" => array("0","100"),
+						"default" => '0',
+						"description" => _("Minimum Password"),
+						"helptext" => _("Enforce minimum password length")." [minpassword]"
+					),
+					"maxsecs" => array(
+						"level" => array("general","account"),
+						"type" => "number",
+						"options" => array("0","9999"),
+						"default" => '300',
+						"description" => _("Max Message Length"),
+						"helptext" => _("Minimum length of a voicemail message in seconds for the message to be kept. The default is 300 (in seconds).")." [maxsecs]"
+					),
+					"maxsilence" => array(
+						"level" => array("general"),
+						"type" => "number",
+						"options" => array("0","9999"),
+						"default" => '10',
+						"description" => _("Max Message Silence"),
+						"helptext" => _("How many seconds of silence before we end the recording (in seconds).")." [maxsilence]"
+					),
+					"silencethreshold" => array(
+						"level" => array("general"),
+						"type" => "number",
+						"options" => array("0","9999"),
+						"default" => '',
+						"description" => _("Silence Threshold"),
+						"helptext" => _("Silence threshold (what we consider silence: the lower, the more sensitive)")." [silencethreshold]"
+					),
+					"minsecs" => array(
+						"level" => array("general"),
+						"type" => "number",
+						"options" => array("0","9999"),
+						"default" => '1',
+						"description" => _("Min Message Length"),
+						"helptext" => _("Minimum length of a voicemail message in seconds for the message to be kept. (in seconds).")." [minsecs]"
+					),
+					"skipms" => array(
+						"level" => array("general"),
+						"type" => "number",
+						"options" => array("0","9999"),
+						"default" => '',
+						"description" => _("Skip Milliseconds"),
+						"helptext" => _("How many milliseconds to skip forward/back when rew/ff in message playback (in milliseconds)")." [skipms]"
+					),
+					"skipms" => array(
+						"level" => array("general"),
+						"type" => "number",
+						"options" => array("0","9999"),
+						"default" => '',
+						"description" => _("Skip Milliseconds"),
+						"helptext" => _("How many milliseconds to skip forward/back when rew/ff in message playback (in milliseconds)")." [skipms]"
+					),
+				)
+			),
+			"odbc" => array(
+				"name" => _("ODBC Storage"),
+				"helptext" => _("These settings are only applicable when Asterisk is compiled with IMAP support"),
+				"settings" => array(
+					"odbcstorage" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("ODBC Storage Name"),
+						"helptext" => _("The value of odbcstorage is the database connection configured in res_odbc.conf.") . " [odbcstorage]"
+					),
+					"odbctable" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("ODBC Table Name"),
+						"helptext" => _("The default table for ODBC voicemail storage is voicemessages.") . " [odbctable]"
+					),
+				)
+			),
+			"imap" => array(
+				"name" => _("IMAP Storage"),
+				"helptext" => _("These settings are only applicable when Asterisk is compiled with IMAP support"),
+				"settings" => array(
+					"imapserver" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("IMAP server address."),
+						"helptext" => _("IMAP server address.") . " [imapserver]"
+					),
+					"imapport" => array(
+						"level" => array("general"),
+						"type" => "number",
+						"default" => "",
+						"description" => _("IMAP server port."),
+						"helptext" => _("IMAP server port.") . " [imapport]"
+					),
+					"authuser" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("IMAP Auth User"),
+						"helptext" => _("IMAP server master username.") . " [authuser]"
+					),
+					"authpassword" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("IMAP Auth User Password"),
+						"helptext" => _("IMAP server master password.") . " [authpassword]"
+					),
+					"imapuser" => array(
+						"level" => array("account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("IMAP User"),
+						"helptext" => _("The IMAP username of the mailbox to access") . " [authuser]"
+					),
+					"imappassword" => array(
+						"level" => array("account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("IMAP Password"),
+						"helptext" => _("The IMAP password of the user") . " [authpassword]"
+					),
+					"imapflags" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("IMAP Flags"),
+						"helptext" => _("Optional flags to pass to the IMAP server in the IMAP mailbox name. For example, setting this to 'ssl' will enable OpenSSL encryption, assuming the IMAP libraries were compiled with OpenSSL support."). " [imapflags]"
+					),
+					"imapfolder" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("IMAP Folder"),
+						"helptext" => _("The folder in which to store voicemail messages on the IMAP server. By default, they are stored in INBOX."). " [imapfolder]"
+					),
+					"imapparentfolder" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("IMAP Parent Folder"),
+						"helptext" => _("Some IMAP server implementations store folders under INBOX instead of using a top level folder (ex. INBOX/Friends). In this case, user imapparentfolder to set the parent folder. For example, Cyrus IMAP does NOT use INBOX as the parent. Default is to have no parent folder set."). " [imapparentfolder]"
+					),
+					"greetingsfolder" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Greetings folder"),
+						"helptext" => _("If IMAP Greetings is Yes, then specify which folder to store your greetings in. If you do not specify a folder, then INBOX will be used"). " [greetingsfolder]"
+					),
+					"imapgreetings" => array(
+						"level" => array("general"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("IMAP Greetings"),
+						"helptext" => _("If using IMAP storage, specify whether Voicemail greetings should be stored via IMAP. If not set, then greetings are stored as if IMAP storage were not enabled"). " [imapgreetings]"
+					),
+					"imapclosetimeout" => array(
+						"level" => array("general"),
+						"type" => "number",
+						"default" => "60",
+						"description" => _("Close Timeout"),
+						"helptext" => _("The TCP close timeout (in seconds)"). " [imapclosetimeout]"
+					),
+					"imapopentimeout" => array(
+						"level" => array("general"),
+						"type" => "number",
+						"default" => "60",
+						"description" => _("Open Timeout"),
+						"helptext" => _("The TCP open timeout (in seconds)"). " [imapopentimeout]"
+					),
+					"imapreadtimeout" => array(
+						"level" => array("general"),
+						"type" => "number",
+						"default" => "60",
+						"description" => _("Read Timeout"),
+						"helptext" => _("The TCP read timeout (in seconds)"). " [imapreadimeout]"
+					),
+					"imapwritetimeout" => array(
+						"level" => array("general"),
+						"type" => "number",
+						"default" => "60",
+						"description" => _("Write Timeout"),
+						"helptext" => _("The TCP write timeout (in seconds)"). " [imapwritetimeout]"
+					),
+				)
+			),
+			"sounds" => array(
+				"name" => _("Sound Files"),
+				"helptext" => _("Sound files used for Voicemail"),
+				"settings" => array(
+					"vm-mismatch" => array(
+						"level" => array("general"),
+						"type" => "recording",
+						"default" => "",
+						"description" => _("Password Mismatch"),
+						"helptext" => _('Customize which sound file is used instead of the default prompt that says: "The passwords you entered and re-entered did not match. Please try again."'). " [vm-mismatch]"
+					),
+					"vm-newpassword" => array(
+						"level" => array("general"),
+						"type" => "recording",
+						"default" => "",
+						"description" => _("New Password"),
+						"helptext" => _('Customize which sound file is used instead of the default prompt that says: "Please enter your new password followed by the pound key."'). " [vm-newpassword]"
+					),
+					"vm-passchanged" => array(
+						"level" => array("general"),
+						"type" => "recording",
+						"default" => "",
+						"description" => _("Password Changed"),
+						"helptext" => _('Customize which sound file is used instead of the default prompt that says: "Your password has been changed."'). " [vm-passchanged]"
+					),
+					"vm-password" => array(
+						"level" => array("general"),
+						"type" => "recording",
+						"default" => "",
+						"description" => _("Password"),
+						"helptext" => _('Customize which sound file is used instead of the default prompt that says: "password"'). " [vm-password]"
+					),
+					"vm-reenterpassword" => array(
+						"level" => array("general"),
+						"type" => "recording",
+						"default" => "",
+						"description" => _("Re-enter Password"),
+						"helptext" => _('Customize which sound file is used instead of the default prompt that says: "Please re-enter your password followed by the pound key"'). " [vm-reenterpassword]"
+					),
+					"vm-invalid-password" => array(
+						"level" => array("general"),
+						"type" => "recording",
+						"default" => "",
+						"description" => _("Invalid Password"),
+						"helptext" => _('Customize which sound file is used instead of the default prompt that says: ...'). " [vm-invalid-password]"
+					),
+					"vm-pls-try-again" => array(
+						"level" => array("general"),
+						"type" => "recording",
+						"default" => "",
+						"description" => _("Please Try Again"),
+						"helptext" => _('Customize which sound file is used instead of the default prompt that says "Please try again."'). " [vm-pls-try-again]"
+					),
+					"vm-prepend-timeout" => array(
+						"level" => array("general"),
+						"type" => "recording",
+						"default" => "",
+						"description" => _("Prepend Timeout"),
+						"helptext" => _('Customize which sound file is used when the user times out while recording a prepend message instead of the default prompt that says "then press pound"'). " [vm-prepend-timeout]"
+					),
+					"directoryintro" => array(
+						"level" => array("general"),
+						"type" => "recording",
+						"default" => "",
+						"description" => _("Directory Intro"),
+						"helptext" => _('For the directory, you can override the intro file if you want'). " [directoryintro]"
+					),
+				)
+			),
+			"dialplan" => array(
+				"name" => _("Context Config"),
+				"helptext" => _("These settings apply to context related operations"),
+				"settings" => array(
+					"callback" => array(
+						"level" => array("general","account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Callback Context"),
+						"helptext" => _("Context to call back from; if not listed, calling the sender back will not be permitted.") . " [callback]"
+					),
+					"charset" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "UTF-8",
+						"description" => _("Character Set"),
+						"helptext" => _("The character set for Voicemail messages") . " [charset]"
+					),
+					"cidinternalcontexts" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("CID Internal Context"),
+						"helptext" => _("Comma separated list of internal contexts to use caller ID.") . " [charset]"
+					),
+					"dialout" => array(
+						"level" => array("general","account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Dialout Context"),
+						"helptext" => _("Context to dial out from [option 4 from the advanced menu] if not listed, dialing out will not be permitted.") . " [dialout]"
+					),
+					"exitcontext" => array(
+						"level" => array("general","account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Exit Context"),
+						"helptext" => _('Context to check for handling * or 0 calls to operator. "Operator Context"') . " [exitcontext]"
+					),
+					"vmcontext" => array(
+						"level" => array("account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Voicemail Context"),
+						"helptext" => _('Voicemail Context') . " [vmcontext]"
+					)
+				)
+			),
+		);
+		$final = array();
+		foreach($settings as $key => $data) {
+			$final1 = array();
+			foreach($data['settings'] as $s => $d) {
+				$final2 = array();
+				if(!in_array($level, $d['level'])) {
+					continue;
+				}
+				foreach($d as $item => $v) {
+					$final2[$item] = $v;
+				}
+				$final1[$s] = $final2;
+			}
+			$data['settings'] = $final1;
+			$final[$key] = $data;
+		}
+		return $final;
+	}
 }
