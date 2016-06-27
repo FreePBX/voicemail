@@ -295,3 +295,17 @@ if(file_exists($aed.'/vm_general.inc')) {
   }
   unlink($aed.'/vm_general.inc');
 }
+
+
+$vmconf = \FreePBX::Voicemail()->getVoicemail(false);
+if(!empty($vmconf)) {
+	$dsettings = $settings = \FreePBX::Voicemail()->constructSettings("general");
+	foreach($dsettings as $data) {
+		foreach($data['settings'] as $key => $items) {
+			if($items['default'] !== '' && !isset($vmconf['general'][$key])) {
+				$vmconf['general'][$key] = $items['default'];
+			}
+		}
+	}
+	\FreePBX::Voicemail()->saveVoicemail($vmconf);
+}

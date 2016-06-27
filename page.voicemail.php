@@ -447,7 +447,6 @@ switch ($action) {
 		show_view(dirname(__FILE__).'/views/dialplan.php',array('settings' => $settings, 'direct_dial_opts' => $direct_dial_opts, 'voicemail_gain_opts' => $voicemail_gain_opts, 'vmx_timeout_opts' => $vmx_timeout_opts, 'vmx_repeat_opts' => $vmx_repeat_opts, 'vmx_loops_opts' => $vmx_loops_opts));
 		break;
 
-	case "bsettings":
 	case "settings":
 		if(!empty($extension)) {
 			$level = "account";
@@ -460,14 +459,20 @@ switch ($action) {
 		$d = \FreePBX::Voicemail()->constructSettings($level);
 		/* get settings */
 		$settings = voicemail_get_settings($uservm, $action, $extension);
-		dbug($settings);
 		/* Get Asterisk version. */
 		$ast_info = engine_getinfo();
 		$version = $ast_info["version"];
 
 		show_view(dirname(__FILE__).'/views/ssettings.php',array('d' => $d, 'action' => $action, 'extension' => $extension, 'version' => $version, 'settings' => $settings, 'tooltips' => $tooltips, 'display_settings' => $acct_settings, 'display_tips' => $tooltips["account"], 'id_prefix' => $id_prefix));
-		break;
+	break;
+	case "bsettings":
 		$output = '';
+		/* get settings */
+		$settings = voicemail_get_settings($uservm, $action, $extension);
+		/* Get Asterisk version. */
+		$ast_info = engine_getinfo();
+		$version = $ast_info["version"];
+
 		$text_size = 40;
 		if (!empty($extension)) {
 			show_view(dirname(__FILE__).'/views/settings.php',array('action' => $action, 'extension' => $extension, 'version' => $version, 'settings' => $settings, 'tooltips' => $tooltips, 'display_settings' => $acct_settings, 'display_tips' => $tooltips["account"], 'id_prefix' => 'acct'));

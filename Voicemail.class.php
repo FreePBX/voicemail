@@ -298,6 +298,11 @@ class Voicemail implements \BMO {
 
 		foreach($vmconf as $name => &$context) {
 			if($name == "general" || $name == "zonemessages") {
+				$cdata = array();
+				foreach($context as $key => $value) {
+					$cdata[$key] = str_replace(array("\n","\t","\r"),array("\\n","\\t","\\r"),$value);
+				}
+				$context = $cdata;
 				continue;
 			}
 			$cdata = array();
@@ -1611,27 +1616,27 @@ class Voicemail implements \BMO {
 		return $data;
 	}
 
+
+
 	public function constructSettings($level="general") {
 		$settings = array(
 			"general" => array(
 				"name" => _("General"),
 				"helptext" => "",
 				"settings" => array(
-					"envelope" => array(
-						"level" => array("general","account"),
-						"type" => "radio",
-						"options" => array("yes" => _("Yes"), "no" => _("No")),
-						"default" => "yes",
-						"description" => _("Envelope Playback"),
-						"helptext" => _("Turn on/off envelope playback before message playback") . " [envelopw]"
-					),
-					"delete" => array(
+					"name" => array(
 						"level" => array("account"),
-						"type" => "radio",
-						"options" => array("yes" => _("Yes"), "no" => _("No")),
-						"default" => "yes",
-						"description" => _("Delete Voicemail"),
-						"helptext" => _("After notification, the voicemail is deleted from the server. [per-mailbox only] This is intended for use with users who wish to receive their voicemail ONLY by email.") . " [delete]"
+						"type" => "text",
+						"default" => "",
+						"description" => _("Name of account/user"),
+						"helptext" => _("Name of account/user") . " [name]"
+					),
+					"charset" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "UTF-8",
+						"description" => _("Character Set"),
+						"helptext" => _("The character set for Voicemail messages") . " [charset]"
 					),
 					"pager" => array(
 						"level" => array("account"),
@@ -1674,22 +1679,6 @@ class Voicemail implements \BMO {
 						"default" => "",
 						"description" => _("External Password Notify"),
 						"helptext" => _("Command specified runs after a user changes their password. The arguments passed to the application are: [context] [mailbox] [newpassword] Note: This will also update the voicemail.conf file") . " [externpassnotify]"
-					),
-					"forcename" => array(
-						"level" => array("general","account"),
-						"type" => "radio",
-						"options" => array("yes" => _("Yes"), "no" => _("No")),
-						"default" => "yes",
-						"description" => _("Force Greetings"),
-						"helptext" => _("Force a new user to record their name. A new user is determined by the password being the same as the mailbox number. Default is 'Yes'"). " [forcename]"
-					),
-					"forcegreetings" => array(
-						"level" => array("general","account"),
-						"type" => "radio",
-						"options" => array("yes" => _("Yes"), "no" => _("No")),
-						"default" => "no",
-						"description" => _("Force Greetings"),
-						"helptext" => _("This is the same as Force Name, except for recording greetings. Default is 'No'"). " [forcegreetings]"
 					),
 					"format" => array(
 						"level" => array("general"),
@@ -1740,13 +1729,33 @@ class Voicemail implements \BMO {
 						"description" => _("Stop Keys"),
 						"helptext" => _("Customize the key that fast-forwards message playback"). " [listen-control-stop-key]"
 					),
-					"operator" => array(
-						"level" => array("general", "account"),
-						"type" => "radio",
-						"options" => array("yes" => _("Yes"), "no" => _("No")),
-						"default" => "yes",
-						"description" => _("Operator"),
-						"helptext" => _("Allow sender to hit 0 before/after/during leaving a voicemail to reach an operator"). " [operator]"
+					"tz" => array(
+						"level" => array("account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Timezone"),
+						"helptext" => _("Timezone") . " [tz]"
+					),
+					"callmenum" => array(
+						"level" => array("account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Call-Me Number"),
+						"helptext" => _("Call me number. Can be used from within ARI.") . " [callmenum]"
+					),
+					"volgain" => array(
+						"level" => array("general","account"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("Volume Gain"),
+						"helptext" => _("Emails bearing the Voicemail may arrive in a volume too quiet to be heard. This parameter allows you to specify how much gain to add to the message when sending a Voicemail. NOTE: sox must be installed for this option to work.") . " [volgain]"
+					),
+					"saydurationm" => array(
+						"level" => array("general","account"),
+						"type" => "number",
+						"default" => "",
+						"description" => _("Say Duration Minutes"),
+						"helptext" => _("Specify in minutes the minimum duration to say. Default is 2 minutes. (in minutes)"). " [saydurationm]"
 					),
 					"pollfreq" => array(
 						"level" => array("general"),
@@ -1762,6 +1771,46 @@ class Voicemail implements \BMO {
 						"default" => "yes",
 						"description" => _("Poll Mailboxes"),
 						"helptext" => _("If mailboxes are changed anywhere outside of app_voicemail, then this option must be enabled for MWI to work. This enables polling mailboxes for changes.  Normally, it will expect that changes are only made when someone called in to one of the voicemail applications. Examples of situations that would require this option are web interfaces to voicemail or an email client in the case of using IMAP storage."). " [pollmailboxes]"
+					),
+					"envelope" => array(
+						"level" => array("general","account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Envelope Playback"),
+						"helptext" => _("Turn on/off envelope playback before message playback") . " [envelopw]"
+					),
+					"delete" => array(
+						"level" => array("account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Delete Voicemail"),
+						"helptext" => _("After notification, the voicemail is deleted from the server. [per-mailbox only] This is intended for use with users who wish to receive their voicemail ONLY by email.") . " [delete]"
+					),
+					"forcename" => array(
+						"level" => array("general","account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Force Greetings"),
+						"helptext" => _("Force a new user to record their name. A new user is determined by the password being the same as the mailbox number. Default is 'Yes'"). " [forcename]"
+					),
+					"forcegreetings" => array(
+						"level" => array("general","account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "no",
+						"description" => _("Force Greetings"),
+						"helptext" => _("This is the same as Force Name, except for recording greetings. Default is 'No'"). " [forcegreetings]"
+					),
+					"operator" => array(
+						"level" => array("general", "account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Operator"),
+						"helptext" => _("Allow sender to hit 0 before/after/during leaving a voicemail to reach an operator"). " [operator]"
 					),
 					"review" => array(
 						"level" => array("general","account"),
@@ -1786,13 +1835,6 @@ class Voicemail implements \BMO {
 						"default" => "yes",
 						"description" => _("Say Duration"),
 						"helptext" => _("Turn on/off saying duration information before the message playback."). " [sayduration]"
-					),
-					"saydurationm" => array(
-						"level" => array("general","account"),
-						"type" => "number",
-						"default" => "",
-						"description" => _("Say Duration"),
-						"helptext" => _("Specify in minutes the minimum duration to say. Default is 2 minutes. (in minutes)"). " [saydurationm]"
 					),
 					"searchcontexts" => array(
 						"level" => array("general"),
@@ -1826,27 +1868,6 @@ class Voicemail implements \BMO {
 						"description" => _("Use Directory"),
 						"helptext" => _("Permit finding entries for forward/compose from the directory"). " [usedirectory]"
 					),
-					"tz" => array(
-						"level" => array("account"),
-						"type" => "text",
-						"default" => "",
-						"description" => _("Timezone"),
-						"helptext" => _("Timezone") . " [tz]"
-					),
-					"callmenum" => array(
-						"level" => array("account"),
-						"type" => "text",
-						"default" => "",
-						"description" => _("Call-Me Number"),
-						"helptext" => _("Call me number. Can be used from within ARI.") . " [callmenum]"
-					),
-					"volgain" => array(
-						"level" => array("general","account"),
-						"type" => "text",
-						"default" => "",
-						"description" => _("Volume Gain"),
-						"helptext" => _("Emails bearing the Voicemail may arrive in a volume too quiet to be heard. This parameter allows you to specify how much gain to add to the message when sending a Voicemail. NOTE: sox must be installed for this option to work.") . " [volgain]"
-					),
 					"hidefromdir" => array(
 						"level" => array("general","account"),
 						"type" => "radio",
@@ -1855,12 +1876,13 @@ class Voicemail implements \BMO {
 						"description" => _("Hide From Directory"),
 						"helptext" => _("Hide this mailbox from the directory produced by app_directory") . " [hidefromdir]"
 					),
-					"name" => array(
-						"level" => array("account"),
-						"type" => "text",
-						"default" => "",
-						"description" => _("Name of account/user"),
-						"helptext" => _("Name of account/user") . " [name]"
+					"moveheard" => array(
+						"level" => array("general","account"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Move Heard"),
+						"helptext" => _("Move heard messages to the 'Old' folder automagically.  Defaults to Yes.") . " [moveheard]"
 					),
 					"smdienable" => array(
 						"level" => array("general"),
@@ -1898,7 +1920,7 @@ class Voicemail implements \BMO {
 				"helptext" => _("These settings apply to Voicemail Email Configuration"),
 				"settings" => array(
 					"emailsubject" => array(
-						"level" => array("general","account"),
+						"level" => array("general"),
 						"type" => "text",
 						"default" => 'PBX Voicemail Notification',
 						"description" => _("Email Subject"),
@@ -1956,7 +1978,7 @@ class Voicemail implements \BMO {
 						"helptext" => _("Set the date format on outgoing pager mails. Valid arguments can be found on the strftime(3) man page")." [pagerdateformat]"
 					),
 					"serveremail" => array(
-						"level" => array("general","account"),
+						"level" => array("general"),
 						"type" => "text",
 						"default" => '',
 						"description" => _("Server Email"),
@@ -1984,14 +2006,6 @@ class Voicemail implements \BMO {
 						"default" => '',
 						"description" => _("Language"),
 						"helptext" => _("Language code for voicemail")." [language]"
-					),
-					"moveheard" => array(
-						"level" => array("general","account"),
-						"type" => "radio",
-						"options" => array("yes" => _("Yes"), "no" => _("No")),
-						"default" => "yes",
-						"description" => _("Move Heard"),
-						"helptext" => _("Move heard messages to the 'Old' folder automagically.  Defaults to Yes.") . " [moveheard]"
 					),
 					"nextaftercmd" => array(
 						"level" => array("general"),
@@ -2029,7 +2043,7 @@ class Voicemail implements \BMO {
 						"helptext" => _("Max failed login attempts.")." [maxlogins]"
 					),
 					"maxmsg" => array(
-						"level" => array("general","account"),
+						"level" => array("general"),
 						"type" => "number",
 						"options" => array("0","9999"),
 						"default" => '100',
@@ -2045,7 +2059,7 @@ class Voicemail implements \BMO {
 						"helptext" => _("Enforce minimum password length")." [minpassword]"
 					),
 					"maxsecs" => array(
-						"level" => array("general","account"),
+						"level" => array("general"),
 						"type" => "number",
 						"options" => array("0","9999"),
 						"default" => '300',
@@ -2232,63 +2246,63 @@ class Voicemail implements \BMO {
 				"settings" => array(
 					"vm-mismatch" => array(
 						"level" => array("general"),
-						"type" => "recording",
+						"type" => "text",
 						"default" => "",
 						"description" => _("Password Mismatch"),
 						"helptext" => _('Customize which sound file is used instead of the default prompt that says: "The passwords you entered and re-entered did not match. Please try again."'). " [vm-mismatch]"
 					),
 					"vm-newpassword" => array(
 						"level" => array("general"),
-						"type" => "recording",
+						"type" => "text",
 						"default" => "",
 						"description" => _("New Password"),
 						"helptext" => _('Customize which sound file is used instead of the default prompt that says: "Please enter your new password followed by the pound key."'). " [vm-newpassword]"
 					),
 					"vm-passchanged" => array(
 						"level" => array("general"),
-						"type" => "recording",
+						"type" => "text",
 						"default" => "",
 						"description" => _("Password Changed"),
 						"helptext" => _('Customize which sound file is used instead of the default prompt that says: "Your password has been changed."'). " [vm-passchanged]"
 					),
 					"vm-password" => array(
 						"level" => array("general"),
-						"type" => "recording",
+						"type" => "text",
 						"default" => "",
 						"description" => _("Password"),
 						"helptext" => _('Customize which sound file is used instead of the default prompt that says: "password"'). " [vm-password]"
 					),
 					"vm-reenterpassword" => array(
 						"level" => array("general"),
-						"type" => "recording",
+						"type" => "text",
 						"default" => "",
 						"description" => _("Re-enter Password"),
 						"helptext" => _('Customize which sound file is used instead of the default prompt that says: "Please re-enter your password followed by the pound key"'). " [vm-reenterpassword]"
 					),
 					"vm-invalid-password" => array(
 						"level" => array("general"),
-						"type" => "recording",
+						"type" => "text",
 						"default" => "",
 						"description" => _("Invalid Password"),
 						"helptext" => _('Customize which sound file is used instead of the default prompt that says: ...'). " [vm-invalid-password]"
 					),
 					"vm-pls-try-again" => array(
 						"level" => array("general"),
-						"type" => "recording",
+						"type" => "text",
 						"default" => "",
 						"description" => _("Please Try Again"),
 						"helptext" => _('Customize which sound file is used instead of the default prompt that says "Please try again."'). " [vm-pls-try-again]"
 					),
 					"vm-prepend-timeout" => array(
 						"level" => array("general"),
-						"type" => "recording",
+						"type" => "text",
 						"default" => "",
 						"description" => _("Prepend Timeout"),
 						"helptext" => _('Customize which sound file is used when the user times out while recording a prepend message instead of the default prompt that says "then press pound"'). " [vm-prepend-timeout]"
 					),
 					"directoryintro" => array(
 						"level" => array("general"),
-						"type" => "recording",
+						"type" => "text",
 						"default" => "",
 						"description" => _("Directory Intro"),
 						"helptext" => _('For the directory, you can override the intro file if you want'). " [directoryintro]"
@@ -2305,13 +2319,6 @@ class Voicemail implements \BMO {
 						"default" => "",
 						"description" => _("Callback Context"),
 						"helptext" => _("Context to call back from; if not listed, calling the sender back will not be permitted.") . " [callback]"
-					),
-					"charset" => array(
-						"level" => array("general"),
-						"type" => "text",
-						"default" => "UTF-8",
-						"description" => _("Character Set"),
-						"helptext" => _("The character set for Voicemail messages") . " [charset]"
 					),
 					"cidinternalcontexts" => array(
 						"level" => array("general"),
@@ -2344,7 +2351,7 @@ class Voicemail implements \BMO {
 				)
 			),
 		);
-		$final = array();
+		$finalt = array();
 		foreach($settings as $key => $data) {
 			$final1 = array();
 			foreach($data['settings'] as $s => $d) {
@@ -2358,7 +2365,13 @@ class Voicemail implements \BMO {
 				$final1[$s] = $final2;
 			}
 			$data['settings'] = $final1;
-			$final[$key] = $data;
+			$finalt[$key] = $data;
+		}
+		$final = array();
+		foreach($finalt as $key => $data) {
+			if(!empty($data['settings'])) {
+				$final[$key] = $data;
+			}
 		}
 		return $final;
 	}
