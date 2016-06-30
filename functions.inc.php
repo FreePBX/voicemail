@@ -262,7 +262,7 @@ function voicemail_dialvoicemail($c) {
 			$c_len = strlen($c);
 			//$ext->add($id, "_$c".'X.', '', new ext_noop("This extension does not have access to this"));
 			//
-			$ext->addHint($id, "_$c".'X.', 'MWI:${EXTEN:'.$c_len.'}@${IF($["${DB(AMPUSER/${EXTEN:'.$c_len.'}/voicemail)}" != ""]?${DB(AMPUSER/${EXTEN:'.$c_len.'}/voicemail)}:default)}');
+			$ext->addHint($id, "_$c".'X.', 'MWI:${EXTEN:'.$c_len.'}@${DB(AMPUSER/${EXTEN:'.$c_len.'}/voicemail)}');
 		}
 		$c = '_dvm.';
 	} else {
