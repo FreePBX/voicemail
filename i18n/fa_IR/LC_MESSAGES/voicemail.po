@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 12:39-0700\n"
+"POT-Creation-Date: 2016-07-06 13:59-0700\n"
 "PO-Revision-Date: 2016-06-30 17:23+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian (Iran) "
-"<http://weblate.freepbx.org/projects/freepbx/voicemail/fa_IR/>\n"
-"Language: fa_IR\n"
+"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
+"voicemail/fa_IR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa_IR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -938,8 +938,8 @@ msgstr ""
 "External password changing  command (overrides 'External Password Notify'). "
 "The arguments passed to the application are: [context] [mailbox] "
 "[newpassword] Note: If this is set, the password will NOT be changed in "
-"voicemail.conf If you would like to also change the password in "
-"voicemail.conf, use the 'External Password Notify' option below instead."
+"voicemail.conf If you would like to also change the password in voicemail."
+"conf, use the 'External Password Notify' option below instead."
 
 #: page.voicemail.php:223
 msgid "External password changing command (overrides externpassnotify)."
@@ -1016,9 +1016,13 @@ msgstr "برای دایرکتوری، شما میتوانید فایل راهن�
 msgid "Forbidden"
 msgstr "ممنوع"
 
-#: Voicemail.class.php:1796 Voicemail.class.php:1804
+#: Voicemail.class.php:1804
 msgid "Force Greetings"
 msgstr "خوش آمد گویی"
+
+#: Voicemail.class.php:1796
+msgid "Force Name"
+msgstr ""
 
 #: page.voicemail.php:227
 msgid ""
@@ -1154,7 +1158,8 @@ msgstr "لغو چند میلی ثانیه در هنگام مرور سریع یا
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback "
 "(in milliseconds)"
-msgstr "لغو چند میلی ثانیه در هنگام مرور سریع جلو/عقب کردن پیام (به میلی ثانیه)"
+msgstr ""
+"لغو چند میلی ثانیه در هنگام مرور سریع جلو/عقب کردن پیام (به میلی ثانیه)"
 
 #: Voicemail.class.php:2075
 msgid "How many seconds of silence before we end the recording (in seconds)."
@@ -2356,8 +2361,8 @@ msgstr ""
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
 "Additionally, on forwarded messages, you have the variables: "
 "ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE You can "
-"select between two variables by using dialplan functions, e.g. "
-"${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
+"select between two variables by using dialplan functions, e.g. ${IF(${ISNULL"
+"(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 
 #: Voicemail.class.php:1927
 msgid "The email subject"
@@ -2388,8 +2393,8 @@ msgstr ""
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
 "Additionally, on forwarded messages, you have the variables: "
 "ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE You can "
-"select between two variables by using dialplan functions, e.g. "
-"${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
+"select between two variables by using dialplan functions, e.g. ${IF(${ISNULL"
+"(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 
 #: Voicemail.class.php:1956
 msgid "The pager subject"

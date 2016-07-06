@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 12:39-0700\n"
+"POT-Creation-Date: 2016-07-06 13:59-0700\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -992,8 +992,12 @@ msgstr ""
 msgid "Forbidden"
 msgstr "アクセス拒否"
 
-#: Voicemail.class.php:1796 Voicemail.class.php:1804
+#: Voicemail.class.php:1804
 msgid "Force Greetings"
+msgstr ""
+
+#: Voicemail.class.php:1796
+msgid "Force Name"
 msgstr ""
 
 #: page.voicemail.php:227

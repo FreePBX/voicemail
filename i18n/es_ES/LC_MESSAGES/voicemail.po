@@ -898,8 +898,12 @@ msgstr ""
 msgid "Forbidden"
 msgstr ""
 
-#: Voicemail.class.php:1796 Voicemail.class.php:1804
+#: Voicemail.class.php:1804
 msgid "Force Greetings"
+msgstr ""
+
+#: Voicemail.class.php:1796
+msgid "Force Name"
 msgstr ""
 
 #: page.voicemail.php:227
