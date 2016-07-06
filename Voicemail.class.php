@@ -1793,7 +1793,7 @@ class Voicemail implements \BMO {
 						"type" => "radio",
 						"options" => array("yes" => _("Yes"), "no" => _("No")),
 						"default" => "yes",
-						"description" => _("Force Greetings"),
+						"description" => _("Force Name"),
 						"helptext" => _("Force a new user to record their name. A new user is determined by the password being the same as the mailbox number. Default is 'Yes'"). " [forcename]"
 					),
 					"forcegreetings" => array(
