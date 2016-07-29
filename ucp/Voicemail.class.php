@@ -41,9 +41,9 @@ class Voicemail extends Modules{
 		}
 
 		$this->user = $this->UCP->User->getUser();
-		$this->enabled = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'enable');
-		$this->vmxenabled = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'vmxlocater');
 		$this->extensions = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'assigned');
+		$this->enabled = !empty($this->extensions) && $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'enable');
+		$this->vmxenabled = !empty($this->extensions) && $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'vmxlocater');
 		$this->playback = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'playback');
 		$this->playback = !is_null($this->playback) ? $this->playback : true;
 		$this->download = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'download');

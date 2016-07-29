@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.51</version>
+	<version>13.0.52</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.52* If no extensions are assigned in UCP then disable it, also help FREEPBX-12847
 		*13.0.51* FREEPBX-12680 Force Greeting appears twice missing Force Name
 		*13.0.50* FREEPBX-12475 Voicemail Admin write out settings during install, also fix up display
 		*13.0.49* FREEPBX-12428 Moving vm msg in UCP does not refresh page automatically
