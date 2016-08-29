@@ -43,7 +43,7 @@
 														case "radio": ?>
 														<div class="radioset">
 															<?php foreach($items['options'] as $k => $v) { ?>
-																<input type="radio" class="form-control" id="<?php echo $id_prefix?>__<?php echo $key?>_<?php echo $k?>" name="<?php echo $id_prefix?>__<?php echo $key?>" value="<?php echo $k?>" <?php echo ((!empty($settings[$key]) && $settings[$key] == $k) || ($items['default'] == $k)) ? 'checked' : '' ?>>
+																<input type="radio" class="form-control" id="<?php echo $id_prefix?>__<?php echo $key?>_<?php echo $k?>" name="<?php echo $id_prefix?>__<?php echo $key?>" value="<?php echo $k?>" <?php echo ((!empty($settings[$key]) && $settings[$key] == $k) || ( empty($settings[$key]) && $items['default'] == $k)) ? 'checked' : '' ?>>
 																<label for="<?php echo $id_prefix?>__<?php echo $key?>_<?php echo $k?>"><?php echo $v?></label>
 															<?php } ?>
 														</div>
