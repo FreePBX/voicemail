@@ -378,13 +378,16 @@ class Voicemail extends Modules{
 				return array("status" => true, "total" => $boxes['total'], "boxes" => $boxes['extensions']);
 			break;
 			case 'moveToFolder':
-				$ext = $_POST['ext'];
-				$status = $this->UCP->FreePBX->Voicemail->moveMessageByExtensionFolder($_POST['msg'],$ext,$_POST['folder']);
+				$ext = basename($_POST['ext']);
+				$msg = basename($_POST['msg']);
+				$folder = basename($_POST['folder']);
+				$status = $this->UCP->FreePBX->Voicemail->moveMessageByExtensionFolder($msg,$ext,$folder);
 				$return = array("status" => $status, "message" => "");
 			break;
 			case 'delete':
-				$ext = $_POST['ext'];
-				$status = $this->UCP->FreePBX->Voicemail->deleteMessageByID($_POST['msg'],$ext);
+				$ext = basename($_POST['ext']);
+				$msg = basename($_POST['msg']);
+				$status = $this->UCP->FreePBX->Voicemail->deleteMessageByID($msg,$ext);
 				$return = array("status" => $status, "message" => "");
 			break;
 			case 'savesettings':
@@ -413,12 +416,13 @@ class Voicemail extends Modules{
 							if(!file_exists($tmp_path."/vmtmp")) {
 								mkdir($tmp_path."/vmtmp");
 							}
-							move_uploaded_file($tmp_name, $tmp_path."/vmtmp/$name");
-							if(!file_exists($tmp_path."/vmtmp/$name")) {
+							$name = basename($name);
+							move_uploaded_file($tmp_name, $tmp_path."/vmtmp/".$name);
+							if(!file_exists($tmp_path."/vmtmp/".$name)) {
 								$return = array("status" => false, "message" => sprintf(_("Voicemail not moved to %s"),$tmp_path."/vmtmp/".$name));
 								break;
 							}
-							$this->UCP->FreePBX->Voicemail->saveVMGreeting($_REQUEST['ext'],$_REQUEST['type'],$extension,$tmp_path."/vmtmp/$name");
+							$this->UCP->FreePBX->Voicemail->saveVMGreeting($_REQUEST['ext'],$_REQUEST['type'],$extension,$tmp_path."/vmtmp/".$name);
 						} else {
 							$return = array("status" => false, "message" => _("Unsupported file format"));
 							break;
@@ -427,7 +431,10 @@ class Voicemail extends Modules{
 				}
 			break;
 			case "copy":
-				$status = $this->UCP->FreePBX->Voicemail->copyVMGreeting($_POST['ext'],$_POST['source'],$_POST['target']);
+				$ext = basename($_POST['ext']);
+				$source = basename($_POST['source']);
+				$target = basename($_POST['target']);
+				$status = $this->UCP->FreePBX->Voicemail->copyVMGreeting($ext,$source,$target);
 				$return = array("status" => $status, "message" => "");
 			break;
 			case "record":
@@ -438,20 +445,21 @@ class Voicemail extends Modules{
 
 					$tmp_name = $_FILES["file"]["tmp_name"];
 					$name = $_FILES["file"]["name"];
+					$name = basename($name);
 					if(!file_exists($tmp_path."/vmtmp")) {
 						mkdir($tmp_path."/vmtmp");
 					}
-					move_uploaded_file($tmp_name, $tmp_path."/vmtmp/$name");
-					if(!file_exists($tmp_path."/vmtmp/$name")) {
+					move_uploaded_file($tmp_name, $tmp_path."/vmtmp/".$name);
+					if(!file_exists($tmp_path."/vmtmp/".$name)) {
 						$return = array("status" => false, "message" => sprintf(_("Voicemail not moved to %s"),$tmp_path."/vmtmp/".$name));
 						break;
 					}
-					$contents = file_get_contents($tmp_path."/vmtmp/$name");
+					$contents = file_get_contents($tmp_path."/vmtmp/".$name);
 					if(empty($contents)) {
 						$return = array("status" => false, "message" => sprintf(_("Voicemail was empty: %s"),$tmp_path."/vmtmp/".$name));
 						break;
 					}
-					$this->UCP->FreePBX->Voicemail->saveVMGreeting($_REQUEST['ext'],$_REQUEST['type'],'wav',$tmp_path."/vmtmp/$name");
+					$this->UCP->FreePBX->Voicemail->saveVMGreeting($_REQUEST['ext'],$_REQUEST['type'],'wav',$tmp_path."/vmtmp/".$name);
 				}	else {
 					$return = array("status" => false, "message" => _("Unknown Error"));
 					break;

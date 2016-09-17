@@ -717,6 +717,7 @@ class Voicemail implements \BMO {
 		$o = $this->getVoicemailBoxByExtension($ext);
 		$context = $o['vmcontext'];
 		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
+		$type = basename($type);
 		$file = $this->checkFileType($vmfolder, $type);
 		if(isset($this->greetings[$type]) && !empty($file)) {
 			foreach(glob($vmfolder."/".$type."*.*") as $filename) {
@@ -741,7 +742,7 @@ class Voicemail implements \BMO {
 	public function copyVMGreeting($ext,$source,$target) {
 		$o = $this->getVoicemailBoxByExtension($ext);
 		$context = $o['vmcontext'];
-		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
+		$vmfolder = $this->vmPath . '/'.$context.'/'.basename($ext);
 		if(!file_exists($vmfolder)) {
 			mkdir($vmfolder);
 		}
@@ -752,7 +753,7 @@ class Voicemail implements \BMO {
 			}
 			$file = $this->checkFileType($vmfolder, $source);
 			$extension = $this->getFileExtension($vmfolder, $source);
-			copy($file, $vmfolder."/".$target.".".$extension);
+			copy($file, $vmfolder."/".basename($target).".".$extension);
 		}
 		return true;
 	}
@@ -1142,8 +1143,8 @@ class Voicemail implements \BMO {
 		$o = $this->getVoicemailBoxByExtension($ext);
 		$context = $o['vmcontext'];
 		$messages = $this->getMessagesByExtension($ext);
-		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
-		$folder = $vmfolder."/".$folder;
+		$vmfolder = $this->vmPath . '/'.$context.'/'.basename($ext);
+		$folder = $vmfolder."/".basename($folder);
 		if(isset($messages['messages'][$msg])) {
 			$info = $messages['messages'][$msg];
 			$txt = $vmfolder."/".$info['folder']."/".$info['fid'].".txt";
@@ -1243,6 +1244,7 @@ class Voicemail implements \BMO {
 		if(!empty($this->messageCache)) {
 			return $this->messageCache;
 		}
+		$extension = basename($extension);
 		$o = $this->getVoicemailBoxByExtension($extension);
 		$context = $o['vmcontext'];
 
