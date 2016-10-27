@@ -1,3 +1,8 @@
+<?php
+$devs = \FreePBX::Core()->getAllUsersByDeviceType();
+$dev = end($devs);
+$startExt = $dev['extension'] + 1;
+?>
 <div class="element-container">
 	<div class="row">
 		<div class="form-group">
