@@ -98,7 +98,7 @@ var VoicemailC = UCPMC.extend({
 					voicemailNotification.show();
 				}
 				this.refreshFolderCount();
-				if(typeof $.cookie('vm-refresh') === "undefined" || $.cookie('vm-refresh') == 1) {
+				if(typeof Cookies.get('vm-refresh') === "undefined" || Cookies.get('vm-refresh') == 1) {
 					$('#voicemail-grid').bootstrapTable('refresh',{silent: true});
 				}
 			}
@@ -119,12 +119,12 @@ var VoicemailC = UCPMC.extend({
 
 		$("#vm-refresh").change(function() {
 			if($(this).is(":checked")) {
-				$.cookie('vm-refresh', 1);
+				Cookies.set('vm-refresh', 1);
 			} else {
-				$.cookie('vm-refresh', 0);
+				Cookies.set('vm-refresh', 0);
 			}
 		});
-		if(typeof $.cookie('vm-refresh') === "undefined" || $.cookie('vm-refresh') == 1) {
+		if(typeof Cookies.get('vm-refresh') === "undefined" || Cookies.get('vm-refresh') == 1) {
 			$("#vm-refresh").prop("checked",true);
 		} else {
 			$("#vm-refresh").prop("checked",false);
