@@ -161,6 +161,10 @@ $gen_settings = array(		"adsifdn" 			=> array("ver" => 1.2, "len" => 4, "type" =
 				"vm-passchanged"                => array("ver" => 1.6, "len" => $dlen, "type" => "char", "default" => ""),
 				"vm-password"                   => array("ver" => 1.6, "len" => $dlen, "type" => "char", "default" => ""),
 				"vm-reenterpassword"            => array("ver" => 1.6, "len" => $dlen, "type" => "char", "default" => ""),
+				"vm-invalid-password"            => array("ver" => 1.6, "len" => $dlen, "type" => "char", "default" => ""),
+				"vm-pls-try-again"            => array("ver" => 1.6, "len" => $dlen, "type" => "char", "default" => ""),
+				"vm-prepend-timeout"            => array("ver" => 1.6, "len" => $dlen, "type" => "char", "default" => ""),
+				"directoryintro"            => array("ver" => 1.6, "len" => $dlen, "type" => "char", "default" => ""),
 				"volgain" 			=> array("ver" => 1.4, "len" => $dlen, "type" => "num", "default" => "") 	);
 
 $acct_settings = array(		"attach"			=> array("ver" => 1.2, "len" => 0,	"type" => "flag"),
