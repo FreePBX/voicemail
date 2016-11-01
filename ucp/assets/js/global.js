@@ -76,6 +76,10 @@ var VoicemailC = UCPMC.extend({
 		});
 	},
 	poll: function(data) {
+		if (typeof this.extension == "undefined") {
+			return;
+		}
+
 		if (data.status) {
 			var notify = 0,
 			voicemailNotification = {};
@@ -98,15 +102,16 @@ var VoicemailC = UCPMC.extend({
 					voicemailNotification.show();
 				}
 				this.refreshFolderCount();
-				if(typeof $.cookie('vm-refresh') === "undefined" || $.cookie('vm-refresh') == 1) {
+				if(typeof Cookies.get('vm-refresh') === "undefined" || Cookies.get('vm-refresh') == 1) {
 					$('#voicemail-grid').bootstrapTable('refresh',{silent: true});
 				}
 			}
 		}
 	},
-	display: function(event) {
+	displayWidget: function(widget_id) {
 		var $this = this;
 		$this.init();
+		$this.extension = extension;
 		//If browser doesnt support get user media requests then just hide it from the display
 		if (!Modernizr.getusermedia) {
 			$(".jp-record-wrapper").hide();
@@ -117,14 +122,16 @@ var VoicemailC = UCPMC.extend({
 			$(".record-greeting-btn").show();
 		}
 
+		$('#voicemail-grid').bootstrapTable();
 		$("#vm-refresh").change(function() {
+			Cookies.remove('vm-refresh', {path: ''});
 			if($(this).is(":checked")) {
-				$.cookie('vm-refresh', 1);
+				Cookies.set('vm-refresh', 1);
 			} else {
-				$.cookie('vm-refresh', 0);
+				Cookies.set('vm-refresh', 0);
 			}
 		});
-		if(typeof $.cookie('vm-refresh') === "undefined" || $.cookie('vm-refresh') == 1) {
+		if(typeof Cookies.get('vm-refresh') === "undefined" || Cookies.get('vm-refresh') == 1) {
 			$("#vm-refresh").prop("checked",true);
 		} else {
 			$("#vm-refresh").prop("checked",false);
@@ -224,6 +231,13 @@ var VoicemailC = UCPMC.extend({
 			$("#delete-selection").prop("disabled",dis);
 			$("#forward-selection").prop("disabled",dis);
 			$("#move-selection").prop("disabled",dis);
+		});
+
+		$(".folder").click(function() {
+			$(".folder").removeClass("active");
+			$(this).addClass("active");
+			folder = $(this).data("folder");
+			$('#voicemail-grid').bootstrapTable('refresh', {url: 'index.php?quietmode=1&module=voicemail&command=grid&folder='+folder+'&ext='+extension});
 		});
 
 		$("#move-selection").click(function() {

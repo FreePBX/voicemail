@@ -56,10 +56,49 @@ class Voicemail extends Modules{
 		$this->vmxlocator = !is_null($this->vmxlocator) ? $this->vmxlocator : true;
 	}
 
-	function getDisplay() {
-		$ext = !empty($_REQUEST['sub']) ? $_REQUEST['sub'] : '';
+	public function getWidgetList() {
+		if(!$this->enabled) {
+			return array();
+		}
+
+		$widgets = array();
+
+		$extensions = $this->extensions;
+		if (!empty($extensions)) {
+			$boxes = $this->getMailboxCount($extensions);
+			foreach($extensions as $extension) {
+				$data = $this->UCP->FreePBX->Core->getDevice($extension);
+				if(empty($data) || empty($data['description'])) {
+					$data = $this->UCP->FreePBX->Core->getUser($extension);
+					$name = $data['name'];
+				} else {
+					$name = $data['description'];
+				}
+				$o = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($extension);
+				if (!empty($o) && isset($boxes['extensions'][$extension])) {
+					$widgets[$extension] = array(
+						"display" => $name,
+						"defaultsize" => array("height" => 4, "width" => 10)
+					);
+				}
+			}
+		}
+
+		if (empty($widgets)) {
+			return array();
+		}
+
+		return array(
+			"rawname" => "voicemail",
+			"display" => _("Voicemail"),
+			"list" => $widgets
+		);
+	}
+
+	public function getWidgetDisplay($id) {
+		$ext = !empty($id) ? $id : '';
 		if(!empty($ext) && !$this->_checkExtension($ext)) {
-			return _("Forbidden");
+			return array();
 		}
 		$reqFolder = !empty($_REQUEST['folder']) ? $_REQUEST['folder'] : 'INBOX';
 		$view = !empty($_REQUEST['view']) ? $_REQUEST['view'] : 'folder';
@@ -74,59 +113,81 @@ class Voicemail extends Modules{
 		$displayvars = array(
 			"showPlayback" => $this->playback,
 			"showDownload" => $this->download,
-			"showSettings" => $this->settings,
-			"showGreetings" => $this->greetings
 		);
 		$displayvars['ext'] = $ext;
 		$displayvars['folders'] = $folders;
 
 		$sf = $this->UCP->FreePBX->Media->getSupportedFormats();
 		$html = "<script>var showDownload = ".json_decode($this->download)."; var showPlayback = ".json_decode($this->playback).";var supportedRegExp = '".implode("|",array_keys($sf['in']))."';var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';var extension = '".htmlentities($ext)."'; var mailboxes = ".json_encode($this->extensions).";</script>";
-		$html .= $this->load_view(__DIR__.'/views/header.php',$displayvars);
 
 		if(!empty($this->UCP->FreePBX->Voicemail->displayMessage['message'])) {
 			$displayvars['message'] = $this->UCP->FreePBX->Voicemail->displayMessage;
 		}
-		if($view == "settings" && !$this->settings) {
-			$view = "";
-		}
-		if($view == "greetings" && !$this->greetings) {
-			$view = "";
-		}
-		switch($view) {
-			case "settings":
-				$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
-				$mainDisplay= $this->load_view(__DIR__.'/views/settings.php',$displayvars);
-				$displayvars['activeList'] = 'settings';
-			break;
-			case "greetings":
-				$displayvars['supported'] = $sf;
-				$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
-				$displayvars['greetings'] = $this->UCP->FreePBX->Voicemail->getGreetingsByExtension($ext);
-				$displayvars['short_greetings'] = $this->UCP->FreePBX->Voicemail->greetings;
 
-				$mainDisplay= $this->load_view(__DIR__.'/views/greetings.php',$displayvars);
-				$displayvars['activeList'] = 'greetings';
-			break;
-			case "folder":
-				$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
-				$final = array();
-				$c = $folders[$reqFolder]['count'];
-				$displayvars['messages'] = $final;
-				$displayvars['folder'] = $reqFolder;
-				$totalPages = (ceil($c/$this->limit) > 0) ? ceil($c/$this->limit) : 1;
-				$displayvars['pagnation'] = $this->UCP->Template->generatePagnation($totalPages,$page,"?display=dashboard&mod=voicemail&sub=".$ext."&folder=".$reqFolder."&view=folder",$this->break);
-				$mainDisplay = $this->load_view(__DIR__.'/views/mailbox.php',$displayvars);
-				$displayvars['activeList'] = $reqFolder;
-			default:
-			break;
-		}
+		$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
+		$final = array();
+		$c = $folders[$reqFolder]['count'];
+		$displayvars['messages'] = $final;
+		$displayvars['folder'] = $reqFolder;
+		$totalPages = (ceil($c/$this->limit) > 0) ? ceil($c/$this->limit) : 1;
+		$displayvars['pagnation'] = $this->UCP->Template->generatePagnation($totalPages,$page,"?display=dashboard&mod=voicemail&sub=".$ext."&folder=".$reqFolder."&view=folder",$this->break);
+		$mainDisplay = $this->load_view(__DIR__.'/views/widget.php',$displayvars);
 
-
-		$html .= $this->load_view(__DIR__.'/views/nav.php',$displayvars);
 		$html .= $mainDisplay;
-		$html .= $this->load_view(__DIR__.'/views/footer.php',$displayvars);
-		return $html;
+
+		$display = array(
+			'title' => _("Voicemail"),
+			'html' => $html
+		);
+
+		return $display;
+
+
+
+		if (!$this->_checkExtension($id)) {
+			return array();
+		}
+
+		$settings = $this->UCP->FreePBX->Voicemail->getSettingsById($id, 1);
+		$displayvars = array(
+			"extension" => $id,
+		);
+
+		$display = array(
+			'title' => _("Voicemail"),
+			'html' => $this->load_view(__DIR__.'/views/widget.php',$displayvars)
+		);
+
+		return $display;
+	}
+
+	public function getWidgetSettingsDisplay() {
+		if (!$this->settings) {
+			return null;
+		}
+
+		$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
+		$mainDisplay= $this->load_view(__DIR__.'/views/settings.php',$displayvars);
+	}
+
+	public function getWidgetActionsList() {
+	}
+
+	public function getWidgetActionDisplay() {
+		switch($action) {
+		case "greetings":
+			if (!$this->greetings) {
+				return null;
+			}
+
+			$displayvars['supported'] = $sf;
+			$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
+			$displayvars['greetings'] = $this->UCP->FreePBX->Voicemail->getGreetingsByExtension($ext);
+			$displayvars['short_greetings'] = $this->UCP->FreePBX->Voicemail->greetings;
+
+			$mainDisplay= $this->load_view(__DIR__.'/views/greetings.php',$displayvars);
+			break;
+		}
 	}
 
 	function poll() {
@@ -497,53 +558,6 @@ class Voicemail extends Modules{
 			break;
 		}
 		return false;
-	}
-
-	/**
-	 * Get the main badge
-	 * @return int	Number for the badge
-	 */
-	public function getBadge() {
-		$boxes = $this->getMailboxCount($this->extensions);
-		return $boxes['total'];
-	}
-
-	/**
-	 * Get UCP Menu Items
-	 * @return array Array of menu items
-	 */
-	public function getMenuItems() {
-		if(!$this->enabled) {
-			return array();
-		}
-		$extensions = $this->extensions;
-		$menu = array();
-		if(!empty($extensions)) {
-			$menu = array(
-				"rawname" => "voicemail",
-				"name" => _("Voicemail"),
-				"badge" => $this->getBadge()
-			);
-			$boxes = $this->getMailboxCount($this->extensions);
-			foreach($extensions as $extension) {
-				$data = $this->UCP->FreePBX->Core->getDevice($extension);
-				if(empty($data) || empty($data['description'])) {
-					$data = $this->UCP->FreePBX->Core->getUser($extension);
-					$name = $data['name'];
-				} else {
-					$name = $data['description'];
-				}
-				$o = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($extension);
-				if(!empty($o) && isset($boxes['extensions'][$extension])) {
-					$menu["menu"][] = array(
-						"rawname" => $extension,
-						"name" => $extension . " - " . $name,
-						"badge" => (int)$boxes['extensions'][$extension]
-					);
-				}
-			}
-		}
-		return !empty($menu["menu"]) ? $menu : array();
 	}
 
 	/**
