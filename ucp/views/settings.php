@@ -1,5 +1,3 @@
-<div class="col-md-10">
-	<h3><?php echo _('Voicemail Settings')?></h3>
 	<div class="vmsettings">
 		<div id="message" class="alert" style="display:none;"></div>
 		<form role="form">
@@ -64,4 +62,3 @@
 			</div>
 		</form>
 	</div>
-</div>

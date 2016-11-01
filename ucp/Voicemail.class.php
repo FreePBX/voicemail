@@ -78,6 +78,7 @@ class Voicemail extends Modules{
 				if (!empty($o) && isset($boxes['extensions'][$extension])) {
 					$widgets[$extension] = array(
 						"display" => $name,
+						"hasSettings" => true,
 						"defaultsize" => array("height" => 4, "width" => 10)
 					);
 				}
@@ -161,13 +162,19 @@ class Voicemail extends Modules{
 		return $display;
 	}
 
-	public function getWidgetSettingsDisplay() {
+	public function getWidgetSettingsDisplay($id) {
 		if (!$this->settings) {
 			return null;
 		}
 
-		$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
-		$mainDisplay= $this->load_view(__DIR__.'/views/settings.php',$displayvars);
+		$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($id);
+
+		$display = array(
+			'title' => _("Voicemail"),
+			'html' => $this->load_view(__DIR__.'/views/settings.php',$displayvars)
+		);
+
+		return $display;
 	}
 
 	public function getWidgetActionsList() {
