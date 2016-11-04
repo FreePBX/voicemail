@@ -8,6 +8,10 @@ var VoicemailC = UCPMC.extend({
 		this.soundBlobs = {};
 		this.placeholders = [];
 	},
+	resize: function() {
+		height = $("li[data-rawname='voicemail'] .widget-content").height();
+		$("#voicemail-grid").bootstrapTable('resetView',{height: height})
+	},
 	getInfo: function() {
 		return { name: _("Voicemail") };
 	},
@@ -110,6 +114,7 @@ var VoicemailC = UCPMC.extend({
 	},
 	displayWidgetSettings: function(widget_id, dashboard_id) {
 		self = this;
+
 		/* Settings changes binds */
 		$("li[data-rawname='voicemail'] .widget-settings-content input[type!='checkbox']").change(function() {
 			$(this).blur(function() {
@@ -124,8 +129,10 @@ var VoicemailC = UCPMC.extend({
 	},
 	displayWidget: function(widget_id, dashboard_id) {
 		var self = this;
+
 		self.init();
 		self.extension = extension;
+
 		//If browser doesnt support get user media requests then just hide it from the display
 		if (!Modernizr.getusermedia) {
 			$(".jp-record-wrapper").hide();
@@ -137,6 +144,7 @@ var VoicemailC = UCPMC.extend({
 		}
 
 		$('#voicemail-grid').bootstrapTable();
+
 		$("#vm-refresh").change(function() {
 			Cookies.remove('vm-refresh', {path: ''});
 			if($(this).is(":checked")) {
