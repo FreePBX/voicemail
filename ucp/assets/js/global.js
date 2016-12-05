@@ -144,6 +144,8 @@ var VoicemailC = UCPMC.extend({
 		}
 
 		$('#voicemail-grid').bootstrapTable();
+		// Trigger a resize so that we can have proper scrollbars on the table.
+		self.resize();
 
 		$("#vm-refresh").change(function() {
 			Cookies.remove('vm-refresh', {path: ''});
