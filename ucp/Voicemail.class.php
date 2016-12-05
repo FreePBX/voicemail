@@ -79,7 +79,7 @@ class Voicemail extends Modules{
 					$widgets[$extension] = array(
 						"display" => $name,
 						"hasSettings" => true,
-						"defaultsize" => array("height" => 4, "width" => 10)
+						"defaultsize" => array("height" => 4, "width" => 4)
 					);
 				}
 			}
