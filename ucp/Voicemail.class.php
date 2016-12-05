@@ -92,6 +92,7 @@ class Voicemail extends Modules{
 		return array(
 			"rawname" => "voicemail",
 			"display" => _("Voicemail"),
+			"icon" => "fa fa-inbox",
 			"list" => $widgets
 		);
 	}
