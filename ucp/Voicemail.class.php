@@ -102,7 +102,6 @@ class Voicemail extends Modules{
 		if(!empty($ext) && !$this->_checkExtension($ext)) {
 			return array();
 		}
-		$reqFolder = !empty($_REQUEST['folder']) ? $_REQUEST['folder'] : 'INBOX';
 		$view = !empty($_REQUEST['view']) ? $_REQUEST['view'] : 'folder';
 		$page = !empty($_REQUEST['page']) ? $_REQUEST['page'] : 1;
 		$folders = $this->UCP->FreePBX->Voicemail->getFolders();
@@ -128,11 +127,10 @@ class Voicemail extends Modules{
 
 		$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
 		$final = array();
+		$reqFolder = 'INBOX';
 		$c = $folders[$reqFolder]['count'];
 		$displayvars['messages'] = $final;
 		$displayvars['folder'] = $reqFolder;
-		$totalPages = (ceil($c/$this->limit) > 0) ? ceil($c/$this->limit) : 1;
-		$displayvars['pagnation'] = $this->UCP->Template->generatePagnation($totalPages,$page,"?display=dashboard&mod=voicemail&sub=".$ext."&folder=".$reqFolder."&view=folder",$this->break);
 		$mainDisplay = $this->load_view(__DIR__.'/views/widget.php',$displayvars);
 
 		$html .= $mainDisplay;
@@ -140,24 +138,6 @@ class Voicemail extends Modules{
 		$display = array(
 			'title' => _("Voicemail"),
 			'html' => $html
-		);
-
-		return $display;
-
-
-
-		if (!$this->_checkExtension($id)) {
-			return array();
-		}
-
-		$settings = $this->UCP->FreePBX->Voicemail->getSettingsById($id, 1);
-		$displayvars = array(
-			"extension" => $id,
-		);
-
-		$display = array(
-			'title' => _("Voicemail"),
-			'html' => $this->load_view(__DIR__.'/views/widget.php',$displayvars)
 		);
 
 		return $display;

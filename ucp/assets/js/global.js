@@ -9,7 +9,7 @@ var VoicemailC = UCPMC.extend({
 		this.placeholders = [];
 	},
 	resize: function() {
-		height = $("li[data-rawname='voicemail'] .widget-content").height();
+		var height = $("div[data-rawname='voicemail']").height() - $("div[data-rawname='voicemail'] .widget-title").height();
 		$("#voicemail-grid").bootstrapTable('resetView',{height: height})
 	},
 	getInfo: function() {
@@ -116,13 +116,13 @@ var VoicemailC = UCPMC.extend({
 		self = this;
 
 		/* Settings changes binds */
-		$("li[data-rawname='voicemail'] .widget-settings-content input[type!='checkbox']").change(function() {
+		$("div[data-rawname='voicemail'] .widget-settings-content input[type!='checkbox']").change(function() {
 			$(this).blur(function() {
 				self.saveVMSettings();
 				$(this).off("blur");
 			});
 		});
-		$("li[data-rawname='voicemail'] .widget-settings-content input[type='checkbox']").change(function() {
+		$("div[data-rawname='voicemail'] .widget-settings-content input[type='checkbox']").change(function() {
 			self.saveVMSettings();
 		});
 		/* end settings changes binds */
@@ -778,10 +778,10 @@ var VoicemailC = UCPMC.extend({
 	saveVMSettings: function() {
 		$("#message").fadeOut("slow");
 		var data = { ext: extension };
-		$("li[data-rawname='voicemail'] .widget-settings-content input[type!='checkbox']").each(function( index ) {
+		$("div[data-rawname='voicemail'] .widget-settings-content input[type!='checkbox']").each(function( index ) {
 			data[$( this ).attr("name")] = $( this ).val();
 		});
-		$("li[data-rawname='voicemail'] .widget-settings-content input[type='checkbox']").each(function( index ) {
+		$("div[data-rawname='voicemail'] .widget-settings-content input[type='checkbox']").each(function( index ) {
 			data[$( this ).attr("name")] = $( this ).is(":checked");
 		});
 		$.post( "?quietmode=1&module=voicemail&command=savesettings", data, function( data ) {
