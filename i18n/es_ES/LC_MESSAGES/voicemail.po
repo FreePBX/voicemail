@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-10 13:14+0200\n"
-"PO-Revision-Date: 2016-12-12 04:57+0200\n"
+"PO-Revision-Date: 2016-12-12 04:58+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/es_ES/>\n"
@@ -357,7 +357,7 @@ msgstr "Contexto de Callback"
 
 #: install.php:176
 msgid "Cannot connect to Asterisk Manager with "
-msgstr "No se pudo conectar con el gestor de Asterisk con"
+msgstr "No se pudo conectar con el gestor de Asterisk con "
 
 #: Voicemail.class.php:1640
 msgid "Character Set"
