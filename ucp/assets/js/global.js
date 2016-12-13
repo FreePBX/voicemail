@@ -9,8 +9,9 @@ var VoicemailC = UCPMC.extend({
 		this.placeholders = [];
 	},
 	resize: function() {
-		var height = $("div[data-rawname='voicemail']").height() - $("div[data-rawname='voicemail'] .widget-title").height();
-		$("#voicemail-grid").bootstrapTable('resetView',{height: height})
+		//var height = $("div[data-rawname='voicemail']").height() - $("div[data-rawname='voicemail'] .widget-title").height();
+		//$("#voicemail-grid").bootstrapTable('resetView',{height: height});
+		$("#voicemail-grid").bootstrapTable('resetView');
 	},
 	getInfo: function() {
 		return { name: _("Voicemail") };
@@ -116,15 +117,29 @@ var VoicemailC = UCPMC.extend({
 		self = this;
 
 		/* Settings changes binds */
-		$("div[data-rawname='voicemail'] .widget-settings-content input[type!='checkbox']").change(function() {
+		$("div[data-rawname='voicemail'] .widget-settings-content input[type!='checkbox']").not('#vm-refresh').change(function() {
 			$(this).blur(function() {
 				self.saveVMSettings();
 				$(this).off("blur");
 			});
 		});
-		$("div[data-rawname='voicemail'] .widget-settings-content input[type='checkbox']").change(function() {
+		$("div[data-rawname='voicemail'] .widget-settings-content input[type='checkbox']").not("#vm-refresh").change(function() {
 			self.saveVMSettings();
 		});
+
+		$("#vm-refresh").change(function() {
+			Cookies.remove('vm-refresh', {path: ''});
+			if($(this).is(":checked")) {
+				Cookies.set('vm-refresh', 1);
+			} else {
+				Cookies.set('vm-refresh', 0);
+			}
+		});
+		if(typeof Cookies.get('vm-refresh') === "undefined" || Cookies.get('vm-refresh') == 1) {
+			$("#vm-refresh").prop("checked",true);
+		} else {
+			$("#vm-refresh").prop("checked",false);
+		}
 		/* end settings changes binds */
 	},
 	displayWidget: function(widget_id, dashboard_id) {
@@ -146,20 +161,6 @@ var VoicemailC = UCPMC.extend({
 		$('#voicemail-grid').bootstrapTable();
 		// Trigger a resize so that we can have proper scrollbars on the table.
 		self.resize();
-
-		$("#vm-refresh").change(function() {
-			Cookies.remove('vm-refresh', {path: ''});
-			if($(this).is(":checked")) {
-				Cookies.set('vm-refresh', 1);
-			} else {
-				Cookies.set('vm-refresh', 0);
-			}
-		});
-		if(typeof Cookies.get('vm-refresh') === "undefined" || Cookies.get('vm-refresh') == 1) {
-			$("#vm-refresh").prop("checked",true);
-		} else {
-			$("#vm-refresh").prop("checked",false);
-		}
 
 		if($.url().param("view") == "greetings") {
 			self.bindPlayers(Modernizr.getusermedia);

@@ -1,13 +1,13 @@
 <div class="mailbox">
 	<div class="row">
-		<div class="col-md-2">
+		<div class="col-md-3">
 			<div class="folder-list">
 			<?php foreach($folders as $f) {?>
 				<div class="folder <?php echo ($f['folder'] == $folder) ? 'active' : ''?>" data-name="<?php echo $f['name']?>" data-folder="<?php echo $f['folder']?>"><a href="#" class="folder-inner"><?php echo $f['name']?> <span class="badge"><?php echo isset($f['count']) ? $f['count'] : 0?></span></a></div>
 			<?php }?>
 			</div>
 		</div>
-		<div class="col-md-10">
+		<div class="col-md-9">
 			<?php if(!empty($message)) { ?>
 				<div class="alert alert-<?php echo $message['type']?>"><?php echo $message['message']?></div>
 			<?php } ?>
@@ -24,18 +24,6 @@
 				<button id="move-selection" class="btn btn-default" disabled>
 					<i class="fa fa-arrows"></i> <span><?php echo _('Move')?></span>
 				</button>
-				<div style="display: inline-block;vertical-align: bottom;">
-					<div class="onoffswitch">
-						<input type="checkbox" class="onoffswitch-checkbox" id="vm-refresh" value="yes" <?php echo !isset($_COOKIE['vm-refresh']) || !empty($_COOKIE['vm-refresh']) ? "checked" : ""?>>
-						<label class="onoffswitch-label" for="vm-refresh">
-							<div class="onoffswitch-inner"></div>
-							<div class="onoffswitch-switch"></div>
-						</label>
-					</div>
-				</div>
-				<div style="display: inline-block;vertical-align: bottom;">
-					<label for="vm-refresh" class="help"><?php echo _('Auto-Refresh')?></label>
-				</div>
 			</div>
 			<table id="voicemail-grid"
 				data-url="index.php?quietmode=1&amp;module=voicemail&amp;command=grid&amp;folder=<?php echo htmlentities($folder)?>&amp;ext=<?php echo htmlentities($ext)?>"

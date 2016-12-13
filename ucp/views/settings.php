@@ -60,5 +60,16 @@
 				</div>
 				<span class="help-block help-hidden" data-for="vmdelete-h"><?php echo _('If set to "yes" the message will be deleted from the Voicemailbox (after having been emailed). Provides functionality that allows a user to receive their Voicemail via email alone, rather than having the Voicemail able to be retrieved from the Webinterface or the Extension handset.  CAUTION: MUST HAVE attach Voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE LOST FOREVER.')?></span>
 			</div>
+			<div class="form-group">
+				<label for="vm-refresh-h" class="help"><?php echo _('Auto-Refresh')?> <i class="fa fa-question-circle"></i></label>
+				<div class="onoffswitch">
+					<input type="checkbox" class="onoffswitch-checkbox" id="vm-refresh" value="yes" <?php echo !isset($_COOKIE['vm-refresh']) || !empty($_COOKIE['vm-refresh']) ? "checked" : ""?>>
+					<label class="onoffswitch-label" for="vm-refresh">
+						<div class="onoffswitch-inner"></div>
+						<div class="onoffswitch-switch"></div>
+					</label>
+				</div>
+				<span class="help-block help-hidden" data-for="vm-refresh-h"><?php echo _('If set to "yes" the Voicemail Pane will refresh automatically when new voicemails are retrieved')?></span>
+			</div>
 		</form>
 	</div>
