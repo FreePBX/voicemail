@@ -148,7 +148,26 @@ class Voicemail extends Modules{
 			return null;
 		}
 
+
+		$tabcontent = array();
+
+		$displayvars = array();
 		$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($id);
+		$tabcontent[] = $this->load_view(__DIR__.'/views/vmsettings.php',$displayvars);
+
+		if ($this->greetings) {
+			$displayvars = array();
+			$sf = $this->UCP->FreePBX->Media->getSupportedFormats();
+			$displayvars['supported'] = $sf;
+			$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
+			$displayvars['greetings'] = $this->UCP->FreePBX->Voicemail->getGreetingsByExtension($ext);
+			$displayvars['short_greetings'] = $this->UCP->FreePBX->Voicemail->greetings;
+		}
+
+		$tabcontent[] = $this->load_view(__DIR__.'/views/greetings.php',$displayvars);
+
+		$displayvars = array();
+		$displayvars['tabcontent'] = $tabcontent;
 
 		$display = array(
 			'title' => _("Voicemail"),

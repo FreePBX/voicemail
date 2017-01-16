@@ -8,77 +8,8 @@ var VoicemailC = UCPMC.extend({
 		this.soundBlobs = {};
 		this.placeholders = [];
 	},
-	resize: function() {
-		//var height = $("div[data-rawname='voicemail']").height() - $("div[data-rawname='voicemail'] .widget-title").height();
-		//$("#voicemail-grid").bootstrapTable('resetView',{height: height});
-		$("#voicemail-grid").bootstrapTable('resetView');
-	},
-	getInfo: function() {
-		return { name: _("Voicemail") };
-	},
-	settingsDisplay: function() {
-		var self = this;
-		$("#ddial, #vmx-p1_enable, #vmx-state").change(function() {
-			self.findmeFollowState();
-		});
-		this.findmeFollowState();
-		$("#module-Voicemail form .input-group").each(function( index ) {
-			$(this).find("input[type=\"text\"]").prop("disabled", !$(this).find("input[type=\"checkbox\"]").is(":checked"));
-		});
-		$("#module-Voicemail input[type=\"text\"]").change(function() {
-			$(this).blur(function() {
-				self.saveVmXSettings($(this).prop("name"), $(this).val());
-				$(this).off("blur");
-			});
-		});
-		$("#module-Voicemail #vmx-state").change(function() {
-			self.saveVmXSettings("vmx-state", $(this).is(":checked"));
-		});
-		$("#module-Voicemail .input-group input[type=\"checkbox\"]").change(function() {
-			var el = $(this).data("el");
-			if (!$(this).is(":checked")) {
-				$("#" + el).prop("disabled", true);
-				$("#" + el).prop("placeholder", $("#" + el).data("ph"));
-				if ($("#" + el).val() !== "") {
-					$("#" + el).val("");
-					self.saveVmXSettings($("#" + el).prop("name"), "");
-				}
-			} else {
-				$("#" + el).prop("placeholder", "");
-				$("#" + el).prop("disabled", false);
-			}
-		});
-
-		$("#module-Voicemail .dests input[type=\"checkbox\"]").change(function() {
-			self.saveVmXSettings($(this).prop("name"), $(this).is(":checked"));
-		});
-	},
-	settingsHide: function() {
-		$("#module-Voicemail input[type=\"text\"], #module-Findmefollow textarea").off("change");
-		$("#module-Voicemail input[type=\"checkbox\"]").off("change");
-		$("#ddial, #vmx-p1_enable, #vmx-state").off("change");
-	},
-	findmeFollowState: function() {
-		if (!$("#vmx-p1_enable").is(":checked") && $("#ddial").is(":checked") && $("#vmx-state").is(":checked")) {
-			$("#vmxerror").text(_("Find me Follow me is enabled when VmX locator option 1 is disabled. This means VmX Locator will be skipped, instead going directly to Find Me/Follow Me")).addClass("alert-danger").fadeIn("fast");
-		} else {
-			$("#vmxerror").fadeOut("fast");
-		}
-	},
-	saveVmXSettings: function(key, value) {
-		var data = { ext: ext, settings: { key: key, value: value } };
-		$.post( "index.php?quietmode=1&module=voicemail&command=vmxsettings", data, function( data ) {
-			if (data.status) {
-				$("#vmxmessage").text(data.message).addClass("alert-" + data.alert).fadeIn("fast", function() {
-					$(this).delay(5000).fadeOut("fast", function() {
-						$(".masonry-container").packery();
-					});
-				});
-				$(".masonry-container").packery();
-			} else {
-				return false;
-			}
-		});
+	resize: function(widget_id) {
+		$(".grid-stack-item[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('resetView',{height: $(".grid-stack-item[data-id='"+widget_id+"'] .widget-content").height()});
 	},
 	poll: function(data) {
 		if (typeof this.extension == "undefined") {
@@ -108,7 +39,7 @@ var VoicemailC = UCPMC.extend({
 				}
 				this.refreshFolderCount();
 				if(typeof Cookies.get('vm-refresh') === "undefined" || Cookies.get('vm-refresh') == 1) {
-					$('#voicemail-grid').bootstrapTable('refresh',{silent: true});
+					$('.voicemail-grid').bootstrapTable('refresh',{silent: true});
 				}
 			}
 		}
@@ -158,7 +89,7 @@ var VoicemailC = UCPMC.extend({
 			$(".record-greeting-btn").show();
 		}
 
-		$('#voicemail-grid').bootstrapTable();
+		$('.voicemail-grid').bootstrapTable();
 		// Trigger a resize so that we can have proper scrollbars on the table.
 		self.resize();
 
@@ -166,9 +97,9 @@ var VoicemailC = UCPMC.extend({
 			self.bindPlayers(Modernizr.getusermedia);
 		}
 
-		$('#voicemail-grid').on("post-body.bs.table", function () {
+		$('.voicemail-grid').on("post-body.bs.table", function () {
 			self.bindPlayers();
-			$("#voicemail-grid a.listen").click(function() {
+			$(".voicemail-grid a.listen").click(function() {
 				var id = $(this).data("id"), select = null;
 				$.each(mailboxes, function(i,v) {
 					select = select + "<option value='"+v+"'>"+v+"</option>";
@@ -191,13 +122,13 @@ var VoicemailC = UCPMC.extend({
 					}
 				);
 			});
-			$("#voicemail-grid .clickable").click(function(e) {
+			$(".voicemail-grid .clickable").click(function(e) {
 				var text = $(this).text();
 				if (UCP.validMethod("Contactmanager", "showActionDialog")) {
 					UCP.Modules.Contactmanager.showActionDialog("number", text, "phone");
 				}
 			});
-			$("#voicemail-grid a.forward").click(function() {
+			$(".voicemail-grid a.forward").click(function() {
 				var id = $(this).data("id");
 				UCP.showDialog(_("Forward Voicemail"),
 					_("To")+":</label><select class=\"form-control Fill\" id=\"VMto\"></select><button class=\"btn btn-default\" id=\"forwardVM\" style=\"margin-left: 72px;\">" + _("Forward") + "</button>",
@@ -236,18 +167,18 @@ var VoicemailC = UCPMC.extend({
 					}
 				);
 			});
-			$("#voicemail-grid a.delete").click(function() {
+			$(".voicemail-grid a.delete").click(function() {
 				var id = $(this).data("id");
 				if (confirm(_("Are you sure you wish to delete this voicemail?"))) {
 					self.deleteVoicemail(id, function(data) {
 						if(data.status) {
-							$('#voicemail-grid').bootstrapTable('remove', {field: "msg_id", values: [String(id)]});
+							$('.voicemail-grid').bootstrapTable('remove', {field: "msg_id", values: [String(id)]});
 						}
 					});
 				}
 			});
 		});
-		$('#voicemail-grid').on("check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table", function () {
+		$('.voicemail-grid').on("check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table", function () {
 			var sel = $(this).bootstrapTable('getAllSelections'),
 					dis = true;
 			if(sel.length) {
@@ -262,11 +193,11 @@ var VoicemailC = UCPMC.extend({
 			$(".folder").removeClass("active");
 			$(this).addClass("active");
 			folder = $(this).data("folder");
-			$('#voicemail-grid').bootstrapTable('refresh', {url: 'index.php?quietmode=1&module=voicemail&command=grid&folder='+folder+'&ext='+extension});
+			$('.voicemail-grid').bootstrapTable('refresh', {url: 'index.php?quietmode=1&module=voicemail&command=grid&folder='+folder+'&ext='+extension});
 		});
 
 		$("#move-selection").click(function() {
-			var opts = '', cur = (typeof $.url().param("folder") !== "undefined") ? $.url().param("folder") : "INBOX", sel = $('#voicemail-grid').bootstrapTable('getAllSelections');
+			var opts = '', cur = (typeof $.url().param("folder") !== "undefined") ? $.url().param("folder") : "INBOX", sel = $('.voicemail-grid').bootstrapTable('getAllSelections');
 			$.each($(".folder-list .folder"), function(i, v){
 				var folder = $(v).data("folder");
 				if(folder != cur) {
@@ -283,7 +214,7 @@ var VoicemailC = UCPMC.extend({
 						$.each(sel, function(i, v){
 							self.moveVoicemail(v.msg_id, $("#VMmove").val(), extension, function(data) {
 								if(data.status) {
-									$('#voicemail-grid').bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
+									$('.voicemail-grid').bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
 								}
 								processed++;
 								if(processed == total) {
@@ -297,7 +228,7 @@ var VoicemailC = UCPMC.extend({
 							$.each(sel, function(i, v){
 								self.moveVoicemail(v.msg_id, $("#VMmove").val(), extension, function(data) {
 									if(data.status) {
-										$('#voicemail-grid').bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
+										$('.voicemail-grid').bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
 									}
 									processed++;
 									if(processed == total) {
@@ -312,20 +243,20 @@ var VoicemailC = UCPMC.extend({
 		});
 		$("#delete-selection").click(function() {
 			if (confirm(_("Are you sure you wish to delete these voicemails?"))) {
-				var sel = $('#voicemail-grid').bootstrapTable('getAllSelections');
+				var sel = $('.voicemail-grid').bootstrapTable('getAllSelections');
 				$.each(sel, function(i, v){
 					self.deleteVoicemail(v.msg_id, function(data) {
 						if(data.status) {
-							$('#voicemail-grid').bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
+							$('.voicemail-grid').bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
 						}
 					});
 				});
-				//$('#voicemail-grid').bootstrapTable('refresh');
+				//$('.voicemail-grid').bootstrapTable('refresh');
 				$("#delete-selection").prop("disabled",true);
 			}
 		});
 		$("#forward-selection").click(function() {
-			var sel = $('#voicemail-grid').bootstrapTable('getAllSelections');
+			var sel = $('.voicemail-grid').bootstrapTable('getAllSelections');
 			UCP.showDialog(_("Forward Voicemail"),
 				_("To")+":</label><select class=\"form-control Fill\" id=\"VMto\"></select><button class=\"btn btn-default\" id=\"forwardVM\" style=\"margin-left: 72px;\">" + _("Forward") + "</button>",
 				145,
@@ -343,7 +274,7 @@ var VoicemailC = UCPMC.extend({
 								self.forwardVoicemail(v.msg_id,recpt, function(data) {
 									if(data.status) {
 										alert(sprintf(_("Successfully forwarded voicemail to %s"),recpt));
-										$('#voicemail-grid').bootstrapTable('uncheckAll');
+										$('.voicemail-grid').bootstrapTable('uncheckAll');
 										UCP.closeDialog();
 									}
 								});
@@ -358,7 +289,7 @@ var VoicemailC = UCPMC.extend({
 									self.forwardVoicemail(v.msg_id,recpt, function(data) {
 										if(data.status) {
 											alert(sprintf(_("Successfully forwarded voicemail to %s"),recpt));
-											$('#voicemail-grid').bootstrapTable('uncheckAll');
+											$('.voicemail-grid').bootstrapTable('uncheckAll');
 											UCP.closeDialog();
 										}
 									});
@@ -369,7 +300,7 @@ var VoicemailC = UCPMC.extend({
 				}
 			);
 			$("#forward-selection").prop("disabled",true);
-			$('#voicemail-grid').bootstrapTable('uncheckAll');
+			$('.voicemail-grid').bootstrapTable('uncheckAll');
 		});
 
 
@@ -411,7 +342,7 @@ var VoicemailC = UCPMC.extend({
 				$.post( "index.php?quietmode=1&module=voicemail&command=moveToFolder", data, function( data ) {
 					if (data.status) {
 						$(this).removeClass("hover");
-						var dragSrc = $(".message-list #voicemail-grid[data-msg=\"" + msg + "\"]"),
+						var dragSrc = $(".message-list .voicemail-grid[data-msg=\"" + msg + "\"]"),
 						badge = null;
 						dragSrc.remove();
 						$(".vm-temp").remove();
@@ -697,8 +628,8 @@ var VoicemailC = UCPMC.extend({
 		/* END GREETING PLAYER BINDS */
 	},
 	hide: function(event) {
-		$("#voicemail-grid a.play").off("click");
-		$("#voicemail-grid a.delete").off("click");
+		$(".voicemail-grid a.play").off("click");
+		$(".voicemail-grid a.delete").off("click");
 	},
 	//Delete a voicemail greeting
 	deleteGreeting: function(type) {

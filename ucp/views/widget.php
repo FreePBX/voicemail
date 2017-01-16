@@ -25,7 +25,7 @@
 					<i class="fa fa-arrows"></i> <span><?php echo _('Move')?></span>
 				</button>
 			</div>
-			<table id="voicemail-grid"
+			<table class="voicemail-grid"
 				data-url="index.php?quietmode=1&amp;module=voicemail&amp;command=grid&amp;folder=<?php echo htmlentities($folder)?>&amp;ext=<?php echo htmlentities($ext)?>"
 				data-cache="false"
 				data-toolbar="#voicemail-toolbar"

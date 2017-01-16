@@ -1,11 +1,9 @@
-<div class="col-md-10">
+<div class="tab-pane fade" id="greetings">
 	<div class="supported-formats"><?php echo sprintf(_("Supported Formats: %s"),implode(", ",$supported['in']))?></div>
 	<?php $count = 1;?>
 	<?php foreach($short_greetings as $greeting => $name) {?>
-		<?php if($count % 2) {?>
-			<div class="row">
-		<?php } ?>
-			<div class="col-md-6">
+		<div class="row">
+			<div class="col-md-12">
 				<div id="<?php echo $greeting?>" class="greeting-control">
 					<h4><?php echo _($name)?></h4>
 					<div id="freepbx_player_<?php echo $greeting?>" data-id="<?php echo $greeting?>" data-container="#jp_container_<?php echo $greeting?>" class="jp-jplayer"></div>
@@ -56,9 +54,7 @@
 					</div>
 				</div>
 			</div>
-		<?php if(!($count % 2)) {?>
-			</div>
-		<?php } ?>
+		</div>
 		<?php $count++?>
 	<?php } ?>
 </div>
