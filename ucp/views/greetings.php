@@ -39,14 +39,18 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="file-controls">
-						<span class="btn btn-file btn-success btn-xs"><i class="fa fa-cloud-upload"></i> <?php echo _('Upload Greeting')?><input type="file" type="file" name="files[]" multiple /></span>
+						<span class="btn btn-file btn-success btn-xs">
+							<i class="fa fa-cloud-upload"></i> <?php echo _('Upload Greeting')?>
+							<input type="file" type="file" name="files[]" multiple />
+						</span>
 						<button class="btn btn-danger btn-xs delete <?php echo !isset($greetings[$greeting]) ? 'greet-hidden' : ''?>" data-id="<?php echo $greeting?>"><i class="fa fa-trash-o fa-lg"></i><?php echo _('Delete')?></button>
 						<button class="btn btn-danger record-greeting-btn btn-xs record" data-id="<?php echo $greeting?>"><i class="fa fa-circle"></i><?php echo _("Record Greeting")?></button>
 					</div>
 					<div class="recording-controls">
-						<button class="btn btn-success btn-xs save" data-id="<?php echo $greeting?>"><i class="fa fa-floppy-o"></i> <?php echo _('Save Greeting')?></button>
-						<button class="btn btn-danger btn-xs delete" data-id="<?php echo $greeting?>"><i class="fa fa-trash-o fa-lg"></i> <?php echo _('Discard Greeting')?></button>
+						<button class="btn btn-success btn-xs save" data-id="<?php echo $greeting?>"><i class="fa fa-floppy-o"></i> <?php echo _('Save Recording')?></button>
+						<button class="btn btn-danger btn-xs delete" data-id="<?php echo $greeting?>"><i class="fa fa-trash-o fa-lg"></i> <?php echo _('Discard Recording')?></button>
 					</div>
 					<div data-type="<?php echo $greeting?>" class="filedrop hidden-xs hidden-sm">
 						<div class="message" data-message="<?php echo _('Upload a New Greeting or Drag an Old Greeting Here')?>"><?php echo _('Upload a New Greeting or Drag an Old Greeting Here')?></div>

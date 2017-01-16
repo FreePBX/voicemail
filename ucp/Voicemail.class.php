@@ -144,10 +144,11 @@ class Voicemail extends Modules{
 	}
 
 	public function getWidgetSettingsDisplay($id) {
+		$ext = !empty($id) ? $id : '';
+
 		if (!$this->settings) {
 			return null;
 		}
-
 
 		$tabcontent = array();
 
@@ -159,8 +160,8 @@ class Voicemail extends Modules{
 			$displayvars = array();
 			$sf = $this->UCP->FreePBX->Media->getSupportedFormats();
 			$displayvars['supported'] = $sf;
-			$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
-			$displayvars['greetings'] = $this->UCP->FreePBX->Voicemail->getGreetingsByExtension($ext);
+			$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($id);
+			$displayvars['greetings'] = $this->UCP->FreePBX->Voicemail->getGreetingsByExtension($id);
 			$displayvars['short_greetings'] = $this->UCP->FreePBX->Voicemail->greetings;
 		}
 
@@ -175,26 +176,6 @@ class Voicemail extends Modules{
 		);
 
 		return $display;
-	}
-
-	public function getWidgetActionsList() {
-	}
-
-	public function getWidgetActionDisplay() {
-		switch($action) {
-		case "greetings":
-			if (!$this->greetings) {
-				return null;
-			}
-
-			$displayvars['supported'] = $sf;
-			$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
-			$displayvars['greetings'] = $this->UCP->FreePBX->Voicemail->getGreetingsByExtension($ext);
-			$displayvars['short_greetings'] = $this->UCP->FreePBX->Voicemail->greetings;
-
-			$mainDisplay= $this->load_view(__DIR__.'/views/greetings.php',$displayvars);
-			break;
-		}
 	}
 
 	function poll() {
