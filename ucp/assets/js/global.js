@@ -354,9 +354,8 @@ var VoicemailC = UCPMC.extend({
 					select = select + "<option value='"+v+"'>"+v+"</option>";
 				});
 				UCP.showDialog(_("Listen to Voicemail"),
-					_("On") + ":</label><select class=\"form-control\" id=\"VMto\">"+select+"</select><button class=\"btn btn-default\" id=\"listenVM\" style=\"margin-left: 72px;\">" + _("Listen") + "</button>",
-					145,
-					250,
+					_("On") + ":<select class=\"form-control\" id=\"VMto\">"+select+"</select>",
+					"<button class=\"btn btn-default\" id=\"listenVM\" style=\"margin-left: 72px;\">" + _("Listen") + "</button>",
 					function() {
 						$("#listenVM").click(function() {
 							var recpt = $("#VMto").val();
@@ -376,45 +375,6 @@ var VoicemailC = UCPMC.extend({
 				if (UCP.validMethod("Contactmanager", "showActionDialog")) {
 					UCP.Modules.Contactmanager.showActionDialog("number", text, "phone");
 				}
-			});
-			$(".voicemail-grid a.forward").click(function() {
-				var id = $(this).data("id");
-				UCP.showDialog(_("Forward Voicemail"),
-					_("To")+":</label><select class=\"form-control Fill\" id=\"VMto\"></select><button class=\"btn btn-default\" id=\"forwardVM\" style=\"margin-left: 72px;\">" + _("Forward") + "</button>",
-					145,
-					250,
-					function() {
-						$("#VMto").tokenize({
-							newElements: false,
-							maxElements: 1,
-							datas: "index.php?quietmode=1&module=voicemail&command=forwards&ext="+extension
-						});
-						$("#forwardVM").click(function() {
-							setTimeout(function() {
-								var recpt = $("#VMto").val()[0];
-								self.forwardVoicemail(id,recpt, function(data) {
-									if(data.status) {
-										alert(sprintf(_("Successfully forwarded voicemail to %s"),recpt));
-										UCP.closeDialog();
-									}
-								});
-							}, 50);
-						});
-						$("#VMto").keypress(function(event) {
-							if (event.keyCode == 13) {
-								setTimeout(function() {
-									var recpt = $("#VMto").val()[0];
-									self.forwardVoicemail(id,recpt, function(data) {
-										if(data.status) {
-											alert(sprintf(_("Successfully forwarded voicemail to %s"),recpt));
-											UCP.closeDialog();
-										}
-									});
-								}, 50);
-							}
-						});
-					}
-				);
 			});
 			$(".voicemail-grid a.delete").click(function() {
 				var id = $(this).data("id");
@@ -454,9 +414,8 @@ var VoicemailC = UCPMC.extend({
 				}
 			});
 			UCP.showDialog(_("Move Voicemail"),
-				_("To")+":</label><select class=\"form-control\" id=\"VMmove\">"+opts+"</select><button class=\"btn btn-default\" id=\"moveVM\" style=\"margin-left: 72px;\">" + _("Move") + "</button>",
-				145,
-				250,
+				_("To")+":<select class=\"form-control\" id=\"VMmove\">"+opts+"</select>",
+				"<button class=\"btn btn-default\" id=\"moveVM\" style=\"margin-left: 72px;\">" + _("Move") + "</button>",
 				function() {
 					var total = sel.length, processed = 0;
 					$("#moveVM").click(function() {
@@ -507,11 +466,11 @@ var VoicemailC = UCPMC.extend({
 		$("#forward-selection").click(function() {
 			var sel = $('.voicemail-grid').bootstrapTable('getAllSelections');
 			UCP.showDialog(_("Forward Voicemail"),
-				_("To")+":</label><select class=\"form-control Fill\" id=\"VMto\"></select><button class=\"btn btn-default\" id=\"forwardVM\" style=\"margin-left: 72px;\">" + _("Forward") + "</button>",
-				145,
-				250,
+				_("To")+":<select class=\"form-control Fill\" id=\"VMto\"></select>",
+				"<button class=\"btn btn-default\" id=\"forwardVM\" style=\"margin-left: 72px;\">" + _("Forward") + "</button>",
 				function() {
 					$("#VMto").tokenize({
+						autosize: true,
 						newElements: false,
 						maxElements: 1,
 						datas: "index.php?quietmode=1&module=voicemail&command=forwards&ext="+extension
@@ -853,8 +812,7 @@ var VoicemailC = UCPMC.extend({
 		return sprintf(_("%s seconds"),value);
 	},
 	controlFormatter: function (value, row, index) {
-		var html = '<a class="listen" alt="'+_('Listen on your handset')+'" data-id="'+row.msg_id+'"><i class="fa fa-phone"></i></a>'+
-						'<a class="forward" alt="'+_('Forward')+'" data-id="'+row.msg_id+'"><i class="fa fa-share"></i></a>';
+		var html = '<a class="listen" alt="'+_('Listen on your handset')+'" data-id="'+row.msg_id+'"><i class="fa fa-phone"></i></a>';
 
 		if(showDownload === 1) {
 			html += '<a class="download" alt="'+_('Download')+'" href="?quietmode=1&amp;module=voicemail&amp;command=download&amp;msgid='+row.msg_id+'&amp;ext='+extension+'"><i class="fa fa-cloud-download"></i></a>';
