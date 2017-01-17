@@ -338,9 +338,11 @@ var VoicemailC = UCPMC.extend({
 		self.init();
 		self.extension = extension;
 
-		$('.voicemail-grid').bootstrapTable();
-		// Trigger a resize so that we can have proper scrollbars on the table.
-		self.resize();
+		$(".grid-stack-item[data-id='"+widget_id+"'] .voicemail-grid").one("post-body.bs.table", function() {
+			setTimeout(function() {
+				self.resize(widget_id);
+			},250);
+		});
 
 		if($.url().param("view") == "greetings") {
 			self.bindPlayers(Modernizr.getusermedia);
