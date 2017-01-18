@@ -537,7 +537,7 @@ var VoicemailC = UCPMC.extend({
 	},
 	//Delete a voicemail greeting
 	deleteGreeting: function(type) {
-		var self = this, data = { msg: type, ext: extension };
+		var self = this, data = { msg: type, ext: self.extension };
 		$.post( "index.php?quietmode=1&module=voicemail&command=delete", data, function( data ) {
 			if (data.status) {
 				$("#freepbx_player_" + type).jPlayer( "clearMedia" );
@@ -549,7 +549,7 @@ var VoicemailC = UCPMC.extend({
 	},
 	refreshFolderCount: function() {
 		var data = {
-			ext: extension
+			ext: self.extension
 		};
 		$.post( "index.php?quietmode=1&module=voicemail&command=refreshfoldercount", data, function( data ) {
 			if(data.status) {
@@ -578,7 +578,7 @@ var VoicemailC = UCPMC.extend({
 			id: msgid,
 			to: recpt
 		};
-		$.post( "index.php?quietmode=1&module=voicemail&command=forward&ext="+extension, data, function(data) {
+		$.post( "index.php?quietmode=1&module=voicemail&command=forward&ext="+self.extension, data, function(data) {
 			if(typeof callback === "function") {
 				callback(data);
 			}
@@ -588,7 +588,7 @@ var VoicemailC = UCPMC.extend({
 	deleteVoicemail: function(msgid, callback) {
 		var data = {
 			msg: msgid,
-			ext: extension
+			ext: self.extension
 		},
 		self = this;
 
@@ -613,7 +613,7 @@ var VoicemailC = UCPMC.extend({
 	//Save Voicemail Settings
 	saveVMSettings: function() {
 		$("#message").fadeOut("slow");
-		var data = { ext: extension };
+		var data = { ext: self.extension };
 		$("div[data-rawname='voicemail'] .widget-settings-content input[type!='checkbox']").each(function( index ) {
 			data[$( this ).attr("name")] = $( this ).val();
 		});
@@ -705,7 +705,7 @@ var VoicemailC = UCPMC.extend({
 			data.append("file", self.soundBlobs[type]);
 			$.ajax({
 				type: "POST",
-				url: "index.php?quietmode=1&module=voicemail&command=record&type=" + type + "&ext=" + extension,
+				url: "index.php?quietmode=1&module=voicemail&command=record&type=" + type + "&ext=" + self.extension,
 				xhr: function()
 				{
 					var xhr = new window.XMLHttpRequest();
@@ -772,7 +772,7 @@ var VoicemailC = UCPMC.extend({
 			id: msgid,
 			to: recpt
 		};
-		$.post( "index.php?quietmode=1&module=voicemail&command=callme&ext="+extension, data, function( data ) {
+		$.post( "index.php?quietmode=1&module=voicemail&command=callme&ext="+self.extension, data, function( data ) {
 			UCP.closeDialog();
 		});
 	},
@@ -817,7 +817,7 @@ var VoicemailC = UCPMC.extend({
 		var html = '<a class="listen" alt="'+_('Listen on your handset')+'" data-id="'+row.msg_id+'"><i class="fa fa-phone"></i></a>';
 
 		if(showDownload === 1) {
-			html += '<a class="download" alt="'+_('Download')+'" href="?quietmode=1&amp;module=voicemail&amp;command=download&amp;msgid='+row.msg_id+'&amp;ext='+extension+'"><i class="fa fa-cloud-download"></i></a>';
+			html += '<a class="download" alt="'+_('Download')+'" href="?quietmode=1&amp;module=voicemail&amp;command=download&amp;msgid='+row.msg_id+'&amp;ext='+self.extension+'"><i class="fa fa-cloud-download"></i></a>';
 		}
 
 		html += '<a class="delete" alt="'+_('Delete')+'" data-id="'+row.msg_id+'"><i class="fa fa-trash-o"></i></a>';
@@ -850,7 +850,7 @@ var VoicemailC = UCPMC.extend({
 							$.ajax({
 								type: 'POST',
 								url: "index.php?quietmode=1",
-								data: {module: "voicemail", command: "gethtml5", msg_id: msg_id, ext: extension},
+								data: {module: "voicemail", command: "gethtml5", msg_id: msg_id, ext: self.extension},
 								dataType: 'json',
 								timeout: 30000,
 								success: function(data) {
@@ -872,7 +872,6 @@ var VoicemailC = UCPMC.extend({
 							});
 						}
 					});
-					var self = this;
 					$(container).find(".jp-restart").click(function() {
 						if($(self).data("jPlayer").status.paused) {
 							$(self).jPlayer("pause",0);
