@@ -87,7 +87,7 @@
 		<version>13.0.111</version>
 	</depends>
 	<supported>
-		<version>13.0</version>
+		<version>14.0</version>
 	</supported>
 	<hooks>
 		<core class="Core" namespace="FreePBX\modules">
