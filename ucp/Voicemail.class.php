@@ -79,7 +79,7 @@ class Voicemail extends Modules{
 					$widgets[$extension] = array(
 						"display" => $name,
 						"hasSettings" => true,
-						"defaultsize" => array("height" => 4, "width" => 4)
+						"defaultsize" => array("height" => 5, "width" => 6)
 					);
 				}
 			}
@@ -107,8 +107,10 @@ class Voicemail extends Modules{
 		$folders = $this->UCP->FreePBX->Voicemail->getFolders();
 		$messages = array();
 
+		$total = 0;
 		foreach($folders as $folder) {
 			$folders[$folder['folder']]['count'] = $this->UCP->FreePBX->Voicemail->getMessagesCountByExtensionFolder($ext,$folder['folder']);
+			$total = $total + $folders[$folder['folder']]['count'];
 		}
 
 		$displayvars = array(
@@ -126,11 +128,11 @@ class Voicemail extends Modules{
 		}
 
 		$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
-		$final = array();
 		$reqFolder = 'INBOX';
 		$c = $folders[$reqFolder]['count'];
-		$displayvars['messages'] = $final;
 		$displayvars['folder'] = $reqFolder;
+		$displayvars['total'] = $total;
+		$displayvars['extension'] = $ext;
 		$mainDisplay = $this->load_view(__DIR__.'/views/widget.php',$displayvars);
 
 		$html .= $mainDisplay;
