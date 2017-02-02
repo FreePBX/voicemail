@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.53.1</version>
+	<version>14.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*14.0.1* UCP 14
 		*13.0.53.1* FREEPBX-13026 Fix default logic on radiosets
 		*13.0.53* FREEPBX-8555 Support passwordless voicemail retrieval in device/user mode
 		*13.0.52* If no extensions are assigned in UCP then disable it, also help FREEPBX-12847
