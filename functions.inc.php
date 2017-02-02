@@ -227,7 +227,8 @@ function voicemail_dialvoicemail($c) {
 	$ext->add($id, $c, 'start', new ext_wait('1'));
 	$ext->add($id, $c, '', new ext_noop($id.': Asking for mailbox'));
 	$ext->add($id, $c, '', new ext_read('MAILBOX', 'vm-login', '', '', 3, 2));
-	$ext->add($id, $c, 'check', new ext_noop($id.': Got Mailbox ${MAILBOX}'));
+	$ext->add($id, $c, 'check', new ext_gotoif('$["${MAILBOX}" = ""]', 'hangup'));
+	$ext->add($id, $c, '', new ext_noop($id.': Got Mailbox ${MAILBOX}'));
 	$ext->add($id, $c, '', new ext_macro('get-vmcontext','${MAILBOX}'));
 	$ext->add($id, $c, '', new ext_vmexists('${MAILBOX}@${VMCONTEXT}'));
 	$ext->add($id, $c, '', new ext_gotoif('$["${VMBOXEXISTSSTATUS}" = "SUCCESS"]', 'good', 'bad'));
@@ -244,7 +245,9 @@ function voicemail_dialvoicemail($c) {
 	$ext->add($id, $c, '', new ext_noop($id.': Asking for mailbox again'));
 	$ext->add($id, $c, '', new ext_read('MAILBOX', 'vm-incorrect-mailbox', '', '', 3, 2));
 	$ext->add($id, $c, '', new ext_goto('check'));
- 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	$ext->add($id, $c, 'hangup', new ext_playback('vm-incorrect&vm-goodbye'));
+	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 	$ext->add($id, $c, 'playret', new ext_playback('beep&you-will-be-transfered-menu&silence/1'));
 	$ext->add($id, $c, '', new ext_goto('1','return','${IVR_CONTEXT}'));
 
