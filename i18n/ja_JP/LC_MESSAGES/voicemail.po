@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 18:58-0800\n"
+"POT-Creation-Date: 2017-02-16 18:07-0800\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -292,11 +292,11 @@ msgstr ""
 msgid "Allowed Voicemail"
 msgstr "ボイスメールを許可"
 
-#: ucp/assets/js/global.js:267
+#: ucp/assets/js/global.js:260
 msgid "Are you sure you wish to delete these voicemails?"
 msgstr ""
 
-#: ucp/assets/js/global.js:194
+#: ucp/assets/js/global.js:186
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr "このボイスメールを削除しますか？"
 
@@ -437,7 +437,7 @@ msgstr "コントロール"
 msgid "Controls whether to attach the voicemail to the email"
 msgstr ""
 
-#: ucp/assets/js/global.js:448
+#: ucp/assets/js/global.js:441
 msgid "Copying..."
 msgstr "コピー中..."
 
@@ -641,7 +641,7 @@ msgstr "ダイレクトダイヤルモード"
 msgid "Direct Dial Prefix"
 msgstr "ダイレクトダイヤルプレフィックス"
 
-#: ucp/assets/js/global.js:757
+#: ucp/assets/js/global.js:750
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr "ご利用のブラウザはダイレクトメディアレコーディングを対応していません。"
 
@@ -689,7 +689,7 @@ msgstr ""
 msgid "Disk space currently in use by Voicemail data"
 msgstr "現在ボイスメールデータで使用中のディスクスペース"
 
-#: ucp/assets/js/global.js:441
+#: ucp/assets/js/global.js:434
 msgid "Dragging to yourself is not allowed"
 msgstr "自分にはドラッグできません"
 
@@ -944,7 +944,7 @@ msgstr ""
 msgid "File Format"
 msgstr ""
 
-#: ucp/Voicemail.class.php:286
+#: ucp/Voicemail.class.php:287
 msgid "File does not exist"
 msgstr ""
 
@@ -983,7 +983,7 @@ msgstr ""
 msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 
-#: ucp/Voicemail.class.php:561
+#: ucp/Voicemail.class.php:562
 msgid "Forbidden"
 msgstr "アクセス拒否"
 
@@ -1032,12 +1032,12 @@ msgid ""
 "Voicemail, only the first format specified will be used."
 msgstr ""
 
-#: ucp/views/widget.php:22 ucp/assets/js/global.js:156
-#: ucp/assets/js/global.js:283
+#: ucp/views/widget.php:22 ucp/assets/js/global.js:159
+#: ucp/assets/js/global.js:276
 msgid "Forward"
 msgstr ""
 
-#: ucp/assets/js/global.js:155 ucp/assets/js/global.js:282
+#: ucp/assets/js/global.js:157 ucp/assets/js/global.js:275
 msgid "Forward Voicemail"
 msgstr ""
 
@@ -1360,7 +1360,7 @@ msgstr "不正な操作"
 msgid "Invalid Password"
 msgstr ""
 
-#: ucp/Voicemail.class.php:318 ucp/Voicemail.class.php:349
+#: ucp/Voicemail.class.php:319 ucp/Voicemail.class.php:350
 msgid "Invalid Recipient"
 msgstr ""
 
@@ -1387,7 +1387,7 @@ msgstr ""
 msgid "Limits"
 msgstr ""
 
-#: ucp/assets/js/global.js:130
+#: ucp/assets/js/global.js:131
 msgid "Listen"
 msgstr ""
 
@@ -1526,7 +1526,7 @@ msgstr "\"時\"と発音する00がつく分"
 msgid "Month name (January, February, ...)"
 msgstr "月の名前(一月、二月、...)"
 
-#: ucp/views/widget.php:25 ucp/assets/js/global.js:230
+#: ucp/views/widget.php:25 ucp/assets/js/global.js:225
 msgid "Move"
 msgstr ""
 
@@ -1534,7 +1534,7 @@ msgstr ""
 msgid "Move Heard"
 msgstr ""
 
-#: ucp/assets/js/global.js:229
+#: ucp/assets/js/global.js:223
 msgid "Move Voicemail"
 msgstr ""
 
@@ -1629,11 +1629,11 @@ msgstr ""
 msgid "None"
 msgstr "なし"
 
-#: ucp/Voicemail.class.php:580
+#: ucp/Voicemail.class.php:581
 msgid "Not Found"
 msgstr ""
 
-#: ucp/assets/js/global.js:436
+#: ucp/assets/js/global.js:429
 msgid "Not a valid Draggable Object"
 msgstr "ドラッグ可能なデータではありません"
 
@@ -1898,7 +1898,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr ""
 
-#: ucp/assets/js/global.js:768
+#: ucp/assets/js/global.js:761
 msgid "Recorded Message"
 msgstr ""
 
@@ -1910,7 +1910,7 @@ msgstr ""
 msgid "Recorded Names"
 msgstr ""
 
-#: ucp/assets/js/global.js:799
+#: ucp/assets/js/global.js:792
 msgid "Recording..."
 msgstr "録音中..."
 
@@ -2117,11 +2117,11 @@ msgstr ""
 msgid "Stop Keys"
 msgstr ""
 
-#: ucp/assets/js/global.js:865
+#: ucp/assets/js/global.js:858
 msgid "Stop the Recording First before trying to delete"
 msgstr "削除する前に録音を止めます"
 
-#: ucp/assets/js/global.js:816
+#: ucp/assets/js/global.js:809
 msgid "Stop the Recording First before trying to save"
 msgstr "保存する前に録音を止めます"
 
@@ -2137,8 +2137,8 @@ msgstr "ページャーに送信される件名"
 msgid "Submit"
 msgstr ""
 
-#: ucp/assets/js/global.js:170 ucp/assets/js/global.js:182
-#: ucp/assets/js/global.js:298 ucp/assets/js/global.js:313
+#: ucp/assets/js/global.js:165 ucp/assets/js/global.js:175
+#: ucp/assets/js/global.js:291 ucp/assets/js/global.js:306
 #, perl-format
 msgid "Successfully forwarded voicemail to %s"
 msgstr ""
@@ -2325,7 +2325,7 @@ msgid ""
 "conf."
 msgstr "odbcstorageの値は、res_odbc.conf内で設定されたデータベース接続です。"
 
-#: ucp/assets/js/global.js:877
+#: ucp/assets/js/global.js:870
 msgid "There is nothing to delete"
 msgstr ""
 
@@ -2443,8 +2443,8 @@ msgstr ""
 "ゾーンメッセージコンテキストからのタイムゾーン。envelope=noであれば無関係で"
 "す。"
 
-#: ucp/assets/js/global.js:156 ucp/assets/js/global.js:230
-#: ucp/assets/js/global.js:283
+#: ucp/assets/js/global.js:158 ucp/assets/js/global.js:224
+#: ucp/assets/js/global.js:276
 msgid "To"
 msgstr "終了日時"
 
@@ -2525,16 +2525,16 @@ msgstr ""
 msgid "Unknown"
 msgstr "不明"
 
-#: ucp/Voicemail.class.php:515
+#: ucp/Voicemail.class.php:516
 msgid "Unknown Error"
 msgstr ""
 
-#: ucp/Voicemail.class.php:478
+#: ucp/Voicemail.class.php:479
 msgid "Unsupported file format"
 msgstr ""
 
-#: ucp/assets/js/global.js:501 ucp/assets/js/global.js:540
-#: ucp/assets/js/global.js:579 ucp/assets/js/global.js:623
+#: ucp/assets/js/global.js:494 ucp/assets/js/global.js:533
+#: ucp/assets/js/global.js:572 ucp/assets/js/global.js:616
 msgid "Unsupported file type"
 msgstr ""
 
@@ -2550,9 +2550,9 @@ msgstr "アナウンスをアップロードする"
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
 msgstr ""
 
-#: ucp/assets/js/global.js:506 ucp/assets/js/global.js:545
-#: ucp/assets/js/global.js:584 ucp/assets/js/global.js:607
-#: ucp/assets/js/global.js:628 ucp/assets/js/global.js:820
+#: ucp/assets/js/global.js:499 ucp/assets/js/global.js:538
+#: ucp/assets/js/global.js:577 ucp/assets/js/global.js:600
+#: ucp/assets/js/global.js:621 ucp/assets/js/global.js:813
 msgid "Uploading..."
 msgstr "アップロード中..."
 
@@ -2625,7 +2625,7 @@ msgstr "VMコンテキストを空にすることはできません。"
 msgid "VM Options"
 msgstr "ボイスメールオプション"
 
-#: ucp/Voicemail.class.php:330
+#: ucp/Voicemail.class.php:331
 msgid "VMAIL"
 msgstr ""
 
@@ -2639,13 +2639,13 @@ msgstr "外部通知のためにsmdiを使用するためのsmdi.confに指定�
 msgid "VmX Locater&trade;"
 msgstr "VmXロケーター&トレード；"
 
-#: ucp/Voicemail.class.php:199
+#: ucp/Voicemail.class.php:200
 msgid "VmX Locator"
 msgstr "VmXロケータ"
 
 #: Voicemail.class.php:697 functions.inc.php:490 install.php:8
-#: ucp/Voicemail.class.php:94 ucp/Voicemail.class.php:141
-#: ucp/Voicemail.class.php:176 views/header.php:2 voicemail.i18n.php:4
+#: ucp/Voicemail.class.php:95 ucp/Voicemail.class.php:142
+#: ucp/Voicemail.class.php:177 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
 msgstr "ボイスメール"
 
@@ -2681,7 +2681,7 @@ msgstr ""
 msgid "Voicemail Instructions:"
 msgstr "ボイスメール操作説明："
 
-#: ucp/Voicemail.class.php:330
+#: ucp/Voicemail.class.php:331
 msgid "Voicemail Message"
 msgstr ""
 
@@ -2726,12 +2726,12 @@ msgid ""
 msgstr ""
 "ボイスメールは有効化されていますが、パスワードが空です。処理を続行しますか？"
 
-#: ucp/Voicemail.class.php:473 ucp/Voicemail.class.php:505
+#: ucp/Voicemail.class.php:474 ucp/Voicemail.class.php:506
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
 
-#: ucp/Voicemail.class.php:510
+#: ucp/Voicemail.class.php:511
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""
@@ -2824,13 +2824,13 @@ msgstr ""
 msgid "You have a new voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:805
+#: ucp/assets/js/global.js:798
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 "録音はブラウザによってブロックされた可能性があります。ブラウザの設定を確認し"
 "てください。"
 
-#: ucp/assets/js/global.js:743
+#: ucp/assets/js/global.js:736
 msgid "Your settings have been saved"
 msgstr ""
 
