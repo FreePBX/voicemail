@@ -15,13 +15,13 @@
 				<div class="alert alert-warning"><?php echo _("Voicemail Auto Delete is on. New messages will not show up here.")?></div>
 			<?php } ?>
 			<div id="voicemail-toolbar-<?php echo $extension?>">
-				<button id="delete-selection" class="btn btn-danger" disabled>
+				<button class="btn btn-danger delete-selection" disabled>
 					<i class="glyphicon glyphicon-remove"></i> <span><?php echo _('Delete')?></span>
 				</button>
-				<button id="forward-selection" class="btn btn-default" disabled>
+				<button class="btn btn-default forward-selection" disabled>
 					<i class="fa fa-share"></i> <span><?php echo _('Forward')?></span>
 				</button>
-				<button id="move-selection" class="btn btn-default" disabled>
+				<button class="btn btn-default move-selection" disabled>
 					<i class="fa fa-arrows"></i> <span><?php echo _('Move')?></span>
 				</button>
 			</div>
