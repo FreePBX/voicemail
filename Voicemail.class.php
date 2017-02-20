@@ -1682,6 +1682,13 @@ class Voicemail implements \BMO {
 						"description" => _("External Password Notify"),
 						"helptext" => _("Command specified runs after a user changes their password. The arguments passed to the application are: [context] [mailbox] [newpassword] Note: This will also update the voicemail.conf file") . " [externpassnotify]"
 					),
+					"externpasscheck" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("External Password Verification Script"),
+						"helptext" => _("Command specified runs before a user changes their password and can be used to impose security restrictions on voicemail password. The arguments passed to the application are: [mailbox] [context] [oldpassword] [newpassword]. The script should print VALID to stdout to indicate that the new password is acceptable.  If the password is considered too weak, the script should print INVALID to stdout. ") . " [externpasscheck]"
+					),
 					"format" => array(
 						"level" => array("general"),
 						"type" => "text",
