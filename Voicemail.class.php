@@ -158,7 +158,7 @@ class Voicemail implements \BMO {
 			return;
 		}
 		if(!is_numeric($mailbox)) {
-			throw new \Exception(_("Mailbox is not in the proper format"));
+			throw new \Exception(sprintf(_("Mailbox is not in the proper format [%s]"),$mailbox));
 		}
 		$user = $this->FreePBX->Core->getUser($mailbox);
 		if(isset($user['voicemail']) && ($user['voicemail'] != "novm")) {
