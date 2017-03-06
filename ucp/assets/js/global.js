@@ -208,7 +208,7 @@ var VoicemailC = UCPMC.extend({
 				var id = $(this).data("id");
 				if (confirm(_("Are you sure you wish to delete this voicemail?"))) {
 					$this.deleteVoicemail(id, function(data) {
-						if(data.status) {
+						if(data !== false && data.status) {
 							$('#voicemail-grid').bootstrapTable('remove', {field: "msg_id", values: [String(id)]});
 						}
 					});
@@ -274,15 +274,16 @@ var VoicemailC = UCPMC.extend({
 		$("#delete-selection").click(function() {
 			if (confirm(_("Are you sure you wish to delete these voicemails?"))) {
 				var sel = $('#voicemail-grid').bootstrapTable('getAllSelections');
-				$.each(sel, function(i, v){
-					$this.deleteVoicemail(v.msg_id, function(data) {
-						if(data.status) {
-							$('#voicemail-grid').bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
+				async.each(sel, function(file, callback) {
+					$this.deleteVoicemail(file.msg_id, function(data) {
+						if(data !== false && data.status) {
+							$('#voicemail-grid').bootstrapTable('remove', {field: "msg_id", values: [String(file.msg_id)]});
 						}
+						callback();
 					});
+				}, function(err) {
+					$("#delete-selection").prop("disabled",true);
 				});
-				//$('#voicemail-grid').bootstrapTable('refresh');
-				$("#delete-selection").prop("disabled",true);
 			}
 		});
 		$("#forward-selection").click(function() {
@@ -735,6 +736,8 @@ var VoicemailC = UCPMC.extend({
 			if(typeof callback === "function") {
 				callback(data);
 			}
+		}).fail(function() {
+			callback(false);
 		});
 	},
 	//Toggle the html5 player for greeting
