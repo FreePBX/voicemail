@@ -2079,7 +2079,7 @@ class Voicemail implements \BMO {
 						"level" => array("general"),
 						"type" => "number",
 						"options" => array("0","9999"),
-						"default" => '10',
+						"default" => '3',
 						"description" => _("Max Message Silence"),
 						"helptext" => _("How many seconds of silence before we end the recording (in seconds).")." [maxsilence]"
 					),
@@ -2095,7 +2095,7 @@ class Voicemail implements \BMO {
 						"level" => array("general"),
 						"type" => "number",
 						"options" => array("0","9999"),
-						"default" => '1',
+						"default" => '5',
 						"description" => _("Min Message Length"),
 						"helptext" => _("Minimum length of a voicemail message in seconds for the message to be kept. (in seconds).")." [minsecs]"
 					),
