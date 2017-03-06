@@ -214,8 +214,8 @@ class Vmx {
 	 */
 	public function setMenuOpt($ext,$opt="", $digit="0", $mode="unavail", $context="from-internal", $priority="1") {
 		if ($this->astman->connected() && ($mode == "unavail" || $mode == "busy" || $mode == "temp")) {
-			if ($opt != "" && ctype_digit($opt)) {
-				$opt = preg_replace("/[^0-9]/" ,"", $opt);
+			$opt = preg_replace("/[^0-9]\*/" ,"", $opt);
+			if ($opt != "") {
 				$this->astman->database_put("AMPUSER", $ext."/vmx/$mode/$digit/ext", $opt);
 				$this->astman->database_put("AMPUSER", $ext."/vmx/$mode/$digit/context", $context);
 				$this->astman->database_put("AMPUSER", $ext."/vmx/$mode/$digit/pri", $priority);
