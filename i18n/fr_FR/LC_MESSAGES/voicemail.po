@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-05 21:59+0200\n"
+"PO-Revision-Date: 2017-03-05 22:04+0200\n"
 "Last-Translator: Francis <fbinet@solist.ca>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -1442,6 +1442,8 @@ msgstr ""
 #: page.voicemail.php:258
 msgid "Move heard messages to the 'Old' folder automatically.  Defaults to no."
 msgstr ""
+"Déplacement automatique des messages lû dans le dossier \"Anciens\". Le "
+"défaut est NON"
 
 #: views/dialplan.php:132
 msgid "Msg Timeout"
