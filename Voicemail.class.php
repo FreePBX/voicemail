@@ -158,7 +158,7 @@ class Voicemail implements \BMO {
 			return;
 		}
 		if(!is_numeric($mailbox)) {
-			throw new \Exception(_("Mailbox is not in the proper format"));
+			throw new \Exception(sprintf(_("Mailbox is not in the proper format [%s]"),$mailbox));
 		}
 		$user = $this->FreePBX->Core->getUser($mailbox);
 		if(isset($user['voicemail']) && ($user['voicemail'] != "novm")) {
@@ -431,7 +431,7 @@ class Voicemail implements \BMO {
 			if (!isset($settings['vmx_option_0_number'])) {
 				$settings['vmx_option_0_number'] = '';
 			}
-			$settings['vmx_option_0_number'] = preg_replace("/[^0-9]/" ,"", $settings['vmx_option_0_number']);
+			$settings['vmx_option_0_number'] = preg_replace("/[^0-9\*]/" ,"", $settings['vmx_option_0_number']);
 			$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_0_number'],0,'unavail');
 			$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_0_number'],0,'busy');
 			$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_0_number'],0,'temp');
@@ -475,13 +475,13 @@ class Voicemail implements \BMO {
 				if (!isset($settings['vmx_option_1_number'])) {
 					$settings['vmx_option_1_number'] = '';
 				}
-				$settings['vmx_option_1_number'] = preg_replace("/[^0-9]/" ,"", $settings['vmx_option_1_number']);
+				$settings['vmx_option_1_number'] = preg_replace("/[^0-9\*]/" ,"", $settings['vmx_option_1_number']);
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_1_number'],1,'unavail');
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_1_number'],1,'busy');
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_1_number'],1,'temp');
 			}
 			if (isset($settings['vmx_option_2_number'])) {
-				$settings['vmx_option_2_number'] = preg_replace("/[^0-9]/" ,"", $settings['vmx_option_2_number']);
+				$settings['vmx_option_2_number'] = preg_replace("/[^0-9\*]/" ,"", $settings['vmx_option_2_number']);
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_2_number'],2,'unavail');
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_2_number'],2,'busy');
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_2_number'],2,'temp');
@@ -1682,6 +1682,13 @@ class Voicemail implements \BMO {
 						"description" => _("External Password Notify"),
 						"helptext" => _("Command specified runs after a user changes their password. The arguments passed to the application are: [context] [mailbox] [newpassword] Note: This will also update the voicemail.conf file") . " [externpassnotify]"
 					),
+					"externpasscheck" => array(
+						"level" => array("general"),
+						"type" => "text",
+						"default" => "",
+						"description" => _("External Password Verification Script"),
+						"helptext" => _("Command specified runs before a user changes their password and can be used to impose security restrictions on voicemail password. The arguments passed to the application are: [mailbox] [context] [oldpassword] [newpassword]. The script should print VALID to stdout to indicate that the new password is acceptable.  If the password is considered too weak, the script should print INVALID to stdout. ") . " [externpasscheck]"
+					),
 					"format" => array(
 						"level" => array("general"),
 						"type" => "text",
@@ -2072,7 +2079,7 @@ class Voicemail implements \BMO {
 						"level" => array("general"),
 						"type" => "number",
 						"options" => array("0","9999"),
-						"default" => '10',
+						"default" => '3',
 						"description" => _("Max Message Silence"),
 						"helptext" => _("How many seconds of silence before we end the recording (in seconds).")." [maxsilence]"
 					),
@@ -2088,7 +2095,7 @@ class Voicemail implements \BMO {
 						"level" => array("general"),
 						"type" => "number",
 						"options" => array("0","9999"),
-						"default" => '1',
+						"default" => '5',
 						"description" => _("Min Message Length"),
 						"helptext" => _("Minimum length of a voicemail message in seconds for the message to be kept. (in seconds).")." [minsecs]"
 					),
