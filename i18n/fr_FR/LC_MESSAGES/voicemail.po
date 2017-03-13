@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-13 02:36+0200\n"
+"PO-Revision-Date: 2017-03-13 02:59+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -312,15 +312,15 @@ msgstr "Occupé"
 
 #: Voicemail.class.php:79 views/usage.php:122
 msgid "Busy Greeting"
-msgstr "Annonce sur occupation"
+msgstr "Message d'indication d'occupation"
 
 #: views/usage_system.php:141
 msgid "Busy Greetings"
-msgstr "Annonces sur occupation"
+msgstr "Messages d'indication d'occupation"
 
 #: ucp/views/mailbox.php:56
 msgid "CID"
-msgstr ""
+msgstr "Numéro appelant"
 
 #: Voicemail.class.php:2336
 msgid "CID Internal Context"
