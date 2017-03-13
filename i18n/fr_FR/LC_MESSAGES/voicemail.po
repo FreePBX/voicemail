@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-05 22:04+0200\n"
+"PO-Revision-Date: 2017-03-12 20:59+0200\n"
 "Last-Translator: Francis <fbinet@solist.ca>\n"
-"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/voicemail/"
-"fr_FR/>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -50,27 +50,27 @@ msgstr ""
 #: install.php:114
 #, php-format
 msgid "%s added"
-msgstr ""
+msgstr "%s ajouté"
 
 #: install.php:81
 #, php-format
 msgid "%s adjusted from %s to %s"
-msgstr ""
+msgstr "%s ajusté de %s à %s"
 
 #: install.php:85
 #, php-format
 msgid "%s adjusted from bad value %s to default no gain"
-msgstr ""
+msgstr "%s ajusté de la valeur erronée %s au défaut aucun gain"
 
 #: install.php:76
 #, php-format
 msgid "%s changed from %s to max value 15"
-msgstr ""
+msgstr "%s modifié de %s à la valeur maximale de 15"
 
 #: install.php:95
 #, php-format
 msgid "%s migrated"
-msgstr ""
+msgstr "%s migré"
 
 #: install.php:72
 #, php-format
@@ -116,7 +116,7 @@ msgstr ""
 
 #: views/tz.php:212
 msgid "24 hour time, including minute"
-msgstr ""
+msgstr "Format 24 heures, incluant les minutes"
 
 #: page.voicemail.php:430 views/dialplan.php:75
 msgid "3 db"
@@ -157,7 +157,7 @@ msgstr "AM ou PM"
 
 #: views/usage.php:184 views/usage_system.php:203
 msgid "Abandoned Greetings"
-msgstr ""
+msgstr "Salutations abandonnées"
 
 #: views/usage.php:2
 msgid "Account"
@@ -185,7 +185,7 @@ msgstr "Activé"
 
 #: functions.inc.php:966
 msgid "Advanced Settings For: "
-msgstr "Paramètres avancés pour "
+msgstr "Paramètres avancés pour: "
 
 #: views/dialplan.php:122
 msgid "Advanced VmX Locater Settings"
@@ -231,16 +231,21 @@ msgid ""
 "Allow sender to hit 0 before/after/during leaving a voicemail to reach an "
 "operator"
 msgstr ""
+"Permet la composition du zéro pour joindre l'opérateur pendant/après/durant "
+"le dépot d'un message vocale"
 
 #: Voicemail.class.php:1830
 msgid "Allow sender to review/rerecord their message before saving it"
 msgstr ""
+"Permet à l'appelant de revoir/réenregistrer leur message avant la sauvegarde"
 
 #: page.voicemail.php:269 page.voicemail.php:311
 msgid ""
 "Allow sender to review/rerecord their message before saving it [OFF by "
 "default]"
 msgstr ""
+"Permet à l'appelant de revoir/réenregistrer leur message avant la sauvegarde "
+"[Désactivé par défaut]"
 
 #: Voicemail.class.php:1862
 msgid ""
@@ -251,7 +256,7 @@ msgstr ""
 
 #: views/ucp_config.php:36
 msgid "Allowed Voicemail"
-msgstr "Boite vocale permises"
+msgstr "Boite vocale authorisé"
 
 #: ucp/assets/js/global.js:275
 msgid "Are you sure you wish to delete these voicemails?"
@@ -265,6 +270,7 @@ msgstr "Êtes-vous certain de vouloir supprimer cette boite vocale"
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
+"Asterisk ne semble pas démarré. Impossible de connecter au Manager Asterisk"
 
 #: page.voicemail.php:305
 msgid "Asterisk language code"
@@ -284,11 +290,11 @@ msgstr "Tentative de supression"
 
 #: ucp/views/mailbox.php:28
 msgid "Auto-Refresh"
-msgstr "Rafraichis Auto"
+msgstr "Rafraichir automatiquement"
 
 #: functions.inc.php:959
 msgid "Basic Settings For: "
-msgstr "Paramètres de base pour "
+msgstr "Paramètres de base pour: "
 
 #: functions.inc.php:961
 msgid "Basic settings view is for individual accounts."
@@ -296,7 +302,7 @@ msgstr ""
 
 #: page.voicemail.php:263
 msgid "Body of message sent to pager."
-msgstr ""
+msgstr "Contenu du message envoyé au téléavertisseur."
 
 #: functions.inc.php:398 page.voicemail.php:424 ucp/views/vmx.php:22
 #: views/dialplan.php:46
@@ -305,11 +311,11 @@ msgstr "Occupé"
 
 #: Voicemail.class.php:79 views/usage.php:122
 msgid "Busy Greeting"
-msgstr "Annonce occupé"
+msgstr "Annonce sur occupation"
 
 #: views/usage_system.php:141
 msgid "Busy Greetings"
-msgstr "Annonces d'occupation"
+msgstr "Annonces sur occupation"
 
 #: ucp/views/mailbox.php:56
 msgid "CID"
@@ -519,7 +525,7 @@ msgstr "Supprime"
 
 #: views/usage_system.php:191
 msgid "Delete All Temporary Greetings"
-msgstr "Supprime les messages temporaires"
+msgstr "Supprimer les messages de salutation temporaires"
 
 #: views/usage_system.php:129
 msgid "Delete All Unavailible Greetings"
@@ -527,11 +533,11 @@ msgstr "Supprime les messages de salutation sur non disponibilité"
 
 #: views/usage.php:141
 msgid "Delete Busy Message"
-msgstr "Supprime les messages de salutation sur occupation"
+msgstr "Supprime les messages de salutations sur occupation"
 
 #: views/usage.php:79
 msgid "Delete Recorded Name"
-msgstr "Supprime le nom enregistrés"
+msgstr "Supprime le nom enregistré"
 
 #: views/usage.php:172
 msgid "Delete Temporary Greeting"
@@ -597,7 +603,7 @@ msgstr ""
 
 #: Voicemail.class.php:2316
 msgid "Directory Intro"
-msgstr ""
+msgstr "Introduction du répertoire"
 
 #: functions.inc.php:570
 msgid "Disable (*) in Voicemail Menu"
@@ -629,7 +635,7 @@ msgstr "Désactivé"
 
 #: ucp/views/greetings.php:51
 msgid "Discard Greeting"
-msgstr ""
+msgstr "Supprimer salutation"
 
 #: views/usage.php:8 views/usage_system.php:24
 msgid "Disk space currently in use by Voicemail data"
@@ -641,7 +647,7 @@ msgstr "Télécharger"
 
 #: ucp/assets/js/global.js:450
 msgid "Dragging to yourself is not allowed"
-msgstr ""
+msgstr "Il n'est pas permis de glisser vers vous-même"
 
 #: ucp/views/mailbox.php:60
 msgid "Duration"
@@ -805,7 +811,7 @@ msgstr ""
 
 #: Voicemail.class.php:1789
 msgid "Envelope Playback"
-msgstr ""
+msgstr "Lecture de l'enveloppe"
 
 #: functions.inc.php:630 ucp/views/settings.php:52
 msgid ""
@@ -821,7 +827,7 @@ msgstr ""
 
 #: Voicemail.class.php:2350
 msgid "Exit Context"
-msgstr ""
+msgstr "Quitte le contexte"
 
 #: page.voicemail.php:225
 msgid "Expunge on exit."
@@ -871,7 +877,7 @@ msgstr "Script de validation des mot de passe externe"
 #: Voicemail.class.php:258
 #, php-format
 msgid "Failed to delete vmbox: %s@%s"
-msgstr ""
+msgstr "Échec lors de la supression de la boite vocale: %s@%s"
 
 #: Voicemail.class.php:72
 msgid "Family"
@@ -991,7 +997,7 @@ msgstr ""
 
 #: functions.inc.php:1475
 msgid "GB"
-msgstr "GB"
+msgstr ""
 
 #: Voicemail.class.php:1626
 msgid "General"
@@ -999,7 +1005,7 @@ msgstr "Général"
 
 #: views/dialplan.php:2
 msgid "General Dialplan Settings"
-msgstr ""
+msgstr "Paramètres généraux du plan de numérotation"
 
 #: install.php:120
 msgid "General Settings migrated"
@@ -1023,11 +1029,11 @@ msgstr "Dossier des salutations"
 
 #: Voicemail.class.php:1885
 msgid "Hide From Directory"
-msgstr "Cacher du répertoire"
+msgstr "Masquer du répertoire"
 
 #: Voicemail.class.php:1886
 msgid "Hide this mailbox from the directory produced by app_directory"
-msgstr ""
+msgstr "Masque la boîte vocale du répertoire généré par app_directory"
 
 #: page.voicemail.php:302
 msgid ""
@@ -1041,15 +1047,15 @@ msgstr "Heure, format 12 heures"
 
 #: views/tz.php:165
 msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
-msgstr ""
+msgstr "Heure, format 24 heure (ne pas précéder l'heure d'un zéro)"
 
 #: views/tz.php:157
 msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
-msgstr ""
+msgstr "Heure, format 24 heure (précéder l'heure d'un zéro)"
 
 #: page.voicemail.php:222
 msgid "How many miliseconds of silence before we end the recording"
-msgstr ""
+msgstr "Combien de millisecondes de silence avant l'arrêt de l'enregistrement"
 
 #: page.voicemail.php:277
 msgid ""
@@ -1372,11 +1378,11 @@ msgstr ""
 
 #: views/usage.php:30
 msgid "Messages in inbox"
-msgstr "Messages dans inbox"
+msgstr "Messages dans boîte réception"
 
 #: views/usage_system.php:49
 msgid "Messages in inboxes"
-msgstr "Messages dans les inbox"
+msgstr "Messages dans les boîtes de réceptions"
 
 #: views/usage.php:31 views/usage_system.php:50
 msgid "Messages in other folders"
@@ -1384,7 +1390,7 @@ msgstr "Messages dans les autres dossiers"
 
 #: Voicemail.class.php:2099
 msgid "Min Message Length"
-msgstr "Durée minimum des messages"
+msgstr "Durée minimale messages"
 
 #: page.voicemail.php:257
 msgid ""
@@ -1447,35 +1453,35 @@ msgstr ""
 
 #: views/dialplan.php:132
 msgid "Msg Timeout"
-msgstr ""
+msgstr "Temporisation du message"
 
 #: functions.inc.php:172 install.php:9 voicemail.i18n.php:32
 msgid "My Voicemail"
-msgstr ""
+msgstr "Ma boîte vocale"
 
 #: page.voicemail.php:495
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: Voicemail.class.php:78
 msgid "Name Greeting"
-msgstr ""
+msgstr "Nom du message de salutation"
 
 #: page.voicemail.php:301
 msgid "Name of Voicemail account"
-msgstr ""
+msgstr "Nom du compte de la boîte vocale"
 
 #: Voicemail.class.php:1633 Voicemail.class.php:1634 page.voicemail.php:309
 msgid "Name of account/user"
-msgstr ""
+msgstr "Nom du compte/utilisateur"
 
 #: views/tz.php:37
 msgid "New Name"
-msgstr ""
+msgstr "Nouveau nom"
 
 #: Voicemail.class.php:2267
 msgid "New Password"
-msgstr ""
+msgstr "Nouveau mot de passe"
 
 #: views/tz.php:61
 msgid "New Timezone Definition"
@@ -1483,7 +1489,7 @@ msgstr ""
 
 #: Voicemail.class.php:2024
 msgid "Next after command"
-msgstr ""
+msgstr "Suivant après la commande"
 
 #: Voicemail.class.php:1779 Voicemail.class.php:1787 Voicemail.class.php:1795
 #: Voicemail.class.php:1803 Voicemail.class.php:1811 Voicemail.class.php:1819
@@ -1502,11 +1508,11 @@ msgstr ""
 #: views/usage_system.php:120 views/usage_system.php:151
 #: views/usage_system.php:182 views/usage_system.php:213
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 #: page.voicemail.php:425 views/dialplan.php:48
 msgid "No Message"
-msgstr ""
+msgstr "Aucun message"
 
 #: page.voicemail.php:494
 msgid "No name defined; this is configured from the Extensions or Users page."
@@ -1520,11 +1526,11 @@ msgstr ""
 
 #: page.voicemail.php:429 views/dialplan.php:73
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 #: ucp/Voicemail.class.php:576
 msgid "Not Found"
-msgstr ""
+msgstr "Introuvable"
 
 #: ucp/assets/js/global.js:445
 msgid "Not a valid Draggable Object"
@@ -1536,11 +1542,11 @@ msgstr ""
 
 #: views/usage_system.php:6
 msgid "Number of Accounts"
-msgstr ""
+msgstr "Nombre de comptes"
 
 #: views/usage.php:25 views/usage_system.php:44
 msgid "Number of Messages"
-msgstr ""
+msgstr "Nombre de messages"
 
 #: views/dialplan.php:201
 msgid ""
@@ -1573,11 +1579,11 @@ msgstr ""
 
 #: Voicemail.class.php:74
 msgid "Old"
-msgstr ""
+msgstr "Anciens"
 
 #: ucp/assets/js/global.js:145
 msgid "On"
-msgstr ""
+msgstr "Actif"
 
 #: Voicemail.class.php:2233
 msgid "Open Timeout"
@@ -1589,7 +1595,7 @@ msgstr ""
 
 #: views/dialplan.php:103
 msgid "Operator Extension"
-msgstr ""
+msgstr "Poste de l'opérateur"
 
 #: page.voicemail.php:262
 msgid ""
@@ -1600,7 +1606,7 @@ msgstr ""
 #: Voicemail.class.php:2010 functions.inc.php:608 page.voicemail.php:211
 #: page.voicemail.php:291
 msgid "Option to attach Voicemails to email."
-msgstr ""
+msgstr "Option pour attacher le message vocal au courriel."
 
 #: Voicemail.class.php:2191
 msgid ""
@@ -1611,24 +1617,24 @@ msgstr ""
 
 #: Voicemail.class.php:1972
 msgid "Pager Body"
-msgstr ""
+msgstr "Contenu téléavertisseur"
 
 #: Voicemail.class.php:1986
 msgid "Pager Date Format"
-msgstr ""
+msgstr "Format de date du téléavertisseur"
 
 #: Voicemail.class.php:1647 functions.inc.php:594 page.voicemail.php:519
 #: ucp/views/settings.php:17
 msgid "Pager Email Address"
-msgstr ""
+msgstr "Adresse courriel du téléavertisseur"
 
 #: Voicemail.class.php:1979
 msgid "Pager From String"
-msgstr ""
+msgstr "Provenance des messages sur téléavertisseur"
 
 #: Voicemail.class.php:1964
 msgid "Pager Subject"
-msgstr ""
+msgstr "Sujet du message sur téléavertisseur"
 
 #: Voicemail.class.php:1648 functions.inc.php:595 page.voicemail.php:310
 #: ucp/views/settings.php:19
@@ -1638,19 +1644,19 @@ msgstr ""
 
 #: Voicemail.class.php:2281
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 #: Voicemail.class.php:2274
 msgid "Password Changed"
-msgstr ""
+msgstr "Mot de passe modifié"
 
 #: Voicemail.class.php:2260
 msgid "Password Mismatch"
-msgstr ""
+msgstr "Les mots de passes ne concorde pas"
 
 #: Voicemail.class.php:1724
 msgid "Pause Keys"
-msgstr ""
+msgstr "Bouton pause"
 
 #: Voicemail.class.php:1878 page.voicemail.php:281
 msgid "Permit finding entries for forward/compose from the directory"
@@ -1659,22 +1665,24 @@ msgstr ""
 #: ucp/views/settings.php:9
 msgid "Pin Used to Login to Voicemail. This pin can only contain numbers."
 msgstr ""
+"NIP utilisé lors de la connexion sur la boîte vocale. Ne peut contenir que "
+"des chiffres."
 
 #: functions.inc.php:618 page.voicemail.php:521 ucp/views/settings.php:33
 msgid "Play CID"
-msgstr ""
+msgstr "Lire le CID"
 
 #: functions.inc.php:629 page.voicemail.php:522 ucp/views/settings.php:44
 msgid "Play Envelope"
-msgstr ""
+msgstr "Lire l'enveloppe"
 
 #: ucp/views/mailbox.php:58
 msgid "Playback"
-msgstr ""
+msgstr "Lecture"
 
 #: Voicemail.class.php:2302
 msgid "Please Try Again"
-msgstr ""
+msgstr "Essayez à nouveau"
 
 #: views/tz.php:5
 msgid ""
@@ -1683,15 +1691,17 @@ msgstr ""
 
 #: functions.inc.php:484
 msgid "Please enter a valid Email Address"
-msgstr ""
+msgstr "Veuillez entrer une adresse courriel valide"
 
 #: functions.inc.php:485
 msgid "Please enter a valid Pager Email Address"
-msgstr ""
+msgstr "Veuillez entrer une adresse de téléavertisseur valide"
 
 #: functions.inc.php:483
 msgid "Please enter a valid Voicemail Password, using digits only"
 msgstr ""
+"Veuillez entrer un mot de passe de boîte vocale valide. Utilisez seulement "
+"des chiffres"
 
 #: Voicemail.class.php:1773
 msgid "Poll Frequency"
@@ -1707,27 +1717,27 @@ msgstr ""
 
 #: ucp/views/vmx.php:32
 msgid "Press 0"
-msgstr ""
+msgstr "Composez le 0"
 
 #: functions.inc.php:832
 msgid "Press 0:"
-msgstr ""
+msgstr "Composez le 0"
 
 #: ucp/views/vmx.php:42
 msgid "Press 1"
-msgstr ""
+msgstr "Composez le 1"
 
 #: functions.inc.php:850 functions.inc.php:860
 msgid "Press 1:"
-msgstr ""
+msgstr "Composez le 1"
 
 #: ucp/views/vmx.php:52
 msgid "Press 2"
-msgstr ""
+msgstr "Composez le 2"
 
 #: functions.inc.php:878
 msgid "Press 2:"
-msgstr ""
+msgstr "Composez le 2"
 
 #: functions.inc.php:833
 msgid ""
@@ -1749,7 +1759,7 @@ msgstr ""
 
 #: Voicemail.class.php:2288
 msgid "Re-enter Password"
-msgstr ""
+msgstr "Entrez à nouveau le mot de passe"
 
 #: Voicemail.class.php:2240
 msgid "Read Timeout"
@@ -1770,23 +1780,23 @@ msgstr ""
 
 #: ucp/views/greetings.php:47
 msgid "Record Greeting"
-msgstr ""
+msgstr "Enregistrer salutation"
 
 #: ucp/assets/js/global.js:792
 msgid "Recorded Message"
-msgstr ""
+msgstr "Messages enregistré"
 
 #: views/usage.php:60
 msgid "Recorded Name"
-msgstr ""
+msgstr "Nom enregistré"
 
 #: views/usage_system.php:79
 msgid "Recorded Names"
-msgstr ""
+msgstr "Noms enregistrés"
 
 #: ucp/assets/js/global.js:823
 msgid "Recording..."
-msgstr ""
+msgstr "Enregistrement..."
 
 #: Voicemail.class.php:1870 page.voicemail.php:317
 msgid "Remind the user that their temporary greeting is set"
@@ -1808,7 +1818,7 @@ msgstr ""
 
 #: views/usage.php:48 views/usage_system.php:67
 msgid "Remove all messages"
-msgstr ""
+msgstr "Supprime tous les messages"
 
 #: page.voicemail.php:207
 msgid "Remove the timezone definition"
@@ -1817,11 +1827,11 @@ msgstr ""
 #: functions.inc.php:557
 #, php-format
 msgid "Require From Same %s"
-msgstr ""
+msgstr "Nécéssaire pour même %s"
 
 #: Voicemail.class.php:1484
 msgid "Reset"
-msgstr ""
+msgstr "Réinitialiser"
 
 #: Voicemail.class.php:1731
 msgid "Restart Keys"
@@ -1829,7 +1839,7 @@ msgstr ""
 
 #: views/dialplan.php:192
 msgid "Retries"
-msgstr ""
+msgstr "Tentatives"
 
 #: Voicemail.class.php:1717
 msgid "Reverse Keys"
@@ -1845,15 +1855,15 @@ msgstr ""
 
 #: ucp/views/greetings.php:50
 msgid "Save Greeting"
-msgstr ""
+msgstr "Sauver salutation"
 
 #: Voicemail.class.php:1837
 msgid "Say CID"
-msgstr ""
+msgstr "Lire CID"
 
 #: Voicemail.class.php:1845
 msgid "Say Duration"
-msgstr ""
+msgstr "Lire la durée"
 
 #: Voicemail.class.php:1766
 msgid "Say Duration Minutes"
@@ -1861,15 +1871,15 @@ msgstr ""
 
 #: Voicemail.class.php:1853
 msgid "Search Contexts"
-msgstr ""
+msgstr "Recherche les contextes"
 
 #: views/dialplan.php:138
 msgid "Second(s)"
-msgstr ""
+msgstr "Seconde(s)"
 
 #: Voicemail.class.php:1861
 msgid "Send Voicemail"
-msgstr ""
+msgstr "Envoyer message vocal"
 
 #: page.voicemail.php:274 page.voicemail.php:315
 msgid ""
@@ -1879,7 +1889,7 @@ msgstr ""
 
 #: functions.inc.php:866 ucp/views/vmx.php:47
 msgid "Send to Follow-Me"
-msgstr ""
+msgstr "Envoyer vers Suivez-Moi"
 
 #: functions.inc.php:675
 #, php-format
@@ -1920,7 +1930,7 @@ msgstr ""
 
 #: ucp/views/nav.php:10 views/header.php:10 voicemail.i18n.php:6
 msgid "Settings"
-msgstr ""
+msgstr "Paramètres"
 
 #: Voicemail.class.php:2091
 msgid "Silence Threshold"
@@ -1963,7 +1973,7 @@ msgstr ""
 
 #: Voicemail.class.php:2253
 msgid "Sound Files"
-msgstr ""
+msgstr "Fichiers audio"
 
 #: Voicemail.class.php:2254
 msgid "Sound files used for Voicemail"
@@ -1985,7 +1995,7 @@ msgstr ""
 
 #: Voicemail.class.php:1738
 msgid "Stop Keys"
-msgstr ""
+msgstr "Touche arrêt"
 
 #: ucp/assets/js/global.js:889
 msgid "Stop the Recording First before trying to delete"
@@ -2024,11 +2034,11 @@ msgstr ""
 
 #: functions.inc.php:968
 msgid "System Settings"
-msgstr ""
+msgstr "Paramètres systèmes"
 
 #: functions.inc.php:978
 msgid "System Usage Statistics"
-msgstr ""
+msgstr "Statistiques d'utilisation du système"
 
 #: functions.inc.php:1475
 msgid "TB"
@@ -2040,19 +2050,19 @@ msgstr ""
 
 #: Voicemail.class.php:80 views/usage.php:153
 msgid "Temporary Greeting"
-msgstr ""
+msgstr "Salutation temporaire"
 
 #: Voicemail.class.php:1869
 msgid "Temporary Greeting Warn"
-msgstr ""
+msgstr "Avertissement salutation temporaire"
 
 #: views/usage_system.php:172
 msgid "Temporary Greetings"
-msgstr ""
+msgstr "Salutations temporaires"
 
 #: page.voicemail.php:280
 msgid "Temporary greeting reminder."
-msgstr ""
+msgstr "Rappel de la salutation temporaire."
 
 #: views/tz.php:89
 msgid "The <i>values</i> supported in the timezone definition string include:"
@@ -2141,7 +2151,7 @@ msgstr ""
 
 #: Voicemail.class.php:1936
 msgid "The email subject"
-msgstr ""
+msgstr "Sujet du courriel"
 
 #: Voicemail.class.php:2198
 msgid ""
@@ -2184,7 +2194,7 @@ msgstr ""
 
 #: ucp/assets/js/global.js:901
 msgid "There is nothing to delete"
-msgstr ""
+msgstr "Il n'y a rien à supprimer"
 
 #: views/ucp_config.php:52
 msgid ""
@@ -2269,19 +2279,19 @@ msgstr ""
 
 #: Voicemail.class.php:1745 Voicemail.class.php:1746
 msgid "Timezone"
-msgstr ""
+msgstr "Fuseau horaire"
 
 #: functions.inc.php:955 views/header.php:12
 msgid "Timezone Definitions"
-msgstr ""
+msgstr "Définition des fuseaux horaires"
 
 #: views/tz.php:81
 msgid "Timezone definition format is: "
-msgstr ""
+msgstr "Le format des définitions de fuseau horaire est: "
 
 #: page.voicemail.php:205
 msgid "Timezone definition name"
-msgstr ""
+msgstr "Nom de la définition de fuseau horaire"
 
 #: page.voicemail.php:318
 msgid "Timezone from zonemessages context.  Irrelevant if envelope=no."
@@ -2290,7 +2300,7 @@ msgstr ""
 #: ucp/assets/js/global.js:171 ucp/assets/js/global.js:238
 #: ucp/assets/js/global.js:292
 msgid "To"
-msgstr ""
+msgstr "À"
 
 #: ucp/views/greetings.php:40
 #, php-format
@@ -2330,28 +2340,28 @@ msgstr ""
 
 #: voicemail.i18n.php:22
 msgid "UCP Message Limit"
-msgstr ""
+msgstr "Limite de message dans UCP"
 
 #: Voicemail.class.php:1551
 msgid "Unable to add mailbox!"
-msgstr ""
+msgstr "Incapable d'ajouter la boîte"
 
 #: views/usage_system.php:11
 msgid "Unactivated"
-msgstr ""
+msgstr "Désactivé"
 
 #: functions.inc.php:397 page.voicemail.php:423 ucp/views/vmx.php:19
 #: views/dialplan.php:44
 msgid "Unavailable"
-msgstr ""
+msgstr "Indisponible"
 
 #: Voicemail.class.php:77 views/usage.php:91
 msgid "Unavailable Greeting"
-msgstr ""
+msgstr "Annonce Indisponible"
 
 #: views/usage_system.php:110
 msgid "Unavailable Greetings"
-msgstr ""
+msgstr "Salutations d'indisponibilitées"
 
 #: functions.inc.php:822
 msgid "Uncheck to play a beep after your personal Voicemail greeting."
@@ -2359,28 +2369,28 @@ msgstr ""
 
 #: views/usage.php:9 views/usage_system.php:25
 msgid "Unknown"
-msgstr ""
+msgstr "Inconnu"
 
 #: ucp/Voicemail.class.php:464
 msgid "Unknown Error"
-msgstr ""
+msgstr "Erreure inconnue"
 
 #: ucp/Voicemail.class.php:427
 msgid "Unsupported file format"
-msgstr ""
+msgstr "Format de fichier non supporté"
 
 #: ucp/assets/js/global.js:510 ucp/assets/js/global.js:549
 #: ucp/assets/js/global.js:588 ucp/assets/js/global.js:632
 msgid "Unsupported file type"
-msgstr ""
+msgstr "Type de fichier non supporté"
 
 #: ucp/views/greetings.php:39
 msgid "Update Required"
-msgstr ""
+msgstr "Mise à jour requise"
 
 #: ucp/views/greetings.php:45
 msgid "Upload Greeting"
-msgstr ""
+msgstr "Envoyer annonce"
 
 #: ucp/views/greetings.php:54
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
@@ -2390,7 +2400,7 @@ msgstr ""
 #: ucp/assets/js/global.js:593 ucp/assets/js/global.js:616
 #: ucp/assets/js/global.js:637 ucp/assets/js/global.js:844
 msgid "Uploading..."
-msgstr ""
+msgstr "Envoie..."
 
 #: Voicemail.class.php:76
 msgid "Urgent"
@@ -2398,19 +2408,19 @@ msgstr ""
 
 #: views/header.php:9
 msgid "Usage"
-msgstr ""
+msgstr "Utilisation"
 
 #: functions.inc.php:976
 msgid "Usage Statistics For: "
-msgstr ""
+msgstr "Statistiques d'utilisation pour "
 
 #: Voicemail.class.php:1877
 msgid "Use Directory"
-msgstr ""
+msgstr "Utiliser le répertoire"
 
 #: ucp/views/vmx.php:16
 msgid "Use When"
-msgstr ""
+msgstr "Utiliser quand"
 
 #: functions.inc.php:810
 msgid "Use When:"
