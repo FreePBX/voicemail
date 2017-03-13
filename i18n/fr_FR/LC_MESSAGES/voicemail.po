@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-13 02:59+0200\n"
+"PO-Revision-Date: 2017-03-13 03:14+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -157,7 +157,7 @@ msgstr "AM ou PM"
 
 #: views/usage.php:184 views/usage_system.php:203
 msgid "Abandoned Greetings"
-msgstr "Salutations abandonnées"
+msgstr "Messages abandonnés"
 
 #: views/usage.php:2
 msgid "Account"
@@ -287,7 +287,7 @@ msgstr "Essai(s)"
 
 #: install.php:192
 msgid "Attempting to delete.."
-msgstr "Tentative de supression"
+msgstr "Tentative de supression..."
 
 #: ucp/views/mailbox.php:28
 msgid "Auto-Refresh"
@@ -567,7 +567,7 @@ msgstr "Supprime tous les noms enregistrés"
 #: views/usage_system.php:116 views/usage_system.php:147
 #: views/usage_system.php:178 views/usage_system.php:209
 msgid "Delete:"
-msgstr "Supprime"
+msgstr "Supprime :"
 
 #: install.php:121
 msgid "Deleting migrated settings.."
@@ -692,7 +692,7 @@ msgstr "Sujet du courriel"
 
 #: page.voicemail.php:219
 msgid "Email body."
-msgstr "Contenu du message"
+msgstr "Contenu du message."
 
 #: page.voicemail.php:221
 msgid "Email subject"
@@ -856,7 +856,7 @@ msgstr "Script de validation du mot de passe externe"
 
 #: Voicemail.class.php:1669 Voicemail.class.php:1774 page.voicemail.php:226
 msgid "External Voicemail notify application."
-msgstr "Application de notification de messages vocaux externe"
+msgstr "Application de notification de messages vocaux externe."
 
 #: Voicemail.class.php:1676
 msgid ""
@@ -873,7 +873,7 @@ msgstr ""
 
 #: page.voicemail.php:228
 msgid "External password verification script."
-msgstr "Script de validation des mot de passe externe"
+msgstr "Script de validation des mot de passe externe."
 
 #: Voicemail.class.php:258
 #, php-format
@@ -1443,14 +1443,14 @@ msgstr "Déplacer message vocal"
 msgid ""
 "Move heard messages to the 'Old' folder automagically.  Defaults to Yes."
 msgstr ""
-"Déplacement automatique des messages lû dans le dossier \"Anciens\". Le "
-"défaut est OUI"
+"Déplacement automatique des messages écoutés dans le dossier \"Anciens\". Le "
+"défaut est oui."
 
 #: page.voicemail.php:258
 msgid "Move heard messages to the 'Old' folder automatically.  Defaults to no."
 msgstr ""
-"Déplacement automatique des messages lû dans le dossier \"Anciens\". Le "
-"défaut est NON"
+"Déplacement automatique des messages écoutés dans le dossier \"Anciens\". Le "
+"défaut est non."
 
 #: views/dialplan.php:132
 msgid "Msg Timeout"
@@ -1809,6 +1809,10 @@ msgid ""
 "by the user but were NOT accepted, so the sound file remains on disk but is "
 "not used as a greeting."
 msgstr ""
+"Supprimer les messages abandonnés de plus d'une journée.</br>Ces messages "
+"ont été enregistrés par l'utilisateur mais non pas été acceptés. Le fichier "
+"reste donc présent sur le disque mais n'est pas utilisé comme message "
+"d'accueil."
 
 #: views/usage_system.php:222
 msgid ""
@@ -1816,6 +1820,10 @@ msgid ""
 "recorded by the user but were NOT accepted, so the sound file remains on "
 "disk but is not used as a greeting."
 msgstr ""
+"Supprimer les messages abandonnés de plus d'une journée.</br>Ces messages "
+"ont été enregistrés par l'utilisateur mais non pas été acceptés. Le fichier "
+"reste donc présent sur le disque mais n'est pas utilisé comme message "
+"d'accueil."
 
 #: views/usage.php:48 views/usage_system.php:67
 msgid "Remove all messages"
