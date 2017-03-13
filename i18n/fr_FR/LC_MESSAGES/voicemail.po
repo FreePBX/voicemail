@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-12 20:59+0200\n"
-"Last-Translator: Francis <fbinet@solist.ca>\n"
+"PO-Revision-Date: 2017-03-12 23:58+0200\n"
+"Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -2400,7 +2400,7 @@ msgstr ""
 #: ucp/assets/js/global.js:593 ucp/assets/js/global.js:616
 #: ucp/assets/js/global.js:637 ucp/assets/js/global.js:844
 msgid "Uploading..."
-msgstr "Envoie..."
+msgstr "Téléchargement en cours..."
 
 #: Voicemail.class.php:76
 msgid "Urgent"
@@ -2412,7 +2412,7 @@ msgstr "Utilisation"
 
 #: functions.inc.php:976
 msgid "Usage Statistics For: "
-msgstr "Statistiques d'utilisation pour "
+msgstr "Statistiques d'utilisation pour : "
 
 #: Voicemail.class.php:1877
 msgid "Use Directory"
