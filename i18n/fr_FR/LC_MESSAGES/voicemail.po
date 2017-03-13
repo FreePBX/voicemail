@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-13 02:16+0200\n"
+"PO-Revision-Date: 2017-03-13 02:22+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -2051,7 +2051,7 @@ msgstr ""
 
 #: Voicemail.class.php:80 views/usage.php:153
 msgid "Temporary Greeting"
-msgstr "Salutation temporaire"
+msgstr "Message d'accueil temporaire"
 
 #: Voicemail.class.php:1869
 msgid "Temporary Greeting Warn"
