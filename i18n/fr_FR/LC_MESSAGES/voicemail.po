@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-13 01:00+0200\n"
+"PO-Revision-Date: 2017-03-13 01:03+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -1827,7 +1827,7 @@ msgstr ""
 #: functions.inc.php:557
 #, php-format
 msgid "Require From Same %s"
-msgstr "Nécéssaire pour même %s"
+msgstr "Nécessaire du même %s"
 
 #: Voicemail.class.php:1484
 msgid "Reset"
@@ -1855,7 +1855,7 @@ msgstr ""
 
 #: ucp/views/greetings.php:50
 msgid "Save Greeting"
-msgstr "Sauver salutation"
+msgstr "Sauvegarder le message"
 
 #: Voicemail.class.php:1837
 msgid "Say CID"
