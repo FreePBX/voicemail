@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-13 01:57+0200\n"
+"PO-Revision-Date: 2017-03-13 02:06+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -1995,7 +1995,7 @@ msgstr ""
 
 #: Voicemail.class.php:1738
 msgid "Stop Keys"
-msgstr "Touche arrêt"
+msgstr "Touches d'arrêt"
 
 #: ucp/assets/js/global.js:889
 msgid "Stop the Recording First before trying to delete"
@@ -2353,7 +2353,7 @@ msgstr "Non activé(e)"
 #: functions.inc.php:397 page.voicemail.php:423 ucp/views/vmx.php:19
 #: views/dialplan.php:44
 msgid "Unavailable"
-msgstr "Indisponible"
+msgstr "Absence"
 
 #: Voicemail.class.php:77 views/usage.php:91
 msgid "Unavailable Greeting"
