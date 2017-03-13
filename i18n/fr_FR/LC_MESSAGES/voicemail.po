@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-13 02:22+0200\n"
+"PO-Revision-Date: 2017-03-13 02:29+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -526,11 +526,11 @@ msgstr "Supprime"
 
 #: views/usage_system.php:191
 msgid "Delete All Temporary Greetings"
-msgstr "Supprimer les messages de salutation temporaires"
+msgstr "Supprimer tous les messages d'accueil temporaires"
 
 #: views/usage_system.php:129
 msgid "Delete All Unavailible Greetings"
-msgstr "Supprime les messages de salutation sur non disponibilité"
+msgstr "Supprimer tous les messages d'absence"
 
 #: views/usage.php:141
 msgid "Delete Busy Message"
@@ -2055,15 +2055,15 @@ msgstr "Message d'accueil temporaire"
 
 #: Voicemail.class.php:1869
 msgid "Temporary Greeting Warn"
-msgstr "Avertissement salutation temporaire"
+msgstr "Avertissement message d'accueil temporaire"
 
 #: views/usage_system.php:172
 msgid "Temporary Greetings"
-msgstr "Salutations temporaires"
+msgstr "Messages d'accueil temporaires"
 
 #: page.voicemail.php:280
 msgid "Temporary greeting reminder."
-msgstr "Rappel de la salutation temporaire."
+msgstr "Rappel du message d'accueil temporaire."
 
 #: views/tz.php:89
 msgid "The <i>values</i> supported in the timezone definition string include:"
