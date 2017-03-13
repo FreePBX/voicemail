@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-13 02:08+0200\n"
+"PO-Revision-Date: 2017-03-13 02:14+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -256,7 +256,7 @@ msgstr ""
 
 #: views/ucp_config.php:36
 msgid "Allowed Voicemail"
-msgstr "Boite vocale authorisé"
+msgstr "Boite vocale autorisée"
 
 #: ucp/assets/js/global.js:275
 msgid "Are you sure you wish to delete these voicemails?"
@@ -270,7 +270,8 @@ msgstr "Êtes-vous certain de vouloir supprimer cette boite vocale"
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
-"Asterisk ne semble pas démarré. Impossible de connecter au Manager Asterisk"
+"Asterisk ne semble pas démarré. Impossible de se connecter au gestionnaire "
+"d'Asterisk"
 
 #: page.voicemail.php:305
 msgid "Asterisk language code"
