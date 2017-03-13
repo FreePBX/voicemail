@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-13 00:50+0200\n"
+"PO-Revision-Date: 2017-03-13 00:58+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -1721,7 +1721,7 @@ msgstr "Composez le 0"
 
 #: functions.inc.php:832
 msgid "Press 0:"
-msgstr "Composez le 0"
+msgstr "Composez le 0 :"
 
 #: ucp/views/vmx.php:42
 msgid "Press 1"
@@ -1729,7 +1729,7 @@ msgstr "Composez le 1"
 
 #: functions.inc.php:850 functions.inc.php:860
 msgid "Press 1:"
-msgstr "Composez le 1"
+msgstr "Composez le 1 :"
 
 #: ucp/views/vmx.php:52
 msgid "Press 2"
@@ -1737,7 +1737,7 @@ msgstr "Composez le 2"
 
 #: functions.inc.php:878
 msgid "Press 2:"
-msgstr "Composez le 2"
+msgstr "Composez le 2 :"
 
 #: functions.inc.php:833
 msgid ""
@@ -1759,7 +1759,7 @@ msgstr ""
 
 #: Voicemail.class.php:2288
 msgid "Re-enter Password"
-msgstr "Entrez à nouveau le mot de passe"
+msgstr "Entrez le mot de passe à nouveau"
 
 #: Voicemail.class.php:2240
 msgid "Read Timeout"
