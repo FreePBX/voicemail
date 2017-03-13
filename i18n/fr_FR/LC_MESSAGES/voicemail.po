@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-13 01:49+0200\n"
+"PO-Revision-Date: 2017-03-13 01:52+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -2348,7 +2348,7 @@ msgstr "Incapable d'ajouter la boîte vocale !"
 
 #: views/usage_system.php:11
 msgid "Unactivated"
-msgstr "Désactivé"
+msgstr "Désactivé(e)"
 
 #: functions.inc.php:397 page.voicemail.php:423 ucp/views/vmx.php:19
 #: views/dialplan.php:44
