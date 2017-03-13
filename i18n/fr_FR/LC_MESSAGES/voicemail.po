@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-13 02:14+0200\n"
+"PO-Revision-Date: 2017-03-13 02:16+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -256,15 +256,15 @@ msgstr ""
 
 #: views/ucp_config.php:36
 msgid "Allowed Voicemail"
-msgstr "Boite vocale autorisée"
+msgstr "Boite vocale autorisées"
 
 #: ucp/assets/js/global.js:275
 msgid "Are you sure you wish to delete these voicemails?"
-msgstr "Êtes-vous certain de vouloir supprimer ces boite vocales"
+msgstr "Êtes-vous certain de vouloir supprimer ces boîtes vocales ?"
 
 #: ucp/assets/js/global.js:209
 msgid "Are you sure you wish to delete this voicemail?"
-msgstr "Êtes-vous certain de vouloir supprimer cette boite vocale"
+msgstr "Êtes-vous certain de vouloir supprimer cette boite vocale ?"
 
 #: functions.inc.php:1311
 msgid ""
