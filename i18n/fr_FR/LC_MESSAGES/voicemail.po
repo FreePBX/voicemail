@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-13 00:59+0200\n"
+"PO-Revision-Date: 2017-03-13 01:00+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -1796,7 +1796,7 @@ msgstr "Noms enregistrés"
 
 #: ucp/assets/js/global.js:823
 msgid "Recording..."
-msgstr "Enregistrement..."
+msgstr "Enregistrement en cours..."
 
 #: Voicemail.class.php:1870 page.voicemail.php:317
 msgid "Remind the user that their temporary greeting is set"
