@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-13 02:35+0200\n"
+"PO-Revision-Date: 2017-03-13 02:36+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -534,7 +534,7 @@ msgstr "Supprimer tous les messages d'absence"
 
 #: views/usage.php:141
 msgid "Delete Busy Message"
-msgstr "Supprime le message d'indication d'occupation"
+msgstr "Supprimer le message d'indication d'occupation"
 
 #: views/usage.php:79
 msgid "Delete Recorded Name"
