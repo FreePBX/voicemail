@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-13 01:41+0200\n"
+"PO-Revision-Date: 2017-03-13 01:46+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -1879,7 +1879,7 @@ msgstr "Seconde(s)"
 
 #: Voicemail.class.php:1861
 msgid "Send Voicemail"
-msgstr "Envoyer message vocal"
+msgstr "Envoyer un message vocal"
 
 #: page.voicemail.php:274 page.voicemail.php:315
 msgid ""
@@ -2344,7 +2344,7 @@ msgstr "Limite de message dans UCP"
 
 #: Voicemail.class.php:1551
 msgid "Unable to add mailbox!"
-msgstr "Incapable d'ajouter la boîte"
+msgstr "Incapable d'ajouter la boîte vocale !"
 
 #: views/usage_system.php:11
 msgid "Unactivated"
