@@ -2287,7 +2287,7 @@ msgstr "Définition des fuseaux horaires"
 
 #: views/tz.php:81
 msgid "Timezone definition format is: "
-msgstr "Le format des définitions de fuseau horaire est: "
+msgstr "Le format des définitions de fuseau horaire est : "
 
 #: page.voicemail.php:205
 msgid "Timezone definition name"
