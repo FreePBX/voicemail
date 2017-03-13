@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-20 12:12-0800\n"
-"PO-Revision-Date: 2017-03-13 02:06+0200\n"
+"PO-Revision-Date: 2017-03-13 02:07+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/fr_FR/>\n"
@@ -635,7 +635,7 @@ msgstr "Désactivé"
 
 #: ucp/views/greetings.php:51
 msgid "Discard Greeting"
-msgstr "Supprimer salutation"
+msgstr "Supprimer le message"
 
 #: views/usage.php:8 views/usage_system.php:24
 msgid "Disk space currently in use by Voicemail data"
