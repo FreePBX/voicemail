@@ -409,14 +409,15 @@ class Voicemail extends Modules{
 						}
 
 						$extension = pathinfo($_FILES["files"]["name"][$key], PATHINFO_EXTENSION);
+						$basename = pathinfo($_FILES["files"]["name"][$key], PATHINFO_BASENAME);
 						$supported = $this->UCP->FreePBX->Media->getSupportedFormats();
 						if(in_array($extension,$supported['in'])) {
 							$tmp_name = $_FILES["files"]["tmp_name"][$key];
-							$name = \Media\Media::cleanFileName($_FILES["files"]["name"][$key]);
+							$name = \Media\Media::cleanFileName($basename);
 							if(!file_exists($tmp_path."/vmtmp")) {
 								mkdir($tmp_path."/vmtmp");
 							}
-							$name = basename($name);
+							$name = $name.".".$extension;
 							move_uploaded_file($tmp_name, $tmp_path."/vmtmp/".$name);
 							if(!file_exists($tmp_path."/vmtmp/".$name)) {
 								$return = array("status" => false, "message" => sprintf(_("Voicemail not moved to %s"),$tmp_path."/vmtmp/".$name));
