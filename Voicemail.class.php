@@ -270,6 +270,12 @@ class Voicemail implements \BMO {
 			throw new \Exception("Invalid context!");
 		}
 		unset($settings['vmcontext']);
+		if(empty($voicemail[$vmcontext])) {
+			throw new \Exception("Context does not exist");
+		}
+		if(empty($voicemail[$vmcontext][$mailbox])) {
+			throw new \Exception("Mailbox did not previously exist. Did you mean to addMailbox?");
+		}
 		$voicemail[$vmcontext][$mailbox] = $settings;
 		$this->saveVoicemail($voicemail);
 		return true;
