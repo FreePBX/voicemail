@@ -239,30 +239,38 @@ class Voicemail implements \BMO {
 	}
 
 	/**
-	 * Save Mailbox using data from getMailbox
+	 * Alias for updateMailbox
 	 * @method saveMailbox
+	 */
+	public function saveMailbox($mailbox, $settings, $cached = true) {
+		return $this->updateMailbox($mailbox, $settings, $cached);
+	}
+
+	/**
+	 * Update Mailbox using data from getMailbox
+	 * @method updateMailbox
 	 * @param  string      $mailbox The mailbox number
-	 * @param  array      $data    Array of mailbox data
+	 * @param  array      $settings    Array of mailbox settings
 	 * @param  boolean     $cached  Attempt to get cached voicemail file
 	 * @return boolean               Return true if success
 	 */
-	public function saveMailbox($mailbox, $data, $cached = true) {
+	public function updateMailbox($mailbox, $settings, $cached = true) {
 		if(trim($mailbox) == "") {
 			throw new \Exception("Mailbox is not defined!");
 		}
-		if(empty($data)) {
+		if(empty($settings)) {
 			throw new \Exception("Nothing to save! Did you mean to delMailbox?");
 		}
 		$voicemail = $this->getVoicemail($cached);
-		if(empty($data['vmcontext'])) {
+		if(empty($settings['vmcontext'])) {
 			throw new \Exception("There is no context!");
 		}
-		$vmcontext = $data['vmcontext'];
+		$vmcontext = $settings['vmcontext'];
 		if($vmcontext == "general" || $vmcontext == "zonemessages") {
 			throw new \Exception("Invalid context!");
 		}
-		unset($data['vmcontext']);
-		$voicemail[$vmcontext][$mailbox] = $data;
+		unset($settings['vmcontext']);
+		$voicemail[$vmcontext][$mailbox] = $settings;
 		$this->saveVoicemail($voicemail);
 		return true;
 	}
