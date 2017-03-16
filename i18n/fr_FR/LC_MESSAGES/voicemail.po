@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-16 10:24-0700\n"
+"POT-Creation-Date: 2017-03-16 11:40-0700\n"
 "PO-Revision-Date: 2017-03-13 15:27+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -933,7 +933,7 @@ msgstr ""
 msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 
-#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:557
+#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:558
 msgid "Forbidden"
 msgstr "Refusé"
 
@@ -1529,7 +1529,7 @@ msgstr ""
 msgid "None"
 msgstr "Aucun"
 
-#: ucp/Voicemail.class.php:576
+#: ucp/Voicemail.class.php:577
 msgid "Not Found"
 msgstr "Introuvable"
 
@@ -2386,11 +2386,11 @@ msgstr ""
 msgid "Unknown"
 msgstr "Inconnu(e)"
 
-#: ucp/Voicemail.class.php:464
+#: ucp/Voicemail.class.php:465
 msgid "Unknown Error"
 msgstr "Erreur inconnue"
 
-#: ucp/Voicemail.class.php:427
+#: ucp/Voicemail.class.php:428
 msgid "Unsupported file format"
 msgstr "Format de fichier non supporté"
 
@@ -2496,7 +2496,7 @@ msgid "VmX Locator"
 msgstr ""
 
 #: Voicemail.class.php:740 functions.inc.php:490 install.php:8
-#: ucp/Voicemail.class.php:524 views/header.php:2 voicemail.i18n.php:4
+#: ucp/Voicemail.class.php:525 views/header.php:2 voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr ""
@@ -2577,12 +2577,12 @@ msgid ""
 "sure you wish to continue?"
 msgstr ""
 
-#: ucp/Voicemail.class.php:422 ucp/Voicemail.class.php:454
+#: ucp/Voicemail.class.php:423 ucp/Voicemail.class.php:455
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
 
-#: ucp/Voicemail.class.php:459
+#: ucp/Voicemail.class.php:460
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""
