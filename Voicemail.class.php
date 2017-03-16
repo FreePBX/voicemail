@@ -239,6 +239,35 @@ class Voicemail implements \BMO {
 	}
 
 	/**
+	 * Save Mailbox using data from getMailbox
+	 * @method saveMailbox
+	 * @param  string      $mailbox The mailbox number
+	 * @param  array      $data    Array of mailbox data
+	 * @param  boolean     $cached  Attempt to get cached voicemail file
+	 * @return boolean               Return true if success
+	 */
+	public function saveMailbox($mailbox, $data, $cached = true) {
+		if(trim($mailbox) == "") {
+			throw new \Exception("Mailbox is not defined!");
+		}
+		if(empty($data)) {
+			throw new \Exception("Nothing to save! Did you mean to delMailbox?");
+		}
+		$voicemail = $this->getVoicemail($cached);
+		if(empty($data['vmcontext'])) {
+			throw new \Exception("There is no context!");
+		}
+		$vmcontext = $data['vmcontext'];
+		if($vmcontext == "general" || $vmcontext == "zonemessages") {
+			throw new \Exception("Invalid context!");
+		}
+		unset($data['vmcontext']);
+		$voicemail[$vmcontext][$mailbox] = $data;
+		$this->saveVoicemail($voicemail);
+		return true;
+	}
+
+	/**
 	 * Remove the mailbox from the system (hard drive)
 	 * @param bool $cached If true then attempt to get cached values
 	 * @param int $mailbox The mailbox number

@@ -9,6 +9,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.53.9* Add saveMailbox function
 		*13.0.53.8* Clarification for multiple mail addresses to receive voicemails			
 		*13.0.53.7* FREEPBX-14231 Feature codes are removed upon save in VMX Locater
 		*13.0.53.6* Fix default message length
