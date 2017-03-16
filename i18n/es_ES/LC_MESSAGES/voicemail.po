@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-20 12:12-0800\n"
+"POT-Creation-Date: 2017-03-15 18:16-0700\n"
 "PO-Revision-Date: 2016-12-12 04:58+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -2432,10 +2432,16 @@ msgstr ""
 "La tabla predeterminada para el almacenamiento de buzón de voz ODBC es "
 "mensajes de voz."
 
-#: Voicemail.class.php:1655 functions.inc.php:582 page.voicemail.php:297
-#: ucp/views/settings.php:14
+#: Voicemail.class.php:1655 functions.inc.php:582 ucp/views/settings.php:14
 msgid "The email address that Voicemails are sent to."
 msgstr "La dirección de email a la que se enviarán los mensajes de voz."
+
+#: page.voicemail.php:297
+msgid ""
+"The email address that Voicemails are sent to. Multiple e-mail addresses "
+"have to be comma separated without spaces (e.g.: first@domain.tld,"
+"second@domain.tld,third@domain.tld) "
+msgstr ""
 
 #: Voicemail.class.php:1944
 msgid ""

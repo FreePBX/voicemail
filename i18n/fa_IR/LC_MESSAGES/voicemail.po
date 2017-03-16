@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-20 12:12-0800\n"
+"POT-Creation-Date: 2017-03-15 18:16-0700\n"
 "PO-Revision-Date: 2016-07-17 10:07+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -2358,10 +2358,16 @@ msgstr "جدول پیشفرض ODBC ذخیره ایمیل صوتی در پیام 
 msgid "The default table for ODBC voicemail storage is voicemessages."
 msgstr "The default table  for ODBC voicemail storage is voicemessages."
 
-#: Voicemail.class.php:1655 functions.inc.php:582 page.voicemail.php:297
-#: ucp/views/settings.php:14
+#: Voicemail.class.php:1655 functions.inc.php:582 ucp/views/settings.php:14
 msgid "The email address that Voicemails are sent to."
 msgstr "آدرس ایمیلی که ایمیل صوتی به آن ارسال شده."
+
+#: page.voicemail.php:297
+msgid ""
+"The email address that Voicemails are sent to. Multiple e-mail addresses "
+"have to be comma separated without spaces (e.g.: first@domain.tld,"
+"second@domain.tld,third@domain.tld) "
+msgstr ""
 
 #: Voicemail.class.php:1944
 msgid ""
