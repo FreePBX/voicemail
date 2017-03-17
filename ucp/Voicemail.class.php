@@ -157,7 +157,10 @@ class Voicemail extends Modules{
 
 		$displayvars = array();
 		$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($id);
-		$tabcontent[] = $this->load_view(__DIR__.'/views/vmsettings.php',$displayvars);
+		$tabcontent['vmsettings'] = array(
+			"name" => _("Voicemail Settings"),
+			"content" => $this->load_view(__DIR__.'/views/vmsettings.php',$displayvars)
+		);
 
 		if ($this->greetings) {
 			$displayvars = array();
@@ -166,9 +169,23 @@ class Voicemail extends Modules{
 			$displayvars['settings'] = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($id);
 			$displayvars['greetings'] = $this->UCP->FreePBX->Voicemail->getGreetingsByExtension($id);
 			$displayvars['short_greetings'] = $this->UCP->FreePBX->Voicemail->greetings;
+			$tabcontent['greetings'] = array(
+				"name" => _("Greetings"),
+				"content" => $this->load_view(__DIR__.'/views/greetings.php',$displayvars)
+			);
 		}
 
-		$tabcontent[] = $this->load_view(__DIR__.'/views/greetings.php',$displayvars);
+		if($this->_checkVmX($id)) {
+			$displayvars = array(
+				'settings' => $this->Vmx->getSettings($ext),
+				'fmfm' => 'FM'.$ext,
+				'enabled' => $this->Vmx->isInitialized($ext) && $this->Vmx->isEnabled($ext)
+			);
+			$tabcontent['vmx'] = array(
+				"name" => "VMX",
+				"content" => $this->load_view(__DIR__.'/views/vmx.php',$displayvars)
+			);
+		}
 
 		$displayvars = array();
 		$displayvars['tabcontent'] = $tabcontent;
@@ -184,26 +201,6 @@ class Voicemail extends Modules{
 	function poll() {
 		$boxes = $this->getMailboxCount($this->extensions);
 		return array("status" => !empty($boxes['extensions']), "total" => $boxes['total'], "boxes" => isset($boxes['extensions']) ? $boxes['extensions'] : '');
-	}
-
-	public function getSettingsDisplay($ext) {
-		if(!$this->_checkVmX($ext)) {
-			return array();
-		}
-		$displayvars = array(
-			'settings' => $this->Vmx->getSettings($ext),
-			'fmfm' => 'FM'.$ext,
-			'enabled' => $this->Vmx->isInitialized($ext) && $this->Vmx->isEnabled($ext)
-		);
-		$out = array(
-			array(
-				"title" => _('VmX Locator'),
-				"content" => $this->load_view(__DIR__.'/views/vmx.php',$displayvars),
-				"size" => 6,
-				"order" => 1
-			)
-		);
-		return $out;
 	}
 
 	/**
@@ -377,6 +374,7 @@ class Voicemail extends Modules{
 				if(!$this->_checkVmX($_POST['ext'])) {
 					return false;
 				}
+				dbug($_POST);
 				switch($_POST['settings']['key']) {
 					case 'vmx-state':
 						$m = ($_POST['settings']['value'] == 'true') ? 'enabled' : 'disabled';

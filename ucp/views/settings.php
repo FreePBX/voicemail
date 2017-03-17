@@ -1,12 +1,14 @@
 <div id="settings">
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="#vmsettings" data-toggle="tab"><?php echo _("Voicemail Settings")?></a></li>
-		<li><a href="#greetings" data-toggle="tab"><?php echo _("Greetings")?></a></li>
+		<?php foreach ($tabcontent as $id => $data) { ?>
+			<li class="<?php echo $id == 'vmsettings' ? 'active' : ''?>"><a href="#vm-<?php echo $id?>" data-toggle="tab"><?php echo $data['name']?></a></li>
+		<?php } ?>
 	</ul>
 	<div class="tab-content">
-		<?php foreach ($tabcontent as $content) {
-			echo $content;
-		}
-		?>
+		<?php foreach ($tabcontent as $id => $data) { ?>
+			<div class="tab-pane fade <?php echo $id == 'vmsettings' ? 'in active' : ''?>" id="vm-<?php echo $id?>">
+				<?php echo $data['content']; ?>
+			</div>
+		<?php } ?>
 	</div>
 </div>
