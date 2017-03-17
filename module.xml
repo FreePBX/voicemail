@@ -9,6 +9,7 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*14.0.1.1* Add vmx to ucp, fixes to greetings
 		*14.0.1* UCP 14
 		*13.0.53.1* FREEPBX-13026 Fix default logic on radiosets
 		*13.0.53* FREEPBX-8555 Support passwordless voicemail retrieval in device/user mode
