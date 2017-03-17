@@ -294,7 +294,7 @@ $tooltips = array("tz" 	    => array("name" 				=> _("Timezone definition name")
 				     "callback" 			=> _("Context to call back from; if not listed, calling the sender back will not be permitted."),
 				     "delete" 				=> _("After notification, the Voicemail is deleted from the server. [per-mailbox only] This is intended for use with users who wish to receive their Voicemail ONLY by email. Note:  deletevoicemail is provided as an equivalent option for Realtime configuration."),
 				     "dialout" 				=> _("Context to dial out from [option 4 from the advanced menu] if not listed, dialing out will not be permitted."),
-				     "email"				=> _("The email address that Voicemails are sent to."),
+				     "email"				=> _("The email address that Voicemails are sent to. Multiple e-mail addresses have to be comma separated without spaces (e.g.: first@domain.tld,second@domain.tld,third@domain.tld) "),
 				     "envelope" 			=> _("Turn on/off envelope playback before message playback. [ON by default] This does NOT affect option 3,3 from the advanced options menu."),
 				     "exitcontext" 			=> _("Context to check for handling * or 0 calls to operator. \"Operator Context\""),
 				     "forcegreetings" 			=> _("Force new user to record greetings (the same as forcename, except for recording greetings).  The default is \"no\"."),
