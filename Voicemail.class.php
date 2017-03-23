@@ -474,7 +474,7 @@ class Voicemail implements \BMO {
 			if (!isset($settings['vmx_option_0_number'])) {
 				$settings['vmx_option_0_number'] = '';
 			}
-			$settings['vmx_option_0_number'] = preg_replace("/[^0-9\*]/" ,"", $settings['vmx_option_0_number']);
+			$settings['vmx_option_0_number'] = preg_replace("/[^0-9\*#]/" ,"", $settings['vmx_option_0_number']);
 			$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_0_number'],0,'unavail');
 			$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_0_number'],0,'busy');
 			$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_0_number'],0,'temp');
@@ -518,13 +518,13 @@ class Voicemail implements \BMO {
 				if (!isset($settings['vmx_option_1_number'])) {
 					$settings['vmx_option_1_number'] = '';
 				}
-				$settings['vmx_option_1_number'] = preg_replace("/[^0-9\*]/" ,"", $settings['vmx_option_1_number']);
+				$settings['vmx_option_1_number'] = preg_replace("/[^0-9\*#]/" ,"", $settings['vmx_option_1_number']);
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_1_number'],1,'unavail');
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_1_number'],1,'busy');
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_1_number'],1,'temp');
 			}
 			if (isset($settings['vmx_option_2_number'])) {
-				$settings['vmx_option_2_number'] = preg_replace("/[^0-9\*]/" ,"", $settings['vmx_option_2_number']);
+				$settings['vmx_option_2_number'] = preg_replace("/[^0-9\*#]/" ,"", $settings['vmx_option_2_number']);
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_2_number'],2,'unavail');
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_2_number'],2,'busy');
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_2_number'],2,'temp');
