@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.54.2</version>
+	<version>13.0.54.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.54.3* FREEPBX-14231 Feature codes are removed upon save in VMX Locater
 		*13.0.54.2* Send media encoder the file with the extension
 		*13.0.54.1* Fix up previous function
 		*13.0.54* Add saveMailbox function
