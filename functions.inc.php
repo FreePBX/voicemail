@@ -520,7 +520,7 @@ function voicemail_configpageload() {
 		$el = array(
 			"elemname" => "vmpwd",
 			"prompttext" => _('Voicemail Password'),
-			"helptext" => sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm),
+			"helptext" => sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone. %sSet this password to same as extension number to force the user to setup their mailbox on first access."),"<br /><br />","<br /><br />",$fc_vm,"<br /><br />"),
 			"currentvalue" => $vmpwd,
 			"jsvalidation" => "frm_${display}_isVoiceMailEnabled() && !frm_${display}_isValidVoicemailPass()",
 			"failvalidationmsg" => $msgInvalidVmPwd,
