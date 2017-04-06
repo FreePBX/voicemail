@@ -2218,7 +2218,9 @@ msgstr ""
 msgid ""
 "This is the password used to access the Voicemail system.%sThis password can "
 "only contain numbers.%sA user can change the password you enter here after "
-"logging into the Voicemail system (%s) with a phone."
+"logging into the Voicemail system (%s) with a phone. %sSet this password to "
+"same as extension number to force the user to setup their mailbox on first "
+"access."
 msgstr ""
 
 #: page.voicemail.php:290
