@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-06 13:51-0400\n"
-"PO-Revision-Date: 2016-12-12 04:58+0200\n"
+"PO-Revision-Date: 2017-04-10 23:10+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
-"voicemail/es_ES/>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/voicemail/es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -402,6 +402,13 @@ msgid ""
 "acceptable.  If the password is considered too weak, the script should print "
 "INVALID to stdout. "
 msgstr ""
+"El comando especificado se ejecuta antes de que un usuario cambie su "
+"contraseña y puede utilizarse para imponer restricciones de seguridad en la "
+"contraseña de correo de voz. Los argumentos pasados a la aplicación son: "
+"[mailbox] [context] [oldpassword] [newpassword]. El script debe imprimir "
+"VALID a stdout para indicar que la nueva contraseña es aceptable. Si la "
+"contraseña se considera demasiado débil, el script debe imprimir INVALID a "
+"stdout. "
 
 #: Voicemail.class.php:2365
 msgid "Context Config"
@@ -960,7 +967,7 @@ msgstr "Notificación de contraseña externa"
 
 #: Voicemail.class.php:1732
 msgid "External Password Verification Script"
-msgstr ""
+msgstr "Script de verificación de contraseña externa"
 
 #: Voicemail.class.php:1712 Voicemail.class.php:1817 page.voicemail.php:226
 msgid "External Voicemail notify application."
@@ -1526,7 +1533,7 @@ msgstr "El buzón no puede estar vacío"
 #: Voicemail.class.php:161
 #, php-format
 msgid "Mailbox is not in the proper format [%s]"
-msgstr ""
+msgstr "Buzón de Correo no esta en el formato adecuado [%s]"
 
 #: Voicemail.class.php:2094
 msgid "Max Failed Logins"
@@ -2442,6 +2449,10 @@ msgid ""
 "have to be comma separated without spaces (e.g.: first@domain.tld,"
 "second@domain.tld,third@domain.tld) "
 msgstr ""
+"Dirección de correo electrónico a la que se envían los mensajes de voz. Para "
+"varias direcciones de correo electrónico tienen que ser separadas por comas "
+"sin espacios (por ejemplo: first@domain.tld,second@domain.tld,third@"
+"domain.tld "
 
 #: Voicemail.class.php:1987
 msgid ""
@@ -2586,6 +2597,12 @@ msgid ""
 "same as extension number to force the user to setup their mailbox on first "
 "access."
 msgstr ""
+"Esta es la contraseña utilizada para acceder al sistema de correo de voz.%"
+"sEsta contraseña sólo puede contener números.%sEl usuario puede cambiar la "
+"contraseña que ingresa aquí después de iniciar sesión en el sistema de "
+"correo de voz (%s) con un teléfono. %sConfigure esta contraseña como el "
+"número de extensión para forzar al usuario a configurar su buzón en el "
+"primer acceso."
 
 #: page.voicemail.php:290
 msgid ""
