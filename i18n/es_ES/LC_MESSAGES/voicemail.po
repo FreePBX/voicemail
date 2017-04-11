@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-06 13:51-0400\n"
-"PO-Revision-Date: 2017-04-10 23:10+0200\n"
+"PO-Revision-Date: 2017-04-10 23:20+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/es_ES/>\n"
@@ -1869,7 +1869,7 @@ msgstr "Formato fecha Buscapersonas"
 #: Voicemail.class.php:1690 functions.inc.php:594 page.voicemail.php:519
 #: ucp/views/settings.php:17
 msgid "Pager Email Address"
-msgstr "Número de teléfono móvil"
+msgstr "Dirección de email del Móvil/Buscapersonas"
 
 #: Voicemail.class.php:2022
 msgid "Pager From String"
@@ -1884,7 +1884,7 @@ msgstr "Asunto Buscapersonas"
 msgid ""
 "Pager/mobile email address that short Voicemail notifications are sent to."
 msgstr ""
-"Número de teléfono móvil/buscapersonas a la que se enviarán las "
+"Email del teléfono móvil/buscapersonas a la que se enviarán las "
 "notificaciones del buzón de voz."
 
 #: Voicemail.class.php:2324
