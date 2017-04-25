@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-06 13:51-0400\n"
+"POT-Creation-Date: 2017-04-25 14:39-0400\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -305,7 +305,7 @@ msgstr ""
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr "このボイスメールを削除しますか？"
 
-#: functions.inc.php:1311
+#: functions.inc.php:1316
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
@@ -1073,7 +1073,7 @@ msgstr "From:Eメールのための文字列"
 msgid "From: string sent to pager."
 msgstr "From: ページャーに送信される文字列"
 
-#: functions.inc.php:1475
+#: functions.inc.php:1480
 msgid "GB"
 msgstr ""
 
@@ -1378,7 +1378,7 @@ msgstr ""
 msgid "Invalid Recipient"
 msgstr ""
 
-#: functions.inc.php:1475
+#: functions.inc.php:1480
 msgid "KB"
 msgstr ""
 
@@ -1417,7 +1417,7 @@ msgstr ""
 msgid "Load date format config for Voicemail mail."
 msgstr "ボイスメールメールのための日付フォーマット設定を読み込む。"
 
-#: functions.inc.php:1475
+#: functions.inc.php:1480
 msgid "MB"
 msgstr ""
 
@@ -2179,7 +2179,7 @@ msgstr "システム設定"
 msgid "System Usage Statistics"
 msgstr "システム使用状況の統計"
 
-#: functions.inc.php:1475
+#: functions.inc.php:1480
 msgid "TB"
 msgstr ""
 
