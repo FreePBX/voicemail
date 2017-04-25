@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-06 13:51-0400\n"
+"POT-Creation-Date: 2017-04-25 14:39-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -275,7 +275,7 @@ msgstr ""
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr ""
 
-#: functions.inc.php:1311
+#: functions.inc.php:1316
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
@@ -1057,7 +1057,7 @@ msgstr ""
 msgid "From: string sent to pager."
 msgstr ""
 
-#: functions.inc.php:1475
+#: functions.inc.php:1480
 msgid "GB"
 msgstr ""
 
@@ -1341,7 +1341,7 @@ msgstr ""
 msgid "Invalid Recipient"
 msgstr ""
 
-#: functions.inc.php:1475
+#: functions.inc.php:1480
 msgid "KB"
 msgstr ""
 
@@ -1380,7 +1380,7 @@ msgstr ""
 msgid "Load date format config for Voicemail mail."
 msgstr ""
 
-#: functions.inc.php:1475
+#: functions.inc.php:1480
 msgid "MB"
 msgstr ""
 
@@ -2184,7 +2184,7 @@ msgstr ""
 msgid "System Usage Statistics"
 msgstr ""
 
-#: functions.inc.php:1475
+#: functions.inc.php:1480
 msgid "TB"
 msgstr ""
 

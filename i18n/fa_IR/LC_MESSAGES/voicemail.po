@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-06 13:51-0400\n"
+"POT-Creation-Date: 2017-04-25 14:39-0400\n"
 "PO-Revision-Date: 2016-07-17 10:07+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -284,7 +284,7 @@ msgstr "آیا از حذف این پست های مطمئن هستید؟"
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr "آیا از حذف این پست صوتی مطمئن هستید؟"
 
-#: functions.inc.php:1311
+#: functions.inc.php:1316
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr "استریسک اجرا نشده, نمیتوان به مدیریت استریسک وصل شد"
@@ -1100,7 +1100,7 @@ msgstr "از: جمله برای ایمیل"
 msgid "From: string sent to pager."
 msgstr "از: جمله برای ارسال به پیام گیر."
 
-#: functions.inc.php:1475
+#: functions.inc.php:1480
 msgid "GB"
 msgstr "گیگا بایت"
 
@@ -1419,7 +1419,7 @@ msgstr "کلمه عبور نامعتبر"
 msgid "Invalid Recipient"
 msgstr "گیرنده نامعتبر"
 
-#: functions.inc.php:1475
+#: functions.inc.php:1480
 msgid "KB"
 msgstr "کیلو بایت"
 
@@ -1461,7 +1461,7 @@ msgstr "گوش دادن در ایمیل صوتی"
 msgid "Load date format config for Voicemail mail."
 msgstr "فراخوانی تنظیم فرمت تاریخ در ایمیل صوتی."
 
-#: functions.inc.php:1475
+#: functions.inc.php:1480
 msgid "MB"
 msgstr "مگا بایت"
 
@@ -2259,7 +2259,7 @@ msgstr "تنظیمات سیستم"
 msgid "System Usage Statistics"
 msgstr "آمار مصرفی سیستم"
 
-#: functions.inc.php:1475
+#: functions.inc.php:1480
 msgid "TB"
 msgstr "ترا بایت"
 
