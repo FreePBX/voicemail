@@ -662,7 +662,7 @@ function voicemail_configpageload() {
 				"elemname" => "imappassword",
 				"prompttext" => _('IMAP Password'),
 				"helptext" => sprintf(_("This is the IMAP password, if using IMAP storage"),"<br /><br />"),
-				"currentvalue" => $vmops_imapuser,
+				"currentvalue" => $vmops_imappassword,
 				"class" => $class,
 				"disable" => $disable
 			);
@@ -1069,7 +1069,12 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 					/* Each Voicemail account has a line in voicemail.conf like this: */
 					/* extension => password,name,email,pager,options		  */
 					/* Take care of password, name, email and pager.                  */
-					$pwd = isset($args["acct__pwd"])?$args["acct__pwd"]:"";
+					if(isset($args["acct__pwd"])){
+						$pwd = $args["acct__pwd"];
+						unset($args["acct__pwd"]);
+					}else{
+						$pwd = isset($vmconf[$context][$extension]['pwd'])?$vmconf[$context][$extension]['pwd']:"";
+					}
 					unset($args["acct__pwd"]);
 					if (isset($args["acct__name"]) && $args["acct__name"] != "") {
 						$name = $args["acct__name"];
