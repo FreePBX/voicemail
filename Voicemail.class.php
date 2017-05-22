@@ -2084,7 +2084,7 @@ class Voicemail implements \BMO {
 						"level" => array("general"),
 						"type" => "number",
 						"default" => '60',
-						"description" => _("Max Greeting Length"),
+						"description" => _("Max Greeting Length (Seconds)"),
 						"helptext" => _("Max message greeting length. (in seconds)")." [maxgreet]"
 					),
 					"maxlogins" => array(
@@ -2115,7 +2115,7 @@ class Voicemail implements \BMO {
 						"type" => "number",
 						"options" => array("0","9999"),
 						"default" => '300',
-						"description" => _("Max Message Length"),
+						"description" => _("Max Message Length (Seconds)"),
 						"helptext" => _("Minimum length of a voicemail message in seconds for the message to be kept. The default is 300 (in seconds).")." [maxsecs]"
 					),
 					"maxsilence" => array(
@@ -2123,7 +2123,7 @@ class Voicemail implements \BMO {
 						"type" => "number",
 						"options" => array("1","9999"),
 						"default" => '10',
-						"description" => _("Max Message Silence"),
+						"description" => _("Max Message Silence (Milliseconds)"),
 						"helptext" => _("How many milliseconds of silence before we end the recording (in milliseconds).")." [maxsilence]"
 					),
 					"silencethreshold" => array(
@@ -2138,8 +2138,8 @@ class Voicemail implements \BMO {
 						"level" => array("general"),
 						"type" => "number",
 						"options" => array("1","9999"),
-						"default" => '2',
-						"description" => _("Min Message Length"),
+						"default" => '1',
+						"description" => _("Min Message Length (Seconds)"),
 						"helptext" => _("Minimum length of a voicemail message in seconds for the message to be kept. (in seconds).")." [minsecs]"
 					),
 					"skipms" => array(

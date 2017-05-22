@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.54.6</version>
+	<version>13.0.54.7</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.54.7* FREEPBX-14844 Clarify what is seconds and what is milliseconds
 		*13.0.54.6* FREEPBX-14844 maxsilence is in milliseconds
 		*13.0.54.5* FREEPBX-14532 IMAP Password field in Extension incorrectly loads username field instead.
 		*13.0.54.4* FREEPBX-14060 On extension creation voicemail tooltip needed
