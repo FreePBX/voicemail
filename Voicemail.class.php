@@ -356,6 +356,8 @@ class Voicemail implements \BMO {
 						$opts[] = $key."=".$value;
 					}
 				}
+				 //FREEPBX-14851  Voicemail issue for extension if display name contains a comma
+                                $data['name']=str_replace(",","",$data['name']);
 				$data['email'] = str_replace(",","|",$data['email']);
 				$data['pager'] = str_replace(",","|",$data['pager']);
 				$data['options'] = implode("|",$opts);
