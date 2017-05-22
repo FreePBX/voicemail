@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-25 14:39-0400\n"
+"POT-Creation-Date: 2017-05-22 16:59-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1064,6 +1064,12 @@ msgstr ""
 msgid "How many miliseconds of silence before we end the recording"
 msgstr ""
 
+#: Voicemail.class.php:2127
+msgid ""
+"How many milliseconds of silence before we end the recording (in "
+"milliseconds)."
+msgstr ""
+
 #: page.voicemail.php:277
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback"
@@ -1073,10 +1079,6 @@ msgstr ""
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback "
 "(in milliseconds)"
-msgstr ""
-
-#: Voicemail.class.php:2127
-msgid "How many seconds of silence before we end the recording (in seconds)."
 msgstr ""
 
 #: Voicemail.class.php:2205

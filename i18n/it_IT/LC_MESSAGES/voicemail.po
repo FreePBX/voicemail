@@ -1034,6 +1034,12 @@ msgstr ""
 msgid "How many miliseconds of silence before we end the recording"
 msgstr ""
 
+#: Voicemail.class.php:2127
+msgid ""
+"How many milliseconds of silence before we end the recording (in "
+"milliseconds)."
+msgstr ""
+
 #: page.voicemail.php:277
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback"
@@ -1043,10 +1049,6 @@ msgstr ""
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback "
 "(in milliseconds)"
-msgstr ""
-
-#: Voicemail.class.php:2127
-msgid "How many seconds of silence before we end the recording (in seconds)."
 msgstr ""
 
 #: Voicemail.class.php:2205
