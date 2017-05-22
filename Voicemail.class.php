@@ -351,6 +351,9 @@ class Voicemail implements \BMO {
 			$cdata = array();
 			foreach($context as $mailbox => $data) {
 				$opts = array();
+				//lets remove the ',' from name
+				//FREEPBX-11103  Voicemail issue for extension if display name contains a comma
+				$data['name']=str_replace(",","",$data['name']);
 				if(!empty($data['options'])) {
 					foreach($data['options'] as $key => $value) {
 						$opts[] = $key."=".$value;
