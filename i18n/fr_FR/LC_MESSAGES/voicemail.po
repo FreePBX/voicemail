@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-22 16:59-0400\n"
+"POT-Creation-Date: 2017-05-22 17:50-0400\n"
 "PO-Revision-Date: 2017-03-13 15:27+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -1331,16 +1331,16 @@ msgid "Max Failed Logins"
 msgstr "Max tentative de connexion"
 
 #: Voicemail.class.php:2087
-msgid "Max Greeting Length"
-msgstr "Max durée du message de salutation"
+msgid "Max Greeting Length (Seconds)"
+msgstr ""
 
 #: Voicemail.class.php:2118
-msgid "Max Message Length"
-msgstr "Max durée messages vocaux"
+msgid "Max Message Length (Seconds)"
+msgstr ""
 
 #: Voicemail.class.php:2126
-msgid "Max Message Silence"
-msgstr "Max silence dans message"
+msgid "Max Message Silence (Milliseconds)"
+msgstr ""
 
 #: Voicemail.class.php:2102
 msgid "Max Messages"
@@ -1392,8 +1392,8 @@ msgid "Messages in other folders"
 msgstr "Messages dans les autres dossiers"
 
 #: Voicemail.class.php:2142
-msgid "Min Message Length"
-msgstr "Durée minimale messages"
+msgid "Min Message Length (Seconds)"
+msgstr ""
 
 #: page.voicemail.php:257
 msgid ""
@@ -2759,3 +2759,15 @@ msgstr "variable"
 #: page.voicemail.php:568
 msgid "yes"
 msgstr "oui"
+
+#~ msgid "Max Greeting Length"
+#~ msgstr "Max durée du message de salutation"
+
+#~ msgid "Max Message Length"
+#~ msgstr "Max durée messages vocaux"
+
+#~ msgid "Max Message Silence"
+#~ msgstr "Max silence dans message"
+
+#~ msgid "Min Message Length"
+#~ msgstr "Durée minimale messages"

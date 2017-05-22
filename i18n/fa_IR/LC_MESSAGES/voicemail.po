@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-22 16:59-0400\n"
+"POT-Creation-Date: 2017-05-22 17:50-0400\n"
 "PO-Revision-Date: 2016-07-17 10:07+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -1489,16 +1489,16 @@ msgid "Max Failed Logins"
 msgstr "حداکثر ورود ناموفق"
 
 #: Voicemail.class.php:2087
-msgid "Max Greeting Length"
-msgstr "حداکثر طول خوش آمد گویی"
+msgid "Max Greeting Length (Seconds)"
+msgstr ""
 
 #: Voicemail.class.php:2118
-msgid "Max Message Length"
-msgstr "حداکثر طول پیام"
+msgid "Max Message Length (Seconds)"
+msgstr ""
 
 #: Voicemail.class.php:2126
-msgid "Max Message Silence"
-msgstr "حداکثر پیام سکوت"
+msgid "Max Message Silence (Milliseconds)"
+msgstr ""
 
 #: Voicemail.class.php:2102
 msgid "Max Messages"
@@ -1554,8 +1554,8 @@ msgid "Messages in other folders"
 msgstr "پیام ها در سایر فولدرها"
 
 #: Voicemail.class.php:2142
-msgid "Min Message Length"
-msgstr "حداقل طول پیام"
+msgid "Min Message Length (Seconds)"
+msgstr ""
 
 #: page.voicemail.php:257
 msgid ""
@@ -3034,6 +3034,18 @@ msgstr "متغیر"
 #: page.voicemail.php:568
 msgid "yes"
 msgstr "بله"
+
+#~ msgid "Max Greeting Length"
+#~ msgstr "حداکثر طول خوش آمد گویی"
+
+#~ msgid "Max Message Length"
+#~ msgstr "حداکثر طول پیام"
+
+#~ msgid "Max Message Silence"
+#~ msgstr "حداکثر پیام سکوت"
+
+#~ msgid "Min Message Length"
+#~ msgstr "حداقل طول پیام"
 
 #~ msgid ""
 #~ "How many seconds of silence before we end the recording (in seconds)."

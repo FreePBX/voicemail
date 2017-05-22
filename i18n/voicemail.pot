@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-22 16:59-0400\n"
+"POT-Creation-Date: 2017-05-22 17:50-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1408,15 +1408,15 @@ msgid "Max Failed Logins"
 msgstr ""
 
 #: Voicemail.class.php:2087
-msgid "Max Greeting Length"
+msgid "Max Greeting Length (Seconds)"
 msgstr ""
 
 #: Voicemail.class.php:2118
-msgid "Max Message Length"
+msgid "Max Message Length (Seconds)"
 msgstr ""
 
 #: Voicemail.class.php:2126
-msgid "Max Message Silence"
+msgid "Max Message Silence (Milliseconds)"
 msgstr ""
 
 #: Voicemail.class.php:2102
@@ -1474,7 +1474,7 @@ msgid "Messages in other folders"
 msgstr ""
 
 #: Voicemail.class.php:2142
-msgid "Min Message Length"
+msgid "Min Message Length (Seconds)"
 msgstr ""
 
 #: page.voicemail.php:257
