@@ -763,6 +763,8 @@ var VoicemailC = UCPMC.extend({
 				cssSelectorAncestor: container,
 				wmode: "window",
 				useStateClassSkin: true,
+				autoBlur: false,
+				keyEnabled: true,
 				remainingDuration: true,
 				toggleDuration: true
 			});
