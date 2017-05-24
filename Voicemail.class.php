@@ -351,6 +351,9 @@ class Voicemail implements \BMO {
 			$cdata = array();
 			foreach($context as $mailbox => $data) {
 				$opts = array();
+				//lets remove the ',' from name
+				//FREEPBX-11103  Voicemail issue for extension if display name contains a comma
+				$data['name']=str_replace(",","",$data['name']);
 				if(!empty($data['options'])) {
 					foreach($data['options'] as $key => $value) {
 						$opts[] = $key."=".$value;
@@ -476,7 +479,7 @@ class Voicemail implements \BMO {
 			if (!isset($settings['vmx_option_0_number'])) {
 				$settings['vmx_option_0_number'] = '';
 			}
-			$settings['vmx_option_0_number'] = preg_replace("/[^0-9\*]/" ,"", $settings['vmx_option_0_number']);
+			$settings['vmx_option_0_number'] = preg_replace("/[^0-9\*#]/" ,"", $settings['vmx_option_0_number']);
 			$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_0_number'],0,'unavail');
 			$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_0_number'],0,'busy');
 			$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_0_number'],0,'temp');
@@ -520,13 +523,13 @@ class Voicemail implements \BMO {
 				if (!isset($settings['vmx_option_1_number'])) {
 					$settings['vmx_option_1_number'] = '';
 				}
-				$settings['vmx_option_1_number'] = preg_replace("/[^0-9\*]/" ,"", $settings['vmx_option_1_number']);
+				$settings['vmx_option_1_number'] = preg_replace("/[^0-9\*#]/" ,"", $settings['vmx_option_1_number']);
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_1_number'],1,'unavail');
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_1_number'],1,'busy');
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_1_number'],1,'temp');
 			}
 			if (isset($settings['vmx_option_2_number'])) {
-				$settings['vmx_option_2_number'] = preg_replace("/[^0-9\*]/" ,"", $settings['vmx_option_2_number']);
+				$settings['vmx_option_2_number'] = preg_replace("/[^0-9\*#]/" ,"", $settings['vmx_option_2_number']);
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_2_number'],2,'unavail');
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_2_number'],2,'busy');
 				$this->Vmx->setMenuOpt($mailbox,$settings['vmx_option_2_number'],2,'temp');
@@ -1986,7 +1989,7 @@ class Voicemail implements \BMO {
 						"default" => '${VM_NAME},\n\nThere is a new voicemail in mailbox ${VM_MAILBOX}:\n\n\tFrom:\t${VM_CALLERID}\n\tLength:\t${VM_DUR} seconds\n\tDate:\t${VM_DATE}\n\nDial *98 to access your voicemail by phone.\nVisit http://AMPWEBADDRESS/ucp to check your voicemail with a web browser.\n',
 						"len" => 512,
 						"description" => _("Email Body"),
-						"helptext" => _('The email body. Change the from, body and/or subject, variables: VM_NAME, VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. Additionally, on forwarded messages, you have the variables: ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE You can select between two variables by using dialplan functions, e.g. ${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}.') . " [emailbody]"
+						"helptext" => _('The email body. Change the from, body and/or subject, variables: VM_NAME, VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. Additionally, on forwarded messages, you have the variables: ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE You can select between two variables by using dialplan functions, e.g. ${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}.') . " [emailbody] " . _(" Don't leave single period on end of line by itself.")
 					),
 					"fromstring" => array(
 						"level" => array("general"),
@@ -2086,7 +2089,7 @@ class Voicemail implements \BMO {
 						"level" => array("general"),
 						"type" => "number",
 						"default" => '60',
-						"description" => _("Max Greeting Length"),
+						"description" => _("Max Greeting Length (Seconds)"),
 						"helptext" => _("Max message greeting length. (in seconds)")." [maxgreet]"
 					),
 					"maxlogins" => array(
@@ -2117,16 +2120,16 @@ class Voicemail implements \BMO {
 						"type" => "number",
 						"options" => array("0","9999"),
 						"default" => '300',
-						"description" => _("Max Message Length"),
+						"description" => _("Max Message Length (Seconds)"),
 						"helptext" => _("Minimum length of a voicemail message in seconds for the message to be kept. The default is 300 (in seconds).")." [maxsecs]"
 					),
 					"maxsilence" => array(
 						"level" => array("general"),
 						"type" => "number",
-						"options" => array("0","9999"),
-						"default" => '3',
-						"description" => _("Max Message Silence"),
-						"helptext" => _("How many seconds of silence before we end the recording (in seconds).")." [maxsilence]"
+						"options" => array("1","9999"),
+						"default" => '10',
+						"description" => _("Max Message Silence (Milliseconds)"),
+						"helptext" => _("How many milliseconds of silence before we end the recording (in milliseconds).")." [maxsilence]"
 					),
 					"silencethreshold" => array(
 						"level" => array("general"),
@@ -2139,9 +2142,9 @@ class Voicemail implements \BMO {
 					"minsecs" => array(
 						"level" => array("general"),
 						"type" => "number",
-						"options" => array("0","9999"),
-						"default" => '5',
-						"description" => _("Min Message Length"),
+						"options" => array("1","9999"),
+						"default" => '1',
+						"description" => _("Min Message Length (Seconds)"),
 						"helptext" => _("Minimum length of a voicemail message in seconds for the message to be kept. (in seconds).")." [minsecs]"
 					),
 					"skipms" => array(
