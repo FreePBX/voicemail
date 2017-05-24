@@ -80,7 +80,7 @@ class Voicemail extends Modules{
 						"display" => $name,
 						"hasSettings" => true,
 						"minsize" => array("height" => 5, "width" => 5),
-						"defaultsize" => array("height" => 5, "width" => 6)
+						"defaultsize" => array("height" => 7, "width" => 6)
 					);
 				}
 			}
