@@ -37,12 +37,12 @@ var VoicemailC = UCPMC.extend({
 
 		var notify = false;
 		async.forEachOf(data.boxes, function (value, extension, callback) {
-			var el = $(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id='"+extension+"']");
-			if(!el.length && el.data("inbox") < value) {
+			var el = $(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id='"+extension+"'] .mailbox");
+			if(el.length && el.data("inbox") < value) {
 				el.data("inbox",value);
 				notify = true;
 				if((typeof Cookies.get('vm-refresh-'+extension) === "undefined" && (typeof Cookies.get('vm-refresh-'+extension) === "undefined" || Cookies.get('vm-refresh-'+extension) == 1)) || Cookies.get('vm-refresh-'+extension) == 1) {
-					$(el).find('.voicemail-grid').bootstrapTable('refresh',{silent: true});
+					$(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id='"+extension+"'] .voicemail-grid").bootstrapTable('refresh',{silent: true});
 				}
 			}
 			callback();
@@ -256,38 +256,31 @@ var VoicemailC = UCPMC.extend({
 		});
 		$("div[data-id='"+widget_id+"'] .delete-selection").click(function() {
 			UCP.showConfirm(_("Are you sure you wish to delete these voicemails?"),'warning',function() {
-				var sel = $("div[data-id='"+widget_id+"']").bootstrapTable('getAllSelections');
+				var sel = $("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('getAllSelections');
 				$.each(sel, function(i, v){
 					self.deleteVoicemail(v.msg_id, function(data) {
 						if(data.status) {
-							$("div[data-id='"+widget_id+"']").bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
+							$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
 						}
 					});
 				});
-				//$("div[data-id='"+widget_id+"']").bootstrapTable('refresh');
 				$("#delete-selection").prop("disabled",true);
 			});
 		});
 		$("div[data-id='"+widget_id+"'] .forward-selection").click(function() {
-			var sel = $("div[data-id='"+widget_id+"']").bootstrapTable('getAllSelections');
+			var sel = $("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('getAllSelections');
 			UCP.showDialog(_("Forward Voicemail"),
-				_("To")+":</label><select class=\"form-control Fill\" id=\"VMto\"></select><button class=\"btn btn-default\" id=\"forwardVM\" style=\"margin-left: 72px;\">" + _("Forward") + "</button>",
-				145,
-				250,
+				_("To")+":</label><input type='text' class='form-control' id='VMto'>",
+				'<button class="btn btn-default" id="forwardVM">' + _("Forward") + "</button>",
 				function() {
-					$("#VMto").tokenize({
-						newElements: false,
-						maxElements: 1,
-						datas: UCP.ajaxUrl + "?module=voicemail&command=forwards&ext="+extension
-					});
 					$("#forwardVM").click(function() {
 						setTimeout(function() {
-							var recpt = $("#VMto").val()[0];
+							var recpt = $("#VMto").val();
 							$.each(sel, function(i, v){
 								self.forwardVoicemail(v.msg_id,recpt, function(data) {
 									if(data.status) {
 										UCP.showAlert(sprintf(_("Successfully forwarded voicemail to %s"),recpt));
-										$("div[data-id='"+widget_id+"']").bootstrapTable('uncheckAll');
+										$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('uncheckAll');
 										UCP.closeDialog();
 									}
 								});
@@ -296,24 +289,20 @@ var VoicemailC = UCPMC.extend({
 					});
 					$("#VMto").keypress(function(event) {
 						if (event.keyCode == 13) {
-							setTimeout(function() {
-								var recpt = $("#VMto").val()[0];
-								$.each(sel, function(i, v){
-									self.forwardVoicemail(v.msg_id,recpt, function(data) {
-										if(data.status) {
-											UCP.showAlert(sprintf(_("Successfully forwarded voicemail to %s"),recpt));
-											$("div[data-id='"+widget_id+"']").bootstrapTable('uncheckAll');
-											UCP.closeDialog();
-										}
-									});
+							var recpt = $("#VMto").val();
+							$.each(sel, function(i, v){
+								self.forwardVoicemail(v.msg_id,recpt, function(data) {
+									if(data.status) {
+										UCP.showAlert(sprintf(_("Successfully forwarded voicemail to %s"),recpt));
+										$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('uncheckAll');
+										UCP.closeDialog();
+									}
 								});
-							}, 50);
+							});
 						}
 					});
 				}
 			);
-			$("div[data-id='"+widget_id+"'] .forward-selection").prop("disabled",true);
-			$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('uncheckAll');
 		});
 
 
