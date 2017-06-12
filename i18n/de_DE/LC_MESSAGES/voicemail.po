@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-02 14:44-0700\n"
+"POT-Creation-Date: 2017-06-12 11:13+0530\n"
 "PO-Revision-Date: 2017-03-16 11:40-0700\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -167,19 +167,19 @@ msgstr ""
 msgid "Account"
 msgstr ""
 
-#: views/settings.php:6
+#: views/settings.php:6 views/ssettings.php:6
 msgid "Account Advanced Settings"
 msgstr ""
 
-#: views/settings.php:4
+#: views/settings.php:4 views/ssettings.php:4
 msgid "Account Settings"
 msgstr ""
 
-#: views/settings.php:5
+#: views/settings.php:5 views/ssettings.php:5
 msgid "Account Usage"
 msgstr ""
 
-#: views/settings.php:2
+#: views/settings.php:2 views/ssettings.php:2
 msgid "Account View Links:"
 msgstr ""
 

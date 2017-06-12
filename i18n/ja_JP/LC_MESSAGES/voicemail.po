@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-02 14:44-0700\n"
+"POT-Creation-Date: 2017-06-12 11:13+0530\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -200,19 +200,19 @@ msgstr ""
 msgid "Account"
 msgstr ""
 
-#: views/settings.php:6
+#: views/settings.php:6 views/ssettings.php:6
 msgid "Account Advanced Settings"
 msgstr ""
 
-#: views/settings.php:4
+#: views/settings.php:4 views/ssettings.php:4
 msgid "Account Settings"
 msgstr ""
 
-#: views/settings.php:5
+#: views/settings.php:5 views/ssettings.php:5
 msgid "Account Usage"
 msgstr ""
 
-#: views/settings.php:2
+#: views/settings.php:2 views/ssettings.php:2
 msgid "Account View Links:"
 msgstr "アカウントビューリンク："
 

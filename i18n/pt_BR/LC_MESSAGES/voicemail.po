@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePbx 2.5.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-02 14:44-0700\n"
+"POT-Creation-Date: 2017-06-12 11:13+0530\n"
 "PO-Revision-Date: 2015-12-22 03:36+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -188,19 +188,19 @@ msgstr "Saudações Abandonadas"
 msgid "Account"
 msgstr "Conta"
 
-#: views/settings.php:6
+#: views/settings.php:6 views/ssettings.php:6
 msgid "Account Advanced Settings"
 msgstr "Configurações Avançadas da Conta"
 
-#: views/settings.php:4
+#: views/settings.php:4 views/ssettings.php:4
 msgid "Account Settings"
 msgstr "Configurações de Conta"
 
-#: views/settings.php:5
+#: views/settings.php:5 views/ssettings.php:5
 msgid "Account Usage"
 msgstr "Uso da Conta"
 
-#: views/settings.php:2
+#: views/settings.php:2 views/ssettings.php:2
 msgid "Account View Links:"
 msgstr "Links de Visualização da Conta:"
 

@@ -146,19 +146,19 @@ msgstr ""
 msgid "Account"
 msgstr ""
 
-#: views/settings.php:6
+#: views/settings.php:6 views/ssettings.php:6
 msgid "Account Advanced Settings"
 msgstr ""
 
-#: views/settings.php:4
+#: views/settings.php:4 views/ssettings.php:4
 msgid "Account Settings"
 msgstr ""
 
-#: views/settings.php:5
+#: views/settings.php:5 views/ssettings.php:5
 msgid "Account Usage"
 msgstr ""
 
-#: views/settings.php:2
+#: views/settings.php:2 views/ssettings.php:2
 msgid "Account View Links:"
 msgstr ""
 

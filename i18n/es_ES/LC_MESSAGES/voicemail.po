@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-02 14:44-0700\n"
+"POT-Creation-Date: 2017-06-12 11:13+0530\n"
 "PO-Revision-Date: 2016-12-12 04:58+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -168,19 +168,19 @@ msgstr "Saludos Abandonados"
 msgid "Account"
 msgstr "Cuenta"
 
-#: views/settings.php:6
+#: views/settings.php:6 views/ssettings.php:6
 msgid "Account Advanced Settings"
 msgstr "Configuración Avanzada de Cuenta"
 
-#: views/settings.php:4
+#: views/settings.php:4 views/ssettings.php:4
 msgid "Account Settings"
 msgstr "Configuración de Cuenta"
 
-#: views/settings.php:5
+#: views/settings.php:5 views/ssettings.php:5
 msgid "Account Usage"
 msgstr "Uso de Cuenta"
 
-#: views/settings.php:2
+#: views/settings.php:2 views/ssettings.php:2
 msgid "Account View Links:"
 msgstr "Ver Enlaces Cuentas:"
 
