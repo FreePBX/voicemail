@@ -1,4 +1,13 @@
-<div class="mailbox" data-messages="<?php echo $total?>" data-inbox="<?php echo $folders['INBOX']['count']?>">
+<div class="mailbox"
+	data-messages="<?php echo $total?>"
+	data-inbox="<?php echo $folders['INBOX']['count']?>"
+	data-show-download="<?php echo ($showDownload) ? 'true' : 'false'?>"
+	data-show-playback="<?php echo ($showPlayback) ? 'true' : 'false'?>"
+	data-show-playback="<?php echo ($showPlayback) ? 'true' : 'false'?>"
+	data-supported-regular-expression="<?php echo $supportedRegExp?>"
+	data-supported-html5="<?php echo $supportedHTML5?>"
+	data-mailboxes="<?php echo json_encode($mailboxes)?>"
+	>
 	<div class="row">
 		<div class="col-md-3">
 			<div class="folder-list">

@@ -122,8 +122,6 @@ class Voicemail extends Modules{
 		$displayvars['folders'] = $folders;
 
 		$sf = $this->UCP->FreePBX->Media->getSupportedFormats();
-		$html = "<script>var showDownload = ".json_decode($this->download)."; var showPlayback = ".json_decode($this->playback).";var supportedRegExp = '".implode("|",array_keys($sf['in']))."';var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';var extension = '".htmlentities($ext)."'; var mailboxes = ".json_encode($this->extensions).";</script>";
-
 		if(!empty($this->UCP->FreePBX->Voicemail->displayMessage['message'])) {
 			$displayvars['message'] = $this->UCP->FreePBX->Voicemail->displayMessage;
 		}
@@ -134,6 +132,10 @@ class Voicemail extends Modules{
 		$displayvars['folder'] = $reqFolder;
 		$displayvars['total'] = $total;
 		$displayvars['extension'] = $ext;
+		$displayvars['supportedRegExp'] = implode("|",array_keys($sf['in']));
+		$displayvars['supportedHTML5'] = implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats());
+		$displayvars['mailboxes'] = $this->extensions;
+
 		$mainDisplay = $this->load_view(__DIR__.'/views/widget.php',$displayvars);
 
 		$html .= $mainDisplay;
@@ -198,7 +200,18 @@ class Voicemail extends Modules{
 		return $display;
 	}
 
-	function poll() {
+	public function getStaticSettings() {
+		$sf = $this->UCP->FreePBX->Media->getSupportedFormats();
+		return array(
+			"showPlayback" => $this->playback,
+			"showDownload" => $this->download,
+			"supportedRegExp" => implode("|",array_keys($sf['in'])),
+			"supportedHTML5" => implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats()),
+			"mailboxes" => $this->extensions
+		);
+	}
+
+	public function poll() {
 		$boxes = $this->getMailboxCount($this->extensions);
 		return array("status" => !empty($boxes['extensions']), "total" => $boxes['total'], "boxes" => isset($boxes['extensions']) ? $boxes['extensions'] : '');
 	}
@@ -212,7 +225,7 @@ class Voicemail extends Modules{
 	* @param string $settings The Settings being passed through $_POST or $_PUT
 	* @return bool True if pass
 	*/
-	function ajaxRequest($command, $settings) {
+	public function ajaxRequest($command, $settings) {
 		switch($command) {
 			case 'grid':
 			case 'listen':
@@ -258,7 +271,7 @@ class Voicemail extends Modules{
 	*
 	* @return mixed Output if success, otherwise false will generate a 500 error serverside
 	*/
-	function ajaxHandler() {
+	public function ajaxHandler() {
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
 			case 'refreshfoldercount':
@@ -530,7 +543,7 @@ class Voicemail extends Modules{
 	*
 	* @return mixed Output if success, otherwise false will generate a 500 error serverside
 	*/
-	function ajaxCustomHandler() {
+	public function ajaxCustomHandler() {
 		switch($_REQUEST['command']) {
 			case "playback":
 				$media = $this->UCP->FreePBX->Media();
