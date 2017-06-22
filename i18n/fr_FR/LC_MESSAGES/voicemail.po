@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-12 11:13+0530\n"
+"POT-Creation-Date: 2017-06-22 16:21-0700\n"
 "PO-Revision-Date: 2017-03-13 15:27+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -261,7 +261,7 @@ msgstr "Boite vocale autorisées"
 msgid "Are you sure you wish to delete these voicemails?"
 msgstr "Êtes-vous certain de vouloir supprimer ces boîtes vocales ?"
 
-#: ucp/assets/js/global.js:184
+#: ucp/assets/js/global.js:183
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr "Êtes-vous certain de vouloir supprimer cette boite vocale ?"
 
@@ -317,7 +317,7 @@ msgstr "Message d'indication d'occupation"
 msgid "Busy Greetings"
 msgstr "Messages d'indication d'occupation"
 
-#: ucp/views/widget.php:52
+#: ucp/views/widget.php:61
 msgid "CID"
 msgstr "Numéro appelant"
 
@@ -399,7 +399,7 @@ msgid ""
 "dialing out will not be permitted."
 msgstr ""
 
-#: ucp/views/widget.php:57
+#: ucp/views/widget.php:66
 msgid "Controls"
 msgstr "Contrôles"
 
@@ -497,7 +497,7 @@ msgid ""
 "prepend message instead of the default prompt that says \"then press pound\""
 msgstr ""
 
-#: ucp/views/widget.php:51
+#: ucp/views/widget.php:60
 msgid "Date"
 msgstr ""
 
@@ -514,7 +514,7 @@ msgid ""
 "configuration."
 msgstr ""
 
-#: ucp/views/greetings.php:47 ucp/views/widget.php:19 views/tz.php:21
+#: ucp/views/greetings.php:47 ucp/views/widget.php:28 views/tz.php:21
 msgid "Delete"
 msgstr "Supprime"
 
@@ -592,7 +592,7 @@ msgstr "Mode de composition directe"
 msgid "Direct Dial Prefix"
 msgstr "Préfixe composition directe"
 
-#: ucp/assets/js/global.js:499
+#: ucp/assets/js/global.js:500
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr ""
 
@@ -640,7 +640,7 @@ msgstr ""
 msgid "Disk space currently in use by Voicemail data"
 msgstr "Espace disque présentement utilisé par les données de boite vocale"
 
-#: ucp/views/widget.php:56
+#: ucp/views/widget.php:65
 msgid "Duration"
 msgstr "Durée"
 
@@ -886,7 +886,7 @@ msgstr ""
 msgid "File Format"
 msgstr "Format de fichier"
 
-#: ucp/Voicemail.class.php:284
+#: ucp/Voicemail.class.php:297
 msgid "File does not exist"
 msgstr "Fichier inexistant"
 
@@ -923,7 +923,7 @@ msgstr ""
 msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 
-#: ucp/Voicemail.class.php:561
+#: ucp/Voicemail.class.php:574
 msgid "Forbidden"
 msgstr "Refusé"
 
@@ -965,12 +965,12 @@ msgid ""
 "Voicemail, only the first format specified will be used."
 msgstr ""
 
-#: ucp/views/widget.php:22 ucp/assets/js/global.js:157
-#: ucp/assets/js/global.js:274
+#: ucp/views/widget.php:31 ucp/assets/js/global.js:155
+#: ucp/assets/js/global.js:275
 msgid "Forward"
 msgstr "Rediriger"
 
-#: ucp/assets/js/global.js:155 ucp/assets/js/global.js:272
+#: ucp/assets/js/global.js:153 ucp/assets/js/global.js:273
 msgid "Forward Voicemail"
 msgstr "Rediriger message vocal"
 
@@ -1010,7 +1010,7 @@ msgstr "Utilisation globale"
 msgid "Go To Operator"
 msgstr "Va vers opérateur"
 
-#: ucp/Voicemail.class.php:173
+#: ucp/Voicemail.class.php:175
 msgid "Greetings"
 msgstr "Salutations"
 
@@ -1258,7 +1258,7 @@ msgstr "Action invalide"
 msgid "Invalid Password"
 msgstr "Mot de passe incorrect"
 
-#: ucp/Voicemail.class.php:316 ucp/Voicemail.class.php:347
+#: ucp/Voicemail.class.php:329 ucp/Voicemail.class.php:360
 msgid "Invalid Recipient"
 msgstr "Destinataire invalide"
 
@@ -1285,11 +1285,11 @@ msgstr ""
 msgid "Limits"
 msgstr ""
 
-#: ucp/assets/js/global.js:129
+#: ucp/assets/js/global.js:125
 msgid "Listen"
 msgstr ""
 
-#: ucp/assets/js/global.js:127
+#: ucp/assets/js/global.js:123
 msgid "Listen to Voicemail"
 msgstr "Écoute du message vocal"
 
@@ -1421,7 +1421,7 @@ msgstr ""
 msgid "Month name (January, February, ...)"
 msgstr "Nom du mois (Janvier, Février, ...)"
 
-#: ucp/views/widget.php:25 ucp/assets/js/global.js:223
+#: ucp/views/widget.php:34 ucp/assets/js/global.js:223
 msgid "Move"
 msgstr "Déplacer"
 
@@ -1523,7 +1523,7 @@ msgstr ""
 msgid "None"
 msgstr "Aucun"
 
-#: ucp/Voicemail.class.php:580
+#: ucp/Voicemail.class.php:593
 msgid "Not Found"
 msgstr "Introuvable"
 
@@ -1572,7 +1572,7 @@ msgstr ""
 msgid "Old"
 msgstr "Anciens"
 
-#: ucp/assets/js/global.js:128
+#: ucp/assets/js/global.js:124
 msgid "On"
 msgstr "Actif"
 
@@ -1667,7 +1667,7 @@ msgstr "Lire le CID"
 msgid "Play Envelope"
 msgstr "Lire l'enveloppe"
 
-#: ucp/views/widget.php:54
+#: ucp/views/widget.php:63
 msgid "Playback"
 msgstr "Lecture"
 
@@ -1773,7 +1773,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr "Enregistrer le message"
 
-#: ucp/assets/js/global.js:510
+#: ucp/assets/js/global.js:511
 msgid "Recorded Message"
 msgstr "Messages enregistré"
 
@@ -1785,7 +1785,7 @@ msgstr "Nom enregistré"
 msgid "Recorded Names"
 msgstr "Noms enregistrés"
 
-#: ucp/assets/js/global.js:541
+#: ucp/assets/js/global.js:542
 msgid "Recording..."
 msgstr "Enregistrement en cours..."
 
@@ -1996,11 +1996,11 @@ msgstr ""
 msgid "Stop Keys"
 msgstr "Touches d'arrêt"
 
-#: ucp/assets/js/global.js:607
+#: ucp/assets/js/global.js:608
 msgid "Stop the Recording First before trying to delete"
 msgstr ""
 
-#: ucp/assets/js/global.js:558
+#: ucp/assets/js/global.js:559
 msgid "Stop the Recording First before trying to save"
 msgstr ""
 
@@ -2016,8 +2016,8 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: ucp/assets/js/global.js:163 ucp/assets/js/global.js:173
-#: ucp/assets/js/global.js:282 ucp/assets/js/global.js:296
+#: ucp/assets/js/global.js:161 ucp/assets/js/global.js:171
+#: ucp/assets/js/global.js:283 ucp/assets/js/global.js:297
 #, perl-format
 msgid "Successfully forwarded voicemail to %s"
 msgstr ""
@@ -2193,7 +2193,7 @@ msgid ""
 "conf."
 msgstr ""
 
-#: ucp/assets/js/global.js:619
+#: ucp/assets/js/global.js:620
 msgid "There is nothing to delete"
 msgstr "Il n'y a rien à supprimer"
 
@@ -2300,8 +2300,8 @@ msgstr "Nom de la définition de fuseau horaire"
 msgid "Timezone from zonemessages context.  Irrelevant if envelope=no."
 msgstr ""
 
-#: ucp/assets/js/global.js:156 ucp/assets/js/global.js:222
-#: ucp/assets/js/global.js:273
+#: ucp/assets/js/global.js:154 ucp/assets/js/global.js:222
+#: ucp/assets/js/global.js:274
 msgid "To"
 msgstr "À"
 
@@ -2374,15 +2374,15 @@ msgstr ""
 msgid "Unknown"
 msgstr "Inconnu(e)"
 
-#: ucp/Voicemail.class.php:515
+#: ucp/Voicemail.class.php:528
 msgid "Unknown Error"
 msgstr "Erreur inconnue"
 
-#: ucp/Voicemail.class.php:478
+#: ucp/Voicemail.class.php:491
 msgid "Unsupported file format"
 msgstr "Format de fichier non supporté"
 
-#: ucp/assets/js/global.js:359
+#: ucp/assets/js/global.js:360
 msgid "Unsupported file type"
 msgstr "Type de fichier non supporté"
 
@@ -2398,7 +2398,7 @@ msgstr "Téléverser le message"
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
 msgstr "Téléverser un nouveau message ou glisser-déposer un ancien message ici"
 
-#: ucp/assets/js/global.js:364 ucp/assets/js/global.js:562
+#: ucp/assets/js/global.js:365 ucp/assets/js/global.js:563
 msgid "Uploading..."
 msgstr "Téléversement en cours..."
 
@@ -2462,7 +2462,7 @@ msgstr ""
 msgid "VM Options"
 msgstr ""
 
-#: ucp/Voicemail.class.php:328
+#: ucp/Voicemail.class.php:341
 msgid "VMAIL"
 msgstr ""
 
@@ -2477,8 +2477,8 @@ msgid "VmX Locater&trade;"
 msgstr ""
 
 #: Voicemail.class.php:745 functions.inc.php:490 install.php:8
-#: ucp/Voicemail.class.php:95 ucp/Voicemail.class.php:142
-#: ucp/Voicemail.class.php:194 views/header.php:2 voicemail.i18n.php:4
+#: ucp/Voicemail.class.php:95 ucp/Voicemail.class.php:144
+#: ucp/Voicemail.class.php:196 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
 msgstr ""
 
@@ -2494,7 +2494,7 @@ msgstr ""
 msgid "Voicemail Administration"
 msgstr ""
 
-#: ucp/views/widget.php:15
+#: ucp/views/widget.php:24
 msgid "Voicemail Auto Delete is on. New messages will not show up here."
 msgstr ""
 
@@ -2514,7 +2514,7 @@ msgstr ""
 msgid "Voicemail Instructions:"
 msgstr "Instructions de la messagerie vocale :"
 
-#: ucp/Voicemail.class.php:328
+#: ucp/Voicemail.class.php:341
 msgid "Voicemail Message"
 msgstr ""
 
@@ -2548,7 +2548,7 @@ msgstr ""
 msgid "Voicemail Recording Gain"
 msgstr ""
 
-#: ucp/Voicemail.class.php:161
+#: ucp/Voicemail.class.php:163
 msgid "Voicemail Settings"
 msgstr ""
 
@@ -2558,12 +2558,12 @@ msgid ""
 "sure you wish to continue?"
 msgstr ""
 
-#: ucp/Voicemail.class.php:473 ucp/Voicemail.class.php:505
+#: ucp/Voicemail.class.php:486 ucp/Voicemail.class.php:518
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
 
-#: ucp/Voicemail.class.php:510
+#: ucp/Voicemail.class.php:523
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""
@@ -2650,11 +2650,11 @@ msgstr ""
 msgid "You have a new voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:547
+#: ucp/assets/js/global.js:548
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 
-#: ucp/assets/js/global.js:485
+#: ucp/assets/js/global.js:486
 msgid "Your settings have been saved"
 msgstr "Vos paramètres ont été enregistrés"
 
