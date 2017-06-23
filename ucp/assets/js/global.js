@@ -106,7 +106,8 @@ var VoicemailC = UCPMC.extend({
 		});
 	},
 	displayWidget: function(widget_id, dashboard_id) {
-		var self = this;
+		var self = this,
+				extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
 		$(".grid-stack-item[data-id='"+widget_id+"'] .voicemail-grid").one("post-body.bs.table", function() {
 			setTimeout(function() {
 				self.resize(widget_id);
@@ -126,12 +127,12 @@ var VoicemailC = UCPMC.extend({
 					function() {
 						$("#listenVM").click(function() {
 							var recpt = $("#VMto").val();
-							self.listenVoicemail(id,recpt);
+							self.listenVoicemail(id,extension,recpt);
 						});
 						$("#VMto").keypress(function(event) {
 							if (event.keyCode == 13) {
 								var recpt = $("#VMto").val();
-								self.listenVoicemail(id,recpt);
+								self.listenVoicemail(id,extension,recpt);
 							}
 						});
 					}
@@ -156,7 +157,7 @@ var VoicemailC = UCPMC.extend({
 					function() {
 						$("#forwardVM").click(function() {
 							var recpt = $("#VMto").val();
-							self.forwardVoicemail(id,recpt, function(data) {
+							self.forwardVoicemail(id,extension,recpt, function(data) {
 								if(data.status) {
 									UCP.showAlert(sprintf(_("Successfully forwarded voicemail to %s"),recpt));
 									UCP.closeDialog();
@@ -166,7 +167,7 @@ var VoicemailC = UCPMC.extend({
 						$("#VMto").keypress(function(event) {
 							if (event.keyCode == 13) {
 								var recpt = $("#VMto").val();
-								self.forwardVoicemail(id,recpt, function(data) {
+								self.forwardVoicemail(id,extension,recpt, function(data) {
 									if(data.status) {
 										UCP.showAlert(sprintf(_("Successfully forwarded voicemail to %s"),recpt));
 										UCP.closeDialog();
@@ -211,7 +212,7 @@ var VoicemailC = UCPMC.extend({
 		});
 
 		$("div[data-id='"+widget_id+"'] .move-selection").click(function() {
-			var opts = '', cur = (typeof $.url().param("folder") !== "undefined") ? $.url().param("folder") : "INBOX", sel = $("div[data-id='"+widget_id+"']").bootstrapTable('getAllSelections');
+			var opts = '', cur = (typeof $.url().param("folder") !== "undefined") ? $.url().param("folder") : "INBOX", sel = $("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('getAllSelections');
 			$.each($("div[data-id='"+widget_id+"'] .folder-list .folder"), function(i, v){
 				var folder = $(v).data("folder");
 				if(folder != cur) {
@@ -222,32 +223,43 @@ var VoicemailC = UCPMC.extend({
 				_("To")+':</label><select class="form-control" data-toggle="select" id="VMmove">'+opts+"</select>",
 				'<button class="btn btn-default" id="moveVM">' + _("Move") + "</button>",
 				function() {
-					var total = sel.length, processed = 0;
+					var total = sel.length;
 					$("#moveVM").click(function() {
-						$.each(sel, function(i, v){
+						$("#moveVM").prop("disabled",true);
+						async.forEachOf(sel, function (v, i, callback) {
 							self.moveVoicemail(v.msg_id, $("#VMmove").val(), extension, function(data) {
 								if(data.status) {
-									$("div[data-id='"+widget_id+"']").bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
+									$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
 								}
-								processed++;
-								if(processed == total) {
-									UCP.closeDialog();
-								}
-							});
+								callback();
+							})
+						}, function(err) {
+							if( err ) {
+								$("#moveVM").prop("disabled",false);
+								UCP.showAlert(err);
+							} else {
+								UCP.closeDialog();
+							}
+
 						});
 					});
 					$("#VMmove").keypress(function(event) {
 						if (event.keyCode == 13) {
-							$.each(sel, function(i, v){
+							$("#moveVM").prop("disabled",true);
+							async.forEachOf(sel, function (v, i, callback) {
 								self.moveVoicemail(v.msg_id, $("#VMmove").val(), extension, function(data) {
 									if(data.status) {
-										$("div[data-id='"+widget_id+"']").bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
+										$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
 									}
-									processed++;
-									if(processed == total) {
-										UCP.closeDialog();
-									}
-								});
+									callback();
+								})
+							}, function(err) {
+								if( err ) {
+									$("#moveVM").prop("disabled",false);
+									UCP.showAlert(err);
+								} else {
+									UCP.closeDialog();
+								}
 							});
 						}
 					});
@@ -278,7 +290,7 @@ var VoicemailC = UCPMC.extend({
 						setTimeout(function() {
 							var recpt = $("#VMto").val();
 							$.each(sel, function(i, v){
-								self.forwardVoicemail(v.msg_id,recpt, function(data) {
+								self.forwardVoicemail(v.msg_id,extension,recpt, function(data) {
 									if(data.status) {
 										UCP.showAlert(sprintf(_("Successfully forwarded voicemail to %s"),recpt));
 										$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('uncheckAll');
@@ -292,7 +304,7 @@ var VoicemailC = UCPMC.extend({
 						if (event.keyCode == 13) {
 							var recpt = $("#VMto").val();
 							$.each(sel, function(i, v){
-								self.forwardVoicemail(v.msg_id,recpt, function(data) {
+								self.forwardVoicemail(v.msg_id,extension,recpt, function(data) {
 									if(data.status) {
 										UCP.showAlert(sprintf(_("Successfully forwarded voicemail to %s"),recpt));
 										$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('uncheckAll');
@@ -431,9 +443,13 @@ var VoicemailC = UCPMC.extend({
 			if(typeof callback === "function") {
 				callback(data);
 			}
+		}).fail(function() {
+			if(typeof callback === "function") {
+				callback({status: false});
+			}
 		});
 	},
-	forwardVoicemail: function(msgid, recpt, callback) {
+	forwardVoicemail: function(msgid, extension, recpt, callback) {
 		var data = {
 			id: msgid,
 			to: recpt
@@ -441,6 +457,10 @@ var VoicemailC = UCPMC.extend({
 		$.post( UCP.ajaxUrl + "?module=voicemail&command=forward&ext="+extension, data, function(data) {
 			if(typeof callback === "function") {
 				callback(data);
+			}
+		}).fail(function() {
+			if(typeof callback === "function") {
+				callback({status: false});
 			}
 		});
 	},
@@ -456,6 +476,10 @@ var VoicemailC = UCPMC.extend({
 			self.refreshFolderCount(extension);
 			if(typeof callback === "function") {
 				callback(data);
+			}
+		}).fail(function() {
+			if(typeof callback === "function") {
+				callback({status: false});
 			}
 		});
 	},
@@ -627,7 +651,7 @@ var VoicemailC = UCPMC.extend({
 	dateFormatter: function(value, row, index) {
 		return UCP.dateFormatter(value);
 	},
-	listenVoicemail: function(msgid, recpt) {
+	listenVoicemail: function(msgid, extension, recpt) {
 		var data = {
 			id: msgid,
 			to: recpt
