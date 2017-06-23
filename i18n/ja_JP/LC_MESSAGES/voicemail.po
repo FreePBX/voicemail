@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-22 16:21-0700\n"
+"POT-Creation-Date: 2017-06-23 11:03-0700\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -296,11 +296,11 @@ msgstr ""
 msgid "Allowed Voicemail"
 msgstr "ボイスメールを許可"
 
-#: ucp/assets/js/global.js:258
+#: ucp/assets/js/global.js:270
 msgid "Are you sure you wish to delete these voicemails?"
 msgstr ""
 
-#: ucp/assets/js/global.js:183
+#: ucp/assets/js/global.js:184
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr "このボイスメールを削除しますか？"
 
@@ -651,7 +651,7 @@ msgstr "ダイレクトダイヤルモード"
 msgid "Direct Dial Prefix"
 msgstr "ダイレクトダイヤルプレフィックス"
 
-#: ucp/assets/js/global.js:500
+#: ucp/assets/js/global.js:524
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr "ご利用のブラウザはダイレクトメディアレコーディングを対応していません。"
 
@@ -1042,12 +1042,12 @@ msgid ""
 "Voicemail, only the first format specified will be used."
 msgstr ""
 
-#: ucp/views/widget.php:31 ucp/assets/js/global.js:155
-#: ucp/assets/js/global.js:275
+#: ucp/views/widget.php:31 ucp/assets/js/global.js:156
+#: ucp/assets/js/global.js:287
 msgid "Forward"
 msgstr ""
 
-#: ucp/assets/js/global.js:153 ucp/assets/js/global.js:273
+#: ucp/assets/js/global.js:154 ucp/assets/js/global.js:285
 msgid "Forward Voicemail"
 msgstr ""
 
@@ -1399,11 +1399,11 @@ msgstr ""
 msgid "Limits"
 msgstr ""
 
-#: ucp/assets/js/global.js:125
+#: ucp/assets/js/global.js:126
 msgid "Listen"
 msgstr ""
 
-#: ucp/assets/js/global.js:123
+#: ucp/assets/js/global.js:124
 msgid "Listen to Voicemail"
 msgstr ""
 
@@ -1539,7 +1539,7 @@ msgstr "\"時\"と発音する00がつく分"
 msgid "Month name (January, February, ...)"
 msgstr "月の名前(一月、二月、...)"
 
-#: ucp/views/widget.php:34 ucp/assets/js/global.js:223
+#: ucp/views/widget.php:34 ucp/assets/js/global.js:224
 msgid "Move"
 msgstr ""
 
@@ -1547,7 +1547,7 @@ msgstr ""
 msgid "Move Heard"
 msgstr ""
 
-#: ucp/assets/js/global.js:221
+#: ucp/assets/js/global.js:222
 msgid "Move Voicemail"
 msgstr ""
 
@@ -1697,7 +1697,7 @@ msgstr ""
 msgid "Old"
 msgstr ""
 
-#: ucp/assets/js/global.js:124
+#: ucp/assets/js/global.js:125
 msgid "On"
 msgstr "オン"
 
@@ -1907,7 +1907,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr ""
 
-#: ucp/assets/js/global.js:511
+#: ucp/assets/js/global.js:535
 msgid "Recorded Message"
 msgstr ""
 
@@ -1919,7 +1919,7 @@ msgstr ""
 msgid "Recorded Names"
 msgstr ""
 
-#: ucp/assets/js/global.js:542
+#: ucp/assets/js/global.js:566
 msgid "Recording..."
 msgstr "録音中..."
 
@@ -2126,11 +2126,11 @@ msgstr ""
 msgid "Stop Keys"
 msgstr ""
 
-#: ucp/assets/js/global.js:608
+#: ucp/assets/js/global.js:632
 msgid "Stop the Recording First before trying to delete"
 msgstr "削除する前に録音を止めます"
 
-#: ucp/assets/js/global.js:559
+#: ucp/assets/js/global.js:583
 msgid "Stop the Recording First before trying to save"
 msgstr "保存する前に録音を止めます"
 
@@ -2146,8 +2146,8 @@ msgstr "ページャーに送信される件名"
 msgid "Submit"
 msgstr ""
 
-#: ucp/assets/js/global.js:161 ucp/assets/js/global.js:171
-#: ucp/assets/js/global.js:283 ucp/assets/js/global.js:297
+#: ucp/assets/js/global.js:162 ucp/assets/js/global.js:172
+#: ucp/assets/js/global.js:295 ucp/assets/js/global.js:309
 #, perl-format
 msgid "Successfully forwarded voicemail to %s"
 msgstr ""
@@ -2336,7 +2336,7 @@ msgid ""
 "conf."
 msgstr "odbcstorageの値は、res_odbc.conf内で設定されたデータベース接続です。"
 
-#: ucp/assets/js/global.js:620
+#: ucp/assets/js/global.js:644
 msgid "There is nothing to delete"
 msgstr ""
 
@@ -2453,8 +2453,8 @@ msgstr ""
 "ゾーンメッセージコンテキストからのタイムゾーン。envelope=noであれば無関係で"
 "す。"
 
-#: ucp/assets/js/global.js:154 ucp/assets/js/global.js:222
-#: ucp/assets/js/global.js:274
+#: ucp/assets/js/global.js:155 ucp/assets/js/global.js:223
+#: ucp/assets/js/global.js:286
 msgid "To"
 msgstr "終了日時"
 
@@ -2543,7 +2543,7 @@ msgstr ""
 msgid "Unsupported file format"
 msgstr ""
 
-#: ucp/assets/js/global.js:360
+#: ucp/assets/js/global.js:372
 msgid "Unsupported file type"
 msgstr ""
 
@@ -2559,7 +2559,7 @@ msgstr "アナウンスをアップロードする"
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
 msgstr ""
 
-#: ucp/assets/js/global.js:365 ucp/assets/js/global.js:563
+#: ucp/assets/js/global.js:377 ucp/assets/js/global.js:587
 msgid "Uploading..."
 msgstr "アップロード中..."
 
@@ -2827,13 +2827,13 @@ msgstr ""
 msgid "You have a new voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:548
+#: ucp/assets/js/global.js:572
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 "録音はブラウザによってブロックされた可能性があります。ブラウザの設定を確認し"
 "てください。"
 
-#: ucp/assets/js/global.js:486
+#: ucp/assets/js/global.js:510
 msgid "Your settings have been saved"
 msgstr ""
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-22 16:21-0700\n"
+"POT-Creation-Date: 2017-06-23 11:03-0700\n"
 "PO-Revision-Date: 2016-07-17 10:07+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -275,11 +275,11 @@ msgstr ""
 msgid "Allowed Voicemail"
 msgstr "پست صوتی مجاز"
 
-#: ucp/assets/js/global.js:258
+#: ucp/assets/js/global.js:270
 msgid "Are you sure you wish to delete these voicemails?"
 msgstr "آیا از حذف این پست های مطمئن هستید؟"
 
-#: ucp/assets/js/global.js:183
+#: ucp/assets/js/global.js:184
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr "آیا از حذف این پست صوتی مطمئن هستید؟"
 
@@ -641,7 +641,7 @@ msgstr "شماره گیری مستقیم"
 msgid "Direct Dial Prefix"
 msgstr "شماره گیری با پیش شماره"
 
-#: ucp/assets/js/global.js:500
+#: ucp/assets/js/global.js:524
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr "ضبط مستقیم در مرورگر شما پشتیبانی نمیشود!"
 
@@ -1069,12 +1069,12 @@ msgstr ""
 "Formats for writing  Voicemail. Note that when using IMAP storage for "
 "Voicemail, only the first format specified will be used."
 
-#: ucp/views/widget.php:31 ucp/assets/js/global.js:155
-#: ucp/assets/js/global.js:275
+#: ucp/views/widget.php:31 ucp/assets/js/global.js:156
+#: ucp/assets/js/global.js:287
 msgid "Forward"
 msgstr "فوروارد"
 
-#: ucp/assets/js/global.js:153 ucp/assets/js/global.js:273
+#: ucp/assets/js/global.js:154 ucp/assets/js/global.js:285
 msgid "Forward Voicemail"
 msgstr "فوروارد ایمیل صوتی"
 
@@ -1443,11 +1443,11 @@ msgstr ""
 msgid "Limits"
 msgstr "محدودیت ها"
 
-#: ucp/assets/js/global.js:125
+#: ucp/assets/js/global.js:126
 msgid "Listen"
 msgstr "گوش دادن"
 
-#: ucp/assets/js/global.js:123
+#: ucp/assets/js/global.js:124
 msgid "Listen to Voicemail"
 msgstr "گوش دادن در ایمیل صوتی"
 
@@ -1589,7 +1589,7 @@ msgstr "Minute, with 00  pronounced as \"o'clock\""
 msgid "Month name (January, February, ...)"
 msgstr "نام ماه (ژانویه،فوریه،...)"
 
-#: ucp/views/widget.php:34 ucp/assets/js/global.js:223
+#: ucp/views/widget.php:34 ucp/assets/js/global.js:224
 msgid "Move"
 msgstr "انتقال"
 
@@ -1597,7 +1597,7 @@ msgstr "انتقال"
 msgid "Move Heard"
 msgstr "انتقال شنیده"
 
-#: ucp/assets/js/global.js:221
+#: ucp/assets/js/global.js:222
 msgid "Move Voicemail"
 msgstr "انتقال ایمیل صوتی"
 
@@ -1748,7 +1748,7 @@ msgstr "نام جدول ODBC"
 msgid "Old"
 msgstr "قدیمی"
 
-#: ucp/assets/js/global.js:124
+#: ucp/assets/js/global.js:125
 msgid "On"
 msgstr "در"
 
@@ -1966,7 +1966,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr "ضبط پیام خوش آمد"
 
-#: ucp/assets/js/global.js:511
+#: ucp/assets/js/global.js:535
 msgid "Recorded Message"
 msgstr "ضبط پیام"
 
@@ -1978,7 +1978,7 @@ msgstr "نام ضبط شده"
 msgid "Recorded Names"
 msgstr "نام های ضبط شده"
 
-#: ucp/assets/js/global.js:542
+#: ucp/assets/js/global.js:566
 msgid "Recording..."
 msgstr "در حال ضبط ..."
 
@@ -2206,11 +2206,11 @@ msgstr "Specify what  command is called for outbound E-mail"
 msgid "Stop Keys"
 msgstr "کلیدهای ایست"
 
-#: ucp/assets/js/global.js:608
+#: ucp/assets/js/global.js:632
 msgid "Stop the Recording First before trying to delete"
 msgstr "قطع ضبط قبل از تلاش برای حذف"
 
-#: ucp/assets/js/global.js:559
+#: ucp/assets/js/global.js:583
 msgid "Stop the Recording First before trying to save"
 msgstr "قطع ضبط قبل از تلاش برای ذخیره"
 
@@ -2226,8 +2226,8 @@ msgstr "عنوان ارسال شده برای پیام گیر."
 msgid "Submit"
 msgstr "ارسال"
 
-#: ucp/assets/js/global.js:161 ucp/assets/js/global.js:171
-#: ucp/assets/js/global.js:283 ucp/assets/js/global.js:297
+#: ucp/assets/js/global.js:162 ucp/assets/js/global.js:172
+#: ucp/assets/js/global.js:295 ucp/assets/js/global.js:309
 #, perl-format
 msgid "Successfully forwarded voicemail to %s"
 msgstr "فوروارد موفق ایمیل صوتی به %s"
@@ -2429,7 +2429,7 @@ msgstr ""
 "The value of  odbcstorage is the database connection configured in res_odbc."
 "conf."
 
-#: ucp/assets/js/global.js:620
+#: ucp/assets/js/global.js:644
 msgid "There is nothing to delete"
 msgstr "موردی برای حذف وجود ندارد"
 
@@ -2549,8 +2549,8 @@ msgstr "نام منطقه زمانی تعریف شده"
 msgid "Timezone from zonemessages context.  Irrelevant if envelope=no."
 msgstr "Timezone from  zonemessages context.  Irrelevant if envelope=no."
 
-#: ucp/assets/js/global.js:154 ucp/assets/js/global.js:222
-#: ucp/assets/js/global.js:274
+#: ucp/assets/js/global.js:155 ucp/assets/js/global.js:223
+#: ucp/assets/js/global.js:286
 msgid "To"
 msgstr "به"
 
@@ -2634,7 +2634,7 @@ msgstr "خطای ناشناخته"
 msgid "Unsupported file format"
 msgstr "فرمت فایل پشتیبانی نشده"
 
-#: ucp/assets/js/global.js:360
+#: ucp/assets/js/global.js:372
 msgid "Unsupported file type"
 msgstr "نوع فایل پشتیبانی نشده"
 
@@ -2650,7 +2650,7 @@ msgstr "بازگذاری پیام خوش آمد"
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
 msgstr "بارگذاری پیام خوش آمد یا کشیدن پیام قدیمی یه اینجا"
 
-#: ucp/assets/js/global.js:365 ucp/assets/js/global.js:563
+#: ucp/assets/js/global.js:377 ucp/assets/js/global.js:587
 msgid "Uploading..."
 msgstr "بارگذاری ..."
 
@@ -2925,11 +2925,11 @@ msgstr ""
 msgid "You have a new voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:548
+#: ucp/assets/js/global.js:572
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr "مرورگر شما ضبط پیام را محدود کرده, تنظیمات را چک کنید"
 
-#: ucp/assets/js/global.js:486
+#: ucp/assets/js/global.js:510
 msgid "Your settings have been saved"
 msgstr "تنظیمات شما ذخیره شد"
 

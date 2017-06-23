@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>14.0.1.5</version>
+	<version>14.0.1.6</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*14.0.1.6* FREEPBX-15165 fix listen and forward problems
 		*14.0.1.5* FREEPBX-15165 UCP voicemail control options not working
 		*14.0.1.4* FREEPBX-14532 IMAP Password field in Extension incorrectly loads username field instead
 		*14.0.1.3* FREEPBX-14579 FREEPBX-14578

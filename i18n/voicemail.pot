@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-22 16:21-0700\n"
+"POT-Creation-Date: 2017-06-23 11:03-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -271,11 +271,11 @@ msgstr ""
 msgid "Allowed Voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:258
+#: ucp/assets/js/global.js:270
 msgid "Are you sure you wish to delete these voicemails?"
 msgstr ""
 
-#: ucp/assets/js/global.js:183
+#: ucp/assets/js/global.js:184
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr ""
 
@@ -639,7 +639,7 @@ msgstr ""
 msgid "Direct Dial Prefix"
 msgstr ""
 
-#: ucp/assets/js/global.js:500
+#: ucp/assets/js/global.js:524
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr ""
 
@@ -1027,13 +1027,13 @@ msgid ""
 msgstr ""
 
 #: ucp/views/widget.php:31
-#: ucp/assets/js/global.js:155
-#: ucp/assets/js/global.js:275
+#: ucp/assets/js/global.js:156
+#: ucp/assets/js/global.js:287
 msgid "Forward"
 msgstr ""
 
-#: ucp/assets/js/global.js:153
-#: ucp/assets/js/global.js:273
+#: ucp/assets/js/global.js:154
+#: ucp/assets/js/global.js:285
 msgid "Forward Voicemail"
 msgstr ""
 
@@ -1366,11 +1366,11 @@ msgstr ""
 msgid "Limits"
 msgstr ""
 
-#: ucp/assets/js/global.js:125
+#: ucp/assets/js/global.js:126
 msgid "Listen"
 msgstr ""
 
-#: ucp/assets/js/global.js:123
+#: ucp/assets/js/global.js:124
 msgid "Listen to Voicemail"
 msgstr ""
 
@@ -1508,7 +1508,7 @@ msgid "Month name (January, February, ...)"
 msgstr ""
 
 #: ucp/views/widget.php:34
-#: ucp/assets/js/global.js:223
+#: ucp/assets/js/global.js:224
 msgid "Move"
 msgstr ""
 
@@ -1516,7 +1516,7 @@ msgstr ""
 msgid "Move Heard"
 msgstr ""
 
-#: ucp/assets/js/global.js:221
+#: ucp/assets/js/global.js:222
 msgid "Move Voicemail"
 msgstr ""
 
@@ -1694,7 +1694,7 @@ msgstr ""
 msgid "Old"
 msgstr ""
 
-#: ucp/assets/js/global.js:124
+#: ucp/assets/js/global.js:125
 msgid "On"
 msgstr ""
 
@@ -1906,7 +1906,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr ""
 
-#: ucp/assets/js/global.js:511
+#: ucp/assets/js/global.js:535
 msgid "Recorded Message"
 msgstr ""
 
@@ -1918,7 +1918,7 @@ msgstr ""
 msgid "Recorded Names"
 msgstr ""
 
-#: ucp/assets/js/global.js:542
+#: ucp/assets/js/global.js:566
 msgid "Recording..."
 msgstr ""
 
@@ -2130,11 +2130,11 @@ msgstr ""
 msgid "Stop Keys"
 msgstr ""
 
-#: ucp/assets/js/global.js:608
+#: ucp/assets/js/global.js:632
 msgid "Stop the Recording First before trying to delete"
 msgstr ""
 
-#: ucp/assets/js/global.js:559
+#: ucp/assets/js/global.js:583
 msgid "Stop the Recording First before trying to save"
 msgstr ""
 
@@ -2152,10 +2152,10 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: ucp/assets/js/global.js:161
-#: ucp/assets/js/global.js:171
-#: ucp/assets/js/global.js:283
-#: ucp/assets/js/global.js:297
+#: ucp/assets/js/global.js:162
+#: ucp/assets/js/global.js:172
+#: ucp/assets/js/global.js:295
+#: ucp/assets/js/global.js:309
 #, perl-format
 msgid "Successfully forwarded voicemail to %s"
 msgstr ""
@@ -2340,7 +2340,7 @@ msgid ""
 "conf."
 msgstr ""
 
-#: ucp/assets/js/global.js:620
+#: ucp/assets/js/global.js:644
 msgid "There is nothing to delete"
 msgstr ""
 
@@ -2451,9 +2451,9 @@ msgstr ""
 msgid "Timezone from zonemessages context.  Irrelevant if envelope=no."
 msgstr ""
 
-#: ucp/assets/js/global.js:154
-#: ucp/assets/js/global.js:222
-#: ucp/assets/js/global.js:274
+#: ucp/assets/js/global.js:155
+#: ucp/assets/js/global.js:223
+#: ucp/assets/js/global.js:286
 msgid "To"
 msgstr ""
 
@@ -2549,7 +2549,7 @@ msgstr ""
 msgid "Unsupported file format"
 msgstr ""
 
-#: ucp/assets/js/global.js:360
+#: ucp/assets/js/global.js:372
 msgid "Unsupported file type"
 msgstr ""
 
@@ -2565,8 +2565,8 @@ msgstr ""
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
 msgstr ""
 
-#: ucp/assets/js/global.js:365
-#: ucp/assets/js/global.js:563
+#: ucp/assets/js/global.js:377
+#: ucp/assets/js/global.js:587
 msgid "Uploading..."
 msgstr ""
 
@@ -2859,11 +2859,11 @@ msgstr ""
 msgid "You have a new voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:548
+#: ucp/assets/js/global.js:572
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 
-#: ucp/assets/js/global.js:486
+#: ucp/assets/js/global.js:510
 msgid "Your settings have been saved"
 msgstr ""
 
