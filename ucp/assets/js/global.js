@@ -660,11 +660,12 @@ var VoicemailC = UCPMC.extend({
 		});
 	},
 	playbackFormatter: function (value, row, index) {
-		var settings = UCP.Modules.Voicemail.staticsettings;
+		var settings = UCP.Modules.Voicemail.staticsettings,
+				rand = Math.floor(Math.random() * 10000);
 		if(settings.showPlayback == "0" || row.duration === 0) {
 			return '';
 		}
-		return '<div id="jquery_jplayer_'+row.msg_id+'" class="jp-jplayer" data-container="#jp_container_'+row.msg_id+'" data-id="'+row.msg_id+'"></div><div id="jp_container_'+row.msg_id+'" data-player="jquery_jplayer_'+row.msg_id+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
+		return '<div id="jquery_jplayer_'+row.msg_id+'-'+rand+'" class="jp-jplayer" data-container="#jp_container_'+row.msg_id+'-'+rand+'" data-id="'+row.msg_id+'"></div><div id="jp_container_'+row.msg_id+'-'+rand+'" data-player="jquery_jplayer_'+row.msg_id+'-'+rand+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
 			'<div class="jp-type-single">'+
 				'<div class="jp-gui jp-interface">'+
 					'<div class="jp-controls">'+
