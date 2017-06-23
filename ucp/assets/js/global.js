@@ -66,12 +66,12 @@ var VoicemailC = UCPMC.extend({
 		/* Settings changes binds */
 		$("#widget_settings .widget-settings-content input[type!='checkbox'][id!=vm-refresh]").change(function() {
 			$(this).blur(function() {
-				self.saveVMSettings();
+				self.saveVMSettings(extension);
 				$(this).off("blur");
 			});
 		});
 		$("#widget_settings .widget-settings-content input[type='checkbox'][id!=vm-refresh]").change(function() {
-			self.saveVMSettings();
+			self.saveVMSettings(extension);
 		});
 
 		$("#widget_settings .widget-settings-content input[id=vm-refresh]").change(function() {
@@ -240,7 +240,6 @@ var VoicemailC = UCPMC.extend({
 							} else {
 								UCP.closeDialog();
 							}
-
 						});
 					});
 					$("#VMmove").keypress(function(event) {
@@ -330,19 +329,19 @@ var VoicemailC = UCPMC.extend({
 		var self = this;
 		$("#widget_settings .recording-controls .save").click(function() {
 			var id = $(this).data("id");
-			self.saveRecording(id);
+			self.saveRecording(extension,id);
 		});
 		$("#widget_settings .recording-controls .delete").click(function() {
 			var id = $(this).data("id");
-			self.deleteRecording(id);
+			self.deleteRecording(extension,id);
 		});
 		$("#widget_settings .file-controls .record, .jp-record").click(function() {
 			var id = $(this).data("id");
-			self.recordGreeting(id);
+			self.recordGreeting(extension,id);
 		});
 		$("#widget_settings .file-controls .delete").click(function() {
 			var id = $(this).data("id");
-			self.deleteGreeting(id);
+			self.deleteGreeting(extension,id);
 		});
 
 		$("#widget_settings .filedrop").on("dragover", function(event) {
@@ -408,7 +407,7 @@ var VoicemailC = UCPMC.extend({
 		}
 	},
 	//Delete a voicemail greeting
-	deleteGreeting: function(type) {
+	deleteGreeting: function(extension,type) {
 		var self = this, data = { msg: type, ext: extension };
 		$.post( UCP.ajaxUrl + "?module=voicemail&command=delete", data, function( data ) {
 			if (data.status) {
@@ -495,7 +494,7 @@ var VoicemailC = UCPMC.extend({
 		}
 	},
 	//Save Voicemail Settings
-	saveVMSettings: function() {
+	saveVMSettings: function(extension) {
 		$("#message").fadeOut("slow");
 		var data = { ext: extension };
 		$("div[data-rawname='voicemail'] .widget-settings-content input[type!='checkbox']").each(function( index ) {
@@ -518,7 +517,7 @@ var VoicemailC = UCPMC.extend({
 			}
 		});
 	},
-	recordGreeting: function(type) {
+	recordGreeting: function(extension,type) {
 		var self = this;
 		if (!Modernizr.getusermedia) {
 			UCP.showAlert(_("Direct Media Recording is Unsupported in your Broswer!"));
@@ -574,7 +573,7 @@ var VoicemailC = UCPMC.extend({
 			});
 		}
 	},
-	saveRecording: function(type) {
+	saveRecording: function(extension,type) {
 		var self = this,
 				filec = $("#" + type + " .file-controls"),
 				recc = $("#" + type + " .recording-controls");
@@ -624,7 +623,7 @@ var VoicemailC = UCPMC.extend({
 			});
 		}
 	},
-	deleteRecording: function(type) {
+	deleteRecording: function(extension,type) {
 		var self = this,
 				filec = $("#" + type + " .file-controls"),
 				recc = $("#" + type + " .recording-controls");
@@ -721,7 +720,7 @@ var VoicemailC = UCPMC.extend({
 					$(container + " .jp-play").click(function() {
 						if($(this).parents(".jp-controls").hasClass("recording")) {
 							var type = $(this).parents(".jp-audio-freepbx").data("type");
-							self.recordGreeting(type);
+							self.recordGreeting(extension,type);
 							return;
 						}
 						if(!player.data("jPlayer").status.srcSet) {
@@ -844,7 +843,7 @@ var VoicemailC = UCPMC.extend({
 					$(container + " .jp-play").click(function() {
 						if($(this).parents(".jp-controls").hasClass("recording")) {
 							var type = $(this).parents(".jp-audio-freepbx").data("type");
-							self.recordGreeting(type);
+							self.recordGreeting(extension,type);
 							return;
 						}
 						if(!player.data("jPlayer").status.srcSet) {
