@@ -107,6 +107,18 @@ class Voicemail implements \BMO {
 
 	}
 	public function backupModule($backup) {
+		$dirs = array(
+			array(
+				'type' => 'storage',
+				'path' => 'devices/',
+				'root' => '__ASTSPOOLDIR__/voicemail/',
+			),
+			array(
+				'type' => 'storage',
+				'path' => 'default/',
+				'root' => '__ASTSPOOLDIR__/voicemail/',
+			),
+		);
 		$files = array(
 			array(
 				'type' => 'voicemail',
@@ -120,14 +132,10 @@ class Voicemail implements \BMO {
 				'path' => 'default/5000/',
 				'root' => '__ASTSPOOLDIR__/voicemail/',
 			),
-			array(
-				'type' => 'libs',
-				'filename' => 'libtaco.so',
-				'path' => '/usr/lib/',
-			),
 		);
 
-		$backup->addBackupFiles($files);
+		$backup->addDirs($dirs);
+		$backup->addFiles($files);
 	}
 
 	public function backupSettings() {
@@ -135,18 +143,29 @@ class Voicemail implements \BMO {
 	}
 
 	public function restoreModule($restore) {
+		$dirs = array();
 		$files = array();
-		$list = $restore->getFileData();
+		$backupdirs = $restore->getBackupDirs();
+		$backupfiles = $restore->getBackupFiles();
 
-		foreach ($list as $file) {
+		foreach ($backupdirs as $dir) {
+			switch ($dir['type']) {
+			case 'storage':
+				$dir['root'] = '__ASTSPOOLDIR__/voicemail/';
+
+				$dirs[] = $dir;
+				break;
+			default:
+				break;
+			}
+		}
+
+		foreach ($backupfiles as $file) {
 			switch ($file['type']) {
 			case 'voicemail':
 			case 'greeting':
 				$file['root'] = '__ASTSPOOLDIR__/voicemail/';
-				$files[] = $file;
-				break;
-			case 'libs':
-				// libs already use full paths.  Just send it on as-is.
+
 				$files[] = $file;
 				break;
 			default:
@@ -155,7 +174,8 @@ class Voicemail implements \BMO {
 			}
 		}
 
-		$restore->addRestoreFiles($files);
+		$restore->addDirs($dirs);
+		$restore->addFiles($files);
 	}
 	public function genConfig() {
 
