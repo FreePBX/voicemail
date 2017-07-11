@@ -106,6 +106,57 @@ class Voicemail implements \BMO {
 	public function restore($backup){
 
 	}
+	public function backupModule($backup) {
+		$files = array(
+			array(
+				'type' => 'voicemail',
+				'filename' => 'msg0000.wav',
+				'path' => 'default/5000/INBOX/',
+				'root' => '__ASTSPOOLDIR__/voicemail/',
+			),
+			array(
+				'type' => 'greeting',
+				'filename' => 'greet.wav',
+				'path' => 'default/5000/',
+				'root' => '__ASTSPOOLDIR__/voicemail/',
+			),
+			array(
+				'type' => 'libs',
+				'filename' => 'libtaco.so',
+				'path' => '/usr/lib/',
+			),
+		);
+
+		$backup->addBackupFiles($files);
+	}
+
+	public function backupSettings() {
+		return '<div>I am [an] Error.</div>';
+	}
+
+	public function restoreModule($restore) {
+		$files = array();
+		$list = $restore->getFileData();
+
+		foreach ($list as $file) {
+			switch ($file['type']) {
+			case 'voicemail':
+			case 'greeting':
+				$file['root'] = '__ASTSPOOLDIR__/voicemail/';
+				$files[] = $file;
+				break;
+			case 'libs':
+				// libs already use full paths.  Just send it on as-is.
+				$files[] = $file;
+				break;
+			default:
+				/* Unknown type.  Panic? */
+				break;
+			}
+		}
+
+		$restore->addRestoreFiles($files);
+	}
 	public function genConfig() {
 
 	}
