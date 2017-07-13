@@ -1,6 +1,9 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=php:
 namespace FreePBX\modules;
+
+use Symfony\Component\Finder\Finder;
+
 class Voicemail implements \BMO {
 	//message to display to client
 	public $displayMessage = array(
@@ -110,58 +113,26 @@ class Voicemail implements \BMO {
 		$dirs = array();
 		$files = array();
 
-		$uservm = $this->getVoicemail();
-		$vmcontexts = array_keys($uservm);
+		$finder = new Finder();
 
-		foreach ($vmcontexts as $vmcontext) {
-			if($vmcontext == "general" || $vmcontext == "zonemessages") {
-				continue;
-			}
-
+		$search = $finder->directories()->in($this->vmPath);
+		foreach ($search as $dir) {
 			$dirs[] = array(
-				'type' => 'storage',
-				'path' => $vmcontext,
+				'type' => 'voicemail',
+				'path' => $dir->getRelativePathName(),
+			);
+		}
+
+		$search = $finder->files()->in($this->vmPath);
+		foreach ($search as $file) {
+			$files[] = array(
+				'type' => 'voicemail',
+				'filename' => $file->getFilename(),
+				'path' => $file->getRelativePath(),
 				'root' => $this->vmPath,
 			);
-
-			foreach ($uservm[$vmcontext] as $mailbox => $data) {
-				$dirs[] = array(
-					'type' => 'storage',
-					'path' => $vmcontext . '/' . $mailbox,
-					'root' => $this->vmPath,
-				);
-
-				foreach (glob($this->vmPath . '/' . $vmcontext . '/' . $mailbox . '/{' . implode(',', array_keys($this->greetings)) . '}.*', GLOB_BRACE) as $filename) {
-					$files[] = array(
-						'type' => 'greeting',
-						'filename' => basename($filename),
-						'path' => $vmcontext . '/' . $mailbox,
-						'root' => $this->vmPath,
-					);
-				}
-
-				foreach ($this->folders as $folder) {
-					if (is_dir($this->vmPath . '/' . $vmcontext . '/' . $mailbox . '/' . $folder)) {
-						$dirs[] = array(
-							'type' => 'storage',
-							'path' => $vmcontext . '/' . $mailbox . '/' . $folder,
-							'root' => $this->vmPath,
-						);
-
-						// TODO Find a better method thank glob.  This is really slow.
-						foreach (glob($this->vmPath . '/' . $vmcontext . '/' . $mailbox . '/' . $folder . '/*.*', GLOB_BRACE) as $filename) {
-							$files[] = array(
-								'type' => 'voicemail',
-								'filename' => basename($filename),
-								'path' => $vmcontext . '/' . $mailbox . '/' . $folder,
-								'root' => $this->vmPath,
-							);
-						}
-
-					}
-				}
-			}
 		}
+
 		$backup->addDirs($dirs);
 		$backup->addFiles($files);
 	}
@@ -178,7 +149,7 @@ class Voicemail implements \BMO {
 
 		foreach ($backupdirs as $dir) {
 			switch ($dir['type']) {
-			case 'storage':
+			case 'voicemail':
 				$dir['root'] = $this->vmPath;
 
 				$dirs[] = $dir;
