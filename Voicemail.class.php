@@ -107,33 +107,61 @@ class Voicemail implements \BMO {
 
 	}
 	public function backupModule($backup) {
-		$dirs = array(
-			array(
-				'type' => 'storage',
-				'path' => 'devices/',
-				'root' => '__ASTSPOOLDIR__/voicemail/',
-			),
-			array(
-				'type' => 'storage',
-				'path' => 'default/',
-				'root' => '__ASTSPOOLDIR__/voicemail/',
-			),
-		);
-		$files = array(
-			array(
-				'type' => 'voicemail',
-				'filename' => 'msg0000.wav',
-				'path' => 'default/5000/INBOX/',
-				'root' => '__ASTSPOOLDIR__/voicemail/',
-			),
-			array(
-				'type' => 'greeting',
-				'filename' => 'greet.wav',
-				'path' => 'default/5000/',
-				'root' => '__ASTSPOOLDIR__/voicemail/',
-			),
-		);
+		$dirs = array();
+		$files = array();
 
+		$uservm = $this->getVoicemail();
+		$vmcontexts = array_keys($uservm);
+
+		foreach ($vmcontexts as $vmcontext) {
+			if($vmcontext == "general" || $vmcontext == "zonemessages") {
+				continue;
+			}
+
+			$dirs[] = array(
+				'type' => 'storage',
+				'path' => $vmcontext,
+				'root' => $this->vmPath,
+			);
+
+			foreach ($uservm[$vmcontext] as $mailbox => $data) {
+				$dirs[] = array(
+					'type' => 'storage',
+					'path' => $vmcontext . '/' . $mailbox,
+					'root' => $this->vmPath,
+				);
+
+				foreach (glob($this->vmPath . '/' . $vmcontext . '/' . $mailbox . '/{' . implode(',', array_keys($this->greetings)) . '}.*', GLOB_BRACE) as $filename) {
+					$files[] = array(
+						'type' => 'greeting',
+						'filename' => basename($filename),
+						'path' => $vmcontext . '/' . $mailbox,
+						'root' => $this->vmPath,
+					);
+				}
+
+				foreach ($this->folders as $folder) {
+					if (is_dir($this->vmPath . '/' . $vmcontext . '/' . $mailbox . '/' . $folder)) {
+						$dirs[] = array(
+							'type' => 'storage',
+							'path' => $vmcontext . '/' . $mailbox . '/' . $folder,
+							'root' => $this->vmPath,
+						);
+
+						// TODO Find a better method thank glob.  This is really slow.
+						foreach (glob($this->vmPath . '/' . $vmcontext . '/' . $mailbox . '/' . $folder . '/*.*', GLOB_BRACE) as $filename) {
+							$files[] = array(
+								'type' => 'voicemail',
+								'filename' => basename($filename),
+								'path' => $vmcontext . '/' . $mailbox . '/' . $folder,
+								'root' => $this->vmPath,
+							);
+						}
+
+					}
+				}
+			}
+		}
 		$backup->addDirs($dirs);
 		$backup->addFiles($files);
 	}
@@ -151,7 +179,7 @@ class Voicemail implements \BMO {
 		foreach ($backupdirs as $dir) {
 			switch ($dir['type']) {
 			case 'storage':
-				$dir['root'] = '__ASTSPOOLDIR__/voicemail/';
+				$dir['root'] = $this->vmPath;
 
 				$dirs[] = $dir;
 				break;
@@ -159,12 +187,13 @@ class Voicemail implements \BMO {
 				break;
 			}
 		}
+		$restore->addDirs($dirs);
 
 		foreach ($backupfiles as $file) {
 			switch ($file['type']) {
 			case 'voicemail':
 			case 'greeting':
-				$file['root'] = '__ASTSPOOLDIR__/voicemail/';
+				$file['root'] = $this->vmPath;
 
 				$files[] = $file;
 				break;
@@ -173,8 +202,6 @@ class Voicemail implements \BMO {
 				break;
 			}
 		}
-
-		$restore->addDirs($dirs);
 		$restore->addFiles($files);
 	}
 	public function genConfig() {
