@@ -117,10 +117,14 @@ class Voicemail implements \BMO {
 
 		$search = $finder->directories()->in($this->vmPath);
 		foreach ($search as $dir) {
-			$dirs[] = array(
-				'type' => 'voicemail',
-				'path' => $dir->getRelativePathName(),
-			);
+			if ($dir->isLink()) {
+				/* Skip it.  We don't need to keep the device links. */
+			} else {
+				$dirs[] = array(
+					'type' => 'voicemail',
+					'path' => $dir->getRelativePathName(),
+				);
+			}
 		}
 
 		$search = $finder->files()->in($this->vmPath);
