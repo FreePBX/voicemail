@@ -304,6 +304,7 @@ function voicemail_configpageinit($pagename) {
 	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
 	$extension = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
 	$tech_hardware = isset($_REQUEST['tech_hardware'])?$_REQUEST['tech_hardware']:null;
+	$display = isset($_REQUEST['display'])?$_REQUEST['display']:null;
 
        // We only want to hook 'users' or 'extensions' pages.
 	if ($pagename != 'users' && $pagename != 'extensions')  {
