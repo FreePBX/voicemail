@@ -330,9 +330,28 @@ function voicemail_configpageinit($pagename) {
 		if(!$('html').hasClass('firsttypeofselector')) {
 			$('.radioset').buttonset('refresh');
 		}
+		frm_extensions_showVmPwdToolTip();
 		return true;
 		";
 		$currentcomponent->addjsfunc('voicemailEnabled(notused)', $js);
+		$vmpwd_help_tip = _(" Set this password to same as extension number to force the user to setup their mailbox on first access.");
+		$js ="
+		var msg_obj = $('#vmpwd-help');
+		if(msg_obj.length) {
+			var tip_obj = $('#vmpwd-help-tip');
+			if(frm_extensions_isVoiceMailEnabled()){
+				if(tip_obj.length == 0){
+					var tmp_msg = \"<span id='vmpwd-help-tip' class='help-block voicemail-find active'>\"  + '{$vmpwd_help_tip}</span>';
+					msg_obj.after(tmp_msg);
+				}
+			}else{
+				if(tip_obj.length){
+					tip_obj.remove();
+				}
+			}
+		}
+		";
+		$currentcomponent->addjsfunc('showVmPwdToolTip()', $js);
 
 		$vmxobj = new vmxObject($extdisplay);
 		$follow_me_disabled = !$vmxobj->hasFollowMe();
@@ -520,7 +539,7 @@ function voicemail_configpageload() {
 		$el = array(
 			"elemname" => "vmpwd",
 			"prompttext" => _('Voicemail Password'),
-			"helptext" => sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone. %sSet this password to same as extension number to force the user to setup their mailbox on first access."),"<br /><br />","<br /><br />",$fc_vm,"<br /><br />"),
+			"helptext" => sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm),
 			"currentvalue" => $vmpwd,
 			"jsvalidation" => "frm_${display}_isVoiceMailEnabled() && !frm_${display}_isValidVoicemailPass()",
 			"failvalidationmsg" => $msgInvalidVmPwd,
@@ -529,6 +548,7 @@ function voicemail_configpageload() {
 			"disable" => $disable,
 			"passwordToggle" => true
 		);
+
 		$currentcomponent->addguielem($section, new gui_password(array_merge($guidefaults,$el)),$category);
 		//for passwordless voicemail we need to check some settings
 		//first lets see if there is an entry in the asteriskDB for this device
