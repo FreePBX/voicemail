@@ -322,7 +322,7 @@ function voicemail_configpageinit($pagename) {
 		// JS for verifying an empty password is OK
 		$msg = _('Voicemail is enabled but the Voicemail Password field is empty.  Are you sure you wish to continue?');
 		$js = 'if(theForm.vmpwd.value.match(/^[0-9A-D\*#]*$/i)) {return true;}else{return false;}';
-		$js = 'if (theForm.vmpwd.value == "") { return true; } else { '.$js.' };';
+		$js = 'if (theForm.vmpwd.value == "") { if(confirm("'.$msg.'")) { return true } else { return false; }} else { '.$js.' };';
 		$currentcomponent->addjsfunc('isValidVoicemailPass(notused)', $js);
 
 		$js = "
