@@ -330,7 +330,7 @@ function voicemail_configpageinit($pagename) {
 		if(!$('html').hasClass('firsttypeofselector')) {
 			$('.radioset').buttonset('refresh');
 		}
-		frm_extensions_showVmPwdToolTip();
+		frm_{$display}_showVmPwdToolTip();
 		return true;
 		";
 		$currentcomponent->addjsfunc('voicemailEnabled(notused)', $js);
@@ -339,7 +339,7 @@ function voicemail_configpageinit($pagename) {
 		var msg_obj = $('#vmpwd-help');
 		if(msg_obj.length) {
 			var tip_obj = $('#vmpwd-help-tip');
-			if(frm_extensions_isVoiceMailEnabled()){
+			if(frm_{$display}_isVoiceMailEnabled()){
 				if(tip_obj.length == 0){
 					var tmp_msg = \"<span id='vmpwd-help-tip' class='help-block voicemail-find active'>\"  + '{$vmpwd_help_tip}</span>';
 					msg_obj.after(tmp_msg);
