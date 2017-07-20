@@ -1312,6 +1312,13 @@ class Voicemail implements \BMO {
 					$txt = $vfolder."/".$vm.".txt";
 					$wav = $this->checkFileType($vfolder, $vm);
 					if(file_exists($txt) && is_readable($txt) && file_exists($wav)) {
+						try {
+							$data = $this->FreePBX->LoadConfig->getConfig($vm.".txt", $vfolder, 'message');
+						} catch (\Exception $e) {
+							dbug(sprintf(_('Error Processing %s. Reason: %s'),$vm.'.txt', $e->getMessage()));
+							continue;
+						}
+
 						$data = $this->FreePBX->LoadConfig->getConfig($vm.".txt", $vfolder, 'message');
 						$key = !empty($data['msg_id']) ? $data['msg_id'] : basename($folder)."_".$vm;
 						if(isset($out['messages'][$key])) {
