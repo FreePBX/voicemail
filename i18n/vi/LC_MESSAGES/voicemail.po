@@ -10,25 +10,28 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-23 16:18-0400\n"
-"PO-Revision-Date: 2017-05-23 16:18-0400\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-07-18 21:53+0200\n"
+"Last-Translator: PETER <ftek@ymail.com>\n"
+"Language-Team: Vietnamese "
+"<http://weblate.freepbx.org/projects/freepbx/voicemail/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: Voicemail.class.php:1990
 msgid " Don't leave single period on end of line by itself."
-msgstr ""
+msgstr " Không để khoảng thời gian đơn vào cuối dòng của chính nó."
 
 #: views/tz.php:204
 msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
-msgstr ""
+msgstr "\"\" (for today), \"yesterday\", weekday, or ABdY"
 
 #: views/tz.php:196
 msgid "\"today\", \"yesterday\" or ABdY"
-msgstr ""
+msgstr "\"today\", \"yesterday\" or ABdY"
 
 #: page.voicemail.php:443
 #, php-format
@@ -38,32 +41,32 @@ msgstr ""
 #: page.voicemail.php:449
 #, php-format
 msgid "%s Retries"
-msgstr ""
+msgstr "Các phép thử lại %s"
 
 #: page.voicemail.php:447
 #, php-format
 msgid "%s Retry"
-msgstr ""
+msgstr "Phép thử lại %s"
 
 #: page.voicemail.php:439
 #, php-format
 msgid "%s Sec"
-msgstr ""
+msgstr "Số giây %s"
 
 #: functions.inc.php:144 functions.inc.php:151
 #, php-format
 msgid "%s Voicemail"
-msgstr ""
+msgstr "Thư thoại %s"
 
 #: install.php:114
 #, php-format
 msgid "%s added"
-msgstr ""
+msgstr "Đã thêm %s"
 
 #: install.php:81
 #, php-format
 msgid "%s adjusted from %s to %s"
-msgstr ""
+msgstr "%s được điều chỉnh từ %s thành %s"
 
 #: install.php:85
 #, php-format
