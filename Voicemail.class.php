@@ -1318,8 +1318,6 @@ class Voicemail implements \BMO {
 							dbug(sprintf(_('Error Processing %s. Reason: %s'),$vm.'.txt', $e->getMessage()));
 							continue;
 						}
-
-						$data = $this->FreePBX->LoadConfig->getConfig($vm.".txt", $vfolder, 'message');
 						$key = !empty($data['msg_id']) ? $data['msg_id'] : basename($folder)."_".$vm;
 						if(isset($out['messages'][$key])) {
 							$key = $key."_".basename($folder)."_".$vm;
