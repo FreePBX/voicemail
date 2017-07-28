@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 16:36-0400\n"
-"PO-Revision-Date: 2017-07-27 23:26+0200\n"
+"PO-Revision-Date: 2017-07-28 10:00+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
-"Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
-"voicemail/vi/>\n"
+"Language-Team: Vietnamese "
+"<http://weblate.freepbx.org/projects/freepbx/voicemail/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -30,6 +30,8 @@ msgid ""
 " Set this password to same as extension number to force the user to setup "
 "their mailbox on first access."
 msgstr ""
+" Cài đặt mật khẩu giống với số điện thoại để buộc người dùng thiết lập hộ "
+"thư mail của họ trong lần truy cập đầu tiên."
 
 #: views/tz.php:204
 msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
@@ -261,7 +263,7 @@ msgid ""
 "operator"
 msgstr ""
 "Cho phép người gửi nhấn 0 trước/sau/trong khi rời khỏi một thư thoại để tiếp "
-"cận một tổng đài viên"
+"cận một người điều hành"
 
 #: Voicemail.class.php:1881
 msgid "Allow sender to review/rerecord their message before saving it"
@@ -355,11 +357,11 @@ msgstr "CID"
 
 #: Voicemail.class.php:2387
 msgid "CID Internal Context"
-msgstr ""
+msgstr "Ngữ cảnh nội bộ CID"
 
 #: Voicemail.class.php:1804 page.voicemail.php:321
 msgid "Call me number. Can be used from within ARI."
-msgstr ""
+msgstr "Gọi số của tôi. Có thể được sử dụng từ ARI."
 
 #: Voicemail.class.php:1803 page.voicemail.php:524
 msgid "Call-Me Number"
@@ -367,31 +369,32 @@ msgstr ""
 
 #: Voicemail.class.php:2380
 msgid "Callback Context"
-msgstr ""
+msgstr "Ngữ cảnh gọi lại"
 
 #: install.php:176
 msgid "Cannot connect to Asterisk Manager with "
-msgstr ""
+msgstr "Không thể kết nối Trình quản lý Asterisk "
 
 #: Voicemail.class.php:1691
 msgid "Character Set"
-msgstr ""
+msgstr "Ký tự cài đặt"
 
 #: install.php:65
 msgid "Checking for General Setting migrations.."
-msgstr ""
+msgstr "Kiểm tra dịch chuyển của Cài đặt chung.."
 
 #: Voicemail.class.php:2277
 msgid "Close Timeout"
-msgstr ""
+msgstr "Đóng Timeout"
 
 #: Voicemail.class.php:2388 page.voicemail.php:217
 msgid "Comma separated list of internal contexts to use caller ID."
 msgstr ""
+"Danh sách các ngữ cảnh nội bộ cách nhau bằng dấu phẩy sử dụng cho Caller ID."
 
 #: page.voicemail.php:229
 msgid "Command specified runs after a user changes his password."
-msgstr ""
+msgstr "Lệnh được chỉ định chạy sau khi người dùng thay đổi mật khẩu."
 
 #: Voicemail.class.php:1734
 msgid ""
@@ -399,6 +402,9 @@ msgid ""
 "passed to the application are: [context] [mailbox] [newpassword] Note: This "
 "will also update the voicemail.conf file"
 msgstr ""
+"Lệnh được chỉ định chạy sau khi người dùng thay đổi mật khẩu. Các đối số "
+"được truyền đến ứng dụng là: [context] [mailbox] [newpassword] Lưu ý: Thao "
+"tác này cũng sẽ cập nhật tệp tin voicemail.conf"
 
 #: Voicemail.class.php:1741
 msgid ""
@@ -409,43 +415,55 @@ msgid ""
 "acceptable.  If the password is considered too weak, the script should print "
 "INVALID to stdout. "
 msgstr ""
+"Lệnh được chỉ định chạy trước khi người dùng thay đổi mật khẩu của họ và có "
+"thể được sử dụng để đặt các hạn chế bảo mật vào mật khẩu thư thoại. Các đối "
+"số được chuyển đến ứng dụng là: [mailbox] [context] [oldpassword] "
+"[newpassword]. Nên in kịch bản là VALID tại đầu ra tiêu chuẩn ( stdout) để "
+"chỉ ra rằng mật khẩu mới là có thể chấp nhận được. Nếu mật khẩu được xem là "
+"quá yếu, kịch bản nên in INVALID tại đầu ra tiêu chuẩn. "
 
 #: Voicemail.class.php:2373
 msgid "Context Config"
-msgstr ""
+msgstr "Cấu hình ngữ cảnh"
 
 #: Voicemail.class.php:2381 page.voicemail.php:215 page.voicemail.php:294
 msgid ""
 "Context to call back from; if not listed, calling the sender back will not "
 "be permitted."
 msgstr ""
+"Ngữ cảnh gọi lại, nếu không được liệt kê trong danh sách, việc gọi lại đến "
+"người gửi sẽ không được cho phép."
 
 #: Voicemail.class.php:2402 page.voicemail.php:224 page.voicemail.php:299
 msgid ""
 "Context to check for handling * or 0 calls to operator. \"Operator Context\""
 msgstr ""
+"Ngữ cảnh để kiểm tra việc xử lý các cuộc gọi * hoặc 0 đến người điều hành. \""
+"Operator Context\" (Ngũ cảnh người điều hành)"
 
 #: Voicemail.class.php:2395 page.voicemail.php:218 page.voicemail.php:296
 msgid ""
 "Context to dial out from [option 4 from the advanced menu] if not listed, "
 "dialing out will not be permitted."
 msgstr ""
+"Ngữ cảnh để quay số ra từ đó [tùy chọn 4 từ menu nâng cao] nếu không được "
+"liệt kê trong danh sách, việc quay số ra sẽ không được cho phép."
 
 #: ucp/views/mailbox.php:61
 msgid "Controls"
-msgstr ""
+msgstr "Điều khiển"
 
 #: ucp/views/settings.php:30
 msgid "Controls whether to attach the voicemail to the email"
-msgstr ""
+msgstr "Điều khiển việc đính kèm thư thoại vào email"
 
 #: ucp/assets/js/global.js:457
 msgid "Copying..."
-msgstr ""
+msgstr "Đang sao chép..."
 
 #: voicemail.i18n.php:12
 msgid "Create Voicemail Hints"
-msgstr ""
+msgstr "Tạo các Gợi ý (Hints) Thư thoại"
 
 #: Voicemail.class.php:1905
 msgid ""
@@ -456,45 +474,57 @@ msgid ""
 "contexts. Otherwise, an ambiguity is created since it is impossible to know "
 "which mailbox to retrieve when one is requested."
 msgstr ""
+"Hành vi mặc định hiện tại là chỉ tìm kiếm ngữ cảnh mặc định nếu không được "
+"chỉ định rõ. Hành vi cũ hơn là tìm kiếm tất cả các ngữ cảnh. Tùy chọn này "
+"khôi phục lại hành vi cũ [DEFAULT = no] Lưu ý: Nếu bạn đã bật tùy chọn này, "
+"yêu cầu bạn sẽ phải có các tên hộp thư riêng biệt trên tất cả các ngữ cảnh. "
+"Nếu không sẽ dẫn đến một sự mơ hồ vì không thể biết hộp thư nào sẽ được "
+"trích xuất khi một trong số các hộp thư đó được yêu cầu."
 
 #: Voicemail.class.php:1762 Voicemail.class.php:1769 Voicemail.class.php:1776
 #: Voicemail.class.php:1783 Voicemail.class.php:1790 page.voicemail.php:245
 msgid "Customize the key that fast-forwards message playback"
-msgstr ""
+msgstr "Tùy chỉnh phím chuyển tiếp nhanh chế độ phát lại tin nhắn"
 
 #: page.voicemail.php:246
 msgid "Customize the key that pauses/unpauses message playback"
-msgstr ""
+msgstr "Tùy chỉnh phím tạm ngừng/tắt tạm ngừng chế độ phát lại tin nhắn"
 
 #: page.voicemail.php:247
 msgid "Customize the key that restarts message playback"
-msgstr ""
+msgstr "Tùy chỉnh phím khởi động lại chế độ phát lại tin nhắn"
 
 #: page.voicemail.php:248
 msgid "Customize the key that rewinds message playback"
-msgstr ""
+msgstr "Tùy chỉnh phím quay lại chế độ phát lại tin nhắn"
 
 #: page.voicemail.php:249
 msgid "Customize the key that stops message playback"
-msgstr ""
+msgstr "Tùy chỉnh phím dừng chế độ phát lại tin nhắn"
 
 #: Voicemail.class.php:2354
 msgid ""
 "Customize which sound file is used instead of the default prompt that says "
 "\"Please try again.\""
 msgstr ""
+"Tùy chỉnh tệp âm thanh được sử dụng thay thế cho nhắc nhở mặc định nói là \""
+"'Please try again.\""
 
 #: Voicemail.class.php:2319 page.voicemail.php:284
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"Please enter your new password followed by the pound key.\""
 msgstr ""
+"Tùy chỉnh tệp âm thanh được sử dụng thay thế cho nhắc nhở mặc định nói là: \""
+"Please enter your new password followed by the pound key.\""
 
 #: Voicemail.class.php:2340 page.voicemail.php:287
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"Please re-enter your password followed by the pound key\""
 msgstr ""
+"Tùy chỉnh tệp âm thanh được sử dụng thay thế cho nhắc nhở mặc định nói là: \""
+"Please re-enter your password followed by the pound key\""
 
 #: page.voicemail.php:283
 msgid ""
@@ -502,30 +532,39 @@ msgid ""
 "\"The passwords you entered and re-entered did not match.  Please try again."
 "\""
 msgstr ""
+"Tùy chỉnh tệp âm thanh được sử dụng thay thế cho nhắc nhở mặc định nói là: \""
+"The passwords you entered and re-entered did not match.  Please try again.\""
 
 #: Voicemail.class.php:2312
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"The passwords you entered and re-entered did not match. Please try again.\""
 msgstr ""
+"Tùy chỉnh tệp âm thanh được sử dụng thay thế cho nhắc nhở mặc định nói là: \""
+"The passwords you entered and re-entered did not match. Please try again.\""
 
 #: Voicemail.class.php:2326 page.voicemail.php:285
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"Your password has been changed.\""
 msgstr ""
+"Tùy chỉnh tệp âm thanh được sử dụng thay thế cho nhắc nhở mặc định nói là: \""
+"Your password has been changed.\""
 
 #: Voicemail.class.php:2333 page.voicemail.php:286
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"password\""
 msgstr ""
+"Tùy chỉnh tệp âm thanh được sử dụng thay thế cho nhắc nhở mặc định nói là:\""
+"Password\""
 
 #: Voicemail.class.php:2347
 msgid ""
 "Customize which sound file is used instead of the default prompt that "
 "says: ..."
 msgstr ""
+"Tùy chỉnh tệp âm thanh được sử dụng thay thế cho nhắc nhở mặc định nói là:.."
 
 #: Voicemail.class.php:2361
 msgid ""
@@ -535,13 +574,14 @@ msgstr ""
 
 #: ucp/views/mailbox.php:55
 msgid "Date"
-msgstr ""
+msgstr "Ngày"
 
 #: views/tz.php:118
 msgid "Day of week (Saturday, Sunday, ...)"
-msgstr ""
+msgstr "Ngày trong tuần ( Thứ bảy, Chủ nhật,...)"
 
 #: views/dialplan.php:115
+#, fuzzy
 msgid ""
 "Default number to dial when a voicemail user 'zeros out' if enabled. This "
 "can be overriden for each extension with the VMX Locater option that is "
@@ -549,48 +589,54 @@ msgid ""
 "an external number and there is NO VALIDATION so it should be tested after "
 "configuration."
 msgstr ""
+"Số mặc định để quay số khi một người dùng thư thoại 'zeros out' nếu được "
+"kích hoạt. Điều này có thể bị ghi đè cho mỗi máy nhánh với tùy chọn Bộ định "
+"vị VMX  cho mỗi phần mở rộng với VMX Locater tùy chọn đó là hợp lệ ngay cả "
+"khi VMX Locater không được kích hoạt. Đây có thể là bất kỳ số nào bao gồm cả "
+"một số bên ngoài và không có giá trị vì vậy nó nên được kiểm tra sau khi cấu "
+"hình."
 
 #: ucp/views/greetings.php:46 ucp/views/mailbox.php:10 views/tz.php:21
 #: ucp/assets/js/global.js:965
 msgid "Delete"
-msgstr ""
+msgstr "Xóa"
 
 #: views/usage_system.php:191
 msgid "Delete All Temporary Greetings"
-msgstr ""
+msgstr "Xóa toàn bộ Lời chào tạm thời"
 
 #: views/usage_system.php:129
 msgid "Delete All Unavailible Greetings"
-msgstr ""
+msgstr "Xóa toàn bộ lời chào không khả dụng"
 
 #: views/usage.php:141
 msgid "Delete Busy Message"
-msgstr ""
+msgstr "Xóa Tin nhắn bận"
 
 #: views/usage.php:79
 msgid "Delete Recorded Name"
-msgstr ""
+msgstr "Xóa Tên được ghi"
 
 #: views/usage.php:172
 msgid "Delete Temporary Greeting"
-msgstr ""
+msgstr "Xóa Lời chào tạm thời"
 
 #: views/usage.php:110
 msgid "Delete Unavailible Greeting"
-msgstr ""
+msgstr "Xóa lời chào không khả dụng"
 
 #: Voicemail.class.php:1848 functions.inc.php:661 page.voicemail.php:523
 #: ucp/views/settings.php:55
 msgid "Delete Voicemail"
-msgstr ""
+msgstr "Xóa Thư thoại"
 
 #: views/usage_system.php:160
 msgid "Delete all Busy Messages"
-msgstr ""
+msgstr "Xóa tất cả các Tin nhắn bận"
 
 #: views/usage_system.php:98
 msgid "Delete all Recorded Names"
-msgstr ""
+msgstr "Xóa tất cả các Tên được ghi"
 
 #: views/usage.php:35 views/usage.php:66 views/usage.php:97
 #: views/usage.php:128 views/usage.php:159 views/usage.php:190
@@ -598,28 +644,28 @@ msgstr ""
 #: views/usage_system.php:116 views/usage_system.php:147
 #: views/usage_system.php:178 views/usage_system.php:209
 msgid "Delete:"
-msgstr ""
+msgstr "Xóa:"
 
 #: install.php:121
 msgid "Deleting migrated settings.."
-msgstr ""
+msgstr "Đang xóa các cài đặt đã dịch chuyển..."
 
 #: functions.inc.php:562
 msgid "Device"
-msgstr ""
+msgstr "Thiết bị"
 
 #: functions.inc.php:224 functions.inc.php:290 install.php:10
 #: voicemail.i18n.php:26
 msgid "Dial Voicemail"
-msgstr ""
+msgstr "Quay số Thư thoại"
 
 #: Voicemail.class.php:2394
 msgid "Dialout Context"
-msgstr ""
+msgstr "Ngữ cảnh quay số"
 
 #: functions.inc.php:993 views/header.php:11
 msgid "Dialplan Behavior"
-msgstr ""
+msgstr "Hành vi của kế hoạch quay số"
 
 #: views/dialplan.php:39
 msgid "Direct Dial Mode"
@@ -1053,7 +1099,7 @@ msgstr ""
 
 #: functions.inc.php:859 ucp/views/vmx.php:37
 msgid "Go To Operator"
-msgstr ""
+msgstr "Đi tới người điều hành"
 
 #: ucp/views/nav.php:13
 msgid "Greetings"
@@ -1625,11 +1671,11 @@ msgstr ""
 
 #: Voicemail.class.php:1872
 msgid "Operator"
-msgstr ""
+msgstr "Người điều hành"
 
 #: views/dialplan.php:103
 msgid "Operator Extension"
-msgstr ""
+msgstr "Người điều hành máy nhánh"
 
 #: page.voicemail.php:262
 msgid ""
@@ -1776,12 +1822,18 @@ msgid ""
 "still disabling VmX to allow an alternative Operator extension without "
 "requiring the VmX feature for the user."
 msgstr ""
+"Nhấn 0 trong khi lời chào Thư thoại cá nhân của bạn đến người điều hành. "
+"Không đánh dấu check để nhập điểm đích khác ở đây. Tính năng này có thể được "
+"sử dụng khi vẫn đang vô hiệu VmX nhằm cho phép một người điều khiển máy "
+"nhánh thay thế mà không cần tính năng VmX cho người dùng."
 
 #: ucp/views/vmx.php:39
 msgid ""
 "Pressing 0 during your personal voicemail greeting goes to the Operator. "
 "Check to enter another destination here."
 msgstr ""
+"Nhấn 0 trong khi lời chào Thư thoại cá nhân của bạn đến người điều hành. "
+"Đánh dấu check để nhập một điểm đích khác ở đây."
 
 #: voicemail.i18n.php:18
 msgid "Provide IMAP Voicemail Fields"
