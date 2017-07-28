@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-24 15:49-0400\n"
-"PO-Revision-Date: 2017-07-18 21:53+0200\n"
+"PO-Revision-Date: 2017-07-27 23:26+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
-"Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
-"voicemail/vi/>\n"
+"Language-Team: Vietnamese "
+"<http://weblate.freepbx.org/projects/freepbx/voicemail/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -77,100 +77,105 @@ msgstr "%s được điều chỉnh từ %s thành %s"
 #: install.php:85
 #, php-format
 msgid "%s adjusted from bad value %s to default no gain"
-msgstr ""
+msgstr "%s được tùy chỉnh từ giá trị xấu %s đến mặc định không đạt"
 
 #: install.php:76
 #, php-format
 msgid "%s changed from %s to max value 15"
-msgstr ""
+msgstr "%s được thay đổi từ %s đến giá trọ lớn nhất là 15"
 
 #: install.php:95
 #, php-format
 msgid "%s migrated"
-msgstr ""
+msgstr "%s đã dịch chuyển"
 
 #: install.php:72
 #, php-format
 msgid "%s no longer used"
-msgstr ""
+msgstr "%s không được sử dụng nữa"
 
 #: views/tz.php:115 views/tz.php:131 views/tz.php:147 views/tz.php:185
 #, php-format
 msgid "%s or %s"
-msgstr ""
+msgstr "%s hoặc %s"
 
 #: views/tz.php:123
 #, php-format
 msgid "%s or %s or %s"
-msgstr ""
+msgstr "%s hoặc %s hoặc %s"
 
 #: ucp/assets/js/global.js:955
 #, perl-format
 msgid "%s seconds"
-msgstr ""
+msgstr "%s giây"
 
 #: views/tz.php:94
 msgid "'filename'"
-msgstr ""
+msgstr "'tên tệp'"
 
 #: page.voicemail.php:238
 msgid ""
 "(yes/no) If imapgreetings=yes, then specify which folder to store your "
 "greetings in. If you do not specify a folder, then INBOX will be used."
 msgstr ""
+"(Yes / no) Nếu imapgreetings = yes, thì sẽ chỉ định thư mục nào để lưu trữ "
+"lời chào của bạn. Nếu bạn không chỉ định một thư mục, thì INBOX sẽ được sử "
+"dụng."
 
 #: page.voicemail.php:437
 msgid "0 Sec"
-msgstr ""
+msgstr "0 giây"
 
 #: page.voicemail.php:433 views/dialplan.php:81
 msgid "12 db"
-msgstr ""
+msgstr "12 db ( đề xi ben)"
 
 #: page.voicemail.php:434 views/dialplan.php:83
 msgid "15 db"
-msgstr ""
+msgstr "15 db ( đề xi ben)"
 
 #: views/tz.php:212
 msgid "24 hour time, including minute"
-msgstr ""
+msgstr "Thời gian 24 giờ, bao gồm phút"
 
 #: page.voicemail.php:430 views/dialplan.php:75
 msgid "3 db"
-msgstr ""
+msgstr "3 db ( đề xi ben)"
 
 #: page.voicemail.php:431 views/dialplan.php:77
 msgid "6 db"
-msgstr ""
+msgstr "6 db (đề xi ben)"
 
 #: page.voicemail.php:432 views/dialplan.php:79
 msgid "9 db"
-msgstr ""
+msgstr "7 db ( đề xi ben)"
 
 #: views/tz.php:82
 msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
-msgstr ""
+msgstr "<i>Các múi giờ</i> được liệt kê trong /usr/share/zoneinfo"
 
 #: views/tz.php:2
 msgid ""
 "A timezone definition specifies how the Voicemail system announces the time."
 msgstr ""
+"Một định nghĩa về múi giờ sẽ xác định cách mà hệ thống Thư thoại thông báo "
+"về thời gian."
 
 #: views/tz.php:105
 msgid "A variable to be substituted (see below for supported variable values)"
-msgstr ""
+msgstr "Một biến được thay thế (xem phần dưới đây để biết về các giá trị biến)"
 
 #: Voicemail.class.php:1975
 msgid "ADSI Security Lock Code"
-msgstr ""
+msgstr "Mã khóa an ninh ADSI"
 
 #: Voicemail.class.php:1968
 msgid "ADSI feature descriptor"
-msgstr ""
+msgstr "Đặc tả tính năng ADSI"
 
 #: views/tz.php:188
 msgid "AM or PM"
-msgstr ""
+msgstr "AM hoặc PM"
 
 #: views/usage.php:184 views/usage_system.php:203
 msgid "Abandoned Greetings"
@@ -178,35 +183,35 @@ msgstr ""
 
 #: views/usage.php:2
 msgid "Account"
-msgstr ""
+msgstr "Tài khoản"
 
 #: views/settings.php:6
 msgid "Account Advanced Settings"
-msgstr ""
+msgstr "Cài đặt nâng cao cho tài khoản"
 
 #: views/settings.php:4
 msgid "Account Settings"
-msgstr ""
+msgstr "Cài dặt tài khoản"
 
 #: views/settings.php:5
 msgid "Account Usage"
-msgstr ""
+msgstr "Sử dụng Tài khoản"
 
 #: views/settings.php:2
 msgid "Account View Links:"
-msgstr ""
+msgstr "Liên kết xem tài khoản:"
 
 #: views/usage_system.php:10
 msgid "Activated"
-msgstr ""
+msgstr "Đã kích hoạt"
 
 #: functions.inc.php:987
 msgid "Advanced Settings For: "
-msgstr ""
+msgstr "Cài đặt nâng cao cho: "
 
 #: views/dialplan.php:122
 msgid "Advanced VmX Locater Settings"
-msgstr ""
+msgstr "Cài đặt nâng cao cho bộ định vị VmX"
 
 #: page.voicemail.php:295
 msgid ""
@@ -215,6 +220,10 @@ msgid ""
 "Voicemail ONLY by email. Note:  deletevoicemail is provided as an equivalent "
 "option for Realtime configuration."
 msgstr ""
+"Sau khi thông báo, Thư thoại sẽ bị xóa khỏi máy chủ. [per-mailbox only] Điều "
+"này dành cho những người dùng muốn nhận Thư thoại của họ chỉ bằng cách qua "
+"email. Lưu ý: deletevoicemail  được cung cấp như một tùy chọn tương đương "
+"cho cấu hình Thời gian thực."
 
 #: Voicemail.class.php:1851
 msgid ""
@@ -222,42 +231,49 @@ msgid ""
 "only] This is intended for use with users who wish to receive their "
 "voicemail ONLY by email."
 msgstr ""
+"Sau khi thông báo, Thư thoại sẽ bị xóa khỏi máy chủ. [per-mailbox only] Điều "
+"này dành cho những người dùng muốn nhận Thư thoại của họ CHỈ bằng cách qua "
+"email."
 
 #: views/ucp_config.php:178
 msgid "Allow VmX Locater Settings"
-msgstr ""
+msgstr "Cho phép cài đặt cho bộ định vị VmX"
 
 #: views/ucp_config.php:91
 msgid "Allow Voicemail Download"
-msgstr ""
+msgstr "Cho phép Tải Thư thoại"
 
 #: views/ucp_config.php:149
 msgid "Allow Voicemail Greetings"
-msgstr ""
+msgstr "Cho phép gửi Lời chào Thư thoại"
 
 #: views/ucp_config.php:62
 msgid "Allow Voicemail Playback"
-msgstr ""
+msgstr "Cho phép Phát lại Thư thoại"
 
 #: views/ucp_config.php:120
 msgid "Allow Voicemail Settings"
-msgstr ""
+msgstr "Cho phép Cài đặt Thư thoại"
 
 #: Voicemail.class.php:1875
 msgid ""
 "Allow sender to hit 0 before/after/during leaving a voicemail to reach an "
 "operator"
 msgstr ""
+"Cho phép người gửi nhấn 0 trước/sau/trong khi rời khỏi một thư thoại để tiếp "
+"cận một tổng đài viên"
 
 #: Voicemail.class.php:1883
 msgid "Allow sender to review/rerecord their message before saving it"
-msgstr ""
+msgstr "Cho phép người gửi xem/ghi lại tin nhắn của họ trước khi lưu"
 
 #: page.voicemail.php:269 page.voicemail.php:311
 msgid ""
 "Allow sender to review/rerecord their message before saving it [OFF by "
 "default]"
 msgstr ""
+"Cho phép người gửi xem/ ghi lại tin nhắn của họ trước khi lưu [Mặc định là "
+"OFF]"
 
 #: Voicemail.class.php:1915
 msgid ""
@@ -265,31 +281,36 @@ msgid ""
 "[option 5 from mailbox's advanced menu]. If set to 'no', option 5 will not "
 "be listed."
 msgstr ""
+"Cho phép người dùng soạn và gửi thư thoại trong khi ở trong VoiceMailMain () "
+"[tùy chọn 5 từ menu nâng cao của hộ thư]. Nếu đặt thành 'No', tùy chọn 5 sẽ "
+"không được liệt kê."
 
 #: views/ucp_config.php:36
 msgid "Allowed Voicemail"
-msgstr ""
+msgstr "Thư thoại được cho phép"
 
 #: ucp/assets/js/global.js:275
 msgid "Are you sure you wish to delete these voicemails?"
-msgstr ""
+msgstr "Bạn có chắc muốn xóa các thư thoại này?"
 
 #: ucp/assets/js/global.js:209
 msgid "Are you sure you wish to delete this voicemail?"
-msgstr ""
+msgstr "Bạn có chắc muốn xóa thư thoại này?"
 
 #: functions.inc.php:1337
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
+"Asterisk dường như không hoạt động, không thể kết nối tới Trình quản lý "
+"Asterisk"
 
 #: page.voicemail.php:305
 msgid "Asterisk language code"
-msgstr ""
+msgstr "Mã ngôn ngữ Asterisk"
 
 #: Voicemail.class.php:2062
 msgid "Attach Voicemail"
-msgstr ""
+msgstr "Đính kèm Thư thoại"
 
 #: views/dialplan.php:165
 msgid "Attempt(s)"
@@ -297,28 +318,28 @@ msgstr ""
 
 #: install.php:192
 msgid "Attempting to delete.."
-msgstr ""
+msgstr "Đang cố xóa..."
 
 #: ucp/views/mailbox.php:28
 msgid "Auto-Refresh"
-msgstr ""
+msgstr "Tự động làm mới"
 
 #: functions.inc.php:980
 msgid "Basic Settings For: "
-msgstr ""
+msgstr "Cài đặt cơ bản cho: "
 
 #: functions.inc.php:982
 msgid "Basic settings view is for individual accounts."
-msgstr ""
+msgstr "Xem các cài đặt cơ bản là dành cho các tài khoản cá nhân."
 
 #: page.voicemail.php:263
 msgid "Body of message sent to pager."
-msgstr ""
+msgstr "Thân đoạn tin nhắn được gửi tới máy nhắn tin."
 
 #: functions.inc.php:418 page.voicemail.php:424 ucp/views/vmx.php:22
 #: views/dialplan.php:46
 msgid "Busy"
-msgstr ""
+msgstr "Bận"
 
 #: Voicemail.class.php:79 views/usage.php:122
 msgid "Busy Greeting"
@@ -330,7 +351,7 @@ msgstr ""
 
 #: ucp/views/mailbox.php:56
 msgid "CID"
-msgstr ""
+msgstr "CID"
 
 #: Voicemail.class.php:2389
 msgid "CID Internal Context"
