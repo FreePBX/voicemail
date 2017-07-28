@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 16:36-0400\n"
-"PO-Revision-Date: 2017-07-28 15:59+0200\n"
+"PO-Revision-Date: 2017-07-28 17:02+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/vi/>\n"
@@ -914,10 +914,15 @@ msgid ""
 "your Follow Me List, uncheck the box to disable, otherwise the call will go "
 "to Follow Me first and skip VmX Locater"
 msgstr ""
+"Nhập một số thay thế ở đây, sau đó thay đổi lời chào Thư thoại cá nhân của "
+"bạn để người gọi biết và bấm phím 1 để biết được số vừa nhập <br/><br/> Nếu "
+"bạn muốn sử dụng Danh sách Follow Me của bạn, hãy bỏ đánh dấu check vào hộp "
+"thoại này để vô hiệu, nếu không cuộc gọi sẽ đi đến Follow Me trước và bỏ qua "
+"bộ định vị VmX"
 
 #: views/tz.php:4
 msgid "Entries below will be written to Voicemail configuration as-is."
-msgstr ""
+msgstr "Các mục nhập dưới đây sẽ được ghi vào cấu hình Thư thoại as-is."
 
 #: Voicemail.class.php:1840
 msgid "Envelope Playback"
@@ -934,43 +939,43 @@ msgstr ""
 #: Voicemail.class.php:1318
 #, php-format
 msgid "Error Processing %s. Reason: %s"
-msgstr ""
+msgstr "Lỗi Đang xử lý %s. Lý do: %s"
 
 #: views/dialplan.php:186
 msgid "Error Re-tries"
-msgstr ""
+msgstr "Lỗi Các mục nhập"
 
 #: Voicemail.class.php:2401
 msgid "Exit Context"
-msgstr ""
+msgstr "Thoát Ngữ cảnh"
 
 #: page.voicemail.php:225
 msgid "Expunge on exit."
-msgstr ""
+msgstr "Xóa bỏ khi thoát."
 
 #: functions.inc.php:562
 msgid "Extension"
-msgstr ""
+msgstr "Máy nhánh"
 
 #: Voicemail.class.php:1719
 msgid "External Notify"
-msgstr ""
+msgstr "Thông báo bên ngoài"
 
 #: Voicemail.class.php:1726
 msgid "External Password"
-msgstr ""
+msgstr "Mật khẩu bên ngoài"
 
 #: Voicemail.class.php:1733
 msgid "External Password Notify"
-msgstr ""
+msgstr "Thông báo mật khẩu bên ngoài"
 
 #: Voicemail.class.php:1740
 msgid "External Password Verification Script"
-msgstr ""
+msgstr "Kịch bản xác minh mật khẩu bên ngoài"
 
 #: Voicemail.class.php:1720 Voicemail.class.php:1825 page.voicemail.php:226
 msgid "External Voicemail notify application."
-msgstr ""
+msgstr "ứng dụng thông báo mật khẩu bên ngoài."
 
 #: Voicemail.class.php:1727
 msgid ""
@@ -980,39 +985,44 @@ msgid ""
 "voicemail.conf If you would like to also change the password in voicemail."
 "conf, use the 'External Password Notify' option below instead."
 msgstr ""
+"Lệnh thay đổi mật khẩu bên ngoài (ghi đè 'External Password Notify'). Các "
+"đối số được truyền đến ứng dụng là: [context] [mailbox] [newpassword] Lưu ý: "
+"Nếu điều này được thiết lập, mật khẩu sẽ không bị thay đổi trong "
+"voicemail.conf. Nếu bạn muốn thay đổi mật khẩu trong voicemail.conf, hãy sử "
+"dụng Tuỳ chọn 'External Password Notify'."
 
 #: page.voicemail.php:227
 msgid "External password changing command (overrides externpassnotify)."
-msgstr ""
+msgstr "Lệnh thay đổi mật khẩu bên ngoài ( ghi đè externpassnotify)."
 
 #: page.voicemail.php:228
 msgid "External password verification script."
-msgstr ""
+msgstr "Kịch bản xác minh mật khẩu bên ngoài."
 
 #: Voicemail.class.php:301
 #, php-format
 msgid "Failed to delete vmbox: %s@%s"
-msgstr ""
+msgstr "Xóa vmbox: %s@%s không thành công"
 
 #: Voicemail.class.php:72
 msgid "Family"
-msgstr ""
+msgstr "Tập hợp"
 
 #: Voicemail.class.php:1761
 msgid "Fast-Foward Keys"
-msgstr ""
+msgstr "Các phím chuyển tiếp nhanh"
 
 #: install.php:125
 msgid "Fatal DB error trying to delete globals, trying to carry on"
-msgstr ""
+msgstr "Lỗi DB nghiêm trong khi cố gắng xóa global, cố gắng tiếp tục"
 
 #: Voicemail.class.php:1747 Voicemail.class.php:1754
 msgid "File Format"
-msgstr ""
+msgstr "Định dạng tệp"
 
 #: ucp/Voicemail.class.php:235
 msgid "File does not exist"
-msgstr ""
+msgstr "Tệp không tồn tại"
 
 #: ucp/assets/js/global.js:58
 msgid ""
@@ -1020,10 +1030,13 @@ msgid ""
 "means VmX Locator will be skipped, instead going directly to Find Me/Follow "
 "Me"
 msgstr ""
+"Find me Follow me được kích hoạt khi tùy chọn 1 của bộ định vị Vmx bị vô "
+"hiệu. Điều đó có nghĩa là bộ định vị Vmx sẽ bị bỏ qua, thay vào đó sẽ đi "
+"thẳng đến Find Me/Follow Me"
 
 #: page.voicemail.php:234
 msgid "For IMAP storage"
-msgstr ""
+msgstr "Đối với việc lưu trữ IMAP"
 
 #: page.voicemail.php:239
 msgid "For IMAP storage - TCP open timeout in seconds"
