@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 16:36-0400\n"
-"PO-Revision-Date: 2017-07-28 10:00+0200\n"
+"PO-Revision-Date: 2017-07-28 15:59+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/vi/>\n"
@@ -345,11 +345,11 @@ msgstr "Bận"
 
 #: Voicemail.class.php:79 views/usage.php:122
 msgid "Busy Greeting"
-msgstr ""
+msgstr "Lời chào khi bận"
 
 #: views/usage_system.php:141
 msgid "Busy Greetings"
-msgstr ""
+msgstr "Các lời chào khi bận"
 
 #: ucp/views/mailbox.php:56
 msgid "CID"
@@ -571,6 +571,8 @@ msgid ""
 "Customize which sound file is used when the user times out while recording a "
 "prepend message instead of the default prompt that says \"then press pound\""
 msgstr ""
+"Tùy chỉnh tệp âm thanh được sử dụng khi người dùng quá giờ trong khi ghi một "
+"tin nhắn thêm vào trước thay thế cho lời nhắc nhở nói là \"then press pound\""
 
 #: ucp/views/mailbox.php:55
 msgid "Date"
@@ -669,35 +671,37 @@ msgstr "Hành vi của kế hoạch quay số"
 
 #: views/dialplan.php:39
 msgid "Direct Dial Mode"
-msgstr ""
+msgstr "Chế độ quay số trực tiếp"
 
 #: install.php:12 voicemail.i18n.php:30
 msgid "Direct Dial Prefix"
-msgstr ""
+msgstr "Tiền tố quay số trực tiếp"
 
 #: ucp/assets/js/global.js:781
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr ""
+"Direct Media Recording (Ghi âm truyền thông trực tiếp) không được hỗ trợ "
+"trên trình duyệt này!"
 
 #: Voicemail.class.php:2367
 msgid "Directory Intro"
-msgstr ""
+msgstr "Giới thiệu danh mục"
 
 #: functions.inc.php:591
 msgid "Disable (*) in Voicemail Menu"
-msgstr ""
+msgstr "Vô hiệu (*) trong Menu Thư thoại"
 
 #: views/dialplan.php:12
 msgid "Disable Standard Prompt"
-msgstr ""
+msgstr "Vô hiệu Standard Prompt ( Nhắc nhở tiêu chuẩn)"
 
 #: views/dialplan.php:213
 msgid "Disable Standard Prompt after Max Loops"
-msgstr ""
+msgstr "Nhắc nhở Standard Prompt sau Max Loops"
 
 #: views/dialplan.php:240
 msgid "Disable Standard Prompt on 'dovm' Extension"
-msgstr ""
+msgstr "Vô hiệu Standard Prompt trên máy nhánh 'dovm'"
 
 #: views/dialplan.php:27
 msgid ""
@@ -706,30 +710,34 @@ msgid ""
 "after the beep. This can be individually controlled for users who have VMX "
 "locater enabled."
 msgstr ""
+"Vô hiệu các hướng dẫn Thư thoại tiêu chuẩn theo tin nhắn người dùng được ghi "
+"lại. Các hướng dẫn tiêu chuẩn này nói cho người gọi biết để lại một tin nhắn "
+"sau tiếp bíp. Điều này có thể được giám sát cá nhân cho những người dùng có "
+"bộ định vị VMX được bật."
 
 #: views/usage_system.php:12
 msgid "Disabled"
-msgstr ""
+msgstr "Đã vô hiệu"
 
 #: ucp/views/greetings.php:51
 msgid "Discard Greeting"
-msgstr ""
+msgstr "Hủy bỏ lời chào"
 
 #: views/usage.php:8 views/usage_system.php:24
 msgid "Disk space currently in use by Voicemail data"
-msgstr ""
+msgstr "Dung lượng ổ đĩa hiện đang được sử dụng bởi các dữ liệu Thư thoại"
 
 #: ucp/assets/js/global.js:962
 msgid "Download"
-msgstr ""
+msgstr "Tải xuống"
 
 #: ucp/assets/js/global.js:450
 msgid "Dragging to yourself is not allowed"
-msgstr ""
+msgstr "Không cho phép kéo về phía bạn"
 
 #: ucp/views/mailbox.php:60
 msgid "Duration"
-msgstr ""
+msgstr "Khoảng thời gian"
 
 #: install.php:93
 #, php-format
@@ -737,43 +745,45 @@ msgid ""
 "ERROR inserting %s into voicemail_admin during migration, it may alreayd "
 "exist"
 msgstr ""
+"LỖI chèn %s vào voicemail_admin trong quá trình dịch chuyển, nó có thể đã "
+"tồn tại"
 
 #: Voicemail.class.php:1705 functions.inc.php:602 page.voicemail.php:518
 #: ucp/views/settings.php:12
 msgid "Email Address"
-msgstr ""
+msgstr "Địa chỉ email"
 
 #: functions.inc.php:628 page.voicemail.php:520 ucp/views/settings.php:22
 msgid "Email Attachment"
-msgstr ""
+msgstr "Đính kèm email"
 
 #: Voicemail.class.php:1994
 msgid "Email Body"
-msgstr ""
+msgstr "Nội dung của Email"
 
 #: Voicemail.class.php:1979
 msgid "Email Config"
-msgstr ""
+msgstr "Cấu hình email"
 
 #: Voicemail.class.php:2008
 msgid "Email Date Format"
-msgstr ""
+msgstr "Định dạng ngày của email"
 
 #: Voicemail.class.php:2001
 msgid "Email From String"
-msgstr ""
+msgstr "Email từ String ( Chuỗi)"
 
 #: Voicemail.class.php:1986
 msgid "Email Subject"
-msgstr ""
+msgstr "Tiêu đề Email"
 
 #: page.voicemail.php:219
 msgid "Email body."
-msgstr ""
+msgstr "Nội dung email."
 
 #: page.voicemail.php:221
 msgid "Email subject"
-msgstr ""
+msgstr "Tiêu đề email"
 
 #: page.voicemail.php:288 page.voicemail.php:320
 msgid ""
@@ -782,6 +792,9 @@ msgid ""
 "when sending a Voicemail. NOTE: sox must be installed for this option to "
 "work."
 msgstr ""
+"Các email mang thư thoại có thể đến với một âm lượng rất nhỏ khó có thể nghe "
+"được. Tham số này cho phép bạn tăng âm lượng cần thêm vào tin nhắn khi gửi "
+"một thư thoại. Lưu ý: Phải cài đặt sox cho tùy chọn này làm việc."
 
 #: Voicemail.class.php:1811
 msgid ""
@@ -790,55 +803,60 @@ msgid ""
 "when sending a Voicemail. NOTE: sox must be installed for this option to "
 "work."
 msgstr ""
+"Các email mang thư thoại có thể đến với một âm lượng rất nhỏ khó có thể nghe "
+"được. Tham số này cho phép bạn tăng âm lượng cần thêm vào tin nhắn khi gửi "
+"một thư thoại. Lưu ý: Phải cài đặt sox cho tùy chọn này làm việc."
 
 #: ucp/views/vmx.php:5
 msgid "Enable"
-msgstr ""
+msgstr "Kích hoạt"
 
 #: Voicemail.class.php:1952 Voicemail.class.php:1953
 msgid "Enable SMDI notification"
-msgstr ""
+msgstr "Kích hoạt thông báo SMDI"
 
 #: page.voicemail.php:278
 msgid "Enable Simple Message Desk Interface (SMDI) integration"
-msgstr ""
+msgstr "Kích hoạt tính năng tích hợp Giao diện bảng tin nhắn đơn giản ( SMDI)"
 
 #: views/ucp_config.php:197
 msgid "Enable VmX Locater in UCP for this user"
-msgstr ""
+msgstr "Kích hoạt bộ định vị VmX trong UCP cho người dùng này"
 
 #: ucp/views/vmx.php:29
 msgid ""
 "Enable VmX Menu options during Voicemail playback for the selected options."
 msgstr ""
+"Kích hoạt các tùy chọn của menu VmX trong quá trình phát lại Thư thoại đối "
+"với các tùy chọn đã được chọn."
 
 #: views/quickCreate.php:10
 msgid "Enable Voicemail"
-msgstr ""
+msgstr "Kích hoạt Thư Thoại"
 
 #: views/ucp_config.php:7
 msgid "Enable Voicemail Access"
-msgstr ""
+msgstr "Kích hoạt tính năng truy nhập thư thoại"
 
 #: views/ucp_config.php:26
 msgid "Enable the voicemail Access in UCP for this user"
-msgstr ""
+msgstr "Kích hoạt tính năng Truy nhập thư thoại trong UCP cho người dùng này"
 
 #: views/ucp_config.php:110
 msgid "Enable voicemail download in UCP for this user"
-msgstr ""
+msgstr "Kích hoạt tính năng tải Thư thoại xuống trong UCP cho người dùng này"
 
 #: views/ucp_config.php:168
 msgid "Enable voicemail greetings in UCP for this user"
-msgstr ""
+msgstr "Kích hoạt Lời chào thư thoại trong UCP cho người dùng này"
 
 #: views/ucp_config.php:81
 msgid "Enable voicemail playback in UCP for this user"
-msgstr ""
+msgstr "Kích hoạt tính năng phát lại Thư thoại trong UCP cho người dùng này"
 
 #: views/ucp_config.php:139
 msgid "Enable voicemail settings in UCP for this user"
-msgstr ""
+msgstr "Kích hoạt các cài đặt Thư thoại trong UCP cho người dùng này"
 
 #: functions.inc.php:818
 msgid ""
@@ -848,6 +866,11 @@ msgid ""
 "callers more control. In essence, the VMX locater is a mini-IVR (interactive "
 "voice response) for voicemail"
 msgstr ""
+"Kích hoạt/Vô hiệu tính năng của bộ định vị VmX ( Virtual Machine eXtension) "
+"cho người dùng này. Bộ định vị VMX cho phép điều khiển nâng cao hệ thống thư "
+"thoại của người dùng. Tính năng này tương tự như tính năng Follow M, tuy "
+"nhiên nó đem đến cho người gọi nhiều khả năng giám điều khiển hơn. Về bản "
+"chất, bộ định vị VMX là một IVR mini của Thư thoại"
 
 #: ucp/views/vmx.php:13
 msgid ""
@@ -857,14 +880,19 @@ msgid ""
 "essence, the VMX locater is a mini-IVR (interactive voice response) for "
 "voicemail"
 msgstr ""
+"Kích hoạt/Vô hiệu tính năng của bộ định vị VmX ( Virtual Machine eXtension). "
+"Bộ định vị VMX cho phép điều khiển nâng cao hệ thống thư thoại của người "
+"dùng. Tính năng này tương tự như tính năng Follow M, tuy nhiên nó đem đến "
+"cho người gọi nhiều khả năng giám điều khiển hơn. Về bản chất, bộ định vị "
+"VMX là một IVR mini của Thư thoại"
 
 #: functions.inc.php:531 functions.inc.php:817
 msgid "Enabled"
-msgstr ""
+msgstr "Đã kích hoạt"
 
 #: Voicemail.class.php:2119 page.voicemail.php:256
 msgid "Enforce minimum password length"
-msgstr ""
+msgstr "Chiều dài mật khẩu tối thiểu bắt buộc"
 
 #: functions.inc.php:882
 msgid ""
@@ -873,6 +901,11 @@ msgid ""
 "to use your Follow Me List, check \"Send to Follow Me\" and disable Follow "
 "Me otherwise the call will go to Follow Me first and skip VmX Locater."
 msgstr ""
+"Nhập một số thay thế ở đây, sau đó thay đổi lời chào Thư thoại cá nhân của "
+"bạn để người gọi biết và bấm phím 1 để biết được số vừa nhập. <br/><br/> Nếu "
+"bạn muốn sử dụng Danh sách Follow Me của bạn, hãy đánh dấu check vào \"\""
+"Send to Follow Me\" và vô hiệu hoá Follow Me nếu không cuộc gọi sẽ đi đến "
+"Follow Me trước và bỏ qua bộ định vị VmX."
 
 #: ucp/views/vmx.php:49
 msgid ""
