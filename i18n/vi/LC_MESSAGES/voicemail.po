@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 16:36-0400\n"
-"PO-Revision-Date: 2017-07-28 17:02+0200\n"
+"PO-Revision-Date: 2017-07-29 15:59+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/vi/>\n"
@@ -926,7 +926,7 @@ msgstr "Các mục nhập dưới đây sẽ được ghi vào cấu hình Thư 
 
 #: Voicemail.class.php:1840
 msgid "Envelope Playback"
-msgstr ""
+msgstr "Phát lại Envenlope"
 
 #: functions.inc.php:651 ucp/views/settings.php:52
 msgid ""
@@ -935,6 +935,10 @@ msgid ""
 "not affect the operation of the envelope option in the advanced Voicemail "
 "menu."
 msgstr ""
+"Envenlope (phong bì)  điều khiển hệ thống Thư thoại có nên phát các envelope "
+"(ngày/thời gian) của tin nhắn trước khi phát tin nhắn Thư thoại hay không. "
+"Cài đặt này sẽ không ảnh hưởng tới hoạt động của tùy chọn envenlope trong "
+"menu Thư thoại nâng cao."
 
 #: Voicemail.class.php:1318
 #, php-format
@@ -1039,8 +1043,9 @@ msgid "For IMAP storage"
 msgstr "Đối với việc lưu trữ IMAP"
 
 #: page.voicemail.php:239
+#, fuzzy
 msgid "For IMAP storage - TCP open timeout in seconds"
-msgstr ""
+msgstr "Đối với việc lưu trữ IMAP-TCP"
 
 #: page.voicemail.php:242
 msgid "For IMAP storage - TCP read timeout in seconds"
@@ -1055,28 +1060,32 @@ msgid ""
 "For example, the time a message was left will be announced according to the "
 "user's timezone on message playback."
 msgstr ""
+"Ví dụ, thời gian mà một tin nhắn để lại sẽ được thông báo dựa theo múi giờ "
+"của người dùng trên chế độ phát lại tin nhắn."
 
 #: Voicemail.class.php:2368
 msgid "For the directory, you can override the intro file if you want"
-msgstr ""
+msgstr "Đối với danh mục, bạn có thể ghi đè tệp intro nếu bạn muốn"
 
 #: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:558
 msgid "Forbidden"
-msgstr ""
+msgstr "bị cấm"
 
 #: Voicemail.class.php:1864
 msgid "Force Greetings"
-msgstr ""
+msgstr "Lời chào bắt buộc"
 
 #: Voicemail.class.php:1856
 msgid "Force Name"
-msgstr ""
+msgstr "Tên bắt buộc"
 
 #: page.voicemail.php:231
 msgid ""
 "Force a new user to record their name.  A new user is determined by the "
 "password being the same as the mailbox number.  The default is \"yes\"."
 msgstr ""
+"Bắt buộc một người dùng mới để ghi lại tên của họ. Một người dùng mới sẽ "
+"được quyết định bằng mật khẩu giống với số mailbox. Mặc định là \"yes\"."
 
 #: Voicemail.class.php:1857
 msgid ""
