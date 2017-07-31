@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 16:36-0400\n"
-"PO-Revision-Date: 2017-07-31 09:51+0200\n"
+"PO-Revision-Date: 2017-07-31 10:30+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/vi/>\n"
@@ -1188,118 +1188,127 @@ msgstr "Ẩn mailbox này khỏi Danh mục cấp bởi app_directory. Mặc đ�
 
 #: views/tz.php:149
 msgid "Hour, 12 hour clock"
-msgstr ""
+msgstr "Giờ, 12 giờ"
 
 #: views/tz.php:165
 msgid "Hour, 24 hour clock (single digit hours NOT preceded by \"oh\")"
-msgstr ""
+msgstr "Giờ, 24 giờ (những giờ có một con số không có \"oh\" đứng trước)"
 
 #: views/tz.php:157
 msgid "Hour, 24 hour clock (single digit hours preceded by \"oh\")"
-msgstr ""
+msgstr "Giờ, 24 giờ (những giờ có một con số có \"oh\" đứng trước)"
 
 #: page.voicemail.php:222
 msgid "How many miliseconds of silence before we end the recording"
-msgstr ""
+msgstr "Bao nhiêu mili giây im lặng trước khi chúng ta kết thúc bản ghi"
 
 #: Voicemail.class.php:2135
 msgid ""
 "How many milliseconds of silence before we end the recording (in "
 "milliseconds)."
 msgstr ""
+"Bao nhiêu mili giây im lặng trước khi chúng ta kết thúc bản ghi ( tính bằng "
+"mili giây)."
 
 #: page.voicemail.php:277
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback"
 msgstr ""
+"Bao nhiêu mili giây để bỏ qua chuyển tiếp/quay lại khi rew/ff trong chế độ "
+"phát lại tin nhắn"
 
 #: Voicemail.class.php:2159 Voicemail.class.php:2167
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback "
 "(in milliseconds)"
 msgstr ""
+"Bao nhiêu mili giây để bỏ qua chuyển tiếp/quay lại khi rew/ff  trong chế độ "
+"phát lại tin nhắn ( tính bằng mili giây)"
 
 #: Voicemail.class.php:2213
 msgid "IMAP Auth User"
-msgstr ""
+msgstr "Người dùng Auth IMAP"
 
 #: Voicemail.class.php:2220
 msgid "IMAP Auth User Password"
-msgstr ""
+msgstr "Mật khẩu người dùng IMAP Auth"
 
 #: Voicemail.class.php:2241
 msgid "IMAP Flags"
-msgstr ""
+msgstr "Các Flag của IMAP"
 
 #: Voicemail.class.php:2248
 msgid "IMAP Folder"
-msgstr ""
+msgstr "Tệp IMAP"
 
 #: Voicemail.class.php:2270
 msgid "IMAP Greetings"
-msgstr ""
+msgstr "Lời chào IMAP"
 
 #: Voicemail.class.php:2255
 msgid "IMAP Parent Folder"
-msgstr ""
+msgstr "Tệp mẹ của IMAP"
 
 #: Voicemail.class.php:2234 functions.inc.php:684
 msgid "IMAP Password"
-msgstr ""
+msgstr "Mật khẩu IMAP"
 
 #: Voicemail.class.php:2192
 msgid "IMAP Storage"
-msgstr ""
+msgstr "Lưu trữ IMAP"
 
 #: Voicemail.class.php:2227
 msgid "IMAP User"
-msgstr ""
+msgstr "Người dùng IMAP"
 
 #: functions.inc.php:674
 msgid "IMAP Username"
-msgstr ""
+msgstr "Tên người dùng IMAP"
 
 #: page.voicemail.php:236
 msgid "IMAP Voicemail folder."
-msgstr ""
+msgstr "Tệp Thư thoại IMAP."
 
 #: page.voicemail.php:303
 msgid "IMAP password."
-msgstr ""
+msgstr "Mật khẩu IMAP."
 
 #: Voicemail.class.php:2199 Voicemail.class.php:2200 page.voicemail.php:243
 msgid "IMAP server address."
-msgstr ""
+msgstr "Địa chỉ máy chủ IMAP."
 
 #: page.voicemail.php:235
 msgid "IMAP server flags."
-msgstr ""
+msgstr "Các Flag máy chủ IMAP."
 
 #: Voicemail.class.php:2221 page.voicemail.php:212
 msgid "IMAP server master password."
-msgstr ""
+msgstr "Mật khẩu chính của máy chủ IMAP."
 
 #: Voicemail.class.php:2214 page.voicemail.php:213
 msgid "IMAP server master username."
-msgstr ""
+msgstr "Tên người chính chính của máy chủ IMAP."
 
 #: Voicemail.class.php:2206 Voicemail.class.php:2207 page.voicemail.php:241
 msgid "IMAP server port."
-msgstr ""
+msgstr "Cổng giao tiếp máy chủ IMAP."
 
 #: page.voicemail.php:304
 msgid "IMAP user."
-msgstr ""
+msgstr "Người dùng IMAP."
 
 #: Voicemail.class.php:71
 msgid "INBOX"
-msgstr ""
+msgstr "Hộp thư đến"
 
 #: Voicemail.class.php:2263
 msgid ""
 "If IMAP Greetings is Yes, then specify which folder to store your greetings "
 "in. If you do not specify a folder, then INBOX will be used"
 msgstr ""
+"Neeis Lời chào IMAP(IMAP Greetings) là Yes, thì xác định tệp nào để lưu trữ "
+"những lời chào của bạn trong đó. Nếu bạn không xác định là tệp nào thì sẽ sử "
+"dụng INBOX để lưu."
 
 #: page.voicemail.php:268
 msgid ""
