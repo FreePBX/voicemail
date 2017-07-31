@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 16:36-0400\n"
-"PO-Revision-Date: 2017-07-29 15:59+0200\n"
+"PO-Revision-Date: 2017-07-31 09:51+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/vi/>\n"
@@ -44,7 +44,7 @@ msgstr "\"today\", \"yesterday\" or ABdY"
 #: page.voicemail.php:443
 #, php-format
 msgid "%s Attempts"
-msgstr ""
+msgstr "Số lần thử %s"
 
 #: page.voicemail.php:449
 #, php-format
@@ -316,7 +316,7 @@ msgstr "Đính kèm Thư thoại"
 
 #: views/dialplan.php:165
 msgid "Attempt(s)"
-msgstr ""
+msgstr "Số lần thử"
 
 #: install.php:192
 msgid "Attempting to delete.."
@@ -1092,33 +1092,41 @@ msgid ""
 "Force a new user to record their name. A new user is determined by the "
 "password being the same as the mailbox number. Default is 'Yes'"
 msgstr ""
+"Bắt buộc một người dùng mới ghi lưu tên của họ. Một người dùng được xác định "
+"bởi mật khẩu giống với số của mailbox. Mặc định là 'Yes'"
 
 #: page.voicemail.php:230 page.voicemail.php:300
 msgid ""
 "Force new user to record greetings (the same as forcename, except for "
 "recording greetings).  The default is \"no\"."
 msgstr ""
+"Bắt buộc người dùng mới ghi lại lời chào ( giống như tên bặt buộc. ngoại trừ "
+"việc ghi âm lời chào). Mặc định là \"no\"."
 
 #: page.voicemail.php:232
 msgid ""
 "Formats for writing Voicemail.  Note that when using IMAP storage for "
 "Voicemail, only the first format specified will be used."
 msgstr ""
+"Các định dạng cho việc ghi Thư thoại. Lưu ý rằng khi sử dụng lưu trữ IMAP "
+"cho Thư thoại, chỉ định dạng đầu tiên được chỉ định sẽ được sử dụng."
 
 #: Voicemail.class.php:1748
 msgid ""
 "Formats for writing Voicemail. Note that when using IMAP storage for "
 "Voicemail, only the first format specified will be used."
 msgstr ""
+"Các định dạng cho việc ghi Thư thoại. Lưu ý rằng khi sử dụng lưu trữ IMAP "
+"cho Thư thoại, chỉ định dạng đầu tiên được chỉ định sẽ được sử dụng."
 
 #: ucp/views/mailbox.php:13 ucp/assets/js/global.js:171
 #: ucp/assets/js/global.js:292 ucp/assets/js/global.js:959
 msgid "Forward"
-msgstr ""
+msgstr "Chuyển tiếp"
 
 #: ucp/assets/js/global.js:170 ucp/assets/js/global.js:291
 msgid "Forward Voicemail"
-msgstr ""
+msgstr "Chuyển tiếp Thư thoại"
 
 #: Voicemail.class.php:73
 msgid "Friends"
@@ -1126,31 +1134,31 @@ msgstr ""
 
 #: Voicemail.class.php:2002 Voicemail.class.php:2031 page.voicemail.php:233
 msgid "From: string for email"
-msgstr ""
+msgstr "Từ: Chuỗi cho email"
 
 #: page.voicemail.php:264
 msgid "From: string sent to pager."
-msgstr ""
+msgstr "Từ: Chuỗi đã gửi đến trang."
 
 #: functions.inc.php:1501
 msgid "GB"
-msgstr ""
+msgstr "GB ( Giga Byte)"
 
 #: Voicemail.class.php:1677
 msgid "General"
-msgstr ""
+msgstr "Chung"
 
 #: views/dialplan.php:2
 msgid "General Dialplan Settings"
-msgstr ""
+msgstr "Cài đặt chung cho kế hoạch quay số"
 
 #: install.php:120
 msgid "General Settings migrated"
-msgstr ""
+msgstr "Các cài đặt chung đã được dịch chuyển"
 
 #: views/usage.php:15 views/usage_system.php:32
 msgid "General Usage"
-msgstr ""
+msgstr "Cách sử dụng chung"
 
 #: functions.inc.php:859 ucp/views/vmx.php:37
 msgid "Go To Operator"
@@ -1158,25 +1166,25 @@ msgstr "Đi tới người điều hành"
 
 #: ucp/views/nav.php:13
 msgid "Greetings"
-msgstr ""
+msgstr "Lời chào"
 
 #: Voicemail.class.php:2262
 msgid "Greetings folder"
-msgstr ""
+msgstr "Tệp Lời chào"
 
 #: Voicemail.class.php:1936
 msgid "Hide From Directory"
-msgstr ""
+msgstr "Ẩn từ Danh mục"
 
 #: Voicemail.class.php:1937
 msgid "Hide this mailbox from the directory produced by app_directory"
-msgstr ""
+msgstr "Ẩn mailbox này khỏi danh mục được cấp bởi app_directory"
 
 #: page.voicemail.php:302
 msgid ""
 "Hide this mailbox from the directory produced by app_directory. The default "
 "is \"no\"."
-msgstr ""
+msgstr "Ẩn mailbox này khỏi Danh mục cấp bởi app_directory. Mặc định là \"no\"."
 
 #: views/tz.php:149
 msgid "Hour, 12 hour clock"
