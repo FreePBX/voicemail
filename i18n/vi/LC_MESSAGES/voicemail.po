@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 16:36-0400\n"
-"PO-Revision-Date: 2017-08-01 11:47+0200\n"
+"PO-Revision-Date: 2017-08-01 15:56+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/vi/>\n"
@@ -2186,6 +2186,10 @@ msgid ""
 "Distro. It allows users to subscribe to other voicemail box and be notified "
 "via BLF of changes."
 msgstr ""
+"Thiết lập các flag này với việc khởi tạo các kế hoạch quay số cần thiết để "
+"tích hợp với res_mwi_devstate (res_mwi_blf) bao gồm Official FreePBX Distro. "
+"Nó cho phép người dùng đăng ký vào hộp thư thoại khác và những thay đổi sẽ "
+"được thông báo tới họ thông qua BLF."
 
 #: ucp/views/nav.php:10 views/header.php:10 voicemail.i18n.php:6
 msgid "Settings"
@@ -2233,6 +2237,11 @@ msgid ""
 "to set the parent folder. For example, Cyrus IMAP does NOT use INBOX as the "
 "parent. Default is to have no parent folder set."
 msgstr ""
+"thay vì sử dụng thư mục cấp cao nhất (ví dụ: INBOX / Friends), một số thực "
+"thi của máy chủ IMAP lưu các thư mục trong Hộp thư đến. Trong trường hợp "
+"này, người dùng sẽ dùng imapparentfolder để thiết lập thư mục mẹ. Ví dụ: "
+"Cyrus IMAP KHÔNG sử dụng Hộp thư đến làm thư mục mẹ. Mặc định là không có "
+"thư mục mẹ được thiết lập."
 
 #: Voicemail.class.php:2304
 msgid "Sound Files"
@@ -2308,7 +2317,7 @@ msgstr "Các thống kê việc sử dụng hệ thống"
 
 #: functions.inc.php:1501
 msgid "TB"
-msgstr ""
+msgstr "TB (Terabyte)"
 
 #: ucp/views/vmx.php:25
 msgid "Temp"
