@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 16:36-0400\n"
-"PO-Revision-Date: 2017-07-31 23:21+0200\n"
+"PO-Revision-Date: 2017-08-01 09:42+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/vi/>\n"
@@ -1391,17 +1391,17 @@ msgstr ""
 "tần suất kiểm soát vòng. Mặc định là 30 giây 1 lần."
 
 #: views/dialplan.php:228
-#, fuzzy
 msgid ""
 "If the Max Loops are reached and the call goes to voicemail, checking this "
 "box will disable the standard voicemail prompt prompt that follows the "
 "user's recorded greeting. This default can be overriden with a unique ..vmx/"
 "vmxopts/loops AstDB entry for the given mode (busy/unavail) and user."
 msgstr ""
-"Nếu Max Loops đạt đến đỉnh thì cuộc gọi sẽ đi tới thư thoại, nếu đánh dấu "
-"check vào mô này thì sẽ vô hiệu lời nhắc thư thoại tiêu chuẩn rằng .. Mặc "
-"định này sẽ được ghi đề với một mục nhập ..vmx/vmxopts/loops AstDB duy nhất "
-"cho chế độ được được cấp ( bận/không hợp lệ) và người dùng."
+"Nếu đã đạt đến Max Loops thì cuộc gọi sẽ đi tới thư thoại, nếu đánh dấu "
+"check vào hộp thoại này sẽ vô hiệu lời nhắc thư thoại tiêu chuẩn đang theo "
+"dõi lời chào của người dùng. Mặc định này sẽ được ghi đề với một mục nhập "
+"..vmx/vmxopts/loops AstDB duy nhất cho chế độ được được cấp ( bận/không hợp "
+"lệ) và người dùng."
 
 #: views/dialplan.php:255
 msgid ""
@@ -1417,15 +1417,14 @@ msgstr ""
 "và người dùng."
 
 #: page.voicemail.php:237
-#, fuzzy
 msgid ""
 "If using IMAP storage, specify whether Voicemail greetings should be stored "
 "via IMAP. If no, then greetings are stored as if IMAP storage were not "
 "enabled"
 msgstr ""
 "Nếu sử dụng bộ nhớ IMAP, xác định liệu các lời chào thư thoại có nên được "
-"lưu trữ qua IMAP không. Nếu không thì các lời cào này sẽ được lưu trữ như "
-"thể bộ nhớ IMAP không được kích hoạt."
+"lưu trữ qua IMAP hay không. Nếu không thì các lời chào này sẽ được lưu trữ "
+"như thể bộ nhớ IMAP không được kích hoạt"
 
 #: Voicemail.class.php:2271
 msgid ""
@@ -1650,7 +1649,7 @@ msgstr "Di chuyển"
 
 #: Voicemail.class.php:1944
 msgid "Move Heard"
-msgstr ""
+msgstr "Di chuyển những gì đã nghe"
 
 #: ucp/assets/js/global.js:237
 msgid "Move Voicemail"
@@ -1756,7 +1755,7 @@ msgstr "Không tìm thấy"
 
 #: ucp/assets/js/global.js:445
 msgid "Not a valid Draggable Object"
-msgstr ""
+msgstr "Không phải là một đối tượng Draggable hợp lệ"
 
 #: Voicemail.class.php:339
 msgid "Null value was sent to saveVoicemail() can not continue"
@@ -1789,6 +1788,12 @@ msgid ""
 "to press the various options now and leave enough time in the greeting "
 "letting them know it will otherwise go to voicemail as is normal."
 msgstr ""
+"Số lần phát tin nhắn được ghi lại nếu người gọi không bấm bất kỳ tùy chọn "
+"nào và nó sẽ hết thời gian. Một lần thử có nghĩa là chúng ta sẽ không lặp "
+"lại và nó sẽ được coi như là một timeout. Một timeout là hành vi thông "
+"thường và timeout thường được đặt là số không và chỉ ghi lại một tin nhắn "
+"cho người gọi biết để nhấn một số tùy chọn và đặt một thời gian vừa đủ trong "
+"lời chào, nếu không chúng sẽ đến Thư thoại như bình thường."
 
 #: Voicemail.class.php:2172
 msgid "ODBC Storage"
@@ -1839,126 +1844,136 @@ msgid ""
 "example, setting this to 'ssl' will enable OpenSSL encryption, assuming the "
 "IMAP libraries were compiled with OpenSSL support."
 msgstr ""
+"Các flag tùy chọn để đi qua máy chủ IMAP trong Mailbox IMAP ở đây. Ví dụ, "
+"cài đặt điều này về 'sssl' sẽ kích hoatj việc mã hóa OpenSSL, giả sử các thư "
+"viện IMAP được biên dịch với sự hỗ trợ của OpenSSL."
 
 #: Voicemail.class.php:2023
 msgid "Pager Body"
-msgstr ""
+msgstr "Thân của máy nhắn tin"
 
 #: Voicemail.class.php:2037
 msgid "Pager Date Format"
-msgstr ""
+msgstr "Định dạng ngày của máy nhắn tin"
 
 #: Voicemail.class.php:1698 functions.inc.php:615 page.voicemail.php:519
 #: ucp/views/settings.php:17
 msgid "Pager Email Address"
-msgstr ""
+msgstr "Địa chỉ Email của máy nhắn tin"
 
 #: Voicemail.class.php:2030
 msgid "Pager From String"
-msgstr ""
+msgstr "Máy nhắn tin từ chuỗi"
 
 #: Voicemail.class.php:2015
 msgid "Pager Subject"
-msgstr ""
+msgstr "Đối tượng gửi của máy nhắn tin"
 
 #: Voicemail.class.php:1699 functions.inc.php:616 page.voicemail.php:310
 #: ucp/views/settings.php:19
 msgid ""
 "Pager/mobile email address that short Voicemail notifications are sent to."
 msgstr ""
+"Địa chỉ emial máy nhắn tin/di động mà các thông báo Thư thoại ngắn được gửi "
+"tới."
 
 #: Voicemail.class.php:2332
 msgid "Password"
-msgstr ""
+msgstr "Mật khẩu"
 
 #: Voicemail.class.php:2325
 msgid "Password Changed"
-msgstr ""
+msgstr "Mật khẩu đã thay đổi"
 
 #: Voicemail.class.php:2311
 msgid "Password Mismatch"
-msgstr ""
+msgstr "Mật khẩu không khớp"
 
 #: Voicemail.class.php:1775
 msgid "Pause Keys"
-msgstr ""
+msgstr "Các phím tạm ngưng"
 
 #: Voicemail.class.php:1929 page.voicemail.php:281
 msgid "Permit finding entries for forward/compose from the directory"
 msgstr ""
+"Cho phép tìm kiếm các mục nhập cho việc chuyển tiếp/soạn thư từ Danh mục ( "
+"Directory)"
 
 #: ucp/views/settings.php:9
 msgid "Pin Used to Login to Voicemail. This pin can only contain numbers."
 msgstr ""
+"Pin được sử dụng để đăng nhập tới Thư thoại. Pin này có thể chỉ chứa các số."
 
 #: functions.inc.php:639 page.voicemail.php:521 ucp/views/settings.php:33
 msgid "Play CID"
-msgstr ""
+msgstr "Phát CID"
 
 #: functions.inc.php:650 page.voicemail.php:522 ucp/views/settings.php:44
 msgid "Play Envelope"
-msgstr ""
+msgstr "Phát Envelope"
 
 #: ucp/views/mailbox.php:58
 msgid "Playback"
-msgstr ""
+msgstr "Phát lại"
 
 #: Voicemail.class.php:2353
 msgid "Please Try Again"
-msgstr ""
+msgstr "Vui lòng thử lần nữa"
 
 #: views/tz.php:5
 msgid ""
 "Please be sure to follow the format for timezone definitions described below."
 msgstr ""
+"Vui lòng đảm bảo theo đúng định dạng cho các định nghĩa múi giờ được mô tả "
+"dưới đây."
 
 #: functions.inc.php:504
 msgid "Please enter a valid Email Address"
-msgstr ""
+msgstr "Vui lòng nhập một địa chỉ Email hợp lệ"
 
 #: functions.inc.php:505
 msgid "Please enter a valid Pager Email Address"
-msgstr ""
+msgstr "Vui lòng nhập một địa chỉ Email máy nhắn tin hợp lệ"
 
 #: functions.inc.php:503
 msgid "Please enter a valid Voicemail Password, using digits only"
-msgstr ""
+msgstr "Vui lòng nhập một mật khẩu Thư thoại hợp lệ, chỉ sử dụng chữ số"
 
 #: Voicemail.class.php:1824
 msgid "Poll Frequency"
-msgstr ""
+msgstr "Tần suất kiểm soát vòng"
 
 #: Voicemail.class.php:1832
 msgid "Poll Mailboxes"
-msgstr ""
+msgstr "Các mailbox kiểm soát vòng"
 
 #: Voicemail.class.php:2360
 msgid "Prepend Timeout"
-msgstr ""
+msgstr "Đính kèm trước Timeout"
 
 #: ucp/views/vmx.php:32
 msgid "Press 0"
-msgstr ""
+msgstr "Nhấn phím 0"
 
 #: functions.inc.php:853
 msgid "Press 0:"
-msgstr ""
+msgstr "Nhấn phím 0:"
 
 #: ucp/views/vmx.php:42
 msgid "Press 1"
-msgstr ""
+msgstr "Nhấn phím 1"
 
 #: functions.inc.php:871 functions.inc.php:881
 msgid "Press 1:"
-msgstr ""
+msgstr "Nhấn phím 1:"
 
 #: ucp/views/vmx.php:52
 msgid "Press 2"
-msgstr ""
+msgstr "Nhấn phím 2"
 
 #: functions.inc.php:899
 msgid "Press 2:"
-msgstr ""
+msgstr "Nhấn phím 2:"
 
 #: functions.inc.php:854
 msgid ""
@@ -1969,8 +1984,8 @@ msgid ""
 msgstr ""
 "Nhấn 0 trong khi lời chào Thư thoại cá nhân của bạn đến người điều hành. "
 "Không đánh dấu check để nhập điểm đích khác ở đây. Tính năng này có thể được "
-"sử dụng khi vẫn đang vô hiệu VmX nhằm cho phép một người điều khiển máy "
-"nhánh thay thế mà không cần tính năng VmX cho người dùng."
+"sử dụng khi đang vô hiệu VmX nhằm cho phép một người điều khiển máy nhánh "
+"thay thế mà không cần tính năng VmX cho người dùng."
 
 #: ucp/views/vmx.php:39
 msgid ""
@@ -1982,21 +1997,23 @@ msgstr ""
 
 #: voicemail.i18n.php:18
 msgid "Provide IMAP Voicemail Fields"
-msgstr ""
+msgstr "Cung cấp các trường cho Thư thoại IMAP"
 
 #: Voicemail.class.php:2339
 msgid "Re-enter Password"
-msgstr ""
+msgstr "Nhập lại Mật khẩu"
 
 #: Voicemail.class.php:2291
 msgid "Read Timeout"
-msgstr ""
+msgstr "Đọc Timeout"
 
 #: functions.inc.php:640 ucp/views/settings.php:41
 msgid ""
 "Read back caller's telephone number prior to playing the incoming message, "
 "and just after announcing the date and time the message was left."
 msgstr ""
+"Đọc lại số điện thoại người gọi để phát tin nhắn đến, và chỉ sau khi thông "
+"báo ngày tháng và thời gian tin nhắn để lại."
 
 #: Voicemail.class.php:1889 page.voicemail.php:270 page.voicemail.php:312
 msgid ""
@@ -2004,30 +2021,33 @@ msgid ""
 "and just after announcing the date and time the message was left. If not "
 "described, or set to no, it will be in the envelope."
 msgstr ""
+"Đọc lại số điện thoại người gọi để phát tin nhắn đến, và chỉ sau khi thông "
+"báo ngày tháng và thời gian tin nhắn để lại. Nếu không được mô tả, hoặc cài "
+"đặt về No thì nó sẽ nằm trong envelope."
 
 #: ucp/views/greetings.php:47
 msgid "Record Greeting"
-msgstr ""
+msgstr "Ghi lời chào"
 
 #: ucp/assets/js/global.js:792
 msgid "Recorded Message"
-msgstr ""
+msgstr "Tin nhắn được ghi"
 
 #: views/usage.php:60
 msgid "Recorded Name"
-msgstr ""
+msgstr "Tên được ghi"
 
 #: views/usage_system.php:79
 msgid "Recorded Names"
-msgstr ""
+msgstr "Các tên được ghi"
 
 #: ucp/assets/js/global.js:823
 msgid "Recording..."
-msgstr ""
+msgstr "Đang ghi..."
 
 #: Voicemail.class.php:1921 page.voicemail.php:317
 msgid "Remind the user that their temporary greeting is set"
-msgstr ""
+msgstr "Nhắc nhở người dùng lời chào tạm thời của họ đã được thiết lập"
 
 #: views/usage.php:203
 msgid ""
@@ -2035,6 +2055,9 @@ msgid ""
 "by the user but were NOT accepted, so the sound file remains on disk but is "
 "not used as a greeting."
 msgstr ""
+"Xóa bỏ Abandoned Greeting ( .1 ngày trước). </br>   Những lời chào này đã "
+"được người dùng ghi lại nhưng không được chấp nhận, vì vậy tệp âm thanh còn "
+"lại trên ổ đĩa nhưng lại không được dùng như một lời chào."
 
 #: views/usage_system.php:222
 msgid ""
@@ -2042,14 +2065,17 @@ msgid ""
 "recorded by the user but were NOT accepted, so the sound file remains on "
 "disk but is not used as a greeting."
 msgstr ""
+"Xóa bỏ Abandoned Greeting ( .1 ngày trước). </br>   Những lời chào này đã "
+"được người dùng ghi lại nhưng không được chấp nhận, vì vậy tệp âm thanh còn "
+"lại trên ổ đĩa nhưng lại không được dùng như một lời chào."
 
 #: views/usage.php:48 views/usage_system.php:67
 msgid "Remove all messages"
-msgstr ""
+msgstr "Xóa bỏ tất cả các tin nhắn"
 
 #: page.voicemail.php:207
 msgid "Remove the timezone definition"
-msgstr ""
+msgstr "Xáo bỏ định nghĩa múi giờ"
 
 #: functions.inc.php:578
 #, php-format
@@ -2058,15 +2084,15 @@ msgstr ""
 
 #: Voicemail.class.php:1535
 msgid "Reset"
-msgstr ""
+msgstr "Cài đặt lại"
 
 #: Voicemail.class.php:1782
 msgid "Restart Keys"
-msgstr ""
+msgstr "Các phím khởi động lại"
 
 #: views/dialplan.php:192
 msgid "Retries"
-msgstr ""
+msgstr "Các lần Thử lại"
 
 #: Voicemail.class.php:1768
 msgid "Reverse Keys"
@@ -2074,15 +2100,15 @@ msgstr ""
 
 #: Voicemail.class.php:1880
 msgid "Review Message"
-msgstr ""
+msgstr "Xem lại tin nhắn"
 
 #: Voicemail.class.php:1959
 msgid "SMDI Port"
-msgstr ""
+msgstr "Cổng giao tiếp SMDI"
 
 #: ucp/views/greetings.php:50
 msgid "Save Greeting"
-msgstr ""
+msgstr "Lưu lời chào"
 
 #: Voicemail.class.php:1888
 msgid "Say CID"
