@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 16:36-0400\n"
-"PO-Revision-Date: 2017-07-31 21:38+0200\n"
+"PO-Revision-Date: 2017-07-31 23:21+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/vi/>\n"
@@ -1484,154 +1484,169 @@ msgid ""
 "processing power you can increase this otherwise lower it if you find your "
 "system not responsive"
 msgstr ""
+"giới hạn tin nhắn được hiển thị trên UCP. Nếu thiết bị của bạn có nhiều "
+"quyền xử lý hơn thì bạn có thể tăng giới hạn này nếu không hãy hạ thấp giới "
+"hạn nếu bạn tìm thấy hệ thống của bạn không tương thích"
 
 #: Voicemail.class.php:2088
 msgid "Limits"
-msgstr ""
+msgstr "Các giới hạn"
 
 #: ucp/assets/js/global.js:145
 msgid "Listen"
-msgstr ""
+msgstr "Nghe"
 
 #: ucp/assets/js/global.js:958
 msgid "Listen on your handset"
-msgstr ""
+msgstr "Nghe trên thiết bị cầm tay của bạn"
 
 #: ucp/assets/js/global.js:144
 msgid "Listen to Voicemail"
-msgstr ""
+msgstr "Nghe thư thoại"
 
 #: page.voicemail.php:220
 msgid "Load date format config for Voicemail mail."
-msgstr ""
+msgstr "Tải cấu hình định dạng ngày cho mail Thư thoại."
 
 #: functions.inc.php:1501
 msgid "MB"
-msgstr ""
+msgstr "MB ( Meega byte)"
 
 #: Voicemail.class.php:2082
 msgid "Mail Command"
-msgstr ""
+msgstr "Lệnh Mail"
 
 #: page.voicemail.php:250
 msgid "Mail command."
-msgstr ""
+msgstr "Lệnh Mail."
 
 #: Voicemail.class.php:388
 msgid "Mailbox can not be empty"
-msgstr ""
+msgstr "Mailbox không được để trống"
 
 #: Voicemail.class.php:161
 #, php-format
 msgid "Mailbox is not in the proper format [%s]"
-msgstr ""
+msgstr "Mailbox không ở định dạng phù hợp [%s]"
 
 #: Voicemail.class.php:2102
 msgid "Max Failed Logins"
-msgstr ""
+msgstr "Số lần đăng nhập không thành công tối đa"
 
 #: Voicemail.class.php:2095
 msgid "Max Greeting Length (Seconds)"
-msgstr ""
+msgstr "Độ dài lời chào tối đa ( giây)"
 
 #: Voicemail.class.php:2126
 msgid "Max Message Length (Seconds)"
-msgstr ""
+msgstr "Độ dài tin nhắn tối đa ( giây)"
 
 #: Voicemail.class.php:2134
 msgid "Max Message Silence (Milliseconds)"
-msgstr ""
+msgstr "Thời gian im lặng tin nhắn tối đa ( Mili giây)"
 
 #: Voicemail.class.php:2110
 msgid "Max Messages"
-msgstr ""
+msgstr "Tin nhắn tối đa"
 
 #: Voicemail.class.php:1712
 msgid "Max Number of Deleted Messages"
-msgstr ""
+msgstr "Số tin nhắn bị xóa tối đa"
 
 #: Voicemail.class.php:2103 page.voicemail.php:252
 msgid "Max failed login attempts."
-msgstr ""
+msgstr "Số lần thử đăng nhập không thành công tối đa."
 
 #: page.voicemail.php:251
 msgid "Max message greeting length."
-msgstr ""
+msgstr "Độ dài lời chào tin nhắn tối đa."
 
 #: Voicemail.class.php:2096
 msgid "Max message greeting length. (in seconds)"
-msgstr ""
+msgstr "Độ dài lời chào tin nhắn tối đa. ( tính bằng giây)"
 
 #: page.voicemail.php:253 page.voicemail.php:254 page.voicemail.php:307
 #: page.voicemail.php:308
 msgid "Max message time length."
-msgstr ""
+msgstr "Độ dài thời gian tin nhắn tối đa."
 
 #: page.voicemail.php:255 page.voicemail.php:306
 msgid ""
 "Maximum number of messages per folder.  If not specified, a default value "
 "(100) is used.  Maximum value for this option is 9999."
 msgstr ""
+"Số tin nhắn tối đa trên mọt tệp. Nếu số lượng này không được xác định, một "
+"giá trị mặc định sec là 100. Gía trọ lớn nhất cho tùy chọn này là 99999."
 
 #: Voicemail.class.php:2111
 msgid ""
 "Maximum number of messages per folder. If not specified, a default value "
 "(100) is used. Maximum value for this option is 9999."
 msgstr ""
+"Số tin nhắn tối đa trên mọt tệp. Nếu số lượng này không được xác định, một "
+"giá trị mặc định sec là 100. Gía trọ lớn nhất cho tùy chọn này là 99999."
 
 #: views/usage.php:30
 msgid "Messages in inbox"
-msgstr ""
+msgstr "Các tin nhắn trong hộp thư đến"
 
 #: views/usage_system.php:49
 msgid "Messages in inboxes"
-msgstr ""
+msgstr "Các tin nhắn trong các hộp thư đến"
 
 #: views/usage.php:31 views/usage_system.php:50
 msgid "Messages in other folders"
-msgstr ""
+msgstr "Các tin nhắn trong các tệp khác"
 
 #: Voicemail.class.php:2150
 msgid "Min Message Length (Seconds)"
-msgstr ""
+msgstr "Độ dài tin nhắn tối thiểu ( giây)"
 
 #: page.voicemail.php:257
 msgid ""
 "Min message time length - maxsilence should be less than minsecs or you may "
 "get empty messages."
 msgstr ""
+"Độ dài thời gian tin nhắn tối thiểu- maxsilence ( thời gian im lặng tối đa) "
+"nên ít hơn minsecs (số giây tối thiếu) hoặc bạn có thể nhận được những tin "
+"nhắn trống."
 
 #: Voicemail.class.php:2118
 msgid "Minimum Password"
-msgstr ""
+msgstr "Mật khẩu ngắn nhất"
 
 #: Voicemail.class.php:2151
 msgid ""
 "Minimum length of a voicemail message in seconds for the message to be kept. "
 "(in seconds)."
 msgstr ""
+"Độ dài tối thiếu của tin nhắn thư thoại tính bằng giây đối với các tin nhắn "
+"được lưu giữ ( tính bằng giây)."
 
 #: Voicemail.class.php:2127
 msgid ""
 "Minimum length of a voicemail message in seconds for the message to be kept. "
 "The default is 300 (in seconds)."
 msgstr ""
+"Độ dài tối thiểu của tin nhắn thư thoại tính bằng giây đối với tin nhắn được "
+"lưu giữ. Mặc định là 300 ( giây)."
 
 #: views/tz.php:180
 msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
 msgstr ""
+"phút với 00 được phát âm là \"hundred\" ( trăm) ( Thời gian quan đội Mỹ)"
 
 #: views/tz.php:173
 msgid "Minute, with 00 pronounced as \"o'clock\""
-msgstr ""
+msgstr "Phút, với 00 được phát âm là \"o'clock' ( giờ)"
 
 #: views/tz.php:126
 msgid "Month name (January, February, ...)"
-msgstr ""
+msgstr "Tên tháng ( Tháng một, Tháng hai,..)"
 
 #: ucp/views/mailbox.php:16 ucp/assets/js/global.js:238
 msgid "Move"
-msgstr ""
+msgstr "Di chuyển"
 
 #: Voicemail.class.php:1944
 msgid "Move Heard"
@@ -1639,56 +1654,60 @@ msgstr ""
 
 #: ucp/assets/js/global.js:237
 msgid "Move Voicemail"
-msgstr ""
+msgstr "Di chuyển Thư thoại"
 
 #: Voicemail.class.php:1945
 msgid ""
 "Move heard messages to the 'Old' folder automagically.  Defaults to Yes."
 msgstr ""
+"Di chuyển các thư đã được nghe tới thư mục \"Old\" một cách tự động. Mặc "
+"định là Yes."
 
 #: page.voicemail.php:258
 msgid "Move heard messages to the 'Old' folder automatically.  Defaults to no."
 msgstr ""
+"Di chuyển các thư đã được nghe tới thư mục \"Old\" một cách tự động. Mặc "
+"định là No."
 
 #: views/dialplan.php:132
 msgid "Msg Timeout"
-msgstr ""
+msgstr "Thời gian chờ của Tin nhắn"
 
 #: functions.inc.php:172 install.php:9 voicemail.i18n.php:32
 msgid "My Voicemail"
-msgstr ""
+msgstr "Thư thoại của tôi"
 
 #: page.voicemail.php:495
 msgid "Name"
-msgstr ""
+msgstr "Tên"
 
 #: Voicemail.class.php:78
 msgid "Name Greeting"
-msgstr ""
+msgstr "Tên lời chào"
 
 #: page.voicemail.php:301
 msgid "Name of Voicemail account"
-msgstr ""
+msgstr "Tên của tài khoản Thư thoại"
 
 #: Voicemail.class.php:1684 Voicemail.class.php:1685 page.voicemail.php:309
 msgid "Name of account/user"
-msgstr ""
+msgstr "Tên của tài khoản/ người dùng"
 
 #: views/tz.php:37
 msgid "New Name"
-msgstr ""
+msgstr "Tên mới"
 
 #: Voicemail.class.php:2318
 msgid "New Password"
-msgstr ""
+msgstr "Mật khẩu mới"
 
 #: views/tz.php:61
 msgid "New Timezone Definition"
-msgstr ""
+msgstr "Định nghĩa múi giờ mới"
 
 #: Voicemail.class.php:2075
 msgid "Next after command"
-msgstr ""
+msgstr "Tiếp theo sau Lệnh"
 
 #: Voicemail.class.php:1830 Voicemail.class.php:1838 Voicemail.class.php:1846
 #: Voicemail.class.php:1854 Voicemail.class.php:1862 Voicemail.class.php:1870
@@ -1707,29 +1726,33 @@ msgstr ""
 #: views/usage_system.php:120 views/usage_system.php:151
 #: views/usage_system.php:182 views/usage_system.php:213
 msgid "No"
-msgstr ""
+msgstr "Không"
 
 #: page.voicemail.php:425 views/dialplan.php:48
 msgid "No Message"
-msgstr ""
+msgstr "Không có tin nhắn"
 
 #: page.voicemail.php:494
 msgid "No name defined; this is configured from the Extensions or Users page."
 msgstr ""
+"Không có tên nào được xác định; điều này được cấu hình từ các máy nhánh hoặc "
+"trang người dùng."
 
 #: Voicemail.class.php:1713 page.voicemail.php:214 page.voicemail.php:293
 msgid ""
 "No. of deleted messages saved per mailbox (can be a number or yes/no, yes "
 "meaning MAXMSG, no meaning 0)."
 msgstr ""
+"Không có tin nhắn đã xóa được lưu trên mailbox ( có thể là 1 số hoặc yes/no. "
+"yes nghĩa là tin nhắn tối đa, no nghĩa là 0)."
 
 #: page.voicemail.php:429 views/dialplan.php:73
 msgid "None"
-msgstr ""
+msgstr "Không có"
 
 #: ucp/Voicemail.class.php:577
 msgid "Not Found"
-msgstr ""
+msgstr "Không tìm thấy"
 
 #: ucp/assets/js/global.js:445
 msgid "Not a valid Draggable Object"
@@ -1737,15 +1760,15 @@ msgstr ""
 
 #: Voicemail.class.php:339
 msgid "Null value was sent to saveVoicemail() can not continue"
-msgstr ""
+msgstr "gía trị không hiệu lực được gửi tới saveVoicemail() không thể tiếp tục"
 
 #: views/usage_system.php:6
 msgid "Number of Accounts"
-msgstr ""
+msgstr "Số lượng tài khoản"
 
 #: views/usage.php:25 views/usage_system.php:44
 msgid "Number of Messages"
-msgstr ""
+msgstr "Số lượng tin nhắn"
 
 #: views/dialplan.php:201
 msgid ""
@@ -1753,6 +1776,9 @@ msgid ""
 "receiving an undefined option. One retry means it will repeat at one time "
 "after the intial failure."
 msgstr ""
+"Số lần phát các tùy chọn hợp lệ và phát lại tin nhắn khi nhận được một tùy "
+"chọn không xác định. Một lần thử lại nghĩa là nó sẽ phát lại một lần sau khi "
+"thất bại ban đầu."
 
 #: views/dialplan.php:174
 msgid ""
@@ -1766,23 +1792,23 @@ msgstr ""
 
 #: Voicemail.class.php:2172
 msgid "ODBC Storage"
-msgstr ""
+msgstr "Bộ nhớ ODBC"
 
 #: Voicemail.class.php:2179
 msgid "ODBC Storage Name"
-msgstr ""
+msgstr "Tên bộ nhớ ODBC"
 
 #: Voicemail.class.php:2186
 msgid "ODBC Table Name"
-msgstr ""
+msgstr "Tên bảng ODBC"
 
 #: Voicemail.class.php:74
 msgid "Old"
-msgstr ""
+msgstr "Cũ"
 
 #: ucp/assets/js/global.js:145
 msgid "On"
-msgstr ""
+msgstr "Bật"
 
 #: Voicemail.class.php:2284
 msgid "Open Timeout"
@@ -1805,7 +1831,7 @@ msgstr ""
 #: Voicemail.class.php:2061 functions.inc.php:629 page.voicemail.php:211
 #: page.voicemail.php:291
 msgid "Option to attach Voicemails to email."
-msgstr ""
+msgstr "Tùy chọn đính kèm các Thư thoại vào email."
 
 #: Voicemail.class.php:2242
 msgid ""
