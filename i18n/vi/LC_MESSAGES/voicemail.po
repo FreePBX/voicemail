@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 16:36-0400\n"
-"PO-Revision-Date: 2017-08-01 15:56+0200\n"
+"PO-Revision-Date: 2017-08-01 17:03+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/vi/>\n"
@@ -2329,7 +2329,7 @@ msgstr "Lời chào tạm thời"
 
 #: Voicemail.class.php:1920
 msgid "Temporary Greeting Warn"
-msgstr ""
+msgstr "Cảnh bào Lời chào tạm thời"
 
 #: views/usage_system.php:172
 msgid "Temporary Greetings"
@@ -2401,19 +2401,19 @@ msgstr ""
 
 #: Voicemail.class.php:1692 page.voicemail.php:216
 msgid "The character set for Voicemail messages"
-msgstr ""
+msgstr "Ký tự được cài đặt cho tin nhắn Thư thoại"
 
 #: page.voicemail.php:261
 msgid "The default table for ODBC Voicemail storage is voicemessages."
-msgstr ""
+msgstr "Bảng mặc định cho bộ nhớ Thư thoại ODBC là voicemessages."
 
 #: Voicemail.class.php:2187
 msgid "The default table for ODBC voicemail storage is voicemessages."
-msgstr ""
+msgstr "Bảng mặc định cho bộ nhớ tin nhắn Thư thoại ODBC là voicemessages."
 
 #: Voicemail.class.php:1706 functions.inc.php:603 ucp/views/settings.php:14
 msgid "The email address that Voicemails are sent to."
-msgstr ""
+msgstr "Địa chỉ email mà Thư thoại được gửi tới."
 
 #: page.voicemail.php:297
 msgid ""
@@ -2421,6 +2421,9 @@ msgid ""
 "have to be comma separated without spaces (e.g.: first@domain.tld,"
 "second@domain.tld,third@domain.tld) "
 msgstr ""
+"Địa chỉ email mà Thư thoại được gửi tới. Nhiều địa chỉ Emaik phải được ngăn "
+"cách nhau bằng dấu phẩy và không có chứa dấu cách ( ví dụ "
+"first@domain.tld,second@domain.tld,third@domain.tld) "
 
 #: Voicemail.class.php:1995
 msgid ""
@@ -2431,20 +2434,28 @@ msgid ""
 "select between two variables by using dialplan functions, e.g. ${IF(${ISNULL"
 "(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 msgstr ""
+"Nội dung email. Thay đổi nơi gửi,nội dung và/hoặc tiêu đề, các biến: "
+"VM_NAME, VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, "
+"VM_DATE. Thêm vào đó, trên các tin nhắn được chuyển tiếp, bạn có các biến: "
+"ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE. Bạn có thể "
+"chọn giữa 2 biến bằng cách sử dụng chức năng Kế hoạch quay số, ví dụ "
+"${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 
 #: Voicemail.class.php:1987
 msgid "The email subject"
-msgstr ""
+msgstr "Tiêu đề của email"
 
 #: Voicemail.class.php:2249
 msgid ""
 "The folder in which to store voicemail messages on the IMAP server. By "
 "default, they are stored in INBOX."
 msgstr ""
+"Thư mục có lưu trữ các tin nhắn thư thoại trên máy chủ IMAP. Mặc định thì "
+"các tin nhắn sẽ được lưu trong Hộp thư đến."
 
 #: views/tz.php:97
 msgid "The name of a sound file (the file name must be single-quoted)"
-msgstr ""
+msgstr "Tên của tệp âm thanh ( tên tệp phải được trích dẫn đơn)"
 
 #: Voicemail.class.php:2024
 msgid ""
@@ -2458,9 +2469,10 @@ msgstr ""
 
 #: Voicemail.class.php:2016
 msgid "The pager subject"
-msgstr ""
+msgstr "Tiêu đề máy nhắn tin"
 
 #: functions.inc.php:872
+#, fuzzy
 msgid ""
 "The remaining options can have internal extensions, ringgroups, queues and "
 "external numbers that may be rung. It is often used to include your cell "
@@ -2468,30 +2480,40 @@ msgid ""
 "time a change is made so you don't leave a caller stranded or receiving "
 "invalid number messages."
 msgstr ""
+"Các tùy chọn còn lại có thể có các máy nhánh nội bộ, ringgroup, hàng đợi và "
+"các số bên ngoài có thể được gọi. Nó thường được sử dụng để bao gồm điện "
+"thoại di động của bạn. Bạn nên chạy một bài kiểm tra để đảm bảo rằng số này "
+"có chức năng bất cứ khi nào một thay đổi được thực hiện để bạn không để lại "
+"một người gọi bị mắc cạn hoặc nhận tin nhắn số không hợp lệ."
 
 #: Voicemail.class.php:2180 page.voicemail.php:260
 msgid ""
 "The value of odbcstorage is the database connection configured in res_odbc."
 "conf."
 msgstr ""
+"Gía trị của odbcstorage là kết nối dữ liệu được cấu hình trong res_odbc.conf."
 
 #: ucp/assets/js/global.js:901
 msgid "There is nothing to delete"
-msgstr ""
+msgstr "Không có gì để xóa"
 
 #: views/ucp_config.php:52
+#, fuzzy
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
+"Đây là những phần máy nhánh được gán và đang hoạt động, sẽ hiển thị cho "
+"người dùng này nhằm kiểm soát và chỉnh sửa trong UCP"
 
 #: Voicemail.class.php:1980
 msgid "These settings apply to Voicemail Email Configuration"
-msgstr ""
+msgstr "Các cài đặt này áp dụng cho Cấu hình Email Thư thoại"
 
 #: Voicemail.class.php:2374
+#, fuzzy
 msgid "These settings apply to context related operations"
-msgstr ""
+msgstr "Các cài đặt này áp dungj cho ngữ cảnh liên quan đến các"
 
 #: Voicemail.class.php:2173 Voicemail.class.php:2193
 msgid ""
