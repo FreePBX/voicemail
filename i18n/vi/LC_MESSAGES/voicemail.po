@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 16:36-0400\n"
-"PO-Revision-Date: 2017-07-31 10:30+0200\n"
+"PO-Revision-Date: 2017-07-31 21:38+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/vi/>\n"
@@ -365,7 +365,7 @@ msgstr "Gọi số của tôi. Có thể được sử dụng từ ARI."
 
 #: Voicemail.class.php:1803 page.voicemail.php:524
 msgid "Call-Me Number"
-msgstr ""
+msgstr "Số Call Me"
 
 #: Voicemail.class.php:2380
 msgid "Callback Context"
@@ -591,12 +591,12 @@ msgid ""
 "an external number and there is NO VALIDATION so it should be tested after "
 "configuration."
 msgstr ""
-"Số mặc định để quay số khi một người dùng thư thoại 'zeros out' nếu được "
-"kích hoạt. Điều này có thể bị ghi đè cho mỗi máy nhánh với tùy chọn Bộ định "
-"vị VMX  cho mỗi phần mở rộng với VMX Locater tùy chọn đó là hợp lệ ngay cả "
-"khi VMX Locater không được kích hoạt. Đây có thể là bất kỳ số nào bao gồm cả "
-"một số bên ngoài và không có giá trị vì vậy nó nên được kiểm tra sau khi cấu "
-"hình."
+"Số mặc định để quay số khi một người dùng thư thoại 'zeros out' ( trả về "
+"trạng thái cũ) khi được kích hoạt. Điều này có thể bị ghi đè đối với mỗi máy "
+"nhánh với tùy chọn Bộ định vị VMX  cho mỗi phần mở rộng với VMX Locater tùy "
+"chọn đó là hợp lệ ngay cả khi VMX Locater không được kích hoạt. Đây có thể "
+"là bất kỳ số nào bao gồm cả một số bên ngoài và không có giá trị vì vậy nó "
+"nên được kiểm tra sau khi cấu hình."
 
 #: ucp/views/greetings.php:46 ucp/views/mailbox.php:10 views/tz.php:21
 #: ucp/assets/js/global.js:965
@@ -1043,17 +1043,16 @@ msgid "For IMAP storage"
 msgstr "Đối với việc lưu trữ IMAP"
 
 #: page.voicemail.php:239
-#, fuzzy
 msgid "For IMAP storage - TCP open timeout in seconds"
-msgstr "Đối với việc lưu trữ IMAP-TCP"
+msgstr "Đối với việc lưu trữ IMAP-TCP mở thời gian chờ trong vài giây"
 
 #: page.voicemail.php:242
 msgid "For IMAP storage - TCP read timeout in seconds"
-msgstr ""
+msgstr "Đối với việc lưu trữ IMAP-TCP đọc thời gian chờ trong vài giây"
 
 #: page.voicemail.php:244
 msgid "For IMAP storage - TCP write timeout in seconds"
-msgstr ""
+msgstr "Đối với việc lưu trữ IMAP-TCP ghi thời gian chờ trong vài giây"
 
 #: views/tz.php:3
 msgid ""
@@ -1130,7 +1129,7 @@ msgstr "Chuyển tiếp Thư thoại"
 
 #: Voicemail.class.php:73
 msgid "Friends"
-msgstr ""
+msgstr "Bạn"
 
 #: Voicemail.class.php:2002 Voicemail.class.php:2031 page.voicemail.php:233
 msgid "From: string for email"
@@ -1319,6 +1318,12 @@ msgid ""
 "would require this option are web interfaces to Voicemail or an email client "
 "in the case of using IMAP storage."
 msgstr ""
+"Nếu các mailbox bị thay đổi bất cứ đâu bên ngoài app_voicemail, thì tùy chọn "
+"này sẽ được kích hoạt để MWI hoạt động. Điều này sẽ kích hoạt các mailbox "
+"thay đổi. Thông thường, các thay đổi sẽ được thực hiện chỉ khi có ai đó đã "
+"gọi vào một trong những ứng dụng Thư thoại. Ví dụ các tình huống yêu cầu tùy "
+"chọn này là một giao diện web để Thư thoại hoặc một email máy khách trong "
+"trường hợp sử dụng bộ nhớ IMAP."
 
 #: Voicemail.class.php:1833
 msgid ""
@@ -1329,6 +1334,12 @@ msgid ""
 "would require this option are web interfaces to voicemail or an email client "
 "in the case of using IMAP storage."
 msgstr ""
+"Nếu các mailbox bị thay đổi bất cứ đâu bên ngoài app_voicemail, thì tùy chọn "
+"này sẽ được kích hoạt để MWI hoạt động. Điều này sẽ kích hoạt việc kiểm soát "
+"vòng các mailbox đối với các thay đổi. Thông thường, các thay đổi sẽ được "
+"thực hiện chỉ khi có ai đó đã gọi vào một trong những ứng dụng Thư thoại. Ví "
+"dụ các tình huống yêu cầu tùy chọn này là một giao diện web để Thư thoại "
+"hoặc một email máy khách trong trường hợp sử dụng bộ nhớ IMAP."
 
 #: functions.inc.php:579
 #, php-format
@@ -1339,6 +1350,11 @@ msgid ""
 "probably be set to \"yes\" in an environment where other users will have "
 "physical access to this extension."
 msgstr ""
+"Nếu cài đặt về \"No\" thì khi người dùng quay số %s để truy nhập vào Thư "
+"thoại của họ, họ sẽ không bị yêu cầu nhập mật khẩu. Điều này không áp dụng "
+"cho các cuộc gọi %s, vì những cuộc gọi này luôn luôn yêu cầu mật khẩu. Vì "
+"các lý do bảo mật, điều này nên được cài đặt về \"Yes\" trong môi trường mà "
+"những người dùng khác sẽ có thể truy nhập vào máy nhánh."
 
 #: functions.inc.php:662 ucp/views/settings.php:63
 msgid ""
@@ -1349,6 +1365,11 @@ msgid ""
 "HAVE attach Voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE "
 "LOST FOREVER."
 msgstr ""
+"Nếu cài đặt về \"Yes\" tin nhắn sẽ bị xóa khỏi hộp Thư thoại ( sau khi vừa "
+"gửi email xong). Cung cấp chức năng cho phép người dùng nhận Thư thoại thông "
+"qua chỉ mỗi email thay vì Thư thoại được trích xuất từ giao diện web hay máy "
+"nhánh cầm tay. CẢNH BÁO: PHẢI đính kèm Thư thoại để gửi email CÀI ĐẶT VỀ YES "
+"NẾU KHÔNG CÁC TIN NHẮN CỦA BẠN SẼ BỊ MẤT MÃI MÃI."
 
 #: functions.inc.php:592
 #, php-format
@@ -1357,20 +1378,30 @@ msgid ""
 "be able to access the voicemail menu by pressing (*). If you have no plans "
 "to access your mailbox remotely set this to \"yes\""
 msgstr ""
+"Cài đặt về \"yes\" thì khi ai đó quay số hộp thư thoại này họ sẽ không thể "
+"truy nhập vào menu Thư thoại nếu nhấn (*). Nếu bạn không có ý định truy nhập "
+"vào mailbox của mình từ xa thì hãy cài đặt điều này về \"yes\""
 
 #: page.voicemail.php:267
 msgid ""
 "If the \"pollmailboxes\" option is enabled, this option sets the polling "
 "frequency.  The default is once every 30 seconds."
 msgstr ""
+"Nếu tùy chọn \"pollmailboxes\" được kích hoạt thì tùy chọn này sẽ thiết lập "
+"tần suất kiểm soát vòng. Mặc định là 30 giây 1 lần."
 
 #: views/dialplan.php:228
+#, fuzzy
 msgid ""
 "If the Max Loops are reached and the call goes to voicemail, checking this "
 "box will disable the standard voicemail prompt prompt that follows the "
 "user's recorded greeting. This default can be overriden with a unique ..vmx/"
 "vmxopts/loops AstDB entry for the given mode (busy/unavail) and user."
 msgstr ""
+"Nếu Max Loops đạt đến đỉnh thì cuộc gọi sẽ đi tới thư thoại, nếu đánh dấu "
+"check vào mô này thì sẽ vô hiệu lời nhắc thư thoại tiêu chuẩn rằng .. Mặc "
+"định này sẽ được ghi đề với một mục nhập ..vmx/vmxopts/loops AstDB duy nhất "
+"cho chế độ được được cấp ( bận/không hợp lệ) và người dùng."
 
 #: views/dialplan.php:255
 msgid ""
@@ -1379,13 +1410,22 @@ msgid ""
 "recorded greeting. This default can be overriden with a unique ..vmx/vmxopts/"
 "dovm AstDB entry for the given mode (busy/unavail) and user."
 msgstr ""
+"Nếu một mấy nhánh nâng cao đặc biệt của 'dovm' được sử dụng, đánh dấu check "
+"vào hộp thoại này sẽ vô hiệu lời nhắc thư thoại tiêu chuẩn đang theo dõi lời "
+"chào của người dùng. Mặc định này có thể bị ghi đề với một mục nhập "
+"..vmx/vmxopts/dovm AstDB đối với chế độ được cung cấp ( bận/ không hợp lệ) "
+"và người dùng."
 
 #: page.voicemail.php:237
+#, fuzzy
 msgid ""
 "If using IMAP storage, specify whether Voicemail greetings should be stored "
 "via IMAP. If no, then greetings are stored as if IMAP storage were not "
 "enabled"
 msgstr ""
+"Nếu sử dụng bộ nhớ IMAP, xác định liệu các lời chào thư thoại có nên được "
+"lưu trữ qua IMAP không. Nếu không thì các lời cào này sẽ được lưu trữ như "
+"thể bộ nhớ IMAP không được kích hoạt."
 
 #: Voicemail.class.php:2271
 msgid ""
@@ -1393,11 +1433,14 @@ msgid ""
 "via IMAP. If not set, then greetings are stored as if IMAP storage were not "
 "enabled"
 msgstr ""
+"Nếu sử dụng bộ nhớ IMAP, xác định liệu các lời chào thư thoại có nên được "
+"lưu trữ qua IMAP không. Nếu là không các lời chào sẽ được lưu trữ như thể bộ "
+"nhớ IMAP không được kích hoạt"
 
 #: views/ucp_config.php:17 views/ucp_config.php:72 views/ucp_config.php:101
 #: views/ucp_config.php:130 views/ucp_config.php:159 views/ucp_config.php:188
 msgid "Inherit"
-msgstr ""
+msgstr "Kế thừa"
 
 #: voicemail.i18n.php:20
 msgid ""
@@ -1406,30 +1449,34 @@ msgid ""
 "Voicemail setup screen for extensions. If an extension alread has these "
 "fields populated, they will be displayed even if this is set to false."
 msgstr ""
+"Các cài đặt cấu hình Thư thoại với  IMAP nên được thiết lập về True để "
+"trường tên người dùng và mật khẩu IMAP được cung cấp trong màn hình thiết "
+"lập thư thoại cho các máy nhánh. Nếu một máy nhánh đã populate các trường "
+"này thì chúng sẽ được hiển thị cho dù bị cài đặt về False."
 
 #: functions.inc.php:1003
 msgid "Invalid Action"
-msgstr ""
+msgstr "Các thao tác không hợp lệ"
 
 #: Voicemail.class.php:2346
 msgid "Invalid Password"
-msgstr ""
+msgstr "Mật khổng không hợp lệ"
 
 #: ucp/Voicemail.class.php:267 ucp/Voicemail.class.php:298
 msgid "Invalid Recipient"
-msgstr ""
+msgstr "Người nhận không hợp lệ"
 
 #: functions.inc.php:1501
 msgid "KB"
-msgstr ""
+msgstr "KB ( Kilo byte)"
 
 #: Voicemail.class.php:2067
 msgid "Language"
-msgstr ""
+msgstr "Ngôn ngữ"
 
 #: Voicemail.class.php:2068
 msgid "Language code for voicemail"
-msgstr ""
+msgstr "Mã ngôn ngữ cho thư thoại này"
 
 #: voicemail.i18n.php:24
 msgid ""
