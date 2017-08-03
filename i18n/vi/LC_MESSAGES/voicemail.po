@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 16:36-0400\n"
-"PO-Revision-Date: 2017-08-02 21:58+0200\n"
+"PO-Revision-Date: 2017-08-03 08:54+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/vi/>\n"
@@ -1044,11 +1044,14 @@ msgstr "Đối với việc lưu trữ IMAP"
 
 #: page.voicemail.php:239
 msgid "For IMAP storage - TCP open timeout in seconds"
-msgstr "Đối với việc lưu trữ IMAP-TCP mở thời gian chờ trong vài giây"
+msgstr ""
+"Đối với việc lưu trữ IMAP-Thời gian chờ mở kết nối của TCP tính bằng giây"
 
 #: page.voicemail.php:242
 msgid "For IMAP storage - TCP read timeout in seconds"
-msgstr "Đối với việc lưu trữ IMAP-TCP đọc thời gian chờ trong vài giây"
+msgstr ""
+"Đối với việc lưu trữ IMAP-Thời gian chờ để đọc câu trả lời của TCP trong vài "
+"giây"
 
 #: page.voicemail.php:244
 msgid "For IMAP storage - TCP write timeout in seconds"
@@ -1817,7 +1820,7 @@ msgstr "Bật"
 
 #: Voicemail.class.php:2284
 msgid "Open Timeout"
-msgstr ""
+msgstr "Thời gian chờ để mở kết nối"
 
 #: Voicemail.class.php:1872
 msgid "Operator"
@@ -1832,6 +1835,8 @@ msgid ""
 "Operator break. Allow sender to hit 0 before/after/during leaving a "
 "Voicemail to reach an operator [ON by default]"
 msgstr ""
+"Tổng đài viên nghỉ. Cho phép người gửi nhấn phím 0 trước/sau/ trong khi để "
+"lại một Thư thoại để tiếp cận một Tổng đài viện [Mặc định là ON]"
 
 #: Voicemail.class.php:2061 functions.inc.php:629 page.voicemail.php:211
 #: page.voicemail.php:291
@@ -2005,7 +2010,7 @@ msgstr "Nhập lại Mật khẩu"
 
 #: Voicemail.class.php:2291
 msgid "Read Timeout"
-msgstr "Đọc Timeout"
+msgstr "Thời gian chờ để đọc câu trả lời"
 
 #: functions.inc.php:640 ucp/views/settings.php:41
 msgid ""
@@ -2378,19 +2383,19 @@ msgstr "Tên người dùng IMAP của mailbox cho việc truy nhập"
 
 #: Voicemail.class.php:2278
 msgid "The TCP close timeout (in seconds)"
-msgstr ""
+msgstr "Thời gian chờ đóng kết nối của TCP ( tính bằng giây)"
 
 #: Voicemail.class.php:2285
 msgid "The TCP open timeout (in seconds)"
-msgstr ""
+msgstr "Thời gian chờ mở kết nối của TCP ( tính bằng giây)"
 
 #: Voicemail.class.php:2292
 msgid "The TCP read timeout (in seconds)"
-msgstr ""
+msgstr "Thời gian chờ đọc dữ liệu của TCP ( tính bằng giây)"
 
 #: Voicemail.class.php:2299
 msgid "The TCP write timeout (in seconds)"
-msgstr ""
+msgstr "Thời gian chờ ghi dữ liệu của TCP ( tính bằng giây)"
 
 #: views/dialplan.php:91
 msgid ""
@@ -2510,17 +2515,16 @@ msgid "These settings apply to Voicemail Email Configuration"
 msgstr "Các cài đặt này áp dụng cho Cấu hình Email Thư thoại"
 
 #: Voicemail.class.php:2374
-#, fuzzy
 msgid "These settings apply to context related operations"
-msgstr "Các cài đặt này áp dụng cho ngữ cảnh liên quan đến các"
+msgstr "Các cài đặt này áp dụng cho các hoạt động liên quan ngữ cảnh"
 
 #: Voicemail.class.php:2173 Voicemail.class.php:2193
-#, fuzzy
 msgid ""
 "These settings are only applicable when Asterisk is compiled with IMAP "
 "support"
 msgstr ""
-"Các cài đặt này chỉ có thể áp dụng khi Asterisk tuân thủ theo hỗ trợ của IMAP"
+"Các cài đặt này chỉ có thể áp dụng khi Asterisk được biên dịch với hỗ trợ "
+"của IMAP"
 
 #: functions.inc.php:685
 #, php-format
@@ -2618,9 +2622,8 @@ msgid "Timezone definition name"
 msgstr "Tên của định nghĩa múi giờ"
 
 #: page.voicemail.php:318
-#, fuzzy
 msgid "Timezone from zonemessages context.  Irrelevant if envelope=no."
-msgstr "Múi giờ từ ngữ cảnh zonemessages."
+msgstr "Múi giờ từ ngữ cảnh zonemessages. Không liên quan nếu envelope=no."
 
 #: ucp/assets/js/global.js:171 ucp/assets/js/global.js:238
 #: ucp/assets/js/global.js:292
@@ -2659,13 +2662,15 @@ msgstr ""
 
 #: Voicemail.class.php:1897
 msgid "Turn on/off saying duration information before the message playback."
-msgstr ""
+msgstr "Bật/tắt thông tin khoảng thời gian nói trước khi phát lại tin nhắn."
 
 #: page.voicemail.php:271 page.voicemail.php:313
 msgid ""
 "Turn on/off saying duration information before the message playback. [ON by "
 "default]"
 msgstr ""
+"Bật/tắt thông tin khoảng thời gian nói trước khi phát lại tin nhắn. [Mặc "
+"định là BẬT]"
 
 #: voicemail.i18n.php:22
 msgid "UCP Message Limit"
@@ -2831,9 +2836,8 @@ msgid "Voicemail Admin"
 msgstr "Quản trị viên Thư thoại"
 
 #: install.php:191
-#, fuzzy
 msgid "Voicemail Admin being removed and merged with Voicemail"
-msgstr "Quản trị viên Thư thoại đang được xóa bỏ và"
+msgstr "Quản trị viên Thư thoại đang được xóa bỏ và sáp nhập với Thư thoại"
 
 #: functions.inc.php:973
 msgid "Voicemail Administration"
@@ -2854,41 +2858,43 @@ msgstr "E-Mail Thư thoại"
 
 #: Voicemail.class.php:1553
 msgid "Voicemail Enable [Blank to disable]"
-msgstr ""
+msgstr "Thư thoại kích hoạt [Để trống để vô hiệu]"
 
 #: functions.inc.php:842
 msgid "Voicemail Instructions:"
-msgstr ""
+msgstr "Các hướng dẫn Thư thoại:"
 
 #: ucp/Voicemail.class.php:279
 msgid "Voicemail Message"
-msgstr ""
+msgstr "Tin nhắn Thư thoại"
 
 #: voicemail.i18n.php:14
 msgid "Voicemail Module"
-msgstr ""
+msgstr "Mô đun Thư thoại"
 
 #: Voicemail.class.php:1562
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
 msgstr ""
+"Các tùy chọn Thư thoại là một danh sách các tùy chọn được ngăn cách bằng các "
+"đường ống. Ví dụ attach=no|delete=no"
 
 #: views/quickCreate.php:27
 msgid "Voicemail PIN"
-msgstr ""
+msgstr "PIN Thư thoại"
 
 #: Voicemail.class.php:1556 functions.inc.php:542 page.voicemail.php:517
 msgid "Voicemail Password"
-msgstr ""
+msgstr "Mật khẩu Thư thoại"
 
 #: Voicemail.class.php:118
 msgid "Voicemail Password must contain only digits"
-msgstr ""
+msgstr "Mật khẩu Thư thoại chỉ được chứa các chữ số"
 
 #: ucp/views/settings.php:7
 msgid "Voicemail Pin"
-msgstr ""
+msgstr "Pin Thư thoại"
 
 #: views/dialplan.php:68
 msgid "Voicemail Recording Gain"
@@ -2896,23 +2902,25 @@ msgstr ""
 
 #: ucp/views/settings.php:2
 msgid "Voicemail Settings"
-msgstr ""
+msgstr "Các cài đặt Thư thoại"
 
 #: functions.inc.php:323
 msgid ""
 "Voicemail is enabled but the Voicemail Password field is empty.  Are you "
 "sure you wish to continue?"
 msgstr ""
+"Thư thoại được kích hoạt nhưng trường Mật khẩu Thư thoại để trống. Bạn có "
+"chắc muốn tiếp tục?"
 
 #: ucp/Voicemail.class.php:423 ucp/Voicemail.class.php:455
 #, php-format
 msgid "Voicemail not moved to %s"
-msgstr ""
+msgstr "Thư thoại không được gửi tới %s"
 
 #: ucp/Voicemail.class.php:460
 #, php-format
 msgid "Voicemail was empty: %s"
-msgstr ""
+msgstr "Thư thoại trống: %s"
 
 #: Voicemail.class.php:1810
 msgid "Volume Gain"
@@ -2924,14 +2932,18 @@ msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
 "will be shown"
 msgstr ""
+"Cảnh báo, Bạn đã quá số lượng tin nhắn tối đa của %s chỉ có %s tin nhắn sẽ "
+"được hiển thị"
 
 #: views/usage_system.php:35
 msgid "Warning: the actions below are global and will affect ALL users."
 msgstr ""
+"Cảnh báo: Tháo tác dưới đây là mang tính toàn cầu và sẽ ảnh hưởng đến tất cả "
+"người dùng."
 
 #: functions.inc.php:832
 msgid "When to use VMX"
-msgstr ""
+msgstr "Thời điểm để sử dụng VMX"
 
 #: views/dialplan.php:56
 msgid ""
