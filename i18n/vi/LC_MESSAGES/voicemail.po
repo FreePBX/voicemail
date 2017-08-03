@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 16:36-0400\n"
-"PO-Revision-Date: 2017-08-03 08:54+0200\n"
+"PO-Revision-Date: 2017-08-03 10:52+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/vi/>\n"
@@ -263,7 +263,7 @@ msgid ""
 "operator"
 msgstr ""
 "Cho phép người gửi nhấn 0 trước/sau/trong khi rời khỏi một thư thoại để tiếp "
-"cận một người điều hành"
+"cận một tổng đài viên"
 
 #: Voicemail.class.php:1881
 msgid "Allow sender to review/rerecord their message before saving it"
@@ -438,8 +438,8 @@ msgstr ""
 msgid ""
 "Context to check for handling * or 0 calls to operator. \"Operator Context\""
 msgstr ""
-"Ngữ cảnh để kiểm tra việc xử lý các cuộc gọi * hoặc 0 đến người điều hành. \""
-"Operator Context\" (Ngũ cảnh người điều hành)"
+"Ngữ cảnh để kiểm tra việc xử lý các cuộc gọi * hoặc 0 đến tổng đài viên. \""
+"Operator Context\" (Ngũ cảnh tổng đài viên)"
 
 #: Voicemail.class.php:2395 page.voicemail.php:218 page.voicemail.php:296
 msgid ""
@@ -1164,7 +1164,7 @@ msgstr "Cách sử dụng chung"
 
 #: functions.inc.php:859 ucp/views/vmx.php:37
 msgid "Go To Operator"
-msgstr "Đi tới người điều hành"
+msgstr "Đi tới tổng đài viên"
 
 #: ucp/views/nav.php:13
 msgid "Greetings"
@@ -1824,11 +1824,11 @@ msgstr "Thời gian chờ để mở kết nối"
 
 #: Voicemail.class.php:1872
 msgid "Operator"
-msgstr "Người điều hành"
+msgstr "Tổng đài viên"
 
 #: views/dialplan.php:103
 msgid "Operator Extension"
-msgstr "Người điều hành máy nhánh"
+msgstr "Tổng đài viên máy nhánh"
 
 #: page.voicemail.php:262
 msgid ""
@@ -1987,18 +1987,18 @@ msgid ""
 "still disabling VmX to allow an alternative Operator extension without "
 "requiring the VmX feature for the user."
 msgstr ""
-"Nhấn 0 trong khi lời chào Thư thoại cá nhân của bạn đến người điều hành. "
-"Không đánh dấu check để nhập điểm đích khác ở đây. Tính năng này có thể được "
-"sử dụng khi đang vô hiệu VmX nhằm cho phép một người điều khiển máy nhánh "
-"thay thế mà không cần tính năng VmX cho người dùng."
+"Nhấn 0 trong khi lời chào Thư thoại cá nhân của bạn đến tổng đài viên. Không "
+"đánh dấu check để nhập điểm đích khác ở đây. Tính năng này có thể được sử "
+"dụng khi đang vô hiệu VmX nhằm cho phép một tổng đài viên máy nhánh thay thế "
+"mà không cần tính năng VmX cho người dùng."
 
 #: ucp/views/vmx.php:39
 msgid ""
 "Pressing 0 during your personal voicemail greeting goes to the Operator. "
 "Check to enter another destination here."
 msgstr ""
-"Nhấn 0 trong khi lời chào Thư thoại cá nhân của bạn đến người điều hành. "
-"Đánh dấu check để nhập một điểm đích khác ở đây."
+"Nhấn 0 trong khi lời chào Thư thoại cá nhân của bạn đến tổng đài viên. Đánh "
+"dấu check để nhập một điểm đích khác ở đây."
 
 #: voicemail.i18n.php:18
 msgid "Provide IMAP Voicemail Fields"
@@ -2950,10 +2950,12 @@ msgid ""
 "Whether to play the busy, unavailable or no message when direct dialing "
 "voicemail"
 msgstr ""
+"Phát báo thông báo bận, không khả dụng hoặc không có tin nhắn khi quay số "
+"trực tiếp thư thoại"
 
 #: page.voicemail.php:292
 msgid "Which format of audio file to attach to the email."
-msgstr ""
+msgstr "Định dạng của tệp âm thanh để đính kèm vào email."
 
 #: Voicemail.class.php:1755
 msgid ""
@@ -2962,22 +2964,27 @@ msgid ""
 "the format sent to particular mailboxes. Useful if Windows users want wav49, "
 "but Linux users want gsm."
 msgstr ""
+"Định dạng để đính kèm vào email. Thông thường thì đây là định dạng đầu tiên "
+"được chỉ định trong tham số định dạng ở trên nhưng tùy chọn này cho phép bạn "
+"tùy chỉnh định dạng được gửi tới các mailbox đặc biệt. Sẽ hữu ích nếu người "
+"dùng hệ điều hành Window cần wav49 nhưng đối với hệ điều hành Linux người "
+"dùng sẽ cần gsm."
 
 #: Voicemail.class.php:2045 page.voicemail.php:275 page.voicemail.php:316
 msgid "Who the e-mail notification should appear to come from"
-msgstr ""
+msgstr "Người mà các thông báo e-mail đến từ đó"
 
 #: Voicemail.class.php:75
 msgid "Work"
-msgstr ""
+msgstr "Làm việc"
 
 #: Voicemail.class.php:2298
 msgid "Write Timeout"
-msgstr ""
+msgstr "Thời gian chờ ghi dữ liệu"
 
 #: views/tz.php:142
 msgid "Year"
-msgstr ""
+msgstr "Năm"
 
 #: Voicemail.class.php:1830 Voicemail.class.php:1838 Voicemail.class.php:1846
 #: Voicemail.class.php:1854 Voicemail.class.php:1862 Voicemail.class.php:1870
@@ -2996,18 +3003,20 @@ msgstr ""
 #: views/usage_system.php:118 views/usage_system.php:149
 #: views/usage_system.php:180 views/usage_system.php:211
 msgid "Yes"
-msgstr ""
+msgstr "Có"
 
 #: page.voicemail.php:273
 msgid ""
 "Yes to search all contexts, no to search current context (if one is not "
 "specified)."
 msgstr ""
+"Cài về Yes để tìm kiếm tất cả các ngữ cảnh, về No để tìm ngữ cảnh hiện tại ( "
+"nếu không có ngữ cảnh nào được chỉ định)."
 
 #: ucp/assets/js/global.js:93
 #, perl-format
 msgid "You Have %s New Voicemail"
-msgstr ""
+msgstr "Bạn có Thư thoại mới %s"
 
 #: ucp/assets/js/global.js:949
 #, perl-format
@@ -3017,34 +3026,39 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
+"Bạn đang thiếu hỗ trợ chế độ phát lại trong trình duyệt này. Để được hỗ trợ "
+"đầy đủ chế độ phát lại trong trình duyệt HTML5 bạn cần cài đặt các chương "
+"trình mà nó không thể phân bổ với PBX được. Nêu bạn muốn cài đặt các chương "
+"trình cần thiết cho các chuyển đổi này kích chọn  <a href='%s'>here</a>"
 
 #: ucp/assets/js/global.js:482
 msgid "You have No Drag/Drop Support!"
-msgstr ""
+msgstr "Bạn không có hỗ trợ Kéo/ Thả!"
 
 #: ucp/assets/js/global.js:829
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
+"Trình duyệt của bạn đã khóa Bản ghi, vui lòng kiểm tra các cài đặt của bạn"
 
 #: ucp/assets/js/global.js:767
 msgid "Your settings have been saved"
-msgstr ""
+msgstr "Các cài đặt của bạn đã được lưu"
 
 #: install.php:185
 msgid "checking if Voicemail Admin (vmailadmin) is installed.."
-msgstr ""
+msgstr "Kiểm tra xem Quản trị viên Thư thoại  (vmailadmin) đã được cài chưa."
 
 #: install.php:146
 msgid "could not delete"
-msgstr ""
+msgstr "Không thể xóa được"
 
 #: install.php:141
 msgid "deleting VM_PREFIX from globals.."
-msgstr ""
+msgstr "Đang xóa VM_PREFIX khỏi globals.."
 
 #: install.php:127 install.php:144
 msgid "done"
-msgstr ""
+msgstr "Đã xong"
 
 #: Voicemail.class.php:302
 #, php-format
@@ -3053,40 +3067,40 @@ msgstr ""
 
 #: install.php:190
 msgid "installed."
-msgstr ""
+msgstr "Đã cài đặt."
 
 #: install.php:140
 msgid "migrated VM_PREFIX to feature codes"
-msgstr ""
+msgstr "Đã dịch chuyển  VM_PREFIX đến các mã tính năng"
 
 #: install.php:188
 msgid "not installed, ok"
-msgstr ""
+msgstr "Đã không được cài đặt, ok"
 
 #: install.php:101
 msgid "not needed"
-msgstr ""
+msgstr "Không cần thiết"
 
 #: views/tz.php:134
 msgid "numeric day of month (first, second, ..., thirty-first)"
-msgstr ""
+msgstr "Thứ tự ngày trong tháng ( ngày đầu tiên, ngày thứ hai,....ngày 31)"
 
 #: install.php:195
 msgid "ok"
-msgstr ""
+msgstr "ok"
 
 #: install.php:67
 msgid "preparing"
-msgstr ""
+msgstr "Đang chuẩn bị"
 
 #: views/tz.php:81
 msgid "timezone|values"
-msgstr ""
+msgstr "timezone|values"
 
 #: views/tz.php:102
 msgid "variable"
-msgstr ""
+msgstr "biến"
 
 #: page.voicemail.php:568
 msgid "yes"
-msgstr ""
+msgstr "Có"
