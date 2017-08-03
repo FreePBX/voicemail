@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 16:36-0400\n"
-"PO-Revision-Date: 2017-08-01 17:03+0200\n"
+"PO-Revision-Date: 2017-08-02 21:58+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/vi/>\n"
@@ -2147,9 +2147,10 @@ msgid "Send to Follow-Me"
 msgstr "Gửi tới Follow-Me"
 
 #: functions.inc.php:696
-#, fuzzy, php-format
+#, php-format
 msgid "Separate options with pipe ( | )%sie: review=yes|maxmessage=60"
-msgstr "Các tùy chọn riêng với"
+msgstr ""
+"Các tùy chọn riêng với đường ống ( | )%s cụ thể là: review=yes|maxmessage=60"
 
 #: Voicemail.class.php:2044
 msgid "Server Email"
@@ -2472,7 +2473,6 @@ msgid "The pager subject"
 msgstr "Tiêu đề máy nhắn tin"
 
 #: functions.inc.php:872
-#, fuzzy
 msgid ""
 "The remaining options can have internal extensions, ringgroups, queues and "
 "external numbers that may be rung. It is often used to include your cell "
@@ -2481,10 +2481,10 @@ msgid ""
 "invalid number messages."
 msgstr ""
 "Các tùy chọn còn lại có thể có các máy nhánh nội bộ, ringgroup, hàng đợi và "
-"các số bên ngoài có thể được gọi. Nó thường được sử dụng để bao gồm điện "
-"thoại di động của bạn. Bạn nên chạy một bài kiểm tra để đảm bảo rằng số này "
-"có chức năng bất cứ khi nào một thay đổi được thực hiện để bạn không để lại "
-"một người gọi bị mắc cạn hoặc nhận tin nhắn số không hợp lệ."
+"các số bên ngoài có thể được gọi. Nó thường được sử dụng để bao hàm điện "
+"thoại di động của bạn. Bạn nên chạy thử nghiệm để đảm bảo rằng số này hoạt "
+"động khi có một thay đổi do đó bạn đùng để một người gọi bị kẹt hay nhận các "
+"tin nhắn số không hợp lệ."
 
 #: Voicemail.class.php:2180 page.voicemail.php:260
 msgid ""
@@ -2498,7 +2498,6 @@ msgid "There is nothing to delete"
 msgstr "Không có gì để xóa"
 
 #: views/ucp_config.php:52
-#, fuzzy
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
@@ -2513,35 +2512,41 @@ msgstr "Các cài đặt này áp dụng cho Cấu hình Email Thư thoại"
 #: Voicemail.class.php:2374
 #, fuzzy
 msgid "These settings apply to context related operations"
-msgstr "Các cài đặt này áp dungj cho ngữ cảnh liên quan đến các"
+msgstr "Các cài đặt này áp dụng cho ngữ cảnh liên quan đến các"
 
 #: Voicemail.class.php:2173 Voicemail.class.php:2193
+#, fuzzy
 msgid ""
 "These settings are only applicable when Asterisk is compiled with IMAP "
 "support"
 msgstr ""
+"Các cài đặt này chỉ có thể áp dụng khi Asterisk tuân thủ theo hỗ trợ của IMAP"
 
 #: functions.inc.php:685
 #, php-format
 msgid "This is the IMAP password, if using IMAP storage"
-msgstr ""
+msgstr "Đây là mật khẩu IMAP, nếu sử dụng bộ nhớ IMAP"
 
 #: functions.inc.php:675
 #, php-format
 msgid "This is the IMAP username, if using IMAP storage"
-msgstr ""
+msgstr "Đây là tên người dùng IMAP, nếu sử dụng bộ nhớ IMAP"
 
 #: views/quickCreate.php:42
 msgid ""
 "This is the PIN used to access the Voicemail system. It should be between 4 "
 "and 12 numbers in length."
 msgstr ""
+"Đây là PIN được sử dụng để truy nhập hệ thống Thư thoại. Chiều dài nên ở "
+"khoảng 4 đến 12 số."
 
 #: functions.inc.php:706 page.voicemail.php:319
 msgid ""
 "This is the Voicemail Context which is normally set to default. Do not "
 "change unless you understand the implications."
 msgstr ""
+"Đây là Ngữ cảnh Thư thoại thường được cài mặc định. Không thay đổi mặc định "
+"này trừ khi bạn hiểu về nó."
 
 #: functions.inc.php:543
 #, php-format
@@ -2550,6 +2555,10 @@ msgid ""
 "only contain numbers.%sA user can change the password you enter here after "
 "logging into the Voicemail system (%s) with a phone."
 msgstr ""
+"Đây là mật khẩu được sử dụng để truy nhập vào hệ thống Thư thoại. %s Mật "
+"khẩu này chỉ có thể bao gồm các số. %s Một người dùng có thể thay đổi mật "
+"khẩu mà bạn nhập ở đây sau khi đăng nhập vào hệ thống Thư thoại (%s) bằng "
+"điện thoại."
 
 #: page.voicemail.php:290
 msgid ""
@@ -2557,55 +2566,66 @@ msgid ""
 "password can only contain numbers.<br /><br />A user can change the password "
 "you enter here after logging into the Voicemail system (*98) with a phone."
 msgstr ""
+"Đây là mật khẩu được sử dụng để truy nhập vào hệ thống Thư thoại. <br /><br "
+"/>Mật khẩu này chỉ có thể bao gồm các số.<br /><br /> Một người dùng có thể "
+"thay đổi mật khẩu mà bạn nhập ở đây sau khi đăng nhập vào hệ thống Thư thoại "
+"(*98) bằng điện thoại."
 
 #: Voicemail.class.php:1865
 msgid ""
 "This is the same as Force Name, except for recording greetings. Default is "
 "'No'"
 msgstr ""
+"Điều này tương tư với Tên bắt buộc ( Force Name), ngoại trừ ghi âm lời chào. "
+"Mặc định là 'No'"
 
 #: voicemail.i18n.php:8
 msgid "This module allows you to configure Voicemail for a user or extension"
 msgstr ""
+"Mô đun này cho phép bạn cấu hình Thư thoại cho một người dùng hoặc một máy "
+"nhánh"
 
 #: page.voicemail.php:206
 msgid "Time announcement for message playback"
-msgstr ""
+msgstr "Thông báo thời gian cho việc phát lại tin nhắn"
 
 #: views/dialplan.php:147
 msgid ""
 "Time to wait after message has played to timeout and/or repeat the message "
 "if no entry pressed."
 msgstr ""
+"Thời gian đợi sau khi tin nhắn được phát đến timeout và/hoặc lặp lại tin "
+"nhắn nếu không có mục nhập nào được nhấn."
 
 #: views/dialplan.php:159
 msgid "Times to Play Message"
-msgstr ""
+msgstr "Số lần phát Tin nhắn"
 
 #: Voicemail.class.php:1796 Voicemail.class.php:1797
 msgid "Timezone"
-msgstr ""
+msgstr "Múi giờ"
 
 #: functions.inc.php:976 views/header.php:12
 msgid "Timezone Definitions"
-msgstr ""
+msgstr "Các định nghĩa múi giờ"
 
 #: views/tz.php:81
 msgid "Timezone definition format is: "
-msgstr ""
+msgstr "Định dạng định nghĩa múi giờ là: "
 
 #: page.voicemail.php:205
 msgid "Timezone definition name"
-msgstr ""
+msgstr "Tên của định nghĩa múi giờ"
 
 #: page.voicemail.php:318
+#, fuzzy
 msgid "Timezone from zonemessages context.  Irrelevant if envelope=no."
-msgstr ""
+msgstr "Múi giờ từ ngữ cảnh zonemessages."
 
 #: ucp/assets/js/global.js:171 ucp/assets/js/global.js:238
 #: ucp/assets/js/global.js:292
 msgid "To"
-msgstr ""
+msgstr "đến"
 
 #: ucp/views/greetings.php:40
 #, php-format
@@ -2613,6 +2633,8 @@ msgid ""
 "To play the media you will need to either update your browser to a recent "
 "version or update your %s"
 msgstr ""
+"Để phát media bạn sẽ cần cập nhật trình duyệt của mình đến phiên bản gần đây "
+"hoặc cập nhật %s của bạn"
 
 #: views/usage.php:9 views/usage.php:32 views/usage.php:64 views/usage.php:95
 #: views/usage.php:126 views/usage.php:157 views/usage.php:188
@@ -2621,17 +2643,19 @@ msgstr ""
 #: views/usage_system.php:114 views/usage_system.php:145
 #: views/usage_system.php:176 views/usage_system.php:207
 msgid "Total"
-msgstr ""
+msgstr "Tổng cộng"
 
 #: Voicemail.class.php:1841
 msgid "Turn on/off envelope playback before message playback"
-msgstr ""
+msgstr "Bật/ tắt chế độ phát lại envelope trước khi phát lại tin nhắn"
 
 #: page.voicemail.php:223 page.voicemail.php:298
 msgid ""
 "Turn on/off envelope playback before message playback. [ON by default] This "
 "does NOT affect option 3,3 from the advanced options menu."
 msgstr ""
+"Bật/ tắt chế độ phát lại envelope trước khi phát lại tin nhắn. [Mặc định là "
+"ON] Điều này sẽ không ảnh hưởng tùy chọn 3,3 từ menu tùy chọn nâng cao."
 
 #: Voicemail.class.php:1897
 msgid "Turn on/off saying duration information before the message playback."
@@ -2645,91 +2669,92 @@ msgstr ""
 
 #: voicemail.i18n.php:22
 msgid "UCP Message Limit"
-msgstr ""
+msgstr "Giới hạn tin nhắn UCP"
 
 #: Voicemail.class.php:1602
 msgid "Unable to add mailbox!"
-msgstr ""
+msgstr "Không thể thêm mailbox!"
 
 #: views/usage_system.php:11
 msgid "Unactivated"
-msgstr ""
+msgstr "Không được kích hoạt"
 
 #: functions.inc.php:417 page.voicemail.php:423 ucp/views/vmx.php:19
 #: views/dialplan.php:44
 msgid "Unavailable"
-msgstr ""
+msgstr "Không khả dụng"
 
 #: Voicemail.class.php:77 views/usage.php:91
 msgid "Unavailable Greeting"
-msgstr ""
+msgstr "Lời chào không khả dụng"
 
 #: views/usage_system.php:110
 msgid "Unavailable Greetings"
-msgstr ""
+msgstr "Các lời chào không khả dụng"
 
 #: functions.inc.php:843
 msgid "Uncheck to play a beep after your personal Voicemail greeting."
 msgstr ""
+"Không đánh dấu check để phát một tiếng bíp sau lời chào thư thoại của bạn."
 
 #: views/usage.php:9 views/usage_system.php:25
 msgid "Unknown"
-msgstr ""
+msgstr "Không xác định rõ"
 
 #: ucp/Voicemail.class.php:465
 msgid "Unknown Error"
-msgstr ""
+msgstr "Lỗi không xác định"
 
 #: ucp/Voicemail.class.php:428
 msgid "Unsupported file format"
-msgstr ""
+msgstr "Định dạng tệp không được hỗ trợ"
 
 #: ucp/assets/js/global.js:510 ucp/assets/js/global.js:549
 #: ucp/assets/js/global.js:588 ucp/assets/js/global.js:632
 msgid "Unsupported file type"
-msgstr ""
+msgstr "Kiểu tệp không được hỗ trợ"
 
 #: ucp/views/greetings.php:39
 msgid "Update Required"
-msgstr ""
+msgstr "Yêu cầu phải cập nhật"
 
 #: ucp/views/greetings.php:45
 msgid "Upload Greeting"
-msgstr ""
+msgstr "Tải lên lời chào"
 
 #: ucp/views/greetings.php:54
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
-msgstr ""
+msgstr "Tải lên một lời chào mới hoặc kéo một lời chào cũ vào đây"
 
 #: ucp/assets/js/global.js:515 ucp/assets/js/global.js:554
 #: ucp/assets/js/global.js:593 ucp/assets/js/global.js:616
 #: ucp/assets/js/global.js:637 ucp/assets/js/global.js:844
 msgid "Uploading..."
-msgstr ""
+msgstr "Đang tải lên..."
 
 #: Voicemail.class.php:76
 msgid "Urgent"
-msgstr ""
+msgstr "Khẩn cấp"
 
 #: views/header.php:9
 msgid "Usage"
-msgstr ""
+msgstr "Sử dụng"
 
 #: functions.inc.php:997
 msgid "Usage Statistics For: "
-msgstr ""
+msgstr "Sử dụng các thống kê cho: "
 
 #: Voicemail.class.php:1928
 msgid "Use Directory"
-msgstr ""
+msgstr "Sử dụng Danh mục"
 
 #: ucp/views/vmx.php:16
 msgid "Use When"
-msgstr ""
+msgstr "Sử dụng Khi"
 
 #: functions.inc.php:831
 msgid "Use When:"
-msgstr ""
+msgstr "Sử dụng Khi:"
 
 #: functions.inc.php:900
 msgid ""
@@ -2737,6 +2762,9 @@ msgid ""
 ">Remember to re-record your personal Voicemail greeting and include "
 "instructions. Run a test to make sure that the number is functional."
 msgstr ""
+"Sử dụng bất kỳ máy nhánh, ringgroup, hàng đợi hoặc số bên ngoài nào. "
+"<br/><br/> Nhớ là hãy ghi lại lời chào Thư thoại cá nhân của bạn kể cả các "
+"hướng dẫn. Chạy thử nghiệm để đảm bảo số này hoạt động."
 
 #: ucp/views/vmx.php:54
 msgid ""
@@ -2744,76 +2772,85 @@ msgid ""
 "record your personal voicemail greeting and include instructions. Run a test "
 "to make sure that the number is functional."
 msgstr ""
+"Sử dụng bất kỳ máy nhánh, ringgroup, hàng đợi hoặc số bên ngoài nào. "
+"<br/><br/> Nhớ là hãy ghi lại lời chào Thư thoại cá nhân của bạn kể cả các "
+"hướng dẫn. Chạy thử nghiệm để đảm bảo số này hoạt động."
 
 #: Voicemail.class.php:730
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Sử dụng máy nhanh chính"
 
 #: page.voicemail.php:282
 msgid ""
 "User context is where entries from users.conf are registered.  The default "
 "value is 'default'"
 msgstr ""
+"Ngữ cảnh người dùng là nơi các mục nhập từ users.conf được đăng ký. Gía trị "
+"mặc định là 'default'"
 
 #: functions.inc.php:705
 msgid "VM Context"
-msgstr ""
+msgstr "Ngữ cảnh VM ( Thư thoại)"
 
 #: functions.inc.php:506
 msgid "VM Context cannot be blank"
-msgstr ""
+msgstr "Ngữ cảnh VM ( Thư thoại) không được để trống"
 
 #: functions.inc.php:695
 msgid "VM Options"
-msgstr ""
+msgstr "Tùy chọn VM (Thư thoại)"
 
 #: ucp/Voicemail.class.php:279
 msgid "VMAIL"
-msgstr ""
+msgstr "Thư thoại"
 
 #: page.voicemail.php:279
 msgid ""
 "Valid port as specified in smdi.conf for using smdi for external "
 "notification."
 msgstr ""
+"Cổng giao tiếp như đã được chỉ định trong smdi.conf  nhằm sử dụng smdi cho "
+"việc thông báo bên ngoài."
 
 #: functions.inc.php:732
 msgid "VmX Locater&trade;"
-msgstr ""
+msgstr "VmX Locater&trade;"
 
 #: ucp/Voicemail.class.php:148
 msgid "VmX Locator"
-msgstr ""
+msgstr "Bộ định vị VmX"
 
 #: Voicemail.class.php:743 functions.inc.php:510 install.php:8
 #: ucp/Voicemail.class.php:525 views/header.php:2 voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
 msgid "Voicemail"
-msgstr ""
+msgstr "Thư thoại"
 
 #: install.php:11 voicemail.i18n.php:10
 msgid "Voicemail Admin"
-msgstr ""
+msgstr "Quản trị viên Thư thoại"
 
 #: install.php:191
+#, fuzzy
 msgid "Voicemail Admin being removed and merged with Voicemail"
-msgstr ""
+msgstr "Quản trị viên Thư thoại đang được xóa bỏ và"
 
 #: functions.inc.php:973
 msgid "Voicemail Administration"
-msgstr ""
+msgstr "Quản trị viên Thư thoại"
 
 #: ucp/views/mailbox.php:6
 msgid "Voicemail Auto Delete is on. New messages will not show up here."
 msgstr ""
+"Tự động xóa Thư thoại được bật. Các tin nhắn mới sẽ không hiện lên ở đây."
 
 #: Voicemail.class.php:2408 Voicemail.class.php:2409
 msgid "Voicemail Context"
-msgstr ""
+msgstr "Ngữ cảnh Thư thoại"
 
 #: Voicemail.class.php:1559
 msgid "Voicemail E-Mail"
-msgstr ""
+msgstr "E-Mail Thư thoại"
 
 #: Voicemail.class.php:1553
 msgid "Voicemail Enable [Blank to disable]"
