@@ -2132,13 +2132,13 @@ class Voicemail implements \BMO {
 						"options" => array("1","9999"),
 						"default" => '10',
 						"description" => _("Max Message Silence (Milliseconds)"),
-						"helptext" => _("How many milliseconds of silence before we end the recording (in milliseconds).")." [maxsilence]"
+						"helptext" => _("How many milliseconds of silence before we end the recording (in milliseconds).")."  <a href='https://issues.freepbx.org/browse/FREEPBX-10998' target='_blank'>"._("Why is this in milliseconds?")."</a> [maxsilence]"
 					),
 					"silencethreshold" => array(
 						"level" => array("general"),
 						"type" => "number",
 						"options" => array("0","9999"),
-						"default" => '',
+						"default" => '128',
 						"description" => _("Silence Threshold"),
 						"helptext" => _("Silence threshold (what we consider silence: the lower, the more sensitive)")." [silencethreshold]"
 					),
