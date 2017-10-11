@@ -790,7 +790,7 @@ class Voicemail implements \BMO {
 		$context = $o['vmcontext'];
 		$vmfolder = $this->vmPath . '/'.$context.'/'.basename($ext);
 		if(!file_exists($vmfolder)) {
-			mkdir($vmfolder);
+			mkdir($vmfolder,0777,true);
 		}
 		if(isset($this->greetings[$source]) && isset($this->greetings[$target])) {
 			$tfile = $this->checkFileType($vmfolder, $target);
@@ -817,7 +817,7 @@ class Voicemail implements \BMO {
 		$context = $o['vmcontext'];
 		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
 		if(!file_exists($vmfolder)) {
-			mkdir($vmfolder);
+			mkdir($vmfolder,0777,true);
 		}
 		if(isset($this->greetings[$type])) {
 			$media->load($file);
@@ -1129,7 +1129,7 @@ class Voicemail implements \BMO {
 				$files = array();
 				$files[] = $txt;
 				if(!file_exists($folder)) {
-					mkdir($folder);
+					mkdir($folder,0777,true);
 				}
 				if(is_writable($folder)) {
 					foreach($info['format'] as $format) {
@@ -1198,7 +1198,7 @@ class Voicemail implements \BMO {
 				$files = array();
 				$files[] = $txt;
 				if(!file_exists($folder)) {
-					mkdir($folder);
+					mkdir($folder,0777,true);
 				}
 				if(is_writable($folder)) {
 					foreach($info['format'] as $format) {
