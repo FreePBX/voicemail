@@ -10,13 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 16:36-0400\n"
-"PO-Revision-Date: 2017-03-16 11:40-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-10-13 02:16+0200\n"
+"Last-Translator: hammer125 <auswertung@aon.at>\n"
+"Language-Team: German "
+"<http://weblate.freepbx.org/projects/freepbx/voicemail/de_DE/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: Voicemail.class.php:1995
 msgid " Don't leave single period on end of line by itself."
@@ -39,37 +42,37 @@ msgstr ""
 #: page.voicemail.php:443
 #, php-format
 msgid "%s Attempts"
-msgstr ""
+msgstr "%s Versuche"
 
 #: page.voicemail.php:449
 #, php-format
 msgid "%s Retries"
-msgstr ""
+msgstr "%s Wiederholungen"
 
 #: page.voicemail.php:447
 #, php-format
 msgid "%s Retry"
-msgstr ""
+msgstr "%s Wiederholung"
 
 #: page.voicemail.php:439
 #, php-format
 msgid "%s Sec"
-msgstr ""
+msgstr "%s Sek"
 
 #: functions.inc.php:144 functions.inc.php:151
 #, php-format
 msgid "%s Voicemail"
-msgstr ""
+msgstr "%s Sprachbox"
 
 #: install.php:114
 #, php-format
 msgid "%s added"
-msgstr ""
+msgstr "%s hinzugefügt"
 
 #: install.php:81
 #, php-format
 msgid "%s adjusted from %s to %s"
-msgstr ""
+msgstr "%s angepasst von %s auf %s"
 
 #: install.php:85
 #, php-format
@@ -89,26 +92,26 @@ msgstr ""
 #: install.php:72
 #, php-format
 msgid "%s no longer used"
-msgstr ""
+msgstr "%s nicht länger verwendet"
 
 #: views/tz.php:115 views/tz.php:131 views/tz.php:147 views/tz.php:185
 #, php-format
 msgid "%s or %s"
-msgstr ""
+msgstr "%s oder %s"
 
 #: views/tz.php:123
 #, php-format
 msgid "%s or %s or %s"
-msgstr ""
+msgstr "%s oder %s oder %s"
 
 #: ucp/assets/js/global.js:955
 #, perl-format
 msgid "%s seconds"
-msgstr ""
+msgstr "%s Sekunden"
 
 #: views/tz.php:94
 msgid "'filename'"
-msgstr ""
+msgstr "'Dateiname'"
 
 #: page.voicemail.php:238
 msgid ""
@@ -118,40 +121,41 @@ msgstr ""
 
 #: page.voicemail.php:437
 msgid "0 Sec"
-msgstr ""
+msgstr "0 Sek"
 
 #: page.voicemail.php:433 views/dialplan.php:81
 msgid "12 db"
-msgstr ""
+msgstr "12 dB"
 
 #: page.voicemail.php:434 views/dialplan.php:83
 msgid "15 db"
-msgstr ""
+msgstr "15 dB"
 
 #: views/tz.php:212
 msgid "24 hour time, including minute"
-msgstr ""
+msgstr "24-h-Zeit, inklusive Minuten"
 
 #: page.voicemail.php:430 views/dialplan.php:75
 msgid "3 db"
-msgstr ""
+msgstr "3 dB"
 
 #: page.voicemail.php:431 views/dialplan.php:77
 msgid "6 db"
-msgstr ""
+msgstr "6 dB"
 
 #: page.voicemail.php:432 views/dialplan.php:79
 msgid "9 db"
-msgstr ""
+msgstr "9 dB"
 
 #: views/tz.php:82
 msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
-msgstr ""
+msgstr "<i>Zeitzonen</i> sind aufgelistet in /usr/share/zoneinfo"
 
 #: views/tz.php:2
 msgid ""
 "A timezone definition specifies how the Voicemail system announces the time."
 msgstr ""
+"Eine Zeitzonenangabe legt fest, wie das Sprachboxsystem die Zeit ansagt."
 
 #: views/tz.php:105
 msgid "A variable to be substituted (see below for supported variable values)"
@@ -167,7 +171,7 @@ msgstr ""
 
 #: views/tz.php:188
 msgid "AM or PM"
-msgstr ""
+msgstr "AM oder PM"
 
 #: views/usage.php:184 views/usage_system.php:203
 msgid "Abandoned Greetings"
@@ -175,19 +179,19 @@ msgstr ""
 
 #: views/usage.php:2
 msgid "Account"
-msgstr ""
+msgstr "Konto"
 
 #: views/settings.php:6
 msgid "Account Advanced Settings"
-msgstr ""
+msgstr "erweiterte Konten-Einstellungen"
 
 #: views/settings.php:4
 msgid "Account Settings"
-msgstr ""
+msgstr "Konten-Einstellungen"
 
 #: views/settings.php:5
 msgid "Account Usage"
-msgstr ""
+msgstr "Konten-Nutzung"
 
 #: views/settings.php:2
 msgid "Account View Links:"
@@ -195,11 +199,11 @@ msgstr ""
 
 #: views/usage_system.php:10
 msgid "Activated"
-msgstr ""
+msgstr "aktiviert"
 
 #: functions.inc.php:987
 msgid "Advanced Settings For: "
-msgstr ""
+msgstr "erweiterte Einstellungen für: "
 
 #: views/dialplan.php:122
 msgid "Advanced VmX Locater Settings"
@@ -226,19 +230,19 @@ msgstr ""
 
 #: views/ucp_config.php:91
 msgid "Allow Voicemail Download"
-msgstr ""
+msgstr "erlaube Sprachbox-Download"
 
 #: views/ucp_config.php:149
 msgid "Allow Voicemail Greetings"
-msgstr ""
+msgstr "erlaube Sprachbox-Grüße"
 
 #: views/ucp_config.php:62
 msgid "Allow Voicemail Playback"
-msgstr ""
+msgstr "erlaube Sprachbox-Playback"
 
 #: views/ucp_config.php:120
 msgid "Allow Voicemail Settings"
-msgstr ""
+msgstr "erlaube Sprachbox-Einstellungen"
 
 #: Voicemail.class.php:1873
 msgid ""
@@ -265,7 +269,7 @@ msgstr ""
 
 #: views/ucp_config.php:36
 msgid "Allowed Voicemail"
-msgstr ""
+msgstr "erlaube Sprachbox"
 
 #: ucp/assets/js/global.js:275
 msgid "Are you sure you wish to delete these voicemails?"
@@ -273,7 +277,7 @@ msgstr ""
 
 #: ucp/assets/js/global.js:209
 msgid "Are you sure you wish to delete this voicemail?"
-msgstr ""
+msgstr "Sind Sie sicher, dass Sie die Sprachmitteilung löschen möchten?"
 
 #: functions.inc.php:1337
 msgid ""
@@ -286,15 +290,15 @@ msgstr ""
 
 #: Voicemail.class.php:2060
 msgid "Attach Voicemail"
-msgstr ""
+msgstr "Sprachmitteilung hinzufügen"
 
 #: views/dialplan.php:165
 msgid "Attempt(s)"
-msgstr ""
+msgstr "Versuch(e)"
 
 #: install.php:192
 msgid "Attempting to delete.."
-msgstr ""
+msgstr "versuche zu löschen.."
 
 #: ucp/views/mailbox.php:28
 msgid "Auto-Refresh"
@@ -302,11 +306,11 @@ msgstr ""
 
 #: functions.inc.php:980
 msgid "Basic Settings For: "
-msgstr ""
+msgstr "Grundeinstellungen für: "
 
 #: functions.inc.php:982
 msgid "Basic settings view is for individual accounts."
-msgstr ""
+msgstr "Ansicht der Grundeinstellungen für individuelle Konten."
 
 #: page.voicemail.php:263
 msgid "Body of message sent to pager."
@@ -315,7 +319,7 @@ msgstr ""
 #: functions.inc.php:418 page.voicemail.php:424 ucp/views/vmx.php:22
 #: views/dialplan.php:46
 msgid "Busy"
-msgstr ""
+msgstr "besetzt"
 
 #: Voicemail.class.php:79 views/usage.php:122
 msgid "Busy Greeting"
