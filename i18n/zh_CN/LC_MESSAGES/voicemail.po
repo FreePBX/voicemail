@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-27 16:36-0400\n"
+"POT-Creation-Date: 2017-10-13 21:00-0400\n"
 "PO-Revision-Date: 2015-02-05 21:26+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -2627,6 +2627,10 @@ msgstr ""
 
 #: Voicemail.class.php:2045 page.voicemail.php:275 page.voicemail.php:316
 msgid "Who the e-mail notification should appear to come from"
+msgstr ""
+
+#: Voicemail.class.php:2135
+msgid "Why is this in milliseconds?"
 msgstr ""
 
 #: Voicemail.class.php:75

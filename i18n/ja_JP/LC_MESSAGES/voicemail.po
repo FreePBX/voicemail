@@ -37,15 +37,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-27 16:36-0400\n"
+"POT-Creation-Date: 2017-10-13 21:00-0400\n"
 "PO-Revision-Date: 2017-08-24 03:29+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
-"Language-Team: Japanese "
-"<http://weblate.freepbx.org/projects/freepbx/voicemail/ja_JP/>\n"
-"Language: ja_JP\n"
+"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
+"voicemail/ja_JP/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -2822,6 +2822,10 @@ msgstr ""
 #: Voicemail.class.php:2045 page.voicemail.php:275 page.voicemail.php:316
 msgid "Who the e-mail notification should appear to come from"
 msgstr "Eメール通知が誰から来たように見えるか"
+
+#: Voicemail.class.php:2135
+msgid "Why is this in milliseconds?"
+msgstr ""
 
 #: Voicemail.class.php:75
 msgid "Work"

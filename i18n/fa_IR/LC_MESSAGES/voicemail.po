@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-27 16:36-0400\n"
+"POT-Creation-Date: 2017-10-13 21:00-0400\n"
 "PO-Revision-Date: 2016-07-17 10:07+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -2921,6 +2921,10 @@ msgstr ""
 #: Voicemail.class.php:2045 page.voicemail.php:275 page.voicemail.php:316
 msgid "Who the e-mail notification should appear to come from"
 msgstr "ایمیل هشدار از طرف که آمده"
+
+#: Voicemail.class.php:2135
+msgid "Why is this in milliseconds?"
+msgstr ""
 
 #: Voicemail.class.php:75
 msgid "Work"
