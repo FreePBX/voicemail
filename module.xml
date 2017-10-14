@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>14.0.1.11</version>
+	<version>14.0.1.12</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*14.0.1.12* FREEPBX-14676 Voicemail Greetings Fail On Upload
 		*14.0.1.11* FREEPBX-12579 UCP Fix duplicate call
 		*14.0.1.10* FREEPBX-12579 UCP Whoops! error when voicemail msgxxx.txt file has malformed callerid line
 		*14.0.1.9* FREEPBX-14060 fix the pop-up message when voice mail password is empty

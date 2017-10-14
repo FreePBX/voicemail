@@ -2578,6 +2578,10 @@ msgstr ""
 msgid "Who the e-mail notification should appear to come from"
 msgstr ""
 
+#: Voicemail.class.php:2137
+msgid "Why is this in milliseconds?"
+msgstr ""
+
 #: Voicemail.class.php:75
 msgid "Work"
 msgstr ""

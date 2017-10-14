@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-27 20:40+0000\n"
+"POT-Creation-Date: 2017-10-13 18:03-0700\n"
 "PO-Revision-Date: 2014-07-22 14:35+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/voicemail/"
@@ -2610,6 +2610,10 @@ msgstr ""
 
 #: Voicemail.class.php:2047 page.voicemail.php:275 page.voicemail.php:316
 msgid "Who the e-mail notification should appear to come from"
+msgstr ""
+
+#: Voicemail.class.php:2137
+msgid "Why is this in milliseconds?"
 msgstr ""
 
 #: Voicemail.class.php:75
