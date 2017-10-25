@@ -2,90 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>14.0.1.9</version>
+	<version>15.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
-		*14.0.1.9* FREEPBX-14060 fix the pop-up message when voice mail password is empty
-		*14.0.1.8* FREEPBX-15139 Recordings playing/downloading in call history doesn't work with multiple widget in the same dashboard
-		*14.0.1.7* More widget work
-		*14.0.1.6* FREEPBX-15165 fix listen and forward problems
-		*14.0.1.5* FREEPBX-15165 UCP voicemail control options not working
-		*14.0.1.4* FREEPBX-14532 IMAP Password field in Extension incorrectly loads username field instead
-		*14.0.1.3* FREEPBX-14579 FREEPBX-14578
-		*14.0.1.2* Merge from 13
-		*14.0.1.1* Add vmx to ucp, fixes to greetings
-		*14.0.1* UCP 14
-		*13.0.53.1* FREEPBX-13026 Fix default logic on radiosets
-		*13.0.53* FREEPBX-8555 Support passwordless voicemail retrieval in device/user mode
-		*13.0.52* If no extensions are assigned in UCP then disable it, also help FREEPBX-12847
-		*13.0.51* FREEPBX-12680 Force Greeting appears twice missing Force Name
-		*13.0.50* FREEPBX-12475 Voicemail Admin write out settings during install, also fix up display
-		*13.0.49* FREEPBX-12428 Moving vm msg in UCP does not refresh page automatically
-		*13.0.48* FREEPBX-12361 XSS in sub argument
-		*13.0.47* FREEPBX-12212 FREEPBX-12124
-		*13.0.46* FREEPBX-10998 FREEPBX-12036 FREEPBX-11479 FREEPBX-12218
-		*13.0.45* FREEPBX-11617 UCP Quick Link(s) to Return Calls to Voicemail
-		*13.0.44* FREEPBX-11597 set voicemail to yes
-		*13.0.43* FREEPBX-12168 Support voicemailRefresh when changing mailboxes
-		*13.0.42* Revert the work done in 41, bring back dynamic hints
-		*13.0.41* FREEPBX-11223 for res_mwi_blf dont use dynamic hints
-		*13.0.40* FREEPBX-11928 VMX locator settings do not stick
-		*13.0.39* Make sure VmX locator is actually loaded
-		*13.0.38* FREEPBX-11223 Another attempt. If there is nothing in the DB then just assume default
-		*13.0.37* FREEPBX-11103 FREEPBX-11223
-		*13.0.36* FREEPBX-10571 remove repeat add restart button to player
-		*13.0.35* Simplify settings
-		*13.0.33* FREEPBX-11425 correct ucp sorting problems
-		*13.0.32* FREEPBX-11466 Add media class method to try and determine asterisk mimetypes
-		*13.0.31* FREEPBX-10680 and FREEPBX-10961
-		*13.0.30* Support global file name functions
-		*13.0.29* FREEPBX-11080 look for 40 character hashes
-		*13.0.28* FREEPBX-10989
-		*13.0.27* FREEPBX-6164
-		*13.0.26* Make sure UCP is installed first
-		*13.0.25* FREEPBX-10797 revert handling of temporary greetings
-		*13.0.24* FREEPBX-10577 FREEPBX-10593 FREEPBX-10668
-		*13.0.23* FREEPBX-10572 VmX is always an option in UCP
-		*13.0.22* Speed up voicemail parser by caching
-		*13.0.21* Use boostrap tables and new HTML5 player
-		*13.0.20* FREEPBX-9384 Extensions in UCP need to be strings not integers
-		*13.0.19* Use proper reload when in UCP
-		*13.0.18* FREEPBX-9855 remove features that are no longer in voicemail
-		*13.0.17* FREEPBX-8275 Send email when forwarding if setup
-		*13.0.16* Fix permission management in User Manager
-		*13.0.15* FREEPBX-10209 Force charset UTF-8 in voicemail.conf
-		*13.0.14* FREEPBX-10223 Fix form sumbition
-		*13.0.13* FREEPBX-10209 htmlentities need to use UTF-8
-		*13.0.12* Invalid array fix
-		*13.0.11* FREEPBX-10129 Deleting extension does not delete voicemail user
-		*13.0.10* FREEPBX-10100 fix help text, FREEPBX-10096 fix extra includes, FREEPBX-10126 VMX
-		*13.0.9.1* Minor layout tweaks
-		*13.0.9* Use proper astman checks
-		*13.0.8* Use internal parsing engine
-		*13.0.7* Try to catch more errors
-		*13.0.6* FREEPBX-9726 ignore comment warnings
-		*13.0.5* Dont write to files if the array is empty
-		*13.0.4* FREEPBX-9685 dont require an email address unless attachment is set to yes, FREEPBX-9686 dont throw exception when vmailbox exists
-		*13.0.3* Invalid loop errors
-		*13.0.2* Version bump Beta
-		*13.0.1alpha14* Better quick create visuals
-		*13.0.1alpha13* Add hooks for bulk handler
-		*13.0.1alpha12* Invalid Foreach fixes
-		*13.0.1alpha11* Groups in usermanager
-		*13.0.1alpha10* FREEPBX-8982 click to call/copy for voicemail in UCP
-		*13.0.1alpha9* FREEPBX-8946 Add attach and delete options to user settings
-		*13.0.1alpha8* FREEPBX-8927 Badge count equal to 1 when no voicemail
-		*13.0.1alpha7* saycid not playcid
-		*13.0.1alpha6* Migrate vm_general.inc to voicemail.conf
-		*13.0.1alpha5* Dont pound the actual file
-		*13.0.1alpha4* Dont fatal during mailbox add
-		*13.0.1alpha3* FREEPBX-8130 Move emailbody back into voicemail.conf so that it shows up in Voicemail Admin
-		*13.0.1alpha2* FREEPBX-8555 Support passwordless voicemail retrieval in device/user mode
-		*13.0.1alpha1* Layout changes
+		*15.0.1* FREEPBX-15984 Set extern notify to fwconsole
 	</changelog>
 	<description>This module allows you to configure Voicemail for a user or extension</description>
 	<category>Settings</category>
