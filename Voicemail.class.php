@@ -865,7 +865,7 @@ class Voicemail implements \BMO {
 		$context = $o['vmcontext'];
 		$vmfolder = $this->vmPath . '/'.$context.'/'.basename($ext);
 		if(!file_exists($vmfolder)) {
-			mkdir($vmfolder);
+			mkdir($vmfolder,0777,true);
 		}
 		if(isset($this->greetings[$source]) && isset($this->greetings[$target])) {
 			$tfile = $this->checkFileType($vmfolder, $target);
@@ -892,7 +892,7 @@ class Voicemail implements \BMO {
 		$context = $o['vmcontext'];
 		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
 		if(!file_exists($vmfolder)) {
-			mkdir($vmfolder);
+			mkdir($vmfolder,0777,true);
 		}
 		if(isset($this->greetings[$type])) {
 			$media->load($file);
@@ -1204,7 +1204,7 @@ class Voicemail implements \BMO {
 				$files = array();
 				$files[] = $txt;
 				if(!file_exists($folder)) {
-					mkdir($folder);
+					mkdir($folder,0777,true);
 				}
 				if(is_writable($folder)) {
 					foreach($info['format'] as $format) {
@@ -1273,7 +1273,7 @@ class Voicemail implements \BMO {
 				$files = array();
 				$files[] = $txt;
 				if(!file_exists($folder)) {
-					mkdir($folder);
+					mkdir($folder,0777,true);
 				}
 				if(is_writable($folder)) {
 					foreach($info['format'] as $format) {
@@ -1387,7 +1387,12 @@ class Voicemail implements \BMO {
 					$txt = $vfolder."/".$vm.".txt";
 					$wav = $this->checkFileType($vfolder, $vm);
 					if(file_exists($txt) && is_readable($txt) && file_exists($wav)) {
-						$data = $this->FreePBX->LoadConfig->getConfig($vm.".txt", $vfolder, 'message');
+						try {
+							$data = $this->FreePBX->LoadConfig->getConfig($vm.".txt", $vfolder, 'message');
+						} catch (\Exception $e) {
+							dbug(sprintf(_('Error Processing %s. Reason: %s'),$vm.'.txt', $e->getMessage()));
+							continue;
+						}
 						$key = !empty($data['msg_id']) ? $data['msg_id'] : basename($folder)."_".$vm;
 						if(isset($out['messages'][$key])) {
 							$key = $key."_".basename($folder)."_".$vm;
@@ -2202,13 +2207,13 @@ class Voicemail implements \BMO {
 						"options" => array("1","9999"),
 						"default" => '10',
 						"description" => _("Max Message Silence (Milliseconds)"),
-						"helptext" => _("How many milliseconds of silence before we end the recording (in milliseconds).")." [maxsilence]"
+						"helptext" => _("How many milliseconds of silence before we end the recording (in milliseconds).")."  <a href='https://issues.freepbx.org/browse/FREEPBX-10998' target='_blank'>"._("Why is this in milliseconds?")."</a> [maxsilence]"
 					),
 					"silencethreshold" => array(
 						"level" => array("general"),
 						"type" => "number",
 						"options" => array("0","9999"),
-						"default" => '',
+						"default" => '128',
 						"description" => _("Silence Threshold"),
 						"helptext" => _("Silence threshold (what we consider silence: the lower, the more sensitive)")." [silencethreshold]"
 					),
