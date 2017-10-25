@@ -18,6 +18,8 @@ global $astman;
 global $amp_conf;
 global $db;
 
+exec("sed -i -e 's/externnotify=.*/externnotify=\/usr\/sbin\/fwconsole voicemail/g' ".$amp_conf['ASTETCDIR']."/voicemail.conf");
+
 $fcc = new featurecode('voicemail', 'myvoicemail');
 $fcc->setDescription('My Voicemail');
 $fcc->setHelpText('The Feature Code used to direct dial a users voicemail from their own extension');
