@@ -10,34 +10,36 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-13 21:00-0400\n"
-"PO-Revision-Date: 2017-10-13 02:16+0200\n"
-"Last-Translator: hammer125 <auswertung@aon.at>\n"
-"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/voicemail/"
-"de_DE/>\n"
+"PO-Revision-Date: 2017-12-15 12:59+0200\n"
+"Last-Translator: tranlsated <noemi@translated.net>\n"
+"Language-Team: German "
+"<http://weblate.freepbx.org/projects/freepbx/voicemail/de_DE/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
 #: Voicemail.class.php:1995
 msgid " Don't leave single period on end of line by itself."
-msgstr ""
+msgstr " Keinen einzelnen Punkt am Ende einer Zeil alleine stehen lassen."
 
 #: functions.inc.php:338
 msgid ""
 " Set this password to same as extension number to force the user to setup "
 "their mailbox on first access."
 msgstr ""
+" Dieses Passwort auf das gleiche einstellen wie die Erweiterungsnummer, um "
+"den Benutzer zu zwingen, seinen Postgang beim ersten Zugang zu konfigurieren."
 
 #: views/tz.php:204
 msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
-msgstr ""
+msgstr "\"\" (für heute), \"gestern\", Wochentag, oder ABdY"
 
 #: views/tz.php:196
 msgid "\"today\", \"yesterday\" or ABdY"
-msgstr ""
+msgstr "\"heute\", \"gestern\" oder ABdY"
 
 #: page.voicemail.php:443
 #, php-format
@@ -77,17 +79,17 @@ msgstr "%s angepasst von %s auf %s"
 #: install.php:85
 #, php-format
 msgid "%s adjusted from bad value %s to default no gain"
-msgstr ""
+msgstr "%s berichtigt von falschem Wert %s auf Standard ohne Zuwachs"
 
 #: install.php:76
 #, php-format
 msgid "%s changed from %s to max value 15"
-msgstr ""
+msgstr "%s geändert von %s auf maximalen Wert 15"
 
 #: install.php:95
 #, php-format
 msgid "%s migrated"
-msgstr ""
+msgstr "%s migriert"
 
 #: install.php:72
 #, php-format
@@ -118,6 +120,9 @@ msgid ""
 "(yes/no) If imapgreetings=yes, then specify which folder to store your "
 "greetings in. If you do not specify a folder, then INBOX will be used."
 msgstr ""
+"(ja/nein) Wenn imapgreetings=ja, dann geben Sie an, in welchem Ordner Sie "
+"Ihre Begrüßungen speicher möchten. Wenn Sie keinen Ordner auswählen, wird "
+"der POSTEINGANG verwendet."
 
 #: page.voicemail.php:437
 msgid "0 Sec"
@@ -159,15 +164,15 @@ msgstr ""
 
 #: views/tz.php:105
 msgid "A variable to be substituted (see below for supported variable values)"
-msgstr ""
+msgstr "Eine zu ersetzende Variable (unterstützte Variablenwerte siehe unten)"
 
 #: Voicemail.class.php:1973
 msgid "ADSI Security Lock Code"
-msgstr ""
+msgstr "ADSI-Sicherheitssperrcode"
 
 #: Voicemail.class.php:1966
 msgid "ADSI feature descriptor"
-msgstr ""
+msgstr "ADSI-Funktionsbeschreibung"
 
 #: views/tz.php:188
 msgid "AM or PM"
