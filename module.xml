@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.54.12</version>
+	<version>13.0.54.13</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.54.13* FREEPBX-16291 Bulk Handler missing fields 
 		*13.0.54.12* FREEPBX-14676 Voicemail Greetings Fail On Upload
 		*13.0.54.11* FREEPBX-12579 Remove duplicate call
 		*13.0.54.10* FREEPBX-12579 UCP Whoops! error when voicemail msgxxx.txt file has malformed callerid line
