@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-13 21:00-0400\n"
-"PO-Revision-Date: 2017-12-15 20:17+0200\n"
-"Last-Translator: tranlsated <noemi@translated.net>\n"
+"PO-Revision-Date: 2017-12-18 17:27+0200\n"
+"Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/voicemail/de_DE/>\n"
 "Language: de_DE\n"
@@ -2581,8 +2581,8 @@ msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
-"Dies sind die zugeordneten und aktiven Erweiterungen, die für diesen "
-"Benutzer zur Steuerung und Bearbeitung in UCP angezeigt werden"
+"Dies sind die zugeordneten und aktiven Erweiterungen, die diesem Benutzer "
+"zur Steuerung und Bearbeitung in UCP angezeigt werden"
 
 #: Voicemail.class.php:1980
 msgid "These settings apply to Voicemail Email Configuration"
@@ -2862,7 +2862,7 @@ msgstr ""
 
 #: Voicemail.class.php:730
 msgid "User Primary Extension"
-msgstr "Primärerweiterung des Nutzers"
+msgstr "Primäre Benutzernebenstelle"
 
 #: page.voicemail.php:282
 msgid ""
@@ -2909,18 +2909,16 @@ msgstr "VmX Locator"
 #: Voicemail.class.php:743 functions.inc.php:510 install.php:8
 #: ucp/Voicemail.class.php:525 views/header.php:2 voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
-#, fuzzy
 msgid "Voicemail"
-msgstr "Voicemail"
+msgstr "Anrufbeantworter"
 
 #: install.php:11 voicemail.i18n.php:10
-#, fuzzy
 msgid "Voicemail Admin"
-msgstr "Voicemail Admin"
+msgstr "Anrufbeantworter Admin"
 
 #: install.php:191
 msgid "Voicemail Admin being removed and merged with Voicemail"
-msgstr "Voicemail Admin wird entfernt und mit Voicemail zusammengefügt"
+msgstr "Anrufbeantworter Admin wird entfernt und mit Voicemail zusammengefügt"
 
 #: functions.inc.php:973
 msgid "Voicemail Administration"
@@ -3114,11 +3112,10 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
-"Die Wiedergabe wird in diesem Browser nicht unterstützt. Um HTML5 Browser-"
-"Wiedergabe vollständig nutzen zu können, müssen Sie Programme installieren, "
-"die nicht mit PBX verteilt werden können. Wenn Sie die für diese "
-"Konversionen erforderlichen Binärdateien installieren möchten, klicken Sie <"
-"a href='%s'>hier</a>"
+"Ihr Browser unterstützt keine HTML5 Wiedergabe. Für volle HTML5 Audio "
+"Wiedergabenunterstützung benötigen Sie zusätzliche Programme, welche "
+"zusammen mit der PBX nicht zur Verfügung gestellt werden können. Möchten Sie "
+"die benötigten binaries installieren - klicken Sie <a href='%s'>hier</a>"
 
 #: ucp/assets/js/global.js:482
 msgid "You have No Drag/Drop Support!"
