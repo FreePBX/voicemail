@@ -9,6 +9,82 @@ class Vmx {
 		$this->FreePBX = $freepbx;
 		$this->astman = $this->FreePBX->astman;
 	}
+	/*
+	 * This is for Bulkhandler Header
+	 * this this called from bulkhandlerGetHeaders
+	 * */
+	public function GetHeaders() {
+		$headers = array(
+				'vmx_unavail_enabled' => array(
+				'description' => _('VMX Use when Unavailable "enabled" and for disable use:blocked '),
+				),
+				'vmx_busy_enabled' => array(
+					'description' => _('VMX Use when busy:"enabled" AND  for disable this use blocked '),
+				),
+				'vmx_temp_enabled' => array(
+					'description' => _('VMX Use when busy:"enabled" AND  for disable this use blocked '),
+				),
+				'vmx_play_instructions' => array(
+					'description' => _('VMX play_instructions, Use yes: no'),
+				),
+				'vmx_option_0_number' => array(
+					'description' => _('Leave blank for go to operator'),
+				),
+				'vmx_option_1_number' => array(
+					'description' => _('To send to followme use "FMextension"'),
+				),'vmx_option_2_number' => array(
+					'description' => _('Destination number'),
+				),
+			);
+			return $headers;
+	}
+
+	/*
+	 * This is for Bulkhandler Voicemial export
+	 * this this called from bulkhandlerExport
+	 * */
+	public function vmxexport($ext) {
+		$vmxdata = array();
+		$vmxdata['vmx_unavail_enabled'] = $this -> getState($ext,'unavail');
+		$vmxdata['vmx_busy_enabled'] = $this -> getState($ext,'busy');
+		$vmxdata['vmx_temp_enabled'] = $this -> getState($ext,'temp');
+		$vmxdata['vmx_play_instructions'] = $this -> getVmPlay($ext);
+		$vmxdata['vmx_option_0_number'] = $this -> getMenuOpt($ext,0);
+		$vmxdata['vmx_option_1_number'] = $this -> getMenuOpt($ext,1);
+		$vmxdata['vmx_option_2_number'] = $this -> getMenuOpt($ext,2);
+	return $vmxdata;
+	}
+	/*This is for Bulkhandler Voicemial Import
+	 * This is caller from bulkhandlerImport
+	 * */
+	public function vmximport($data) {
+		$ext = $data['extension'];
+		$this -> setState($ext,'unavail',$data['vmx_unavail_enabled']);
+		$this -> setState($ext,'busy',$data['vmx_busy_enabled']);
+		$this -> setState($ext,'temp',$data['vmx_temp_enabled']);
+		if ($data['vmx_play_instructions'] == 1) {
+			$this -> setVmPlay($ext,'unavail',true);
+			$this -> setVmPlay($ext,'busy',true);
+			$this -> setVmPlay($ext,'temp',true);
+		} else {
+			$this -> setVmPlay($ext,'unavail',false);
+			$this -> setVmPlay($ext,'busy',false);
+			$this -> setVmPlay($ext,'temp',false);
+		}
+
+		$this -> setMenuOpt($ext,$data['vmx_option_0_number'],0,'unavail');
+		$this -> setMenuOpt($ext,$data['vmx_option_0_number'],0,'busy');
+		$this -> setMenuOpt($ext,$data['vmx_option_0_number'],0,'temp');
+
+		$this -> setMenuOpt($ext,$data['vmx_option_1_number'],1,'unavail');
+		$this -> setMenuOpt($ext,$data['vmx_option_1_number'],1,'busy');
+		$this -> setMenuOpt($ext,$data['vmx_option_1_number'],1,'temp');
+
+		$this -> setMenuOpt($ext,$data['vmx_option_2_number'],2,'unavail');
+		$this -> setMenuOpt($ext,$data['vmx_option_2_number'],2,'busy');
+		$this -> setMenuOpt($ext,$data['vmx_option_2_number'],2,'temp');
+	return ;
+	}
 
 	/**
 	 * Get all VmX Settings from Extension
