@@ -1561,6 +1561,9 @@ class Voicemail implements \BMO {
 				'voicemail_options' => array(
 					'description' => _('Voicemail Options is a pipe-delimited list of options.  Example: attach=no|delete=no'),
 				),
+				'voicemail_same_exten' => array(
+				    'description' => _('Require From Same Extension[Blank/no to disable,yes for enable]'),
+			     ),
 			);
 			//FREEPBX-16291 Adding VMX header for this particular extension
 		if(is_object($this->Vmx)){
@@ -1600,6 +1603,14 @@ class Voicemail implements \BMO {
 					$sth->execute(array($extension));
 					$this->astman->database_put("AMPUSER",$extension."/voicemail",'default');
 					$this->setupMailboxSymlinks($extension);
+					//FREEPBX-12826 voicemail_same_exten
+					if ($data['voicemail_same_exten'] == 'yes') {
+							//NO need for an entry in the asterdb {no entry in the db is the same as yes, meaning we need a voicemail password}
+					} else {
+						if($this->astman->connected()) {
+	                            $this->astman->database_put("AMPUSER", $extension."/novmpw" , 'yes');
+	                        }
+					}
 					$mailbox = $this->getMailbox($extension, false);
 					//FREEPBX-16291 importing VMX data
 					$this->Vmx->vmximport($data);
@@ -1663,6 +1674,15 @@ class Voicemail implements \BMO {
 						}
 						$pmailbox['voicemail_' . $settingname] = $value;
 					}
+				 //FREEPBX-12826 voicemail_same_exten
+				if($this->astman->connected()) {
+					$voicemail_same_exten = $this->astman->database_get("AMPUSER", $extension."/novmpw");
+					if($voicemail_same_exten == 'yes') {// on GUI value= no
+						$pmailbox['voicemail_same_exten'] = 'yes';
+					} else {// on Gui value =yes :there won't be an entry in the asteriskDB
+						$pmailbox['voicemail_same_exten'] = 'no';
+					}
+				}
 				// FREEPBX-16291 get the VMX data
 				if(is_object($this->Vmx)){
 					$vmxdata = $this->Vmx->vmxexport($extension);
