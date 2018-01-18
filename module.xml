@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.3</version>
+	<version>15.0.4</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.4* FREEPBX-12826 Bulk Handler Require Voicemail Password From Same Extension 
 		*15.0.3* FREEPBX-12826 Bulk Handler Require Voicemail Password From Same Extension 
 		*15.0.2* FREEPBX-16224 cannot select YES for delete of abandoned greetings 
 		*15.0.1* FREEPBX-15984 Set extern notify to fwconsole
