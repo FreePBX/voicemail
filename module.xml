@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.54.15</version>
+	<version>13.0.54.16</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.54.16* FREEPBX-12826 Bulk Handler Require Voicemail Password From Same Extension 
 		*13.0.54.15* FREEPBX-12826 Bulk Handler Require Voicemail Password From Same Extension 
 		*13.0.54.14* FREEPBX-16224 cannot select YES for delete of abandoned greetings 
 		*13.0.54.13* FREEPBX-16291 Bulk Handler missing fields 
