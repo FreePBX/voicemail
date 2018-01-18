@@ -1678,9 +1678,9 @@ class Voicemail implements \BMO {
 				if($this->astman->connected()) {
 					$voicemail_same_exten = $this->astman->database_get("AMPUSER", $extension."/novmpw");
 					if($voicemail_same_exten == 'yes') {// on GUI value= no
-						$pmailbox['voicemail_same_exten'] = 'yes';
-					} else {// on Gui value =yes :there won't be an entry in the asteriskDB
 						$pmailbox['voicemail_same_exten'] = 'no';
+					} else {// on Gui value =yes :there won't be an entry in the asteriskDB
+						$pmailbox['voicemail_same_exten'] = 'yes';
 					}
 				}
 				// FREEPBX-16291 get the VMX data
