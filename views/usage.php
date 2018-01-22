@@ -189,7 +189,7 @@
 									<span class="radioset">
 									<b><?php echo _("Delete:")?>&nbsp;</b>
 									<input type="radio" name="del_abandoned" id="del_abandonedyes" value="true">
-									<label for="del_abandondyes"><?php echo _("Yes");?></label>
+									<label for="del_abandonedyes"><?php echo _("Yes");?></label>
 									<input type="radio" name="del_abandoned" id="del_abandonedno" value="" CHECKED>
 									<label for="del_abandonedno"><?php echo _("No");?></label>
 									</span>
