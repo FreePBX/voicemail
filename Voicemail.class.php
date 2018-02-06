@@ -2155,7 +2155,7 @@ class Voicemail implements \BMO {
 						"options" => array("0","9999"),
 						"default" => '300',
 						"description" => _("Max Message Length (Seconds)"),
-						"helptext" => _("Minimum length of a voicemail message in seconds for the message to be kept. The default is 300 (in seconds).")." [maxsecs]"
+						"helptext" => _("Maximum length of a voicemail message in seconds for the message to be kept. The default is 300 (in seconds).")." [maxsecs]"
 					),
 					"maxsilence" => array(
 						"level" => array("general"),
