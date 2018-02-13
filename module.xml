@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>14.0.1.18</version>
+	<version>14.0.1.19</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*14.0.1.19* FREEPBX-16452
 		*14.0.1.18* FREEPBX-13545
 		*14.0.1.17* FREEPBX-14302 jPlayer takes control of all input in UCP 14
 		*14.0.1.16* FREEPBX-12826 Bulk Handler Require Voicemail Password From Same Extension
