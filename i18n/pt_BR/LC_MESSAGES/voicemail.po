@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePbx 2.5.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-17 12:23-0500\n"
+"POT-Creation-Date: 2018-02-12 19:55-0500\n"
 "PO-Revision-Date: 2017-03-08 20:59+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -1483,6 +1483,12 @@ msgstr ""
 msgid "Max message time length."
 msgstr ""
 
+#: Voicemail.class.php:2156
+msgid ""
+"Maximum length of a voicemail message in seconds for the message to be kept. "
+"The default is 300 (in seconds)."
+msgstr ""
+
 #: page.voicemail.php:255 page.voicemail.php:306
 msgid ""
 "Maximum number of messages per folder.  If not specified, a default value "
@@ -1525,12 +1531,6 @@ msgstr ""
 msgid ""
 "Minimum length of a voicemail message in seconds for the message to be kept. "
 "(in seconds)."
-msgstr ""
-
-#: Voicemail.class.php:2156
-msgid ""
-"Minimum length of a voicemail message in seconds for the message to be kept. "
-"The default is 300 (in seconds)."
 msgstr ""
 
 #: views/tz.php:180

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-17 12:23-0500\n"
+"POT-Creation-Date: 2018-02-12 19:55-0500\n"
 "PO-Revision-Date: 2017-08-03 10:52+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -1568,6 +1568,12 @@ msgstr "Độ dài lời chào tin nhắn tối đa. ( tính bằng giây)"
 msgid "Max message time length."
 msgstr "Độ dài thời gian tin nhắn tối đa."
 
+#: Voicemail.class.php:2156
+msgid ""
+"Maximum length of a voicemail message in seconds for the message to be kept. "
+"The default is 300 (in seconds)."
+msgstr ""
+
 #: page.voicemail.php:255 page.voicemail.php:306
 msgid ""
 "Maximum number of messages per folder.  If not specified, a default value "
@@ -1620,14 +1626,6 @@ msgid ""
 msgstr ""
 "Độ dài tối thiếu của tin nhắn thư thoại tính bằng giây đối với các tin nhắn "
 "được lưu giữ ( tính bằng giây)."
-
-#: Voicemail.class.php:2156
-msgid ""
-"Minimum length of a voicemail message in seconds for the message to be kept. "
-"The default is 300 (in seconds)."
-msgstr ""
-"Độ dài tối thiểu của tin nhắn thư thoại tính bằng giây đối với tin nhắn được "
-"lưu giữ. Mặc định là 300 ( giây)."
 
 #: views/tz.php:180
 msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
@@ -3107,6 +3105,13 @@ msgstr "biến"
 #: page.voicemail.php:568
 msgid "yes"
 msgstr "Có"
+
+#~ msgid ""
+#~ "Minimum length of a voicemail message in seconds for the message to be "
+#~ "kept. The default is 300 (in seconds)."
+#~ msgstr ""
+#~ "Độ dài tối thiểu của tin nhắn thư thoại tính bằng giây đối với tin nhắn "
+#~ "được lưu giữ. Mặc định là 300 ( giây)."
 
 #~ msgid "%s seconds"
 #~ msgstr "%s giây"
