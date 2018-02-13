@@ -387,7 +387,6 @@ class Voicemail extends Modules{
 				if(!$this->_checkVmX($_POST['ext'])) {
 					return false;
 				}
-				dbug($_POST);
 				switch($_POST['settings']['key']) {
 					case 'vmx-state':
 						$m = ($_POST['settings']['value'] == 'true') ? 'enabled' : 'disabled';
