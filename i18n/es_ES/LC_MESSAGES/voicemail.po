@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 19:57-0500\n"
+"POT-Creation-Date: 2018-02-13 14:25-0500\n"
 "PO-Revision-Date: 2016-12-12 04:58+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -564,8 +564,8 @@ msgstr ""
 "predeterminado que dice \"luego presione numeral\""
 
 #: ucp/views/widget.php:60
-msgid "Date"
-msgstr "Fecha"
+msgid "Date/Time"
+msgstr ""
 
 #: views/tz.php:118
 msgid "Day of week (Saturday, Sunday, ...)"
@@ -3140,6 +3140,9 @@ msgstr "Variable"
 #: page.voicemail.php:568
 msgid "yes"
 msgstr "si"
+
+#~ msgid "Date"
+#~ msgstr "Fecha"
 
 #~ msgid ""
 #~ "Minimum length of a voicemail message in seconds for the message to be "

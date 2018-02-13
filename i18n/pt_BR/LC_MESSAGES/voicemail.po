@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePbx 2.5.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 19:57-0500\n"
+"POT-Creation-Date: 2018-02-13 14:25-0500\n"
 "PO-Revision-Date: 2015-12-22 03:36+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -549,8 +549,8 @@ msgid ""
 msgstr ""
 
 #: ucp/views/widget.php:60
-msgid "Date"
-msgstr "Data"
+msgid "Date/Time"
+msgstr ""
 
 #: views/tz.php:118
 msgid "Day of week (Saturday, Sunday, ...)"
@@ -2862,6 +2862,9 @@ msgstr ""
 #: page.voicemail.php:568
 msgid "yes"
 msgstr "sim"
+
+#~ msgid "Date"
+#~ msgstr "Data"
 
 #~ msgid "Copying..."
 #~ msgstr "Copiando..."

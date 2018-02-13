@@ -481,7 +481,7 @@ msgid ""
 msgstr ""
 
 #: ucp/views/widget.php:60
-msgid "Date"
+msgid "Date/Time"
 msgstr ""
 
 #: views/tz.php:118

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 19:57-0500\n"
+"POT-Creation-Date: 2018-02-13 14:25-0500\n"
 "PO-Revision-Date: 2015-02-05 21:26+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -505,7 +505,7 @@ msgid ""
 msgstr ""
 
 #: ucp/views/widget.php:60
-msgid "Date"
+msgid "Date/Time"
 msgstr ""
 
 #: views/tz.php:118

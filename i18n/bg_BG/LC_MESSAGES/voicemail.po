@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 19:57-0500\n"
+"POT-Creation-Date: 2018-02-13 14:25-0500\n"
 "PO-Revision-Date: 2014-07-22 14:35+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/voicemail/"
@@ -505,8 +505,8 @@ msgid ""
 msgstr ""
 
 #: ucp/views/widget.php:60
-msgid "Date"
-msgstr "Дата"
+msgid "Date/Time"
+msgstr ""
 
 #: views/tz.php:118
 msgid "Day of week (Saturday, Sunday, ...)"
@@ -2753,6 +2753,9 @@ msgstr ""
 #: page.voicemail.php:568
 msgid "yes"
 msgstr ""
+
+#~ msgid "Date"
+#~ msgstr "Дата"
 
 #~ msgid "VmX Locator"
 #~ msgstr "VmX Локатор"
