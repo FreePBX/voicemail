@@ -1354,6 +1354,12 @@ msgstr ""
 msgid "Max message time length."
 msgstr ""
 
+#: Voicemail.class.php:2158
+msgid ""
+"Maximum length of a voicemail message in seconds for the message to be kept. "
+"The default is 300 (in seconds)."
+msgstr ""
+
 #: page.voicemail.php:255 page.voicemail.php:306
 msgid ""
 "Maximum number of messages per folder.  If not specified, a default value "
@@ -1396,12 +1402,6 @@ msgstr ""
 msgid ""
 "Minimum length of a voicemail message in seconds for the message to be kept. "
 "(in seconds)."
-msgstr ""
-
-#: Voicemail.class.php:2158
-msgid ""
-"Minimum length of a voicemail message in seconds for the message to be kept. "
-"The default is 300 (in seconds)."
 msgstr ""
 
 #: views/tz.php:180

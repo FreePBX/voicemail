@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-17 12:23-0500\n"
+"POT-Creation-Date: 2018-02-12 19:57-0500\n"
 "PO-Revision-Date: 2016-12-12 04:58+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -1581,6 +1581,12 @@ msgstr "Longitud máxima de saludo del mensaje. (en segundos)"
 msgid "Max message time length."
 msgstr "Max tiempo duración mensaje."
 
+#: Voicemail.class.php:2158
+msgid ""
+"Maximum length of a voicemail message in seconds for the message to be kept. "
+"The default is 300 (in seconds)."
+msgstr ""
+
 #: page.voicemail.php:255 page.voicemail.php:306
 msgid ""
 "Maximum number of messages per folder.  If not specified, a default value "
@@ -1632,14 +1638,6 @@ msgid ""
 msgstr ""
 "Longitud mínima de un mensaje de correo de voz en segundos para que el "
 "mensaje se mantenga. (en segundos)."
-
-#: Voicemail.class.php:2158
-msgid ""
-"Minimum length of a voicemail message in seconds for the message to be kept. "
-"The default is 300 (in seconds)."
-msgstr ""
-"Longitud mínima de un mensaje de correo de voz en segundos para que el "
-"mensaje se mantenga. El valor predeterminado es 300 (en segundos)."
 
 #: views/tz.php:180
 msgid "Minute, with 00 pronounced as \"hundred\" (US military time)"
@@ -3142,6 +3140,13 @@ msgstr "Variable"
 #: page.voicemail.php:568
 msgid "yes"
 msgstr "si"
+
+#~ msgid ""
+#~ "Minimum length of a voicemail message in seconds for the message to be "
+#~ "kept. The default is 300 (in seconds)."
+#~ msgstr ""
+#~ "Longitud mínima de un mensaje de correo de voz en segundos para que el "
+#~ "mensaje se mantenga. El valor predeterminado es 300 (en segundos)."
 
 #~ msgid "Copying..."
 #~ msgstr "Copiando..."
