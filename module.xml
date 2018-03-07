@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.54.17</version>
+	<version>13.0.54.18</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.54.18* FREEPBX-15679 Bulk Handler isn't handling VM settings correctly. 
 		*13.0.54.17* FREEPBX-13545
 		*13.0.54.16* FREEPBX-12826 Bulk Handler Require Voicemail Password From Same Extension 
 		*13.0.54.15* FREEPBX-12826 Bulk Handler Require Voicemail Password From Same Extension 
