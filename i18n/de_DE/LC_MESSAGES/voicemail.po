@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-07 15:38-0500\n"
+"POT-Creation-Date: 2018-03-14 13:54-0400\n"
 "PO-Revision-Date: 2018-02-16 16:12+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Voicemail.class.php:2041
+#: Voicemail.class.php:2049
 msgid " Don't leave single period on end of line by itself."
 msgstr " Keinen einzelnen Punkt am Ende einer Zeile alleine stehen lassen."
 
@@ -161,11 +161,11 @@ msgstr ""
 msgid "A variable to be substituted (see below for supported variable values)"
 msgstr "Eine zu ersetzende Variable (unterstützte Variablenwerte siehe unten)"
 
-#: Voicemail.class.php:2019
+#: Voicemail.class.php:2027
 msgid "ADSI Security Lock Code"
 msgstr "ADSI-Sicherheitssperrcode"
 
-#: Voicemail.class.php:2012
+#: Voicemail.class.php:2020
 msgid "ADSI feature descriptor"
 msgstr "ADSI-Funktionsbeschreibung"
 
@@ -306,7 +306,7 @@ msgstr ""
 msgid "Asterisk language code"
 msgstr "Asterisk Sprachcode"
 
-#: Voicemail.class.php:2106
+#: Voicemail.class.php:2114
 msgid "Attach Voicemail"
 msgstr "Sprachmitteilung hinzufügen"
 
@@ -769,23 +769,23 @@ msgstr "E-Mail-Adresse"
 msgid "Email Attachment"
 msgstr "E-Mail-Anhang"
 
-#: Voicemail.class.php:2040
+#: Voicemail.class.php:2048
 msgid "Email Body"
 msgstr "E-Mail-Körper"
 
-#: Voicemail.class.php:2025
+#: Voicemail.class.php:2033
 msgid "Email Config"
 msgstr "E-Mail-Konfig"
 
-#: Voicemail.class.php:2054
+#: Voicemail.class.php:2062
 msgid "Email Date Format"
 msgstr "E-Mail-Datumsformat"
 
-#: Voicemail.class.php:2047
+#: Voicemail.class.php:2055
 msgid "Email From String"
 msgstr "E-Mail von String"
 
-#: Voicemail.class.php:2032
+#: Voicemail.class.php:2040
 msgid "Email Subject"
 msgstr "E-Mail-Betreff"
 
@@ -1156,7 +1156,7 @@ msgstr "Voicemail weiterleiten"
 msgid "Friends"
 msgstr "Freunde"
 
-#: Voicemail.class.php:2048 Voicemail.class.php:2077 page.voicemail.php:233
+#: Voicemail.class.php:2056 Voicemail.class.php:2085 page.voicemail.php:233
 msgid "From: string for email"
 msgstr "Von: String für E-Mail"
 
@@ -1506,11 +1506,11 @@ msgstr "Ungültiger Empfänger"
 msgid "KB"
 msgstr "KB"
 
-#: Voicemail.class.php:2113
+#: Voicemail.class.php:2121
 msgid "Language"
 msgstr "Sprache"
 
-#: Voicemail.class.php:2114
+#: Voicemail.class.php:2122
 msgid "Language code for voicemail"
 msgstr "Sprachcode für Voicemail"
 
@@ -1741,7 +1741,7 @@ msgstr "Neues Passwort"
 msgid "New Timezone Definition"
 msgstr "Neue Zeitzonendefinition"
 
-#: Voicemail.class.php:2121
+#: Voicemail.class.php:2006
 msgid "Next after command"
 msgstr "Als nächstes nach Befehl"
 
@@ -1750,8 +1750,8 @@ msgstr "Als nächstes nach Befehl"
 #: Voicemail.class.php:1924 Voicemail.class.php:1932 Voicemail.class.php:1940
 #: Voicemail.class.php:1948 Voicemail.class.php:1956 Voicemail.class.php:1964
 #: Voicemail.class.php:1972 Voicemail.class.php:1980 Voicemail.class.php:1988
-#: Voicemail.class.php:1996 Voicemail.class.php:2096 Voicemail.class.php:2104
-#: Voicemail.class.php:2119 Voicemail.class.php:2314 functions.inc.php:406
+#: Voicemail.class.php:1996 Voicemail.class.php:2004 Voicemail.class.php:2104
+#: Voicemail.class.php:2112 Voicemail.class.php:2314 functions.inc.php:406
 #: functions.inc.php:410 functions.inc.php:414 page.voicemail.php:570
 #: views/dialplan.php:19 views/dialplan.php:220 views/dialplan.php:247
 #: views/quickCreate.php:17 views/ucp_config.php:14 views/ucp_config.php:69
@@ -1878,7 +1878,7 @@ msgstr ""
 "Voicemail auf 0 zu drücken, um einen Bediener zu erreichen [standardmäßig "
 "EIN]"
 
-#: Voicemail.class.php:2107 functions.inc.php:629 page.voicemail.php:211
+#: Voicemail.class.php:2115 functions.inc.php:629 page.voicemail.php:211
 #: page.voicemail.php:291
 msgid "Option to attach Voicemails to email."
 msgstr "Option zum Anhängen von Sprachnachrichten an E-Mails."
@@ -1894,11 +1894,11 @@ msgstr ""
 "ist, wird die OpenSSL-Verschlüsselung aktiviert, unter der Annahme, dass die "
 "IMAP-Bibliotheken mit OpenSSL Support erstellt wurden."
 
-#: Voicemail.class.php:2069
+#: Voicemail.class.php:2077
 msgid "Pager Body"
 msgstr "Pager-Körper"
 
-#: Voicemail.class.php:2083
+#: Voicemail.class.php:2091
 msgid "Pager Date Format"
 msgstr "Pager-Datumsformat"
 
@@ -1907,11 +1907,11 @@ msgstr "Pager-Datumsformat"
 msgid "Pager Email Address"
 msgstr "Pager-E-Mail-Adresse"
 
-#: Voicemail.class.php:2076
+#: Voicemail.class.php:2084
 msgid "Pager From String"
 msgstr "Pager von String"
 
-#: Voicemail.class.php:2061
+#: Voicemail.class.php:2069
 msgid "Pager Subject"
 msgstr "Pager-Betreff"
 
@@ -2161,7 +2161,7 @@ msgstr "Reverse Keys"
 msgid "Review Message"
 msgstr "Nachricht überprüfen"
 
-#: Voicemail.class.php:2005
+#: Voicemail.class.php:2013
 msgid "SMDI Port"
 msgstr "SMDI-Port"
 
@@ -2210,11 +2210,11 @@ msgstr "An Follow-Me senden"
 msgid "Separate options with pipe ( | )%sie: review=yes|maxmessage=60"
 msgstr "Einzelne Optionen mit Leitung ( | )%sie: review=yes|maxmessage=60"
 
-#: Voicemail.class.php:2090
+#: Voicemail.class.php:2098
 msgid "Server Email"
 msgstr "Server E-Mail"
 
-#: Voicemail.class.php:2055
+#: Voicemail.class.php:2063
 msgid ""
 "Set the date format on outgoing mails. Valid arguments can be found on the "
 "strftime(3) man page"
@@ -2222,7 +2222,7 @@ msgstr ""
 "Datumsformat für ausgehende E-Mails festlegen. Gültige Argumente finden Sie "
 "auf der Hautpseite von strftime(3)"
 
-#: Voicemail.class.php:2084
+#: Voicemail.class.php:2092
 msgid ""
 "Set the date format on outgoing pager mails. Valid arguments can be found on "
 "the strftime(3) man page"
@@ -2236,7 +2236,7 @@ msgstr ""
 "Übergeordneten Ordner festlegen (Standardmäßig ist kein übergeordneter "
 "Ordner festgelegt)."
 
-#: Voicemail.class.php:2006
+#: Voicemail.class.php:2014
 msgid "Set to a valid port as specified in smdi.conf"
 msgstr "Einen gültigen Port festlegen, wie in smdi.conf angegeben"
 
@@ -2271,11 +2271,11 @@ msgstr ""
 msgid "Skip Milliseconds"
 msgstr "Millisekunden überspringen"
 
-#: Voicemail.class.php:2098
+#: Voicemail.class.php:2106
 msgid "Skip PBX String"
 msgstr "PBX String überspringen"
 
-#: Voicemail.class.php:2099 page.voicemail.php:266
+#: Voicemail.class.php:2107 page.voicemail.php:266
 msgid "Skip the \"[PBX]:\" string from the message title"
 msgstr "\"[PBX]:\" String des Nachrichtentitels überspringen"
 
@@ -2283,7 +2283,7 @@ msgstr "\"[PBX]:\" String des Nachrichtentitels überspringen"
 msgid "Skip to the next message after save/delete."
 msgstr "Nach dem Speichern/Löschen zur nächsten Nachrichten weitergehen."
 
-#: Voicemail.class.php:2122
+#: Voicemail.class.php:2007
 msgid ""
 "Skips to the next message after hitting 7 or 9 to delete/save current "
 "message."
@@ -2410,11 +2410,11 @@ msgstr ""
 msgid "The ADSI Voicemail application version number."
 msgstr "Nummer der Version der VADSI Voicemail-Anwendung."
 
-#: Voicemail.class.php:2013 page.voicemail.php:208
+#: Voicemail.class.php:2021 page.voicemail.php:208
 msgid "The ADSI feature descriptor number to download to"
 msgstr "Die Beschreibungsnummer der ADSI-Funktion, die heruntergeladen wird zu"
 
-#: Voicemail.class.php:2020 page.voicemail.php:209
+#: Voicemail.class.php:2028 page.voicemail.php:209
 msgid "The ADSI security lock code"
 msgstr "Der ADSI-Sicherheitssperrcode"
 
@@ -2494,7 +2494,7 @@ msgstr ""
 "Adressen müssen durch Komma und ohne Leerzeichen getrennt werden (z. B.: "
 "first@domain.tld,second@domain.tld,third@domain.tld) "
 
-#: Voicemail.class.php:2041
+#: Voicemail.class.php:2049
 msgid ""
 "The email body. Change the from, body and/or subject, variables: VM_NAME, "
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
@@ -2510,7 +2510,7 @@ msgstr ""
 "Sie können mithilfe der Wählplanfunktionen aus zwei Variablen wählen. z. B. "
 "${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 
-#: Voicemail.class.php:2033
+#: Voicemail.class.php:2041
 msgid "The email subject"
 msgstr "Der E-Mai-Betreff"
 
@@ -2528,7 +2528,7 @@ msgstr ""
 "Der Name einer Tondatei (der Dateiname muss von einem einfachen "
 "Anführungszeichen umschlossen sein)"
 
-#: Voicemail.class.php:2070
+#: Voicemail.class.php:2078
 msgid ""
 "The pager body. Change the from, body and/or subject, variables: VM_NAME, "
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
@@ -2544,7 +2544,7 @@ msgstr ""
 "Sie können mithilfe der Wählplanfunktionen aus zwei Variablen wählen, z. B. "
 "${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 
-#: Voicemail.class.php:2062
+#: Voicemail.class.php:2070
 msgid "The pager subject"
 msgstr "Der Pager-Betreff"
 
@@ -2582,7 +2582,7 @@ msgstr ""
 "Dies sind die zugeordneten und aktiven Erweiterungen, die diesem Benutzer "
 "zur Steuerung und Bearbeitung in UCP angezeigt werden"
 
-#: Voicemail.class.php:2026
+#: Voicemail.class.php:2034
 msgid "These settings apply to Voicemail Email Configuration"
 msgstr "Diese Einstellungen gelten für die Konfiguration der Voicemail-E-Mail"
 
@@ -3074,7 +3074,7 @@ msgstr ""
 "Mailboxen gesendet wird. Dies ist nützlich, wenn Windows-Nutzer wav49 "
 "benötigen, aber Linux-Nutzer gsm."
 
-#: Voicemail.class.php:2091 page.voicemail.php:275 page.voicemail.php:316
+#: Voicemail.class.php:2099 page.voicemail.php:275 page.voicemail.php:316
 msgid "Who the e-mail notification should appear to come from"
 msgstr "Der Absender der E-Mail-Benachrichtigung, der angezeigt werden soll"
 
@@ -3099,8 +3099,8 @@ msgstr "Jahr"
 #: Voicemail.class.php:1924 Voicemail.class.php:1932 Voicemail.class.php:1940
 #: Voicemail.class.php:1948 Voicemail.class.php:1956 Voicemail.class.php:1964
 #: Voicemail.class.php:1972 Voicemail.class.php:1980 Voicemail.class.php:1988
-#: Voicemail.class.php:1996 Voicemail.class.php:2096 Voicemail.class.php:2104
-#: Voicemail.class.php:2119 Voicemail.class.php:2314 functions.inc.php:405
+#: Voicemail.class.php:1996 Voicemail.class.php:2004 Voicemail.class.php:2104
+#: Voicemail.class.php:2112 Voicemail.class.php:2314 functions.inc.php:405
 #: functions.inc.php:409 functions.inc.php:413 views/dialplan.php:17
 #: views/dialplan.php:218 views/dialplan.php:245 views/quickCreate.php:15
 #: views/ucp_config.php:12 views/ucp_config.php:67 views/ucp_config.php:96
