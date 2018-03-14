@@ -1998,6 +1998,14 @@ class Voicemail implements \BMO {
 						"description" => _("Enable SMDI notification"),
 						"helptext" => _("Enable SMDI notification"). " [smdienable]"
 					),
+					"nextaftercmd" => array(
+						"level" => array("general"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Next after command"),
+						"helptext" => _("Skips to the next message after hitting 7 or 9 to delete/save current message.") . " [nextaftercmd]"
+					),
 					"smdiport" => array(
 						"level" => array("general"),
 						"type" => "text",
@@ -2112,14 +2120,6 @@ class Voicemail implements \BMO {
 						"default" => '',
 						"description" => _("Language"),
 						"helptext" => _("Language code for voicemail")." [language]"
-					),
-					"nextaftercmd" => array(
-						"level" => array("general"),
-						"type" => "radio",
-						"options" => array("yes" => _("Yes"), "no" => _("No")),
-						"default" => "yes",
-						"description" => _("Next after command"),
-						"helptext" => _("Skips to the next message after hitting 7 or 9 to delete/save current message.") . " [nextaftercmd]"
 					),
 					"mailcmd" => array(
 						"level" => array("general"),
