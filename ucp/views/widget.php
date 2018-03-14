@@ -57,7 +57,7 @@
 				<thead>
 					<tr class="message-header">
 						<th data-checkbox="true"></th>
-						<th data-field="origtime" data-sortable="true" data-formatter="UCP.Modules.Voicemail.dateFormatter"><?php echo _("Date")?></th>
+						<th data-field="origtime" data-sortable="true" data-formatter="UCP.Modules.Voicemail.dateFormatter"><?php echo _("Date/Time")?></th>
 						<th data-field="callerid" data-sortable="true"><?php echo _("CID")?></th>
 						<?php if($showPlayback) { ?>
 							<th data-field="playback" data-width="40%" data-formatter="UCP.Modules.Voicemail.playbackFormatter"><?php echo _("Playback")?></th>

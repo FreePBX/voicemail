@@ -1638,7 +1638,11 @@ class Voicemail implements \BMO {
 				),
 				'voicemail_same_exten' => array(
 				    'description' => _('Require From Same Extension[Blank/no to disable,yes for enable]'),
+				),
+				 'disable_star_voicemail' => array(
+			         'description' => _('To Disable * in Voicemail Menu use Blank/no  OR yes'),
 			     ),
+
 			);
 			//FREEPBX-16291 Adding VMX header for this particular extension
 		if(is_object($this->Vmx)){
@@ -1678,6 +1682,11 @@ class Voicemail implements \BMO {
 					$sth->execute(array($extension));
 					$this->astman->database_put("AMPUSER",$extension."/voicemail",'default');
 					$this->setupMailboxSymlinks($extension);
+					if ($data['disable_star_voicemail'] == 'yes') {
+						if($this->astman->connected()) {
+							$this->astman->database_put("AMPUSER", $extension."/novmstar" , 'yes');
+						}
+					}//no need for an entry for 'no'
 					//FREEPBX-12826 voicemail_same_exten
 					if ($data['voicemail_same_exten'] == 'yes') {
 							//NO need for an entry in the asterdb {no entry in the db is the same as yes, meaning we need a voicemail password}
@@ -1757,7 +1766,15 @@ class Voicemail implements \BMO {
 					} else {// on Gui value =yes :there won't be an entry in the asteriskDB
 						$pmailbox['voicemail_same_exten'] = 'yes';
 					}
+					//disable * voicemail menu
+					$disable_star_voicemail = $this->astman->database_get("AMPUSER", $extension."/novmstar");
+					if ($disable_star_voicemail == 'yes') {
+						$pmailbox['disable_star_voicemail'] = 'yes';
+					} else {
+						$pmailbox['disable_star_voicemail'] = 'no';
+					}
 				}
+
 				// FREEPBX-16291 get the VMX data
 				if(is_object($this->Vmx)){
 					$vmxdata = $this->Vmx->vmxexport($extension);
@@ -2056,6 +2073,14 @@ class Voicemail implements \BMO {
 						"description" => _("Enable SMDI notification"),
 						"helptext" => _("Enable SMDI notification"). " [smdienable]"
 					),
+					"nextaftercmd" => array(
+						"level" => array("general"),
+						"type" => "radio",
+						"options" => array("yes" => _("Yes"), "no" => _("No")),
+						"default" => "yes",
+						"description" => _("Next after command"),
+						"helptext" => _("Skips to the next message after hitting 7 or 9 to delete/save current message.") . " [nextaftercmd]"
+					),
 					"smdiport" => array(
 						"level" => array("general"),
 						"type" => "text",
@@ -2171,14 +2196,6 @@ class Voicemail implements \BMO {
 						"description" => _("Language"),
 						"helptext" => _("Language code for voicemail")." [language]"
 					),
-					"nextaftercmd" => array(
-						"level" => array("general"),
-						"type" => "radio",
-						"options" => array("yes" => _("Yes"), "no" => _("No")),
-						"default" => "yes",
-						"description" => _("Next after command"),
-						"helptext" => _("Skips to the next message after hitting 7 or 9 to delete/save current message.") . " [nextaftercmd]"
-					),
 					"mailcmd" => array(
 						"level" => array("general"),
 						"type" => "text",
@@ -2228,7 +2245,7 @@ class Voicemail implements \BMO {
 						"options" => array("0","9999"),
 						"default" => '300',
 						"description" => _("Max Message Length (Seconds)"),
-						"helptext" => _("Minimum length of a voicemail message in seconds for the message to be kept. The default is 300 (in seconds).")." [maxsecs]"
+						"helptext" => _("Maximum length of a voicemail message in seconds for the message to be kept. The default is 300 (in seconds).")." [maxsecs]"
 					),
 					"maxsilence" => array(
 						"level" => array("general"),

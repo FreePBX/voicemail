@@ -648,7 +648,7 @@ var VoicemailC = UCPMC.extend({
 		return Math.round(new Date().getTime() / 1000);
 	},
 	dateFormatter: function(value, row, index) {
-		return UCP.dateFormatter(value);
+		return UCP.dateTimeFormatter(value);
 	},
 	listenVoicemail: function(msgid, extension, recpt) {
 		var data = {
@@ -696,7 +696,7 @@ var VoicemailC = UCPMC.extend({
 		'</div>';
 	},
 	durationFormatter: function (value, row, index) {
-		return sprintf(_("%s seconds"),value);
+		return (typeof UCP.durationFormatter === 'function') ? UCP.durationFormatter(value) : sprintf(_("%s seconds"),value);
 	},
 	controlFormatter: function (value, row, index) {
 		var html = '<a class="listen" alt="'+_('Listen on your handset')+'" data-id="'+row.msg_id+'"><i class="fa fa-phone"></i></a>'+
@@ -771,8 +771,6 @@ var VoicemailC = UCPMC.extend({
 				cssSelectorAncestor: container,
 				wmode: "window",
 				useStateClassSkin: true,
-				autoBlur: false,
-				keyEnabled: true,
 				remainingDuration: true,
 				toggleDuration: true
 			});
@@ -894,8 +892,6 @@ var VoicemailC = UCPMC.extend({
 				cssSelectorAncestor: container,
 				wmode: "window",
 				useStateClassSkin: true,
-				autoBlur: false,
-				keyEnabled: true,
 				remainingDuration: true,
 				toggleDuration: true
 			});
