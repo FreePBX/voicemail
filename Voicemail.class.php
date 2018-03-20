@@ -1579,6 +1579,22 @@ class Voicemail implements \BMO {
 			return $headers;
 		}
 	}
+	public function bulkhandlerValidate($type, $rawData) {
+		switch ($type) {
+			 case 'extensions':
+				 foreach ($rawData as $data){
+					  $data['voicemail_enable'] = !empty($data['voicemail_enable']) ? $data['voicemail_enable'] : "";
+					  $vstatus = strtolower($data['voicemail_enable']);
+					  if ($vstatus === "yes") {
+						  if(empty($data['voicemail_vmpwd'])){
+							  return array("status" => false, "message" => _("Voicemail Password is empty."));
+						  }
+					  }
+					  return array("status" => true);
+					  break;
+				 }
+		}
+	}
 
 	public function bulkhandlerImport($type, $rawData) {
 		$ret = NULL;
@@ -1588,14 +1604,19 @@ class Voicemail implements \BMO {
 			foreach ($rawData as $data) {
 				$mailbox = array();
 
+				array_change_key_case($data, CASE_LOWER);
+				$data['voicemail_enable'] = !empty($data['voicemail_enable']) ? $data['voicemail_enable'] : "";
 				$extension = $data['extension'];
 				foreach ($data as $key => $value) {
 					if (substr($key, 0, 10) == 'voicemail_') {
 						$mailbox[substr($key, 10)] = $value;
 					}
 				}
+				$vstatus = strtolower($data['voicemail_enable']);
 
-				if (count($mailbox) > 0 && !empty($mailbox['enable'])) {
+				if (count($mailbox) > 0 && $vstatus === "yes") {
+					$data['voicemail_same_exten'] = !empty($data['voicemail_same_exten']) ? $data['voicemail_same_exten'] : "";
+					$data['disable_star_voicemail'] = !empty($data['disable_star_voicemail']) ? $data['disable_star_voicemail'] : "";
 					$mailbox['vm'] = 'enabled';
 					$mailbox['name'] = $data['name'];
 					unset($mailbox['enable']);

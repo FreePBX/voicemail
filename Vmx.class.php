@@ -58,6 +58,13 @@ class Vmx {
 	 * This is caller from bulkhandlerImport
 	 * */
 	public function vmximport($data) {
+		$data['vmx_unavail_enabled'] = !empty($data['vmx_unavail_enabled']) ? $data['vmx_unavail_enabled'] : "blocked";
+		$data['vmx_busy_enabled'] = !empty($data['vmx_busy_enabled']) ? $data['vmx_busy_enabled'] : "blocked";
+		$data['vmx_temp_enabled'] = !empty($data['vmx_temp_enabled']) ? $data['vmx_temp_enabled'] : "blocked";
+		$data['vmx_play_instructions'] = !empty($data['vmx_play_instructions']) ? $data['vmx_play_instructions'] : "no";
+		$data['vmx_option_0_number'] = !empty($data['vmx_option_0_number']) ? $data['vmx_option_0_number'] : "";
+		$data['vmx_option_1_number'] = !empty($data['vmx_option_1_number']) ? $data['vmx_option_1_number'] : "";
+		$data['vmx_option_2_number'] = !empty($data['vmx_option_2_number']) ? $data['vmx_option_2_number'] : "";
 		$ext = $data['extension'];
 		$this -> setState($ext,'unavail',$data['vmx_unavail_enabled']);
 		$this -> setState($ext,'busy',$data['vmx_busy_enabled']);
