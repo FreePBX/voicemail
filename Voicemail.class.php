@@ -164,10 +164,27 @@ class Voicemail implements \BMO {
 		if(isset($user['voicemail']) && ($user['voicemail'] != "novm")) {
 			$vmcontext = !empty($user['voicemail']) ? $user['voicemail'] : "default";
 
-			//voicemail symlink
+			// Create voicemail symlink
 			$spooldir = $this->FreePBX->Config->get('ASTSPOOLDIR');
-			exec("rm -f ".$spooldir."/voicemail/device/".$mailbox);
-			symlink($spooldir."/voicemail/".$vmcontext."/".$mailbox, $spooldir."/voicemail/device/".$mailbox);
+
+			$src = "$spooldir/voicemail/$vmcontext/$mailbox";
+			$dest = "$spooldir/voicemail/device/$mailbox";
+
+			// Remove anything that was previously there
+			exec("rm -f $dest");
+
+			// Make sure our source parent directory exists - This may be missing if a restore
+			// was partially done. Asterisk may or may not create this on demand.
+			if (!is_dir(dirname($src))) {
+				mkdir(dirname($src), 0775, true);
+			}
+			// Make sure the destination parent exists, too.
+			if (!is_dir(dirname($dest))) {
+				mkdir(dirname($dest), 0775, true);
+			}
+
+			// Now do the symlink
+			symlink($src, $dest);
 		}
 	}
 
