@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>14.0.1.22</version>
+	<version>14.0.1.23</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*14.0.1.23* FREEPBX-17080 - Make voicemail directories if they don't exist
 		*14.0.1.22* FREEPBX-15499 Need to add a checklist for Required fields while uploading bulk handler and do proper error handling. 
 		*14.0.1.21* FREEPBX-16992 Voicemail admin setting "Next after command" in wrong place 
 		*14.0.1.20* FREEPBX-15679 Bulk Handler isn't handling VM settings correctly
