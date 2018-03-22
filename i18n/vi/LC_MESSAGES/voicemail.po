@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-14 13:54-0400\n"
+"POT-Creation-Date: 2018-03-22 18:18-0400\n"
 "PO-Revision-Date: 2017-08-03 10:52+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Voicemail.class.php:2049
+#: Voicemail.class.php:2066
 msgid " Don't leave single period on end of line by itself."
 msgstr " Không để khoảng thời gian đơn vào cuối dòng của chính nó."
 
@@ -162,11 +162,11 @@ msgstr ""
 msgid "A variable to be substituted (see below for supported variable values)"
 msgstr "Một biến được thay thế (xem phần dưới đây để biết về các giá trị biến)"
 
-#: Voicemail.class.php:2027
+#: Voicemail.class.php:2044
 msgid "ADSI Security Lock Code"
 msgstr "Mã khóa an ninh ADSI"
 
-#: Voicemail.class.php:2020
+#: Voicemail.class.php:2037
 msgid "ADSI feature descriptor"
 msgstr "Đặc tả tính năng ADSI"
 
@@ -222,7 +222,7 @@ msgstr ""
 "email. Lưu ý: deletevoicemail  được cung cấp như một tùy chọn tương đương "
 "cho cấu hình Thời gian thực."
 
-#: Voicemail.class.php:1895
+#: Voicemail.class.php:1912
 msgid ""
 "After notification, the voicemail is deleted from the server. [per-mailbox "
 "only] This is intended for use with users who wish to receive their "
@@ -252,7 +252,7 @@ msgstr "Cho phép Phát lại Thư thoại"
 msgid "Allow Voicemail Settings"
 msgstr "Cho phép Cài đặt Thư thoại"
 
-#: Voicemail.class.php:1919
+#: Voicemail.class.php:1936
 msgid ""
 "Allow sender to hit 0 before/after/during leaving a voicemail to reach an "
 "operator"
@@ -260,7 +260,7 @@ msgstr ""
 "Cho phép người gửi nhấn 0 trước/sau/trong khi rời khỏi một thư thoại để tiếp "
 "cận một tổng đài viên"
 
-#: Voicemail.class.php:1927
+#: Voicemail.class.php:1944
 msgid "Allow sender to review/rerecord their message before saving it"
 msgstr "Cho phép người gửi xem/ghi lại tin nhắn của họ trước khi lưu"
 
@@ -272,7 +272,7 @@ msgstr ""
 "Cho phép người gửi xem/ ghi lại tin nhắn của họ trước khi lưu [Mặc định là "
 "OFF]"
 
-#: Voicemail.class.php:1959
+#: Voicemail.class.php:1976
 msgid ""
 "Allow the user to compose and send a voicemail while inside VoiceMailMain() "
 "[option 5 from mailbox's advanced menu]. If set to 'no', option 5 will not "
@@ -305,7 +305,7 @@ msgstr ""
 msgid "Asterisk language code"
 msgstr "Mã ngôn ngữ Asterisk"
 
-#: Voicemail.class.php:2114
+#: Voicemail.class.php:2131
 msgid "Attach Voicemail"
 msgstr "Đính kèm Thư thoại"
 
@@ -350,19 +350,19 @@ msgstr "Các lời chào khi bận"
 msgid "CID"
 msgstr "CID"
 
-#: Voicemail.class.php:2433
+#: Voicemail.class.php:2450
 msgid "CID Internal Context"
 msgstr "Ngữ cảnh nội bộ CID"
 
-#: Voicemail.class.php:1850 page.voicemail.php:321
+#: Voicemail.class.php:1867 page.voicemail.php:321
 msgid "Call me number. Can be used from within ARI."
 msgstr "Gọi số của tôi. Có thể được sử dụng từ ARI."
 
-#: Voicemail.class.php:1849 page.voicemail.php:524
+#: Voicemail.class.php:1866 page.voicemail.php:524
 msgid "Call-Me Number"
 msgstr "Số Call Me"
 
-#: Voicemail.class.php:2426
+#: Voicemail.class.php:2443
 msgid "Callback Context"
 msgstr "Ngữ cảnh gọi lại"
 
@@ -370,7 +370,7 @@ msgstr "Ngữ cảnh gọi lại"
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "Không thể kết nối Trình quản lý Asterisk "
 
-#: Voicemail.class.php:1737
+#: Voicemail.class.php:1754
 msgid "Character Set"
 msgstr "Ký tự cài đặt"
 
@@ -378,11 +378,11 @@ msgstr "Ký tự cài đặt"
 msgid "Checking for General Setting migrations.."
 msgstr "Kiểm tra dịch chuyển của Cài đặt chung.."
 
-#: Voicemail.class.php:2323
+#: Voicemail.class.php:2340
 msgid "Close Timeout"
 msgstr "Đóng Timeout"
 
-#: Voicemail.class.php:2434 page.voicemail.php:217
+#: Voicemail.class.php:2451 page.voicemail.php:217
 msgid "Comma separated list of internal contexts to use caller ID."
 msgstr ""
 "Danh sách các ngữ cảnh nội bộ cách nhau bằng dấu phẩy sử dụng cho Caller ID."
@@ -391,7 +391,7 @@ msgstr ""
 msgid "Command specified runs after a user changes his password."
 msgstr "Lệnh được chỉ định chạy sau khi người dùng thay đổi mật khẩu."
 
-#: Voicemail.class.php:1780
+#: Voicemail.class.php:1797
 msgid ""
 "Command specified runs after a user changes their password. The arguments "
 "passed to the application are: [context] [mailbox] [newpassword] Note: This "
@@ -401,7 +401,7 @@ msgstr ""
 "được truyền đến ứng dụng là: [context] [mailbox] [newpassword] Lưu ý: Thao "
 "tác này cũng sẽ cập nhật tệp tin voicemail.conf"
 
-#: Voicemail.class.php:1787
+#: Voicemail.class.php:1804
 msgid ""
 "Command specified runs before a user changes their password and can be used "
 "to impose security restrictions on voicemail password. The arguments passed "
@@ -417,11 +417,11 @@ msgstr ""
 "chỉ ra rằng mật khẩu mới là có thể chấp nhận được. Nếu mật khẩu được xem là "
 "quá yếu, kịch bản nên in INVALID tại đầu ra tiêu chuẩn. "
 
-#: Voicemail.class.php:2419
+#: Voicemail.class.php:2436
 msgid "Context Config"
 msgstr "Cấu hình ngữ cảnh"
 
-#: Voicemail.class.php:2427 page.voicemail.php:215 page.voicemail.php:294
+#: Voicemail.class.php:2444 page.voicemail.php:215 page.voicemail.php:294
 msgid ""
 "Context to call back from; if not listed, calling the sender back will not "
 "be permitted."
@@ -429,14 +429,14 @@ msgstr ""
 "Ngữ cảnh gọi lại, nếu không được liệt kê trong danh sách, việc gọi lại đến "
 "người gửi sẽ không được cho phép."
 
-#: Voicemail.class.php:2448 page.voicemail.php:224 page.voicemail.php:299
+#: Voicemail.class.php:2465 page.voicemail.php:224 page.voicemail.php:299
 msgid ""
 "Context to check for handling * or 0 calls to operator. \"Operator Context\""
 msgstr ""
 "Ngữ cảnh để kiểm tra việc xử lý các cuộc gọi * hoặc 0 đến tổng đài viên. "
 "\"Operator Context\" (Ngũ cảnh tổng đài viên)"
 
-#: Voicemail.class.php:2441 page.voicemail.php:218 page.voicemail.php:296
+#: Voicemail.class.php:2458 page.voicemail.php:218 page.voicemail.php:296
 msgid ""
 "Context to dial out from [option 4 from the advanced menu] if not listed, "
 "dialing out will not be permitted."
@@ -460,7 +460,7 @@ msgstr "Đang sao chép..."
 msgid "Create Voicemail Hints"
 msgstr "Tạo các Gợi ý (Hints) Thư thoại"
 
-#: Voicemail.class.php:1951
+#: Voicemail.class.php:1968
 msgid ""
 "Current default behavior is to search only the default context if one is not "
 "specified.  The older behavior was to search all contexts. This option "
@@ -476,8 +476,8 @@ msgstr ""
 "Nếu không sẽ dẫn đến một sự mơ hồ vì không thể biết hộp thư nào sẽ được "
 "trích xuất khi một trong số các hộp thư đó được yêu cầu."
 
-#: Voicemail.class.php:1808 Voicemail.class.php:1815 Voicemail.class.php:1822
-#: Voicemail.class.php:1829 Voicemail.class.php:1836 page.voicemail.php:245
+#: Voicemail.class.php:1825 Voicemail.class.php:1832 Voicemail.class.php:1839
+#: Voicemail.class.php:1846 Voicemail.class.php:1853 page.voicemail.php:245
 msgid "Customize the key that fast-forwards message playback"
 msgstr "Tùy chỉnh phím chuyển tiếp nhanh chế độ phát lại tin nhắn"
 
@@ -497,7 +497,7 @@ msgstr "Tùy chỉnh phím quay lại chế độ phát lại tin nhắn"
 msgid "Customize the key that stops message playback"
 msgstr "Tùy chỉnh phím dừng chế độ phát lại tin nhắn"
 
-#: Voicemail.class.php:2400
+#: Voicemail.class.php:2417
 msgid ""
 "Customize which sound file is used instead of the default prompt that says "
 "\"Please try again.\""
@@ -505,7 +505,7 @@ msgstr ""
 "Tùy chỉnh tệp âm thanh được sử dụng thay thế cho nhắc nhở mặc định nói là "
 "\"'Please try again.\""
 
-#: Voicemail.class.php:2365 page.voicemail.php:284
+#: Voicemail.class.php:2382 page.voicemail.php:284
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"Please enter your new password followed by the pound key.\""
@@ -513,7 +513,7 @@ msgstr ""
 "Tùy chỉnh tệp âm thanh được sử dụng thay thế cho nhắc nhở mặc định nói là: "
 "\"Please enter your new password followed by the pound key.\""
 
-#: Voicemail.class.php:2386 page.voicemail.php:287
+#: Voicemail.class.php:2403 page.voicemail.php:287
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"Please re-enter your password followed by the pound key\""
@@ -531,7 +531,7 @@ msgstr ""
 "\"The passwords you entered and re-entered did not match.  Please try again."
 "\""
 
-#: Voicemail.class.php:2358
+#: Voicemail.class.php:2375
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"The passwords you entered and re-entered did not match. Please try again.\""
@@ -539,7 +539,7 @@ msgstr ""
 "Tùy chỉnh tệp âm thanh được sử dụng thay thế cho nhắc nhở mặc định nói là: "
 "\"The passwords you entered and re-entered did not match. Please try again.\""
 
-#: Voicemail.class.php:2372 page.voicemail.php:285
+#: Voicemail.class.php:2389 page.voicemail.php:285
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"Your password has been changed.\""
@@ -547,7 +547,7 @@ msgstr ""
 "Tùy chỉnh tệp âm thanh được sử dụng thay thế cho nhắc nhở mặc định nói là: "
 "\"Your password has been changed.\""
 
-#: Voicemail.class.php:2379 page.voicemail.php:286
+#: Voicemail.class.php:2396 page.voicemail.php:286
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"password\""
@@ -555,14 +555,14 @@ msgstr ""
 "Tùy chỉnh tệp âm thanh được sử dụng thay thế cho nhắc nhở mặc định nói là:"
 "\"Password\""
 
-#: Voicemail.class.php:2393
+#: Voicemail.class.php:2410
 msgid ""
 "Customize which sound file is used instead of the default prompt that "
 "says: ..."
 msgstr ""
 "Tùy chỉnh tệp âm thanh được sử dụng thay thế cho nhắc nhở mặc định nói là:.."
 
-#: Voicemail.class.php:2407
+#: Voicemail.class.php:2424
 msgid ""
 "Customize which sound file is used when the user times out while recording a "
 "prepend message instead of the default prompt that says \"then press pound\""
@@ -622,7 +622,7 @@ msgstr "Xóa Lời chào tạm thời"
 msgid "Delete Unavailible Greeting"
 msgstr "Xóa lời chào không khả dụng"
 
-#: Voicemail.class.php:1894 functions.inc.php:661 page.voicemail.php:523
+#: Voicemail.class.php:1911 functions.inc.php:661 page.voicemail.php:523
 #: ucp/views/settings.php:55
 msgid "Delete Voicemail"
 msgstr "Xóa Thư thoại"
@@ -660,7 +660,7 @@ msgstr "Thiết bị"
 msgid "Dial Voicemail"
 msgstr "Quay số Thư thoại"
 
-#: Voicemail.class.php:2440
+#: Voicemail.class.php:2457
 msgid "Dialout Context"
 msgstr "Ngữ cảnh quay số"
 
@@ -682,7 +682,7 @@ msgstr ""
 "Direct Media Recording (Ghi âm truyền thông trực tiếp) không được hỗ trợ "
 "trên trình duyệt này!"
 
-#: Voicemail.class.php:2413
+#: Voicemail.class.php:2430
 msgid "Directory Intro"
 msgstr "Giới thiệu danh mục"
 
@@ -743,7 +743,7 @@ msgstr ""
 "LỖI chèn %s vào voicemail_admin trong quá trình dịch chuyển, nó có thể đã "
 "tồn tại"
 
-#: Voicemail.class.php:1751 functions.inc.php:602 page.voicemail.php:518
+#: Voicemail.class.php:1768 functions.inc.php:602 page.voicemail.php:518
 #: ucp/views/settings.php:12
 msgid "Email Address"
 msgstr "Địa chỉ email"
@@ -752,23 +752,23 @@ msgstr "Địa chỉ email"
 msgid "Email Attachment"
 msgstr "Đính kèm email"
 
-#: Voicemail.class.php:2048
+#: Voicemail.class.php:2065
 msgid "Email Body"
 msgstr "Nội dung của Email"
 
-#: Voicemail.class.php:2033
+#: Voicemail.class.php:2050
 msgid "Email Config"
 msgstr "Cấu hình email"
 
-#: Voicemail.class.php:2062
+#: Voicemail.class.php:2079
 msgid "Email Date Format"
 msgstr "Định dạng ngày của email"
 
-#: Voicemail.class.php:2055
+#: Voicemail.class.php:2072
 msgid "Email From String"
 msgstr "Email từ String ( Chuỗi)"
 
-#: Voicemail.class.php:2040
+#: Voicemail.class.php:2057
 msgid "Email Subject"
 msgstr "Tiêu đề Email"
 
@@ -791,7 +791,7 @@ msgstr ""
 "được. Tham số này cho phép bạn tăng âm lượng cần thêm vào tin nhắn khi gửi "
 "một thư thoại. Lưu ý: Phải cài đặt sox cho tùy chọn này làm việc."
 
-#: Voicemail.class.php:1857
+#: Voicemail.class.php:1874
 msgid ""
 "Emails bearing the Voicemail may arrive in a volume too quiet to be heard. "
 "This parameter allows you to specify how much gain to add to the message "
@@ -806,7 +806,7 @@ msgstr ""
 msgid "Enable"
 msgstr "Kích hoạt"
 
-#: Voicemail.class.php:1998 Voicemail.class.php:1999
+#: Voicemail.class.php:2015 Voicemail.class.php:2016
 msgid "Enable SMDI notification"
 msgstr "Kích hoạt thông báo SMDI"
 
@@ -885,7 +885,7 @@ msgstr ""
 msgid "Enabled"
 msgstr "Đã kích hoạt"
 
-#: Voicemail.class.php:2165 page.voicemail.php:256
+#: Voicemail.class.php:2182 page.voicemail.php:256
 msgid "Enforce minimum password length"
 msgstr "Chiều dài mật khẩu tối thiểu bắt buộc"
 
@@ -919,7 +919,7 @@ msgstr ""
 msgid "Entries below will be written to Voicemail configuration as-is."
 msgstr "Các mục nhập dưới đây sẽ được ghi vào cấu hình Thư thoại as-is."
 
-#: Voicemail.class.php:1886
+#: Voicemail.class.php:1903
 msgid "Envelope Playback"
 msgstr "Phát lại Envenlope"
 
@@ -935,7 +935,7 @@ msgstr ""
 "Cài đặt này sẽ không ảnh hưởng tới hoạt động của tùy chọn envenlope trong "
 "menu Thư thoại nâng cao."
 
-#: Voicemail.class.php:1318
+#: Voicemail.class.php:1335
 #, php-format
 msgid "Error Processing %s. Reason: %s"
 msgstr "Lỗi Đang xử lý %s. Lý do: %s"
@@ -944,7 +944,7 @@ msgstr "Lỗi Đang xử lý %s. Lý do: %s"
 msgid "Error Re-tries"
 msgstr "Lỗi Các mục nhập"
 
-#: Voicemail.class.php:2447
+#: Voicemail.class.php:2464
 msgid "Exit Context"
 msgstr "Thoát Ngữ cảnh"
 
@@ -956,27 +956,27 @@ msgstr "Xóa bỏ khi thoát."
 msgid "Extension"
 msgstr "Máy nhánh"
 
-#: Voicemail.class.php:1765
+#: Voicemail.class.php:1782
 msgid "External Notify"
 msgstr "Thông báo bên ngoài"
 
-#: Voicemail.class.php:1772
+#: Voicemail.class.php:1789
 msgid "External Password"
 msgstr "Mật khẩu bên ngoài"
 
-#: Voicemail.class.php:1779
+#: Voicemail.class.php:1796
 msgid "External Password Notify"
 msgstr "Thông báo mật khẩu bên ngoài"
 
-#: Voicemail.class.php:1786
+#: Voicemail.class.php:1803
 msgid "External Password Verification Script"
 msgstr "Kịch bản xác minh mật khẩu bên ngoài"
 
-#: Voicemail.class.php:1766 Voicemail.class.php:1871 page.voicemail.php:226
+#: Voicemail.class.php:1783 Voicemail.class.php:1888 page.voicemail.php:226
 msgid "External Voicemail notify application."
 msgstr "ứng dụng thông báo mật khẩu bên ngoài."
 
-#: Voicemail.class.php:1773
+#: Voicemail.class.php:1790
 msgid ""
 "External password changing command (overrides 'External Password Notify'). "
 "The arguments passed to the application are: [context] [mailbox] "
@@ -998,7 +998,7 @@ msgstr "Lệnh thay đổi mật khẩu bên ngoài ( ghi đè externpassnotify)
 msgid "External password verification script."
 msgstr "Kịch bản xác minh mật khẩu bên ngoài."
 
-#: Voicemail.class.php:301
+#: Voicemail.class.php:318
 #, php-format
 msgid "Failed to delete vmbox: %s@%s"
 msgstr "Xóa vmbox: %s@%s không thành công"
@@ -1007,7 +1007,7 @@ msgstr "Xóa vmbox: %s@%s không thành công"
 msgid "Family"
 msgstr "Tập hợp"
 
-#: Voicemail.class.php:1807
+#: Voicemail.class.php:1824
 msgid "Fast-Foward Keys"
 msgstr "Các phím chuyển tiếp nhanh"
 
@@ -1015,7 +1015,7 @@ msgstr "Các phím chuyển tiếp nhanh"
 msgid "Fatal DB error trying to delete globals, trying to carry on"
 msgstr "Lỗi DB nghiêm trong khi cố gắng xóa global, cố gắng tiếp tục"
 
-#: Voicemail.class.php:1793 Voicemail.class.php:1800
+#: Voicemail.class.php:1810 Voicemail.class.php:1817
 msgid "File Format"
 msgstr "Định dạng tệp"
 
@@ -1060,7 +1060,7 @@ msgstr ""
 "Ví dụ, thời gian mà một tin nhắn để lại sẽ được thông báo dựa theo múi giờ "
 "của người dùng trên chế độ phát lại tin nhắn."
 
-#: Voicemail.class.php:2414
+#: Voicemail.class.php:2431
 msgid "For the directory, you can override the intro file if you want"
 msgstr "Đối với danh mục, bạn có thể ghi đè tệp intro nếu bạn muốn"
 
@@ -1068,11 +1068,11 @@ msgstr "Đối với danh mục, bạn có thể ghi đè tệp intro nếu bạ
 msgid "Forbidden"
 msgstr "bị cấm"
 
-#: Voicemail.class.php:1910
+#: Voicemail.class.php:1927
 msgid "Force Greetings"
 msgstr "Lời chào bắt buộc"
 
-#: Voicemail.class.php:1902
+#: Voicemail.class.php:1919
 msgid "Force Name"
 msgstr "Tên bắt buộc"
 
@@ -1084,7 +1084,7 @@ msgstr ""
 "Bắt buộc một người dùng mới để ghi lại tên của họ. Một người dùng mới sẽ "
 "được quyết định bằng mật khẩu giống với số mailbox. Mặc định là \"yes\"."
 
-#: Voicemail.class.php:1903
+#: Voicemail.class.php:1920
 msgid ""
 "Force a new user to record their name. A new user is determined by the "
 "password being the same as the mailbox number. Default is 'Yes'"
@@ -1108,7 +1108,7 @@ msgstr ""
 "Các định dạng cho việc ghi Thư thoại. Lưu ý rằng khi sử dụng lưu trữ IMAP "
 "cho Thư thoại, chỉ định dạng đầu tiên được chỉ định sẽ được sử dụng."
 
-#: Voicemail.class.php:1794
+#: Voicemail.class.php:1811
 msgid ""
 "Formats for writing Voicemail. Note that when using IMAP storage for "
 "Voicemail, only the first format specified will be used."
@@ -1129,7 +1129,7 @@ msgstr "Chuyển tiếp Thư thoại"
 msgid "Friends"
 msgstr "Bạn"
 
-#: Voicemail.class.php:2056 Voicemail.class.php:2085 page.voicemail.php:233
+#: Voicemail.class.php:2073 Voicemail.class.php:2102 page.voicemail.php:233
 msgid "From: string for email"
 msgstr "Từ: Chuỗi cho email"
 
@@ -1141,7 +1141,7 @@ msgstr "Từ: Chuỗi đã gửi đến trang."
 msgid "GB"
 msgstr "GB ( Giga Byte)"
 
-#: Voicemail.class.php:1723
+#: Voicemail.class.php:1740
 msgid "General"
 msgstr "Chung"
 
@@ -1165,15 +1165,15 @@ msgstr "Đi tới tổng đài viên"
 msgid "Greetings"
 msgstr "Lời chào"
 
-#: Voicemail.class.php:2308
+#: Voicemail.class.php:2325
 msgid "Greetings folder"
 msgstr "Tệp Lời chào"
 
-#: Voicemail.class.php:1982
+#: Voicemail.class.php:1999
 msgid "Hide From Directory"
 msgstr "Ẩn từ Danh mục"
 
-#: Voicemail.class.php:1983
+#: Voicemail.class.php:2000
 msgid "Hide this mailbox from the directory produced by app_directory"
 msgstr "Ẩn mailbox này khỏi danh mục được cấp bởi app_directory"
 
@@ -1200,7 +1200,7 @@ msgstr "Giờ, 24 giờ (những giờ có một con số có \"oh\" đứng tr�
 msgid "How many miliseconds of silence before we end the recording"
 msgstr "Bao nhiêu mili giây im lặng trước khi chúng ta kết thúc bản ghi"
 
-#: Voicemail.class.php:2181
+#: Voicemail.class.php:2198
 msgid ""
 "How many milliseconds of silence before we end the recording (in "
 "milliseconds)."
@@ -1215,7 +1215,7 @@ msgstr ""
 "Bao nhiêu mili giây để bỏ qua chuyển tiếp/quay lại khi rew/ff trong chế độ "
 "phát lại tin nhắn"
 
-#: Voicemail.class.php:2205 Voicemail.class.php:2213
+#: Voicemail.class.php:2222 Voicemail.class.php:2230
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback "
 "(in milliseconds)"
@@ -1223,39 +1223,39 @@ msgstr ""
 "Bao nhiêu mili giây để bỏ qua chuyển tiếp/quay lại khi rew/ff  trong chế độ "
 "phát lại tin nhắn ( tính bằng mili giây)"
 
-#: Voicemail.class.php:2259
+#: Voicemail.class.php:2276
 msgid "IMAP Auth User"
 msgstr "Người dùng Auth IMAP"
 
-#: Voicemail.class.php:2266
+#: Voicemail.class.php:2283
 msgid "IMAP Auth User Password"
 msgstr "Mật khẩu người dùng IMAP Auth"
 
-#: Voicemail.class.php:2287
+#: Voicemail.class.php:2304
 msgid "IMAP Flags"
 msgstr "Các Flag của IMAP"
 
-#: Voicemail.class.php:2294
+#: Voicemail.class.php:2311
 msgid "IMAP Folder"
 msgstr "Tệp IMAP"
 
-#: Voicemail.class.php:2316
+#: Voicemail.class.php:2333
 msgid "IMAP Greetings"
 msgstr "Lời chào IMAP"
 
-#: Voicemail.class.php:2301
+#: Voicemail.class.php:2318
 msgid "IMAP Parent Folder"
 msgstr "Tệp mẹ của IMAP"
 
-#: Voicemail.class.php:2280 functions.inc.php:684
+#: Voicemail.class.php:2297 functions.inc.php:684
 msgid "IMAP Password"
 msgstr "Mật khẩu IMAP"
 
-#: Voicemail.class.php:2238
+#: Voicemail.class.php:2255
 msgid "IMAP Storage"
 msgstr "Lưu trữ IMAP"
 
-#: Voicemail.class.php:2273
+#: Voicemail.class.php:2290
 msgid "IMAP User"
 msgstr "Người dùng IMAP"
 
@@ -1271,7 +1271,7 @@ msgstr "Tệp Thư thoại IMAP."
 msgid "IMAP password."
 msgstr "Mật khẩu IMAP."
 
-#: Voicemail.class.php:2245 Voicemail.class.php:2246 page.voicemail.php:243
+#: Voicemail.class.php:2262 Voicemail.class.php:2263 page.voicemail.php:243
 msgid "IMAP server address."
 msgstr "Địa chỉ máy chủ IMAP."
 
@@ -1279,15 +1279,15 @@ msgstr "Địa chỉ máy chủ IMAP."
 msgid "IMAP server flags."
 msgstr "Các Flag máy chủ IMAP."
 
-#: Voicemail.class.php:2267 page.voicemail.php:212
+#: Voicemail.class.php:2284 page.voicemail.php:212
 msgid "IMAP server master password."
 msgstr "Mật khẩu chính của máy chủ IMAP."
 
-#: Voicemail.class.php:2260 page.voicemail.php:213
+#: Voicemail.class.php:2277 page.voicemail.php:213
 msgid "IMAP server master username."
 msgstr "Tên người chính chính của máy chủ IMAP."
 
-#: Voicemail.class.php:2252 Voicemail.class.php:2253 page.voicemail.php:241
+#: Voicemail.class.php:2269 Voicemail.class.php:2270 page.voicemail.php:241
 msgid "IMAP server port."
 msgstr "Cổng giao tiếp máy chủ IMAP."
 
@@ -1299,7 +1299,7 @@ msgstr "Người dùng IMAP."
 msgid "INBOX"
 msgstr "Hộp thư đến"
 
-#: Voicemail.class.php:2309
+#: Voicemail.class.php:2326
 msgid ""
 "If IMAP Greetings is Yes, then specify which folder to store your greetings "
 "in. If you do not specify a folder, then INBOX will be used"
@@ -1324,7 +1324,7 @@ msgstr ""
 "chọn này là một giao diện web để Thư thoại hoặc một email máy khách trong "
 "trường hợp sử dụng bộ nhớ IMAP."
 
-#: Voicemail.class.php:1879
+#: Voicemail.class.php:1896
 msgid ""
 "If mailboxes are changed anywhere outside of app_voicemail, then this option "
 "must be enabled for MWI to work. This enables polling mailboxes for "
@@ -1425,7 +1425,7 @@ msgstr ""
 "lưu trữ qua IMAP hay không. Nếu không thì các lời chào này sẽ được lưu trữ "
 "như thể bộ nhớ IMAP không được kích hoạt"
 
-#: Voicemail.class.php:2317
+#: Voicemail.class.php:2334
 msgid ""
 "If using IMAP storage, specify whether Voicemail greetings should be stored "
 "via IMAP. If not set, then greetings are stored as if IMAP storage were not "
@@ -1456,7 +1456,7 @@ msgstr ""
 msgid "Invalid Action"
 msgstr "Các thao tác không hợp lệ"
 
-#: Voicemail.class.php:2392
+#: Voicemail.class.php:2409
 msgid "Invalid Password"
 msgstr "Mật khổng không hợp lệ"
 
@@ -1468,11 +1468,11 @@ msgstr "Người nhận không hợp lệ"
 msgid "KB"
 msgstr "KB ( Kilo byte)"
 
-#: Voicemail.class.php:2121
+#: Voicemail.class.php:2138
 msgid "Language"
 msgstr "Ngôn ngữ"
 
-#: Voicemail.class.php:2122
+#: Voicemail.class.php:2139
 msgid "Language code for voicemail"
 msgstr "Mã ngôn ngữ cho thư thoại này"
 
@@ -1490,7 +1490,7 @@ msgstr ""
 "quyền xử lý hơn thì bạn có thể tăng giới hạn này nếu không hãy hạ thấp giới "
 "hạn nếu bạn tìm thấy hệ thống của bạn không tương thích"
 
-#: Voicemail.class.php:2134
+#: Voicemail.class.php:2151
 msgid "Limits"
 msgstr "Các giới hạn"
 
@@ -1510,7 +1510,7 @@ msgstr "Tải cấu hình định dạng ngày cho mail Thư thoại."
 msgid "MB"
 msgstr "MB ( Meega byte)"
 
-#: Voicemail.class.php:2128
+#: Voicemail.class.php:2145
 msgid "Mail Command"
 msgstr "Lệnh Mail"
 
@@ -1518,7 +1518,7 @@ msgstr "Lệnh Mail"
 msgid "Mail command."
 msgstr "Lệnh Mail."
 
-#: Voicemail.class.php:388
+#: Voicemail.class.php:405
 msgid "Mailbox can not be empty"
 msgstr "Mailbox không được để trống"
 
@@ -1527,31 +1527,31 @@ msgstr "Mailbox không được để trống"
 msgid "Mailbox is not in the proper format [%s]"
 msgstr "Mailbox không ở định dạng phù hợp [%s]"
 
-#: Voicemail.class.php:2148
+#: Voicemail.class.php:2165
 msgid "Max Failed Logins"
 msgstr "Số lần đăng nhập không thành công tối đa"
 
-#: Voicemail.class.php:2141
+#: Voicemail.class.php:2158
 msgid "Max Greeting Length (Seconds)"
 msgstr "Độ dài lời chào tối đa ( giây)"
 
-#: Voicemail.class.php:2172
+#: Voicemail.class.php:2189
 msgid "Max Message Length (Seconds)"
 msgstr "Độ dài tin nhắn tối đa ( giây)"
 
-#: Voicemail.class.php:2180
+#: Voicemail.class.php:2197
 msgid "Max Message Silence (Milliseconds)"
 msgstr "Thời gian im lặng tin nhắn tối đa ( Mili giây)"
 
-#: Voicemail.class.php:2156
+#: Voicemail.class.php:2173
 msgid "Max Messages"
 msgstr "Tin nhắn tối đa"
 
-#: Voicemail.class.php:1758
+#: Voicemail.class.php:1775
 msgid "Max Number of Deleted Messages"
 msgstr "Số tin nhắn bị xóa tối đa"
 
-#: Voicemail.class.php:2149 page.voicemail.php:252
+#: Voicemail.class.php:2166 page.voicemail.php:252
 msgid "Max failed login attempts."
 msgstr "Số lần thử đăng nhập không thành công tối đa."
 
@@ -1559,7 +1559,7 @@ msgstr "Số lần thử đăng nhập không thành công tối đa."
 msgid "Max message greeting length."
 msgstr "Độ dài lời chào tin nhắn tối đa."
 
-#: Voicemail.class.php:2142
+#: Voicemail.class.php:2159
 msgid "Max message greeting length. (in seconds)"
 msgstr "Độ dài lời chào tin nhắn tối đa. ( tính bằng giây)"
 
@@ -1568,7 +1568,7 @@ msgstr "Độ dài lời chào tin nhắn tối đa. ( tính bằng giây)"
 msgid "Max message time length."
 msgstr "Độ dài thời gian tin nhắn tối đa."
 
-#: Voicemail.class.php:2173
+#: Voicemail.class.php:2190
 msgid ""
 "Maximum length of a voicemail message in seconds for the message to be kept. "
 "The default is 300 (in seconds)."
@@ -1582,7 +1582,7 @@ msgstr ""
 "Số tin nhắn tối đa trên mọt tệp. Nếu số lượng này không được xác định, một "
 "giá trị mặc định sec là 100. Gía trọ lớn nhất cho tùy chọn này là 99999."
 
-#: Voicemail.class.php:2157
+#: Voicemail.class.php:2174
 msgid ""
 "Maximum number of messages per folder. If not specified, a default value "
 "(100) is used. Maximum value for this option is 9999."
@@ -1602,7 +1602,7 @@ msgstr "Các tin nhắn trong các hộp thư đến"
 msgid "Messages in other folders"
 msgstr "Các tin nhắn trong các tệp khác"
 
-#: Voicemail.class.php:2196
+#: Voicemail.class.php:2213
 msgid "Min Message Length (Seconds)"
 msgstr "Độ dài tin nhắn tối thiểu ( giây)"
 
@@ -1615,11 +1615,11 @@ msgstr ""
 "nên ít hơn minsecs (số giây tối thiếu) hoặc bạn có thể nhận được những tin "
 "nhắn trống."
 
-#: Voicemail.class.php:2164
+#: Voicemail.class.php:2181
 msgid "Minimum Password"
 msgstr "Mật khẩu ngắn nhất"
 
-#: Voicemail.class.php:2197
+#: Voicemail.class.php:2214
 msgid ""
 "Minimum length of a voicemail message in seconds for the message to be kept. "
 "(in seconds)."
@@ -1644,7 +1644,7 @@ msgstr "Tên tháng ( Tháng một, Tháng hai,..)"
 msgid "Move"
 msgstr "Di chuyển"
 
-#: Voicemail.class.php:1990
+#: Voicemail.class.php:2007
 msgid "Move Heard"
 msgstr "Di chuyển những gì đã nghe"
 
@@ -1652,7 +1652,7 @@ msgstr "Di chuyển những gì đã nghe"
 msgid "Move Voicemail"
 msgstr "Di chuyển Thư thoại"
 
-#: Voicemail.class.php:1991
+#: Voicemail.class.php:2008
 msgid ""
 "Move heard messages to the 'Old' folder automagically.  Defaults to Yes."
 msgstr ""
@@ -1685,7 +1685,7 @@ msgstr "Tên lời chào"
 msgid "Name of Voicemail account"
 msgstr "Tên của tài khoản Thư thoại"
 
-#: Voicemail.class.php:1730 Voicemail.class.php:1731 page.voicemail.php:309
+#: Voicemail.class.php:1747 Voicemail.class.php:1748 page.voicemail.php:309
 msgid "Name of account/user"
 msgstr "Tên của tài khoản/ người dùng"
 
@@ -1693,7 +1693,7 @@ msgstr "Tên của tài khoản/ người dùng"
 msgid "New Name"
 msgstr "Tên mới"
 
-#: Voicemail.class.php:2364
+#: Voicemail.class.php:2381
 msgid "New Password"
 msgstr "Mật khẩu mới"
 
@@ -1701,17 +1701,17 @@ msgstr "Mật khẩu mới"
 msgid "New Timezone Definition"
 msgstr "Định nghĩa múi giờ mới"
 
-#: Voicemail.class.php:2006
+#: Voicemail.class.php:2023
 msgid "Next after command"
 msgstr "Tiếp theo sau Lệnh"
 
-#: Voicemail.class.php:1876 Voicemail.class.php:1884 Voicemail.class.php:1892
-#: Voicemail.class.php:1900 Voicemail.class.php:1908 Voicemail.class.php:1916
-#: Voicemail.class.php:1924 Voicemail.class.php:1932 Voicemail.class.php:1940
-#: Voicemail.class.php:1948 Voicemail.class.php:1956 Voicemail.class.php:1964
-#: Voicemail.class.php:1972 Voicemail.class.php:1980 Voicemail.class.php:1988
-#: Voicemail.class.php:1996 Voicemail.class.php:2004 Voicemail.class.php:2104
-#: Voicemail.class.php:2112 Voicemail.class.php:2314 functions.inc.php:406
+#: Voicemail.class.php:1893 Voicemail.class.php:1901 Voicemail.class.php:1909
+#: Voicemail.class.php:1917 Voicemail.class.php:1925 Voicemail.class.php:1933
+#: Voicemail.class.php:1941 Voicemail.class.php:1949 Voicemail.class.php:1957
+#: Voicemail.class.php:1965 Voicemail.class.php:1973 Voicemail.class.php:1981
+#: Voicemail.class.php:1989 Voicemail.class.php:1997 Voicemail.class.php:2005
+#: Voicemail.class.php:2013 Voicemail.class.php:2021 Voicemail.class.php:2121
+#: Voicemail.class.php:2129 Voicemail.class.php:2331 functions.inc.php:406
 #: functions.inc.php:410 functions.inc.php:414 page.voicemail.php:570
 #: views/dialplan.php:19 views/dialplan.php:220 views/dialplan.php:247
 #: views/quickCreate.php:17 views/ucp_config.php:14 views/ucp_config.php:69
@@ -1734,7 +1734,7 @@ msgstr ""
 "Không có tên nào được xác định; điều này được cấu hình từ các máy nhánh hoặc "
 "trang người dùng."
 
-#: Voicemail.class.php:1759 page.voicemail.php:214 page.voicemail.php:293
+#: Voicemail.class.php:1776 page.voicemail.php:214 page.voicemail.php:293
 msgid ""
 "No. of deleted messages saved per mailbox (can be a number or yes/no, yes "
 "meaning MAXMSG, no meaning 0)."
@@ -1754,7 +1754,7 @@ msgstr "Không tìm thấy"
 msgid "Not a valid Draggable Object"
 msgstr "Không phải là một đối tượng Draggable hợp lệ"
 
-#: Voicemail.class.php:339
+#: Voicemail.class.php:356
 msgid "Null value was sent to saveVoicemail() can not continue"
 msgstr "gía trị không hiệu lực được gửi tới saveVoicemail() không thể tiếp tục"
 
@@ -1792,15 +1792,15 @@ msgstr ""
 "cho người gọi biết để nhấn một số tùy chọn và đặt một thời gian vừa đủ trong "
 "lời chào, nếu không chúng sẽ đến Thư thoại như bình thường."
 
-#: Voicemail.class.php:2218
+#: Voicemail.class.php:2235
 msgid "ODBC Storage"
 msgstr "Bộ nhớ ODBC"
 
-#: Voicemail.class.php:2225
+#: Voicemail.class.php:2242
 msgid "ODBC Storage Name"
 msgstr "Tên bộ nhớ ODBC"
 
-#: Voicemail.class.php:2232
+#: Voicemail.class.php:2249
 msgid "ODBC Table Name"
 msgstr "Tên bảng ODBC"
 
@@ -1812,11 +1812,11 @@ msgstr "Cũ"
 msgid "On"
 msgstr "Bật"
 
-#: Voicemail.class.php:2330
+#: Voicemail.class.php:2347
 msgid "Open Timeout"
 msgstr "Thời gian chờ để mở kết nối"
 
-#: Voicemail.class.php:1918
+#: Voicemail.class.php:1935
 msgid "Operator"
 msgstr "Tổng đài viên"
 
@@ -1832,12 +1832,12 @@ msgstr ""
 "Tổng đài viên nghỉ. Cho phép người gửi nhấn phím 0 trước/sau/ trong khi để "
 "lại một Thư thoại để tiếp cận một Tổng đài viện [Mặc định là ON]"
 
-#: Voicemail.class.php:2115 functions.inc.php:629 page.voicemail.php:211
+#: Voicemail.class.php:2132 functions.inc.php:629 page.voicemail.php:211
 #: page.voicemail.php:291
 msgid "Option to attach Voicemails to email."
 msgstr "Tùy chọn đính kèm các Thư thoại vào email."
 
-#: Voicemail.class.php:2288
+#: Voicemail.class.php:2305
 msgid ""
 "Optional flags to pass to the IMAP server in the IMAP mailbox name. For "
 "example, setting this to 'ssl' will enable OpenSSL encryption, assuming the "
@@ -1847,28 +1847,28 @@ msgstr ""
 "cài đặt điều này về 'sssl' sẽ kích hoatj việc mã hóa OpenSSL, giả sử các thư "
 "viện IMAP được biên dịch với sự hỗ trợ của OpenSSL."
 
-#: Voicemail.class.php:2077
+#: Voicemail.class.php:2094
 msgid "Pager Body"
 msgstr "Thân của máy nhắn tin"
 
-#: Voicemail.class.php:2091
+#: Voicemail.class.php:2108
 msgid "Pager Date Format"
 msgstr "Định dạng ngày của máy nhắn tin"
 
-#: Voicemail.class.php:1744 functions.inc.php:615 page.voicemail.php:519
+#: Voicemail.class.php:1761 functions.inc.php:615 page.voicemail.php:519
 #: ucp/views/settings.php:17
 msgid "Pager Email Address"
 msgstr "Địa chỉ Email của máy nhắn tin"
 
-#: Voicemail.class.php:2084
+#: Voicemail.class.php:2101
 msgid "Pager From String"
 msgstr "Máy nhắn tin từ chuỗi"
 
-#: Voicemail.class.php:2069
+#: Voicemail.class.php:2086
 msgid "Pager Subject"
 msgstr "Đối tượng gửi của máy nhắn tin"
 
-#: Voicemail.class.php:1745 functions.inc.php:616 page.voicemail.php:310
+#: Voicemail.class.php:1762 functions.inc.php:616 page.voicemail.php:310
 #: ucp/views/settings.php:19
 msgid ""
 "Pager/mobile email address that short Voicemail notifications are sent to."
@@ -1876,23 +1876,23 @@ msgstr ""
 "Địa chỉ emial máy nhắn tin/di động mà các thông báo Thư thoại ngắn được gửi "
 "tới."
 
-#: Voicemail.class.php:2378
+#: Voicemail.class.php:2395
 msgid "Password"
 msgstr "Mật khẩu"
 
-#: Voicemail.class.php:2371
+#: Voicemail.class.php:2388
 msgid "Password Changed"
 msgstr "Mật khẩu đã thay đổi"
 
-#: Voicemail.class.php:2357
+#: Voicemail.class.php:2374
 msgid "Password Mismatch"
 msgstr "Mật khẩu không khớp"
 
-#: Voicemail.class.php:1821
+#: Voicemail.class.php:1838
 msgid "Pause Keys"
 msgstr "Các phím tạm ngưng"
 
-#: Voicemail.class.php:1975 page.voicemail.php:281
+#: Voicemail.class.php:1992 page.voicemail.php:281
 msgid "Permit finding entries for forward/compose from the directory"
 msgstr ""
 "Cho phép tìm kiếm các mục nhập cho việc chuyển tiếp/soạn thư từ Danh mục "
@@ -1915,7 +1915,7 @@ msgstr "Phát Envelope"
 msgid "Playback"
 msgstr "Phát lại"
 
-#: Voicemail.class.php:2399
+#: Voicemail.class.php:2416
 msgid "Please Try Again"
 msgstr "Vui lòng thử lần nữa"
 
@@ -1938,15 +1938,15 @@ msgstr "Vui lòng nhập một địa chỉ Email máy nhắn tin hợp lệ"
 msgid "Please enter a valid Voicemail Password, using digits only"
 msgstr "Vui lòng nhập một mật khẩu Thư thoại hợp lệ, chỉ sử dụng chữ số"
 
-#: Voicemail.class.php:1870
+#: Voicemail.class.php:1887
 msgid "Poll Frequency"
 msgstr "Tần suất kiểm soát vòng"
 
-#: Voicemail.class.php:1878
+#: Voicemail.class.php:1895
 msgid "Poll Mailboxes"
 msgstr "Các mailbox kiểm soát vòng"
 
-#: Voicemail.class.php:2406
+#: Voicemail.class.php:2423
 msgid "Prepend Timeout"
 msgstr "Đính kèm trước Timeout"
 
@@ -1998,11 +1998,11 @@ msgstr ""
 msgid "Provide IMAP Voicemail Fields"
 msgstr "Cung cấp các trường cho Thư thoại IMAP"
 
-#: Voicemail.class.php:2385
+#: Voicemail.class.php:2402
 msgid "Re-enter Password"
 msgstr "Nhập lại Mật khẩu"
 
-#: Voicemail.class.php:2337
+#: Voicemail.class.php:2354
 msgid "Read Timeout"
 msgstr "Thời gian chờ để đọc câu trả lời"
 
@@ -2014,7 +2014,7 @@ msgstr ""
 "Đọc lại số điện thoại người gọi để phát tin nhắn đến, và chỉ sau khi thông "
 "báo ngày tháng và thời gian tin nhắn để lại."
 
-#: Voicemail.class.php:1935 page.voicemail.php:270 page.voicemail.php:312
+#: Voicemail.class.php:1952 page.voicemail.php:270 page.voicemail.php:312
 msgid ""
 "Read back caller's telephone number prior to playing the incoming message, "
 "and just after announcing the date and time the message was left. If not "
@@ -2044,7 +2044,7 @@ msgstr "Các tên được ghi"
 msgid "Recording..."
 msgstr "Đang ghi..."
 
-#: Voicemail.class.php:1967 page.voicemail.php:317
+#: Voicemail.class.php:1984 page.voicemail.php:317
 msgid "Remind the user that their temporary greeting is set"
 msgstr "Nhắc nhở người dùng lời chào tạm thời của họ đã được thiết lập"
 
@@ -2081,15 +2081,15 @@ msgstr "Xáo bỏ định nghĩa múi giờ"
 msgid "Require From Same %s"
 msgstr "Yêu cầu từ Same %s"
 
-#: Voicemail.class.php:1565
+#: Voicemail.class.php:1582
 msgid "Require From Same Extension[Blank/no to disable,yes for enable]"
 msgstr ""
 
-#: Voicemail.class.php:1535
+#: Voicemail.class.php:1552
 msgid "Reset"
 msgstr "Cài đặt lại"
 
-#: Voicemail.class.php:1828
+#: Voicemail.class.php:1845
 msgid "Restart Keys"
 msgstr "Các phím khởi động lại"
 
@@ -2097,15 +2097,15 @@ msgstr "Các phím khởi động lại"
 msgid "Retries"
 msgstr "Các lần Thử lại"
 
-#: Voicemail.class.php:1814
+#: Voicemail.class.php:1831
 msgid "Reverse Keys"
 msgstr "Các phím đảo"
 
-#: Voicemail.class.php:1926
+#: Voicemail.class.php:1943
 msgid "Review Message"
 msgstr "Xem lại tin nhắn"
 
-#: Voicemail.class.php:2013
+#: Voicemail.class.php:2030
 msgid "SMDI Port"
 msgstr "Cổng giao tiếp SMDI"
 
@@ -2113,19 +2113,19 @@ msgstr "Cổng giao tiếp SMDI"
 msgid "Save Greeting"
 msgstr "Lưu lời chào"
 
-#: Voicemail.class.php:1934
+#: Voicemail.class.php:1951
 msgid "Say CID"
 msgstr "Nói CID"
 
-#: Voicemail.class.php:1942
+#: Voicemail.class.php:1959
 msgid "Say Duration"
 msgstr "Nói khoảng thời gian"
 
-#: Voicemail.class.php:1863
+#: Voicemail.class.php:1880
 msgid "Say Duration Minutes"
 msgstr "Nói số phút của khoảng thời gian"
 
-#: Voicemail.class.php:1950
+#: Voicemail.class.php:1967
 msgid "Search Contexts"
 msgstr "Tìm kiếm các ngữ cảnh"
 
@@ -2133,7 +2133,7 @@ msgstr "Tìm kiếm các ngữ cảnh"
 msgid "Second(s)"
 msgstr "Giây"
 
-#: Voicemail.class.php:1958
+#: Voicemail.class.php:1975
 msgid "Send Voicemail"
 msgstr "Gửi Thư thoại"
 
@@ -2155,11 +2155,11 @@ msgid "Separate options with pipe ( | )%sie: review=yes|maxmessage=60"
 msgstr ""
 "Các tùy chọn riêng với đường ống ( | )%s cụ thể là: review=yes|maxmessage=60"
 
-#: Voicemail.class.php:2098
+#: Voicemail.class.php:2115
 msgid "Server Email"
 msgstr "Email chủ"
 
-#: Voicemail.class.php:2063
+#: Voicemail.class.php:2080
 msgid ""
 "Set the date format on outgoing mails. Valid arguments can be found on the "
 "strftime(3) man page"
@@ -2167,7 +2167,7 @@ msgstr ""
 "Cài đặt định dạng ngày trên các mail đi. Các đối số hợp lệ có thể được tìm "
 "thấy trên trang strftime(3) man"
 
-#: Voicemail.class.php:2092
+#: Voicemail.class.php:2109
 msgid ""
 "Set the date format on outgoing pager mails. Valid arguments can be found on "
 "the strftime(3) man page"
@@ -2179,7 +2179,7 @@ msgstr ""
 msgid "Set the parent folder (default is to have no parent folder set)."
 msgstr "Cài đặt thư mục mẹ ( mặc định là không có thư mục mẹ được cài đặt)."
 
-#: Voicemail.class.php:2014
+#: Voicemail.class.php:2031
 msgid "Set to a valid port as specified in smdi.conf"
 msgstr "Cài đặt một cổng giao tiếp hợp lệ như được chỉ định trong smdi.conf"
 
@@ -2199,26 +2199,26 @@ msgstr ""
 msgid "Settings"
 msgstr "Các cài đặt"
 
-#: Voicemail.class.php:2188
+#: Voicemail.class.php:2205
 msgid "Silence Threshold"
 msgstr "Ngưỡng im lặng"
 
-#: Voicemail.class.php:2189 page.voicemail.php:276
+#: Voicemail.class.php:2206 page.voicemail.php:276
 msgid ""
 "Silence threshold (what we consider silence: the lower, the more sensitive)"
 msgstr ""
 "Ngưỡng im lặng ( Những gì chúng ta cần lưu ý về im lặng là: thấp hơn, nhạy "
 "hơn)"
 
-#: Voicemail.class.php:2204 Voicemail.class.php:2212
+#: Voicemail.class.php:2221 Voicemail.class.php:2229
 msgid "Skip Milliseconds"
 msgstr "Bỏ qua mili giây"
 
-#: Voicemail.class.php:2106
+#: Voicemail.class.php:2123
 msgid "Skip PBX String"
 msgstr "Bỏ qua Chuỗi PBX"
 
-#: Voicemail.class.php:2107 page.voicemail.php:266
+#: Voicemail.class.php:2124 page.voicemail.php:266
 msgid "Skip the \"[PBX]:\" string from the message title"
 msgstr "Bỏ qua chuỗi \"[PBX]:\"  khỏi tiêu đề tin nhắn"
 
@@ -2226,7 +2226,7 @@ msgstr "Bỏ qua chuỗi \"[PBX]:\"  khỏi tiêu đề tin nhắn"
 msgid "Skip to the next message after save/delete."
 msgstr "Bỏ qua tin nhắn tiếp theo sau khi lưu/xóa."
 
-#: Voicemail.class.php:2007
+#: Voicemail.class.php:2024
 msgid ""
 "Skips to the next message after hitting 7 or 9 to delete/save current "
 "message."
@@ -2234,7 +2234,7 @@ msgstr ""
 "Bỏ qua tin nhắn tiếp theo sau khi nhấn 7 hoặc 9 để xoa/ lưu tin nhắn hiện "
 "tại."
 
-#: Voicemail.class.php:2302
+#: Voicemail.class.php:2319
 msgid ""
 "Some IMAP server implementations store folders under INBOX instead of using "
 "a top level folder (ex. INBOX/Friends). In this case, user imapparentfolder "
@@ -2247,11 +2247,11 @@ msgstr ""
 "Cyrus IMAP KHÔNG sử dụng Hộp thư đến làm thư mục mẹ. Mặc định là không có "
 "thư mục mẹ được thiết lập."
 
-#: Voicemail.class.php:2350
+#: Voicemail.class.php:2367
 msgid "Sound Files"
 msgstr "Các tệp âm thanh"
 
-#: Voicemail.class.php:2351
+#: Voicemail.class.php:2368
 msgid "Sound files used for Voicemail"
 msgstr "Các tệp âm thanh sử dụng cho Thư thoại"
 
@@ -2260,7 +2260,7 @@ msgid "Specify in minutes the minimum duration to say. Default is 2 minutes."
 msgstr ""
 "Chỉ định số phút trong khoảng thời gian tối thiểu để nói. Mặc định là 2 phút."
 
-#: Voicemail.class.php:1864
+#: Voicemail.class.php:1881
 msgid ""
 "Specify in minutes the minimum duration to say. Default is 2 minutes. (in "
 "minutes)"
@@ -2268,11 +2268,11 @@ msgstr ""
 "Chỉ định số phút trong khoảng thời gian tối thiểu để nói. Mặc định là 2 "
 "phút. ( tính bằng phút)"
 
-#: Voicemail.class.php:2129
+#: Voicemail.class.php:2146
 msgid "Specify what command is called for outbound E-mail"
 msgstr "Xác định lệnh được gọi cho Email đi"
 
-#: Voicemail.class.php:1835
+#: Voicemail.class.php:1852
 msgid "Stop Keys"
 msgstr "Dừng các phím"
 
@@ -2292,7 +2292,7 @@ msgstr "Sử dụng bộ nhớ"
 msgid "Subject sent to pager."
 msgstr "Đối tượng được gửi tới máy nhắn tin."
 
-#: Voicemail.class.php:1540 page.voicemail.php:671
+#: Voicemail.class.php:1557 page.voicemail.php:671
 msgid "Submit"
 msgstr "Gửi đi"
 
@@ -2331,7 +2331,7 @@ msgstr "tạm thời"
 msgid "Temporary Greeting"
 msgstr "Lời chào tạm thời"
 
-#: Voicemail.class.php:1966
+#: Voicemail.class.php:1983
 msgid "Temporary Greeting Warn"
 msgstr "Cảnh bào Lời chào tạm thời"
 
@@ -2351,11 +2351,11 @@ msgstr "Các <i>giá trị</i được hỗ trợ trong chuỗi định nghĩa m
 msgid "The ADSI Voicemail application version number."
 msgstr "Số phiên bản ứng dụng thư thoại ADSI."
 
-#: Voicemail.class.php:2021 page.voicemail.php:208
+#: Voicemail.class.php:2038 page.voicemail.php:208
 msgid "The ADSI feature descriptor number to download to"
 msgstr "Số đặc tả tính năng ADSI để tải về"
 
-#: Voicemail.class.php:2028 page.voicemail.php:209
+#: Voicemail.class.php:2045 page.voicemail.php:209
 msgid "The ADSI security lock code"
 msgstr "Mã khóa bảo mật ADSI"
 
@@ -2371,27 +2371,27 @@ msgstr ""
 "Mã tính năng được sử dụng để quay trực tiếp đến thư thoại người dùng từ "
 "chính máy nhánh của họ"
 
-#: Voicemail.class.php:2281
+#: Voicemail.class.php:2298
 msgid "The IMAP password of the user"
 msgstr "Mật khẩu IMAP của người dùng"
 
-#: Voicemail.class.php:2274
+#: Voicemail.class.php:2291
 msgid "The IMAP username of the mailbox to access"
 msgstr "Tên người dùng IMAP của mailbox cho việc truy nhập"
 
-#: Voicemail.class.php:2324
+#: Voicemail.class.php:2341
 msgid "The TCP close timeout (in seconds)"
 msgstr "Thời gian chờ đóng kết nối của TCP ( tính bằng giây)"
 
-#: Voicemail.class.php:2331
+#: Voicemail.class.php:2348
 msgid "The TCP open timeout (in seconds)"
 msgstr "Thời gian chờ mở kết nối của TCP ( tính bằng giây)"
 
-#: Voicemail.class.php:2338
+#: Voicemail.class.php:2355
 msgid "The TCP read timeout (in seconds)"
 msgstr "Thời gian chờ đọc dữ liệu của TCP ( tính bằng giây)"
 
-#: Voicemail.class.php:2345
+#: Voicemail.class.php:2362
 msgid "The TCP write timeout (in seconds)"
 msgstr "Thời gian chờ ghi dữ liệu của TCP ( tính bằng giây)"
 
@@ -2403,7 +2403,7 @@ msgid ""
 "Decibels which doubles for every 3 db."
 msgstr ""
 
-#: Voicemail.class.php:1738 page.voicemail.php:216
+#: Voicemail.class.php:1755 page.voicemail.php:216
 msgid "The character set for Voicemail messages"
 msgstr "Ký tự được cài đặt cho tin nhắn Thư thoại"
 
@@ -2411,11 +2411,11 @@ msgstr "Ký tự được cài đặt cho tin nhắn Thư thoại"
 msgid "The default table for ODBC Voicemail storage is voicemessages."
 msgstr "Bảng mặc định cho bộ nhớ Thư thoại ODBC là voicemessages."
 
-#: Voicemail.class.php:2233
+#: Voicemail.class.php:2250
 msgid "The default table for ODBC voicemail storage is voicemessages."
 msgstr "Bảng mặc định cho bộ nhớ tin nhắn Thư thoại ODBC là voicemessages."
 
-#: Voicemail.class.php:1752 functions.inc.php:603 ucp/views/settings.php:14
+#: Voicemail.class.php:1769 functions.inc.php:603 ucp/views/settings.php:14
 msgid "The email address that Voicemails are sent to."
 msgstr "Địa chỉ email mà Thư thoại được gửi tới."
 
@@ -2429,7 +2429,7 @@ msgstr ""
 "cách nhau bằng dấu phẩy và không có chứa dấu cách ( ví dụ first@domain.tld,"
 "second@domain.tld,third@domain.tld) "
 
-#: Voicemail.class.php:2049
+#: Voicemail.class.php:2066
 msgid ""
 "The email body. Change the from, body and/or subject, variables: VM_NAME, "
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
@@ -2445,11 +2445,11 @@ msgstr ""
 "chọn giữa 2 biến bằng cách sử dụng chức năng Kế hoạch quay số, ví dụ "
 "${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 
-#: Voicemail.class.php:2041
+#: Voicemail.class.php:2058
 msgid "The email subject"
 msgstr "Tiêu đề của email"
 
-#: Voicemail.class.php:2295
+#: Voicemail.class.php:2312
 msgid ""
 "The folder in which to store voicemail messages on the IMAP server. By "
 "default, they are stored in INBOX."
@@ -2461,7 +2461,7 @@ msgstr ""
 msgid "The name of a sound file (the file name must be single-quoted)"
 msgstr "Tên của tệp âm thanh ( tên tệp phải được trích dẫn đơn)"
 
-#: Voicemail.class.php:2078
+#: Voicemail.class.php:2095
 msgid ""
 "The pager body. Change the from, body and/or subject, variables: VM_NAME, "
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
@@ -2471,7 +2471,7 @@ msgid ""
 "${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 msgstr ""
 
-#: Voicemail.class.php:2070
+#: Voicemail.class.php:2087
 msgid "The pager subject"
 msgstr "Tiêu đề máy nhắn tin"
 
@@ -2489,7 +2489,7 @@ msgstr ""
 "động khi có một thay đổi do đó bạn đùng để một người gọi bị kẹt hay nhận các "
 "tin nhắn số không hợp lệ."
 
-#: Voicemail.class.php:2226 page.voicemail.php:260
+#: Voicemail.class.php:2243 page.voicemail.php:260
 msgid ""
 "The value of odbcstorage is the database connection configured in res_odbc."
 "conf."
@@ -2508,15 +2508,15 @@ msgstr ""
 "Đây là những phần máy nhánh được gán và đang hoạt động, sẽ hiển thị cho "
 "người dùng này nhằm kiểm soát và chỉnh sửa trong UCP"
 
-#: Voicemail.class.php:2034
+#: Voicemail.class.php:2051
 msgid "These settings apply to Voicemail Email Configuration"
 msgstr "Các cài đặt này áp dụng cho Cấu hình Email Thư thoại"
 
-#: Voicemail.class.php:2420
+#: Voicemail.class.php:2437
 msgid "These settings apply to context related operations"
 msgstr "Các cài đặt này áp dụng cho các hoạt động liên quan ngữ cảnh"
 
-#: Voicemail.class.php:2219 Voicemail.class.php:2239
+#: Voicemail.class.php:2236 Voicemail.class.php:2256
 msgid ""
 "These settings are only applicable when Asterisk is compiled with IMAP "
 "support"
@@ -2573,7 +2573,7 @@ msgstr ""
 "thay đổi mật khẩu mà bạn nhập ở đây sau khi đăng nhập vào hệ thống Thư thoại "
 "(*98) bằng điện thoại."
 
-#: Voicemail.class.php:1911
+#: Voicemail.class.php:1928
 msgid ""
 "This is the same as Force Name, except for recording greetings. Default is "
 "'No'"
@@ -2603,7 +2603,7 @@ msgstr ""
 msgid "Times to Play Message"
 msgstr "Số lần phát Tin nhắn"
 
-#: Voicemail.class.php:1842 Voicemail.class.php:1843
+#: Voicemail.class.php:1859 Voicemail.class.php:1860
 msgid "Timezone"
 msgstr "Múi giờ"
 
@@ -2628,7 +2628,7 @@ msgstr "Múi giờ từ ngữ cảnh zonemessages. Không liên quan nếu envel
 msgid "To"
 msgstr "đến"
 
-#: Voicemail.class.php:1568
+#: Voicemail.class.php:1585
 msgid "To Disable * in Voicemail Menu use Blank/no  OR yes"
 msgstr ""
 
@@ -2654,7 +2654,7 @@ msgstr ""
 msgid "Total"
 msgstr "Tổng cộng"
 
-#: Voicemail.class.php:1887
+#: Voicemail.class.php:1904
 msgid "Turn on/off envelope playback before message playback"
 msgstr "Bật/ tắt chế độ phát lại envelope trước khi phát lại tin nhắn"
 
@@ -2666,7 +2666,7 @@ msgstr ""
 "Bật/ tắt chế độ phát lại envelope trước khi phát lại tin nhắn. [Mặc định là "
 "ON] Điều này sẽ không ảnh hưởng tùy chọn 3,3 từ menu tùy chọn nâng cao."
 
-#: Voicemail.class.php:1943
+#: Voicemail.class.php:1960
 msgid "Turn on/off saying duration information before the message playback."
 msgstr "Bật/tắt thông tin khoảng thời gian nói trước khi phát lại tin nhắn."
 
@@ -2682,7 +2682,7 @@ msgstr ""
 msgid "UCP Message Limit"
 msgstr "Giới hạn tin nhắn UCP"
 
-#: Voicemail.class.php:1627
+#: Voicemail.class.php:1644
 msgid "Unable to add mailbox!"
 msgstr "Không thể thêm mailbox!"
 
@@ -2755,7 +2755,7 @@ msgstr "Sử dụng"
 msgid "Usage Statistics For: "
 msgstr "Sử dụng các thống kê cho: "
 
-#: Voicemail.class.php:1974
+#: Voicemail.class.php:1991
 msgid "Use Directory"
 msgstr "Sử dụng Danh mục"
 
@@ -2787,7 +2787,7 @@ msgstr ""
 "><br/> Nhớ là hãy ghi lại lời chào Thư thoại cá nhân của bạn kể cả các hướng "
 "dẫn. Chạy thử nghiệm để đảm bảo số này hoạt động."
 
-#: Voicemail.class.php:730
+#: Voicemail.class.php:747
 msgid "User Primary Extension"
 msgstr "Sử dụng máy nhanh chính"
 
@@ -2843,7 +2843,7 @@ msgstr "VmX Locater&trade;"
 msgid "VmX Locator"
 msgstr "Bộ định vị VmX"
 
-#: Voicemail.class.php:743 functions.inc.php:510 install.php:8
+#: Voicemail.class.php:760 functions.inc.php:510 install.php:8
 #: ucp/Voicemail.class.php:525 views/header.php:2 voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
 msgid "Voicemail"
@@ -2866,15 +2866,15 @@ msgid "Voicemail Auto Delete is on. New messages will not show up here."
 msgstr ""
 "Tự động xóa Thư thoại được bật. Các tin nhắn mới sẽ không hiện lên ở đây."
 
-#: Voicemail.class.php:2454 Voicemail.class.php:2455
+#: Voicemail.class.php:2471 Voicemail.class.php:2472
 msgid "Voicemail Context"
 msgstr "Ngữ cảnh Thư thoại"
 
-#: Voicemail.class.php:1559
+#: Voicemail.class.php:1576
 msgid "Voicemail E-Mail"
 msgstr "E-Mail Thư thoại"
 
-#: Voicemail.class.php:1553
+#: Voicemail.class.php:1570
 msgid "Voicemail Enable [Blank to disable]"
 msgstr "Thư thoại kích hoạt [Để trống để vô hiệu]"
 
@@ -2890,7 +2890,7 @@ msgstr "Tin nhắn Thư thoại"
 msgid "Voicemail Module"
 msgstr "Mô đun Thư thoại"
 
-#: Voicemail.class.php:1562
+#: Voicemail.class.php:1579
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
@@ -2902,7 +2902,7 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr "PIN Thư thoại"
 
-#: Voicemail.class.php:1556 functions.inc.php:542 page.voicemail.php:517
+#: Voicemail.class.php:1573 functions.inc.php:542 page.voicemail.php:517
 msgid "Voicemail Password"
 msgstr "Mật khẩu Thư thoại"
 
@@ -2940,11 +2940,11 @@ msgstr "Thư thoại không được gửi tới %s"
 msgid "Voicemail was empty: %s"
 msgstr "Thư thoại trống: %s"
 
-#: Voicemail.class.php:1856
+#: Voicemail.class.php:1873
 msgid "Volume Gain"
 msgstr ""
 
-#: Voicemail.class.php:1307
+#: Voicemail.class.php:1324
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
@@ -2975,7 +2975,7 @@ msgstr ""
 msgid "Which format of audio file to attach to the email."
 msgstr "Định dạng của tệp âm thanh để đính kèm vào email."
 
-#: Voicemail.class.php:1801
+#: Voicemail.class.php:1818
 msgid ""
 "Which format to attach to the email.  Normally this is the first format "
 "specified in the format parameter above, but this option lets you customize "
@@ -2988,11 +2988,11 @@ msgstr ""
 "dùng hệ điều hành Window cần wav49 nhưng đối với hệ điều hành Linux người "
 "dùng sẽ cần gsm."
 
-#: Voicemail.class.php:2099 page.voicemail.php:275 page.voicemail.php:316
+#: Voicemail.class.php:2116 page.voicemail.php:275 page.voicemail.php:316
 msgid "Who the e-mail notification should appear to come from"
 msgstr "Người mà các thông báo e-mail đến từ đó"
 
-#: Voicemail.class.php:2181
+#: Voicemail.class.php:2198
 msgid "Why is this in milliseconds?"
 msgstr ""
 
@@ -3000,7 +3000,7 @@ msgstr ""
 msgid "Work"
 msgstr "Làm việc"
 
-#: Voicemail.class.php:2344
+#: Voicemail.class.php:2361
 msgid "Write Timeout"
 msgstr "Thời gian chờ ghi dữ liệu"
 
@@ -3008,13 +3008,13 @@ msgstr "Thời gian chờ ghi dữ liệu"
 msgid "Year"
 msgstr "Năm"
 
-#: Voicemail.class.php:1876 Voicemail.class.php:1884 Voicemail.class.php:1892
-#: Voicemail.class.php:1900 Voicemail.class.php:1908 Voicemail.class.php:1916
-#: Voicemail.class.php:1924 Voicemail.class.php:1932 Voicemail.class.php:1940
-#: Voicemail.class.php:1948 Voicemail.class.php:1956 Voicemail.class.php:1964
-#: Voicemail.class.php:1972 Voicemail.class.php:1980 Voicemail.class.php:1988
-#: Voicemail.class.php:1996 Voicemail.class.php:2004 Voicemail.class.php:2104
-#: Voicemail.class.php:2112 Voicemail.class.php:2314 functions.inc.php:405
+#: Voicemail.class.php:1893 Voicemail.class.php:1901 Voicemail.class.php:1909
+#: Voicemail.class.php:1917 Voicemail.class.php:1925 Voicemail.class.php:1933
+#: Voicemail.class.php:1941 Voicemail.class.php:1949 Voicemail.class.php:1957
+#: Voicemail.class.php:1965 Voicemail.class.php:1973 Voicemail.class.php:1981
+#: Voicemail.class.php:1989 Voicemail.class.php:1997 Voicemail.class.php:2005
+#: Voicemail.class.php:2013 Voicemail.class.php:2021 Voicemail.class.php:2121
+#: Voicemail.class.php:2129 Voicemail.class.php:2331 functions.inc.php:405
 #: functions.inc.php:409 functions.inc.php:413 views/dialplan.php:17
 #: views/dialplan.php:218 views/dialplan.php:245 views/quickCreate.php:15
 #: views/ucp_config.php:12 views/ucp_config.php:67 views/ucp_config.php:96
@@ -3065,7 +3065,7 @@ msgstr "Đang xóa VM_PREFIX khỏi globals.."
 msgid "done"
 msgstr "Đã xong"
 
-#: Voicemail.class.php:302
+#: Voicemail.class.php:319
 #, php-format
 msgid "failed with retcode %s while removing %s:"
 msgstr ""
