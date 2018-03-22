@@ -118,6 +118,7 @@
 		</core>
 		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
 			<method callingMethod="getHeaders" class="Voicemail" namespace="FreePBX\modules">bulkhandlerGetHeaders</method>
+			<method callingMethod="validate" class="Voicemail" namespace="FreePBX\modules">bulkhandlerValidate</method>
 			<method callingMethod="import" class="Voicemail" namespace="FreePBX\modules">bulkhandlerImport</method>
 			<method callingMethod="export" class="Voicemail" namespace="FreePBX\modules">bulkhandlerExport</method>
 		</bulkhandler>
