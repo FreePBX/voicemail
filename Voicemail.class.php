@@ -1642,10 +1642,15 @@ class Voicemail implements \BMO {
 					} catch (\Exception $e) {
 						return array("status" => false, "message" => $e->getMessage());
 					}
-					$sql = "UPDATE users SET voicemail = 'default' WHERE extension = ?";
+					if(empty($data['voicemail'])){
+						$vmcontext = 'default';
+					} else {
+						$vmcontext = $data['voicemail'];
+					}
+					$sql = "UPDATE users SET voicemail = ? WHERE extension = ?";
 					$sth = $this->db->prepare($sql);
-					$sth->execute(array($extension));
-					$this->astman->database_put("AMPUSER",$extension."/voicemail",'default');
+					$sth->execute(array($vmcontext,$extension));
+					$this->astman->database_put("AMPUSER",$extension."/voicemail",$vmcontext);
 					$this->setupMailboxSymlinks($extension);
 					if ($data['disable_star_voicemail'] == 'yes') {
 						if($this->astman->connected()) {
