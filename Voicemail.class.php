@@ -237,10 +237,27 @@ class Voicemail implements \BMO {
 		if(isset($user['voicemail']) && ($user['voicemail'] != "novm")) {
 			$vmcontext = !empty($user['voicemail']) ? $user['voicemail'] : "default";
 
-			//voicemail symlink
+			// Create voicemail symlink
 			$spooldir = $this->FreePBX->Config->get('ASTSPOOLDIR');
-			exec("rm -f ".$spooldir."/voicemail/device/".$mailbox);
-			symlink($spooldir."/voicemail/".$vmcontext."/".$mailbox, $spooldir."/voicemail/device/".$mailbox);
+
+			$src = "$spooldir/voicemail/$vmcontext/$mailbox";
+			$dest = "$spooldir/voicemail/device/$mailbox";
+
+			// Remove anything that was previously there
+			exec("rm -f $dest");
+
+			// Make sure our source parent directory exists - This may be missing if a restore
+			// was partially done. Asterisk may or may not create this on demand.
+			if (!is_dir(dirname($src))) {
+				mkdir(dirname($src), 0775, true);
+			}
+			// Make sure the destination parent exists, too.
+			if (!is_dir(dirname($dest))) {
+				mkdir(dirname($dest), 0775, true);
+			}
+
+			// Now do the symlink
+			symlink($src, $dest);
 		}
 	}
 
@@ -1652,6 +1669,22 @@ class Voicemail implements \BMO {
 			return $headers;
 		}
 	}
+	public function bulkhandlerValidate($type, $rawData) {
+		switch ($type) {
+			 case 'extensions':
+				 foreach ($rawData as $data){
+					  $data['voicemail_enable'] = !empty($data['voicemail_enable']) ? $data['voicemail_enable'] : "";
+					  $vstatus = strtolower($data['voicemail_enable']);
+					  if ($vstatus === "yes") {
+						  if(empty($data['voicemail_vmpwd'])){
+							  return array("status" => false, "message" => _("Voicemail Password is empty."));
+						  }
+					  }
+					  return array("status" => true);
+					  break;
+				 }
+		}
+	}
 
 	public function bulkhandlerImport($type, $rawData) {
 		$ret = NULL;
@@ -1661,14 +1694,19 @@ class Voicemail implements \BMO {
 			foreach ($rawData as $data) {
 				$mailbox = array();
 
+				array_change_key_case($data, CASE_LOWER);
+				$data['voicemail_enable'] = !empty($data['voicemail_enable']) ? $data['voicemail_enable'] : "";
 				$extension = $data['extension'];
 				foreach ($data as $key => $value) {
 					if (substr($key, 0, 10) == 'voicemail_') {
 						$mailbox[substr($key, 10)] = $value;
 					}
 				}
+				$vstatus = strtolower($data['voicemail_enable']);
 
-				if (count($mailbox) > 0 && !empty($mailbox['enable'])) {
+				if (count($mailbox) > 0 && $vstatus === "yes") {
+					$data['voicemail_same_exten'] = !empty($data['voicemail_same_exten']) ? $data['voicemail_same_exten'] : "";
+					$data['disable_star_voicemail'] = !empty($data['disable_star_voicemail']) ? $data['disable_star_voicemail'] : "";
 					$mailbox['vm'] = 'enabled';
 					$mailbox['name'] = $data['name'];
 					unset($mailbox['enable']);
@@ -1677,10 +1715,15 @@ class Voicemail implements \BMO {
 					} catch (\Exception $e) {
 						return array("status" => false, "message" => $e->getMessage());
 					}
-					$sql = "UPDATE users SET voicemail = 'default' WHERE extension = ?";
+					if(empty($data['voicemail'])){
+						$vmcontext = 'default';
+					} else {
+						$vmcontext = $data['voicemail'];
+					}
+					$sql = "UPDATE users SET voicemail = ? WHERE extension = ?";
 					$sth = $this->db->prepare($sql);
-					$sth->execute(array($extension));
-					$this->astman->database_put("AMPUSER",$extension."/voicemail",'default');
+					$sth->execute(array($vmcontext,$extension));
+					$this->astman->database_put("AMPUSER",$extension."/voicemail",$vmcontext);
 					$this->setupMailboxSymlinks($extension);
 					if ($data['disable_star_voicemail'] == 'yes') {
 						if($this->astman->connected()) {
