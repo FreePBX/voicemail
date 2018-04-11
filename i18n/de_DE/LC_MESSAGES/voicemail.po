@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-09 19:31-0400\n"
+"POT-Creation-Date: 2018-04-11 18:21+0530\n"
 "PO-Revision-Date: 2018-02-16 16:12+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -684,7 +684,7 @@ msgstr "Wählplan-Verhalten"
 msgid "Direct Dial Mode"
 msgstr "Direkter Wählmodus"
 
-#: install.php:12 voicemail.i18n.php:30
+#: install.php:12 voicemail.i18n.php:28
 msgid "Direct Dial Prefix"
 msgstr "Direkte Wählvorwahl"
 
@@ -953,7 +953,7 @@ msgstr ""
 "Diese Einstellung wirkt sich nicht auf den Betrieb der Envelope-Option im "
 "fortgeschrittenen Voicemail-Menü aus."
 
-#: Voicemail.class.php:1337
+#: Voicemail.class.php:1336
 #, php-format
 msgid "Error Processing %s. Reason: %s"
 msgstr "Fehler bei der Bearbeitung %s. Grund: %s"
@@ -1711,7 +1711,7 @@ msgstr ""
 msgid "Msg Timeout"
 msgstr "Nachrichten Zeitüberschreitung"
 
-#: functions.inc.php:172 install.php:9 voicemail.i18n.php:32
+#: functions.inc.php:172 install.php:9 voicemail.i18n.php:30
 msgid "My Voicemail"
 msgstr "Meine Voicemail"
 
@@ -2133,13 +2133,13 @@ msgstr "Zeitzonendefinition entfernen"
 msgid "Require From Same %s"
 msgstr "Vom gleichen %s anfordern"
 
-#: Voicemail.class.php:1584
+#: Voicemail.class.php:1583
 msgid "Require From Same Extension[Blank/no to disable,yes for enable]"
 msgstr ""
 "Von der gleichen Nebenstelle erfordern [Leer/Nein zum Deaktivieren, Ja zum "
 "Aktivieren]"
 
-#: Voicemail.class.php:1554
+#: Voicemail.class.php:1553
 msgid "Reset"
 msgstr "Zurücksetzen"
 
@@ -2347,7 +2347,7 @@ msgstr "Speichernutzung"
 msgid "Subject sent to pager."
 msgstr "Betreff an Pager gesendet."
 
-#: Voicemail.class.php:1559 page.voicemail.php:671
+#: Voicemail.class.php:1558 page.voicemail.php:671
 msgid "Submit"
 msgstr "Senden"
 
@@ -2412,12 +2412,12 @@ msgstr "Die Beschreibungsnummer der ADSI-Funktion, die heruntergeladen wird zu"
 msgid "The ADSI security lock code"
 msgstr "Der ADSI-Sicherheitssperrcode"
 
-#: install.php:14 voicemail.i18n.php:28
+#: install.php:14
 msgid "The Feature Code used to dial any voicemail"
 msgstr ""
 "Der Funktionscode, der verwendet wird, um eine beliebige Voicemail anzurufen"
 
-#: install.php:13 voicemail.i18n.php:34
+#: install.php:13
 msgid ""
 "The Feature Code used to direct dial a users voicemail from their own "
 "extension"
@@ -2696,7 +2696,7 @@ msgstr "Zeitzone aus Kontext zonemessages.  Irrelevant, falls Envelope=nein."
 msgid "To"
 msgstr "An"
 
-#: Voicemail.class.php:1587
+#: Voicemail.class.php:1586
 msgid "To Disable * in Voicemail Menu use Blank/no  OR yes"
 msgstr ""
 
@@ -2857,7 +2857,7 @@ msgstr ""
 "und Anweisungen darin aufzunehmen. Führen Sie einen Test durch, um "
 "sicherzustellen, dass die Nummer funktioniert."
 
-#: Voicemail.class.php:749
+#: Voicemail.class.php:748
 msgid "User Primary Extension"
 msgstr "Primäre Benutzernebenstelle"
 
@@ -2914,7 +2914,7 @@ msgstr ""
 msgid "VmX Locater&trade;"
 msgstr "VmX Locater&trade;"
 
-#: Voicemail.class.php:762 functions.inc.php:510 install.php:8
+#: Voicemail.class.php:761 functions.inc.php:510 install.php:8
 #: ucp/Voicemail.class.php:95 ucp/Voicemail.class.php:144
 #: ucp/Voicemail.class.php:196 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
@@ -2942,11 +2942,11 @@ msgstr ""
 msgid "Voicemail Context"
 msgstr "Voicemail-Kontext"
 
-#: Voicemail.class.php:1578
+#: Voicemail.class.php:1577
 msgid "Voicemail E-Mail"
 msgstr "Voicemail-E-Mail"
 
-#: Voicemail.class.php:1572
+#: Voicemail.class.php:1571
 msgid "Voicemail Enable [Blank to disable]"
 msgstr "Voicemail aktivieren [Freilassen, um zu deaktivieren]"
 
@@ -2962,7 +2962,7 @@ msgstr "Voicemail-Nachricht"
 msgid "Voicemail Module"
 msgstr "Voicemail-Modul"
 
-#: Voicemail.class.php:1581
+#: Voicemail.class.php:1580
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
@@ -2974,11 +2974,11 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr "Voicemail-PIN"
 
-#: Voicemail.class.php:1575 functions.inc.php:542 page.voicemail.php:517
+#: Voicemail.class.php:1574 functions.inc.php:542 page.voicemail.php:517
 msgid "Voicemail Password"
 msgstr "Voicemail-Passwort"
 
-#: Voicemail.class.php:1607
+#: Voicemail.class.php:1606
 msgid "Voicemail Password is empty."
 msgstr ""
 
@@ -3020,7 +3020,7 @@ msgstr "Voicemail war leer: %s"
 msgid "Volume Gain"
 msgstr "Lautstärkeerhöhung"
 
-#: Voicemail.class.php:1326
+#: Voicemail.class.php:1325
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "

@@ -575,7 +575,7 @@ msgstr ""
 msgid "Direct Dial Mode"
 msgstr ""
 
-#: install.php:12 voicemail.i18n.php:30
+#: install.php:12 voicemail.i18n.php:28
 msgid "Direct Dial Prefix"
 msgstr ""
 
@@ -798,7 +798,7 @@ msgid ""
 "menu."
 msgstr ""
 
-#: Voicemail.class.php:1337
+#: Voicemail.class.php:1336
 #, php-format
 msgid "Error Processing %s. Reason: %s"
 msgstr ""
@@ -1441,7 +1441,7 @@ msgstr ""
 msgid "Msg Timeout"
 msgstr ""
 
-#: functions.inc.php:172 install.php:9 voicemail.i18n.php:32
+#: functions.inc.php:172 install.php:9 voicemail.i18n.php:30
 msgid "My Voicemail"
 msgstr ""
 
@@ -1807,11 +1807,11 @@ msgstr ""
 msgid "Require From Same %s"
 msgstr ""
 
-#: Voicemail.class.php:1584
+#: Voicemail.class.php:1583
 msgid "Require From Same Extension[Blank/no to disable,yes for enable]"
 msgstr ""
 
-#: Voicemail.class.php:1554
+#: Voicemail.class.php:1553
 msgid "Reset"
 msgstr ""
 
@@ -1995,7 +1995,7 @@ msgstr ""
 msgid "Subject sent to pager."
 msgstr ""
 
-#: Voicemail.class.php:1559 page.voicemail.php:671
+#: Voicemail.class.php:1558 page.voicemail.php:671
 msgid "Submit"
 msgstr ""
 
@@ -2058,11 +2058,11 @@ msgstr ""
 msgid "The ADSI security lock code"
 msgstr ""
 
-#: install.php:14 voicemail.i18n.php:28
+#: install.php:14
 msgid "The Feature Code used to dial any voicemail"
 msgstr ""
 
-#: install.php:13 voicemail.i18n.php:34
+#: install.php:13
 msgid ""
 "The Feature Code used to direct dial a users voicemail from their own "
 "extension"
@@ -2286,7 +2286,7 @@ msgstr ""
 msgid "To"
 msgstr ""
 
-#: Voicemail.class.php:1587
+#: Voicemail.class.php:1586
 msgid "To Disable * in Voicemail Menu use Blank/no  OR yes"
 msgstr ""
 
@@ -2429,7 +2429,7 @@ msgid ""
 "to make sure that the number is functional."
 msgstr ""
 
-#: Voicemail.class.php:749
+#: Voicemail.class.php:748
 msgid "User Primary Extension"
 msgstr ""
 
@@ -2477,7 +2477,7 @@ msgstr ""
 msgid "VmX Locater&trade;"
 msgstr ""
 
-#: Voicemail.class.php:762 functions.inc.php:510 install.php:8
+#: Voicemail.class.php:761 functions.inc.php:510 install.php:8
 #: ucp/Voicemail.class.php:95 ucp/Voicemail.class.php:144
 #: ucp/Voicemail.class.php:196 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
@@ -2503,11 +2503,11 @@ msgstr ""
 msgid "Voicemail Context"
 msgstr ""
 
-#: Voicemail.class.php:1578
+#: Voicemail.class.php:1577
 msgid "Voicemail E-Mail"
 msgstr ""
 
-#: Voicemail.class.php:1572
+#: Voicemail.class.php:1571
 msgid "Voicemail Enable [Blank to disable]"
 msgstr ""
 
@@ -2523,7 +2523,7 @@ msgstr ""
 msgid "Voicemail Module"
 msgstr ""
 
-#: Voicemail.class.php:1581
+#: Voicemail.class.php:1580
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
@@ -2533,11 +2533,11 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr ""
 
-#: Voicemail.class.php:1575 functions.inc.php:542 page.voicemail.php:517
+#: Voicemail.class.php:1574 functions.inc.php:542 page.voicemail.php:517
 msgid "Voicemail Password"
 msgstr ""
 
-#: Voicemail.class.php:1607
+#: Voicemail.class.php:1606
 msgid "Voicemail Password is empty."
 msgstr ""
 
@@ -2577,7 +2577,7 @@ msgstr ""
 msgid "Volume Gain"
 msgstr ""
 
-#: Voicemail.class.php:1326
+#: Voicemail.class.php:1325
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "

@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-09 19:31-0400\n"
+"POT-Creation-Date: 2018-04-11 18:21+0530\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -657,7 +657,7 @@ msgstr "ダイヤルプランの動作"
 msgid "Direct Dial Mode"
 msgstr "ダイレクトダイヤルモード"
 
-#: install.php:12 voicemail.i18n.php:30
+#: install.php:12 voicemail.i18n.php:28
 msgid "Direct Dial Prefix"
 msgstr "ダイレクトダイヤルプレフィックス"
 
@@ -889,7 +889,7 @@ msgstr ""
 "付/時間)メッセージを再生するかどうかを制御します。この設定は高度設定ボイス"
 "メールメニュー内にある冒頭オプションの操作に影響しません。"
 
-#: Voicemail.class.php:1337
+#: Voicemail.class.php:1336
 #, php-format
 msgid "Error Processing %s. Reason: %s"
 msgstr ""
@@ -1585,7 +1585,7 @@ msgstr ""
 msgid "Msg Timeout"
 msgstr "メッセージタイムアウト"
 
-#: functions.inc.php:172 install.php:9 voicemail.i18n.php:32
+#: functions.inc.php:172 install.php:9 voicemail.i18n.php:30
 msgid "My Voicemail"
 msgstr "自分のボイスメール"
 
@@ -1973,11 +1973,11 @@ msgstr "タイムゾーンの定義を削除"
 msgid "Require From Same %s"
 msgstr "同じ %s を条件にする"
 
-#: Voicemail.class.php:1584
+#: Voicemail.class.php:1583
 msgid "Require From Same Extension[Blank/no to disable,yes for enable]"
 msgstr ""
 
-#: Voicemail.class.php:1554
+#: Voicemail.class.php:1553
 msgid "Reset"
 msgstr ""
 
@@ -2165,7 +2165,7 @@ msgstr ""
 msgid "Subject sent to pager."
 msgstr "ページャーに送信される件名"
 
-#: Voicemail.class.php:1559 page.voicemail.php:671
+#: Voicemail.class.php:1558 page.voicemail.php:671
 msgid "Submit"
 msgstr ""
 
@@ -2229,11 +2229,11 @@ msgstr "次にダウンロードするADSIの機能の記述子番号"
 msgid "The ADSI security lock code"
 msgstr "ADSIセキュリティロックコード"
 
-#: install.php:14 voicemail.i18n.php:28
+#: install.php:14
 msgid "The Feature Code used to dial any voicemail"
 msgstr ""
 
-#: install.php:13 voicemail.i18n.php:34
+#: install.php:13
 msgid ""
 "The Feature Code used to direct dial a users voicemail from their own "
 "extension"
@@ -2482,7 +2482,7 @@ msgstr ""
 msgid "To"
 msgstr "終了日時"
 
-#: Voicemail.class.php:1587
+#: Voicemail.class.php:1586
 msgid "To Disable * in Voicemail Menu use Blank/no  OR yes"
 msgstr ""
 
@@ -2640,7 +2640,7 @@ msgstr ""
 "ボイスメールのアナウンスを再度録音しなおし、ユーザーが聞く使い方の説明を追加"
 "してください。そのあとテストを実行し、番号が動作することを確認してください。"
 
-#: Voicemail.class.php:749
+#: Voicemail.class.php:748
 msgid "User Primary Extension"
 msgstr ""
 
@@ -2690,7 +2690,7 @@ msgstr "外部通知のためにsmdiを使用するためのsmdi.confに指定�
 msgid "VmX Locater&trade;"
 msgstr "VmXロケーター&トレード；"
 
-#: Voicemail.class.php:762 functions.inc.php:510 install.php:8
+#: Voicemail.class.php:761 functions.inc.php:510 install.php:8
 #: ucp/Voicemail.class.php:95 ucp/Voicemail.class.php:144
 #: ucp/Voicemail.class.php:196 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
@@ -2716,11 +2716,11 @@ msgstr ""
 msgid "Voicemail Context"
 msgstr ""
 
-#: Voicemail.class.php:1578
+#: Voicemail.class.php:1577
 msgid "Voicemail E-Mail"
 msgstr ""
 
-#: Voicemail.class.php:1572
+#: Voicemail.class.php:1571
 msgid "Voicemail Enable [Blank to disable]"
 msgstr ""
 
@@ -2736,7 +2736,7 @@ msgstr ""
 msgid "Voicemail Module"
 msgstr "ボイスメールモジュール"
 
-#: Voicemail.class.php:1581
+#: Voicemail.class.php:1580
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
@@ -2746,11 +2746,11 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr ""
 
-#: Voicemail.class.php:1575 functions.inc.php:542 page.voicemail.php:517
+#: Voicemail.class.php:1574 functions.inc.php:542 page.voicemail.php:517
 msgid "Voicemail Password"
 msgstr "ボイスメールのパスワード"
 
-#: Voicemail.class.php:1607
+#: Voicemail.class.php:1606
 msgid "Voicemail Password is empty."
 msgstr ""
 
@@ -2791,7 +2791,7 @@ msgstr ""
 msgid "Volume Gain"
 msgstr ""
 
-#: Voicemail.class.php:1326
+#: Voicemail.class.php:1325
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "
