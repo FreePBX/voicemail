@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-09 19:32-0400\n"
+"POT-Creation-Date: 2018-04-11 18:23+0530\n"
 "PO-Revision-Date: 2016-07-17 10:07+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -647,7 +647,7 @@ msgstr "رفتار پلان شماره گیری"
 msgid "Direct Dial Mode"
 msgstr "شماره گیری مستقیم"
 
-#: install.php:12 voicemail.i18n.php:30
+#: install.php:12 voicemail.i18n.php:28
 msgid "Direct Dial Prefix"
 msgstr "شماره گیری با پیش شماره"
 
@@ -906,7 +906,7 @@ msgstr ""
 "not affect the operation of the envelope option in the advanced Voicemail "
 "menu."
 
-#: Voicemail.class.php:1410
+#: Voicemail.class.php:1409
 #, php-format
 msgid "Error Processing %s. Reason: %s"
 msgstr ""
@@ -1632,7 +1632,7 @@ msgstr ""
 msgid "Msg Timeout"
 msgstr "وققه پیام"
 
-#: functions.inc.php:172 install.php:9 voicemail.i18n.php:32
+#: functions.inc.php:172 install.php:9 voicemail.i18n.php:30
 msgid "My Voicemail"
 msgstr "ایمیل صوتی من"
 
@@ -2036,11 +2036,11 @@ msgstr "حذف منطقه زمانی تعریف شده"
 msgid "Require From Same %s"
 msgstr "درخواست از %s"
 
-#: Voicemail.class.php:1657
+#: Voicemail.class.php:1656
 msgid "Require From Same Extension[Blank/no to disable,yes for enable]"
 msgstr ""
 
-#: Voicemail.class.php:1627
+#: Voicemail.class.php:1626
 msgid "Reset"
 msgstr "بازنشانی"
 
@@ -2243,7 +2243,7 @@ msgstr "فضای مصرفی"
 msgid "Subject sent to pager."
 msgstr "عنوان ارسال شده برای پیام گیر."
 
-#: Voicemail.class.php:1632 page.voicemail.php:671
+#: Voicemail.class.php:1631 page.voicemail.php:671
 msgid "Submit"
 msgstr "ارسال"
 
@@ -2307,11 +2307,11 @@ msgstr "تعداد ویژگی توصیفی ADSI برای دانلود به"
 msgid "The ADSI security lock code"
 msgstr "کد قفل امنیتی ADSI"
 
-#: install.php:14 voicemail.i18n.php:28
+#: install.php:14
 msgid "The Feature Code used to dial any voicemail"
 msgstr "کد ویژه برای شماره گیری هر ایمیل صوتی"
 
-#: install.php:13 voicemail.i18n.php:34
+#: install.php:13
 msgid ""
 "The Feature Code used to direct dial a users voicemail from their own "
 "extension"
@@ -2576,7 +2576,7 @@ msgstr "Timezone from  zonemessages context.  Irrelevant if envelope=no."
 msgid "To"
 msgstr "به"
 
-#: Voicemail.class.php:1660
+#: Voicemail.class.php:1659
 msgid "To Disable * in Voicemail Menu use Blank/no  OR yes"
 msgstr ""
 
@@ -2728,7 +2728,7 @@ msgstr ""
 "record your personal voicemail greeting and include instructions. Run a test "
 "to make sure that the number is functional."
 
-#: Voicemail.class.php:822
+#: Voicemail.class.php:821
 msgid "User Primary Extension"
 msgstr "داخلی اصلی کاربر"
 
@@ -2780,7 +2780,7 @@ msgstr ""
 msgid "VmX Locater&trade;"
 msgstr "VmX  Locater&trade;"
 
-#: Voicemail.class.php:835 functions.inc.php:510 install.php:8
+#: Voicemail.class.php:834 functions.inc.php:510 install.php:8
 #: ucp/Voicemail.class.php:95 ucp/Voicemail.class.php:144
 #: ucp/Voicemail.class.php:196 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
@@ -2806,11 +2806,11 @@ msgstr "حذف خودکار ایمیل صوتی روشن است. پیام جدی
 msgid "Voicemail Context"
 msgstr "زمینه ایمیل صوتی"
 
-#: Voicemail.class.php:1651
+#: Voicemail.class.php:1650
 msgid "Voicemail E-Mail"
 msgstr "ایمیل ایمیل صوتی"
 
-#: Voicemail.class.php:1645
+#: Voicemail.class.php:1644
 msgid "Voicemail Enable [Blank to disable]"
 msgstr "فعال کردن ایمیل صوتی [خالی برای غیرفعال کردن]"
 
@@ -2826,7 +2826,7 @@ msgstr "پیام ایمیل صوتی"
 msgid "Voicemail Module"
 msgstr "ماژول ایمیل صوتی"
 
-#: Voicemail.class.php:1654
+#: Voicemail.class.php:1653
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
@@ -2838,11 +2838,11 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr "پین ایمیل صوتی"
 
-#: Voicemail.class.php:1648 functions.inc.php:542 page.voicemail.php:517
+#: Voicemail.class.php:1647 functions.inc.php:542 page.voicemail.php:517
 msgid "Voicemail Password"
 msgstr "کلمه عبور ایمیل صوتی"
 
-#: Voicemail.class.php:1680
+#: Voicemail.class.php:1679
 msgid "Voicemail Password is empty."
 msgstr ""
 
@@ -2888,7 +2888,7 @@ msgstr "پیام صوتی خالی بود:%s"
 msgid "Volume Gain"
 msgstr "ایمیل صوتی Gain"
 
-#: Voicemail.class.php:1399
+#: Voicemail.class.php:1398
 #, php-format
 msgid ""
 "Warning, You are over the max message display amount of %s only %s messages "

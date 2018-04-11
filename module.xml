@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.5</version>
+	<version>15.0.6</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.6* FREEPBX-17179 Bulk Hander and Voicemail Context 
 		*15.0.5* FREEPBX-17179 Bulk Hander &amp;amp; Voicemail Context 
 		*15.0.4* FREEPBX-12826 Bulk Handler Require Voicemail Password From Same Extension 
 		*15.0.3* FREEPBX-12826 Bulk Handler Require Voicemail Password From Same Extension 
