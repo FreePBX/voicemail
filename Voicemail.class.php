@@ -480,7 +480,6 @@ class Voicemail implements \BMO {
 			throw new \Exception(_("Mailbox can not be empty"));
 		}
 		$vmconf = $this->getVoicemail($cached);
-
 		$settings['vmcontext'] = !empty($settings['vmcontext']) ? $settings['vmcontext'] : 'default';
 		$settings['pwd'] = isset($settings['pwd']) ? $settings['pwd'] : '';
 		$settings['name'] = isset($settings['name']) ? $settings['name'] : '';
@@ -1709,6 +1708,7 @@ class Voicemail implements \BMO {
 					$data['disable_star_voicemail'] = !empty($data['disable_star_voicemail']) ? $data['disable_star_voicemail'] : "";
 					$mailbox['vm'] = 'enabled';
 					$mailbox['name'] = $data['name'];
+					$mailbox['vmcontext'] = $data['voicemail'];
 					unset($mailbox['enable']);
 					try {
 						$this->addMailbox($extension, $mailbox, false);
