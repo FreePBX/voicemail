@@ -270,11 +270,13 @@ var VoicemailC = UCPMC.extend({
 				var extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
 				var sel = $("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('getAllSelections');
 				$.each(sel, function(i, v){
-					self.deleteVoicemail(v.msg_id, extension, function(data) {
-						if(data.status) {
-							$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
-						}
-					});
+					setTimeout(function() {
+						self.deleteVoicemail(v.msg_id, extension, function(data) {
+							if(data.status) {
+								$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
+							}
+						});
+					},1000);
 				});
 				$("#delete-selection").prop("disabled",true);
 			});
