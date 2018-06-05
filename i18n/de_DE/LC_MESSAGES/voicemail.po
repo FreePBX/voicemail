@@ -10,16 +10,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-22 18:18-0400\n"
-"PO-Revision-Date: 2018-02-16 16:12+0200\n"
-"Last-Translator: Nils <Nils@heckenkamp.info>\n"
-"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/voicemail/"
-"de_DE/>\n"
+"PO-Revision-Date: 2018-06-05 17:39+0000\n"
+"Last-Translator: Nils Heckenkamp <nheckenkamp@sangoma.com>\n"
+"Language-Team: German <http://*/projects/freepbx/voicemail/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 2.19.1\n"
 
 #: Voicemail.class.php:2066
 msgid " Don't leave single period on end of line by itself."
@@ -1612,6 +1611,8 @@ msgid ""
 "Maximum length of a voicemail message in seconds for the message to be kept. "
 "The default is 300 (in seconds)."
 msgstr ""
+"Maximale Länge einer Voicemail-Nachricht in Sekunden, in der die Nachricht "
+"aufbewahrt werden soll. Der Standardwert ist 300 (in Sekunden)."
 
 #: page.voicemail.php:255 page.voicemail.php:306
 msgid ""
@@ -2705,6 +2706,7 @@ msgstr "An"
 #: Voicemail.class.php:1585
 msgid "To Disable * in Voicemail Menu use Blank/no  OR yes"
 msgstr ""
+"Um im Voicemail-Menü * zu deaktivieren, verwenden Sie Leer / Nein ODER Ja"
 
 #: ucp/views/greetings.php:40
 #, php-format
@@ -2919,14 +2921,12 @@ msgstr ""
 "Benachrichtigungen."
 
 #: functions.inc.php:732
-#, fuzzy
 msgid "VmX Locater&trade;"
 msgstr "VmX Locater&trade;"
 
 #: ucp/Voicemail.class.php:148
-#, fuzzy
 msgid "VmX Locator"
-msgstr "VmX Locator"
+msgstr "VmX-Locator"
 
 #: Voicemail.class.php:760 functions.inc.php:510 install.php:8
 #: ucp/Voicemail.class.php:525 views/header.php:2 voicemail.i18n.php:4
