@@ -996,13 +996,17 @@ class Voicemail implements \BMO {
 			$message = $this->getMessageByMessageIDExtension($msg,$ext);
 			if(!empty($message)) {
 				foreach(glob($message['path']."/".$message['fid'].".*") as $filename) {
-					if(!unlink($filename)) {
-						return false;
+					if(file_exists($filename)){
+						if(!unlink($filename)) {
+							return false;
+						}
 					}
 				}
 				foreach(glob($message['path']."/".$message['fid']."_*.*") as $filename) {
-					if(!unlink($filename)) {
-						return false;
+					if(file_exists($filename)){
+						if(!unlink($filename)) {
+							return false;
+						}
 					}
 				}
 				$this->renumberAllMessages($message['path']);
@@ -1028,16 +1032,20 @@ class Voicemail implements \BMO {
 				foreach(glob($folder."/msg".$matches[1].".*") as $filename2) {
 					$newpath = preg_replace('/msg([0-9]+)/','msg'.$newn,$filename2);
 					if(file_exists($newpath)) {
-						unlink($newpath);
+						@unlink($newpath);
 					}
-					rename($filename2,$newpath);
+					if(file_exists($filename2)) {
+						@rename($filename2,$newpath);
+					}
 				}
 				foreach(glob($folder."/msg".$matches[1]."_*.*") as $filename2) {
 					$newpath = preg_replace('/msg([0-9]+)/','msg'.$newn,$filename2);
 					if(file_exists($newpath)) {
-						unlink($newpath);
+						@unlink($newpath);
 					}
-					rename($filename2,$newpath);
+					if(file_exists($filename2)) {
+						@rename($filename2,$newpath);
+					}
 				}
 			}
 			$count++;
@@ -1426,11 +1434,15 @@ class Voicemail implements \BMO {
 						$out['messages'][$key]['path'] = $folder;
 
 						$extension = $this->getFileExtension($vfolder, $vm);
+						if(file_exists($wav)){
 						$out['messages'][$key]['format'][$extension] = array(
 							"filename" => basename($wav),
 							"path" => $folder,
 							"length" => filesize($wav)
 						);
+						} else {
+							unset($out['messages'][$key]);
+						}
 						$out['total'] = $count++;
 					}
 				}
