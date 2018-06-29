@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>14.0.1.25</version>
+	<version>14.0.1.26</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*14.0.1.26* FREEPBX-17384 UCP Deleting Multiple voicemails 
 		*14.0.1.25* FREEPBX-17179 Bulk Hander &amp;amp; Voicemail Context 
 		*14.0.1.24* FREEPBX-17179 Bulk Hander &amp;amp; Voicemail Context 
 		*14.0.1.23* FREEPBX-17080 - Make voicemail directories if they don't exist
