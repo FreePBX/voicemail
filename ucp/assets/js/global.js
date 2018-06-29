@@ -269,12 +269,17 @@ var VoicemailC = UCPMC.extend({
 			UCP.showConfirm(_("Are you sure you wish to delete these voicemails?"),'warning',function() {
 				var extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
 				var sel = $("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('getAllSelections');
-				$.each(sel, function(i, v){
-					self.deleteVoicemail(v.msg_id, extension, function(data) {
-						if(data.status) {
-							$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
-						}
-					});
+				async.forEachOf(sel, function(v, i, callback){
+						self.deleteVoicemail(v.msg_id, extension, function(data) {
+							if(data.status) {
+								$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
+							}
+							callback();
+						})
+				}, function(err) {
+					if( err ) {
+						UCP.showAlert(err);
+					}
 				});
 				$("#delete-selection").prop("disabled",true);
 			});
