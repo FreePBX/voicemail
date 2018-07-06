@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.7</version>
+	<version>15.0.8</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
-	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.8* Backup 15.0
 		*15.0.7* FREEPBX-17384 UCP Deleting Multiple voicemails 
 		*15.0.6* FREEPBX-17179 Bulk Hander and Voicemail Context 
 		*15.0.5* FREEPBX-17179 Bulk Hander &amp;amp; Voicemail Context 
@@ -50,6 +51,4 @@
 			<method callingMethod="delGroup" class="Voicemail" namespace="FreePBX\modules">ucpDelGroup</method>
 		</ucp>
 	</hooks>
-	<location>release/2.11/voicemail-2.11.1.0.tgz</location>
-	<md5sum>442f0ba3a17bedc96f4cb75c53ccf99b</md5sum>
 </module>

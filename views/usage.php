@@ -1,5 +1,5 @@
 <br/>
-<h3><?php echo _("Account") . ': '. $_REQUEST['ext']?></h3>
+<h3><?php echo _("Account") . ': '. htmlentities($_REQUEST['ext'])?></h3>
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title"><?php echo _("Storage Usage")?></h3>

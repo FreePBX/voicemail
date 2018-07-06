@@ -3,8 +3,12 @@
 namespace FreePBX\modules;
 
 use Symfony\Component\Finder\Finder;
-
-class Voicemail implements \BMO {
+use BMO;
+use FreePBX_Helpers;
+use Exception;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+class Voicemail extends FreePBX_Helpers implements BMO {
 	//message to display to client
 	public $displayMessage = array(
 		"type" => "warning",
@@ -42,7 +46,7 @@ class Voicemail implements \BMO {
 
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
-			throw new \Exception("Not given a FreePBX Object");
+			throw new Exception("Not given a FreePBX Object");
 		}
 
 		if(!class_exists('FreePBX\modules\Voicemail\Vmx') && file_exists(__DIR__.'/Vmx.class.php')) {
@@ -51,7 +55,7 @@ class Voicemail implements \BMO {
 		if(!is_object($this->Vmx) && class_exists('FreePBX\modules\Voicemail\Vmx')) {
 			$this->Vmx = new Voicemail\Vmx($freepbx);
 		} elseif(!class_exists('FreePBX\modules\Voicemail\Vmx')) {
-			throw new \Exception("Unable to load VmX Locator class");
+			throw new Exception("Unable to load VmX Locator class");
 		}
 
 		$this->FreePBX = $freepbx;
@@ -103,82 +107,8 @@ class Voicemail implements \BMO {
 	public function uninstall() {
 
 	}
-	public function backup(){
 
-	}
-	public function restore($backup){
 
-	}
-	public function backupModule($backup) {
-		$dirs = array();
-		$files = array();
-
-		$finder = new Finder();
-
-		$search = $finder->directories()->in($this->vmPath);
-		foreach ($search as $dir) {
-			if ($dir->isLink()) {
-				/* Skip it.  We don't need to keep the device links. */
-			} else {
-				$dirs[] = array(
-					'type' => 'voicemail',
-					'path' => $dir->getRelativePathName(),
-				);
-			}
-		}
-
-		$search = $finder->files()->in($this->vmPath);
-		foreach ($search as $file) {
-			$files[] = array(
-				'type' => 'voicemail',
-				'filename' => $file->getFilename(),
-				'path' => $file->getRelativePath(),
-				'root' => $this->vmPath,
-			);
-		}
-
-		$backup->addDirs($dirs);
-		$backup->addFiles($files);
-	}
-
-	public function backupSettings() {
-		return '<div>I am [an] Error.</div>';
-	}
-
-	public function restoreModule($restore) {
-		$dirs = array();
-		$files = array();
-		$backupdirs = $restore->getBackupDirs();
-		$backupfiles = $restore->getBackupFiles();
-
-		foreach ($backupdirs as $dir) {
-			switch ($dir['type']) {
-			case 'voicemail':
-				$dir['root'] = $this->vmPath;
-
-				$dirs[] = $dir;
-				break;
-			default:
-				break;
-			}
-		}
-		$restore->addDirs($dirs);
-
-		foreach ($backupfiles as $file) {
-			switch ($file['type']) {
-			case 'voicemail':
-			case 'greeting':
-				$file['root'] = $this->vmPath;
-
-				$files[] = $file;
-				break;
-			default:
-				/* Unknown type.  Panic? */
-				break;
-			}
-		}
-		$restore->addFiles($files);
-	}
 	public function genConfig() {
 
 	}
@@ -231,7 +161,7 @@ class Voicemail implements \BMO {
 			return;
 		}
 		if(!is_numeric($mailbox)) {
-			throw new \Exception(sprintf(_("Mailbox is not in the proper format [%s]"),$mailbox));
+			throw new Exception(sprintf(_("Mailbox is not in the proper format [%s]"),$mailbox));
 		}
 		$user = $this->FreePBX->Core->getUser($mailbox);
 		if(isset($user['voicemail']) && ($user['voicemail'] != "novm")) {
@@ -346,25 +276,25 @@ class Voicemail implements \BMO {
 	 */
 	public function updateMailbox($mailbox, $settings, $cached = true) {
 		if(trim($mailbox) == "") {
-			throw new \Exception("Mailbox is not defined!");
+			throw new Exception("Mailbox is not defined!");
 		}
 		if(empty($settings)) {
-			throw new \Exception("Nothing to save! Did you mean to delMailbox?");
+			throw new Exception("Nothing to save! Did you mean to delMailbox?");
 		}
 		$voicemail = $this->getVoicemail($cached);
 		if(empty($settings['vmcontext'])) {
-			throw new \Exception("There is no context!");
+			throw new Exception("There is no context!");
 		}
 		$vmcontext = $settings['vmcontext'];
 		if($vmcontext == "general" || $vmcontext == "zonemessages") {
-			throw new \Exception("Invalid context!");
+			throw new Exception("Invalid context!");
 		}
 		unset($settings['vmcontext']);
 		if(empty($voicemail[$vmcontext])) {
-			throw new \Exception("Context does not exist");
+			throw new Exception("Context does not exist");
 		}
 		if(empty($voicemail[$vmcontext][$mailbox])) {
-			throw new \Exception("Mailbox did not previously exist. Did you mean to addMailbox?");
+			throw new Exception("Mailbox did not previously exist. Did you mean to addMailbox?");
 		}
 		$voicemail[$vmcontext][$mailbox] = $settings;
 		$this->saveVoicemail($voicemail);
@@ -426,7 +356,7 @@ class Voicemail implements \BMO {
 	public function saveVoicemail($vmconf) {
 		// just in case someone tries to be sneaky and not call getVoicemail() first..
 		if ($vmconf == null) {
-			throw new \Exception(_("Null value was sent to saveVoicemail() can not continue"));
+			throw new Exception(_("Null value was sent to saveVoicemail() can not continue"));
 		}
 
 		foreach($vmconf as $name => &$context) {
@@ -477,7 +407,7 @@ class Voicemail implements \BMO {
 	public function addMailbox($mailbox, $settings, $cached = true) {
 		global $astman;
 		if(trim($mailbox) == "") {
-			throw new \Exception(_("Mailbox can not be empty"));
+			throw new Exception(_("Mailbox can not be empty"));
 		}
 		$vmconf = $this->getVoicemail($cached);
 		$settings['vmcontext'] = !empty($settings['vmcontext']) ? $settings['vmcontext'] : 'default';
@@ -1413,7 +1343,7 @@ class Voicemail implements \BMO {
 					if(file_exists($txt) && is_readable($txt) && file_exists($wav)) {
 						try {
 							$data = $this->FreePBX->LoadConfig->getConfig($vm.".txt", $vfolder, 'message');
-						} catch (\Exception $e) {
+						} catch (Exception $e) {
 							dbug(sprintf(_('Error Processing %s. Reason: %s'),$vm.'.txt', $e->getMessage()));
 							continue;
 						}
@@ -1572,16 +1502,12 @@ class Voicemail implements \BMO {
 		switch(true) {
 			case file_exists($path . "/" . $filename.".wav"):
 				return $path . "/" . $filename.".wav";
-			break;
 			case file_exists($path . "/" . $filename.".WAV"):
 				return $path . "/" . $filename.".WAV";
-			break;
 			case file_exists($path . "/" . $filename.".gsm"):
 				return $path . "/" . $filename.".gsm";
-			break;
 			default:
 				return false;
-			break;
 		}
 	}
 
@@ -1593,16 +1519,12 @@ class Voicemail implements \BMO {
 		switch(true) {
 			case preg_match("/WAV$/", $file):
 				return 'WAV';
-			break;
 			case preg_match("/wav$/", $file):
 				return 'wav';
-			break;
 			case preg_match("/gsm$/", $file):
 				return 'gsm';
-			break;
 			default:
 				return false;
-			break;
 		}
 	}
 
@@ -1628,24 +1550,21 @@ class Voicemail implements \BMO {
 		return $boxes;
 	}
 	public function getActionBar($request) {
-		$buttons = array();
-		switch($request['display']) {
-			case 'voicemail':
-				$buttons = array(
-					'reset' => array(
-						'name' => 'reset',
-						'id' => 'reset',
-						'value' => _('Reset')
-					),
-					'submit' => array(
-						'name' => 'submit',
-						'id' => 'submit',
-						'value' => _('Submit')
-					)
-				);
-			break;
+		if($request['display'] === 'voicemail') {
+			return [
+				'reset' => [
+					'name' => 'reset',
+					'id' => 'reset',
+					'value' => _('Reset'),
+                ],
+				'submit' => [
+					'name' => 'submit',
+					'id' => 'submit',
+					'value' => _('Submit'),
+                ],
+            ];
 		}
-		return $buttons;
+		return [];
 	}
 
 	public function bulkhandlerGetHeaders($type) {
@@ -1724,7 +1643,7 @@ class Voicemail implements \BMO {
 					unset($mailbox['enable']);
 					try {
 						$this->addMailbox($extension, $mailbox, false);
-					} catch (\Exception $e) {
+					} catch (Exception $e) {
 						return array("status" => false, "message" => $e->getMessage());
 					}
 					if(empty($data['voicemail'])){
@@ -2610,5 +2529,85 @@ class Voicemail implements \BMO {
 			}
 		}
 		return $final;
-	}
+    }
+
+    public function allFileList($filter = 'FrObUlAtE'){
+        $dirs = [];
+        $files = [];
+        $directory = new RecursiveDirectoryIterator($this->vmPath);
+        $iterator = new RecursiveIteratorIterator($directory);
+        foreach ($iterator as $fileObj) {
+            /** The device folder is all symlinks. Ain't nobody got time for that */
+            if( strpos($fileObj->getPath(),'device') !== false){
+                continue;
+            }
+            //This should never be FrObUlAte. Skip over things that match the string provided
+            if(strpos($fileObj->getPath(),$filter) !== false){
+                continue;
+            }
+            if ($fileObj->isDir()) {
+                $dirs[] = $fileObj->getPath();
+                continue;
+            }
+            $files[] = ['basename' => $fileObj->getBasename(), 'path' => $fileObj->getPath(), 'base' => 'VARLIBDIR', 'type' => 'voicemail'];
+        }
+        $dirs = array_unique($dirs);
+        return ['dirs' => $dirs, 'files' => $files];
+    }
+
+    public function getBackupSettingsDisplay($id = ''){
+        $backupVars = $this->getBackupSettings($id);
+        return load_view(__DIR__.'/views/backupsettings.php', ['settings' => $backupVars]);
+    }
+
+    public function processBackupSettings($id, $settings){
+        $insert = array_filter($settings, function($k, $v = false){  return (strpos($k, 'voicemail_') !== false); });
+        if(!empty($insert)){
+            $this->delById($id);
+            $this->setMultiConfig($insert, $id);
+        }
+    }
+
+    public function getBackupSettings($id = ''){
+        $settings = $this->getBaseBackupSettings();
+        $saved = $this->getAll($id);
+        if($saved){
+            foreach($settigns as $key => $value){
+                $exten = $value['extension'];
+                if (isset($saved['voicemail_egreetings_'.$exten])) {
+                    $settings[$key]['egreetings'] = $saved['voicemail_egreetings_'.$exten];
+                }
+                if (isset($saved['voicemail_emessages_'.$exten])) {
+                    $settings[$key]['emessages'] = $saved['voicemail_emessages_'.$exten];
+                }
+                if (isset($saved['voicemail_rpassword_'.$exten])) {
+                    $settings[$key]['rpassword'] = $saved['voicemail_rpassword_'.$exten];
+                }
+            }
+        }
+        return $settings;
+
+    }
+    public function getBaseBackupSettings(){
+        $boxes = $this->getVoicemail();
+        //Don't need general settings
+        unset($boxes['general']);
+        $final = [];
+        foreach ($boxes as $context => $extensions) {
+            foreach ($extensions as $extension => $settings) {
+                $final[] = [
+                    'extension' => $extension, 
+                    'context' => $context, 
+                    'name' => $settings['name'],
+                    'egreetings' => false,
+                    'emessages' => false,
+                    'rpassword' => false,
+                ];
+            }
+        }
+        return $final;
+    }
+    public function updateGeneral(array $data){
+        
+    }
 }
