@@ -10,7 +10,11 @@ class Backup Extends Base\BackupBase{
     $backupsettings = $voiceMail->getBackupSettings($id);
     $mailboxData = $voiceMail->bulkhandlerExport('extensions');
     foreach($backupsettings as $exten){
-        $vmx[$exten['extension']] = $voiceMail->VMX->vmxexport($exten['extension']);
+	//if(!class_exists('\\FreePBX\modules\\Voicemail\\Vmx')){
+	 //   $vmx[$exten['extension']] = \FreePBX\modules\Voicemail\Vmx->vmxexport($exten['extension']);
+	//}else{
+	        $vmx[$exten['extension']] = $voiceMail->Vmx->vmxexport($exten['extension']);
+	//}
         if(!$exten['egreetings']){
             $greetings = $voiceMail->getGreetingsByExtension($exten['extension']);
             foreach($greetings as $greeting){
@@ -20,7 +24,7 @@ class Backup Extends Base\BackupBase{
             }
         }
         if(!$exten['emessages']){
-            $fileDirList = $voiceMail->getAllFiles($exten['extension']);
+            $fileDirList = $voiceMail->allFileList($exten['extension']);
             foreach($fileDirList['dirs'] as $dir){
                 $dirs[] = $dir;
             }
