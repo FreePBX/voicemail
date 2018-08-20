@@ -28,12 +28,7 @@ $startExt = $dev['extension'] + 1;
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="vmpwd"></i>
 			</div>
 			<div class="col-md-9">
-				<div class="input-group">
-					<input type="password" name="vmpwd" class="form-control" id="vmpwd" value="<?php echo $startExt?>">
-					<span class="input-group-btn">
-						<button data-id="vmpwd" class="btn btn-default toggle-password" type="button"><i class="fa fa-eye fa-2x" style="margin-top:-4px;"></i></button>
-					</span>
-				</div>
+				<input type="text" name="vmpwd" class="form-control confidential" id="vmpwd" value="<?php echo $startExt?>"/>
 			</div>
 		</div>
 	</div>
