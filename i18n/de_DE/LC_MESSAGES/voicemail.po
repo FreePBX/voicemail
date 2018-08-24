@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-10 20:14-0400\n"
-"PO-Revision-Date: 2018-07-31 16:00+0000\n"
+"PO-Revision-Date: 2018-08-25 14:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/voicemail/de/>\n"
 "Language: de_DE\n"
@@ -584,7 +584,7 @@ msgstr ""
 
 #: ucp/views/widget.php:60
 msgid "Date/Time"
-msgstr ""
+msgstr "Datum/Uhrzeit"
 
 #: views/tz.php:118
 msgid "Day of week (Saturday, Sunday, ...)"
@@ -697,7 +697,7 @@ msgstr "Verzeichniseinleitung"
 
 #: ucp/assets/js/global.js:93
 msgid "Disable"
-msgstr ""
+msgstr "Deaktivieren"
 
 #: functions.inc.php:590
 msgid "Disable (*) in Voicemail Menu"
@@ -736,7 +736,7 @@ msgstr "Deaktiviert"
 
 #: ucp/views/greetings.php:52
 msgid "Discard Recording"
-msgstr ""
+msgstr "Aufnahme verwerfen"
 
 #: views/usage.php:8 views/usage_system.php:24
 msgid "Disk space currently in use by Voicemail data"
@@ -1613,6 +1613,8 @@ msgid ""
 "Maximum length of a voicemail message in seconds for the message to be kept. "
 "The default is 300 (in seconds)."
 msgstr ""
+"Maximale Dauer für eine Sprachnachricht. Der Standardwert ist 300 (in "
+"Sekunden)."
 
 #: page.voicemail.php:255 page.voicemail.php:306
 msgid ""
@@ -2164,7 +2166,7 @@ msgstr "SMDI-Port"
 
 #: ucp/views/greetings.php:51
 msgid "Save Recording"
-msgstr ""
+msgstr "Aufnahme speichern"
 
 #: Voicemail.class.php:1991
 msgid "Say CID"
@@ -2348,7 +2350,7 @@ msgstr "Betreff an Pager gesendet."
 
 #: Voicemail.class.php:1570 page.voicemail.php:671
 msgid "Submit"
-msgstr "Senden"
+msgstr "Absenden"
 
 #: ucp/assets/js/global.js:162 ucp/assets/js/global.js:172
 #: ucp/assets/js/global.js:299 ucp/assets/js/global.js:313
@@ -2698,6 +2700,8 @@ msgstr "An"
 #: Voicemail.class.php:1598
 msgid "To Disable * in Voicemail Menu use Blank/no  OR yes"
 msgstr ""
+"Um * im Sprachnachrichten-Menü zu deaktivieren verwenden Sie ein Leerzeichen/"
+"nein ODER ja"
 
 #: ucp/views/greetings.php:37
 #, php-format
@@ -2979,7 +2983,7 @@ msgstr "Voicemail-Passwort"
 
 #: Voicemail.class.php:1618
 msgid "Voicemail Password is empty."
-msgstr ""
+msgstr "Sprachnachrichten-Kennwort ist leer."
 
 #: Voicemail.class.php:118
 msgid "Voicemail Password must contain only digits"
@@ -3112,7 +3116,7 @@ msgstr ""
 
 #: ucp/assets/js/global.js:53
 msgid "You have a new voicemail"
-msgstr ""
+msgstr "Sie haben eine neue Sprachnachricht"
 
 #: ucp/assets/js/global.js:576
 msgid "Your Browser Blocked The Recording, Please check your settings"
