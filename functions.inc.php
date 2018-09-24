@@ -335,14 +335,13 @@ function voicemail_configpageinit($pagename) {
 		return true;
 		";
 		$currentcomponent->addjsfunc('voicemailEnabled(notused)', $js);
-		$vmpwd_help_tip = _(" Set this password to same as extension number to force the user to setup their mailbox on first access.");
 		$js ="
 		var msg_obj = $('#vmpwd-help');
 		if(msg_obj.length) {
 			var tip_obj = $('#vmpwd-help-tip');
 			if(frm_{$display}_isVoiceMailEnabled()){
 				if(tip_obj.length == 0){
-					var tmp_msg = \"<span id='vmpwd-help-tip' class='help-block voicemail-find active'>\"  + '{$vmpwd_help_tip}</span>';
+					var tmp_msg = \"<span id='vmpwd-help-tip' class='help-block voicemail-find active'>\"  + _('Set this password to same as extension number to force the user to setup their mailbox on first access.') + '</span>';
 					msg_obj.after(tmp_msg);
 				}
 			}else{
