@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.55</version>
+	<version>13.0.56</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.56* Fixing FREEPBX-18223 Extensions setting not appling for Italian language 
 		*13.0.55* FREEPBX-15896
 		*13.0.54.20* FREEPBX-17080 - Make voicemail directories if they don't exist 
 		*13.0.54.19* FREEPBX-16992 Voicemail admin setting "Next after command" in wrong place 
