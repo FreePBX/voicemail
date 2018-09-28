@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.11</version>
+	<version>15.0.12</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.12* Fixing FREEPBX-18167 quick create extension should only populate email address , not pager email address. 
 		*15.0.11* Fixing FREEPBX-18223 Extensions setting not appling for Italian language 
 		*15.0.10* Rest Api 
 		*15.0.9* Packaging of ver 15.0.9
