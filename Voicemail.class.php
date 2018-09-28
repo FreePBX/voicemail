@@ -134,7 +134,6 @@ class Voicemail implements \BMO {
 				"name" => $data['name'],
 				"vmpwd" => $data['vmpwd'],
 				"email" => $data['email'],
-				"pager" => $data['email'],
 				"passlogin" => "passlogin=no",
 				"attach" => "attach=no",
 				"envelope" => "envelope=no",
