@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-28 14:03-0400\n"
-"PO-Revision-Date: 2018-08-25 14:00+0000\n"
+"PO-Revision-Date: 2018-10-08 20:53+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/voicemail/de/>\n"
 "Language: de_DE\n"
@@ -1378,6 +1378,8 @@ msgid ""
 "If set to \"yes\" the Voicemail Pane will refresh automatically when new "
 "voicemails are retrieved"
 msgstr ""
+"Wird \"ja\" ausgewählt, aktualisiert sich das Mailbox-Fenster automatisch, "
+"wenn neue Sprachnachrichten abgerufen werden"
 
 #: functions.inc.php:660 ucp/views/vmsettings.php:44
 msgid ""
@@ -2905,7 +2907,6 @@ msgstr ""
 "Benachrichtigungen."
 
 #: functions.inc.php:730
-#, fuzzy
 msgid "VmX Locater&trade;"
 msgstr "VmX Locater&trade;"
 
