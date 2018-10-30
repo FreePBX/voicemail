@@ -9,18 +9,18 @@
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
-		*15.0.12.1* FREEPBX-15555 Exception Asterisk is not connected error issue fix 
-		*15.0.12* Fixing FREEPBX-18167 quick create extension should only populate email address , not pager email address. 
-		*15.0.11* Fixing FREEPBX-18223 Extensions setting not appling for Italian language 
-		*15.0.10* Rest Api 
+		*15.0.12.1* FREEPBX-15555 Exception Asterisk is not connected error issue fix
+		*15.0.12* Fixing FREEPBX-18167 quick create extension should only populate email address , not pager email address.
+		*15.0.11* Fixing FREEPBX-18223 Extensions setting not appling for Italian language
+		*15.0.10* Rest Api
 		*15.0.9* Packaging of ver 15.0.9
 		*15.0.8* Backup 15.0
-		*15.0.7* FREEPBX-17384 UCP Deleting Multiple voicemails 
-		*15.0.6* FREEPBX-17179 Bulk Hander and Voicemail Context 
-		*15.0.5* FREEPBX-17179 Bulk Hander &amp;amp; Voicemail Context 
-		*15.0.4* FREEPBX-12826 Bulk Handler Require Voicemail Password From Same Extension 
-		*15.0.3* FREEPBX-12826 Bulk Handler Require Voicemail Password From Same Extension 
-		*15.0.2* FREEPBX-16224 cannot select YES for delete of abandoned greetings 
+		*15.0.7* FREEPBX-17384 UCP Deleting Multiple voicemails
+		*15.0.6* FREEPBX-17179 Bulk Hander and Voicemail Context
+		*15.0.5* FREEPBX-17179 Bulk Hander &amp;amp; Voicemail Context
+		*15.0.4* FREEPBX-12826 Bulk Handler Require Voicemail Password From Same Extension
+		*15.0.3* FREEPBX-12826 Bulk Handler Require Voicemail Password From Same Extension
+		*15.0.2* FREEPBX-16224 cannot select YES for delete of abandoned greetings
 		*15.0.1* FREEPBX-15984 Set extern notify to fwconsole
 	</changelog>
 	<description>This module allows you to configure Voicemail for a user or extension</description>
@@ -56,4 +56,10 @@
 			<method callingMethod="delGroup" class="Voicemail" namespace="FreePBX\modules">ucpDelGroup</method>
 		</ucp>
 	</hooks>
+	<database>
+		<table name="voicemail_admin">
+			<field name="variable" type="string" length="30" default="" primarykey="true"/>
+			<field name="value" type="string" length="80" default=""/>
+		</table>
+	</database>
 </module>
