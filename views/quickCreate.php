@@ -1,8 +1,3 @@
-<?php
-$devs = \FreePBX::Core()->getAllUsersByDeviceType();
-$dev = end($devs);
-$startExt = $dev['extension'] + 1;
-?>
 <div class="element-container">
 	<div class="row">
 		<div class="form-group">
@@ -28,7 +23,7 @@ $startExt = $dev['extension'] + 1;
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="vmpwd"></i>
 			</div>
 			<div class="col-md-9">
-				<input type="text" name="vmpwd" class="form-control confidential" id="vmpwd" value="<?php echo $startExt?>"/>
+				<input type="text" name="vmpwd" class="form-control confidential" id="vmpwd"/>
 			</div>
 		</div>
 	</div>
