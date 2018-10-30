@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-28 14:03-0400\n"
-"PO-Revision-Date: 2018-10-08 20:53+0000\n"
+"PO-Revision-Date: 2018-10-24 15:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/voicemail/de/>\n"
 "Language: de_DE\n"
@@ -1470,7 +1470,7 @@ msgstr ""
 #: views/ucp_config.php:17 views/ucp_config.php:72 views/ucp_config.php:101
 #: views/ucp_config.php:130 views/ucp_config.php:159 views/ucp_config.php:188
 msgid "Inherit"
-msgstr "Übernehmen"
+msgstr "Erben"
 
 #: voicemail.i18n.php:20
 msgid ""
@@ -1782,7 +1782,7 @@ msgstr ""
 
 #: page.voicemail.php:429 views/dialplan.php:73
 msgid "None"
-msgstr "Keine"
+msgstr "Kein*e"
 
 #: ucp/Voicemail.class.php:593
 msgid "Not Found"
@@ -3156,7 +3156,7 @@ msgstr "nicht installiert, ok"
 
 #: install.php:101
 msgid "not needed"
-msgstr "nicht erforderlich"
+msgstr "nicht benötigt"
 
 #: views/tz.php:134
 msgid "numeric day of month (first, second, ..., thirty-first)"
