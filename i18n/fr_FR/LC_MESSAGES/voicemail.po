@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-28 14:04-0400\n"
+"POT-Creation-Date: 2018-10-30 15:45-0400\n"
 "PO-Revision-Date: 2017-03-13 15:27+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -51,35 +51,10 @@ msgstr "%s sec"
 msgid "%s Voicemail"
 msgstr ""
 
-#: install.php:116
+#: install.php:54
 #, php-format
 msgid "%s added"
 msgstr "%s ajouté"
-
-#: install.php:83
-#, php-format
-msgid "%s adjusted from %s to %s"
-msgstr "%s ajusté de %s à %s"
-
-#: install.php:87
-#, php-format
-msgid "%s adjusted from bad value %s to default no gain"
-msgstr "%s ajusté de la valeur erronée %s au défaut aucun gain"
-
-#: install.php:78
-#, php-format
-msgid "%s changed from %s to max value 15"
-msgstr "%s modifié de %s à la valeur maximale de 15"
-
-#: install.php:97
-#, php-format
-msgid "%s migrated"
-msgstr "%s migré"
-
-#: install.php:74
-#, php-format
-msgid "%s no longer used"
-msgstr "%s n'est plus utilisé(e)"
 
 #: views/tz.php:115 views/tz.php:131 views/tz.php:147 views/tz.php:185
 #, php-format
@@ -284,10 +259,6 @@ msgstr "Joindre le message"
 msgid "Attempt(s)"
 msgstr "Essai(s)"
 
-#: install.php:194
-msgid "Attempting to delete.."
-msgstr "Tentative de supression..."
-
 #: ucp/views/vmsettings.php:47
 msgid "Auto-Refresh"
 msgstr "Rafraichir automatiquement"
@@ -337,16 +308,8 @@ msgstr ""
 msgid "Callback Context"
 msgstr ""
 
-#: install.php:178
-msgid "Cannot connect to Asterisk Manager with "
-msgstr ""
-
 #: Voicemail.class.php:1785
 msgid "Character Set"
-msgstr ""
-
-#: install.php:67
-msgid "Checking for General Setting migrations.."
 msgstr ""
 
 #: Voicemail.class.php:2371
@@ -563,10 +526,6 @@ msgstr "Supprime tous les noms enregistrés"
 msgid "Delete:"
 msgstr "Supprime :"
 
-#: install.php:123
-msgid "Deleting migrated settings.."
-msgstr ""
-
 #: Vmx.class.php:36
 msgid "Destination number"
 msgstr ""
@@ -648,13 +607,6 @@ msgstr "Espace disque présentement utilisé par les données de boite vocale"
 msgid "Duration"
 msgstr "Durée"
 
-#: install.php:95
-#, php-format
-msgid ""
-"ERROR inserting %s into voicemail_admin during migration, it may alreayd "
-"exist"
-msgstr ""
-
 #: Voicemail.class.php:1799 functions.inc.php:600 page.voicemail.php:518
 #: ucp/views/vmsettings.php:11
 msgid "Email Address"
@@ -729,7 +681,7 @@ msgid ""
 "Enable VmX Menu options during Voicemail playback for the selected options."
 msgstr ""
 
-#: views/quickCreate.php:10
+#: views/quickCreate.php:5
 msgid "Enable Voicemail"
 msgstr "Activer boite vocale"
 
@@ -895,10 +847,6 @@ msgstr "Famille"
 msgid "Fast-Foward Keys"
 msgstr ""
 
-#: install.php:127
-msgid "Fatal DB error trying to delete globals, trying to carry on"
-msgstr ""
-
 #: Voicemail.class.php:1841 Voicemail.class.php:1848
 msgid "File Format"
 msgstr "Format de fichier"
@@ -1014,10 +962,6 @@ msgstr "Général"
 #: views/dialplan.php:2
 msgid "General Dialplan Settings"
 msgstr "Paramètres généraux du plan de numérotation"
-
-#: install.php:122
-msgid "General Settings migrated"
-msgstr ""
 
 #: views/usage.php:15 views/usage_system.php:32
 msgid "General Usage"
@@ -1520,7 +1464,7 @@ msgstr "Suivant après la commande"
 #: Voicemail.class.php:2160 Voicemail.class.php:2362 functions.inc.php:405
 #: functions.inc.php:409 functions.inc.php:413 page.voicemail.php:570
 #: views/dialplan.php:19 views/dialplan.php:220 views/dialplan.php:247
-#: views/quickCreate.php:17 views/ucp_config.php:14 views/ucp_config.php:69
+#: views/quickCreate.php:12 views/ucp_config.php:14 views/ucp_config.php:69
 #: views/ucp_config.php:98 views/ucp_config.php:127 views/ucp_config.php:156
 #: views/ucp_config.php:185 views/usage.php:39 views/usage.php:70
 #: views/usage.php:101 views/usage.php:132 views/usage.php:163
@@ -2272,7 +2216,7 @@ msgstr ""
 msgid "This is the IMAP username, if using IMAP storage"
 msgstr ""
 
-#: views/quickCreate.php:37
+#: views/quickCreate.php:32
 msgid ""
 "This is the PIN used to access the Voicemail system. It should be between 4 "
 "and 12 numbers in length."
@@ -2549,10 +2493,6 @@ msgstr ""
 msgid "Voicemail Admin"
 msgstr ""
 
-#: install.php:193
-msgid "Voicemail Admin being removed and merged with Voicemail"
-msgstr ""
-
 #: functions.inc.php:971
 msgid "Voicemail Administration"
 msgstr ""
@@ -2591,7 +2531,7 @@ msgid ""
 "delete=no"
 msgstr ""
 
-#: views/quickCreate.php:27
+#: views/quickCreate.php:22
 msgid "Voicemail PIN"
 msgstr ""
 
@@ -2704,7 +2644,7 @@ msgstr "Année"
 #: Voicemail.class.php:2044 Voicemail.class.php:2052 Voicemail.class.php:2152
 #: Voicemail.class.php:2160 Voicemail.class.php:2362 functions.inc.php:404
 #: functions.inc.php:408 functions.inc.php:412 views/dialplan.php:17
-#: views/dialplan.php:218 views/dialplan.php:245 views/quickCreate.php:15
+#: views/dialplan.php:218 views/dialplan.php:245 views/quickCreate.php:10
 #: views/ucp_config.php:12 views/ucp_config.php:67 views/ucp_config.php:96
 #: views/ucp_config.php:125 views/ucp_config.php:154 views/ucp_config.php:183
 #: views/usage.php:37 views/usage.php:68 views/usage.php:99 views/usage.php:130
@@ -2733,54 +2673,14 @@ msgstr ""
 msgid "Your settings have been saved"
 msgstr "Vos paramètres ont été enregistrés"
 
-#: install.php:187
-msgid "checking if Voicemail Admin (vmailadmin) is installed.."
-msgstr ""
-
-#: install.php:148
-msgid "could not delete"
-msgstr ""
-
-#: install.php:143
-msgid "deleting VM_PREFIX from globals.."
-msgstr ""
-
-#: install.php:129 install.php:146
-msgid "done"
-msgstr "complété"
-
 #: Voicemail.class.php:321
 #, php-format
 msgid "failed with retcode %s while removing %s:"
 msgstr ""
 
-#: install.php:192
-msgid "installed."
-msgstr "installé."
-
-#: install.php:142
-msgid "migrated VM_PREFIX to feature codes"
-msgstr ""
-
-#: install.php:190
-msgid "not installed, ok"
-msgstr ""
-
-#: install.php:103
-msgid "not needed"
-msgstr "non nécessaire"
-
 #: views/tz.php:134
 msgid "numeric day of month (first, second, ..., thirty-first)"
 msgstr ""
-
-#: install.php:197
-msgid "ok"
-msgstr "ok"
-
-#: install.php:69
-msgid "preparing"
-msgstr "en préparation"
 
 #: views/tz.php:81
 msgid "timezone|values"
@@ -2793,6 +2693,39 @@ msgstr "variable"
 #: page.voicemail.php:568
 msgid "yes"
 msgstr "oui"
+
+#~ msgid "%s adjusted from %s to %s"
+#~ msgstr "%s ajusté de %s à %s"
+
+#~ msgid "%s adjusted from bad value %s to default no gain"
+#~ msgstr "%s ajusté de la valeur erronée %s au défaut aucun gain"
+
+#~ msgid "%s changed from %s to max value 15"
+#~ msgstr "%s modifié de %s à la valeur maximale de 15"
+
+#~ msgid "%s migrated"
+#~ msgstr "%s migré"
+
+#~ msgid "%s no longer used"
+#~ msgstr "%s n'est plus utilisé(e)"
+
+#~ msgid "Attempting to delete.."
+#~ msgstr "Tentative de supression..."
+
+#~ msgid "done"
+#~ msgstr "complété"
+
+#~ msgid "installed."
+#~ msgstr "installé."
+
+#~ msgid "not needed"
+#~ msgstr "non nécessaire"
+
+#~ msgid "ok"
+#~ msgstr "ok"
+
+#~ msgid "preparing"
+#~ msgstr "en préparation"
 
 #~ msgid "%s seconds"
 #~ msgstr "%s secondes"

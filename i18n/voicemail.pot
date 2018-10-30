@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 21:08+0530\n"
+"POT-Creation-Date: 2018-10-30 15:45-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,34 +56,9 @@ msgstr ""
 msgid "%s Voicemail"
 msgstr ""
 
-#: install.php:116
+#: install.php:54
 #, php-format
 msgid "%s added"
-msgstr ""
-
-#: install.php:83
-#, php-format
-msgid "%s adjusted from %s to %s"
-msgstr ""
-
-#: install.php:87
-#, php-format
-msgid "%s adjusted from bad value %s to default no gain"
-msgstr ""
-
-#: install.php:78
-#, php-format
-msgid "%s changed from %s to max value 15"
-msgstr ""
-
-#: install.php:97
-#, php-format
-msgid "%s migrated"
-msgstr ""
-
-#: install.php:74
-#, php-format
-msgid "%s no longer used"
 msgstr ""
 
 #: views/tz.php:115
@@ -296,10 +271,6 @@ msgstr ""
 msgid "Attempt(s)"
 msgstr ""
 
-#: install.php:194
-msgid "Attempting to delete.."
-msgstr ""
-
 #: ucp/views/vmsettings.php:47
 msgid "Auto-Refresh"
 msgstr ""
@@ -354,16 +325,8 @@ msgstr ""
 msgid "Callback Context"
 msgstr ""
 
-#: install.php:178
-msgid "Cannot connect to Asterisk Manager with "
-msgstr ""
-
 #: Voicemail.class.php:1785
 msgid "Character Set"
-msgstr ""
-
-#: install.php:67
-msgid "Checking for General Setting migrations.."
 msgstr ""
 
 #: Voicemail.class.php:2371
@@ -606,10 +569,6 @@ msgstr ""
 msgid "Delete:"
 msgstr ""
 
-#: install.php:123
-msgid "Deleting migrated settings.."
-msgstr ""
-
 #: Vmx.class.php:36
 msgid "Destination number"
 msgstr ""
@@ -696,13 +655,6 @@ msgstr ""
 msgid "Duration"
 msgstr ""
 
-#: install.php:95
-#, php-format
-msgid ""
-"ERROR inserting %s into voicemail_admin during migration, it may alreayd "
-"exist"
-msgstr ""
-
 #: Voicemail.class.php:1799
 #: functions.inc.php:600
 #: page.voicemail.php:518
@@ -784,7 +736,7 @@ msgid ""
 "Enable VmX Menu options during Voicemail playback for the selected options."
 msgstr ""
 
-#: views/quickCreate.php:10
+#: views/quickCreate.php:5
 msgid "Enable Voicemail"
 msgstr ""
 
@@ -954,10 +906,6 @@ msgstr ""
 msgid "Fast-Foward Keys"
 msgstr ""
 
-#: install.php:127
-msgid "Fatal DB error trying to delete globals, trying to carry on"
-msgstr ""
-
 #: Voicemail.class.php:1841
 #: Voicemail.class.php:1848
 msgid "File Format"
@@ -1078,10 +1026,6 @@ msgstr ""
 
 #: views/dialplan.php:2
 msgid "General Dialplan Settings"
-msgstr ""
-
-#: install.php:122
-msgid "General Settings migrated"
 msgstr ""
 
 #: views/usage.php:15
@@ -1625,7 +1569,7 @@ msgstr ""
 #: views/dialplan.php:19
 #: views/dialplan.php:220
 #: views/dialplan.php:247
-#: views/quickCreate.php:17
+#: views/quickCreate.php:12
 #: views/ucp_config.php:14
 #: views/ucp_config.php:69
 #: views/ucp_config.php:98
@@ -2420,7 +2364,7 @@ msgstr ""
 msgid "This is the IMAP username, if using IMAP storage"
 msgstr ""
 
-#: views/quickCreate.php:37
+#: views/quickCreate.php:32
 msgid ""
 "This is the PIN used to access the Voicemail system. It should be between 4 "
 "and 12 numbers in length."
@@ -2724,10 +2668,6 @@ msgstr ""
 msgid "Voicemail Admin"
 msgstr ""
 
-#: install.php:193
-msgid "Voicemail Admin being removed and merged with Voicemail"
-msgstr ""
-
 #: functions.inc.php:971
 msgid "Voicemail Administration"
 msgstr ""
@@ -2767,7 +2707,7 @@ msgid ""
 "delete=no"
 msgstr ""
 
-#: views/quickCreate.php:27
+#: views/quickCreate.php:22
 msgid "Voicemail PIN"
 msgstr ""
 
@@ -2903,7 +2843,7 @@ msgstr ""
 #: views/dialplan.php:17
 #: views/dialplan.php:218
 #: views/dialplan.php:245
-#: views/quickCreate.php:15
+#: views/quickCreate.php:10
 #: views/ucp_config.php:12
 #: views/ucp_config.php:67
 #: views/ucp_config.php:96
@@ -2943,54 +2883,13 @@ msgstr ""
 msgid "Your settings have been saved"
 msgstr ""
 
-#: install.php:187
-msgid "checking if Voicemail Admin (vmailadmin) is installed.."
-msgstr ""
-
-#: install.php:148
-msgid "could not delete"
-msgstr ""
-
-#: install.php:143
-msgid "deleting VM_PREFIX from globals.."
-msgstr ""
-
-#: install.php:129
-#: install.php:146
-msgid "done"
-msgstr ""
-
 #: Voicemail.class.php:321
 #, php-format
 msgid "failed with retcode %s while removing %s:"
 msgstr ""
 
-#: install.php:192
-msgid "installed."
-msgstr ""
-
-#: install.php:142
-msgid "migrated VM_PREFIX to feature codes"
-msgstr ""
-
-#: install.php:190
-msgid "not installed, ok"
-msgstr ""
-
-#: install.php:103
-msgid "not needed"
-msgstr ""
-
 #: views/tz.php:134
 msgid "numeric day of month (first, second, ..., thirty-first)"
-msgstr ""
-
-#: install.php:197
-msgid "ok"
-msgstr ""
-
-#: install.php:69
-msgid "preparing"
 msgstr ""
 
 #: views/tz.php:81
