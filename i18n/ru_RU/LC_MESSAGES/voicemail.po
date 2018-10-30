@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-28 14:03-0400\n"
+"POT-Creation-Date: 2018-10-30 15:42-0400\n"
 "PO-Revision-Date: 2015-07-13 20:16+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -767,7 +767,7 @@ msgid ""
 "Enable VmX Menu options during Voicemail playback for the selected options."
 msgstr ""
 
-#: views/quickCreate.php:10
+#: views/quickCreate.php:5
 msgid "Enable Voicemail"
 msgstr ""
 
@@ -1591,7 +1591,7 @@ msgstr ""
 #: Voicemail.class.php:2168 Voicemail.class.php:2370 functions.inc.php:405
 #: functions.inc.php:409 functions.inc.php:413 page.voicemail.php:570
 #: views/dialplan.php:19 views/dialplan.php:220 views/dialplan.php:247
-#: views/quickCreate.php:17 views/ucp_config.php:14 views/ucp_config.php:69
+#: views/quickCreate.php:12 views/ucp_config.php:14 views/ucp_config.php:69
 #: views/ucp_config.php:98 views/ucp_config.php:127 views/ucp_config.php:156
 #: views/ucp_config.php:185 views/usage.php:39 views/usage.php:70
 #: views/usage.php:101 views/usage.php:132 views/usage.php:163
@@ -2354,7 +2354,7 @@ msgstr "Пароль для доступа по протоколу IMAP"
 msgid "This is the IMAP username, if using IMAP storage"
 msgstr "Имя пользователя, если используется протокол IMAP"
 
-#: views/quickCreate.php:37
+#: views/quickCreate.php:32
 msgid ""
 "This is the PIN used to access the Voicemail system. It should be between 4 "
 "and 12 numbers in length."
@@ -2702,7 +2702,7 @@ msgid ""
 "delete=no"
 msgstr ""
 
-#: views/quickCreate.php:27
+#: views/quickCreate.php:22
 msgid "Voicemail PIN"
 msgstr ""
 
@@ -2813,7 +2813,7 @@ msgstr "Год"
 #: Voicemail.class.php:2052 Voicemail.class.php:2060 Voicemail.class.php:2160
 #: Voicemail.class.php:2168 Voicemail.class.php:2370 functions.inc.php:404
 #: functions.inc.php:408 functions.inc.php:412 views/dialplan.php:17
-#: views/dialplan.php:218 views/dialplan.php:245 views/quickCreate.php:15
+#: views/dialplan.php:218 views/dialplan.php:245 views/quickCreate.php:10
 #: views/ucp_config.php:12 views/ucp_config.php:67 views/ucp_config.php:96
 #: views/ucp_config.php:125 views/ucp_config.php:154 views/ucp_config.php:183
 #: views/usage.php:37 views/usage.php:68 views/usage.php:99 views/usage.php:130

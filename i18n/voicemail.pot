@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 21:05+0530\n"
+"POT-Creation-Date: 2018-10-30 15:42-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -784,7 +784,7 @@ msgid ""
 "Enable VmX Menu options during Voicemail playback for the selected options."
 msgstr ""
 
-#: views/quickCreate.php:10
+#: views/quickCreate.php:5
 msgid "Enable Voicemail"
 msgstr ""
 
@@ -1613,7 +1613,7 @@ msgstr ""
 #: views/dialplan.php:19
 #: views/dialplan.php:220
 #: views/dialplan.php:247
-#: views/quickCreate.php:17
+#: views/quickCreate.php:12
 #: views/ucp_config.php:14
 #: views/ucp_config.php:69
 #: views/ucp_config.php:98
@@ -2392,7 +2392,7 @@ msgstr ""
 msgid "This is the IMAP username, if using IMAP storage"
 msgstr ""
 
-#: views/quickCreate.php:37
+#: views/quickCreate.php:32
 msgid ""
 "This is the PIN used to access the Voicemail system. It should be between 4 "
 "and 12 numbers in length."
@@ -2739,7 +2739,7 @@ msgid ""
 "delete=no"
 msgstr ""
 
-#: views/quickCreate.php:27
+#: views/quickCreate.php:22
 msgid "Voicemail PIN"
 msgstr ""
 
@@ -2871,7 +2871,7 @@ msgstr ""
 #: views/dialplan.php:17
 #: views/dialplan.php:218
 #: views/dialplan.php:245
-#: views/quickCreate.php:15
+#: views/quickCreate.php:10
 #: views/ucp_config.php:12
 #: views/ucp_config.php:67
 #: views/ucp_config.php:96
