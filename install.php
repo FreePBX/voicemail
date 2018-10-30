@@ -106,8 +106,8 @@ if (count($globals)) {
 if (isset($globals_convert['VMX_OPTS_TIMEOUT'])) {
 	unset($globals_convert['VMX_OPTS_TIMEOUT']);
 }
-if(!empty($global_convert)) {
-  foreach ($global_convert as $key => $value) {
+if(!empty($globals_convert)) {
+  foreach ($globals_convert as $key => $value) {
   	$sql = 'INSERT INTO `voicemail_admin` (`variable`, `value`) VALUES ("' . $key . '","' . $value . '")';;
   	$result = $db->query($sql);
   	if(!DB::IsError($result)) {
