@@ -16,7 +16,7 @@ class Voicemail extends Command{
 			'Arguments from voicemail');
 		}
 
-		protected function execute($input,$output){
+		protected function execute(InputInterface $input, OutputInterface $output){
 			$options = $input->getArgument('notification');
 			if(count($options) !== 3){
 				$output->writeln("Incorrect parameter count");
