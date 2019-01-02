@@ -2597,7 +2597,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
                 $final[] = [
                     'extension' => $extension, 
                     'context' => $context, 
-                    'name' => $settings['name'],
+                    'name' => isset($settings['name'])?$settings['name']:'',
                     'egreetings' => false,
                     'emessages' => false,
                     'rpassword' => false,
