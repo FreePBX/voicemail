@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.12.3</version>
+	<version>15.0.12.4</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.12.4* Fixing FREEPBX-18862 Whoops error 
 		*15.0.12.3*
 		*15.0.12.2* FREEPBX-18497
 		*15.0.12.1* FREEPBX-15555 Exception Asterisk is not connected error issue fix

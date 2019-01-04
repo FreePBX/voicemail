@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-18 20:07-0500\n"
+"POT-Creation-Date: 2019-01-04 10:00+0530\n"
 "PO-Revision-Date: 2016-07-17 10:07+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -600,7 +600,7 @@ msgstr "رفتار پلان شماره گیری"
 msgid "Direct Dial Mode"
 msgstr "شماره گیری مستقیم"
 
-#: install.php:12 voicemail.i18n.php:28
+#: install.php:12 voicemail.i18n.php:30
 msgid "Direct Dial Prefix"
 msgstr "شماره گیری با پیش شماره"
 
@@ -1582,7 +1582,7 @@ msgstr ""
 msgid "Msg Timeout"
 msgstr "وققه پیام"
 
-#: functions.inc.php:172 install.php:9 voicemail.i18n.php:30
+#: functions.inc.php:172 install.php:9 voicemail.i18n.php:32
 msgid "My Voicemail"
 msgstr "ایمیل صوتی من"
 
@@ -2273,11 +2273,11 @@ msgstr "تعداد ویژگی توصیفی ADSI برای دانلود به"
 msgid "The ADSI security lock code"
 msgstr "کد قفل امنیتی ADSI"
 
-#: install.php:14
+#: install.php:14 voicemail.i18n.php:28
 msgid "The Feature Code used to dial any voicemail"
 msgstr "کد ویژه برای شماره گیری هر ایمیل صوتی"
 
-#: install.php:13
+#: install.php:13 voicemail.i18n.php:34
 msgid ""
 "The Feature Code used to direct dial a users voicemail from their own "
 "extension"
