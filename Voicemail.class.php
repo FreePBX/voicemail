@@ -301,7 +301,7 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 		}
 		$vmcontext = $settings['vmcontext'];
 		if($vmcontext == "general" || $vmcontext == "zonemessages" || $vmcontext == "pbxaliases" || $vmcontext == 'device') {
-			throw new Exception("Invalid context!");
+			throw new \Exception("Invalid context!");
 		}
 		unset($settings['vmcontext']);
 		if(empty($voicemail[$vmcontext])) {
