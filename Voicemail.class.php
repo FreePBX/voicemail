@@ -2,7 +2,6 @@
 // vim: set ai ts=4 sw=4 ft=php:
 namespace FreePBX\modules;
 class Voicemail extends \FreePBX_Helpers implements \BMO {
-	private $useSymlinks = true;
 	//message to display to client
 	public $displayMessage = array(
 		"type" => "warning",
@@ -79,6 +78,17 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 			_('Name Greeting');
 			_('Busy Greeting');
 			_('Temporary Greeting');
+		}
+	}
+
+	public function __get($var) {
+		switch($var) {
+			case 'dontUseSymlinks':
+				$engine_info = engine_getinfo();
+				$version = $engine_info['version'];
+				$this->dontUseSymlinks = (version_compare($version, "13.25", ">=") && version_compare($version, "14", "<")) || version_compare($version, "16.2", ">=");
+				return $this->dontUseSymlinks;
+			break;
 		}
 	}
 
@@ -170,7 +180,7 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 			$vmcontext = isset($user['voicemail']) ? $user['voicemail'] : 'default';
 		}
 		if($user['voicemail'] != "novm") {
-			if(!$this->useSymlinks) {
+			if(!$this->dontUseSymlinks) {
 				$this->setConfig($mailbox, ["$mailbox@device", "$mailbox@$vmcontext"], 'vmmapping');
 			} else {
 				// Create voicemail symlink
@@ -380,7 +390,7 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 			throw new \Exception(_("Null value was sent to saveVoicemail() can not continue"));
 		}
 
-		if(!$this->useSymlinks) {
+		if(!$this->dontUseSymlinks) {
 			$vmconf['general']['aliasescontext'] = 'pbxaliases';
 
 			$vmm = $this->getAll('vmmapping');
