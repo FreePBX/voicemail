@@ -1,7 +1,8 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=php:
 namespace FreePBX\modules;
-class Voicemail implements \BMO {
+class Voicemail extends \FreePBX_Helpers implements \BMO {
+	private $useSymlinks = true;
 	//message to display to client
 	public $displayMessage = array(
 		"type" => "warning",
@@ -144,47 +145,54 @@ class Voicemail implements \BMO {
 			$sth = $this->db->prepare($sql);
 			$sth->execute(array($extension));
 			$this->astman->database_put("AMPUSER",$extension."/voicemail",'default');
-			$this->setupMailboxSymlinks($extension);
+			$this->mapMailBox($mailbox);
 		}
 	}
 
 	/**
-	 * Setup system symlinks for mailboxes
+	 * Setup mailbox alias mapping
 	 * @param int $mailbox The mailbox number
 	 */
-	public function setupMailboxSymlinks($mailbox) {
+	public function mapMailBox($mailbox) {
 		if($mailbox == 'none'){
 			return;
 		}
 		if(!is_numeric($mailbox)) {
 			throw new \Exception(sprintf(_("Mailbox is not in the proper format [%s]"),$mailbox));
 		}
-		$user = $this->FreePBX->Core->getUser($mailbox);
-		if(isset($user['voicemail']) && ($user['voicemail'] != "novm")) {
-			$vmcontext = !empty($user['voicemail']) ? $user['voicemail'] : "default";
-
-			// Create voicemail symlink
-			$spooldir = $this->FreePBX->Config->get('ASTSPOOLDIR');
-
-			$src = "$spooldir/voicemail/$vmcontext/$mailbox";
-			$dest = "$spooldir/voicemail/device/$mailbox";
-
-			// Remove anything that was previously there
-			exec("rm -f $dest");
-
-			// Make sure our source parent directory exists - This may be missing if a restore
-			// was partially done. Asterisk may or may not create this on demand.
-			if (!is_dir(dirname($src))) {
-				mkdir(dirname($src), 0775, true);
+		if(isset($_REQUEST['vmcontext'])) {
+			$vmcontext = !empty($_REQUEST['vmcontext']) ? $_REQUEST['vmcontext'] : 'default';
+		} else {
+			$user = $this->FreePBX->Core->getUser($mailbox);
+			if(empty($user)) {
+				return;
 			}
-			// Make sure the destination parent exists, too.
-			if (!is_dir(dirname($dest))) {
-				mkdir(dirname($dest), 0775, true);
-			}
-
-			// Now do the symlink
-			symlink($src, $dest);
+			$vmcontext = isset($user['voicemail']) ? $user['voicemail'] : 'default';
 		}
+		if($user['voicemail'] != "novm") {
+			if(!$this->useSymlinks) {
+				$this->setConfig($mailbox, ["$mailbox@device", "$mailbox@$vmcontext"], 'vmmapping');
+			} else {
+				// Create voicemail symlink
+				$spooldir = $this->FreePBX->Config->get('ASTSPOOLDIR');
+				$src = "$spooldir/voicemail/$vmcontext/$mailbox";
+				$dest = "$spooldir/voicemail/device/$mailbox";
+				// Remove anything that was previously there
+				exec("rm -f $dest");
+				// Make sure our source parent directory exists - This may be missing if a restore
+				// was partially done. Asterisk may or may not create this on demand.
+				if (!is_dir(dirname($src))) {
+					mkdir(dirname($src), 0775, true);
+				}
+				// Make sure the destination parent exists, too.
+				if (!is_dir(dirname($dest))) {
+					mkdir(dirname($dest), 0775, true);
+				}
+				// Now do the symlink
+				symlink($src, $dest);
+			}
+		}
+		return;
 	}
 
 	/**
@@ -201,7 +209,7 @@ class Voicemail implements \BMO {
 		//Parse mailbox data into something useful
 		$vm = is_array($vm) ? $vm : array();
 		foreach($vm as $name => &$context) {
-			if($name == "general" || $name == "zonemessages") {
+			if($name == "general" || $name == "zonemessages" || $name == "pbxaliases" || $name == 'device') {
 				continue;
 			}
 			foreach($context as $mailbox => &$data) {
@@ -237,7 +245,7 @@ class Voicemail implements \BMO {
 		$vmcontexts = array_keys($uservm);
 
 		foreach ($vmcontexts as $vmcontext) {
-			if($vmcontext == "general" || $vmcontext == "zonemessages") {
+			if($vmcontext == "general" || $vmcontext == "zonemessages" || $vmcontext == "pbxaliases" || $vmcontext == 'device') {
 				continue;
 			}
 			if(isset($uservm[$vmcontext][$mailbox])){
@@ -282,8 +290,8 @@ class Voicemail implements \BMO {
 			throw new \Exception("There is no context!");
 		}
 		$vmcontext = $settings['vmcontext'];
-		if($vmcontext == "general" || $vmcontext == "zonemessages") {
-			throw new \Exception("Invalid context!");
+		if($vmcontext == "general" || $vmcontext == "zonemessages" || $vmcontext == "pbxaliases" || $vmcontext == 'device') {
+			throw new Exception("Invalid context!");
 		}
 		unset($settings['vmcontext']);
 		if(empty($voicemail[$vmcontext])) {
@@ -336,6 +344,7 @@ class Voicemail implements \BMO {
 
 		foreach ($vmcontexts as $vmcontext) {
 			if(isset($uservm[$vmcontext][$mailbox])){
+				$this->delConfig($mailbox, 'vmmapping');
 				unset($uservm[$vmcontext][$mailbox]);
 				$this->saveVoicemail($uservm);
 				return true;
@@ -343,6 +352,22 @@ class Voicemail implements \BMO {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Update Alias Mapping
+	 *
+	 * @param int $mailbox The mailbox number
+	 * @return void
+	 */
+	public function updateAliasDeviceMapping($device, $mailbox) {
+		$uservm = $this->getVoicemail(true);
+		if(!empty($mailbox)) {
+			$this->setConfig($device, ["$device@device", $mailbox], 'vmmapping');
+		} else {
+			$this->delConfig($device, 'vmmapping');
+		}
+		$this->saveVoicemail($uservm);
 	}
 
 	/**
@@ -355,8 +380,17 @@ class Voicemail implements \BMO {
 			throw new \Exception(_("Null value was sent to saveVoicemail() can not continue"));
 		}
 
-		foreach($vmconf as $name => &$context) {
-			if($name == "general" || $name == "zonemessages") {
+		if(!$this->useSymlinks) {
+			$vmconf['general']['aliasescontext'] = 'pbxaliases';
+
+			$vmm = $this->getAll('vmmapping');
+			foreach($vmm as $mailbox => $data) {
+				$vmconf['pbxaliases'][$data[0]] = $data[1];
+			}
+		}
+
+		foreach($vmconf as $cxtname => &$context) {
+			if($cxtname == "general" || $cxtname == "zonemessages" || $cxtname == 'pbxaliases' || $cxtname == 'device') {
 				$cdata = array();
 				foreach($context as $key => $value) {
 					$cdata[$key] = str_replace(array("\n","\t","\r"),array("\\n","\\t","\\r"),$value);
@@ -375,15 +409,17 @@ class Voicemail implements \BMO {
 						$opts[] = $key."=".$value;
 					}
 				}
+				 //FREEPBX-14851  Voicemail issue for extension if display name contains a comma
+ 				$data['name']=str_replace(",","",$data['name']);
 				$data['email'] = str_replace(",","|",$data['email']);
 				$data['pager'] = str_replace(",","|",$data['pager']);
 				$data['options'] = implode("|",$opts);
-				$cdata[] = $mailbox ." => " .
-									$data['pwd'] . "," .
-									$data['name'] . "," .
-									$data['email'] . "," .
-									$data['pager'] . "," .
-									$data['options'];
+				$cdata[] = $mailbox ."=" .
+					$data['pwd'] . "," .
+					$data['name'] . "," .
+					$data['email'] . "," .
+					$data['pager'] . "," .
+					$data['options'];
 			}
 			$context = $cdata;
 		}
@@ -1622,7 +1658,7 @@ class Voicemail implements \BMO {
 					$sth = $this->db->prepare($sql);
 					$sth->execute(array($extension));
 					$this->astman->database_put("AMPUSER",$extension."/voicemail",'default');
-					$this->setupMailboxSymlinks($extension);
+					$this->mapMailBox($extension);
 					if ($data['disable_star_voicemail'] == 'yes') {
 						if($this->astman->connected()) {
 							$this->astman->database_put("AMPUSER", $extension."/novmstar" , 'yes');
