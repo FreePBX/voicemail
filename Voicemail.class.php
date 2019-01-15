@@ -180,7 +180,7 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 			$vmcontext = isset($user['voicemail']) ? $user['voicemail'] : 'default';
 		}
 		if($user['voicemail'] != "novm") {
-			if(!$this->dontUseSymlinks) {
+			if($this->dontUseSymlinks) {
 				$this->setConfig($mailbox, ["$mailbox@device", "$mailbox@$vmcontext"], 'vmmapping');
 			} else {
 				// Create voicemail symlink
@@ -390,7 +390,7 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 			throw new \Exception(_("Null value was sent to saveVoicemail() can not continue"));
 		}
 
-		if(!$this->dontUseSymlinks) {
+		if($this->dontUseSymlinks) {
 			$vmconf['general']['aliasescontext'] = 'pbxaliases';
 
 			$vmm = $this->getAll('vmmapping');
