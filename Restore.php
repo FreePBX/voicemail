@@ -11,7 +11,9 @@ class Restore Extends Base\RestoreBase{
         foreach ($files as $file) {
             $filename = $file['pathto'].'/'.$file['filename'];
             $filename = $this->nameTest($filename, $file['base']);
-            if (!file_exists($filename)) {
+            if (!file_exists($filename) && file_exists($this->tmpdir . '/files/' . $file['pathto'] . '/' . $file['filename'])){
+                //Try to make the directory, if it exists this throws an error so we supress because errors are ok
+                @mkdir($file['pathto'],0755,true);
                 copy($this->tmpdir.'/files/'.$file['pathto'].'/'.$file['filename'], $filename);
             }
         }
