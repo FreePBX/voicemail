@@ -10,20 +10,19 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-30 15:42-0400\n"
-"PO-Revision-Date: 2016-07-17 10:07+0200\n"
-"Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
-"voicemail/fa_IR/>\n"
+"PO-Revision-Date: 2019-01-25 12:10+0000\n"
+"Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
+"Language-Team: Persian <http://*/projects/freepbx/voicemail/fa/>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: Voicemail.class.php:2105
 msgid " Don't leave single period on end of line by itself."
-msgstr ""
+msgstr " .یک دوره را در انتهای خط ترک نکنید."
 
 #: views/tz.php:204
 msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
@@ -398,6 +397,12 @@ msgid ""
 "acceptable.  If the password is considered too weak, the script should print "
 "INVALID to stdout. "
 msgstr ""
+"Command specified runs before a user changes their password and can be used "
+"to impose security restrictions on voicemail password. The arguments passed "
+"to the application are: [mailbox] [context] [oldpassword] [newpassword]. The "
+"script should print VALID to stdout to indicate that the new password is "
+"acceptable. If the password is considered too weak, the script should print "
+"INVALID to stdout. "
 
 #: Voicemail.class.php:2475
 msgid "Context Config"
@@ -543,7 +548,7 @@ msgstr ""
 
 #: ucp/views/widget.php:60
 msgid "Date/Time"
-msgstr ""
+msgstr "تاریخ/ساعت"
 
 #: views/tz.php:118
 msgid "Day of week (Saturday, Sunday, ...)"
@@ -618,7 +623,7 @@ msgstr "حذف تنظیمات انتقال.."
 
 #: Vmx.class.php:36
 msgid "Destination number"
-msgstr ""
+msgstr "شماره مقصد"
 
 #: functions.inc.php:560
 msgid "Device"
@@ -655,7 +660,7 @@ msgstr "دایرکتوری راهنما"
 
 #: ucp/assets/js/global.js:93
 msgid "Disable"
-msgstr ""
+msgstr "غیر فعال"
 
 #: functions.inc.php:589
 msgid "Disable (*) in Voicemail Menu"
@@ -691,7 +696,7 @@ msgstr "غیرفعال"
 
 #: ucp/views/greetings.php:52
 msgid "Discard Recording"
-msgstr ""
+msgstr "قطع ضبط"
 
 #: views/usage.php:8 views/usage_system.php:24
 msgid "Disk space currently in use by Voicemail data"
@@ -903,7 +908,7 @@ msgstr ""
 #: Voicemail.class.php:1343
 #, php-format
 msgid "Error Processing %s. Reason: %s"
-msgstr ""
+msgstr "Error Processing %s1. Reason: %s2"
 
 #: views/dialplan.php:186
 msgid "Error Re-tries"
@@ -935,7 +940,7 @@ msgstr "هشدار کلمه عبور خارجی"
 
 #: Voicemail.class.php:1842
 msgid "External Password Verification Script"
-msgstr ""
+msgstr "اسکریپت تایید پسورد خارجی"
 
 #: Voicemail.class.php:1822 Voicemail.class.php:1927 page.voicemail.php:226
 msgid "External Voicemail notify application."
@@ -1167,7 +1172,7 @@ msgstr "مدت زمان سکوت برای خاتمه ضبط تماس براسا�
 msgid ""
 "How many milliseconds of silence before we end the recording (in "
 "milliseconds)."
-msgstr ""
+msgstr "چند میلی ثانیه سکوت قبل از پایان ضبط."
 
 #: page.voicemail.php:277
 msgid ""
@@ -1317,6 +1322,8 @@ msgid ""
 "If set to \"yes\" the Voicemail Pane will refresh automatically when new "
 "voicemails are retrieved"
 msgstr ""
+"اگر به «بله» تنظیم شود، وقتی پست های صوتی جدید بازیابی می شوند، صندوق صوتی "
+"به طور خودکار بازخوانی می شود"
 
 #: functions.inc.php:660 ucp/views/vmsettings.php:44
 msgid ""
@@ -1440,7 +1447,7 @@ msgstr "کد زبان برای ایمیل صوتی"
 
 #: Vmx.class.php:31
 msgid "Leave blank for go to operator"
-msgstr ""
+msgstr "برای رفتن به اپراتور خالی بگذارید"
 
 #: voicemail.i18n.php:24
 msgid ""
@@ -1487,7 +1494,7 @@ msgstr "صندوق ایمیل نمیتواند خالی باشد"
 #: Voicemail.class.php:160
 #, php-format
 msgid "Mailbox is not in the proper format [%s]"
-msgstr ""
+msgstr "Mailbox is not in the proper format [%s1]"
 
 #: Voicemail.class.php:2204
 msgid "Max Failed Logins"
@@ -1495,15 +1502,15 @@ msgstr "حداکثر ورود ناموفق"
 
 #: Voicemail.class.php:2197
 msgid "Max Greeting Length (Seconds)"
-msgstr ""
+msgstr "بیشترین طول خوش آمد گویی (ثانیه)"
 
 #: Voicemail.class.php:2228
 msgid "Max Message Length (Seconds)"
-msgstr ""
+msgstr "بیشترین طول پیام (ثانیه)"
 
 #: Voicemail.class.php:2236
 msgid "Max Message Silence (Milliseconds)"
-msgstr ""
+msgstr "بیشترین پیام سکوت (میلی ثانیه)"
 
 #: Voicemail.class.php:2212
 msgid "Max Messages"
@@ -1535,6 +1542,8 @@ msgid ""
 "Maximum length of a voicemail message in seconds for the message to be kept. "
 "The default is 300 (in seconds)."
 msgstr ""
+"حداکثر طول یک پیام صوتی در ثانیه برای پیام نگهداری می شود. پیش فرض 300 (در "
+"ثانیه) است."
 
 #: page.voicemail.php:255 page.voicemail.php:306
 msgid ""
@@ -1566,7 +1575,7 @@ msgstr "پیام ها در سایر فولدرها"
 
 #: Voicemail.class.php:2252
 msgid "Min Message Length (Seconds)"
-msgstr ""
+msgstr "کمترین طول پیام (ثانیه)"
 
 #: page.voicemail.php:257
 msgid ""
@@ -2033,6 +2042,7 @@ msgstr "درخواست از %s"
 #: Voicemail.class.php:1594
 msgid "Require From Same Extension[Blank/no to disable,yes for enable]"
 msgstr ""
+"درخواست از همان فرمت [خالی / خیر برای غیر فعال کردن، بله برای فعال کردن]"
 
 #: Voicemail.class.php:1564
 msgid "Reset"
@@ -2060,7 +2070,7 @@ msgstr "پورت SMDI"
 
 #: ucp/views/greetings.php:51
 msgid "Save Recording"
-msgstr ""
+msgstr "ذخیره ضبط"
 
 #: Voicemail.class.php:1990
 msgid "Say CID"
@@ -2369,6 +2379,9 @@ msgid ""
 "have to be comma separated without spaces (e.g.: first@domain.tld,"
 "second@domain.tld,third@domain.tld) "
 msgstr ""
+"The email address that Voicemails are sent to. Multiple e-mail addresses "
+"have to be comma separated without spaces (e.g.: "
+"first@domain.tld,second@domain.tld,third@domain.tld) "
 
 #: Voicemail.class.php:2105
 msgid ""
@@ -2572,7 +2585,7 @@ msgstr "به"
 
 #: Voicemail.class.php:1597
 msgid "To Disable * in Voicemail Menu use Blank/no  OR yes"
-msgstr ""
+msgstr "To Disable * in Voicemail Menu use Blank/no..OR yes"
 
 #: ucp/views/greetings.php:37
 #, php-format
@@ -2583,7 +2596,7 @@ msgstr "برای پخش باید مرورگر را به نسخه %s به روز 
 
 #: Vmx.class.php:34
 msgid "To send to followme use \"FMextension\""
-msgstr ""
+msgstr "برای ارسال مرا دنبال کن استفاده کن از \"FMextension\""
 
 #: views/usage.php:9 views/usage.php:32 views/usage.php:64 views/usage.php:95
 #: views/usage.php:126 views/usage.php:157 views/usage.php:188
@@ -2753,14 +2766,18 @@ msgstr "ایمیل صوتی"
 #: Vmx.class.php:19
 msgid "VMX Use when Unavailable \"enabled\" and for disable use:blocked "
 msgstr ""
+"VMX استفاده از زمانی که در دسترس نیست \"فعال\" و برای غیر فعال کردن استفاده: "
+"مسدود شده است "
 
 #: Vmx.class.php:22 Vmx.class.php:25
 msgid "VMX Use when busy:\"enabled\" AND  for disable this use blocked "
 msgstr ""
+"VMX هنگامی که مشغول است: \"فعال\" و برای غیر فعال کردن این استفاده مسدود شده "
+"است "
 
 #: Vmx.class.php:28
 msgid "VMX play_instructions, Use yes: no"
-msgstr ""
+msgstr "VMX play_instructions, Use yes: no"
 
 #: page.voicemail.php:279
 msgid ""
@@ -2838,7 +2855,7 @@ msgstr "کلمه عبور ایمیل صوتی"
 
 #: Voicemail.class.php:1617
 msgid "Voicemail Password is empty."
-msgstr ""
+msgstr "پسورد ایمیل صوتی خالی است."
 
 #: Voicemail.class.php:118
 msgid "Voicemail Password must contain only digits"
@@ -2925,7 +2942,7 @@ msgstr "ایمیل هشدار از طرف که آمده"
 
 #: Voicemail.class.php:2237
 msgid "Why is this in milliseconds?"
-msgstr ""
+msgstr "چرا میلی ثانیه؟"
 
 #: Voicemail.class.php:75
 msgid "Work"
@@ -2967,7 +2984,7 @@ msgstr ""
 
 #: ucp/assets/js/global.js:53
 msgid "You have a new voicemail"
-msgstr ""
+msgstr "شما یک ایمیل صوتی جدید دارید"
 
 #: ucp/assets/js/global.js:576
 msgid "Your Browser Blocked The Recording, Please check your settings"
