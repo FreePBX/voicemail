@@ -181,7 +181,7 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 		}
 		if($user['voicemail'] != "novm") {
 			if($this->dontUseSymlinks) {
-				$this->setConfig($mailbox, ["$mailbox@device", "$mailbox@$vmcontext"], 'vmmapping');
+				$this->setConfig($mailbox, array("$mailbox@device", "$mailbox@$vmcontext"), 'vmmapping');
 			} else {
 				// Create voicemail symlink
 				$spooldir = $this->FreePBX->Config->get('ASTSPOOLDIR');
