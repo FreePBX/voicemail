@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-15 17:53-0500\n"
+"POT-Creation-Date: 2019-02-18 13:32-0500\n"
 "PO-Revision-Date: 2017-08-03 10:52+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
 "voicemail/vi/>\n"
-"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -97,6 +97,11 @@ msgstr "%s hoặc %s"
 #, php-format
 msgid "%s or %s or %s"
 msgstr "%s hoặc %s hoặc %s"
+
+#: ucp/assets/js/global.js:955
+#, perl-format
+msgid "%s seconds"
+msgstr "%s giây"
 
 #: views/tz.php:94
 msgid "'filename'"
@@ -587,6 +592,7 @@ msgstr ""
 "nên được kiểm tra sau khi cấu hình."
 
 #: ucp/views/greetings.php:46 ucp/views/mailbox.php:10 views/tz.php:21
+#: ucp/assets/js/global.js:965
 msgid "Delete"
 msgstr "Xóa"
 
@@ -627,11 +633,11 @@ msgstr "Xóa tất cả các Tin nhắn bận"
 msgid "Delete all Recorded Names"
 msgstr "Xóa tất cả các Tên được ghi"
 
-#: views/usage.php:35 views/usage.php:66 views/usage.php:97 views/usage.php:128
-#: views/usage.php:159 views/usage.php:190 views/usage_system.php:54
-#: views/usage_system.php:85 views/usage_system.php:116
-#: views/usage_system.php:147 views/usage_system.php:178
-#: views/usage_system.php:209
+#: views/usage.php:35 views/usage.php:66 views/usage.php:97
+#: views/usage.php:128 views/usage.php:159 views/usage.php:190
+#: views/usage_system.php:54 views/usage_system.php:85
+#: views/usage_system.php:116 views/usage_system.php:147
+#: views/usage_system.php:178 views/usage_system.php:209
 msgid "Delete:"
 msgstr "Xóa:"
 
@@ -717,6 +723,10 @@ msgstr "Hủy bỏ lời chào"
 #: views/usage.php:8 views/usage_system.php:24
 msgid "Disk space currently in use by Voicemail data"
 msgstr "Dung lượng ổ đĩa hiện đang được sử dụng bởi các dữ liệu Thư thoại"
+
+#: ucp/assets/js/global.js:962
+msgid "Download"
+msgstr "Tải xuống"
 
 #: ucp/assets/js/global.js:450
 msgid "Dragging to yourself is not allowed"
@@ -1109,7 +1119,7 @@ msgstr ""
 "cho Thư thoại, chỉ định dạng đầu tiên được chỉ định sẽ được sử dụng."
 
 #: ucp/views/mailbox.php:13 ucp/assets/js/global.js:171
-#: ucp/assets/js/global.js:292
+#: ucp/assets/js/global.js:292 ucp/assets/js/global.js:959
 msgid "Forward"
 msgstr "Chuyển tiếp"
 
@@ -1489,6 +1499,10 @@ msgstr "Các giới hạn"
 #: ucp/assets/js/global.js:145
 msgid "Listen"
 msgstr "Nghe"
+
+#: ucp/assets/js/global.js:958
+msgid "Listen on your handset"
+msgstr "Nghe trên thiết bị cầm tay của bạn"
 
 #: ucp/assets/js/global.js:144
 msgid "Listen to Voicemail"
@@ -2427,15 +2441,15 @@ msgid ""
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
 "Additionally, on forwarded messages, you have the variables: "
 "ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE You can "
-"select between two variables by using dialplan functions, e.g. "
-"${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
+"select between two variables by using dialplan functions, e.g. ${IF(${ISNULL"
+"(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 msgstr ""
 "Nội dung email. Thay đổi nơi gửi,nội dung và/hoặc tiêu đề, các biến: "
 "VM_NAME, VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, "
 "VM_DATE. Thêm vào đó, trên các tin nhắn được chuyển tiếp, bạn có các biến: "
 "ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE. Bạn có thể "
-"chọn giữa 2 biến bằng cách sử dụng chức năng Kế hoạch quay số, ví dụ "
-"${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
+"chọn giữa 2 biến bằng cách sử dụng chức năng Kế hoạch quay số, ví dụ ${IF"
+"(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 
 #: Voicemail.class.php:2103
 msgid "The email subject"
@@ -2459,8 +2473,8 @@ msgid ""
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
 "Additionally, on forwarded messages, you have the variables: "
 "ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE You can "
-"select between two variables by using dialplan functions, e.g. "
-"${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
+"select between two variables by using dialplan functions, e.g. ${IF(${ISNULL"
+"(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 msgstr ""
 
 #: Voicemail.class.php:2132
@@ -3011,11 +3025,11 @@ msgstr "Năm"
 #: views/dialplan.php:218 views/dialplan.php:245 views/quickCreate.php:10
 #: views/ucp_config.php:12 views/ucp_config.php:67 views/ucp_config.php:96
 #: views/ucp_config.php:125 views/ucp_config.php:154 views/ucp_config.php:183
-#: views/usage.php:37 views/usage.php:68 views/usage.php:99 views/usage.php:130
-#: views/usage.php:161 views/usage.php:192 views/usage_system.php:56
-#: views/usage_system.php:87 views/usage_system.php:118
-#: views/usage_system.php:149 views/usage_system.php:180
-#: views/usage_system.php:211
+#: views/usage.php:37 views/usage.php:68 views/usage.php:99
+#: views/usage.php:130 views/usage.php:161 views/usage.php:192
+#: views/usage_system.php:56 views/usage_system.php:87
+#: views/usage_system.php:118 views/usage_system.php:149
+#: views/usage_system.php:180 views/usage_system.php:211
 msgid "Yes"
 msgstr "Có"
 
@@ -3031,6 +3045,23 @@ msgstr ""
 #, perl-format
 msgid "You Have %s New Voicemail"
 msgstr "Bạn có Thư thoại mới %s"
+
+#: ucp/assets/js/global.js:949
+#, perl-format
+msgid ""
+"You are missing support for playback in this browser. To fully support HTML5 "
+"browser playback you will need to install programs that can not be "
+"distributed with the PBX. If you'd like to install the binaries needed for "
+"these conversions click <a href='%s'>here</a>"
+msgstr ""
+"Bạn đang thiếu hỗ trợ chế độ phát lại trong trình duyệt này. Để được hỗ trợ "
+"đầy đủ chế độ phát lại trong trình duyệt HTML5 bạn cần cài đặt các chương "
+"trình mà nó không thể phân bổ với PBX được. Nêu bạn muốn cài đặt các chương "
+"trình cần thiết cho các chuyển đổi này kích chọn  <a href='%s'>here</a>"
+
+#: ucp/assets/js/global.js:482
+msgid "You have No Drag/Drop Support!"
+msgstr "Bạn không có hỗ trợ Kéo/ Thả!"
 
 #: ucp/assets/js/global.js:829
 msgid "Your Browser Blocked The Recording, Please check your settings"
@@ -3115,27 +3146,3 @@ msgstr "Có"
 #~ msgstr ""
 #~ "Độ dài tối thiểu của tin nhắn thư thoại tính bằng giây đối với tin nhắn "
 #~ "được lưu giữ. Mặc định là 300 ( giây)."
-
-#~ msgid "%s seconds"
-#~ msgstr "%s giây"
-
-#~ msgid "Download"
-#~ msgstr "Tải xuống"
-
-#~ msgid "Listen on your handset"
-#~ msgstr "Nghe trên thiết bị cầm tay của bạn"
-
-#~ msgid ""
-#~ "You are missing support for playback in this browser. To fully support "
-#~ "HTML5 browser playback you will need to install programs that can not be "
-#~ "distributed with the PBX. If you'd like to install the binaries needed "
-#~ "for these conversions click <a href='%s'>here</a>"
-#~ msgstr ""
-#~ "Bạn đang thiếu hỗ trợ chế độ phát lại trong trình duyệt này. Để được hỗ "
-#~ "trợ đầy đủ chế độ phát lại trong trình duyệt HTML5 bạn cần cài đặt các "
-#~ "chương trình mà nó không thể phân bổ với PBX được. Nêu bạn muốn cài đặt "
-#~ "các chương trình cần thiết cho các chuyển đổi này kích chọn  <a "
-#~ "href='%s'>here</a>"
-
-#~ msgid "You have No Drag/Drop Support!"
-#~ msgstr "Bạn không có hỗ trợ Kéo/ Thả!"

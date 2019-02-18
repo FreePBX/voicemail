@@ -37,15 +37,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-15 17:53-0500\n"
+"POT-Creation-Date: 2019-02-18 13:32-0500\n"
 "PO-Revision-Date: 2017-08-24 03:29+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
 "voicemail/ja_JP/>\n"
-"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -124,6 +124,11 @@ msgstr ""
 #: views/tz.php:123
 #, php-format
 msgid "%s or %s or %s"
+msgstr ""
+
+#: ucp/assets/js/global.js:955
+#, perl-format
+msgid "%s seconds"
 msgstr ""
 
 #: views/tz.php:94
@@ -578,6 +583,7 @@ msgstr ""
 "為、設定後は必ずテストを行ってください。"
 
 #: ucp/views/greetings.php:46 ucp/views/mailbox.php:10 views/tz.php:21
+#: ucp/assets/js/global.js:965
 msgid "Delete"
 msgstr "削除"
 
@@ -618,11 +624,11 @@ msgstr ""
 msgid "Delete all Recorded Names"
 msgstr ""
 
-#: views/usage.php:35 views/usage.php:66 views/usage.php:97 views/usage.php:128
-#: views/usage.php:159 views/usage.php:190 views/usage_system.php:54
-#: views/usage_system.php:85 views/usage_system.php:116
-#: views/usage_system.php:147 views/usage_system.php:178
-#: views/usage_system.php:209
+#: views/usage.php:35 views/usage.php:66 views/usage.php:97
+#: views/usage.php:128 views/usage.php:159 views/usage.php:190
+#: views/usage_system.php:54 views/usage_system.php:85
+#: views/usage_system.php:116 views/usage_system.php:147
+#: views/usage_system.php:178 views/usage_system.php:209
 msgid "Delete:"
 msgstr ""
 
@@ -702,6 +708,10 @@ msgstr "アナウンスを削除する"
 #: views/usage.php:8 views/usage_system.php:24
 msgid "Disk space currently in use by Voicemail data"
 msgstr "現在ボイスメールデータで使用中のディスクスペース"
+
+#: ucp/assets/js/global.js:962
+msgid "Download"
+msgstr "ダウンロード"
 
 #: ucp/assets/js/global.js:450
 msgid "Dragging to yourself is not allowed"
@@ -1056,7 +1066,7 @@ msgid ""
 msgstr ""
 
 #: ucp/views/mailbox.php:13 ucp/assets/js/global.js:171
-#: ucp/assets/js/global.js:292
+#: ucp/assets/js/global.js:292 ucp/assets/js/global.js:959
 msgid "Forward"
 msgstr ""
 
@@ -1412,6 +1422,10 @@ msgstr ""
 
 #: ucp/assets/js/global.js:145
 msgid "Listen"
+msgstr ""
+
+#: ucp/assets/js/global.js:958
+msgid "Listen on your handset"
 msgstr ""
 
 #: ucp/assets/js/global.js:144
@@ -2306,8 +2320,8 @@ msgid ""
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
 "Additionally, on forwarded messages, you have the variables: "
 "ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE You can "
-"select between two variables by using dialplan functions, e.g. "
-"${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
+"select between two variables by using dialplan functions, e.g. ${IF(${ISNULL"
+"(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 msgstr ""
 
 #: Voicemail.class.php:2103
@@ -2331,8 +2345,8 @@ msgid ""
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
 "Additionally, on forwarded messages, you have the variables: "
 "ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE You can "
-"select between two variables by using dialplan functions, e.g. "
-"${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
+"select between two variables by using dialplan functions, e.g. ${IF(${ISNULL"
+"(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 msgstr ""
 
 #: Voicemail.class.php:2132
@@ -2862,11 +2876,11 @@ msgstr "年"
 #: views/dialplan.php:218 views/dialplan.php:245 views/quickCreate.php:10
 #: views/ucp_config.php:12 views/ucp_config.php:67 views/ucp_config.php:96
 #: views/ucp_config.php:125 views/ucp_config.php:154 views/ucp_config.php:183
-#: views/usage.php:37 views/usage.php:68 views/usage.php:99 views/usage.php:130
-#: views/usage.php:161 views/usage.php:192 views/usage_system.php:56
-#: views/usage_system.php:87 views/usage_system.php:118
-#: views/usage_system.php:149 views/usage_system.php:180
-#: views/usage_system.php:211
+#: views/usage.php:37 views/usage.php:68 views/usage.php:99
+#: views/usage.php:130 views/usage.php:161 views/usage.php:192
+#: views/usage_system.php:56 views/usage_system.php:87
+#: views/usage_system.php:118 views/usage_system.php:149
+#: views/usage_system.php:180 views/usage_system.php:211
 msgid "Yes"
 msgstr ""
 
@@ -2882,6 +2896,19 @@ msgstr ""
 #, perl-format
 msgid "You Have %s New Voicemail"
 msgstr "%sつの新しいメッセージがあります"
+
+#: ucp/assets/js/global.js:949
+#, perl-format
+msgid ""
+"You are missing support for playback in this browser. To fully support HTML5 "
+"browser playback you will need to install programs that can not be "
+"distributed with the PBX. If you'd like to install the binaries needed for "
+"these conversions click <a href='%s'>here</a>"
+msgstr ""
+
+#: ucp/assets/js/global.js:482
+msgid "You have No Drag/Drop Support!"
+msgstr "ドラッグ／ドロップ操作はサポートされていません。"
 
 #: ucp/assets/js/global.js:829
 msgid "Your Browser Blocked The Recording, Please check your settings"
@@ -2954,12 +2981,6 @@ msgstr "変数"
 #: page.voicemail.php:568
 msgid "yes"
 msgstr "はい"
-
-#~ msgid "Download"
-#~ msgstr "ダウンロード"
-
-#~ msgid "You have No Drag/Drop Support!"
-#~ msgstr "ドラッグ／ドロップ操作はサポートされていません。"
 
 #~ msgid "How many seconds of silence before we end the recording"
 #~ msgstr "録音を終了する前に無音を何秒にするか。"

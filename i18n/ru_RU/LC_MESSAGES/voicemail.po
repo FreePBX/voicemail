@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-15 17:53-0500\n"
+"POT-Creation-Date: 2019-02-18 13:32-0500\n"
 "PO-Revision-Date: 2015-07-13 20:16+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "voicemail/ru_RU/>\n"
-"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: Voicemail.class.php:2111
@@ -95,6 +95,11 @@ msgstr ""
 #: views/tz.php:123
 #, php-format
 msgid "%s or %s or %s"
+msgstr ""
+
+#: ucp/assets/js/global.js:955
+#, perl-format
+msgid "%s seconds"
 msgstr ""
 
 #: views/tz.php:94
@@ -550,6 +555,7 @@ msgid ""
 msgstr ""
 
 #: ucp/views/greetings.php:46 ucp/views/mailbox.php:10 views/tz.php:21
+#: ucp/assets/js/global.js:965
 msgid "Delete"
 msgstr "Удалить"
 
@@ -590,11 +596,11 @@ msgstr ""
 msgid "Delete all Recorded Names"
 msgstr ""
 
-#: views/usage.php:35 views/usage.php:66 views/usage.php:97 views/usage.php:128
-#: views/usage.php:159 views/usage.php:190 views/usage_system.php:54
-#: views/usage_system.php:85 views/usage_system.php:116
-#: views/usage_system.php:147 views/usage_system.php:178
-#: views/usage_system.php:209
+#: views/usage.php:35 views/usage.php:66 views/usage.php:97
+#: views/usage.php:128 views/usage.php:159 views/usage.php:190
+#: views/usage_system.php:54 views/usage_system.php:85
+#: views/usage_system.php:116 views/usage_system.php:147
+#: views/usage_system.php:178 views/usage_system.php:209
 msgid "Delete:"
 msgstr ""
 
@@ -674,6 +680,10 @@ msgstr ""
 #: views/usage.php:8 views/usage_system.php:24
 msgid "Disk space currently in use by Voicemail data"
 msgstr "Дисковое пространство, используемое под данные голосовой почты"
+
+#: ucp/assets/js/global.js:962
+msgid "Download"
+msgstr ""
 
 #: ucp/assets/js/global.js:450
 msgid "Dragging to yourself is not allowed"
@@ -1027,7 +1037,7 @@ msgid ""
 msgstr ""
 
 #: ucp/views/mailbox.php:13 ucp/assets/js/global.js:171
-#: ucp/assets/js/global.js:292
+#: ucp/assets/js/global.js:292 ucp/assets/js/global.js:959
 msgid "Forward"
 msgstr ""
 
@@ -1378,6 +1388,10 @@ msgstr ""
 
 #: ucp/assets/js/global.js:145
 msgid "Listen"
+msgstr ""
+
+#: ucp/assets/js/global.js:958
+msgid "Listen on your handset"
 msgstr ""
 
 #: ucp/assets/js/global.js:144
@@ -2271,8 +2285,8 @@ msgid ""
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
 "Additionally, on forwarded messages, you have the variables: "
 "ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE You can "
-"select between two variables by using dialplan functions, e.g. "
-"${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
+"select between two variables by using dialplan functions, e.g. ${IF(${ISNULL"
+"(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 msgstr ""
 
 #: Voicemail.class.php:2103
@@ -2295,8 +2309,8 @@ msgid ""
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
 "Additionally, on forwarded messages, you have the variables: "
 "ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE You can "
-"select between two variables by using dialplan functions, e.g. "
-"${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
+"select between two variables by using dialplan functions, e.g. ${IF(${ISNULL"
+"(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 msgstr ""
 
 #: Voicemail.class.php:2132
@@ -2825,11 +2839,11 @@ msgstr "Год"
 #: views/dialplan.php:218 views/dialplan.php:245 views/quickCreate.php:10
 #: views/ucp_config.php:12 views/ucp_config.php:67 views/ucp_config.php:96
 #: views/ucp_config.php:125 views/ucp_config.php:154 views/ucp_config.php:183
-#: views/usage.php:37 views/usage.php:68 views/usage.php:99 views/usage.php:130
-#: views/usage.php:161 views/usage.php:192 views/usage_system.php:56
-#: views/usage_system.php:87 views/usage_system.php:118
-#: views/usage_system.php:149 views/usage_system.php:180
-#: views/usage_system.php:211
+#: views/usage.php:37 views/usage.php:68 views/usage.php:99
+#: views/usage.php:130 views/usage.php:161 views/usage.php:192
+#: views/usage_system.php:56 views/usage_system.php:87
+#: views/usage_system.php:118 views/usage_system.php:149
+#: views/usage_system.php:180 views/usage_system.php:211
 msgid "Yes"
 msgstr ""
 
@@ -2844,6 +2858,19 @@ msgstr ""
 #: ucp/assets/js/global.js:93
 #, perl-format
 msgid "You Have %s New Voicemail"
+msgstr ""
+
+#: ucp/assets/js/global.js:949
+#, perl-format
+msgid ""
+"You are missing support for playback in this browser. To fully support HTML5 "
+"browser playback you will need to install programs that can not be "
+"distributed with the PBX. If you'd like to install the binaries needed for "
+"these conversions click <a href='%s'>here</a>"
+msgstr ""
+
+#: ucp/assets/js/global.js:482
+msgid "You have No Drag/Drop Support!"
 msgstr ""
 
 #: ucp/assets/js/global.js:829
@@ -3200,8 +3227,8 @@ msgstr "да"
 #~ "after logging into the voicemail system (%s) with a phone."
 #~ msgstr ""
 #~ "Пароль для доступа к голосовой почте. %sПароль может состоять только из "
-#~ "цифр.<br>%sПользователь может сменить установленный здесь пароль набрав "
-#~ "(%s) со своего телефона после входа в систему голосовой почты."
+#~ "цифр.<br>%sПользователь может сменить установленный здесь пароль набрав (%"
+#~ "s) со своего телефона после входа в систему голосовой почты."
 
 #~ msgid "Timezone Definition"
 #~ msgstr "Дефиниции часового пояса"

@@ -373,7 +373,7 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 	public function updateAliasDeviceMapping($device, $mailbox) {
 		$uservm = $this->getVoicemail(true);
 		if(!empty($mailbox)) {
-			$this->setConfig($device, ["$device@device", $mailbox], 'vmmapping');
+			$this->setConfig($device, array("$device@device", $mailbox), 'vmmapping');
 		} else {
 			$this->delConfig($device, 'vmmapping');
 		}
