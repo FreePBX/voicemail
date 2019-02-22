@@ -155,7 +155,7 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 			$sth = $this->db->prepare($sql);
 			$sth->execute(array($extension));
 			$this->astman->database_put("AMPUSER",$extension."/voicemail",'default');
-			$this->mapMailBox($mailbox);
+			$this->mapMailBox($extension);
 		}
 	}
 
