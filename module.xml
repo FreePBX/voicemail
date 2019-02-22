@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>14.0.5</version>
+	<version>14.0.6</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*14.0.6* Fixing FREEPBX-19592 Voicemail whoops error issue on quick extension create 
 		*14.0.5* Asterisk 13.25.0 and 16.2.0 voicemail changes
 		*14.0.4.2* FREEPBX-18497
 		*14.0.4.1* FREEPBX-15555 Exception Asterisk is not connected error issue fix 
