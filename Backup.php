@@ -39,6 +39,7 @@ class Backup Extends Base\BackupBase{
 		$configs = [
 			'voicemailConf' => $voicemailConf,
 			'mailboxData' => $mailboxData,
+			'features' => $this->dumpFeatureCodes()
 		];
 		$file = $this->FreePBX->Config->get('ASTETCDIR')."/voicemail.conf";
 		$path = pathinfo($file,PATHINFO_DIRNAME);
