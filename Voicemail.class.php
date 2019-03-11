@@ -1713,7 +1713,7 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 			$vmcontexts = array_keys($uservm);
 
 			foreach ($vmcontexts as $vmcontext) {
-				if($vmcontext == "general" || $vmcontext == "zonemessages") {
+				if($vmcontext == "general" || $vmcontext == "zonemessages" || $name == "pbxaliases") {
 					continue;
 				}
 
