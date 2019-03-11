@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-18 13:32-0500\n"
+"POT-Creation-Date: 2019-03-11 14:52-0400\n"
 "PO-Revision-Date: 2018-06-11 10:10+0000\n"
 "Last-Translator: Stell0 <stefano.fancello@nethesis.it>\n"
 "Language-Team: Italian <http://*/projects/freepbx/voicemail/it/>\n"
+"Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it_IT\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.19.1\n"
 
@@ -90,11 +90,6 @@ msgstr "%s1 o %s2"
 #, php-format
 msgid "%s or %s or %s"
 msgstr "%s1 o %s2 o %s3"
-
-#: ucp/assets/js/global.js:955
-#, perl-format
-msgid "%s seconds"
-msgstr ""
 
 #: views/tz.php:94
 msgid "'filename'"
@@ -598,7 +593,6 @@ msgstr ""
 "necessario testarlo dopo la configurazione."
 
 #: ucp/views/greetings.php:46 ucp/views/mailbox.php:10 views/tz.php:21
-#: ucp/assets/js/global.js:965
 msgid "Delete"
 msgstr "Elimina"
 
@@ -639,11 +633,11 @@ msgstr "Elimina tutti i messaggi occupati"
 msgid "Delete all Recorded Names"
 msgstr "Elimina tutti i nomi registrati"
 
-#: views/usage.php:35 views/usage.php:66 views/usage.php:97
-#: views/usage.php:128 views/usage.php:159 views/usage.php:190
-#: views/usage_system.php:54 views/usage_system.php:85
-#: views/usage_system.php:116 views/usage_system.php:147
-#: views/usage_system.php:178 views/usage_system.php:209
+#: views/usage.php:35 views/usage.php:66 views/usage.php:97 views/usage.php:128
+#: views/usage.php:159 views/usage.php:190 views/usage_system.php:54
+#: views/usage_system.php:85 views/usage_system.php:116
+#: views/usage_system.php:147 views/usage_system.php:178
+#: views/usage_system.php:209
 msgid "Delete:"
 msgstr "Elimina :"
 
@@ -729,10 +723,6 @@ msgstr "Scarta saluto"
 #: views/usage.php:8 views/usage_system.php:24
 msgid "Disk space currently in use by Voicemail data"
 msgstr "Spazio su disco attualmente in uso dai dati di Voicemail"
-
-#: ucp/assets/js/global.js:962
-msgid "Download"
-msgstr ""
 
 #: ucp/assets/js/global.js:450
 msgid "Dragging to yourself is not allowed"
@@ -1135,7 +1125,7 @@ msgstr ""
 "specificato."
 
 #: ucp/views/mailbox.php:13 ucp/assets/js/global.js:171
-#: ucp/assets/js/global.js:292 ucp/assets/js/global.js:959
+#: ucp/assets/js/global.js:292
 msgid "Forward"
 msgstr "Inoltrare"
 
@@ -1525,10 +1515,6 @@ msgstr "Limiti"
 #: ucp/assets/js/global.js:145
 msgid "Listen"
 msgstr "Ascolta"
-
-#: ucp/assets/js/global.js:958
-msgid "Listen on your handset"
-msgstr ""
 
 #: ucp/assets/js/global.js:144
 msgid "Listen to Voicemail"
@@ -2488,8 +2474,8 @@ msgid ""
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
 "Additionally, on forwarded messages, you have the variables: "
 "ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE You can "
-"select between two variables by using dialplan functions, e.g. ${IF(${ISNULL"
-"(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
+"select between two variables by using dialplan functions, e.g. "
+"${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 msgstr ""
 "Il corpo dell'email Modifica le variabili from, body e / o subject, VM_NAME, "
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
@@ -2521,8 +2507,8 @@ msgid ""
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
 "Additionally, on forwarded messages, you have the variables: "
 "ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE You can "
-"select between two variables by using dialplan functions, e.g. ${IF(${ISNULL"
-"(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
+"select between two variables by using dialplan functions, e.g. "
+"${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 msgstr ""
 "Il corpo del cercapersone. Modifica le variabili from, body e / o subject, "
 "VM_NAME, VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, "
@@ -2620,8 +2606,8 @@ msgid ""
 msgstr ""
 "Questa è la password utilizzata per accedere al sistema Voicemail. %s1 "
 "Questa password può contenere solo numeri. %s2 Un utente può modificare la "
-"password inserita qui dopo aver effettuato l'accesso al sistema Voicemail (%"
-"s3) con un telefono."
+"password inserita qui dopo aver effettuato l'accesso al sistema Voicemail "
+"(%s3) con un telefono."
 
 #: page.voicemail.php:290
 msgid ""
@@ -3091,11 +3077,11 @@ msgstr "Anno"
 #: views/dialplan.php:218 views/dialplan.php:245 views/quickCreate.php:10
 #: views/ucp_config.php:12 views/ucp_config.php:67 views/ucp_config.php:96
 #: views/ucp_config.php:125 views/ucp_config.php:154 views/ucp_config.php:183
-#: views/usage.php:37 views/usage.php:68 views/usage.php:99
-#: views/usage.php:130 views/usage.php:161 views/usage.php:192
-#: views/usage_system.php:56 views/usage_system.php:87
-#: views/usage_system.php:118 views/usage_system.php:149
-#: views/usage_system.php:180 views/usage_system.php:211
+#: views/usage.php:37 views/usage.php:68 views/usage.php:99 views/usage.php:130
+#: views/usage.php:161 views/usage.php:192 views/usage_system.php:56
+#: views/usage_system.php:87 views/usage_system.php:118
+#: views/usage_system.php:149 views/usage_system.php:180
+#: views/usage_system.php:211
 msgid "Yes"
 msgstr "Si"
 
@@ -3111,19 +3097,6 @@ msgstr ""
 #, perl-format
 msgid "You Have %s New Voicemail"
 msgstr "Hai %s1 Nuova segreteria telefonica"
-
-#: ucp/assets/js/global.js:949
-#, perl-format
-msgid ""
-"You are missing support for playback in this browser. To fully support HTML5 "
-"browser playback you will need to install programs that can not be "
-"distributed with the PBX. If you'd like to install the binaries needed for "
-"these conversions click <a href='%s'>here</a>"
-msgstr ""
-
-#: ucp/assets/js/global.js:482
-msgid "You have No Drag/Drop Support!"
-msgstr ""
 
 #: ucp/assets/js/global.js:829
 msgid "Your Browser Blocked The Recording, Please check your settings"
