@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 15:03-0400\n"
+"POT-Creation-Date: 2019-04-02 21:38+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -639,7 +639,7 @@ msgid "Direct Dial Mode"
 msgstr ""
 
 #: install.php:12
-#: voicemail.i18n.php:30
+#: voicemail.i18n.php:28
 msgid "Direct Dial Prefix"
 msgstr ""
 
@@ -1548,7 +1548,7 @@ msgstr ""
 
 #: functions.inc.php:172
 #: install.php:9
-#: voicemail.i18n.php:32
+#: voicemail.i18n.php:30
 msgid "My Voicemail"
 msgstr ""
 
@@ -2234,12 +2234,10 @@ msgid "The ADSI security lock code"
 msgstr ""
 
 #: install.php:14
-#: voicemail.i18n.php:28
 msgid "The Feature Code used to dial any voicemail"
 msgstr ""
 
 #: install.php:13
-#: voicemail.i18n.php:34
 msgid ""
 "The Feature Code used to direct dial a users voicemail from their own "
 "extension"

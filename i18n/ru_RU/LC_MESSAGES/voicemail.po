@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-15 17:59-0500\n"
+"POT-Creation-Date: 2019-04-02 21:38+0530\n"
 "PO-Revision-Date: 2015-07-13 20:16+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -623,7 +623,7 @@ msgstr ""
 msgid "Direct Dial Mode"
 msgstr ""
 
-#: install.php:12 voicemail.i18n.php:30
+#: install.php:12 voicemail.i18n.php:28
 msgid "Direct Dial Prefix"
 msgstr ""
 
@@ -1546,7 +1546,7 @@ msgstr ""
 msgid "Msg Timeout"
 msgstr ""
 
-#: functions.inc.php:172 install.php:9 voicemail.i18n.php:32
+#: functions.inc.php:172 install.php:9 voicemail.i18n.php:30
 msgid "My Voicemail"
 msgstr "Моя голосовая почта"
 
@@ -2194,11 +2194,11 @@ msgstr "Номер дескриптора ADSI для скачивания"
 msgid "The ADSI security lock code"
 msgstr "Секретный код защиты ADSI"
 
-#: install.php:14 voicemail.i18n.php:28
+#: install.php:14
 msgid "The Feature Code used to dial any voicemail"
 msgstr ""
 
-#: install.php:13 voicemail.i18n.php:34
+#: install.php:13
 msgid ""
 "The Feature Code used to direct dial a users voicemail from their own "
 "extension"
