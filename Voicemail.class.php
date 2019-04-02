@@ -202,7 +202,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 					mkdir(dirname($dest), 0775, true);
 				}
 				// Now do the symlink
-				symlink($src, $dest);
+				@symlink($src, $dest);
 			}
 		}
 		return;
