@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>14.0.6.2</version>
+	<version>14.0.6.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*14.0.6.3* FREI-481 
 		*14.0.6.2* FreePBX-19703 
 		*14.0.6.1* Dont export out aliases context in bulk handler
 		*14.0.6* Fixing FREEPBX-19592 Voicemail whoops error issue on quick extension create 
