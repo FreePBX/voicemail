@@ -1756,6 +1756,10 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 				}
 
 				foreach ($uservm[$vmcontext] as $extension => $mailbox) {
+				 	if (empty($mailbox) || !isset($mailbox)) {
+						dbug(sprintf(_('Bulk handler export: Ignoring extension %s as mailbox is empty '), isset($extension)?$extension:''));
+						continue;
+					}	
 					unset($mailbox['mailbox']);
 
 					$opts = array();
