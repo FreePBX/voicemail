@@ -1751,15 +1751,12 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 			$vmcontexts = array_keys($uservm);
 
 			foreach ($vmcontexts as $vmcontext) {
-				if($vmcontext == "general" || $vmcontext == "zonemessages" || $name == "pbxaliases") {
+				if($vmcontext == "general" || $vmcontext == "zonemessages" || $vmcontext == "pbxaliases") {
 					continue;
 				}
 
 				foreach ($uservm[$vmcontext] as $extension => $mailbox) {
-				 	if (empty($mailbox) || !isset($mailbox)) {
-						dbug(sprintf(_('Bulk handler export: Ignoring extension %s as mailbox is empty '), isset($extension)?$extension:''));
-						continue;
-					}	
+					
 					unset($mailbox['mailbox']);
 
 					$opts = array();
