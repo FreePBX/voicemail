@@ -172,6 +172,9 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 		}
 		if(isset($_REQUEST['vmcontext'])) {
 			$vmcontext = !empty($_REQUEST['vmcontext']) ? $_REQUEST['vmcontext'] : 'default';
+			$user = array(
+				'voicemail' => $vmcontext
+			);
 		} else {
 			$user = $this->FreePBX->Core->getUser($mailbox);
 			if(empty($user)) {
@@ -181,7 +184,7 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 		}
 		if($user['voicemail'] != "novm") {
 			if($this->dontUseSymlinks) {
-				$this->setConfig($mailbox, array("$mailbox@device", "$mailbox@$vmcontext"), 'vmmapping');
+				$this->updateAliasDeviceMapping($mailbox, "$mailbox@$vmcontext", false);
 			} else {
 				// Create voicemail symlink
 				$spooldir = $this->FreePBX->Config->get('ASTSPOOLDIR');
@@ -370,14 +373,17 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 	 * @param int $mailbox The mailbox number
 	 * @return void
 	 */
-	public function updateAliasDeviceMapping($device, $mailbox) {
-		$uservm = $this->getVoicemail(true);
+	public function updateAliasDeviceMapping($device, $mailbox, $save=true) {
 		if(!empty($mailbox)) {
 			$this->setConfig($device, array("$device@device", $mailbox), 'vmmapping');
 		} else {
 			$this->delConfig($device, 'vmmapping');
 		}
-		$this->saveVoicemail($uservm);
+
+		if($save) {
+			$uservm = $this->getVoicemail(true);
+			$this->saveVoicemail($uservm);
+		}
 	}
 
 	/**
@@ -397,6 +403,15 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 			foreach($vmm as $mailbox => $data) {
 				$vmconf['pbxaliases'][$data[0]] = $data[1];
 			}
+		} else {
+			if(isset($vmconf['general']['aliasescontext'])) {
+				unset($vmconf['general']['aliasescontext']);
+			}
+
+			if(isset($vmconf['pbxaliases'])) {
+				unset($vmconf['pbxaliases']);
+			}
+
 		}
 
 		foreach($vmconf as $cxtname => &$context) {
@@ -508,7 +523,8 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 				'email' => str_replace(',','|',$settings['email']),
 				'pager' => $settings['pager'],
 				'options' => $vmoptions
-				);
+			);
+			$this->setConfig($mailbox, array("$mailbox@device", $mailbox."@".$settings['vmcontext']), 'vmmapping');
 		}
 
 		$this->saveVoicemail($vmconf);
@@ -1476,6 +1492,23 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 	 * During Retrieve conf use this to cleanup all orphan greeting conversions
 	 */
 	public function doDialplanHook(&$ext, $engine, $priority) {
+
+		$users = $this->FreePBX->Core->getAllUsers();
+		if($this->dontUseSymlinks) {
+			$vmm = $this->getAll('vmmapping');
+			foreach($users as $u => $user) {
+				if($user['voicemail'] != "novm" && !isset($vmm[$u])) {
+					$this->updateAliasDeviceMapping($user['extension'], $user['extension'].'@'.$user['voicemail'], false);
+				}
+			}
+			$uservm = $this->getVoicemail(true);
+			$this->saveVoicemail($uservm);
+		}
+
+		foreach($users as $u => $user) {
+			$this->astman->database_put("AMPUSER",$user['extension']."/voicemail",$user['voicemail']);
+		}
+
 		foreach (glob($this->vmPath."/*",GLOB_ONLYDIR) as $type) {
 			foreach (glob($type."/*",GLOB_ONLYDIR) as $directory) {
 				//Clean up all orphan greetings
