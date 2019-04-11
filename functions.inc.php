@@ -931,8 +931,9 @@ function voicemail_configprocess() {
 		case "edit":
 			if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
 				voicemail_mailbox_del($extdisplay);
-				if ( $vm != 'disabled' )
+				if ( $vm != 'disabled' ) {
 					voicemail_mailbox_add($extdisplay, $_REQUEST);
+				}
 				needreload();
 			}
 		break;
