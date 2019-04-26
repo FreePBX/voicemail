@@ -1729,7 +1729,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 					}
 					$sql = "UPDATE users SET voicemail = ? WHERE extension = ?";
 					$sth = $this->db->prepare($sql);
-					$sth->execute(array($extension));
+					$sth->execute(array($vmcontext, $extension));
 					$this->astman->database_put("AMPUSER",$extension."/voicemail",'default');
 					$this->mapMailBox($extension);
 					if ($data['disable_star_voicemail'] == 'yes') {
