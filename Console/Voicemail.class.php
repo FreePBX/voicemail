@@ -18,16 +18,16 @@ class Voicemail extends Command{
 
 		protected function execute(InputInterface $input, OutputInterface $output){
 			$options = $input->getArgument('notification');
-			if(count($options) !== 3){
-				$output->writeln("Incorrect parameter count");
-				return false;
-			}
+
 			$context = $options[0];
 			$extension = $options[1];
-			$vmcount = $options[2];
-			$this->notification($context,$extension,$vmcount);
+			$vmcount = isset($options[2]) ? $options[2] : 0;
+			$oldvmcount = isset($options[3]) ? $options[3] : 0;
+			$urgvmcount = isset($options[4]) ? $options[4] : 0;
+
+			$this->notification($context,$extension,$vmcount,$oldvmcount,$urgvmcount);
 		}
-		public function notification($context,$extension,$vmcount){
-			return \FreePBX::Hooks()->returnHooks($context,$extension,$vmcount);
+		public function notification($context,$extension,$vmcount,$oldvmcount,$urgvmcount){
+			\FreePBX::Voicemail()->hookExtNotify($context,$extension,$vmcount,$oldvmcount,$urgvmcount);
 		}
 }

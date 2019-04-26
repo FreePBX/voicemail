@@ -1781,7 +1781,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 				}
 
 				foreach ($uservm[$vmcontext] as $extension => $mailbox) {
-					
+
 					unset($mailbox['mailbox']);
 
 					$opts = array();
@@ -2673,8 +2673,8 @@ class Voicemail extends FreePBX_Helpers implements BMO {
         foreach ($boxes as $context => $extensions) {
             foreach ($extensions as $extension => $settings) {
                 $final[] = [
-                    'extension' => $extension, 
-                    'context' => $context, 
+                    'extension' => $extension,
+                    'context' => $context,
                     'name' => isset($settings['name'])?$settings['name']:'',
                     'egreetings' => false,
                     'emessages' => false,
@@ -2685,6 +2685,10 @@ class Voicemail extends FreePBX_Helpers implements BMO {
         return $final;
     }
     public function updateGeneral(array $data){
-        
-    }
+
+	}
+
+	public function hookExtNotify($context,$extension,$vmcount,$oldvmcount,$urgvmcount) {
+		$this->FreePBX->Hooks->processHooks($context,$extension,$vmcount,$oldvmcount,$urgvmcount);
+	}
 }
