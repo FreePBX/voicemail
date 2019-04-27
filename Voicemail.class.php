@@ -2649,7 +2649,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
         $settings = $this->getBaseBackupSettings();
         $saved = $this->getAll($id);
         if($saved){
-            foreach($settigns as $key => $value){
+            foreach($settings as $key => $value){
                 $exten = $value['extension'];
                 if (isset($saved['voicemail_egreetings_'.$exten])) {
                     $settings[$key]['egreetings'] = $saved['voicemail_egreetings_'.$exten];
