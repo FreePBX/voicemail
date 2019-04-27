@@ -2669,6 +2669,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
         $boxes = $this->getVoicemail();
         //Don't need general settings
         unset($boxes['general']);
+        unset($boxes['zonemessages']);
         $final = [];
         foreach ($boxes as $context => $extensions) {
             foreach ($extensions as $extension => $settings) {
