@@ -2608,10 +2608,12 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		return $final;
     }
 
-    public function allFileList($filter = 'FrObUlAtE'){
+    public function allFileList($exten, $filter = 'FrObUlAtE'){
         $dirs = [];
         $files = [];
-        $directory = new RecursiveDirectoryIterator($this->vmPath);
+        $o = $this->getVoicemailBoxByExtension($exten);
+        $context = $o['vmcontext'];
+        $directory = new RecursiveDirectoryIterator($this->vmPath . '/'.$context.'/'.$exten);
         $iterator = new RecursiveIteratorIterator($directory);
         foreach ($iterator as $fileObj) {
             /** The device folder is all symlinks. Ain't nobody got time for that */
