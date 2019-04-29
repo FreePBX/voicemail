@@ -2608,10 +2608,12 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		return $final;
     }
 
-    public function allFileList($filter = 'FrObUlAtE'){
+    public function allFileList($exten, $filter = 'FrObUlAtE'){
         $dirs = [];
         $files = [];
-        $directory = new RecursiveDirectoryIterator($this->vmPath);
+        $o = $this->getVoicemailBoxByExtension($exten);
+        $context = $o['vmcontext'];
+        $directory = new RecursiveDirectoryIterator($this->vmPath . '/'.$context.'/'.$exten);
         $iterator = new RecursiveIteratorIterator($directory);
         foreach ($iterator as $fileObj) {
             /** The device folder is all symlinks. Ain't nobody got time for that */
@@ -2649,7 +2651,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
         $settings = $this->getBaseBackupSettings();
         $saved = $this->getAll($id);
         if($saved){
-            foreach($settigns as $key => $value){
+            foreach($settings as $key => $value){
                 $exten = $value['extension'];
                 if (isset($saved['voicemail_egreetings_'.$exten])) {
                     $settings[$key]['egreetings'] = $saved['voicemail_egreetings_'.$exten];
@@ -2669,6 +2671,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
         $boxes = $this->getVoicemail();
         //Don't need general settings
         unset($boxes['general']);
+        unset($boxes['zonemessages']);
         $final = [];
         foreach ($boxes as $context => $extensions) {
             foreach ($extensions as $extension => $settings) {
