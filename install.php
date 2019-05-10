@@ -35,6 +35,12 @@ $fcc->setProvideDest();
 $fcc->update();
 unset($fcc);
 
+$fcc = new featurecode('voicemail', 'directdialvoicemail');
+$fcc->setDescription('Direct Dial Prefix');
+$fcc->setDefault('*');
+$fcc->update();
+unset($fcc);
+
 $globals_convert['OPERATOR_XTN'] = '';
 $globals_convert['VM_OPTS'] = '';
 $globals_convert['VM_GAIN'] = '';
@@ -55,21 +61,6 @@ if(!empty($globals_convert)) {
   	}
   }
 }
-
-// Now setup the new feature code, if blank then disable
-//
-$fcc = new featurecode('voicemail', 'directdialvoicemail');
-$fcc->setDescription('Direct Dial Prefix');
-$fcc->setDefault($default_prefix);
-if ($current_prefix != $default_prefix) {
-	if ($current_prefix != '') {
-		$fcc->setCode($current_prefix);
-	} else {
-		$fcc->setEnabled(false);
-	}
-}
-$fcc->update();
-unset($fcc);
 
 $freepbx_conf =& freepbx_conf::create();
 
