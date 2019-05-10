@@ -35,7 +35,7 @@ msgstr ""
 msgid "%s Voicemail"
 msgstr ""
 
-#: install.php:54
+#: install.php:60
 #, php-format
 msgid "%s added"
 msgstr ""
