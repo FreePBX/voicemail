@@ -348,7 +348,6 @@ var VoicemailC = UCPMC.extend({
 			var id = $(this).data("id");
 			self.deleteGreeting(extension,id);
 		});
-
 		$("#widget_settings .filedrop").on("dragover", function(event) {
 			if (event.preventDefault) {
 				event.preventDefault(); // Necessary. Allows us to drop.
@@ -359,6 +358,48 @@ var VoicemailC = UCPMC.extend({
 			$(this).removeClass("hover");
 		});
 
+		$("#widget_settings .greeting-control .jp-audio-freepbx").on("dragstart", function(event) {
+			event.originalEvent.dataTransfer.effectAllowed = "move";
+			event.originalEvent.dataTransfer.setData("type", $(this).data("type"))
+			$(this).fadeTo( "fast", 0.5);
+		});
+		$("#widget_settings .greeting-control .jp-audio-freepbx").on("dragend", function(event) {
+			$(this).fadeTo( "fast", 1.0);
+		});
+		$("#widget_settings .filedrop").on("drop", function(event) {
+			if (event.originalEvent.dataTransfer.files.length === 0) {
+				if (event.stopPropagation) {
+					event.stopPropagation(); // Stops some browsers from redirecting.
+				}
+				if (event.preventDefault) {
+					event.preventDefault(); // Necessary. Allows us to drop.
+				}
+				$(this).removeClass("hover");
+				var target = $(this).data("type"),
+				source = event.originalEvent.dataTransfer.getData("type");
+				if (source === "") {
+					alert(_("Not a valid Draggable Object"));
+					return false;
+				}
+				if (source == target) {
+					alert(_("Dragging to yourself is not allowed"));
+					return false;
+				}
+				var data = { ext: extension, source: source, target: target },
+				message = $(this).find(".message");
+				message.text(_("Copying..."));
+				$.post( UCP.ajaxUrl + "?module=voicemail&command=copy", data, function( data ) {
+						if (data.status) {
+							$("#"+target+" .filedrop .pbar").css("width", "0%");
+							$("#"+target+" .filedrop .message").text($("#"+target+" .filedrop .message").data("message"));
+							$("#freepbx_player_" + target).removeClass("greet-hidden");
+							self.toggleGreeting(target, true);
+						} else {
+							return false;
+						}
+				});
+			} else {}
+		});
 		$("#widget_settings .greeting-control").each(function() {
 			var id = $(this).attr("id");
 			$("#"+id+" input[type=\"file\"]").fileupload({
