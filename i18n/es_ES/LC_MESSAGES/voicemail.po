@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-11 16:48-0400\n"
+"POT-Creation-Date: 2019-05-20 10:43+0530\n"
 "PO-Revision-Date: 2016-12-12 04:58+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -437,6 +437,10 @@ msgstr "Controles"
 msgid "Controls whether to attach the voicemail to the email"
 msgstr "Controla si desea adjuntar el correo de voz al correo electrónico"
 
+#: ucp/assets/js/global.js:390
+msgid "Copying..."
+msgstr "Copiando..."
+
 #: voicemail.i18n.php:12
 msgid "Create Voicemail Hints"
 msgstr "Crear sugerencias de correo de voz"
@@ -662,7 +666,7 @@ msgstr "Modulo de Discado Directo"
 msgid "Direct Dial Prefix"
 msgstr "Prefijo de Discado Directo"
 
-#: ucp/assets/js/global.js:528
+#: ucp/assets/js/global.js:569
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr "Grabación directa de media no es soportado por su navegador!"
 
@@ -715,6 +719,10 @@ msgstr ""
 #: views/usage.php:8 views/usage_system.php:24
 msgid "Disk space currently in use by Voicemail data"
 msgstr "Espacio en disco actualmente en uso por los datos de correo de voz"
+
+#: ucp/assets/js/global.js:385
+msgid "Dragging to yourself is not allowed"
+msgstr "Arrastrar hacia usted mismo en esta permitido"
 
 #: ucp/views/widget.php:65
 msgid "Duration"
@@ -1755,6 +1763,10 @@ msgstr "Nada"
 msgid "Not Found"
 msgstr "No Encontrado"
 
+#: ucp/assets/js/global.js:381
+msgid "Not a valid Draggable Object"
+msgstr "No es un Objeto Arrastrable Valido"
+
 #: Voicemail.class.php:396
 msgid "Null value was sent to saveVoicemail() can not continue"
 msgstr "Se envió valor nulo a saveVoicemail() no se puede continuar"
@@ -2035,7 +2047,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr "Grabar Saludo"
 
-#: ucp/assets/js/global.js:539
+#: ucp/assets/js/global.js:580
 msgid "Recorded Message"
 msgstr "Mensaje Grabado"
 
@@ -2047,7 +2059,7 @@ msgstr "Nombre Grabado"
 msgid "Recorded Names"
 msgstr "Nombres Grabados"
 
-#: ucp/assets/js/global.js:570
+#: ucp/assets/js/global.js:611
 msgid "Recording..."
 msgstr "Grabando..."
 
@@ -2288,11 +2300,11 @@ msgstr "Especificar qué comando se llama para el correo electrónico saliente"
 msgid "Stop Keys"
 msgstr "Teclas de Parar"
 
-#: ucp/assets/js/global.js:636
+#: ucp/assets/js/global.js:677
 msgid "Stop the Recording First before trying to delete"
 msgstr "Detener la grabación antes de tratar de eliminar"
 
-#: ucp/assets/js/global.js:587
+#: ucp/assets/js/global.js:628
 msgid "Stop the Recording First before trying to save"
 msgstr "Detener la Grabación Primero antes de trata de salvar"
 
@@ -2521,7 +2533,7 @@ msgstr ""
 "El valor de odbcstorage es la conexión de base de datos configurada en "
 "res_odbc.conf."
 
-#: ucp/assets/js/global.js:648
+#: ucp/assets/js/global.js:689
 msgid "There is nothing to delete"
 msgstr "No hay nada que borrar"
 
@@ -2752,7 +2764,7 @@ msgstr "Error Desconocido"
 msgid "Unsupported file format"
 msgstr "formato de archivo no soportado"
 
-#: ucp/assets/js/global.js:376
+#: ucp/assets/js/global.js:417
 msgid "Unsupported file type"
 msgstr "Tipo de archivo no soportado"
 
@@ -2768,7 +2780,7 @@ msgstr "Subir Saludo"
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
 msgstr "Cargue un nuevo saludo o arrastre un saludo antiguo aquí"
 
-#: ucp/assets/js/global.js:381 ucp/assets/js/global.js:591
+#: ucp/assets/js/global.js:422 ucp/assets/js/global.js:632
 msgid "Uploading..."
 msgstr "Subiendo..."
 
@@ -3074,11 +3086,11 @@ msgstr ""
 msgid "You have a new voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:576
+#: ucp/assets/js/global.js:617
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr "Su Navegador bloqueo la Grabación. Por favor chequee su configuración"
 
-#: ucp/assets/js/global.js:514
+#: ucp/assets/js/global.js:555
 msgid "Your settings have been saved"
 msgstr "Su Configuración ha sido Salvada"
 
@@ -3153,12 +3165,6 @@ msgstr "si"
 #~ "Longitud mínima de un mensaje de correo de voz en segundos para que el "
 #~ "mensaje se mantenga. El valor predeterminado es 300 (en segundos)."
 
-#~ msgid "Copying..."
-#~ msgstr "Copiando..."
-
-#~ msgid "Dragging to yourself is not allowed"
-#~ msgstr "Arrastrar hacia usted mismo en esta permitido"
-
 #~ msgid ""
 #~ "How many seconds of silence before we end the recording (in seconds)."
 #~ msgstr ""
@@ -3178,9 +3184,6 @@ msgstr "si"
 
 #~ msgid "Min Message Length"
 #~ msgstr "Longitud mínima del mensaje"
-
-#~ msgid "Not a valid Draggable Object"
-#~ msgstr "No es un Objeto Arrastrable Valido"
 
 #~ msgid "Temp"
 #~ msgstr "Temporal"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-11 16:48-0400\n"
+"POT-Creation-Date: 2019-05-20 10:43+0530\n"
 "PO-Revision-Date: 2017-05-23 16:18-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -405,6 +405,10 @@ msgstr ""
 msgid "Controls whether to attach the voicemail to the email"
 msgstr ""
 
+#: ucp/assets/js/global.js:390
+msgid "Copying..."
+msgstr ""
+
 #: voicemail.i18n.php:12
 msgid "Create Voicemail Hints"
 msgstr ""
@@ -594,7 +598,7 @@ msgstr ""
 msgid "Direct Dial Prefix"
 msgstr ""
 
-#: ucp/assets/js/global.js:528
+#: ucp/assets/js/global.js:569
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr ""
 
@@ -640,6 +644,10 @@ msgstr ""
 
 #: views/usage.php:8 views/usage_system.php:24
 msgid "Disk space currently in use by Voicemail data"
+msgstr ""
+
+#: ucp/assets/js/global.js:385
+msgid "Dragging to yourself is not allowed"
 msgstr ""
 
 #: ucp/views/widget.php:65
@@ -1533,6 +1541,10 @@ msgstr ""
 msgid "Not Found"
 msgstr ""
 
+#: ucp/assets/js/global.js:381
+msgid "Not a valid Draggable Object"
+msgstr ""
+
 #: Voicemail.class.php:396
 msgid "Null value was sent to saveVoicemail() can not continue"
 msgstr ""
@@ -1775,7 +1787,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr ""
 
-#: ucp/assets/js/global.js:539
+#: ucp/assets/js/global.js:580
 msgid "Recorded Message"
 msgstr ""
 
@@ -1787,7 +1799,7 @@ msgstr ""
 msgid "Recorded Names"
 msgstr ""
 
-#: ucp/assets/js/global.js:570
+#: ucp/assets/js/global.js:611
 msgid "Recording..."
 msgstr ""
 
@@ -1994,11 +2006,11 @@ msgstr ""
 msgid "Stop Keys"
 msgstr ""
 
-#: ucp/assets/js/global.js:636
+#: ucp/assets/js/global.js:677
 msgid "Stop the Recording First before trying to delete"
 msgstr ""
 
-#: ucp/assets/js/global.js:587
+#: ucp/assets/js/global.js:628
 msgid "Stop the Recording First before trying to save"
 msgstr ""
 
@@ -2191,7 +2203,7 @@ msgid ""
 "conf."
 msgstr ""
 
-#: ucp/assets/js/global.js:648
+#: ucp/assets/js/global.js:689
 msgid "There is nothing to delete"
 msgstr ""
 
@@ -2386,7 +2398,7 @@ msgstr ""
 msgid "Unsupported file format"
 msgstr ""
 
-#: ucp/assets/js/global.js:376
+#: ucp/assets/js/global.js:417
 msgid "Unsupported file type"
 msgstr ""
 
@@ -2402,7 +2414,7 @@ msgstr ""
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
 msgstr ""
 
-#: ucp/assets/js/global.js:381 ucp/assets/js/global.js:591
+#: ucp/assets/js/global.js:422 ucp/assets/js/global.js:632
 msgid "Uploading..."
 msgstr ""
 
@@ -2674,11 +2686,11 @@ msgstr ""
 msgid "You have a new voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:576
+#: ucp/assets/js/global.js:617
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 
-#: ucp/assets/js/global.js:514
+#: ucp/assets/js/global.js:555
 msgid "Your settings have been saved"
 msgstr ""
 

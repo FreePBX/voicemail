@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-11 16:48-0400\n"
+"POT-Creation-Date: 2019-05-20 10:43+0530\n"
 "PO-Revision-Date: 2017-03-13 15:27+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -407,6 +407,10 @@ msgstr "Contrôles"
 msgid "Controls whether to attach the voicemail to the email"
 msgstr "Configure l'état d'inclusion du message en pièce jointe par courriel"
 
+#: ucp/assets/js/global.js:390
+msgid "Copying..."
+msgstr "Copie..."
+
 #: voicemail.i18n.php:12
 msgid "Create Voicemail Hints"
 msgstr "Création des notifications de boite vocale"
@@ -596,7 +600,7 @@ msgstr "Mode de composition directe"
 msgid "Direct Dial Prefix"
 msgstr "Préfixe composition directe"
 
-#: ucp/assets/js/global.js:528
+#: ucp/assets/js/global.js:569
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr ""
 
@@ -643,6 +647,10 @@ msgstr ""
 #: views/usage.php:8 views/usage_system.php:24
 msgid "Disk space currently in use by Voicemail data"
 msgstr "Espace disque présentement utilisé par les données de boite vocale"
+
+#: ucp/assets/js/global.js:385
+msgid "Dragging to yourself is not allowed"
+msgstr "Il n'est pas permis de glisser vers vous-même"
 
 #: ucp/views/widget.php:65
 msgid "Duration"
@@ -1540,6 +1548,10 @@ msgstr "Aucun"
 msgid "Not Found"
 msgstr "Introuvable"
 
+#: ucp/assets/js/global.js:381
+msgid "Not a valid Draggable Object"
+msgstr ""
+
 #: Voicemail.class.php:396
 msgid "Null value was sent to saveVoicemail() can not continue"
 msgstr ""
@@ -1786,7 +1798,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr "Enregistrer le message"
 
-#: ucp/assets/js/global.js:539
+#: ucp/assets/js/global.js:580
 msgid "Recorded Message"
 msgstr "Messages enregistré"
 
@@ -1798,7 +1810,7 @@ msgstr "Nom enregistré"
 msgid "Recorded Names"
 msgstr "Noms enregistrés"
 
-#: ucp/assets/js/global.js:570
+#: ucp/assets/js/global.js:611
 msgid "Recording..."
 msgstr "Enregistrement en cours..."
 
@@ -2013,11 +2025,11 @@ msgstr ""
 msgid "Stop Keys"
 msgstr "Touches d'arrêt"
 
-#: ucp/assets/js/global.js:636
+#: ucp/assets/js/global.js:677
 msgid "Stop the Recording First before trying to delete"
 msgstr ""
 
-#: ucp/assets/js/global.js:587
+#: ucp/assets/js/global.js:628
 msgid "Stop the Recording First before trying to save"
 msgstr ""
 
@@ -2210,7 +2222,7 @@ msgid ""
 "conf."
 msgstr ""
 
-#: ucp/assets/js/global.js:648
+#: ucp/assets/js/global.js:689
 msgid "There is nothing to delete"
 msgstr "Il n'y a rien à supprimer"
 
@@ -2405,7 +2417,7 @@ msgstr "Erreur inconnue"
 msgid "Unsupported file format"
 msgstr "Format de fichier non supporté"
 
-#: ucp/assets/js/global.js:376
+#: ucp/assets/js/global.js:417
 msgid "Unsupported file type"
 msgstr "Type de fichier non supporté"
 
@@ -2421,7 +2433,7 @@ msgstr "Téléverser le message"
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
 msgstr "Téléverser un nouveau message ou glisser-déposer un ancien message ici"
 
-#: ucp/assets/js/global.js:381 ucp/assets/js/global.js:591
+#: ucp/assets/js/global.js:422 ucp/assets/js/global.js:632
 msgid "Uploading..."
 msgstr "Téléversement en cours..."
 
@@ -2693,11 +2705,11 @@ msgstr ""
 msgid "You have a new voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:576
+#: ucp/assets/js/global.js:617
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 
-#: ucp/assets/js/global.js:514
+#: ucp/assets/js/global.js:555
 msgid "Your settings have been saved"
 msgstr "Vos paramètres ont été enregistrés"
 
@@ -2765,17 +2777,11 @@ msgstr "oui"
 #~ msgid "%s seconds"
 #~ msgstr "%s secondes"
 
-#~ msgid "Copying..."
-#~ msgstr "Copie..."
-
 #~ msgid "Discard Greeting"
 #~ msgstr "Supprimer le message"
 
 #~ msgid "Download"
 #~ msgstr "Télécharger"
-
-#~ msgid "Dragging to yourself is not allowed"
-#~ msgstr "Il n'est pas permis de glisser vers vous-même"
 
 #~ msgid "Listen on your handset"
 #~ msgstr "Écouter sur votre téléphone"

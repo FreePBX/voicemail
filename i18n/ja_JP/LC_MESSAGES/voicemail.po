@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-11 16:48-0400\n"
+"POT-Creation-Date: 2019-05-20 10:43+0530\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -451,6 +451,10 @@ msgstr "コントロール"
 msgid "Controls whether to attach the voicemail to the email"
 msgstr ""
 
+#: ucp/assets/js/global.js:390
+msgid "Copying..."
+msgstr "コピー中..."
+
 #: voicemail.i18n.php:12
 msgid "Create Voicemail Hints"
 msgstr "ボイスメールのヒントを作成"
@@ -655,7 +659,7 @@ msgstr "ダイレクトダイヤルモード"
 msgid "Direct Dial Prefix"
 msgstr "ダイレクトダイヤルプレフィックス"
 
-#: ucp/assets/js/global.js:528
+#: ucp/assets/js/global.js:569
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr "ご利用のブラウザはダイレクトメディアレコーディングを対応していません。"
 
@@ -702,6 +706,10 @@ msgstr ""
 #: views/usage.php:8 views/usage_system.php:24
 msgid "Disk space currently in use by Voicemail data"
 msgstr "現在ボイスメールデータで使用中のディスクスペース"
+
+#: ucp/assets/js/global.js:385
+msgid "Dragging to yourself is not allowed"
+msgstr "自分にはドラッグできません"
 
 #: ucp/views/widget.php:65
 msgid "Duration"
@@ -1659,6 +1667,10 @@ msgstr "なし"
 msgid "Not Found"
 msgstr ""
 
+#: ucp/assets/js/global.js:381
+msgid "Not a valid Draggable Object"
+msgstr "ドラッグ可能なデータではありません"
+
 #: Voicemail.class.php:396
 msgid "Null value was sent to saveVoicemail() can not continue"
 msgstr ""
@@ -1920,7 +1932,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr ""
 
-#: ucp/assets/js/global.js:539
+#: ucp/assets/js/global.js:580
 msgid "Recorded Message"
 msgstr ""
 
@@ -1932,7 +1944,7 @@ msgstr ""
 msgid "Recorded Names"
 msgstr ""
 
-#: ucp/assets/js/global.js:570
+#: ucp/assets/js/global.js:611
 msgid "Recording..."
 msgstr "録音中..."
 
@@ -2143,11 +2155,11 @@ msgstr ""
 msgid "Stop Keys"
 msgstr ""
 
-#: ucp/assets/js/global.js:636
+#: ucp/assets/js/global.js:677
 msgid "Stop the Recording First before trying to delete"
 msgstr "削除する前に録音を止めます"
 
-#: ucp/assets/js/global.js:587
+#: ucp/assets/js/global.js:628
 msgid "Stop the Recording First before trying to save"
 msgstr "保存する前に録音を止めます"
 
@@ -2353,7 +2365,7 @@ msgid ""
 "conf."
 msgstr "odbcstorageの値は、res_odbc.conf内で設定されたデータベース接続です。"
 
-#: ucp/assets/js/global.js:648
+#: ucp/assets/js/global.js:689
 msgid "There is nothing to delete"
 msgstr ""
 
@@ -2569,7 +2581,7 @@ msgstr ""
 msgid "Unsupported file format"
 msgstr ""
 
-#: ucp/assets/js/global.js:376
+#: ucp/assets/js/global.js:417
 msgid "Unsupported file type"
 msgstr ""
 
@@ -2585,7 +2597,7 @@ msgstr "アナウンスをアップロードする"
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
 msgstr ""
 
-#: ucp/assets/js/global.js:381 ucp/assets/js/global.js:591
+#: ucp/assets/js/global.js:422 ucp/assets/js/global.js:632
 msgid "Uploading..."
 msgstr "アップロード中..."
 
@@ -2873,13 +2885,13 @@ msgstr ""
 msgid "You have a new voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:576
+#: ucp/assets/js/global.js:617
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 "録音はブラウザによってブロックされた可能性があります。ブラウザの設定を確認し"
 "てください。"
 
-#: ucp/assets/js/global.js:514
+#: ucp/assets/js/global.js:555
 msgid "Your settings have been saved"
 msgstr ""
 
@@ -2947,15 +2959,6 @@ msgstr "はい"
 
 #~ msgid "Date"
 #~ msgstr "日付"
-
-#~ msgid "Copying..."
-#~ msgstr "コピー中..."
-
-#~ msgid "Dragging to yourself is not allowed"
-#~ msgstr "自分にはドラッグできません"
-
-#~ msgid "Not a valid Draggable Object"
-#~ msgstr "ドラッグ可能なデータではありません"
 
 #~ msgid "Temp"
 #~ msgstr "一時不在"
