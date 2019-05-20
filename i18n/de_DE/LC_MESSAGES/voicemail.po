@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-10 00:45-0400\n"
+"POT-Creation-Date: 2019-05-20 10:44+0530\n"
 "PO-Revision-Date: 2018-02-16 16:12+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -411,6 +411,10 @@ msgstr "Steuerungen"
 msgid "Controls whether to attach the voicemail to the email"
 msgstr "Steuert, ob der E-Mail die Voicemail beigefügt wird"
 
+#: ucp/assets/js/global.js:390
+msgid "Copying..."
+msgstr "Wird kopiert ..."
+
 #: voicemail.i18n.php:12
 msgid "Create Voicemail Hints"
 msgstr "Voicemail-Treffer erstellen"
@@ -639,7 +643,7 @@ msgstr "Direkter Wählmodus"
 msgid "Direct Dial Prefix"
 msgstr "Direkte Wählvorwahl"
 
-#: ucp/assets/js/global.js:528
+#: ucp/assets/js/global.js:569
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr "Direkte Medienaufzeichnung wird von Ihrem Browser nicht unterstützt!"
 
@@ -693,6 +697,10 @@ msgstr ""
 #: views/usage.php:8 views/usage_system.php:24
 msgid "Disk space currently in use by Voicemail data"
 msgstr "Speicherplatz wird derzeit durch Voicemail-Daten genutzt"
+
+#: ucp/assets/js/global.js:385
+msgid "Dragging to yourself is not allowed"
+msgstr "Zu sich selbst ziehen ist nicht zulässig"
 
 #: ucp/views/widget.php:65
 msgid "Duration"
@@ -1737,6 +1745,10 @@ msgstr "Keine"
 msgid "Not Found"
 msgstr "Nicht gefunden"
 
+#: ucp/assets/js/global.js:381
+msgid "Not a valid Draggable Object"
+msgstr "Objekt kann nicht per Drag&Drop verschoben werden"
+
 #: Voicemail.class.php:399
 msgid "Null value was sent to saveVoicemail() can not continue"
 msgstr ""
@@ -2023,7 +2035,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr "Begrüßung aufnehmen"
 
-#: ucp/assets/js/global.js:539
+#: ucp/assets/js/global.js:580
 msgid "Recorded Message"
 msgstr "Aufgezeichnete Nachricht"
 
@@ -2035,7 +2047,7 @@ msgstr "Aufgezeichneter Name"
 msgid "Recorded Names"
 msgstr "Aufgezeichnete Namen"
 
-#: ucp/assets/js/global.js:570
+#: ucp/assets/js/global.js:611
 msgid "Recording..."
 msgstr "Wird aufgezeichnet ..."
 
@@ -2291,11 +2303,11 @@ msgstr "Geben Sie an, wie der Befehl für ausgehende E-Mails lautet"
 msgid "Stop Keys"
 msgstr "Tasten stoppen"
 
-#: ucp/assets/js/global.js:636
+#: ucp/assets/js/global.js:677
 msgid "Stop the Recording First before trying to delete"
 msgstr "Stoppen Sie die Aufnahme erst, bevor Sie versuchen, sie zu löschen"
 
-#: ucp/assets/js/global.js:587
+#: ucp/assets/js/global.js:628
 msgid "Stop the Recording First before trying to save"
 msgstr "Stoppen Sie die Aufnahme erst, bevor Sie versuchen, sie zu speichern"
 
@@ -2524,7 +2536,7 @@ msgid ""
 msgstr ""
 "Der Wert von odbcstorage ist die in res_odbc.conf. konfigurierte Datenbank."
 
-#: ucp/assets/js/global.js:648
+#: ucp/assets/js/global.js:689
 msgid "There is nothing to delete"
 msgstr "Es ist nichts zum Löschen vorhanden"
 
@@ -2751,7 +2763,7 @@ msgstr "Unbekannter Fehler"
 msgid "Unsupported file format"
 msgstr "Nicht unterstütztes Dateiformat"
 
-#: ucp/assets/js/global.js:376
+#: ucp/assets/js/global.js:417
 msgid "Unsupported file type"
 msgstr "Nicht unterstützter Dateityp"
 
@@ -2767,7 +2779,7 @@ msgstr "Begrüßung hochladen"
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
 msgstr "Eine neue Begrüßng hochladen oder eine alte Begrüßung hierher ziehen"
 
-#: ucp/assets/js/global.js:381 ucp/assets/js/global.js:591
+#: ucp/assets/js/global.js:422 ucp/assets/js/global.js:632
 msgid "Uploading..."
 msgstr "Wird hochgeladen ..."
 
@@ -3075,13 +3087,13 @@ msgstr ""
 msgid "You have a new voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:576
+#: ucp/assets/js/global.js:617
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 "Ihr Browser hat die Aufnahme blockiert. Bitte überprüfen Sie Ihre "
 "Einstellungen"
 
-#: ucp/assets/js/global.js:514
+#: ucp/assets/js/global.js:555
 msgid "Your settings have been saved"
 msgstr "Ihre Einstellungen wurden gespeichert"
 
@@ -3189,20 +3201,11 @@ msgstr "ja"
 #~ " Dieses Passwort äquivalent zur Nebenstellennummer einstellen, um den "
 #~ "Benutzer zu zwingen, seine Mailbox beim ersten Zugriff zu konfigurieren."
 
-#~ msgid "Copying..."
-#~ msgstr "Wird kopiert ..."
-
 #~ msgid "Date"
 #~ msgstr "Datum"
 
 #~ msgid "Discard Greeting"
 #~ msgstr "Begrüßung verwerfen"
-
-#~ msgid "Dragging to yourself is not allowed"
-#~ msgstr "Zu sich selbst ziehen ist nicht zulässig"
-
-#~ msgid "Not a valid Draggable Object"
-#~ msgstr "Objekt kann nicht per Drag&Drop verschoben werden"
 
 #~ msgid "Save Greeting"
 #~ msgstr "Begrüßung speichern"
