@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.18.2</version>
+	<version>15.0.18.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.18.3* Fixing FREEPBX-20010 Whoops error while backing up pms with voicemail
 		*15.0.18.2* FREEPBX-19880 UCP Voicemail Greetings do not Copy when Dragged 
 		*15.0.18.1* FREEPBX-19910 fix Direct Dial Prefix default code
 		*15.0.18* Flush out extNotify hooks
