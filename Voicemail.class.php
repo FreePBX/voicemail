@@ -2613,7 +2613,11 @@ class Voicemail extends FreePBX_Helpers implements BMO {
         $files = [];
         $o = $this->getVoicemailBoxByExtension($exten);
         $context = $o['vmcontext'];
-        $directory = new RecursiveDirectoryIterator($this->vmPath . '/'.$context.'/'.$exten);
+	$path = $this->vmPath . '/'.$context.'/'.$exten;
+	if (!file_exists($path)) {
+        	return ['dirs' => $dirs, 'files' => $files];
+	}
+        $directory = new RecursiveDirectoryIterator($path);
         $iterator = new RecursiveIteratorIterator($directory);
         foreach ($iterator as $fileObj) {
             /** The device folder is all symlinks. Ain't nobody got time for that */
