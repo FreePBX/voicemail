@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-20 10:43+0530\n"
-"PO-Revision-Date: 2018-11-10 20:09+0000\n"
+"PO-Revision-Date: 2019-06-28 09:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/voicemail/de/>\n"
 "Language: de_DE\n"
@@ -3147,7 +3147,7 @@ msgstr "VM-PREFIX wird aus Allgemein gelöscht .."
 
 #: install.php:127 install.php:144
 msgid "done"
-msgstr "fertig"
+msgstr "erledigt"
 
 #: Voicemail.class.php:339
 #, php-format
