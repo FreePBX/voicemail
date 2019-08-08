@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-20 10:44+0530\n"
+"POT-Creation-Date: 2019-08-08 16:12+0530\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -65,6 +65,11 @@ msgstr "\" 今日\", \"昨日\" 又は ABdY"
 #, php-format
 msgid "%s Attempts"
 msgstr "%s 回"
+
+#: Restore.php:29
+#, php-format
+msgid "%s Files Restored"
+msgstr ""
 
 #: page.voicemail.php:449
 #, php-format

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-20 10:44+0530\n"
+"POT-Creation-Date: 2019-08-08 16:12+0530\n"
 "PO-Revision-Date: 2016-07-17 10:07+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -37,6 +37,11 @@ msgstr "\"امروز\", \"دیروز\", یاABdY"
 #, php-format
 msgid "%s Attempts"
 msgstr "%sتلاش ها"
+
+#: Restore.php:29
+#, php-format
+msgid "%s Files Restored"
+msgstr ""
 
 #: page.voicemail.php:449
 #, php-format

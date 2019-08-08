@@ -15,6 +15,11 @@ msgstr ""
 msgid "%s Attempts"
 msgstr ""
 
+#: Restore.php:29
+#, php-format
+msgid "%s Files Restored"
+msgstr ""
+
 #: page.voicemail.php:449
 #, php-format
 msgid "%s Retries"
