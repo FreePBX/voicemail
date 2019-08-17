@@ -2,7 +2,7 @@
 namespace FreePBX\modules\Voicemail;
 use FreePBX\modules\Backup as Base;
 class Restore Extends Base\RestoreBase{
-	public function runRestore($jobid){
+	public function runRestore(){
 		$configs = $this->getConfigs();
 		$files = $this->getFiles();
 		$nfiles = 0;
