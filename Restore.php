@@ -1,6 +1,9 @@
 <?php
 namespace FreePBX\modules\Voicemail;
 use FreePBX\modules\Backup as Base;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
+use Symfony\Component\Finder\Finder;
 class Restore Extends Base\RestoreBase{
 	public function runRestore($jobid){
 		$configs = $this->getConfigs();
@@ -31,6 +34,20 @@ class Restore Extends Base\RestoreBase{
 
 	public function processLegacy($pdo, $data, $tables, $unknownTables) {
 		$this->restoreLegacyAll($pdo);
+		if(!file_exists($this->tmpdir.'/var/spool/asterisk/voicemail')) {
+			return;
+		}
+		$vmdir = $this->FreePBX->Config->get_conf_setting('ASTSPOOLDIR') . "/voicemail";
+		$finder = new Finder();
+		$fileSystem = new Filesystem();
+		foreach ($finder->in($this->tmpdir.'/var/spool/asterisk/voicemail') as $item) {
+			if($item->isDir()) {
+				$fileSystem->mkdir($vmdir.'/'.$item->getRelativePathname());
+				continue;
+			}
+			$fileSystem->copy($item->getPathname(), $vmdir.'/'.$item->getRelativePathname(), true);
+		}
+
 	}
 
 }
