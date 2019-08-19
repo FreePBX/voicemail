@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-08 16:12+0530\n"
+"POT-Creation-Date: 2019-08-19 13:23+0530\n"
 "PO-Revision-Date: 2017-05-23 16:18-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -36,7 +36,7 @@ msgstr ""
 msgid "%s Attempts"
 msgstr ""
 
-#: Restore.php:29
+#: Restore.php:32
 #, php-format
 msgid "%s Files Restored"
 msgstr ""
