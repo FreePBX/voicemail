@@ -34,12 +34,17 @@ class Restore Extends Base\RestoreBase{
 
 	public function processLegacy($pdo, $data, $tables, $unknownTables) {
 		$this->restoreLegacyAll($pdo);
+		$finder = new Finder();
+		$fileSystem = new Filesystem();
+		$confdir = $this->FreePBX->Config->get_conf_setting('ASTETCDIR');
+		if(file_exists($this->tmpdir.'/etc/asterisk/voicemail.conf')) {
+			$fileSystem->copy($this->tmpdir.'/etc/asterisk/voicemail.conf', $confdir.'/voicemail.conf', true);
+		}
 		if(!file_exists($this->tmpdir.'/var/spool/asterisk/voicemail')) {
 			return;
 		}
 		$vmdir = $this->FreePBX->Config->get_conf_setting('ASTSPOOLDIR') . "/voicemail";
-		$finder = new Finder();
-		$fileSystem = new Filesystem();
+		exec("rm -Rf ".$vmdir);
 		foreach ($finder->in($this->tmpdir.'/var/spool/asterisk/voicemail') as $item) {
 			if($item->isDir()) {
 				$fileSystem->mkdir($vmdir.'/'.$item->getRelativePathname());
