@@ -1715,18 +1715,19 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 					$data['disable_star_voicemail'] = !empty($data['disable_star_voicemail']) ? $data['disable_star_voicemail'] : "";
 					$mailbox['vm'] = 'enabled';
 					$mailbox['name'] = $data['name'];
-					$mailbox['vmcontext'] = $data['voicemail'];
+					if(empty($data['voicemail'])){
+						$vmcontext = 'default';
+					} else {
+						$vmcontext = $data['voicemail'];
+					}
+					$mailbox['vmcontext'] = $vmcontext; 
 					unset($mailbox['enable']);
 					try {
 						$this->addMailbox($extension, $mailbox, false);
 					} catch (Exception $e) {
 						return array("status" => false, "message" => $e->getMessage());
 					}
-					if(empty($data['voicemail'])){
-						$vmcontext = 'default';
-					} else {
-						$vmcontext = $data['voicemail'];
-					}
+					
 					$sql = "UPDATE users SET voicemail = ? WHERE extension = ?";
 					$sth = $this->db->prepare($sql);
 					$sth->execute(array($vmcontext, $extension));
