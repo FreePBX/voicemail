@@ -5,7 +5,7 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Symfony\Component\Finder\Finder;
 class Restore Extends Base\RestoreBase{
-	public function runRestore($jobid){
+	public function runRestore(){
 		$configs = $this->getConfigs();
 		$files = $this->getFiles();
 		$nfiles = 0;
