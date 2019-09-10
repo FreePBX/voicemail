@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.18.7</version>
+	<version>15.0.18.8</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.18.8* Related to FREEPBX-20414: removed $jobid from runRestore() 
 		*15.0.18.7* FREEPBX-20460 
 		*15.0.18.6* FREEPBX-20385 Restoring legacy(FreePBX 14) Backup into FreePBX 15 system is not restoring Voicemail Reports and Voicemail Reports is still showing older data which were there before restore. 
 		*15.0.18.5* FREEPBX-20385 Restoring legacy(FreePBX 14) Backup into FreePBX 15 system is not restoring Voicemail Reports and Voicemail Reports is still  showing older data which were there before restore. 
