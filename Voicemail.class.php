@@ -223,6 +223,15 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 		$vm = is_array($vm) ? $vm : array();
 		foreach($vm as $name => &$context) {
 			if($name == "general" || $name == "zonemessages" || $name == "pbxaliases" || $name == 'device') {
+				if($name == "pbxaliases") {
+					//FREEI-752 voicemail.conf contains [=" which are one character length which never gets removed on reload 
+					//Or need to remove it manuelly
+					foreach($context as $key => $row) {
+						if(strlen($row) < 2) {
+							unset($context[$key]);
+						}
+					}
+				}
 				continue;
 			}
 			foreach($context as $mailbox => &$data) {
@@ -395,12 +404,14 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 		if ($vmconf == null) {
 			throw new \Exception(_("Null value was sent to saveVoicemail() can not continue"));
 		}
-
 		if($this->dontUseSymlinks) {
 			$vmconf['general']['aliasescontext'] = 'pbxaliases';
 
 			$vmm = $this->getAll('vmmapping');
 			foreach($vmm as $mailbox => $data) {
+				if (!is_array($data)) {
+					$data = @json_decode($data,true);
+				}
 				$vmconf['pbxaliases'][$data[0]] = $data[1];
 			}
 		} else {
