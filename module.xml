@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>14.0.6.8</version>
+	<version>14.0.6.9</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*14.0.6.9* FREEI-961 voicemail behavior in UCP. Refresh issue 
 		*14.0.6.8* FREEI-752 Something is corrupting voicemail.conf 
 		*14.0.6.7* FREEPBX-19880 UCP Voicemail Greetings do not Copy when Dragged 
 		*14.0.6.6* FREEPBX-19798 
