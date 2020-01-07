@@ -36,15 +36,17 @@ var VoicemailC = UCPMC.extend({
 		}
 
 		var notify = false;
+		var self = this;
 		async.forEachOf(data.boxes, function (value, extension, callback) {
 			var el = $(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id='"+extension+"'] .mailbox");
-			if(el.length && el.data("inbox") < value) {
+			if(el.length && el.data("inbox") != value) {
+				self.refreshFolderCount(extension);
 				el.data("inbox",value);
 				notify = true;
 				if((typeof Cookies.get('vm-refresh-'+extension) === "undefined" && (typeof Cookies.get('vm-refresh-'+extension) === "undefined" || Cookies.get('vm-refresh-'+extension) == 1)) || Cookies.get('vm-refresh-'+extension) == 1) {
 					$(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id='"+extension+"'] .voicemail-grid").bootstrapTable('refresh',{silent: true});
 				}
-			}
+			}			
 			callback();
 		}, function(err) {
 			if( err ) {
@@ -471,7 +473,7 @@ var VoicemailC = UCPMC.extend({
 		$.post( UCP.ajaxUrl + "?module=voicemail&command=refreshfoldercount", data, function( data ) {
 			if(data.status) {
 				$.each(data.folders, function(i,v) {
-					$(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id="+extension+"] .mailbox .folder-list .folder[data-name='"+v.folder+"'] .badge").text(v.count);
+					$(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id="+extension+"] .mailbox .folder-list .folder[data-name='"+v.name+"'] .badge").text(v.count);
 				});
 			}
 		});
