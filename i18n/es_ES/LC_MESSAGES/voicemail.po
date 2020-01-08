@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 15:01+0530\n"
+"POT-Creation-Date: 2020-01-08 16:08+0530\n"
 "PO-Revision-Date: 2016-12-12 04:58+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -666,7 +666,7 @@ msgstr "Modulo de Discado Directo"
 msgid "Direct Dial Prefix"
 msgstr "Prefijo de Discado Directo"
 
-#: ucp/assets/js/global.js:571
+#: ucp/assets/js/global.js:577
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr "Grabación directa de media no es soportado por su navegador!"
 
@@ -2047,7 +2047,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr "Grabar Saludo"
 
-#: ucp/assets/js/global.js:582
+#: ucp/assets/js/global.js:588
 msgid "Recorded Message"
 msgstr "Mensaje Grabado"
 
@@ -2059,7 +2059,7 @@ msgstr "Nombre Grabado"
 msgid "Recorded Names"
 msgstr "Nombres Grabados"
 
-#: ucp/assets/js/global.js:613
+#: ucp/assets/js/global.js:619
 msgid "Recording..."
 msgstr "Grabando..."
 
@@ -2300,11 +2300,11 @@ msgstr "Especificar qué comando se llama para el correo electrónico saliente"
 msgid "Stop Keys"
 msgstr "Teclas de Parar"
 
-#: ucp/assets/js/global.js:679
+#: ucp/assets/js/global.js:685
 msgid "Stop the Recording First before trying to delete"
 msgstr "Detener la grabación antes de tratar de eliminar"
 
-#: ucp/assets/js/global.js:630
+#: ucp/assets/js/global.js:636
 msgid "Stop the Recording First before trying to save"
 msgstr "Detener la Grabación Primero antes de trata de salvar"
 
@@ -2533,7 +2533,7 @@ msgstr ""
 "El valor de odbcstorage es la conexión de base de datos configurada en "
 "res_odbc.conf."
 
-#: ucp/assets/js/global.js:691
+#: ucp/assets/js/global.js:697
 msgid "There is nothing to delete"
 msgstr "No hay nada que borrar"
 
@@ -2780,7 +2780,7 @@ msgstr "Subir Saludo"
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
 msgstr "Cargue un nuevo saludo o arrastre un saludo antiguo aquí"
 
-#: ucp/assets/js/global.js:424 ucp/assets/js/global.js:634
+#: ucp/assets/js/global.js:424 ucp/assets/js/global.js:640
 msgid "Uploading..."
 msgstr "Subiendo..."
 
@@ -3086,11 +3086,11 @@ msgstr ""
 msgid "You have a new voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:619
+#: ucp/assets/js/global.js:625
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr "Su Navegador bloqueo la Grabación. Por favor chequee su configuración"
 
-#: ucp/assets/js/global.js:557
+#: ucp/assets/js/global.js:563
 msgid "Your settings have been saved"
 msgstr "Su Configuración ha sido Salvada"
 

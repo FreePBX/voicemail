@@ -577,7 +577,7 @@ msgstr ""
 msgid "Direct Dial Prefix"
 msgstr ""
 
-#: ucp/assets/js/global.js:571
+#: ucp/assets/js/global.js:577
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr ""
 
@@ -1766,7 +1766,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr ""
 
-#: ucp/assets/js/global.js:582
+#: ucp/assets/js/global.js:588
 msgid "Recorded Message"
 msgstr ""
 
@@ -1778,7 +1778,7 @@ msgstr ""
 msgid "Recorded Names"
 msgstr ""
 
-#: ucp/assets/js/global.js:613
+#: ucp/assets/js/global.js:619
 msgid "Recording..."
 msgstr ""
 
@@ -1985,11 +1985,11 @@ msgstr ""
 msgid "Stop Keys"
 msgstr ""
 
-#: ucp/assets/js/global.js:679
+#: ucp/assets/js/global.js:685
 msgid "Stop the Recording First before trying to delete"
 msgstr ""
 
-#: ucp/assets/js/global.js:630
+#: ucp/assets/js/global.js:636
 msgid "Stop the Recording First before trying to save"
 msgstr ""
 
@@ -2182,7 +2182,7 @@ msgid ""
 "conf."
 msgstr ""
 
-#: ucp/assets/js/global.js:691
+#: ucp/assets/js/global.js:697
 msgid "There is nothing to delete"
 msgstr ""
 
@@ -2393,7 +2393,7 @@ msgstr ""
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
 msgstr ""
 
-#: ucp/assets/js/global.js:424 ucp/assets/js/global.js:634
+#: ucp/assets/js/global.js:424 ucp/assets/js/global.js:640
 msgid "Uploading..."
 msgstr ""
 
@@ -2665,11 +2665,11 @@ msgstr ""
 msgid "You have a new voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:619
+#: ucp/assets/js/global.js:625
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 
-#: ucp/assets/js/global.js:557
+#: ucp/assets/js/global.js:563
 msgid "Your settings have been saved"
 msgstr ""
 
