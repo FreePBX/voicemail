@@ -1669,6 +1669,9 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 				'voicemail_enable' => array(
 					'description' => _('Voicemail Enable [Blank to disable]'),
 				),
+				'voicemail' => array(
+						'description' => _('Voicemail Context'),
+					),
 				'voicemail_vmpwd' => array(
 					'description' => _('Voicemail Password'),
 				),
