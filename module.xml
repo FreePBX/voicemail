@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.18.11</version>
+	<version>15.0.18.12</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.18.12* FREEPBX-21036  Bulk Import Extensions failure when voicemail_enable = yes 
 		*15.0.18.11* FREEI-961 fixe some issue for refresh table 
 		*15.0.18.10* FREEI-961 voicemail behavior in UCP. Refresh issue 
 		*15.0.18.9* FREEI-752 Something is corrupting voicemail.conf 
