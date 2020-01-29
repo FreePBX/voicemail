@@ -2,50 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.18.12</version>
+	<version>16.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
-		*15.0.18.12* FREEPBX-21036  Bulk Import Extensions failure when voicemail_enable = yes 
-		*15.0.18.11* FREEI-961 fixe some issue for refresh table 
-		*15.0.18.10* FREEI-961 voicemail behavior in UCP. Refresh issue 
-		*15.0.18.9* FREEI-752 Something is corrupting voicemail.conf 
-		*15.0.18.8* Related to FREEPBX-20414: removed $jobid from runRestore() 
-		*15.0.18.7* FREEPBX-20460 
-		*15.0.18.6* FREEPBX-20385 Restoring legacy(FreePBX 14) Backup into FreePBX 15 system is not restoring Voicemail Reports and Voicemail Reports is still showing older data which were there before restore. 
-		*15.0.18.5* FREEPBX-20385 Restoring legacy(FreePBX 14) Backup into FreePBX 15 system is not restoring Voicemail Reports and Voicemail Reports is still  showing older data which were there before restore. 
-		*15.0.18.4* FREEPBX-20394 Restoring FreePBX 15 system is not restoring Voicemail Reports and Voicemail Reports is still showing older data which were there before restore. 
-		*15.0.18.3* Fixing FREEPBX-20010 Whoops error while backing up pms with voicemail
-		*15.0.18.2* FREEPBX-19880 UCP Voicemail Greetings do not Copy when Dragged 
-		*15.0.18.1* FREEPBX-19910 fix Direct Dial Prefix default code
-		*15.0.18* Flush out extNotify hooks
-		*15.0.17.5* FREEPBX-18671
-		*15.0.17.4* FREI-481
-		*15.0.17.3* FREI-481
-		*15.0.17.2* FreePBX-19703
-		*15.0.15* Fixing FREEPBX-19592 Voicemail whoops error issue on quick extension create
-		*15.0.14* fixing legacy restore
-		*15.0.13* Asterisk 13.25.0 and 16.2.0 voicemail changes
-		*15.0.12.5* FREEPBX-18524 Update restore to validate files/directories.
-		*15.0.12.4* Fixing FREEPBX-18862 Whoops error
-		*15.0.12.3*
-		*15.0.12.2* FREEPBX-18497
-		*15.0.12.1* FREEPBX-15555 Exception Asterisk is not connected error issue fix
-		*15.0.12* Fixing FREEPBX-18167 quick create extension should only populate email address , not pager email address.
-		*15.0.11* Fixing FREEPBX-18223 Extensions setting not appling for Italian language
-		*15.0.10* Rest Api
-		*15.0.9* Packaging of ver 15.0.9
-		*15.0.8* Backup 15.0
-		*15.0.7* FREEPBX-17384 UCP Deleting Multiple voicemails
-		*15.0.6* FREEPBX-17179 Bulk Hander and Voicemail Context
-		*15.0.5* FREEPBX-17179 Bulk Hander &amp;amp; Voicemail Context
-		*15.0.4* FREEPBX-12826 Bulk Handler Require Voicemail Password From Same Extension
-		*15.0.3* FREEPBX-12826 Bulk Handler Require Voicemail Password From Same Extension
-		*15.0.2* FREEPBX-16224 cannot select YES for delete of abandoned greetings
-		*15.0.1* FREEPBX-15984 Set extern notify to fwconsole
+		*16.0.1alpha* 16.0.1 alpha release
 	</changelog>
 	<description>This module allows you to configure Voicemail for a user or extension</description>
 	<category>Settings</category>
@@ -57,7 +21,7 @@
 		<version>13.0.111</version>
 	</depends>
 	<supported>
-		<version>15.0</version>
+		<version>16.0</version>
 	</supported>
 	<hooks>
 		<core class="Core" namespace="FreePBX\modules">
