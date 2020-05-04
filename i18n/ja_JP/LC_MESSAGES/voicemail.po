@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-20 16:48+0530\n"
+"POT-Creation-Date: 2020-03-30 12:06+0530\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -423,7 +423,7 @@ msgstr ""
 msgid "Copying..."
 msgstr "コピー中..."
 
-#: voicemail.i18n.php:4
+#: voicemail.i18n.php:12
 msgid "Create Voicemail Hints"
 msgstr "ボイスメールのヒントを作成"
 
@@ -603,7 +603,7 @@ msgid "Device"
 msgstr "デバイス"
 
 #: functions.inc.php:224 functions.inc.php:290 install.php:10
-#: voicemail.i18n.php:18
+#: voicemail.i18n.php:26
 msgid "Dial Voicemail"
 msgstr "ボイスメールへダイヤル"
 
@@ -619,7 +619,7 @@ msgstr "ダイヤルプランの動作"
 msgid "Direct Dial Mode"
 msgstr "ダイレクトダイヤルモード"
 
-#: install.php:12 voicemail.i18n.php:22
+#: install.php:12 voicemail.i18n.php:30
 msgid "Direct Dial Prefix"
 msgstr "ダイレクトダイヤルプレフィックス"
 
@@ -1323,7 +1323,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: voicemail.i18n.php:12
+#: voicemail.i18n.php:20
 msgid ""
 "Installations that have configured Voicemail with IMAP should set this to "
 "true so that the IMAP username and password fields are provided in the "
@@ -1363,7 +1363,7 @@ msgstr ""
 msgid "Leave blank for go to operator"
 msgstr ""
 
-#: voicemail.i18n.php:16
+#: voicemail.i18n.php:24
 msgid ""
 "Limit the Messages to be Displayed in UCP. If your device has more "
 "processing power you can increase this otherwise lower it if you find your "
@@ -1545,7 +1545,7 @@ msgstr ""
 msgid "Msg Timeout"
 msgstr "メッセージタイムアウト"
 
-#: functions.inc.php:172 install.php:9 voicemail.i18n.php:24
+#: functions.inc.php:172 install.php:9 voicemail.i18n.php:32
 msgid "My Voicemail"
 msgstr "自分のボイスメール"
 
@@ -1856,7 +1856,7 @@ msgstr ""
 "あなたのボイスメールアナウンス再生中に、発信者が0を押すとオペレーターに転送し"
 "ますが、ここにチェックを入れると違う宛先を設定できます。"
 
-#: voicemail.i18n.php:10
+#: voicemail.i18n.php:18
 msgid "Provide IMAP Voicemail Fields"
 msgstr "IMAPボイスメールフィールドの提供"
 
@@ -2040,7 +2040,7 @@ msgstr "親フォルダを設定 (デフォルトでは親フォルダセット�
 msgid "Set to a valid port as specified in smdi.conf"
 msgstr ""
 
-#: voicemail.i18n.php:8
+#: voicemail.i18n.php:16
 msgid ""
 "Setting this flag with generate the required dialplan to integrate with "
 "res_mwi_devstate (res_mwi_blf) which is included with the Official FreePBX "
@@ -2048,7 +2048,7 @@ msgid ""
 "via BLF of changes."
 msgstr ""
 
-#: views/header.php:10
+#: views/header.php:10 voicemail.i18n.php:6
 msgid "Settings"
 msgstr "設定"
 
@@ -2209,11 +2209,11 @@ msgstr "次にダウンロードするADSIの機能の記述子番号"
 msgid "The ADSI security lock code"
 msgstr "ADSIセキュリティロックコード"
 
-#: install.php:14 voicemail.i18n.php:20
+#: install.php:14 voicemail.i18n.php:28
 msgid "The Feature Code used to dial any voicemail"
 msgstr ""
 
-#: install.php:13 voicemail.i18n.php:26
+#: install.php:13 voicemail.i18n.php:34
 msgid ""
 "The Feature Code used to direct dial a users voicemail from their own "
 "extension"
@@ -2415,6 +2415,10 @@ msgid ""
 "'No'"
 msgstr ""
 
+#: voicemail.i18n.php:8
+msgid "This module allows you to configure Voicemail for a user or extension"
+msgstr "このモジュールはユーザー又は内線のボイスメール設定を可能にします。"
+
 #: page.voicemail.php:206
 msgid "Time announcement for message playback"
 msgstr "メッセージの再生時間のアナウンス"
@@ -2508,7 +2512,7 @@ msgstr ""
 "メッセージが再生される前に、期間情報を知らせるのをオン/オフ切り替えます。 [デ"
 "フォルトオン]"
 
-#: voicemail.i18n.php:14
+#: voicemail.i18n.php:22
 msgid "UCP Message Limit"
 msgstr ""
 
@@ -2668,11 +2672,11 @@ msgstr "VmXロケーター&トレード；"
 
 #: Voicemail.class.php:834 functions.inc.php:509 install.php:8
 #: ucp/Voicemail.class.php:95 ucp/Voicemail.class.php:144
-#: ucp/Voicemail.class.php:196 views/header.php:2
+#: ucp/Voicemail.class.php:196 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
 msgstr "ボイスメール"
 
-#: install.php:11
+#: install.php:11 voicemail.i18n.php:10
 msgid "Voicemail Admin"
 msgstr "ボイスメールの管理"
 
@@ -2704,7 +2708,7 @@ msgstr "ボイスメール操作説明："
 msgid "Voicemail Message"
 msgstr ""
 
-#: voicemail.i18n.php:6
+#: voicemail.i18n.php:14
 msgid "Voicemail Module"
 msgstr "ボイスメールモジュール"
 
@@ -2885,10 +2889,6 @@ msgstr "変数"
 #: page.voicemail.php:568
 msgid "yes"
 msgstr "はい"
-
-#~ msgid ""
-#~ "This module allows you to configure Voicemail for a user or extension"
-#~ msgstr "このモジュールはユーザー又は内線のボイスメール設定を可能にします。"
 
 #~ msgid "%s adjusted from %s to %s"
 #~ msgstr "%s を %s から %s に調整しました。"
