@@ -225,7 +225,7 @@ class Voicemail extends Modules{
 	* @param string $settings The Settings being passed through $_POST or $_PUT
 	* @return bool True if pass
 	*/
-	public function ajaxRequest($command, $settings) {
+	public function ajaxRequest($command, &$settings) {
 		switch($command) {
 			case 'grid':
 			case 'listen':
