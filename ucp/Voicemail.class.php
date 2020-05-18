@@ -226,7 +226,7 @@ class Voicemail extends Modules{
 	* @return bool True if pass
 	*/
 	public function ajaxRequest($command, $settings) {
-		switch($command) {
+		switch($command) {	
 			case 'grid':
 			case 'listen':
 			case 'moveToFolder':
@@ -256,6 +256,8 @@ class Voicemail extends Modules{
 				$ext = $_REQUEST['ext'];
 				return $this->_checkExtension($ext);
 			break;
+			case 'checkextension':
+				return true;
 			case 'checkboxes':
 				return true;
 			default:
@@ -274,6 +276,9 @@ class Voicemail extends Modules{
 	public function ajaxHandler() {
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
+			case 'checkextension':
+				return $this->_checkExtension($_REQUEST['ext'])? "ok":"ko";
+			break;
 			case 'refreshfoldercount':
 				$folders = $this->UCP->FreePBX->Voicemail->getFolders();
 				foreach($folders as $folder) {

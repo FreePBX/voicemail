@@ -470,19 +470,35 @@ var VoicemailC = UCPMC.extend({
 		var data = {
 			ext: extension
 		};
-		$.post( UCP.ajaxUrl + "?module=voicemail&command=refreshfoldercount", data, function( data ) {
-			if(data.status) {
-				window.update_table = false;
-				$.each(data.folders, function(i,v) {
-					cur_val = $(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id="+extension+"] .mailbox .folder-list .folder[data-name='"+v.name+"'] .badge").text();
-					if(cur_val != v.count){
-						window.update_table = true;
-					}
-					$(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id="+extension+"] .mailbox .folder-list .folder[data-name='"+v.name+"'] .badge").text(v.count);
-					
-				});
-			}
-		});
+
+		$.ajax({
+			type: "POST",
+			url: UCP.ajaxUrl + "?module=voicemail&command=checkextension",
+			async: false,
+			data: data,
+			success: function( data_chk ){				
+				if(data_chk.status) {	
+					window.vm_ok = data_chk.message;
+				}				
+			},
+		  });
+
+		if(typeof window.vm_ok !== "undefined" && window.vm_ok == "ok"){
+			$.post( UCP.ajaxUrl + "?module=voicemail&command=refreshfoldercount", data, function( data ) {
+				if(data.status) {
+					window.update_table = false;
+					$.each(data.folders, function(i,v) {
+						cur_val = $(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id="+extension+"] .mailbox .folder-list .folder[data-name='"+v.name+"'] .badge").text();
+						if(cur_val != v.count){
+							window.update_table = true;
+						}
+						$(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id="+extension+"] .mailbox .folder-list .folder[data-name='"+v.name+"'] .badge").text(v.count);
+						
+					});
+				}
+			});			
+		}
+
 	},
 	moveVoicemail: function(msgid, folder, extension, callback) {
 		var data = {
