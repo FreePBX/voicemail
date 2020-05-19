@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-20 16:46+0530\n"
+"POT-Creation-Date: 2020-05-19 10:01+0530\n"
 "PO-Revision-Date: 2019-06-28 09:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/voicemail/de/>\n"
@@ -451,7 +451,7 @@ msgstr "Steuert, ob der E-Mail die Voicemail beigefügt wird"
 msgid "Copying..."
 msgstr "Wird kopiert ..."
 
-#: voicemail.i18n.php:4
+#: voicemail.i18n.php:12
 msgid "Create Voicemail Hints"
 msgstr "Voicemail-Treffer erstellen"
 
@@ -663,7 +663,7 @@ msgid "Device"
 msgstr "Gerät"
 
 #: functions.inc.php:224 functions.inc.php:290 install.php:10
-#: voicemail.i18n.php:18
+#: voicemail.i18n.php:26
 msgid "Dial Voicemail"
 msgstr "Voicemail anrufen"
 
@@ -679,11 +679,11 @@ msgstr "Wählplan-Verhalten"
 msgid "Direct Dial Mode"
 msgstr "Direkter Wählmodus"
 
-#: install.php:12 voicemail.i18n.php:22
+#: install.php:12 voicemail.i18n.php:30
 msgid "Direct Dial Prefix"
 msgstr "Direkte Wählvorwahl"
 
-#: ucp/assets/js/global.js:577
+#: ucp/assets/js/global.js:593
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr "Direkte Medienaufzeichnung wird von Ihrem Browser nicht unterstützt!"
 
@@ -1039,7 +1039,7 @@ msgstr ""
 msgid "File Format"
 msgstr "Dateiformat"
 
-#: ucp/Voicemail.class.php:297
+#: ucp/Voicemail.class.php:302
 msgid "File does not exist"
 msgstr "Datei existiert nicht"
 
@@ -1082,7 +1082,7 @@ msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 "Für das Verzeichnis können Sie die Intro-Datei überschreiben, falls gewünscht"
 
-#: ucp/Voicemail.class.php:574
+#: ucp/Voicemail.class.php:579
 msgid "Forbidden"
 msgstr "Verboten"
 
@@ -1480,7 +1480,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "Erben"
 
-#: voicemail.i18n.php:12
+#: voicemail.i18n.php:20
 msgid ""
 "Installations that have configured Voicemail with IMAP should set this to "
 "true so that the IMAP username and password fields are provided in the "
@@ -1501,7 +1501,7 @@ msgstr "Ungültige Aktion"
 msgid "Invalid Password"
 msgstr "Ungültiges Passwort"
 
-#: ucp/Voicemail.class.php:329 ucp/Voicemail.class.php:360
+#: ucp/Voicemail.class.php:334 ucp/Voicemail.class.php:365
 msgid "Invalid Recipient"
 msgstr "Ungültiger Empfänger"
 
@@ -1521,7 +1521,7 @@ msgstr "Sprachcode für Voicemail"
 msgid "Leave blank for go to operator"
 msgstr "Leer lassen, um zum Bediener zu wechseln"
 
-#: voicemail.i18n.php:16
+#: voicemail.i18n.php:24
 msgid ""
 "Limit the Messages to be Displayed in UCP. If your device has more "
 "processing power you can increase this otherwise lower it if you find your "
@@ -1714,7 +1714,7 @@ msgstr ""
 msgid "Msg Timeout"
 msgstr "Nachrichten Zeitüberschreitung"
 
-#: functions.inc.php:172 install.php:9 voicemail.i18n.php:24
+#: functions.inc.php:172 install.php:9 voicemail.i18n.php:32
 msgid "My Voicemail"
 msgstr "Meine Voicemail"
 
@@ -1792,7 +1792,7 @@ msgstr ""
 msgid "None"
 msgstr "Kein*e"
 
-#: ucp/Voicemail.class.php:593
+#: ucp/Voicemail.class.php:598
 msgid "Not Found"
 msgstr "Nicht gefunden"
 
@@ -2050,7 +2050,7 @@ msgstr ""
 "gelangen Sie zum Bediener. Auswählen, um hier einen anderen Zielort "
 "einzugeben."
 
-#: voicemail.i18n.php:10
+#: voicemail.i18n.php:18
 msgid "Provide IMAP Voicemail Fields"
 msgstr "IMAP-Voicemail-Felder angeben"
 
@@ -2086,7 +2086,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr "Begrüßung aufnehmen"
 
-#: ucp/assets/js/global.js:588
+#: ucp/assets/js/global.js:604
 msgid "Recorded Message"
 msgstr "Aufgezeichnete Nachricht"
 
@@ -2098,7 +2098,7 @@ msgstr "Aufgezeichneter Name"
 msgid "Recorded Names"
 msgstr "Aufgezeichnete Namen"
 
-#: ucp/assets/js/global.js:619
+#: ucp/assets/js/global.js:635
 msgid "Recording..."
 msgstr "Wird aufgezeichnet ..."
 
@@ -2245,7 +2245,7 @@ msgstr ""
 msgid "Set to a valid port as specified in smdi.conf"
 msgstr "Einen gültigen Port festlegen, wie in smdi.conf angegeben"
 
-#: voicemail.i18n.php:8
+#: voicemail.i18n.php:16
 msgid ""
 "Setting this flag with generate the required dialplan to integrate with "
 "res_mwi_devstate (res_mwi_blf) which is included with the Official FreePBX "
@@ -2257,7 +2257,7 @@ msgstr ""
 "Distro. Hiermit können Benutzer sich für andere Voicemailboxen anmelden und "
 "über BLF oder Änderungen unterrichtet werden."
 
-#: views/header.php:10
+#: views/header.php:10 voicemail.i18n.php:6
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -2338,11 +2338,11 @@ msgstr "Geben Sie an, wie der Befehl für ausgehende E-Mails lautet"
 msgid "Stop Keys"
 msgstr "Tasten stoppen"
 
-#: ucp/assets/js/global.js:685
+#: ucp/assets/js/global.js:701
 msgid "Stop the Recording First before trying to delete"
 msgstr "Stoppen Sie die Aufnahme erst, bevor Sie versuchen, sie zu löschen"
 
-#: ucp/assets/js/global.js:636
+#: ucp/assets/js/global.js:652
 msgid "Stop the Recording First before trying to save"
 msgstr "Stoppen Sie die Aufnahme erst, bevor Sie versuchen, sie zu speichern"
 
@@ -2419,12 +2419,12 @@ msgstr "Die Beschreibungsnummer der ADSI-Funktion, die heruntergeladen wird zu"
 msgid "The ADSI security lock code"
 msgstr "Der ADSI-Sicherheitssperrcode"
 
-#: install.php:14 voicemail.i18n.php:20
+#: install.php:14 voicemail.i18n.php:28
 msgid "The Feature Code used to dial any voicemail"
 msgstr ""
 "Der Funktionscode, der verwendet wird, um eine beliebige Voicemail anzurufen"
 
-#: install.php:13 voicemail.i18n.php:26
+#: install.php:13 voicemail.i18n.php:34
 msgid ""
 "The Feature Code used to direct dial a users voicemail from their own "
 "extension"
@@ -2571,7 +2571,7 @@ msgid ""
 msgstr ""
 "Der Wert von odbcstorage ist die in res_odbc.conf. konfigurierte Datenbank."
 
-#: ucp/assets/js/global.js:697
+#: ucp/assets/js/global.js:713
 msgid "There is nothing to delete"
 msgstr "Es ist nichts zum Löschen vorhanden"
 
@@ -2654,6 +2654,12 @@ msgid ""
 msgstr ""
 "Dies ist das Gleiche wie Namen erzwingen, mit Ausnahme des Aufnehmens von "
 "Begrüßungen. Standard ist 'Nein'"
+
+#: voicemail.i18n.php:8
+msgid "This module allows you to configure Voicemail for a user or extension"
+msgstr ""
+"Mit diesem Modul können Sie Voicemail für einen Benutzer oder eine "
+"Erweiterung konfigurieren"
 
 #: page.voicemail.php:206
 msgid "Time announcement for message playback"
@@ -2751,7 +2757,7 @@ msgstr ""
 "Ansagedauerinformationen vor der Wiedergabe der Nachricht ein-/ausschalten. "
 "[Standardmäßig EIN]"
 
-#: voicemail.i18n.php:14
+#: voicemail.i18n.php:22
 msgid "UCP Message Limit"
 msgstr "UCP-Nachrichtenbeschränkung"
 
@@ -2786,11 +2792,11 @@ msgstr ""
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: ucp/Voicemail.class.php:528
+#: ucp/Voicemail.class.php:533
 msgid "Unknown Error"
 msgstr "Unbekannter Fehler"
 
-#: ucp/Voicemail.class.php:491
+#: ucp/Voicemail.class.php:496
 msgid "Unsupported file format"
 msgstr "Nicht unterstütztes Dateiformat"
 
@@ -2810,7 +2816,7 @@ msgstr "Begrüßung hochladen"
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
 msgstr "Eine neue Begrüßng hochladen oder eine alte Begrüßung hierher ziehen"
 
-#: ucp/assets/js/global.js:424 ucp/assets/js/global.js:640
+#: ucp/assets/js/global.js:424 ucp/assets/js/global.js:656
 msgid "Uploading..."
 msgstr "Wird hochgeladen ..."
 
@@ -2884,7 +2890,7 @@ msgstr "VM Kontext kann nicht leer sein"
 msgid "VM Options"
 msgstr "VM Optionen"
 
-#: ucp/Voicemail.class.php:341
+#: ucp/Voicemail.class.php:346
 msgid "VMAIL"
 msgstr "VMAIL"
 
@@ -2918,11 +2924,11 @@ msgstr "VmX Locater&trade;"
 
 #: Voicemail.class.php:831 functions.inc.php:509 install.php:8
 #: ucp/Voicemail.class.php:95 ucp/Voicemail.class.php:144
-#: ucp/Voicemail.class.php:196 views/header.php:2
+#: ucp/Voicemail.class.php:196 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
 msgstr "Anrufbeantworter"
 
-#: install.php:11
+#: install.php:11 voicemail.i18n.php:10
 msgid "Voicemail Admin"
 msgstr "Anrufbeantworter-Admin"
 
@@ -2956,11 +2962,11 @@ msgstr "Voicemail aktivieren [Freilassen, um zu deaktivieren]"
 msgid "Voicemail Instructions:"
 msgstr "Voicemail-Anweisungen:"
 
-#: ucp/Voicemail.class.php:341
+#: ucp/Voicemail.class.php:346
 msgid "Voicemail Message"
 msgstr "Voicemail-Nachricht"
 
-#: voicemail.i18n.php:6
+#: voicemail.i18n.php:14
 msgid "Voicemail Module"
 msgstr "Voicemail-Modul"
 
@@ -3008,12 +3014,12 @@ msgstr ""
 "Voicemail ist aktiviert, aber das Feld für das Voicemail-Passwort ist leer. "
 "Sind Sie sicher, dass Sie fortfahren möchten?"
 
-#: ucp/Voicemail.class.php:486 ucp/Voicemail.class.php:518
+#: ucp/Voicemail.class.php:491 ucp/Voicemail.class.php:523
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr "Voicemail nicht zu %s verschoben"
 
-#: ucp/Voicemail.class.php:523
+#: ucp/Voicemail.class.php:528
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr "Voicemail war leer: %s"
@@ -3117,13 +3123,13 @@ msgstr ""
 msgid "You have a new voicemail"
 msgstr "Sie haben eine neue Sprachnachricht"
 
-#: ucp/assets/js/global.js:625
+#: ucp/assets/js/global.js:641
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 "Ihr Browser hat die Aufnahme blockiert. Bitte überprüfen Sie Ihre "
 "Einstellungen"
 
-#: ucp/assets/js/global.js:563
+#: ucp/assets/js/global.js:579
 msgid "Your settings have been saved"
 msgstr "Ihre Einstellungen wurden gespeichert"
 
@@ -3187,12 +3193,6 @@ msgstr "Variable"
 #: page.voicemail.php:568
 msgid "yes"
 msgstr "ja"
-
-#~ msgid ""
-#~ "This module allows you to configure Voicemail for a user or extension"
-#~ msgstr ""
-#~ "Mit diesem Modul können Sie Voicemail für einen Benutzer oder eine "
-#~ "Erweiterung konfigurieren"
 
 #~ msgid ""
 #~ " Set this password to same as extension number to force the user to setup "
