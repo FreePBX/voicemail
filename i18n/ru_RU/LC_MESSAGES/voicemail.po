@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-30 12:06+0530\n"
+"POT-Creation-Date: 2020-05-19 10:02+0530\n"
 "PO-Revision-Date: 2015-07-13 20:16+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -595,7 +595,7 @@ msgstr ""
 msgid "Direct Dial Prefix"
 msgstr ""
 
-#: ucp/assets/js/global.js:577
+#: ucp/assets/js/global.js:593
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr ""
 
@@ -905,7 +905,7 @@ msgstr ""
 msgid "File Format"
 msgstr ""
 
-#: ucp/Voicemail.class.php:297
+#: ucp/Voicemail.class.php:302
 msgid "File does not exist"
 msgstr ""
 
@@ -946,7 +946,7 @@ msgstr ""
 msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 
-#: ucp/Voicemail.class.php:573
+#: ucp/Voicemail.class.php:578
 msgid "Forbidden"
 msgstr ""
 
@@ -1312,7 +1312,7 @@ msgstr "Неверное действие"
 msgid "Invalid Password"
 msgstr ""
 
-#: ucp/Voicemail.class.php:329 ucp/Voicemail.class.php:360
+#: ucp/Voicemail.class.php:334 ucp/Voicemail.class.php:365
 msgid "Invalid Recipient"
 msgstr ""
 
@@ -1593,7 +1593,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: ucp/Voicemail.class.php:592
+#: ucp/Voicemail.class.php:597
 msgid "Not Found"
 msgstr ""
 
@@ -1862,7 +1862,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr ""
 
-#: ucp/assets/js/global.js:588
+#: ucp/assets/js/global.js:604
 msgid "Recorded Message"
 msgstr ""
 
@@ -1874,7 +1874,7 @@ msgstr ""
 msgid "Recorded Names"
 msgstr ""
 
-#: ucp/assets/js/global.js:619
+#: ucp/assets/js/global.js:635
 msgid "Recording..."
 msgstr ""
 
@@ -2104,11 +2104,11 @@ msgstr ""
 msgid "Stop Keys"
 msgstr ""
 
-#: ucp/assets/js/global.js:685
+#: ucp/assets/js/global.js:701
 msgid "Stop the Recording First before trying to delete"
 msgstr ""
 
-#: ucp/assets/js/global.js:636
+#: ucp/assets/js/global.js:652
 msgid "Stop the Recording First before trying to save"
 msgstr ""
 
@@ -2309,7 +2309,7 @@ msgstr ""
 "Параметр odbcstorage есть подключение к базам данных, описанное в res_odbc."
 "conf."
 
-#: ucp/assets/js/global.js:697
+#: ucp/assets/js/global.js:713
 msgid "There is nothing to delete"
 msgstr ""
 
@@ -2516,11 +2516,11 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ucp/Voicemail.class.php:527
+#: ucp/Voicemail.class.php:532
 msgid "Unknown Error"
 msgstr ""
 
-#: ucp/Voicemail.class.php:490
+#: ucp/Voicemail.class.php:495
 msgid "Unsupported file format"
 msgstr ""
 
@@ -2540,7 +2540,7 @@ msgstr ""
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
 msgstr ""
 
-#: ucp/assets/js/global.js:424 ucp/assets/js/global.js:640
+#: ucp/assets/js/global.js:424 ucp/assets/js/global.js:656
 msgid "Uploading..."
 msgstr ""
 
@@ -2610,7 +2610,7 @@ msgstr "Контекст голосовой почты не может быть 
 msgid "VM Options"
 msgstr "Опции голосовой почты"
 
-#: ucp/Voicemail.class.php:341
+#: ucp/Voicemail.class.php:346
 msgid "VMAIL"
 msgstr ""
 
@@ -2672,7 +2672,7 @@ msgstr ""
 msgid "Voicemail Instructions:"
 msgstr "Инструкции к голосовой почте:"
 
-#: ucp/Voicemail.class.php:341
+#: ucp/Voicemail.class.php:346
 msgid "Voicemail Message"
 msgstr ""
 
@@ -2722,7 +2722,7 @@ msgstr ""
 "Голосовая почта включена, но не задан пароль для доступа. Вы собираетесь "
 "продолжить?"
 
-#: ucp/Voicemail.class.php:485 ucp/Voicemail.class.php:517
+#: ucp/Voicemail.class.php:490 ucp/Voicemail.class.php:522
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
@@ -2731,7 +2731,7 @@ msgstr ""
 msgid "Voicemail notification"
 msgstr ""
 
-#: ucp/Voicemail.class.php:522
+#: ucp/Voicemail.class.php:527
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""
@@ -2824,11 +2824,11 @@ msgstr ""
 msgid "You have a new voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:625
+#: ucp/assets/js/global.js:641
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr ""
 
-#: ucp/assets/js/global.js:563
+#: ucp/assets/js/global.js:579
 msgid "Your settings have been saved"
 msgstr ""
 
