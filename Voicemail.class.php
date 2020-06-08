@@ -194,7 +194,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 				$src = "$spooldir/voicemail/$vmcontext/$mailbox";
 				$dest = "$spooldir/voicemail/device/$mailbox";
 				// Remove anything that was previously there
-				exec("rm -f $dest");
+				exec("rm -rf $dest");
 				// Make sure our source parent directory exists - This may be missing if a restore
 				// was partially done. Asterisk may or may not create this on demand.
 				if (!is_dir(dirname($src))) {
