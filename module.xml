@@ -13,6 +13,7 @@
 		*16.0.1alpha* 16.0.1 alpha release
 	</changelog>
 	<description>This module allows you to configure Voicemail for a user or extension</description>
+  	<more-info>https://wiki.freepbx.org/display/F2/Voicemail</more-info>
 	<category>Settings</category>
 	<menuitems>
 		<voicemail needsenginedb="yes">Voicemail Admin</voicemail>
