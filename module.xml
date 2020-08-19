@@ -117,6 +117,7 @@
 		*13.0.1alpha1* Layout changes
 	</changelog>
 	<description>This module allows you to configure Voicemail for a user or extension</description>
+  	<more-info>https://wiki.freepbx.org/display/F2/Voicemail</more-info>
 	<category>Settings</category>
 	<menuitems>
 		<voicemail needsenginedb="yes">Voicemail Admin</voicemail>
