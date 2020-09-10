@@ -57,7 +57,7 @@ if (isset($extens) && is_array($extens)) {
 				$vmail_info["activated_info"][$exten[0]] = $vmbox["context"];
 			} else {
 				$vmail_info["unactivated_info"][$exten[0]] = $vmbox["context"];
-				$unactivated_style = " style='background: #abc9ff;'";
+				$unactivated_style = " style='background: #4FB580;'";
 				$unactivated_txt = " [unactivated]";
 			}
 			$link = "config.php?type=" . $type . "&display=" . $display . "&ext=" . $exten[0] . "&action=bsettings#" . $exten[0];
