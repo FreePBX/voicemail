@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>14.0.6.13</version>
+	<version>14.0.6.14</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*14.0.6.14* Packaging of ver 14.0.6.14
 		*14.0.6.13* Packaging of ver 14.0.6.13
 		*14.0.6.12* FREEI-1656 UCP throwing AJAX error 
 		*14.0.6.11* FREEPBX-21036  Bulk Import Extensions failure when voicemail_enable = yes 
