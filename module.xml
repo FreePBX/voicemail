@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.18.17</version>
+	<version>15.0.18.18</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.18.18* Packaging of ver 15.0.18.18
 		*15.0.18.17* Packaging of ver 15.0.18.17
 		*15.0.18.16* Packaging of ver 15.0.18.16
 		*15.0.18.15* bump 
