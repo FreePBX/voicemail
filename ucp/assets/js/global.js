@@ -41,8 +41,11 @@ var VoicemailC = UCPMC.extend({
 			var el = $(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id='"+extension+"'] .mailbox");
 			self.refreshFolderCount(extension);
 			if(el.length && el.data("inbox") != value || window.update_table == true) {
-				el.data("inbox",value);
-				notify = true;				
+				notify = false;
+				if(el.data("inbox") < value){
+					notify = true;
+				}
+				el.data("inbox",value);		
 				if((typeof Cookies.get('vm-refresh-'+extension) === "undefined" && (typeof Cookies.get('vm-refresh-'+extension) === "undefined" || Cookies.get('vm-refresh-'+extension) == 1)) || Cookies.get('vm-refresh-'+extension) == 1) {
 					$(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id='"+extension+"'] .voicemail-grid").bootstrapTable('refresh',{silent: true});
 				}
