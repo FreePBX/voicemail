@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.18.19</version>
+	<version>15.0.18.20</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.18.20* Packaging of ver 15.0.18.20
 		*15.0.18.19* FREEI-1542 Constant VM Notifications when logged into UCP 
 		*15.0.18.18* Packaging of ver 15.0.18.18
 		*15.0.18.17* Packaging of ver 15.0.18.17
@@ -55,7 +56,7 @@
 		*15.0.1* FREEPBX-15984 Set extern notify to fwconsole
 	</changelog>
 	<description>This module allows you to configure Voicemail for a user or extension</description>
-  	<more-info>https://wiki.freepbx.org/display/F2/Voicemail</more-info>
+  	<more-info>https://wiki.freepbx.org/display/FPG/Voicemail</more-info>
 	<category>Settings</category>
 	<menuitems>
 		<voicemail needsenginedb="yes">Voicemail Admin</voicemail>
