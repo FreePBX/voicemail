@@ -21,116 +21,136 @@ class VoiceMailGqlApiTest extends ApiBaseTestCase {
     }
   
    public function testVoiceMailQueryWhenExtensionDoesNotExistsShouldReturnFalse(){
-     $invlalidExtension = 173001111;
+     $invlalidExtensionId = 1800;
       $response = $this->request("query {
-        VoiceMailDetails (extension : \"$invlalidExtension\" ){
+        fetchVoiceMail (extensionId : \"$invlalidExtensionId\" ){
           status message
         }
       }");
       
       $json = (string)$response->getBody();
 
-      $this->assertEquals('{"errors":[{"message":"Sorry unable to fetch the status","status":"false"}]}',$json);
+      $this->assertEquals('{"errors":[{"message":"Sorry unable to fetch the status","status":false}]}',$json);
+
+      //status 400 failure check
+      $this->assertEquals(400, $response->getStatusCode());
    }
 
    public function testVoiceMailQueryWhenExtensionExistsShouldReturnTrue(){
-      $input['extension'] = $extension = 173005967678;
+      $input['extensionId'] = $extensionId = "18100";
       $input['vm'] = 'enabled';
       $input['vmpwd'] = '123456';
       
       //delete existing 
-      self::$voicemail->delMailbox($extension);
-      self::$voicemail->delUser($extension);
+      self::$voicemail->delMailbox($extensionId);
+      self::$voicemail->delUser($extensionId);
 
       //create new vm for the extension
-      self::$voicemail->addMailbox($extension,$input);
+      self::$voicemail->addMailbox($extensionId,$input);
       
       $response = $this->request("query {
-        VoiceMailDetails (extension : \"$extension\" ){
-          status message
+        fetchVoiceMail (extensionId : \"$extensionId\" ){
+         status
+         message
+         password
         }
       }");
       
       $json = (string)$response->getBody();
 
-      $this->assertEquals('{"data":{"VoiceMailDetails":{"status":"true","message":"{\"vmcontext\":\"default\",\"pwd\":\"123456\",\"name\":\"\",\"email\":\"\",\"pager\":\"\",\"options\":[]}"}}}',$json);
+      $this->assertEquals('{"data":{"fetchVoiceMail":{"status":true,"message":"Voicemail data found successfully","password":"123456"}}}',$json);
+
+      //status 200 success check
+      $this->assertEquals(200, $response->getStatusCode());
    }
 
    public function testEnableMailWhenExtensionPassedWithoutPasswordShouldReturnFalse(){
-      $extension = 173005967;
+      $extensionId = "18200";
       $password = '123456';
       
       //delete existing 
-      self::$voicemail->delMailbox($extension);
-      self::$voicemail->delUser($extension);
+      self::$voicemail->delMailbox($extensionId);
+      self::$voicemail->delUser($extensionId);
       
       $response = $this->request("mutation {
-         enableVoiceMailExtension(input: { extension: \"$extension\"}) {
+         enableVoiceMail(input: { extensionId: \"$extensionId\"}) {
             status message 
          }
       }");
       
       $json = (string)$response->getBody();
 
-      $this->assertEquals('{"errors":[{"message":"Field enableVoiceExtensionInput.password of required type String! was not provided.","status":false}]}',$json);
+      $this->assertEquals('{"errors":[{"message":"Field enableVoiceMailInput.password of required type String! was not provided.","status":false}]}',$json);
+      
+      //status 400 failure check
+      $this->assertEquals(400, $response->getStatusCode());
    }
 
    public function testEnableMailWhenExtensionPassedWithPasswordShouldTrue(){
-      $extension = 17300596722;
+      $input['extensionId'] = $extensionId = "18300";
       $password = '123456';
-      
+
       //delete existing 
-      self::$voicemail->delMailbox($extension);
-      self::$voicemail->delUser($extension);
-      
+      $res = self::$voicemail->delMailbox($extensionId,false);
+      $res = self::$voicemail->delUser($extensionId);
+
       $response = $this->request("mutation {
-         enableVoiceMailExtension(input: { extension: \"$extension\" password: \"$password\"}) {
+         enableVoiceMail(input: { extensionId: \"$extensionId\" password: \"$password\"}) {
             status message 
          }
       }");
       
       $json = (string)$response->getBody();
 
-      $this->assertEquals('{"data":{"enableVoiceMailExtension":{"status":"true","message":"Voice mail has been created"}}}',$json);
+      $this->assertEquals('{"data":{"enableVoiceMail":{"status":true,"message":"Voicemail has been created successfully"}}}',$json);
+      
+      //status 200 success check
+      $this->assertEquals(200, $response->getStatusCode());
    }
 
    public function testDiableMailWhenExtensionExistsShouldReturnTrue(){
-      $input['extension'] = $extension = "1735967303";
+      $input['extensionId'] = $extensionId = "18400";
       $input['vm'] = 'enabled';
       $input['vmpwd'] = '123456';
       
       // delete existing 
-      self::$voicemail->delMailbox($extension);
-      self::$voicemail->delUser($extension);
-      
-      self::$voicemail->addMailbox($extension,$input);
+      self::$voicemail->delMailbox($extensionId);
+      self::$voicemail->delUser($extensionId);
+
+      self::$voicemail->addMailbox($extensionId,$input);
 
       $response = $this->request("mutation {
-         disableVoiceMailExtension(input: { extension: \"$extension\"}) {
+         disableVoiceMail(input: { extensionId: \"$extensionId\"}) {
             status message 
          }
       }");
       
       $json = (string)$response->getBody();
 
-      $this->assertEquals('{"data":{"disableVoiceMailExtension":{"status":"true","message":"Voice mail has been deleted"}}}',$json);
+      $this->assertEquals('{"data":{"disableVoiceMail":{"status":true,"message":"Voicemail has been disabled"}}}',$json);
+   
+      //status 200 success check
+      $this->assertEquals(200, $response->getStatusCode());
    }
-
    
    public function testDiableMailWhenExtensionDoesnotExistsShouldReturnFalse(){
-      $extension = "173596730";
+      $extensionId = "18500clear";
       
-      self::$voicemail->delMailbox($extension);
-      self::$voicemail->delUser($extension);
+      self::$voicemail->delMailbox($extensionId);
+      self::$voicemail->delUser($extensionId);
    
       $response = $this->request("mutation {
-         disableVoiceMailExtension(input: { extension: \"$extension\"}) {
+         disableVoiceMail(input: { extensionId: \"$extensionId\"}) {
             status message 
          }
       }");
       
       $json = (string)$response->getBody();
 
-      $this->assertEquals('{"errors":[{"message":"Sorry,fail to delete voice mail","status":"false"}]}',$json);
+      $this->assertEquals('{"errors":[{"message":"Sorry,voicemail does not  exists.","status":false}]}',$json);
+      
+      //status 400 failure check
+      $this->assertEquals(400, $response->getStatusCode());
    }
+   
 }
