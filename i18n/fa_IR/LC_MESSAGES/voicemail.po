@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-16 03:58+0000\n"
+"POT-Creation-Date: 2021-01-04 07:01+0000\n"
 "PO-Revision-Date: 2016-07-17 10:07+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -407,6 +407,10 @@ msgstr "درحال کپی..."
 msgid "Create Voicemail Hints"
 msgstr "ساخت نکات ایمیل صوتی"
 
+#: Api/Gql/Voicemail.php:19
+msgid "Create/enable a voicemail account"
+msgstr ""
+
 #: Voicemail.class.php:2092
 msgid ""
 "Current default behavior is to search only the default context if one is not "
@@ -575,6 +579,10 @@ msgstr "حذف تمام پیام های مشغولی"
 #: views/usage_system.php:98
 msgid "Delete all Recorded Names"
 msgstr "حذف تمام نام های ضبط شده"
+
+#: Api/Gql/Voicemail.php:28
+msgid "Delete/disable a voicemail account"
+msgstr ""
 
 #: views/usage.php:35 views/usage.php:66 views/usage.php:97 views/usage.php:128
 #: views/usage.php:159 views/usage.php:190 views/usage_system.php:54
@@ -1521,6 +1529,10 @@ msgstr ""
 "Maximum number  of messages per folder. If not specified, a default value "
 "(100) is used. Maximum value for this option is 9999."
 
+#: Api/Gql/Voicemail.php:146 Api/Gql/Voicemail.php:170
+msgid "Message for the request"
+msgstr ""
+
 #: views/usage.php:30
 msgid "Messages in inbox"
 msgstr "پیام ها در صندوق ورودی"
@@ -1946,6 +1958,10 @@ msgstr ""
 "and just after announcing the date and time the message was left. If not "
 "described, or set to no, it will be in the envelope."
 
+#: Api/Gql/Voicemail.php:153
+msgid "Read the Voicemail information"
+msgstr ""
+
 #: ucp/views/greetings.php:48
 msgid "Record Greeting"
 msgstr "ضبط پیام خوش آمد"
@@ -2022,6 +2038,10 @@ msgstr "بازنشانی کلیدها"
 #: views/dialplan.php:192
 msgid "Retries"
 msgstr "تلاش مجدد"
+
+#: Api/Gql/Voicemail.php:46
+msgid "Return extension details"
+msgstr ""
 
 #: Voicemail.class.php:1955
 msgid "Reverse Keys"
@@ -2182,6 +2202,18 @@ msgstr ""
 "to set the parent folder. For example, Cyrus IMAP does NOT use INBOX as the "
 "parent. Default is to have no parent folder set."
 
+#: Api/Gql/Voicemail.php:59
+msgid "Sorry unable to fetch the status"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:134
+msgid "Sorry,voicemail already exists."
+msgstr ""
+
+#: Api/Gql/Voicemail.php:124
+msgid "Sorry,voicemail does not  exists."
+msgstr ""
+
 #: Voicemail.class.php:2491
 msgid "Sound Files"
 msgstr "فایل های صوتی"
@@ -2205,6 +2237,10 @@ msgstr ""
 #: Voicemail.class.php:2270
 msgid "Specify what command is called for outbound E-mail"
 msgstr "Specify what  command is called for outbound E-mail"
+
+#: Api/Gql/Voicemail.php:142 Api/Gql/Voicemail.php:166
+msgid "Status of the request"
+msgstr ""
 
 #: Voicemail.class.php:1976
 msgid "Stop Keys"
@@ -2379,6 +2415,10 @@ msgstr ""
 msgid "The email subject"
 msgstr "عنوان ایمیل"
 
+#: Api/Gql/Voicemail.php:50
+msgid "The extension ID"
+msgstr ""
+
 #: Voicemail.class.php:2436
 msgid ""
 "The folder in which to store voicemail messages on the IMAP server. By "
@@ -2432,6 +2472,26 @@ msgid ""
 msgstr ""
 "The value of  odbcstorage is the database connection configured in res_odbc."
 "conf."
+
+#: Api/Gql/Voicemail.php:94
+msgid "The voicemail email address"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:74 Api/Gql/Voicemail.php:82
+msgid "The voicemail extensionId"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:90
+msgid "The voicemail name"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:98
+msgid "The voicemail pager number"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:86
+msgid "The voicemail password/pin"
+msgstr ""
 
 #: ucp/assets/js/global.js:716
 msgid "There is nothing to delete"
@@ -2841,6 +2901,18 @@ msgstr "دامنه ضبط ایمیل صوتی"
 msgid "Voicemail Settings"
 msgstr "تنظیمات ایمیل صوتی"
 
+#: Api/Gql/Voicemail.php:57
+msgid "Voicemail data found successfully"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:132
+msgid "Voicemail has been created successfully"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:122
+msgid "Voicemail has been disabled"
+msgstr ""
+
 #: functions.inc.php:323
 msgid ""
 "Voicemail is enabled but the Voicemail Password field is empty.  Are you "
@@ -2884,6 +2956,18 @@ msgstr "هشدار： عملیات زیر عمومی بوده روی تمام ک
 msgid "When to use VMX"
 msgstr "زمان استفاده از VMX"
 
+#: Api/Gql/Voicemail.php:110
+msgid "Whether to attach the voicemail to the outgoing email"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:114
+msgid "Whether to delete the voicemail from local storage"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:102
+msgid "Whether to play the CID to the caller "
+msgstr ""
+
 #: views/dialplan.php:56
 msgid ""
 "Whether to play the busy, unavailable or no message when direct dialing "
@@ -2891,6 +2975,10 @@ msgid ""
 msgstr ""
 "Whether to  play the busy, unavailable or no message when direct dialing "
 "voicemail"
+
+#: Api/Gql/Voicemail.php:106
+msgid "Whether to play the envelope to the caller"
+msgstr ""
 
 #: page.voicemail.php:292
 msgid "Which format of audio file to attach to the email."
