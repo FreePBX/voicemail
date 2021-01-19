@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-16 03:58+0000\n"
+"POT-Creation-Date: 2021-01-04 07:01+0000\n"
 "PO-Revision-Date: 2015-02-05 21:26+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -384,6 +384,10 @@ msgstr ""
 msgid "Create Voicemail Hints"
 msgstr ""
 
+#: Api/Gql/Voicemail.php:19
+msgid "Create/enable a voicemail account"
+msgstr ""
+
 #: Voicemail.class.php:2092
 msgid ""
 "Current default behavior is to search only the default context if one is not "
@@ -526,6 +530,10 @@ msgstr ""
 
 #: views/usage_system.php:98
 msgid "Delete all Recorded Names"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:28
+msgid "Delete/disable a voicemail account"
 msgstr ""
 
 #: views/usage.php:35 views/usage.php:66 views/usage.php:97 views/usage.php:128
@@ -1359,6 +1367,10 @@ msgid ""
 "(100) is used. Maximum value for this option is 9999."
 msgstr ""
 
+#: Api/Gql/Voicemail.php:146 Api/Gql/Voicemail.php:170
+msgid "Message for the request"
+msgstr ""
+
 #: views/usage.php:30
 msgid "Messages in inbox"
 msgstr ""
@@ -1747,6 +1759,10 @@ msgid ""
 "described, or set to no, it will be in the envelope."
 msgstr ""
 
+#: Api/Gql/Voicemail.php:153
+msgid "Read the Voicemail information"
+msgstr ""
+
 #: ucp/views/greetings.php:48
 msgid "Record Greeting"
 msgstr ""
@@ -1816,6 +1832,10 @@ msgstr ""
 
 #: views/dialplan.php:192
 msgid "Retries"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:46
+msgid "Return extension details"
 msgstr ""
 
 #: Voicemail.class.php:1955
@@ -1960,6 +1980,18 @@ msgid ""
 "parent. Default is to have no parent folder set."
 msgstr ""
 
+#: Api/Gql/Voicemail.php:59
+msgid "Sorry unable to fetch the status"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:134
+msgid "Sorry,voicemail already exists."
+msgstr ""
+
+#: Api/Gql/Voicemail.php:124
+msgid "Sorry,voicemail does not  exists."
+msgstr ""
+
 #: Voicemail.class.php:2491
 msgid "Sound Files"
 msgstr ""
@@ -1980,6 +2012,10 @@ msgstr ""
 
 #: Voicemail.class.php:2270
 msgid "Specify what command is called for outbound E-mail"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:142 Api/Gql/Voicemail.php:166
+msgid "Status of the request"
 msgstr ""
 
 #: Voicemail.class.php:1976
@@ -2144,6 +2180,10 @@ msgstr ""
 msgid "The email subject"
 msgstr ""
 
+#: Api/Gql/Voicemail.php:50
+msgid "The extension ID"
+msgstr ""
+
 #: Voicemail.class.php:2436
 msgid ""
 "The folder in which to store voicemail messages on the IMAP server. By "
@@ -2181,6 +2221,26 @@ msgstr ""
 msgid ""
 "The value of odbcstorage is the database connection configured in res_odbc."
 "conf."
+msgstr ""
+
+#: Api/Gql/Voicemail.php:94
+msgid "The voicemail email address"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:74 Api/Gql/Voicemail.php:82
+msgid "The voicemail extensionId"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:90
+msgid "The voicemail name"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:98
+msgid "The voicemail pager number"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:86
+msgid "The voicemail password/pin"
 msgstr ""
 
 #: ucp/assets/js/global.js:716
@@ -2560,6 +2620,18 @@ msgstr ""
 msgid "Voicemail Settings"
 msgstr ""
 
+#: Api/Gql/Voicemail.php:57
+msgid "Voicemail data found successfully"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:132
+msgid "Voicemail has been created successfully"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:122
+msgid "Voicemail has been disabled"
+msgstr ""
+
 #: functions.inc.php:323
 msgid ""
 "Voicemail is enabled but the Voicemail Password field is empty.  Are you "
@@ -2599,10 +2671,26 @@ msgstr ""
 msgid "When to use VMX"
 msgstr ""
 
+#: Api/Gql/Voicemail.php:110
+msgid "Whether to attach the voicemail to the outgoing email"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:114
+msgid "Whether to delete the voicemail from local storage"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:102
+msgid "Whether to play the CID to the caller "
+msgstr ""
+
 #: views/dialplan.php:56
 msgid ""
 "Whether to play the busy, unavailable or no message when direct dialing "
 "voicemail"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:106
+msgid "Whether to play the envelope to the caller"
 msgstr ""
 
 #: page.voicemail.php:292
