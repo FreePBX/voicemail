@@ -2629,4 +2629,14 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 		}
 		return $final;
 	}
+
+	public function checkVoicemailMessagesPath($user, $context, $folder)
+	{
+		$path = $this->vmPath . '/' . $context . '/' . $user . '/' . $folder . '/';
+		if (!is_dir($path) || !is_readable($path)) {
+			return false;
+		}
+		return true;
+	}
+
 }
