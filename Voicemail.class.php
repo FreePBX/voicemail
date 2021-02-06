@@ -2713,4 +2713,14 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 	public function hookExtNotify($context,$extension,$vmcount,$oldvmcount,$urgvmcount) {
 		$this->FreePBX->Hooks->processHooks($context,$extension,$vmcount,$oldvmcount,$urgvmcount);
 	}
+
+	public function checkVoicemailMessagesPath($user, $context, $folder)
+	{
+		$path = $this->vmPath . '/' . $context . '/' . $user . '/' . $folder . '/';
+		if (!is_dir($path) || !is_readable($path)) {
+			return false;
+		}
+		return true;
+	}
+
 }
