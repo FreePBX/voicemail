@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>16.0.3</version>
+	<version>16.0.4</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*16.0.4* FREEI-2741 Added checkVoicemailMessagesPath method for Dphone API 
 		*16.0.3* FREEI-1542 Constant VM Notifications when logged into UCP 
 		*16.0.2* FREEI-1656 UCP throwing AJAX error 
 		*16.0.1alpha* 16.0.1 alpha release
