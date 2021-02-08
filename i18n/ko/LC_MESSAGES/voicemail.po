@@ -10,76 +10,79 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-16 03:58+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-02-10 00:00+0000\n"
+"Last-Translator: Andy Lim <mhlim@dialogic.co.kr>\n"
+"Language-Team: Korean <http://weblate.freepbx.org/projects/freepbx/voicemail/"
+"ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: Voicemail.class.php:2197
 msgid " Don't leave single period on end of line by itself."
-msgstr ""
+msgstr " 줄 끝에 마침표 하나만 남기지 마십시오."
 
 #: views/tz.php:204
 msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
-msgstr ""
+msgstr "\"\" (오늘), \"어제\", 평일, 혹은 ABdY"
 
 #: views/tz.php:196
 msgid "\"today\", \"yesterday\" or ABdY"
-msgstr ""
+msgstr "\"오늘\", \"어제\" 혹은 ABdY"
 
 #: page.voicemail.php:443
 #, php-format
 msgid "%s Attempts"
-msgstr ""
+msgstr "%s 시도 횟수"
 
 #: page.voicemail.php:449
 #, php-format
 msgid "%s Retries"
-msgstr ""
+msgstr "%s 재시도 횟수"
 
 #: page.voicemail.php:447
 #, php-format
 msgid "%s Retry"
-msgstr ""
+msgstr "%s 재시도"
 
 #: page.voicemail.php:439
 #, php-format
 msgid "%s Sec"
-msgstr ""
+msgstr "%s 초"
 
 #: functions.inc.php:144
 #: functions.inc.php:151
 #, php-format
 msgid "%s Voicemail"
-msgstr ""
+msgstr "%s 음성메일"
 
 #: install.php:114
 #, php-format
 msgid "%s added"
-msgstr ""
+msgstr "%s 추가됨"
 
 #: install.php:81
 #, php-format
 msgid "%s adjusted from %s to %s"
-msgstr ""
+msgstr "%s를 %s에서 %s로 변경했습니다"
 
 #: install.php:85
 #, php-format
 msgid "%s adjusted from bad value %s to default no gain"
-msgstr ""
+msgstr "%s를 부정확한 %s 값에서 기본값인 게인없음으로 변경하였습니다"
 
 #: install.php:76
 #, php-format
 msgid "%s changed from %s to max value 15"
-msgstr ""
+msgstr "%s를 %s에서 최대값인 15로 변경하였습니다"
 
 #: install.php:95
 #, php-format
 msgid "%s migrated"
-msgstr ""
+msgstr "%s 마이그레이션됨"
 
 #: install.php:72
 #, php-format
