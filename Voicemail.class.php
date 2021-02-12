@@ -2734,4 +2734,25 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		}
 		return $returnList;
 	}
+
+	public function playVoicemailMessage($ext, $context, $msg_id)
+	{
+		$autoanswer = array('Alert-Info' => 'intercom', 'X-Event-Name' => 'digium.incomingCall.voicemail');
+		foreach ($autoanswer as $key => $val) {
+			$variables['SIPADDHEADER'] = $key . ': ' . $val;
+			$variables['PJSIP_HEADER(add,' . $key . ')'] = $val;
+		}
+		$device = $this->FreePBX->Core->getDevice($ext);
+		$res = $this->astman->Originate(array(
+			'Channel' => strtoupper($device['tech']).'/' . $ext,
+			'CallerID' =>  _('Voicemail').' <' . $msg_id . '>',
+			'Variable' => $variables,
+			'Application' => 'VoiceMailPlayMsg',
+			'Data' => $ext.'@'.$context.',' . $msg_id
+		));
+		if($res['Response'] != 'Success') {
+			return false;
+		}
+		return true;
+	}
 }
