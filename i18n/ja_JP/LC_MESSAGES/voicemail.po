@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-04 07:01+0000\n"
+"POT-Creation-Date: 2021-02-12 02:33+0000\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -2730,8 +2730,8 @@ msgstr "外部通知のためにsmdiを使用するためのsmdi.confに指定�
 msgid "VmX Locater&trade;"
 msgstr "VmXロケーター&トレード；"
 
-#: Voicemail.class.php:834 functions.inc.php:509 install.php:8
-#: ucp/Voicemail.class.php:95 ucp/Voicemail.class.php:144
+#: Voicemail.class.php:834 Voicemail.class.php:2748 functions.inc.php:509
+#: install.php:8 ucp/Voicemail.class.php:95 ucp/Voicemail.class.php:144
 #: ucp/Voicemail.class.php:196 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
 msgstr "ボイスメール"
