@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-16 03:58+0000\n"
+"POT-Creation-Date: 2021-02-12 02:33+0000\n"
 "PO-Revision-Date: 2019-06-28 09:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/voicemail/de/>\n"
@@ -2922,8 +2922,8 @@ msgstr ""
 msgid "VmX Locater&trade;"
 msgstr "VmX Locater&trade;"
 
-#: Voicemail.class.php:831 functions.inc.php:509 install.php:8
-#: ucp/Voicemail.class.php:95 ucp/Voicemail.class.php:144
+#: Voicemail.class.php:831 Voicemail.class.php:2664 functions.inc.php:509
+#: install.php:8 ucp/Voicemail.class.php:95 ucp/Voicemail.class.php:144
 #: ucp/Voicemail.class.php:196 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
 msgstr "Anrufbeantworter"
