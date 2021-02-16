@@ -2641,13 +2641,12 @@ class Voicemail extends \FreePBX_Helpers implements \BMO {
 
 	public function getMessagesCountByExtensionPath($context, $extension)
 	{
-		$vmPath = $this->vmPath . '/'.$context.'/'.$extension;
-		$vmFolderList = glob($vmPath . '/*',GLOB_ONLYDIR);
 		$returnList = array();
-		foreach($vmFolderList as $vList) {
-			$vmFolder = basename($vList);
-			$returnList[$vmFolder] = $this->getMessagesCountByExtensionFolder($extension, $vmFolder);
+		foreach($this->folders as $vList) {
+			$returnList[$vList] = $this->getMessagesCountByExtensionFolder($extension, $vList);
 		}
+		$returnList['INBOX'] = $returnList['INBOX'] + $returnList['Old'];
+		unset($returnList['Old']);
 		return $returnList;
 	}
 
