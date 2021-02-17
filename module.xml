@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>14.0.6.19</version>
+	<version>14.0.6.20</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*14.0.6.20* FREEI-2856 Voicemail App - Voicemail Messages not showing properly 
 		*14.0.6.19* FREEI-2791 added playVoicemailMessage method for dphone API 
 		*14.0.6.18* FREEI-2780 Added getMessagesCountByExtensionPath method for Dphone API 
 		*14.0.6.17* FREEI-2741 Added checkVoicemailMessagesPath method for Dphone API 

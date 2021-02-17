@@ -2483,7 +2483,7 @@ msgstr ""
 msgid "VmX Locater&trade;"
 msgstr ""
 
-#: Voicemail.class.php:831 Voicemail.class.php:2664 functions.inc.php:509
+#: Voicemail.class.php:831 Voicemail.class.php:2663 functions.inc.php:509
 #: install.php:8 ucp/Voicemail.class.php:95 ucp/Voicemail.class.php:144
 #: ucp/Voicemail.class.php:196 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
