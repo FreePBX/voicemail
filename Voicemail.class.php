@@ -1380,6 +1380,15 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 			}
 		}
 	}
+	
+	/**
+	 * clearCache Used from UCP
+	 *
+	 * @return void
+	 */
+	public function clearCache(){
+		$this->messageCache = NULL;
+	}
 
 	/**
 	 * Get all messages for an extension
