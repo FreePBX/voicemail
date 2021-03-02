@@ -216,6 +216,15 @@ class Voicemail extends Modules{
 		return array("status" => !empty($boxes['extensions']), "total" => $boxes['total'], "boxes" => isset($boxes['extensions']) ? $boxes['extensions'] : '');
 	}
 
+	public function refreshfoldercount($extension){
+		$folders = $this->UCP->FreePBX->Voicemail->getFolders();
+		foreach($folders as $folder) {
+			$this->UCP->FreePBX->Voicemail->clearCache();
+			$folders[$folder['folder']]['count'] = $this->UCP->FreePBX->Voicemail->getMessagesCountByExtensionFolder($extension,$folder['folder']);
+		}
+		return array("status" => true, "folders" => $folders);
+	}
+
 	/**
 	* Determine what commands are allowed
 	*
@@ -258,6 +267,8 @@ class Voicemail extends Modules{
 			break;
 			case 'checkextension':
 				return true;
+			case 'checkextensions':
+				return true;
 			case 'checkboxes':
 				return true;
 			default:
@@ -276,15 +287,13 @@ class Voicemail extends Modules{
 	public function ajaxHandler() {
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
+			case 'checkextensions':
+				return $this->_checkExtensions($_REQUEST);
 			case 'checkextension':
 				return $this->_checkExtension($_REQUEST['ext'])? "ok":"ko";
 			break;
 			case 'refreshfoldercount':
-				$folders = $this->UCP->FreePBX->Voicemail->getFolders();
-				foreach($folders as $folder) {
-					$folders[$folder['folder']]['count'] = $this->UCP->FreePBX->Voicemail->getMessagesCountByExtensionFolder($_REQUEST['ext'],$folder['folder']);
-				}
-				return array("status" => true, "folders" => $folders);
+				return $this->refreshfoldercount($_REQUEST['ext']);
 			break;
 			case 'gethtml5':
 				$media = $this->UCP->FreePBX->Media();
@@ -392,6 +401,7 @@ class Voicemail extends Modules{
 				if(!$this->_checkVmX($_POST['ext'])) {
 					return false;
 				}
+				
 				switch($_POST['settings']['key']) {
 					case 'vmx-state':
 						$m = ($_POST['settings']['value'] == 'true') ? 'enabled' : 'disabled';
@@ -596,6 +606,19 @@ class Voicemail extends Modules{
 		header("HTTP/1.0 404 Not Found");
 		echo _("Not Found");
 		exit;
+	}
+
+	private function _checkExtensions($VMextensions){
+		unset($VMextensions["module"]);
+		unset($VMextensions["command"]);
+		$result = [];
+		foreach($VMextensions as $vm => $v){
+			if($this->_checkExtension($vm)){
+				$result[$vm] = $this->refreshfoldercount($vm);
+				continue;
+			}
+		}
+		return $result;
 	}
 
 	/**
