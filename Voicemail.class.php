@@ -2654,16 +2654,20 @@ class Voicemail extends FreePBX_Helpers implements BMO {
     }
 
     public function getBackupSettingsDisplay($id = ''){
-        $backupVars = $this->getBackupSettings($id);
-        return load_view(__DIR__.'/views/backupsettings.php', ['settings' => $backupVars]);
+	$settings = !empty($id) ? $this->FreePBX->Backup->getAll($id) : [];
+        $settings["voicemail_vmrecords"] = $this->getConfig("voicemail_vmrecords", $id);
+        $settings["voicemail_vmgreetings"] = $this->getConfig("voicemail_vmgreetings", $id);
+        return load_view(__DIR__.'/views/backupsettings.php', $settings);
     }
 
     public function processBackupSettings($id, $settings){
-        $insert = array_filter($settings, function($k, $v = false){  return (strpos($k, 'voicemail_') !== false); });
-        if(!empty($insert)){
-            $this->delById($id);
-            $this->setMultiConfig($insert, $id);
+    	if(!empty($settings["voicemail_vmrecords"]) && (preg_match('/(yes|no)/', $settings["voicemail_vmrecords"]))){
+    		$this->setConfig("voicemail_vmrecords",$settings["voicemail_vmrecords"], $id);
+    	}
+    	if(!empty($settings["voicemail_vmgreetings"]) && (preg_match('/(yes|no)/', $settings["voicemail_vmgreetings"]))){
+            $this->setConfig("voicemail_vmgreetings",$settings["voicemail_vmgreetings"], $id);
         }
+    	$this->FreePBX->Backup->setMultiConfig($settings,$id);
     }
 
     public function getBackupSettings($id = ''){
