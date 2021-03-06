@@ -37,7 +37,24 @@ var VoicemailC = UCPMC.extend({
 
 		var notify = false;
 		var self = this;
-		async.forEachOf(data.boxes, function (value, extension, callback) {
+
+		/**
+		 * Check all extensions and boxes at once.
+		 */
+		$.ajax({
+			type: "POST",
+			url: UCP.ajaxUrl + "?module=voicemail&command=checkextensions",
+			async: false,
+			data: data.boxes,
+			success: function(vm_data){				
+				window.vm_data = vm_data;
+			},
+			error: function (xhr, ajaxOptions, thrownError) {
+                console.error('Unable to check extensions', thrownError, xhr);
+            },
+		  });
+
+		async.forEachOf(window.vm_data, function (value, extension, callback) {	
 			var el = $(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id='"+extension+"'] .mailbox");
 			self.refreshFolderCount(extension);
 			if(el.length && el.data("inbox") != value || window.update_table == true) {
@@ -45,7 +62,7 @@ var VoicemailC = UCPMC.extend({
 				if(el.data("inbox") < value){
 					notify = true;
 				}
-				el.data("inbox",value);		
+				el.data("inbox",value);	
 				if((typeof Cookies.get('vm-refresh-'+extension) === "undefined" && (typeof Cookies.get('vm-refresh-'+extension) === "undefined" || Cookies.get('vm-refresh-'+extension) == 1)) || Cookies.get('vm-refresh-'+extension) == 1) {
 					$(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id='"+extension+"'] .voicemail-grid").bootstrapTable('refresh',{silent: true});
 				}
@@ -470,36 +487,16 @@ var VoicemailC = UCPMC.extend({
 		});
 	},
 	refreshFolderCount: function(extension) {
-		var data = {
-			ext: extension
-		};
-
-		$.ajax({
-			type: "POST",
-			url: UCP.ajaxUrl + "?module=voicemail&command=checkextension",
-			async: false,
-			data: data,
-			success: function( data_chk ){				
-				if(data_chk.status) {	
-					window.vm_ok = data_chk.message;
-				}				
-			},
-		  });
-
-		if(typeof window.vm_ok !== "undefined" && window.vm_ok == "ok"){
-			$.post( UCP.ajaxUrl + "?module=voicemail&command=refreshfoldercount", data, function( data ) {
-				if(data.status) {
-					window.update_table = false;
-					$.each(data.folders, function(i,v) {
-						cur_val = $(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id="+extension+"] .mailbox .folder-list .folder[data-name='"+v.name+"'] .badge").text();
-						if(cur_val != v.count){
-							window.update_table = true;
-						}
-						$(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id="+extension+"] .mailbox .folder-list .folder[data-name='"+v.name+"'] .badge").text(v.count);
-						
-					});
+		var data = window.vm_data[extension];
+		if(data.status) {
+			window.update_table = false;
+			$.each(data.folders, function(i,v) {		
+				cur_val = $(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id="+extension+"] .mailbox .folder-list .folder[data-name='"+v.name+"'] .badge").text();
+				if(cur_val != v.count){
+					window.update_table = true;
 				}
-			});			
+				$(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id="+extension+"] .mailbox .folder-list .folder[data-name='"+v.name+"'] .badge").text(v.count);				
+			});
 		}
 
 	},
