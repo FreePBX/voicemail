@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-06 03:39+0000\n"
+"POT-Creation-Date: 2021-03-08 06:07+0000\n"
 "PO-Revision-Date: 2015-02-05 21:26+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -261,6 +261,10 @@ msgstr ""
 msgid "Attach Voicemail"
 msgstr ""
 
+#: Api/Gql/Voicemail.php:209
+msgid "Attach the voicemail to the outgoing email"
+msgstr ""
+
 #: views/dialplan.php:165
 msgid "Attempt(s)"
 msgstr ""
@@ -349,6 +353,10 @@ msgstr ""
 
 #: Voicemail.class.php:2569
 msgid "Context Config"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:174
+msgid "Context for the voice mail Voicemail"
 msgstr ""
 
 #: Voicemail.class.php:2577 page.voicemail.php:215 page.voicemail.php:294
@@ -532,6 +540,10 @@ msgstr ""
 msgid "Delete all Recorded Names"
 msgstr ""
 
+#: Api/Gql/Voicemail.php:230
+msgid "Delete the voicemail from local storage"
+msgstr ""
+
 #: Api/Gql/Voicemail.php:28
 msgid "Delete/disable a voicemail account"
 msgstr ""
@@ -656,6 +668,10 @@ msgstr ""
 
 #: Voicemail.class.php:2190
 msgid "Email Subject"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:195
+msgid "Email address for the voicemail"
 msgstr ""
 
 #: page.voicemail.php:219
@@ -1452,6 +1468,10 @@ msgstr ""
 msgid "Name Greeting"
 msgstr ""
 
+#: Api/Gql/Voicemail.php:188
+msgid "Name for the voicemail"
+msgstr ""
+
 #: page.voicemail.php:301
 msgid "Name of Voicemail account"
 msgstr ""
@@ -1637,6 +1657,10 @@ msgstr ""
 
 #: Voicemail.class.php:2507
 msgid "Password Mismatch"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:181
+msgid "Password for the voicemail"
 msgstr ""
 
 #: Voicemail.class.php:1971
@@ -2235,7 +2259,7 @@ msgstr ""
 msgid "The voicemail name"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:98
+#: Api/Gql/Voicemail.php:98 Api/Gql/Voicemail.php:202
 msgid "The voicemail pager number"
 msgstr ""
 
@@ -2355,6 +2379,10 @@ msgstr ""
 
 #: Voicemail.class.php:1689
 msgid "To Disable * in Voicemail Menu use Blank/no  OR yes"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:223
+msgid "To play the envelope to the caller"
 msgstr ""
 
 #: ucp/views/greetings.php:37
@@ -2681,6 +2709,10 @@ msgstr ""
 
 #: Api/Gql/Voicemail.php:102
 msgid "Whether to play the CID to the caller "
+msgstr ""
+
+#: Api/Gql/Voicemail.php:216
+msgid "Whether to play the CID to the caller or not"
 msgstr ""
 
 #: views/dialplan.php:56
