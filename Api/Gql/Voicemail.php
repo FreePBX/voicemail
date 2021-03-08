@@ -171,63 +171,63 @@ class Voicemail extends Base {
 				],
 				'context' => [
 					'type' => Type::string(),
-					'description' => _(''),
+					'description' => _('Context for the voice mail Voicemail'),
 					'resolve' => function ($payload) {
 						return (isset($payload['response']['vmcontext'])) ? $payload['response']['vmcontext'] : null;
 					}
 				],
 				'password' => [
 					'type' => Type::string(),
-					'description' => _(''),
+					'description' => _('Password for the voicemail'),
 					'resolve' => function ($payload) {
 						return (isset($payload['response']['pwd'])) ? $payload['response']['pwd'] : null;
 					}
 				],
 				'name' => [
 					'type' => Type::string(),
-					'description' => _(''),
+					'description' => _('Name for the voicemail'),
 					'resolve' => function ($payload) {
 						return (isset($payload['response']['name'])) ? $payload['response']['name'] : null;
 					}
 				],
 				'email' => [
 					'type' => Type::string(),
-					'description' => _(''),
+					'description' => _('Email address for the voicemail'),
 					'resolve' => function ($payload) {
 						return (isset($payload['response']['email'])) ? $payload['response']['email'] : null;
 					}
 				],
 				'pager' => [
 					'type' => Type::string(),
-					'description' => _(''),
+					'description' => _('The voicemail pager number'),
 					'resolve' => function ($payload) {
 						return (isset($payload['response']['pager'])) ? $payload['response']['pager'] : null;
 					}
 				],
 				'attach' => [
 					'type' => Type::string(),
-					'description' => _(''),
+					'description' => _('Attach the voicemail to the outgoing email'),
 					'resolve' => function ($payload) {
 						return (isset($payload['response']['options']['attach'])) ? $payload['response']['options']['attach'] : null;
 					}
 				],
 				'saycid' => [
 					'type' => Type::string(),
-					'description' => _(''),
+					'description' => _('Whether to play the CID to the caller or not'),
 					'resolve' => function ($payload) {
 						return (isset($payload['response']['options']['saycid'])) ? $payload['response']['options']['saycid'] : null;
 					}
 				],
 				'envelope' => [
 					'type' => Type::string(),
-					'description' => _(''),
+					'description' => _('To play the envelope to the caller'),
 					'resolve' => function ($payload) {
 						return (isset($payload['response']['options']['envelope'])) ? $payload['response']['options']['envelope'] : null;
 					}
 				],
 				'delete' => [
 					'type' => Type::string(),
-					'description' => _(''),
+					'description' => _('Delete the voicemail from local storage'),
 					'resolve' => function ($payload) {
 						return (isset($payload['response']['options']['delete'])) ? $payload['response']['options']['delete'] : null;
 					}
