@@ -2763,4 +2763,11 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		}
 		return true;
 	}
+
+	public function createVoicemailMessagePath($ext, $context, $folder)
+	{
+		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
+		$folder = $vmfolder."/".$folder;
+		mkdir($folder,0777,true);
+	}
 }
