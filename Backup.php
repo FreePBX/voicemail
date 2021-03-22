@@ -7,33 +7,41 @@ class Backup Extends Base\BackupBase{
 		$vmx = [];
 		$voiceMail = $this->FreePBX->Voicemail;
 		$voicemailConf = $voiceMail->getVoicemail(false);
-		$backupsettings = $voiceMail->getBackupSettings($id);
+		$backupsettings =!empty($id) ? $this->FreePBX->Backup->getAll($id) : [];
 		$mailboxData = $voiceMail->bulkhandlerExport('extensions');
-		foreach($backupsettings as $exten){
-			$vmx[$exten['extension']] = $voiceMail->Vmx->vmxexport($exten['extension']);
-			if(!$exten['egreetings']){
-				$greetings = $voiceMail->getGreetingsByExtension($exten['extension']);
-				foreach($greetings as $greeting){
-					$path = pathinfo($greeting,PATHINFO_DIRNAME);
-					$dirs[] = $path;
-					$this->addFile(basename($greeting), $path, 'ASTVARSPOOLDIR', "greeting");
-				}
-			}
-			if(!$exten['emessages']){
+		$vmboxes = $voiceMail->getBaseBackupSettings();
+		//Exclude settings yes/no
+		$backupsettings['voicemail_vmrecords'] = isset($backupsettings['voicemail_vmrecords'])?$backupsettings['voicemail_vmrecords']:'no';
+		$backupsettings['voicemail_vmgreetings'] = isset($backupsettings['voicemail_vmgreetings'])?$backupsettings['voicemail_vmgreetings']:'no';
+		$this->log('Exclude Greeeting ?'.$backupsettings['voicemail_vmgreetings']);
+		$this->log('Exclude VMRecords ?'.$backupsettings['voicemail_vmrecords']);
+		foreach($vmboxes as $exten){
+				// take all messages 
 				$fileDirList = $voiceMail->allFileList($exten['extension']);
 				foreach($fileDirList['dirs'] as $dir){
 					$dirs[] = $dir;
 				}
 				foreach ($fileDirList['files'] as $file) {
-					if($file['basename'] === 'busy.wav' || $file['basename'] === 'unavail.wav'){
-						continue;
+					if($file['basename'] === 'greet.wav' || $file['basename'] === 'temp.wav' || $file['basename'] === 'busy.wav' || $file['basename'] === 'unavail.wav'){
+						if($backupsettings['voicemail_vmgreetings'] == 'yes'){
+							continue;
+						}
 					}
-					$this->addFile($file['basename'], $file['path'], $file['base'], $file['type']);
+					if($backupsettings['voicemail_vmrecords'] == 'no' ){
+						$this->addFile($file['basename'], $file['path'], $file['base'], $file['type']);
+					}
 				}
-			}
-			if($exten['rpassword'] && isset($mailboxData[$exten['extension']]['voicemail_vmpwd'])){
-				$mailboxData[$exten['extension']]['voicemail_vmpwd'] = $exten['extension'];
-			}
+				if($backupsettings['voicemail_vmgreetings'] == 'no'){
+					$greetings = $voiceMail->getGreetingsByExtension($exten['extension']);
+					foreach($greetings as $greeting){
+						$path = pathinfo($greeting,PATHINFO_DIRNAME);
+						$dirs[] = $path;
+							$this->addFile(basename($greeting), $path, 'ASTVARSPOOLDIR', "greeting");
+					}
+				}
+				if($exten['rpassword'] && isset($mailboxData[$exten['extension']]['voicemail_vmpwd'])){
+					$mailboxData[$exten['extension']]['voicemail_vmpwd'] = $exten['extension'];
+				}
 		}
 
 		$configs = [
