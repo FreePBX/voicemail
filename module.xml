@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.18.28</version>
+	<version>15.0.18.29</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.18.29* FREEPBX-22075 Added Voicemail functionality in Backup 
 		*15.0.18.28* FREEI-2982 
 		*15.0.18.27* FREEI-2991 bug fix for description no given for few parameters 
 		*15.0.18.26* FREEPBX-22221 UCP high server CPU and browser usage related to Voicemail 
