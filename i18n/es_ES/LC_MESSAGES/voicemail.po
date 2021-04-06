@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-16 13:46+0000\n"
+"POT-Creation-Date: 2021-04-06 09:56+0000\n"
 "PO-Revision-Date: 2016-12-12 04:58+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -920,12 +920,12 @@ msgstr ""
 msgid "Error Re-tries"
 msgstr "Error re-intentos"
 
-#: views/backupsettings.php:6
-msgid "Exclude Greetings"
+#: views/backupsettings.php:50
+msgid "Exclude VM Greetings?"
 msgstr ""
 
-#: views/backupsettings.php:7
-msgid "Exclude Messages"
+#: views/backupsettings.php:33
+msgid "Exclude VM Recordings?"
 msgstr ""
 
 #: Voicemail.class.php:2597
@@ -1512,10 +1512,6 @@ msgstr "Comando Mail"
 msgid "Mail command."
 msgstr "Comando Mail."
 
-#: views/backupsettings.php:5
-msgid "Mailbox"
-msgstr ""
-
 #: Voicemail.class.php:479
 msgid "Mailbox can not be empty"
 msgstr "El buzón no puede estar vacío"
@@ -1717,6 +1713,7 @@ msgstr "Siguiente después del comando"
 #: Voicemail.class.php:2146 Voicemail.class.php:2154 Voicemail.class.php:2254
 #: Voicemail.class.php:2262 Voicemail.class.php:2464 functions.inc.php:405
 #: functions.inc.php:409 functions.inc.php:413 page.voicemail.php:570
+#: views/backupsettings.php:41 views/backupsettings.php:58
 #: views/dialplan.php:19 views/dialplan.php:220 views/dialplan.php:247
 #: views/quickCreate.php:12 views/ucp_config.php:14 views/ucp_config.php:69
 #: views/ucp_config.php:98 views/ucp_config.php:127 views/ucp_config.php:156
@@ -2062,10 +2059,6 @@ msgstr "Nombres Grabados"
 msgid "Recording..."
 msgstr "Grabando..."
 
-#: views/backupsettings.php:8
-msgid "Regenerate Password"
-msgstr ""
-
 #: Voicemail.class.php:2117 page.voicemail.php:317
 msgid "Remind the user that their temporary greeting is set"
 msgstr "Recordar al usuario que su saludo temporal está activado"
@@ -2228,18 +2221,6 @@ msgstr ""
 #: views/header.php:10 voicemail.i18n.php:6
 msgid "Settings"
 msgstr "Configuraciones"
-
-#: views/backupsettings.php:6
-msgid "Should we exclude greetings for this extension ?"
-msgstr ""
-
-#: views/backupsettings.php:7
-msgid "Should we exclude messages for this extension ?"
-msgstr ""
-
-#: views/backupsettings.php:8
-msgid "Should we reset the password for this extension ?"
-msgstr ""
 
 #: Voicemail.class.php:2338
 msgid "Silence Threshold"
@@ -2947,7 +2928,7 @@ msgstr ""
 msgid "VmX Locater&trade;"
 msgstr "Localizador VmX&trade;"
 
-#: Voicemail.class.php:834 Voicemail.class.php:2756 functions.inc.php:509
+#: Voicemail.class.php:834 Voicemail.class.php:2760 functions.inc.php:509
 #: install.php:8 ucp/Voicemail.class.php:95 ucp/Voicemail.class.php:144
 #: ucp/Voicemail.class.php:196 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
@@ -3157,11 +3138,12 @@ msgstr "Año"
 #: Voicemail.class.php:2122 Voicemail.class.php:2130 Voicemail.class.php:2138
 #: Voicemail.class.php:2146 Voicemail.class.php:2154 Voicemail.class.php:2254
 #: Voicemail.class.php:2262 Voicemail.class.php:2464 functions.inc.php:404
-#: functions.inc.php:408 functions.inc.php:412 views/dialplan.php:17
-#: views/dialplan.php:218 views/dialplan.php:245 views/quickCreate.php:10
-#: views/ucp_config.php:12 views/ucp_config.php:67 views/ucp_config.php:96
-#: views/ucp_config.php:125 views/ucp_config.php:154 views/ucp_config.php:183
-#: views/usage.php:37 views/usage.php:68 views/usage.php:99 views/usage.php:130
+#: functions.inc.php:408 functions.inc.php:412 views/backupsettings.php:39
+#: views/backupsettings.php:56 views/dialplan.php:17 views/dialplan.php:218
+#: views/dialplan.php:245 views/quickCreate.php:10 views/ucp_config.php:12
+#: views/ucp_config.php:67 views/ucp_config.php:96 views/ucp_config.php:125
+#: views/ucp_config.php:154 views/ucp_config.php:183 views/usage.php:37
+#: views/usage.php:68 views/usage.php:99 views/usage.php:130
 #: views/usage.php:161 views/usage.php:192 views/usage_system.php:56
 #: views/usage_system.php:87 views/usage_system.php:118
 #: views/usage_system.php:149 views/usage_system.php:180

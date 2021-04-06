@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>16.0.9</version>
+	<version>16.0.10</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*16.0.10* Packaging of ver 16.0.10
 		*16.0.9* FREEI-2982 
 		*16.0.8* Packaging of ver 16.0.8
 		*16.0.7* FREEI-2856 Voicemail App - Voicemail Messages not showing properly 
