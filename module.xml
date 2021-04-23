@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.18.30</version>
+	<version>15.0.18.31</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.18.31* FREEI-22444 voicemail not playing when having more than one voicemail 
 		*15.0.18.30* FREEPBX-22444 bug fixed for voicemail not playing in ucp 
 		*15.0.18.29* FREEPBX-22075 Added Voicemail functionality in Backup 
 		*15.0.18.28* FREEI-2982 
