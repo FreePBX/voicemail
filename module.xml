@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>16.0.11</version>
+	<version>16.0.12</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*16.0.12* FREEPBX-22075 
 		*16.0.11* FREEPBX-22444 bug fixed for voicemail not playing in ucp 
 		*16.0.10* Packaging of ver 16.0.10
 		*16.0.9* FREEI-2982 
