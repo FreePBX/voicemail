@@ -10,7 +10,7 @@ class Restore Extends Base\RestoreBase{
 		$files = $this->getFiles();
 		$nfiles = 0;
 		foreach($files as $file){
-			if($file->getType() == 'voicemail'){
+			if($file->getType() == 'voicemail' || $file->getType() == 'greeting'){
 				$filename = $file->getPathTo().'/'.$file->getFilename();
 				$source = $this->tmpdir.'/files'.$file->getPathTo().'/'.$file->getFilename();
 				$dest = $filename;
