@@ -18,11 +18,6 @@ class Backup Extends Base\BackupBase{
 		foreach($vmboxes as $exten){
 				// take all messages 
 				$fileDirList = $voiceMail->allFileList($exten['extension']);
-				foreach($fileDirList['dirs'] as $dir){
-					if($backupsettings['voicemail_vmgreetings'] == 'no' || $backupsettings['voicemail_vmrecords'] == 'no'){
-						$dirs[] = $dir;
-					}
-				}
 				foreach ($fileDirList['files'] as $file) {
 					if($file['basename'] === 'greet.wav' || $file['basename'] === 'temp.wav' || $file['basename'] === 'busy.wav' || $file['basename'] === 'unavail.wav'){
 						continue;
