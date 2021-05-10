@@ -1216,6 +1216,13 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		if(!$this->folderCheck($folder)) {
 			return false;
 		}
+
+		foreach($this->vmFolders as $f => $data){
+			if($data["name"] == $folder){
+				$folder = $f;
+			} 
+		}
+
 		$o = $this->getVoicemailBoxByExtension($ext);
 		$context = $o['vmcontext'];
 		$messages = $this->getMessagesByExtension($ext);
@@ -1285,6 +1292,13 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		if(!$this->folderCheck($folder)) {
 			return false;
 		}
+      
+		foreach($this->vmFolders as $f => $data){
+			if($data["name"] == $folder){
+				$folder = $f;
+			} 
+		}
+
 		$o = $this->getVoicemailBoxByExtension($ext);
 		$context = $o['vmcontext'];
 		$messages = $this->getMessagesByExtension($ext);
@@ -1591,7 +1605,12 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 	 * @param string $folder the provided folder name
 	 */
 	private function validFolder($folder) {
-		return isset($this->vmFolders[$folder]);
+		foreach($this->vmFolders as $f => $data){
+			if($data["name"] == $folder){
+				return true;
+			} 
+		}
+		return false;
 	}
 
 	private function checkFileType($path, $filename) {
