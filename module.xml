@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>16.0.13</version>
+	<version>16.0.14</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*16.0.14* FREEPBX-20666 UCP voice mails can't be move while UCP is in frensh 
 		*16.0.13* FREEI-3253 Restore of VM greetings is not copying it's data on restore 
 		*16.0.12* FREEPBX-22075 
 		*16.0.11* FREEPBX-22444 bug fixed for voicemail not playing in ucp 
