@@ -48,6 +48,10 @@
 			<method callingMethod="import" class="Voicemail" namespace="FreePBX\modules">bulkhandlerImport</method>
 			<method callingMethod="export" class="Voicemail" namespace="FreePBX\modules">bulkhandlerExport</method>
 		</bulkhandler>
+		<backup class="Backup" namespace="FreePBX\modules">
+			<method callingMethod="getBackupSettingsDisplay" class="Voicemail" namespace="FreePBX\modules">getBackupSettingsDisplay</method>
+			<method callingMethod="processBackupSettings" class="Voicemail" namespace="FreePBX\modules">processBackupSettings</method>
+		</backup>
 		<ucp class="Ucp">
 			<method callingMethod="constructModuleConfigPages" class="Voicemail" namespace="FreePBX\modules">ucpConfigPage</method>
 			<method callingMethod="addUser" class="Voicemail" namespace="FreePBX\modules">ucpAddUser</method>
