@@ -358,6 +358,39 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		return $return;
 	}
 
+	/* UCP template to get the user assigned vm extension details
+	* @defaultexten is the default_extensionof the userman userid
+	* @userid is userman user id
+	* @widget is an array we need to replace few item based on the userid
+	*/
+	public function getWidgetListByModule($defaultexten, $userid,$widget) {
+		// if the widget_type_id is not defaultextension and widget_type_id is not in extensions
+		// then return only the defaultexten details
+		$widgets = array();
+		$widget_type_id = $widget['widget_type_id'];// this will be an extension number
+		$extensions = $this->FreePBX->UCP->getCombinedSettingByID($userid,'Voicemail','assigned');
+		if(in_array($widget_type_id,$extensions)){
+			// nothing to do return the same widget
+			return $widget;
+		}else {// lets check VM enabled for this extension
+			$o = $this->getVoicemailBoxByExtension($defaultexten);
+			if (!empty($o)){
+				$data = $this->FreePBX->Core->getDevice($defaultexten);
+				if(empty($data) || empty($data['description'])) {
+					$data = $this->FreePBX->Core->getUser($defaultexten);
+					$name = $data['name'];
+				} else {
+					$name = $data['description'];
+				}
+				$widget['widget_type_id'] = $defaultexten;
+				$widget['name'] = $name;
+				return $widget;
+			}else{
+				return false;
+			}
+		}
+	}
+
 	/**
 	 * Delete mailbox from voicemail.conf
 	 * @param bool $cached If true then attempt to get cached values
