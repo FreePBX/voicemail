@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.18.34</version>
+	<version>15.0.18.35</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.18.35* FREEI-3445 add method to call from userman to update the VM widget user details 
 		*15.0.18.34* FREEPBX-20666 UCP voice mails can't be move while UCP is in frensh 
 		*15.0.18.33* FREEI-3253 Restore of VM greetings is not copying it's data on restore 
 		*15.0.18.32* FREEPBX-22075 voicemail backup 
