@@ -57,7 +57,7 @@ var VoicemailC = UCPMC.extend({
 		async.forEachOf(window.vm_data, function (value, extension, callback) {	
 			var el = $(".grid-stack-item[data-rawname='voicemail'][data-widget_type_id='"+extension+"'] .mailbox");
 			self.refreshFolderCount(extension);
-			if(el.length && el.data("inbox") != value || window.update_table == true) {
+			if(el.length && el.data("inbox").status != value.status || window.update_table == true) {
 				notify = false;
 				if(el.data("inbox") < value){
 					notify = true;
