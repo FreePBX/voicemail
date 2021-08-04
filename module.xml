@@ -85,7 +85,7 @@
 		<version>15.0</version>
 	</supported>
 	<hooks>
-		<core class="Core" namespace="FreePBX\modules">
+		<core class="Core" namespace="FreePBX\modules" priority="100">
 			<method callingMethod="getQuickCreateDisplay" class="Voicemail" namespace="FreePBX\modules">getQuickCreateDisplay</method>
 			<method callingMethod="processQuickCreate" class="Voicemail" namespace="FreePBX\modules">processQuickCreate</method>
 			<method callingMethod="delUser" class="Voicemail" namespace="FreePBX\modules">delUser</method>
