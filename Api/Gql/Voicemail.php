@@ -241,30 +241,30 @@ class Voicemail extends Base {
 		$input['vmpwd'] = $input['password'];
 
 		if(isset($input['saycid'])){
-			if($input['saycid'] = true){
+			if($input['saycid'] == true){
 				$input['saycid'] = "=yes"; //written in this format as in voicemail class its explode with = 
-			}elseif($input['saycid'] = false){
+			}elseif($input['saycid'] == false){
 				$input['saycid'] = "=no"; 
 			}
 		}
 		if(isset($input['envelope'])){
-			if($input['envelope'] = true){
+			if($input['envelope'] == true){
 				$input['envelope'] = "=yes"; //written in this format as in voicemail class its explode with = 
-			}elseif($input['envelope'] = false){
+			}elseif($input['envelope'] == false){
 				$input['envelope'] = "=no"; 
 			}
 		}
 		if(isset($input['attach'])){
-			if($input['attach'] = true){
+			if($input['attach'] == true){
 				$input['attach'] = "=yes"; //written in this format as in voicemail class its explode with = 
-			}elseif($input['attach'] = false){
+			}elseif($input['attach'] == false){
 				$input['attach'] = "=no"; 
 			}
 		}
 		if(isset($input['delete'])){
-			if($input['delete'] = true){
+			if($input['delete'] == true){
 				$input['vmdelete'] = "=yes"; //written in this format as in voicemail class its explode with = 
-			}elseif($input['delete'] = false){
+			}elseif($input['delete'] == false){
 				$input['vmdelete'] = "=no"; 
 			}
 		}
