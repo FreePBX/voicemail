@@ -246,28 +246,40 @@ class Voicemail extends Base {
 			}elseif($input['saycid'] == false){
 				$input['saycid'] = "=no"; 
 			}
+		}else{
+			$input['saycid'] = "=no"; 
 		}
+      
 		if(isset($input['envelope'])){
 			if($input['envelope'] == true){
 				$input['envelope'] = "=yes"; //written in this format as in voicemail class its explode with = 
 			}elseif($input['envelope'] == false){
 				$input['envelope'] = "=no"; 
 			}
+		}else{
+			$input['envelope'] = "=no"; 
 		}
+      
 		if(isset($input['attach'])){
 			if($input['attach'] == true){
 				$input['attach'] = "=yes"; //written in this format as in voicemail class its explode with = 
 			}elseif($input['attach'] == false){
 				$input['attach'] = "=no"; 
 			}
+		}else{
+			$input['attach'] = "=no"; 
 		}
+      
 		if(isset($input['delete'])){
 			if($input['delete'] == true){
 				$input['vmdelete'] = "=yes"; //written in this format as in voicemail class its explode with = 
 			}elseif($input['delete'] == false){
 				$input['vmdelete'] = "=no"; 
 			}
+		}else{
+			$input['vmdelete'] = "=no"; 
 		}
+      
 		return $input;
 	}
 }
