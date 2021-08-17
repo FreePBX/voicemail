@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>16.0.19</version>
+	<version>16.0.20</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*16.0.20* Packaging of ver 16.0.20
 		*16.0.19* set Default options for voicemail if Optional params are not sent 
 		*16.0.18* FREEI-3702 UCP-QA - VM, CEL widgets are missing for V165 
 		*16.0.17* Fix `resolveInputNames` incorrect handling of variables: `saycid`, `envelope`, `attach`, and `delete` 
@@ -36,8 +37,8 @@
 		<voicemail needsenginedb="yes">Voicemail Admin</voicemail>
 	</menuitems>
 	<depends>
-		<module>core ge 13.0.84</module>
-		<version>13.0.111</version>
+		<module>core ge 16.0.56.5</module>
+		<version>16.0.10.23</version>
 	</depends>
 	<supported>
 		<version>16.0</version>
