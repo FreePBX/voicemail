@@ -398,7 +398,8 @@ show_view(dirname(__FILE__).'/views/header.php',array(
 //TODO: Do we really need to say "UPDATE COMPLETED??"
 if ($need_update && $action != 'usage') {
 	$args = array();
-	if (voicemail_update_settings($action, $context, $extension, $_REQUEST)) {
+	$request = freepbxGetSanitizedRequest(FILTER_UNSAFE_RAW);
+	if (voicemail_update_settings($action, $context, $extension, $request)) {
 		$url = "config.php?type=$type&display=$display&action=$action&ext=$extension&updated=true";
 				needreload();
 				redirect($url);
@@ -680,7 +681,8 @@ switch ($action) {
 		*/
 		$scope = voicemail_get_scope($extension);
 		if ($need_update) {
-			voicemail_update_usage($vmail_info, $context, $extension, $_REQUEST);
+			$request = freepbxGetSanitizedRequest(FILTER_UNSAFE_RAW);
+			voicemail_update_usage($vmail_info, $context, $extension, $request);
 			if (!empty($extension)) {
 				$url = "config.php?display=$display&ext=$extension&action=$action&updated=true";
 			} else {
