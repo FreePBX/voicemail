@@ -39,10 +39,10 @@
 										<div class="col-md-9">
 											<?php switch($items['type']) {
 														case "number": ?>
-														<input type="number" class="form-control" id="<?php echo $id_prefix?>__<?php echo $key?>" name="<?php echo $id_prefix?>__<?php echo $key?>" value="<?php echo !empty($settings[$key]) ? $settings[$key] : $items['default'] ?>" <?php if(!empty($items['options'])) {?>min="<?php echo $items['options'][0]?>" max="<?php echo $items['options'][1]?>"<?php } ?>>
+														<input type="number" class="form-control" id="<?php echo $id_prefix?>__<?php echo $key?>" name="<?php echo $id_prefix?>__<?php echo $key?>" value="<?php echo !empty($settings[$key]) ? htmlentities($settings[$key], ENT_COMPAT, 'UTF-8') : $items['default'] ?>" <?php if(!empty($items['options'])) {?>min="<?php echo $items['options'][0]?>" max="<?php echo $items['options'][1]?>"<?php } ?>>
 												<?php break;
 														case "text": ?>
-														<input type="text" class="form-control" id="<?php echo $id_prefix?>__<?php echo $key?>" name="<?php echo $id_prefix?>__<?php echo $key?>" value="<?php echo !empty($settings[$key]) ? $settings[$key] : $items['default'] ?>">
+														<input type="text" class="form-control" id="<?php echo $id_prefix?>__<?php echo $key?>" name="<?php echo $id_prefix?>__<?php echo $key?>" value="<?php echo !empty($settings[$key]) ? htmlentities($settings[$key], ENT_COMPAT, 'UTF-8') : $items['default'] ?>">
 												<?php break;
 														case "textbox":
 															$value = !empty($settings[$key]) ? $settings[$key] : $items['default'];
