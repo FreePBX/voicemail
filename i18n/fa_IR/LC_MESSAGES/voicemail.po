@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-10 05:45+0000\n"
+"POT-Creation-Date: 2021-09-15 06:53+0000\n"
 "PO-Revision-Date: 2019-01-25 12:10+0000\n"
 "Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://*/projects/freepbx/voicemail/fa/>\n"
@@ -32,22 +32,22 @@ msgstr "\"\"(برای امروز), \"دیروز\", روزهفته, یا ABdY"
 msgid "\"today\", \"yesterday\" or ABdY"
 msgstr "\"امروز\", \"دیروز\", یاABdY"
 
-#: page.voicemail.php:443
+#: page.voicemail.php:444
 #, php-format
 msgid "%s Attempts"
 msgstr "%sتلاش ها"
 
-#: page.voicemail.php:449
+#: page.voicemail.php:450
 #, php-format
 msgid "%s Retries"
 msgstr "%s تلاش مجدد"
 
-#: page.voicemail.php:447
+#: page.voicemail.php:448
 #, php-format
 msgid "%s Retry"
 msgstr "%s تلاش مجدد"
 
-#: page.voicemail.php:439
+#: page.voicemail.php:440
 #, php-format
 msgid "%s Sec"
 msgstr "%s ثانیه"
@@ -109,15 +109,15 @@ msgstr ""
 "(بله/خیر) اگر  imapgreetings=بله ،  then specify which folder to store your "
 "greetings in. If you do not specify a folder, then INBOX will be used."
 
-#: page.voicemail.php:437
+#: page.voicemail.php:438
 msgid "0 Sec"
 msgstr "0 ثانیه"
 
-#: page.voicemail.php:433 views/dialplan.php:81
+#: page.voicemail.php:434 views/dialplan.php:81
 msgid "12 db"
 msgstr "۱۲db"
 
-#: page.voicemail.php:434 views/dialplan.php:83
+#: page.voicemail.php:435 views/dialplan.php:83
 msgid "15 db"
 msgstr "۱۵ db"
 
@@ -125,15 +125,15 @@ msgstr "۱۵ db"
 msgid "24 hour time, including minute"
 msgstr "۲۴ساعت, شامل دقیقه"
 
-#: page.voicemail.php:430 views/dialplan.php:75
+#: page.voicemail.php:431 views/dialplan.php:75
 msgid "3 db"
 msgstr "۳ db"
 
-#: page.voicemail.php:431 views/dialplan.php:77
+#: page.voicemail.php:432 views/dialplan.php:77
 msgid "6 db"
 msgstr "۶ db"
 
-#: page.voicemail.php:432 views/dialplan.php:79
+#: page.voicemail.php:433 views/dialplan.php:79
 msgid "9 db"
 msgstr "۹ db"
 
@@ -319,7 +319,7 @@ msgstr "مشاهده تنظیمات عمومی برای حساب های معمو
 msgid "Body of message sent to pager."
 msgstr "متن پیام ارسالی به پیغام گیر."
 
-#: functions.inc.php:417 page.voicemail.php:424 ucp/views/vmx.php:15
+#: functions.inc.php:417 page.voicemail.php:425 ucp/views/vmx.php:15
 #: views/dialplan.php:46
 msgid "Busy"
 msgstr "اشغال"
@@ -344,7 +344,7 @@ msgstr "زمینه داخلی شناسه تماس گیرنده"
 msgid "Call me number. Can be used from within ARI."
 msgstr "شماره تماس با من.میتواند از ARI استفاده شود."
 
-#: Voicemail.class.php:2025 page.voicemail.php:524
+#: Voicemail.class.php:2025 page.voicemail.php:525
 msgid "Call-Me Number"
 msgstr "شماره تماس با من"
 
@@ -600,7 +600,7 @@ msgstr "حذف پیام موقت"
 msgid "Delete Unavailible Greeting"
 msgstr "حذف پیام عدم دسترس"
 
-#: Voicemail.class.php:2070 functions.inc.php:659 page.voicemail.php:523
+#: Voicemail.class.php:2070 functions.inc.php:659 page.voicemail.php:524
 #: ucp/views/vmsettings.php:42
 msgid "Delete Voicemail"
 msgstr "حذف ایمیل صوتی"
@@ -721,12 +721,12 @@ msgid ""
 "exist"
 msgstr "خطا ورود %s در voicemail_admin در هنگام انتقال, ممکن است موجود باشد"
 
-#: Voicemail.class.php:1927 functions.inc.php:600 page.voicemail.php:518
+#: Voicemail.class.php:1927 functions.inc.php:600 page.voicemail.php:519
 #: ucp/views/vmsettings.php:11
 msgid "Email Address"
 msgstr "آدرس ایمیل"
 
-#: functions.inc.php:626 page.voicemail.php:520 ucp/views/vmsettings.php:25
+#: functions.inc.php:626 page.voicemail.php:521 ucp/views/vmsettings.php:25
 msgid "Email Attachment"
 msgstr "پیوست ایمیل"
 
@@ -1647,7 +1647,7 @@ msgstr "وققه پیام"
 msgid "My Voicemail"
 msgstr "ایمیل صوتی من"
 
-#: page.voicemail.php:495
+#: page.voicemail.php:496
 msgid "Name"
 msgstr "نام"
 
@@ -1686,7 +1686,7 @@ msgstr "بعد از دستور"
 #: Voicemail.class.php:2148 Voicemail.class.php:2156 Voicemail.class.php:2164
 #: Voicemail.class.php:2172 Voicemail.class.php:2180 Voicemail.class.php:2280
 #: Voicemail.class.php:2288 Voicemail.class.php:2490 functions.inc.php:405
-#: functions.inc.php:409 functions.inc.php:413 page.voicemail.php:570
+#: functions.inc.php:409 functions.inc.php:413 page.voicemail.php:571
 #: views/dialplan.php:19 views/dialplan.php:220 views/dialplan.php:247
 #: views/quickCreate.php:12 views/ucp_config.php:14 views/ucp_config.php:69
 #: views/ucp_config.php:98 views/ucp_config.php:127 views/ucp_config.php:156
@@ -1698,11 +1698,11 @@ msgstr "بعد از دستور"
 msgid "No"
 msgstr "خیر"
 
-#: page.voicemail.php:425 views/dialplan.php:48
+#: page.voicemail.php:426 views/dialplan.php:48
 msgid "No Message"
 msgstr "بدون پیام"
 
-#: page.voicemail.php:494
+#: page.voicemail.php:495
 msgid "No name defined; this is configured from the Extensions or Users page."
 msgstr "نامی مشخص نشد؛ این تنظیمات در داخلی یا صفحه کاربران اعمال شده."
 
@@ -1714,7 +1714,7 @@ msgstr ""
 "No. of deleted  messages saved per mailbox (can be a number or yes/no, yes "
 "meaning MAXMSG, no meaning 0)."
 
-#: page.voicemail.php:429 views/dialplan.php:73
+#: page.voicemail.php:430 views/dialplan.php:73
 msgid "None"
 msgstr "هیچ"
 
@@ -1827,7 +1827,7 @@ msgstr "بدنه پیجر"
 msgid "Pager Date Format"
 msgstr "فرمت تاریخ پیجر"
 
-#: Voicemail.class.php:1920 functions.inc.php:613 page.voicemail.php:519
+#: Voicemail.class.php:1920 functions.inc.php:613 page.voicemail.php:520
 #: ucp/views/vmsettings.php:16
 msgid "Pager Email Address"
 msgstr "آدرس ایمیل پیام گیر"
@@ -1872,11 +1872,11 @@ msgstr ""
 "پین استفاده شده برای ورود به ایمیل صوتی. این پین تنها میتواند شامل اعداد "
 "باشد."
 
-#: functions.inc.php:637 page.voicemail.php:521 ucp/views/vmsettings.php:30
+#: functions.inc.php:637 page.voicemail.php:522 ucp/views/vmsettings.php:30
 msgid "Play CID"
 msgstr "پخش شماره تماس گیرنده"
 
-#: functions.inc.php:648 page.voicemail.php:522 ucp/views/vmsettings.php:35
+#: functions.inc.php:648 page.voicemail.php:523 ucp/views/vmsettings.php:35
 msgid "Play Envelope"
 msgstr "پخش پاکت"
 
@@ -2259,7 +2259,7 @@ msgstr "فضای مصرفی"
 msgid "Subject sent to pager."
 msgstr "عنوان ارسال شده برای پیام گیر."
 
-#: Voicemail.class.php:1685 page.voicemail.php:671
+#: Voicemail.class.php:1685 page.voicemail.php:672
 msgid "Submit"
 msgstr "ارسال"
 
@@ -2654,7 +2654,7 @@ msgstr "عدم توانایی افزودن صندوق ایمیل!"
 msgid "Unactivated"
 msgstr "غیرفعال شده"
 
-#: functions.inc.php:416 page.voicemail.php:423 ucp/views/vmx.php:13
+#: functions.inc.php:416 page.voicemail.php:424 ucp/views/vmx.php:13
 #: views/dialplan.php:44
 msgid "Unavailable"
 msgstr "غیرقابل دسترس"
@@ -2861,7 +2861,7 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr "پین ایمیل صوتی"
 
-#: Voicemail.class.php:1704 functions.inc.php:541 page.voicemail.php:517
+#: Voicemail.class.php:1704 functions.inc.php:541 page.voicemail.php:518
 msgid "Voicemail Password"
 msgstr "کلمه عبور ایمیل صوتی"
 
@@ -3063,7 +3063,7 @@ msgstr "منطقه زمانی|مقادیر"
 msgid "variable"
 msgstr "متغیر"
 
-#: page.voicemail.php:568
+#: page.voicemail.php:569
 msgid "yes"
 msgstr "بله"
 

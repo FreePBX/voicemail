@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>14.0.6.24</version>
+	<version>14.0.6.25</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*14.0.6.25* FREEI-2107 patch the security issue 
 		*14.0.6.24* FREEPBX-22606 bugfix for UCP recordings stops with error 
 		*14.0.6.23* FREEPBX-20666 UCP voice mails can't be move while UCP is in frensh 
 		*14.0.6.22* FREEI-2982 Added createVoicemailMessagePath method for Dphone API 
