@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-12 04:18+0000\n"
+"POT-Creation-Date: 2021-09-15 06:20+0000\n"
 "PO-Revision-Date: 2016-12-12 04:58+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -26,7 +26,7 @@ msgstr "\"\" (para hoy), \"ayer\", día de semana, o ABdY"
 msgid "\"today\", \"yesterday\" or ABdY"
 msgstr "\"hoy\", \"ayer\", o ABdY"
 
-#: page.voicemail.php:443
+#: page.voicemail.php:444
 #, php-format
 msgid "%s Attempts"
 msgstr "%s Intentos"
@@ -36,17 +36,17 @@ msgstr "%s Intentos"
 msgid "%s Files Restored"
 msgstr ""
 
-#: page.voicemail.php:449
+#: page.voicemail.php:450
 #, php-format
 msgid "%s Retries"
 msgstr "%s Reintentos"
 
-#: page.voicemail.php:447
+#: page.voicemail.php:448
 #, php-format
 msgid "%s Retry"
 msgstr "%s Reintento"
 
-#: page.voicemail.php:439
+#: page.voicemail.php:440
 #, php-format
 msgid "%s Sec"
 msgstr "%s Seg"
@@ -84,15 +84,15 @@ msgstr ""
 "guardar sus saludos. Si usted no especifica una carpeta, la bandeja de "
 "entrada será utilizada."
 
-#: page.voicemail.php:437
+#: page.voicemail.php:438
 msgid "0 Sec"
 msgstr "0 Seg"
 
-#: page.voicemail.php:433 views/dialplan.php:81
+#: page.voicemail.php:434 views/dialplan.php:81
 msgid "12 db"
 msgstr "12 decibel"
 
-#: page.voicemail.php:434 views/dialplan.php:83
+#: page.voicemail.php:435 views/dialplan.php:83
 msgid "15 db"
 msgstr "15 decibel"
 
@@ -100,15 +100,15 @@ msgstr "15 decibel"
 msgid "24 hour time, including minute"
 msgstr "Tiempo de 24 horas, incluyendo minuto"
 
-#: page.voicemail.php:430 views/dialplan.php:75
+#: page.voicemail.php:431 views/dialplan.php:75
 msgid "3 db"
 msgstr "3 decibel"
 
-#: page.voicemail.php:431 views/dialplan.php:77
+#: page.voicemail.php:432 views/dialplan.php:77
 msgid "6 db"
 msgstr "6 decibel"
 
-#: page.voicemail.php:432 views/dialplan.php:79
+#: page.voicemail.php:433 views/dialplan.php:79
 msgid "9 db"
 msgstr "9 decibel"
 
@@ -301,7 +301,7 @@ msgstr "Ver la configuración básica es para las cuentas individuales."
 msgid "Body of message sent to pager."
 msgstr "Cuerpo del mensaje enviado al buscapersonas."
 
-#: functions.inc.php:417 page.voicemail.php:424 ucp/views/vmx.php:15
+#: functions.inc.php:417 page.voicemail.php:425 ucp/views/vmx.php:15
 #: views/dialplan.php:46
 msgid "Busy"
 msgstr "Ocupado"
@@ -326,7 +326,7 @@ msgstr "Contexto Interno de CID"
 msgid "Call me number. Can be used from within ARI."
 msgstr "Número Llámame. Se puede utilizar dentro de ARI."
 
-#: Voicemail.class.php:2051 page.voicemail.php:524
+#: Voicemail.class.php:2051 page.voicemail.php:525
 msgid "Call-Me Number"
 msgstr "Número Llámame"
 
@@ -592,7 +592,7 @@ msgstr "Eliminar saludo temporal"
 msgid "Delete Unavailible Greeting"
 msgstr "Eliminar el saludo no disponible"
 
-#: Voicemail.class.php:2096 functions.inc.php:659 page.voicemail.php:523
+#: Voicemail.class.php:2096 functions.inc.php:659 page.voicemail.php:524
 #: ucp/views/vmsettings.php:42
 msgid "Delete Voicemail"
 msgstr "Eliminar mensaje de voz"
@@ -712,12 +712,12 @@ msgstr "Arrastrar hacia usted mismo en esta permitido"
 msgid "Duration"
 msgstr "Duración"
 
-#: Voicemail.class.php:1953 functions.inc.php:600 page.voicemail.php:518
+#: Voicemail.class.php:1953 functions.inc.php:600 page.voicemail.php:519
 #: ucp/views/vmsettings.php:11
 msgid "Email Address"
 msgstr "Dirección de email"
 
-#: functions.inc.php:626 page.voicemail.php:520 ucp/views/vmsettings.php:25
+#: functions.inc.php:626 page.voicemail.php:521 ucp/views/vmsettings.php:25
 msgid "Email Attachment"
 msgstr "Enviar mensajes del buzón de voz adjuntos en el email"
 
@@ -1669,7 +1669,7 @@ msgstr "Tiempo agotado Msg"
 msgid "My Voicemail"
 msgstr "Mi buzón de voz"
 
-#: page.voicemail.php:495
+#: page.voicemail.php:496
 msgid "Name"
 msgstr "Nombre"
 
@@ -1712,7 +1712,7 @@ msgstr "Siguiente después del comando"
 #: Voicemail.class.php:2174 Voicemail.class.php:2182 Voicemail.class.php:2190
 #: Voicemail.class.php:2198 Voicemail.class.php:2206 Voicemail.class.php:2306
 #: Voicemail.class.php:2314 Voicemail.class.php:2516 functions.inc.php:405
-#: functions.inc.php:409 functions.inc.php:413 page.voicemail.php:570
+#: functions.inc.php:409 functions.inc.php:413 page.voicemail.php:571
 #: views/backupsettings.php:41 views/backupsettings.php:58
 #: views/dialplan.php:19 views/dialplan.php:220 views/dialplan.php:247
 #: views/quickCreate.php:12 views/ucp_config.php:14 views/ucp_config.php:69
@@ -1725,11 +1725,11 @@ msgstr "Siguiente después del comando"
 msgid "No"
 msgstr "No"
 
-#: page.voicemail.php:425 views/dialplan.php:48
+#: page.voicemail.php:426 views/dialplan.php:48
 msgid "No Message"
 msgstr "No Mensaje"
 
-#: page.voicemail.php:494
+#: page.voicemail.php:495
 msgid "No name defined; this is configured from the Extensions or Users page."
 msgstr ""
 "No hay nombre definido, lo que se configura a partir de las extensiones o la "
@@ -1743,7 +1743,7 @@ msgstr ""
 "No.de mensajes eliminados salvados por buzón (puede ser un número o sí/no, "
 "sí el significado MAXMSG, carece de sentido 0)."
 
-#: page.voicemail.php:429 views/dialplan.php:73
+#: page.voicemail.php:430 views/dialplan.php:73
 msgid "None"
 msgstr "Nada"
 
@@ -1859,7 +1859,7 @@ msgstr "Cuerpo de buscapersonas"
 msgid "Pager Date Format"
 msgstr "Formato fecha Buscapersonas"
 
-#: Voicemail.class.php:1946 functions.inc.php:613 page.voicemail.php:519
+#: Voicemail.class.php:1946 functions.inc.php:613 page.voicemail.php:520
 #: ucp/views/vmsettings.php:16
 msgid "Pager Email Address"
 msgstr "Número de teléfono móvil"
@@ -1911,11 +1911,11 @@ msgstr ""
 "Pin utilizado para iniciar sesión al correo de voz. Este pin sólo puede "
 "contener números."
 
-#: functions.inc.php:637 page.voicemail.php:521 ucp/views/vmsettings.php:30
+#: functions.inc.php:637 page.voicemail.php:522 ucp/views/vmsettings.php:30
 msgid "Play CID"
 msgstr "Decir CID"
 
-#: functions.inc.php:648 page.voicemail.php:522 ucp/views/vmsettings.php:35
+#: functions.inc.php:648 page.voicemail.php:523 ucp/views/vmsettings.php:35
 msgid "Play Envelope"
 msgstr "Decir fecha y hora"
 
@@ -2332,7 +2332,7 @@ msgstr "Uso de Almacenamiento"
 msgid "Subject sent to pager."
 msgstr "Asunto enviado al buscapersonas."
 
-#: Voicemail.class.php:1711 page.voicemail.php:671
+#: Voicemail.class.php:1711 page.voicemail.php:672
 msgid "Submit"
 msgstr "Enviar"
 
@@ -2777,7 +2777,7 @@ msgstr "No se puede agregar buzón!"
 msgid "Unactivated"
 msgstr "Desactivado"
 
-#: functions.inc.php:416 page.voicemail.php:423 ucp/views/vmx.php:13
+#: functions.inc.php:416 page.voicemail.php:424 ucp/views/vmx.php:13
 #: views/dialplan.php:44
 msgid "Unavailable"
 msgstr "Indisponible"
@@ -2983,7 +2983,7 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr "PIN Correo de Voz"
 
-#: Voicemail.class.php:1729 functions.inc.php:541 page.voicemail.php:517
+#: Voicemail.class.php:1729 functions.inc.php:541 page.voicemail.php:518
 msgid "Voicemail Password"
 msgstr "Contraseña del buzón de voz"
 
@@ -3188,7 +3188,7 @@ msgstr "zona horaria|valores"
 msgid "variable"
 msgstr "Variable"
 
-#: page.voicemail.php:568
+#: page.voicemail.php:569
 msgid "yes"
 msgstr "si"
 
