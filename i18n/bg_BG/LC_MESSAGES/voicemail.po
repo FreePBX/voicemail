@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 06:18+0000\n"
+"POT-Creation-Date: 2021-10-26 06:49+0000\n"
 "PO-Revision-Date: 2014-07-22 14:35+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/voicemail/"
@@ -64,7 +64,7 @@ msgstr "%s Сек"
 msgid "%s Voicemail"
 msgstr ""
 
-#: install.php:60
+#: install.php:64
 #, php-format
 msgid "%s added"
 msgstr "%s добавени"

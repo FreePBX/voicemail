@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 06:18+0000\n"
+"POT-Creation-Date: 2021-10-26 06:49+0000\n"
 "PO-Revision-Date: 2016-07-17 10:07+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -63,7 +63,7 @@ msgstr "%s ثانیه"
 msgid "%s Voicemail"
 msgstr "ایمیل صوتی %s"
 
-#: install.php:60
+#: install.php:64
 #, php-format
 msgid "%s added"
 msgstr "%s اضافه شده"

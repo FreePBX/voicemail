@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 06:18+0000\n"
+"POT-Creation-Date: 2021-10-26 06:49+0000\n"
 "PO-Revision-Date: 2021-02-10 00:00+0000\n"
 "Last-Translator: Andy Lim <mhlim@dialogic.co.kr>\n"
 "Language-Team: Korean <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -63,7 +63,7 @@ msgstr "%s 초"
 msgid "%s Voicemail"
 msgstr "%s 음성메일"
 
-#: install.php:60
+#: install.php:64
 #, php-format
 msgid "%s added"
 msgstr "%s 추가됨"

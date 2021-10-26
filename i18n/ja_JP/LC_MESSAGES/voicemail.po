@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 06:18+0000\n"
+"POT-Creation-Date: 2021-10-26 06:49+0000\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -91,7 +91,7 @@ msgstr "%s秒"
 msgid "%s Voicemail"
 msgstr ""
 
-#: install.php:60
+#: install.php:64
 #, php-format
 msgid "%s added"
 msgstr "%s を追加"
