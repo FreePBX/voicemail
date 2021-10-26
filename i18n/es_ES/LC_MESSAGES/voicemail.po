@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 06:20+0000\n"
+"POT-Creation-Date: 2021-10-26 06:50+0000\n"
 "PO-Revision-Date: 2016-12-12 04:58+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -56,7 +56,7 @@ msgstr "%s Seg"
 msgid "%s Voicemail"
 msgstr "%s Voicemail"
 
-#: install.php:60
+#: install.php:64
 #, php-format
 msgid "%s added"
 msgstr "%s agregados"
