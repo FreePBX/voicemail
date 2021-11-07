@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>16.0.23</version>
+	<version>16.0.24</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*16.0.24* Packaging of ver 16.0.24
 		*16.0.23* FREEI-1520 External notify field not being populated automatically in Voicemail admin 
 		*16.0.22* SCD-25 method to generate symlink for a voicemail file and return a link to access it 
 		*16.0.21* FREEI-2107 patch the security issue 
