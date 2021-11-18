@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-15 06:53+0000\n"
-"PO-Revision-Date: 2015-07-13 20:16+0200\n"
-"Last-Translator: Yuriy <alliancesko@gmail.com>\n"
+"PO-Revision-Date: 2021-11-19 16:00+0000\n"
+"Last-Translator: Dmitriy Kuznetsov <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
-"voicemail/ru_RU/>\n"
+"voicemail/ru/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: Voicemail.class.php:2225
 msgid " Don't leave single period on end of line by itself."
@@ -2430,7 +2430,7 @@ msgstr ""
 
 #: Voicemail.class.php:2018 Voicemail.class.php:2019
 msgid "Timezone"
-msgstr ""
+msgstr "Часовой пояс"
 
 #: functions.inc.php:975 views/header.php:12
 msgid "Timezone Definitions"
@@ -2438,11 +2438,11 @@ msgstr "Установки часового пояса"
 
 #: views/tz.php:81
 msgid "Timezone definition format is: "
-msgstr "Формат дефиниций часового пояса: "
+msgstr "Формат определения часового пояса: "
 
 #: page.voicemail.php:205
 msgid "Timezone definition name"
-msgstr "Дефиниция для определённого часового пояса"
+msgstr "Название часового пояса"
 
 #: page.voicemail.php:318
 msgid "Timezone from zonemessages context.  Irrelevant if envelope=no."
