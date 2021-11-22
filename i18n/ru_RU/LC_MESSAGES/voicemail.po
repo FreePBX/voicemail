@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-15 06:53+0000\n"
-"PO-Revision-Date: 2021-11-19 16:00+0000\n"
-"Last-Translator: Dmitriy Kuznetsov <krotesk@ya.ru>\n"
+"PO-Revision-Date: 2021-11-24 11:00+0000\n"
+"Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "voicemail/ru/>\n"
 "Language: ru_RU\n"
@@ -319,7 +319,7 @@ msgstr "Тело сообщения пересылаемого на пейдже
 #: functions.inc.php:417 page.voicemail.php:425 ucp/views/vmx.php:15
 #: views/dialplan.php:46
 msgid "Busy"
-msgstr ""
+msgstr "Занято"
 
 #: Voicemail.class.php:79 views/usage.php:122
 msgid "Busy Greeting"
@@ -669,7 +669,7 @@ msgstr ""
 
 #: views/usage_system.php:12
 msgid "Disabled"
-msgstr "Выключен"
+msgstr "Выключено"
 
 #: ucp/views/greetings.php:52
 msgid "Discard Recording"
@@ -1630,11 +1630,11 @@ msgstr ""
 
 #: page.voicemail.php:430 views/dialplan.php:73
 msgid "None"
-msgstr ""
+msgstr "Нет"
 
 #: ucp/Voicemail.class.php:607
 msgid "Not Found"
-msgstr ""
+msgstr "Не найдено"
 
 #: ucp/assets/js/global.js:403
 msgid "Not a valid Draggable Object"
@@ -2145,7 +2145,7 @@ msgstr "Поле Тема: в сообщении на пейджер."
 
 #: Voicemail.class.php:1685 page.voicemail.php:672
 msgid "Submit"
-msgstr ""
+msgstr "Применить"
 
 #: ucp/assets/js/global.js:184 ucp/assets/js/global.js:194
 #: ucp/assets/js/global.js:321 ucp/assets/js/global.js:335
