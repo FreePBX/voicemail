@@ -1920,6 +1920,9 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 
 
 	public function constructSettings($level="general") {
+		$ampWebAddress = $this->FreePBX->Config->get_conf_setting('AMPWEBADDRESS');
+		$webAddress = isset($ampWebAddress) ? rtrim($ampWebAddress, '/').'/ucp' : 'http://AMPWEBADDRESS/ucp';
+		
 		$settings = array(
 			"general" => array(
 				"name" => _("General"),
@@ -2245,7 +2248,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 					"emailbody" => array(
 						"level" => array("general"),
 						"type" => "textbox",
-						"default" => '${VM_NAME},\n\nThere is a new voicemail in mailbox ${VM_MAILBOX}:\n\n\tFrom:\t${VM_CALLERID}\n\tLength:\t${VM_DUR} seconds\n\tDate:\t${VM_DATE}\n\nDial *98 to access your voicemail by phone.\nVisit http://AMPWEBADDRESS/ucp to check your voicemail with a web browser.\n',
+						"default" => '${VM_NAME},\n\nThere is a new voicemail in mailbox ${VM_MAILBOX}:\n\n\tFrom:\t${VM_CALLERID}\n\tLength:\t${VM_DUR} seconds\n\tDate:\t${VM_DATE}\n\nDial *98 to access your voicemail by phone.\nVisit '.$webAddress.' to check your voicemail with a web browser.\n',
 						"len" => 512,
 						"description" => _("Email Body"),
 						"helptext" => _('The email body. Change the from, body and/or subject, variables: VM_NAME, VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. Additionally, on forwarded messages, you have the variables: ORIG_VM_CALLERID, ORIG_VM_CIDNUM, ORIG_VM_CIDNAME, ORIG_VM_DATE You can select between two variables by using dialplan functions, e.g. ${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}.') . " [emailbody] " . _(" Don't leave single period on end of line by itself.")
