@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-15 06:53+0000\n"
-"PO-Revision-Date: 2021-11-24 11:00+0000\n"
+"PO-Revision-Date: 2021-11-30 14:00+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "voicemail/ru/>\n"
@@ -1915,7 +1915,7 @@ msgstr ""
 
 #: ucp/assets/js/global.js:635
 msgid "Recording..."
-msgstr ""
+msgstr "Запись..."
 
 #: Voicemail.class.php:2143 page.voicemail.php:317
 msgid "Remind the user that their temporary greeting is set"
@@ -1978,7 +1978,7 @@ msgstr ""
 
 #: ucp/views/greetings.php:51
 msgid "Save Recording"
-msgstr ""
+msgstr "Сохранить запись"
 
 #: Voicemail.class.php:2110
 msgid "Say CID"
