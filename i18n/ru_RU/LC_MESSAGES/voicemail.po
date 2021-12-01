@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-15 06:53+0000\n"
-"PO-Revision-Date: 2021-11-30 14:00+0000\n"
+"PO-Revision-Date: 2021-12-02 13:00+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "voicemail/ru/>\n"
@@ -2465,6 +2465,8 @@ msgid ""
 "To play the media you will need to either update your browser to a recent "
 "version or update your %s"
 msgstr ""
+"Для воспроизведения медиаданных вам потребуется либо обновить браузер до "
+"последней версии, либо обновить %s"
 
 #: Vmx.class.php:34
 msgid "To send to followme use \"FMextension\""
@@ -2541,19 +2543,19 @@ msgstr ""
 
 #: ucp/Voicemail.class.php:542
 msgid "Unknown Error"
-msgstr ""
+msgstr "Неизвестная ошибка"
 
 #: ucp/Voicemail.class.php:505
 msgid "Unsupported file format"
-msgstr ""
+msgstr "Неподдерживаемый формат файла"
 
 #: ucp/assets/js/global.js:439
 msgid "Unsupported file type"
-msgstr ""
+msgstr "Неподдерживаемый тип файла"
 
 #: ucp/views/greetings.php:36
 msgid "Update Required"
-msgstr ""
+msgstr "Требуется обновление"
 
 #: ucp/views/greetings.php:44
 msgid "Upload Greeting"
@@ -2850,11 +2852,11 @@ msgstr ""
 
 #: ucp/assets/js/global.js:641
 msgid "Your Browser Blocked The Recording, Please check your settings"
-msgstr ""
+msgstr "Ваш браузер заблокировал запись, Пожалуйста, проверьте свои настройки"
 
 #: ucp/assets/js/global.js:579
 msgid "Your settings have been saved"
-msgstr ""
+msgstr "Ваши настройки были сохранены"
 
 #: install.php:185
 msgid "checking if Voicemail Admin (vmailadmin) is installed.."
