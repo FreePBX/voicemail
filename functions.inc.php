@@ -124,6 +124,7 @@ function voicemail_get_config($engine) {
 			foreach ($settings as $k => $v) {
 				$ext->addGlobal($k, $v);
 			}
+			updateUCPAddressInEmailBody();
 		break;
 	}
 }
@@ -956,8 +957,8 @@ function voicemail_mailbox_add($mbox, $mboxoptsarray) {
 	return FreePBX::Voicemail()->addMailbox($mbox, $mboxoptsarray);
 }
 
-function voicemail_saveVoicemail($vmconf) {
-	return FreePBX::Voicemail()->saveVoicemail($vmconf);
+function voicemail_saveVoicemail($vmconf, $fromReload = false) {
+	return FreePBX::Voicemail()->saveVoicemail($vmconf, $fromReload);
 }
 
 function voicemail_getVoicemail() {
@@ -1731,4 +1732,32 @@ function voicemail_get_greeting_timestamps($name=0, $unavail=0, $busy=0, $temp=0
 		}
 	}
 	return $ts;
+}
+
+function updateUCPAddressInEmailBody() {
+	$vMail = \FreePBX::Voicemail();
+	$vmConf = voicemail_getVoicemail();
+	if(isset($vmConf['general']['emailbody']) && !empty($vmConf['general']['emailbody'])) {
+		$emailBody = $vmConf['general']['emailbody'];
+		$existingEmailBody = $vMail->getConfig('email_body');
+		if(!$existingEmailBody) {
+			$vMail->setConfig('email_body', $emailBody);
+		}
+		$ampWebAddress = \FreePBX::Config()->get('AMPWEBADDRESS');
+		if(!empty($ampWebAddress)) {
+			preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $emailBody, $match);
+			$vURL = $match[0][0];
+			$pURL = parse_url($vURL);
+			if(isset($pURL['host']) && $pURL['host'] == 'AMPWEBADDRESS') {
+				$pScheme = isset($pURL['scheme']) ? $pURL['scheme'] : 'http';
+				$ampWebAddress = $pScheme.'://'. $ampWebAddress . '/ucp';
+				$emailBody = str_replace($vURL, $ampWebAddress, $emailBody);
+				$vmConf['general']['emailbody'] = $emailBody;
+			}
+		} else {
+			$existingEmailBody = $vMail->getConfig('email_body');
+			$vmConf['general']['emailbody'] = $existingEmailBody;
+		}
+		voicemail_saveVoicemail($vmConf, true);
+	}
 }

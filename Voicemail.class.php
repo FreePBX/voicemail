@@ -435,7 +435,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 	 * Save Voicemail.conf file
 	 * @param array $vmconf Array of settings which are returned from LoadConfig
 	 */
-	public function saveVoicemail($vmconf) {
+	public function saveVoicemail($vmconf, $fromReload = false) {
 		// just in case someone tries to be sneaky and not call getVoicemail() first..
 		if ($vmconf == null) {
 			throw new Exception(_("Null value was sent to saveVoicemail() can not continue"));
@@ -495,7 +495,12 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 			}
 			$context = $cdata;
 		}
-
+		if(!$fromReload) {
+			$extEmailBody = $this->getConfig('email_body');
+			if($extEmailBody) {
+				$this->setConfig('email_body', $vmconf['general']['emailbody']);
+			}
+		}
 		$this->FreePBX->WriteConfig->writeConfig("voicemail.conf", $vmconf, false);
 		$this->vmCache = array();
 	}
@@ -1583,7 +1588,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 				}
 			}
 			$uservm = $this->getVoicemail(true);
-			$this->saveVoicemail($uservm);
+			$this->saveVoicemail($uservm, true);
 		}
 
 		foreach($users as $u => $user) {
