@@ -1747,13 +1747,21 @@ function updateUCPAddressInEmailBody() {
 		if(!empty($ampWebAddress)) {
 			preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $emailBody, $match);
 			$vURL = $match[0][0];
-			$pURL = parse_url($vURL);
-			if(isset($pURL['host']) && $pURL['host'] == 'AMPWEBADDRESS') {
-				$pScheme = isset($pURL['scheme']) ? $pURL['scheme'] : 'http';
-				$ampWebAddress = $pScheme.'://'. $ampWebAddress . '/ucp';
-				$emailBody = str_replace($vURL, $ampWebAddress, $emailBody);
-				$vmConf['general']['emailbody'] = $emailBody;
+			$ucpProtocol = "http";
+			$ucpPort = "81";
+			if(\FreePBX::Modules()->checkStatus('sysadmin')) {
+				$ucpnetDetails = \FreePBX::Sysadmin()->getAllNetworkInfo();
+				if(isset($ucpnetDetails['protocols']['sslucp']) && !empty($ucpnetDetails['protocols']['sslucp'])) {
+					$ucpProtocol = $ucpnetDetails['protocols']['sslucp']['protocol'];
+					$ucpPort = $ucpnetDetails['protocols']['sslucp']['port'];
+				} else {
+					$ucpProtocol = $ucpnetDetails['protocols']['ucp']['protocol'];
+					$ucpPort = $ucpnetDetails['protocols']['ucp']['port'];
+				}
 			}
+			$ampWebAddress = $ucpProtocol.'://'. $ampWebAddress . ':' . $ucpPort .'/ucp';
+			$emailBody = str_replace($vURL, $ampWebAddress, $emailBody);
+			$vmConf['general']['emailbody'] = $emailBody;
 		} else {
 			$existingEmailBody = $vMail->getConfig('email_body');
 			$vmConf['general']['emailbody'] = $existingEmailBody;
