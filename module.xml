@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.18.44</version>
+	<version>15.0.18.45</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.18.45* FREEI-4033 Configuring voicemail to email 
 		*15.0.18.44* FREEI-4033 Configuring voicemail to email 
 		*15.0.18.43* FREEI-4033 Added condition to replace 'AMPWEBADDRESS' value, if it exists in advance settings 
 		*15.0.18.42* Packaging of ver 15.0.18.42
