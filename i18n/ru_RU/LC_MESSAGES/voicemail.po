@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-15 06:53+0000\n"
-"PO-Revision-Date: 2021-12-02 13:00+0000\n"
+"PO-Revision-Date: 2021-12-08 11:02+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "voicemail/ru/>\n"
@@ -883,7 +883,7 @@ msgstr "Очищать при выходе."
 
 #: functions.inc.php:560
 msgid "Extension"
-msgstr ""
+msgstr "Внутренний номер"
 
 #: Voicemail.class.php:1941
 msgid "External Notify"
@@ -1332,7 +1332,7 @@ msgstr ""
 #: views/ucp_config.php:17 views/ucp_config.php:72 views/ucp_config.php:101
 #: views/ucp_config.php:130 views/ucp_config.php:159 views/ucp_config.php:188
 msgid "Inherit"
-msgstr ""
+msgstr "Наследовать"
 
 #: voicemail.i18n.php:20
 msgid ""
@@ -1687,7 +1687,7 @@ msgstr ""
 
 #: ucp/assets/js/global.js:147
 msgid "On"
-msgstr ""
+msgstr "Включен"
 
 #: Voicemail.class.php:2506
 msgid "Open Timeout"
@@ -1954,7 +1954,7 @@ msgstr ""
 
 #: Voicemail.class.php:1680
 msgid "Reset"
-msgstr ""
+msgstr "Сброс"
 
 #: Voicemail.class.php:2004
 msgid "Restart Keys"
