@@ -1754,9 +1754,12 @@ function updateUCPAddressInEmailBody() {
 				if(isset($ucpnetDetails['protocols']['sslucp']) && !empty($ucpnetDetails['protocols']['sslucp'])) {
 					$ucpProtocol = $ucpnetDetails['protocols']['sslucp']['protocol'];
 					$ucpPort = $ucpnetDetails['protocols']['sslucp']['port'];
-				} else {
+				} else if(isset($ucpnetDetails['protocols']['ucp']) && !empty($ucpnetDetails['protocols']['ucp'])) {
 					$ucpProtocol = $ucpnetDetails['protocols']['ucp']['protocol'];
 					$ucpPort = $ucpnetDetails['protocols']['ucp']['port'];
+				} else {
+					$ucpProtocol = $ucpnetDetails['protocols']['acp']['protocol'];
+					$ucpPort = $ucpnetDetails['protocols']['acp']['port'];
 				}
 			}
 			$ampWebAddress = $ucpProtocol.'://'. $ampWebAddress . ':' . $ucpPort .'/ucp';
