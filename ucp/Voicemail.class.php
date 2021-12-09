@@ -42,6 +42,8 @@ class Voicemail extends Modules{
 
 		$this->user = $this->UCP->User->getUser();
 		$this->extensions = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'assigned');
+		$this->ext = $this->user["default_extension"];
+		$this->voicemails = $this->getVoicemails($this->ext);
 		$this->enabled = !empty($this->extensions) && $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'enable');
 		$this->vmxenabled = !empty($this->extensions) && $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'vmxlocater');
 		$this->playback = $this->UCP->getCombinedSettingByID($this->user['id'],$this->module,'playback');
@@ -207,8 +209,28 @@ class Voicemail extends Modules{
 			"showDownload" => $this->download,
 			"supportedRegExp" => implode("|",array_keys($sf['in'])),
 			"supportedHTML5" => implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats()),
-			"mailboxes" => $this->extensions
+			"mailboxes" => $this->voicemails
 		);
+	}
+
+	public function getVoicemails($ext){
+		$Voicemails = [];
+		if(!empty($ext)){
+			$vmref 	= $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
+			if(!empty($vmref["vmcontext"])){
+				$vmcontext 	= $vmref["vmcontext"];
+				$vms 		= $this->UCP->FreePBX->Voicemail->getVoicemail();
+				if(!empty($vms[$vmcontext])){
+					foreach($vms[$vmcontext] as $vm => $content){
+						if($content["name"] != "FreePBXUCPTemplateCreator"){
+							$Voicemails[$vm] = $vm;
+						}			
+					}	
+					sort($Voicemails);		
+				}		
+			}					
+		}
+		return $Voicemails;	
 	}
 
 	public function poll() {
