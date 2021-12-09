@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-01 01:47+0000\n"
+"POT-Creation-Date: 2021-12-09 05:21+0000\n"
 "PO-Revision-Date: 2016-12-12 04:58+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -1000,7 +1000,7 @@ msgstr "Teclas de avance rápido"
 msgid "File Format"
 msgstr "Formato de Archivo"
 
-#: ucp/Voicemail.class.php:311
+#: ucp/Voicemail.class.php:333
 msgid "File does not exist"
 msgstr "Archivo no existe"
 
@@ -1045,7 +1045,7 @@ msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 "Para el directorio, puede anular el archivo de introducción si lo desea"
 
-#: ucp/Voicemail.class.php:588
+#: ucp/Voicemail.class.php:610
 msgid "Forbidden"
 msgstr "Prohibido"
 
@@ -1142,7 +1142,7 @@ msgstr "Uso General"
 msgid "Go To Operator"
 msgstr "Ir al operador"
 
-#: ucp/Voicemail.class.php:175
+#: ucp/Voicemail.class.php:177
 msgid "Greetings"
 msgstr "Saludos"
 
@@ -1454,7 +1454,7 @@ msgstr "Acción Inválida"
 msgid "Invalid Password"
 msgstr "Contraseña Invalida"
 
-#: ucp/Voicemail.class.php:343 ucp/Voicemail.class.php:374
+#: ucp/Voicemail.class.php:365 ucp/Voicemail.class.php:396
 msgid "Invalid Recipient"
 msgstr "Recipiente Invalido"
 
@@ -1747,7 +1747,7 @@ msgstr ""
 msgid "None"
 msgstr "Nada"
 
-#: ucp/Voicemail.class.php:607
+#: ucp/Voicemail.class.php:629
 msgid "Not Found"
 msgstr "No Encontrado"
 
@@ -2800,11 +2800,11 @@ msgstr ""
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: ucp/Voicemail.class.php:542
+#: ucp/Voicemail.class.php:564
 msgid "Unknown Error"
 msgstr "Error Desconocido"
 
-#: ucp/Voicemail.class.php:505
+#: ucp/Voicemail.class.php:527
 msgid "Unsupported file format"
 msgstr "formato de archivo no soportado"
 
@@ -2900,7 +2900,7 @@ msgstr "El contexto del buzoón de voz no puede estar vacío"
 msgid "VM Options"
 msgstr "Opciones del buzón de voz"
 
-#: ucp/Voicemail.class.php:355
+#: ucp/Voicemail.class.php:377
 msgid "VMAIL"
 msgstr "Vmail"
 
@@ -2929,8 +2929,8 @@ msgid "VmX Locater&trade;"
 msgstr "Localizador VmX&trade;"
 
 #: Voicemail.class.php:872 Voicemail.class.php:2820 functions.inc.php:510
-#: install.php:8 ucp/Voicemail.class.php:95 ucp/Voicemail.class.php:144
-#: ucp/Voicemail.class.php:196 views/header.php:2 voicemail.i18n.php:4
+#: install.php:8 ucp/Voicemail.class.php:97 ucp/Voicemail.class.php:146
+#: ucp/Voicemail.class.php:198 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
 msgstr "Buzón de voz"
 
@@ -2963,7 +2963,7 @@ msgstr "Correo de voz Habilitar [Desactivar en blanco]"
 msgid "Voicemail Instructions:"
 msgstr "Instrucciones del buzón de voz:"
 
-#: ucp/Voicemail.class.php:355
+#: ucp/Voicemail.class.php:377
 msgid "Voicemail Message"
 msgstr "Mensaje de Correo de Voz"
 
@@ -3003,7 +3003,7 @@ msgstr "PIN de Correo de Voz"
 msgid "Voicemail Recording Gain"
 msgstr "Ganancia de Grabación de Correo de Voz"
 
-#: ucp/Voicemail.class.php:163
+#: ucp/Voicemail.class.php:165
 msgid "Voicemail Settings"
 msgstr "Configuración Correo de Voz"
 
@@ -3027,7 +3027,7 @@ msgstr ""
 "El buzón de voz está habilitado, pero la contraseña del buzón está vacía. "
 "¿Está seguro de que desea continuar?"
 
-#: ucp/Voicemail.class.php:500 ucp/Voicemail.class.php:532
+#: ucp/Voicemail.class.php:522 ucp/Voicemail.class.php:554
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr "Correo de Voz no movido a %s"
@@ -3036,7 +3036,7 @@ msgstr "Correo de Voz no movido a %s"
 msgid "Voicemail notification"
 msgstr ""
 
-#: ucp/Voicemail.class.php:537
+#: ucp/Voicemail.class.php:559
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr "Correo de Voz estaba vacío: %s"
