@@ -260,6 +260,7 @@ class Voicemail extends Modules{
 		switch($command) {	
 			case 'grid':
 			case 'listen':
+			case 'rebuildVM':
 			case 'moveToFolder':
 			case 'delete':
 			case 'forwards':
@@ -475,6 +476,12 @@ class Voicemail extends Modules{
 			case 'checkboxes':
 				$boxes = $this->getMailboxCount($this->extensions);
 				return array("status" => true, "total" => $boxes['total'], "boxes" => $boxes['extensions']);
+			break;
+			case 'rebuildVM':
+				$ext 	= basename($_POST['ext']);
+				$folder = basename($_POST['folder']);
+				$status = $this->UCP->FreePBX->Voicemail->rebuildVM($ext,$folder);
+				$return = array("status" => $status, "message" => "");
 			break;
 			case 'moveToFolder':
 				$ext = basename($_POST['ext']);

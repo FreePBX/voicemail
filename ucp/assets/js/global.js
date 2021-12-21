@@ -243,11 +243,12 @@ var VoicemailC = UCPMC.extend({
 			});
 			UCP.showDialog(_("Move Voicemail"),
 				_("To")+':</label><select class="form-control" data-toggle="select" id="VMmove">'+opts+"</select>",
-				'<button class="btn btn-default" id="moveVM">' + _("Move") + "</button>",
+				'<button class="btn btn-default" id="moveVM"><span id="spin"></span>&nbsp;&nbsp;' + _("Move") + "</button>",
 				function() {
 					var total = sel.length;
 					$("#moveVM").click(function() {
 						$("#moveVM").prop("disabled",true);
+						$("#spin").html('<i class="fa fa-spinner fa-spin"></i>')
 						async.forEachOf(sel, function (v, i, callback) {
 							self.moveVoicemail(v.msg_id, $("#VMmove").val(), extension, function(data) {
 								if(data.status) {
@@ -261,6 +262,7 @@ var VoicemailC = UCPMC.extend({
 								UCP.showAlert(err);
 							} else {
 								UCP.closeDialog();
+								self.rebuildVM(extension);
 							}
 						});
 					});
@@ -280,10 +282,14 @@ var VoicemailC = UCPMC.extend({
 									UCP.showAlert(err);
 								} else {
 									UCP.closeDialog();
+									self.rebuildVM(extension);
 								}
 							});
 						}
 					});
+					$(".delete-selection").prop("disabled",true);
+					$(".forward-selection").prop("disabled",true);
+					$(".move-selection").prop("disabled",true);
 				}
 			);
 		});
@@ -291,19 +297,28 @@ var VoicemailC = UCPMC.extend({
 			UCP.showConfirm(_("Are you sure you wish to delete these voicemails?"),'warning',function() {
 				var extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
 				var sel = $("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('getAllSelections');
+				var accept = $("#modal_confirm_button").text();
+				$("#modal_confirm_button").html('<i class="fa fa-spinner fa-spin"></i>&nbsp;'+ accept);
 				async.forEachOf(sel, function(v, i, callback){
-						self.deleteVoicemail(v.msg_id, extension, function(data) {
-							if(data.status) {
-								$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
-							}
-							callback();
-						})
+					self.deleteVoicemail(v.msg_id, extension, function(data) {
+						if(data.status) {
+							$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
+						}
+						callback();
+					})
 				}, function(err) {
 					if( err ) {
 						UCP.showAlert(err);
 					}
+					else{
+						self.rebuildVM(extension);
+						$("#modal_confirm_button").html(accept);
+						$("#confirm_modal").modal('toggle');
+					}
 				});
-				$("#delete-selection").prop("disabled",true);
+				$(".delete-selection").prop("disabled",true);
+				$(".forward-selection").prop("disabled",true);
+				$(".move-selection").prop("disabled",true);
 			});
 		});
 		$("div[data-id='"+widget_id+"'] .forward-selection").click(function() {
@@ -500,6 +515,28 @@ var VoicemailC = UCPMC.extend({
 		}
 
 	},
+	rebuildVM: function(extension){
+		var data = {
+			ext: extension
+		},
+		self = this;
+		$.ajax({
+			type: "POST",
+			url: UCP.ajaxUrl + "?module=voicemail&command=rebuildVM",
+			data: data,
+			success: function(data) {
+				self.refreshFolderCount(extension);
+				if(typeof callback === "function") {
+					callback(data);
+				}	
+			},
+			error: function(data) {
+				if(typeof callback === "function") {
+					callback({status: false});
+				}
+			}
+		});
+	},
 	moveVoicemail: function(msgid, folder, extension, callback) {
 		var data = {
 			msg: msgid,
@@ -507,14 +544,21 @@ var VoicemailC = UCPMC.extend({
 			ext: extension
 		},
 		self = this;
-		$.post( UCP.ajaxUrl + "?module=voicemail&command=moveToFolder", data, function(data) {
-			self.refreshFolderCount(extension);
-			if(typeof callback === "function") {
-				callback(data);
-			}
-		}).fail(function() {
-			if(typeof callback === "function") {
-				callback({status: false});
+		$.ajax({
+			type: "POST",
+			url: UCP.ajaxUrl + "?module=voicemail&command=moveToFolder",
+			data: data,
+			async: false,
+			success: function(data) {
+				self.refreshFolderCount(extension);
+				if(typeof callback === "function") {
+					callback(data);
+				}	
+			},
+			error: function(data) {
+				if(typeof callback === "function") {
+					callback({status: false});
+				}
 			}
 		});
 	},
@@ -540,15 +584,21 @@ var VoicemailC = UCPMC.extend({
 			ext: extension
 		},
 		self = this;
-
-		$.post( UCP.ajaxUrl + "?module=voicemail&command=delete", data, function( data ) {
-			self.refreshFolderCount(extension);
-			if(typeof callback === "function") {
-				callback(data);
-			}
-		}).fail(function() {
-			if(typeof callback === "function") {
-				callback({status: false});
+		$.ajax({
+			type: "POST",
+			url: UCP.ajaxUrl + "?module=voicemail&command=delete",
+			data: data,
+			async: false,
+			success: function(data) {
+				self.refreshFolderCount(extension);
+				if(typeof callback === "function") {
+					callback(data);
+				}	
+			},
+			error: function(data) {
+				if(typeof callback === "function") {
+					callback({status: false});
+				}
 			}
 		});
 	},

@@ -1047,8 +1047,6 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 						}
 					}
 				}
-				$this->renumberAllMessages($message['path']);
-				$this->astman->VoicemailRefresh($o['vmcontext'],$ext);
 				return true;
 			}
 		}
@@ -1061,32 +1059,38 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 	 * @param string $folder the voicemail folder to check
 	 */
 	public function renumberAllMessages($folder) {
-		$count = 0;
-		foreach(glob($folder."/*.txt") as $filename) {
-			preg_match('/msg([0-9]+).txt/',$filename,$matches);
-			$msgnum = (int)$matches[1];
-			if($msgnum != $count) {
-				$newn = sprintf('%04d', $count);
-				foreach(glob($folder."/msg".$matches[1].".*") as $filename2) {
-					$newpath = preg_replace('/msg([0-9]+)/','msg'.$newn,$filename2);
-					if(file_exists($newpath)) {
-						@unlink($newpath);
-					}
-					if(file_exists($filename2)) {
-						@rename($filename2,$newpath);
-					}
-				}
-				foreach(glob($folder."/msg".$matches[1]."_*.*") as $filename2) {
-					$newpath = preg_replace('/msg([0-9]+)/','msg'.$newn,$filename2);
-					if(file_exists($newpath)) {
-						@unlink($newpath);
-					}
-					if(file_exists($filename2)) {
-						@rename($filename2,$newpath);
-					}
+		$txt = glob($folder."/*.txt");
+		sort($txt);
+		$digits = (strlen((string) count($txt)) <= 4) ? 4 : $digits + 1;
+		$i = 0;
+		foreach($txt as $filename) {
+			$parseFile  = pathinfo($filename);
+			$msgPack    = glob($parseFile["dirname"]."/".$parseFile['filename'].".*");
+			$f1         = (!empty($msgPack[0])) ? $msgPack[0] : "" ;
+			$f2         = (!empty($msgPack[1])) ? $msgPack[1] : "" ;
+			$newnum 	= sprintf('%0'.$digits.'d', $i);
+			if(!empty($f1)){
+				$pathInfo = pathinfo($f1);
+				if(file_exists($f1)){
+					rename($f1,$pathInfo["dirname"]."/msgTMP$newnum.". $pathInfo['extension']);
+				}				
+			}
+			if(!empty($f2)){
+				$pathInfo = pathinfo($f2); 
+				if(file_exists($f2)){  
+					rename($f2,$pathInfo["dirname"]."/msgTMP$newnum.". $pathInfo['extension']);
 				}
 			}
-			$count++;
+			$i++;
+		}
+	
+		$all = glob($folder."/msgTMP*.*");
+		sort($all);
+		foreach($all as $filename){
+			$newFilename = pathinfo($filename);
+			if(file_exists($filename)){
+				rename($filename, $newFilename["dirname"]."/".str_replace("TMP","",$newFilename['filename']).".".$newFilename['extension']);
+			}
 		}
 	}
 
@@ -1342,7 +1346,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		$messages = $this->getMessagesByExtension($ext);
 		$vmfolder = $this->vmPath . '/'.$context.'/'.basename($ext);
 		$folder = $vmfolder."/".basename($folder);
-		if(isset($messages['messages'][$msg])) {
+		if(array_key_exists($msg,$messages['messages'])) {
 			$info = $messages['messages'][$msg];
 			$txt = $vmfolder."/".$info['folder']."/".$info['fid'].".txt";
 			if(file_exists($txt) && is_readable($txt)) {
@@ -1364,7 +1368,9 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 					if(!file_exists($folder."/".$tname)) {
 						foreach($files as $file) {
 							$fname = preg_replace('/msg([0-9]+)/','msg0000',basename($file));
-							rename($file, $folder."/".$fname);
+							if(file_exists($file)){
+								rename($file, $folder."/".$fname);					
+							}							
 						}
 					} else {
 						//Else we have other voicemail data in here so do something else
@@ -1382,18 +1388,42 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 
 						foreach($files as $file) {
 							$fname = preg_replace('/msg([0-9]+)/',"msg".$next,basename($file));
-							rename($file, $folder."/".$fname);
+							if(file_exists($file)){
+								rename($file, $folder."/".$fname);
+							}							
 						}
 					}
-					//Just for sanity sakes recheck the directories hopefully this doesnt take hours though.
-					$this->renumberAllMessages($vmfolder."/".$info['folder']);
-					$this->renumberAllMessages($folder);
-					$this->astman->VoicemailRefresh($context,$ext);
 					return true;
 				}
 			}
 		}
 		return false;
+	}
+
+	public function rebuildVM($ext){
+		foreach($this->vmFolders as $f => $data){
+			if($data["name"] == $folder){
+				$folder = $f;
+			} 
+		}
+		$o 			= $this->getVoicemailBoxByExtension($ext);
+		$context 	= $o['vmcontext'];
+
+		$vmfolder 	= $this->vmPath . '/'.$context.'/'.basename($ext);
+		$folder 	= $vmfolder."/".basename($folder);
+		$fs 		= scandir($folder);
+		foreach($fs as $f){
+			switch($f){
+				case ".":
+				case "..":
+				case "tmp":
+					break;
+				default:
+					$this->renumberAllMessages($folder."/".$f);				
+			}
+		}
+		$this->astman->VoicemailRefresh($context,$ext);
+		return true;
 	}
 
 	/**
