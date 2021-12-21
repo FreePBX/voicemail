@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 05:21+0000\n"
+"POT-Creation-Date: 2021-12-21 10:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -895,7 +895,7 @@ msgstr ""
 msgid "File Format"
 msgstr ""
 
-#: ucp/Voicemail.class.php:333
+#: ucp/Voicemail.class.php:334
 msgid "File does not exist"
 msgstr ""
 
@@ -932,7 +932,7 @@ msgstr ""
 msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 
-#: ucp/Voicemail.class.php:610
+#: ucp/Voicemail.class.php:611
 msgid "Forbidden"
 msgstr ""
 
@@ -1263,7 +1263,7 @@ msgstr ""
 msgid "Invalid Password"
 msgstr ""
 
-#: ucp/Voicemail.class.php:365 ucp/Voicemail.class.php:396
+#: ucp/Voicemail.class.php:366 ucp/Voicemail.class.php:397
 msgid "Invalid Recipient"
 msgstr ""
 
@@ -1537,7 +1537,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: ucp/Voicemail.class.php:629
+#: ucp/Voicemail.class.php:630
 msgid "Not Found"
 msgstr ""
 
@@ -2446,11 +2446,11 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ucp/Voicemail.class.php:564
+#: ucp/Voicemail.class.php:565
 msgid "Unknown Error"
 msgstr ""
 
-#: ucp/Voicemail.class.php:527
+#: ucp/Voicemail.class.php:528
 msgid "Unsupported file format"
 msgstr ""
 
@@ -2534,7 +2534,7 @@ msgstr ""
 msgid "VM Options"
 msgstr ""
 
-#: ucp/Voicemail.class.php:377
+#: ucp/Voicemail.class.php:378
 msgid "VMAIL"
 msgstr ""
 
@@ -2594,7 +2594,7 @@ msgstr ""
 msgid "Voicemail Instructions:"
 msgstr ""
 
-#: ucp/Voicemail.class.php:377
+#: ucp/Voicemail.class.php:378
 msgid "Voicemail Message"
 msgstr ""
 
@@ -2654,7 +2654,7 @@ msgid ""
 "sure you wish to continue?"
 msgstr ""
 
-#: ucp/Voicemail.class.php:522 ucp/Voicemail.class.php:554
+#: ucp/Voicemail.class.php:523 ucp/Voicemail.class.php:555
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
@@ -2663,7 +2663,7 @@ msgstr ""
 msgid "Voicemail notification"
 msgstr ""
 
-#: ucp/Voicemail.class.php:559
+#: ucp/Voicemail.class.php:560
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""
