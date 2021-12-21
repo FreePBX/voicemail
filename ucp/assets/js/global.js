@@ -140,7 +140,7 @@ var VoicemailC = UCPMC.extend({
 			$("div[data-id='"+widget_id+"'] .voicemail-grid a.listen").click(function() {
 				var id = $(this).data("id"),
 						select = '';
-				$.each(self.staticsettings.mailboxes, function(i,v) {
+				$.each(self.staticsettings.extensions, function(i,v) {
 					select = select + "<option value='"+v+"'>"+v+"</option>";
 				});
 				UCP.showDialog(_("Listen to Voicemail"),

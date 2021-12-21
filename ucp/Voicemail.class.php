@@ -209,7 +209,8 @@ class Voicemail extends Modules{
 			"showDownload" => $this->download,
 			"supportedRegExp" => implode("|",array_keys($sf['in'])),
 			"supportedHTML5" => implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats()),
-			"mailboxes" => $this->voicemails
+			"mailboxes" => $this->voicemails,
+			"extensions" => $this->extensions,
 		);
 	}
 
