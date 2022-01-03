@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>16.0.30</version>
+	<version>16.0.31</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*16.0.31* FREEI-4308 UCP VM widget loosing VM after moving them 
 		*16.0.30* FREEPBX-23172 Added new field 'voicemails' to getStaticSettings function 
 		*16.0.29* FREEPBX-23065 Forward VM broken in VM UCP Widget 
 		*16.0.28* FREEI-4033 Configuring voicemail to email 
