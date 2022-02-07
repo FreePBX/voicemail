@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-03 06:34+0000\n"
+"POT-Creation-Date: 2022-02-07 04:12+0000\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -297,7 +297,7 @@ msgstr "Asterisk言語コード"
 msgid "Attach Voicemail"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:209
+#: Api/Gql/Voicemail.php:215
 msgid "Attach the voicemail to the outgoing email"
 msgstr ""
 
@@ -392,7 +392,7 @@ msgstr ""
 msgid "Context Config"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:174
+#: Api/Gql/Voicemail.php:180
 msgid "Context for the voice mail Voicemail"
 msgstr ""
 
@@ -598,7 +598,7 @@ msgstr ""
 msgid "Delete all Recorded Names"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:230
+#: Api/Gql/Voicemail.php:236
 msgid "Delete the voicemail from local storage"
 msgstr ""
 
@@ -728,7 +728,7 @@ msgstr ""
 msgid "Email Subject"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:195
+#: Api/Gql/Voicemail.php:201
 msgid "Email address for the voicemail"
 msgstr ""
 
@@ -1492,7 +1492,7 @@ msgid ""
 "(100) is used. Maximum value for this option is 9999."
 msgstr ""
 
-#: Api/Gql/Voicemail.php:146 Api/Gql/Voicemail.php:170
+#: Api/Gql/Voicemail.php:152 Api/Gql/Voicemail.php:176
 msgid "Message for the request"
 msgstr ""
 
@@ -1581,7 +1581,7 @@ msgstr "名前"
 msgid "Name Greeting"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:188
+#: Api/Gql/Voicemail.php:194
 msgid "Name for the voicemail"
 msgstr ""
 
@@ -1784,7 +1784,7 @@ msgstr ""
 msgid "Password Mismatch"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:181
+#: Api/Gql/Voicemail.php:187
 msgid "Password for the voicemail"
 msgstr ""
 
@@ -1919,7 +1919,7 @@ msgstr ""
 "アナウンスした直後に発信者の電話番号を読み返します。述べられていないとき、ま"
 "たはいいえに設定されているとき、それは冒頭メッセージになります。"
 
-#: Api/Gql/Voicemail.php:153
+#: Api/Gql/Voicemail.php:159
 msgid "Read the Voicemail information"
 msgstr ""
 
@@ -2132,11 +2132,11 @@ msgstr ""
 msgid "Sorry unable to fetch the status"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:134
+#: Api/Gql/Voicemail.php:140
 msgid "Sorry,voicemail already exists."
 msgstr ""
 
-#: Api/Gql/Voicemail.php:124
+#: Api/Gql/Voicemail.php:129
 msgid "Sorry,voicemail does not  exists."
 msgstr ""
 
@@ -2162,7 +2162,7 @@ msgstr ""
 msgid "Specify what command is called for outbound E-mail"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:142 Api/Gql/Voicemail.php:166
+#: Api/Gql/Voicemail.php:148 Api/Gql/Voicemail.php:172
 msgid "Status of the request"
 msgstr ""
 
@@ -2396,7 +2396,7 @@ msgstr ""
 msgid "The voicemail name"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:98 Api/Gql/Voicemail.php:202
+#: Api/Gql/Voicemail.php:98 Api/Gql/Voicemail.php:208
 msgid "The voicemail pager number"
 msgstr ""
 
@@ -2531,7 +2531,7 @@ msgstr "終了日時"
 msgid "To Disable * in Voicemail Menu use Blank/no  OR yes"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:223
+#: Api/Gql/Voicemail.php:229
 msgid "To play the envelope to the caller"
 msgstr ""
 
@@ -2819,11 +2819,11 @@ msgstr "ボイスメール設定"
 msgid "Voicemail data found successfully"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:132
+#: Api/Gql/Voicemail.php:138
 msgid "Voicemail has been created successfully"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:122
+#: Api/Gql/Voicemail.php:127
 msgid "Voicemail has been disabled"
 msgstr ""
 
@@ -2881,7 +2881,7 @@ msgstr ""
 msgid "Whether to play the CID to the caller "
 msgstr ""
 
-#: Api/Gql/Voicemail.php:216
+#: Api/Gql/Voicemail.php:222
 msgid "Whether to play the CID to the caller or not"
 msgstr ""
 
