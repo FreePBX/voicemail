@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.18.50</version>
+	<version>15.0.18.51</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.18.51* FREEI-4431 Concatenated folder name and voicemail name for msg_id while getting messages by extension 
 		*15.0.18.50* FREEPBX-23296 GraphQL Reload Voicemail Configuration 
 		*15.0.18.49* FREEI-4308 UCP VM widget loosing VM after moving them 
 		*15.0.18.48* FREEPBX-23172 Added new field 'voicemails' to getStaticSettings function 
