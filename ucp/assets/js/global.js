@@ -249,22 +249,24 @@ var VoicemailC = UCPMC.extend({
 					$("#moveVM").click(function() {
 						$("#moveVM").prop("disabled",true);
 						$("#spin").html('<i class="fa fa-spinner fa-spin"></i>')
-						async.forEachOf(sel, function (v, i, callback) {
-							self.moveVoicemail(v.msg_id, $("#VMmove").val(), extension, function(data) {
-								if(data.status) {
-									$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
+						setTimeout(function () {
+							async.forEachOf(sel, function (v, i, callback) {
+								self.moveVoicemail(v.msg_id, $("#VMmove").val(), extension, function(data) {
+									if(data.status) {
+										$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
+									}
+									callback();
+								})
+							}, function(err) {
+								if( err ) {
+									$("#moveVM").prop("disabled",false);
+									UCP.showAlert(err);
+								} else {
+									UCP.closeDialog();
+									self.rebuildVM(extension);
 								}
-								callback();
-							})
-						}, function(err) {
-							if( err ) {
-								$("#moveVM").prop("disabled",false);
-								UCP.showAlert(err);
-							} else {
-								UCP.closeDialog();
-								self.rebuildVM(extension);
-							}
-						});
+							});
+						}, 50);
 					});
 					$("#VMmove").keypress(function(event) {
 						if (event.keyCode == 13) {
