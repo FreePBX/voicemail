@@ -1508,7 +1508,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 							dbug(sprintf(_('Error Processing %s. Reason: %s'),$vm.'.txt', $e->getMessage()));
 							continue;
 						}
-						$key = !empty($data['msg_id']) ? $data['msg_id'] : basename($folder)."_".$vm;
+						$key = !empty($data['msg_id']) ? $data['msg_id']."_" . basename($folder) . "_" . $vm : basename($folder)."_".$vm;
 						if(isset($out['messages'][$key])) {
 							$key = $key."_".basename($folder)."_".$vm;
 							if(isset($out['messages'][$key])) {
