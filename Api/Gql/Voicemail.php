@@ -122,8 +122,9 @@ class Voicemail extends Base {
 
 	public function disableVoiceMail($input) {
 		$res = $this->freepbx->Voicemail->delMailbox($input['extensionId']);
-		if($res == true){
+		if ($res == true) {
 			$this->reloadVoiceMail();
+			$this->freepbx->Voicemail->updateMailBoxContext($input['extensionId'], 'novm');
 			return ['message' => _('Voicemail has been disabled'),'status' => true];
 		} else{
 			return ['message' => _('Sorry,voicemail does not  exists.'),'status' => false];
@@ -133,8 +134,8 @@ class Voicemail extends Base {
 	public function enableVoiceMail($input){
 		$input = $this->resolveInputNames($input);
 		$res = $this->freepbx->Voicemail->addMailbox($input['extensionId'],$input);
-		if($res == true){
-			$this->reloadVoiceMail();
+		if ($res == true) {
+			$this->freepbx->Voicemail->updateMailBoxContext($input['extensionId'], 'default');
 			return ['message' => _('Voicemail has been created successfully'),'status' => true];
 		} else{
 			return ['message' => _('Sorry,voicemail already exists.'),'status' => false];
