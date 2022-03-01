@@ -116,28 +116,15 @@ class Voicemail extends Base {
 		];
 	}
 
-	protected function reloadVoiceMail($extension, $vmcontext) {
-
-		if (!is_numeric($extension)) {
-			return;
-		}
-
-		// Update FreePBX database
-		$sql = "UPDATE users SET voicemail = ? WHERE extension = ?";
-		$sth = $this->freepbx->Database->prepare($sql);
-		$sth->execute([$vmcontext, $extension]);
-
-		// Update Asterisk database
-		$this->freepbx->astman->database_put("AMPUSER", $extension."/voicemail", $vmcontext);
-		$this->freepbx->Voicemail->mapMailBox($extension);
-
+	protected function reloadVoiceMail() {
 		$this->freepbx->astman->Command("voicemail reload");
 	}
 
 	public function disableVoiceMail($input) {
 		$res = $this->freepbx->Voicemail->delMailbox($input['extensionId']);
-		if($res == true){
-			$this->reloadVoiceMail($input['extensionId'], 'novm');
+		if ($res == true) {
+			$this->reloadVoiceMail();
+			$this->freepbx->Voicemail->updateMailBoxContext($input['extensionId'], 'novm');
 			return ['message' => _('Voicemail has been disabled'),'status' => true];
 		} else{
 			return ['message' => _('Sorry,voicemail does not  exists.'),'status' => false];
@@ -148,7 +135,8 @@ class Voicemail extends Base {
 		$input = $this->resolveInputNames($input);
 		$res = $this->freepbx->Voicemail->addMailbox($input['extensionId'],$input);
 		if($res == true){
-			$this->reloadVoiceMail($input['extensionId'], 'default');
+			$this->reloadVoiceMail();
+			$this->freepbx->Voicemail->updateMailBoxContext($input['extensionId'], 'default');
 			return ['message' => _('Voicemail has been created successfully'),'status' => true];
 		} else{
 			return ['message' => _('Sorry,voicemail already exists.'),'status' => false];
