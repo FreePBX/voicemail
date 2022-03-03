@@ -295,29 +295,32 @@ var VoicemailC = UCPMC.extend({
 				}
 			);
 		});
-		$("div[data-id='"+widget_id+"'] .delete-selection").click(function() {
+		$("div[data-id='" + widget_id + "'] .delete-selection").click(function () {
+			$('#modal_confirm_button').attr("data-dismiss", '');
 			UCP.showConfirm(_("Are you sure you wish to delete these voicemails?"),'warning',function() {
 				var extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
 				var sel = $("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('getAllSelections');
 				var accept = $("#modal_confirm_button").text();
 				$("#modal_confirm_button").html('<i class="fa fa-spinner fa-spin"></i>&nbsp;'+ accept);
-				async.forEachOf(sel, function(v, i, callback){
-					self.deleteVoicemail(v.msg_id, extension, function(data) {
-						if(data.status) {
-							$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
+				setTimeout(function () {
+					async.forEachOf(sel, function (v, i, callback) {
+						self.deleteVoicemail(v.msg_id, extension, function (data) {
+							if (data.status) {
+								$("div[data-id='" + widget_id + "'] .voicemail-grid").bootstrapTable('remove', { field: "msg_id", values: [String(v.msg_id)] });
+							}
+							callback();
+						})
+					}, function (err) {
+						if (err) {
+							UCP.showAlert(err);
 						}
-						callback();
-					})
-				}, function(err) {
-					if( err ) {
-						UCP.showAlert(err);
-					}
-					else{
-						self.rebuildVM(extension);
-						$("#modal_confirm_button").html(accept);
-						$("#confirm_modal").modal('toggle');
-					}
-				});
+						else {
+							self.rebuildVM(extension);
+							$("#modal_confirm_button").html(accept);
+							$("#confirm_modal").modal('toggle');
+						}
+					});
+				}, 50);
 				$(".delete-selection").prop("disabled",true);
 				$(".forward-selection").prop("disabled",true);
 				$(".move-selection").prop("disabled",true);
