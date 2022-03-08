@@ -163,27 +163,6 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 	}
 
 	/**
-	 * Change the mailbox context
-	 * @param int $mailbox The mailbox number
-	 * @param string $vmcontext 
-	 */
-	public function updateMailBoxContext($mailbox, $vmcontext = 'default') {
-
-		if (!is_numeric($mailbox)) {
-			throw new Exception(sprintf(_("Mailbox is not in the proper format [%s]"), $mailbox));
-		}
-
-		// Update FreePBX database
-		$sql = "UPDATE users SET voicemail = ? WHERE extension = ?";
-		$sth = $this->db->prepare($sql);
-		$sth->execute([$vmcontext, $mailbox]);
-
-		// Update Asterisk database
-		$this->astman->database_put("AMPUSER", $mailbox."/voicemail", $vmcontext);
-		$this->mapMailBox($mailbox);
-	}
-
-	/**
 	 * Setup mailbox alias mapping
 	 * @param int $mailbox The mailbox number
 	 */
