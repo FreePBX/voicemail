@@ -1529,12 +1529,10 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 							dbug(sprintf(_('Error Processing %s. Reason: %s'),$vm.'.txt', $e->getMessage()));
 							continue;
 						}
-						$key = !empty($data['msg_id']) ? $data['msg_id']."_" . basename($folder) . "_" . $vm : basename($folder)."_".$vm;
+						$key = !empty($data['msg_id']) ? $data['msg_id'] : basename($folder)."_".$vm;
 						if(isset($out['messages'][$key])) {
-							$key = $key."_".basename($folder)."_".$vm;
-							if(isset($out['messages'][$key])) {
-								continue;
-							}
+							$data = $this->resetVMMsgId($data, $out['messages'], $txt);
+							$key = $data['msg_id'];
 						}
 						$out['messages'][$key] = $data;
 						$out['messages'][$key]['self'] = $filename;
@@ -2884,5 +2882,62 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
 		$folder = $vmfolder."/".$folder;
 		mkdir($folder,0777,true);
+	}
+
+	/**
+	 * Change the msg_id to make it unique and write it into the txt file
+	 * @param array $data 		The voicemail details
+	 * @param array $messages  	The voicemail array
+	 * @param string $txt     	The txt file
+	 * @return array 			The voicemail details with new msg_id
+	 */
+	private function resetVMMsgId($data, $messages, $txt) {
+		$msg_id = explode("-", $data['msg_id']);
+		$appendInteger = false;
+		if (preg_match('/msg([0-9]+)/', $msg_id[0])) {
+			//msg_id is like Old_msg0043
+			preg_match('/([0-9]+)/', $msg_id[0], $matches);
+			if (strlen($matches[1]) == 4) {
+				$appendInteger = true;
+			}
+		} else {
+			//msg_id is like 16463853391-00000005
+			if ($msg_id[0] == $data['origtime']) {
+				$appendInteger = true;
+			}
+		}
+		if ($appendInteger) {
+			$data['msg_id'] = $msg_id[0] . "1" . (isset($msg_id[1]) ? "-" . $msg_id[1] : "");
+		}
+		$data = $this->regenerateVMMsgId($data, $messages);
+
+		//read the contents of the txt file and change the msg_id
+		$contents = file($txt);
+		$result = '';
+		foreach ($contents as $line) {
+			if (strpos($line, 'msg_id=') !== false) {
+				$result .= 'msg_id='.$data['msg_id']."\n";
+			} else {
+				$result .= $line;
+			}
+		}
+		file_put_contents($txt, $result);
+
+		return $data;
+	}
+
+	/**
+	 * Increment the msg_id untill a unique key is generated
+	 * @param array $data 		The voicemail details
+	 * @param array $messages  	The voicemail array
+	 * @return array 			The voicemail details with new msg_id
+	 */
+	private function regenerateVMMsgId($data, $messages) {
+		if(isset($messages[$data['msg_id']])) {
+			$msg_id = explode("-", $data['msg_id']);
+			$data['msg_id'] = $msg_id[0] + 1 . (isset($msg_id[1]) ? "-" . $msg_id[1] : "");
+			$data = $this->regenerateVMMsgId($data, $messages);
+		}
+		return $data;
 	}
 }
