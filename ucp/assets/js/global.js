@@ -250,22 +250,28 @@ var VoicemailC = UCPMC.extend({
 						$("#moveVM").prop("disabled",true);
 						$("#spin").html('<i class="fa fa-spinner fa-spin"></i>')
 						setTimeout(function () {
-							async.forEachOf(sel, function (v, i, callback) {
-								self.moveVoicemail(v.msg_id, $("#VMmove").val(), extension, function(data) {
-									if(data.status) {
-										$("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('remove', {field: "msg_id", values: [String(v.msg_id)]});
-									}
-									callback();
-								})
-							}, function(err) {
-								if( err ) {
-									$("#moveVM").prop("disabled",false);
-									UCP.showAlert(err);
-								} else {
-									UCP.closeDialog();
+							let data = [];
+							Object.keys(sel).forEach(key => {
+								data.push({
+									msg: sel[key].msg_id,
+									folder: $("#VMmove").val(),
+									ext: extension
+								});
+							})
+							self.moveVoicemailBulk(data, extension, function (data) {
+								if (data.status) {
 									self.rebuildVM(extension);
+									if (data.moveStatus.includes(false)) {
+										UCP.showAlert('Not able to move some of the voicemails.');
+									}
+									setTimeout(function () {
+										UCP.closeDialog();
+									}, 2000);
+								} else {
+									$("#moveVM").prop("disabled", false);
+									UCP.showAlert(data.error);
 								}
-							});
+							})
 						}, 50);
 					});
 					$("#VMmove").keypress(function(event) {
@@ -303,21 +309,26 @@ var VoicemailC = UCPMC.extend({
 				var accept = $("#modal_confirm_button").text();
 				$("#modal_confirm_button").html('<i class="fa fa-spinner fa-spin"></i>&nbsp;'+ accept);
 				setTimeout(function () {
-					async.forEachOf(sel, function (v, i, callback) {
-						self.deleteVoicemail(v.msg_id, extension, function (data) {
-							if (data.status) {
-								$("div[data-id='" + widget_id + "'] .voicemail-grid").bootstrapTable('remove', { field: "msg_id", values: [String(v.msg_id)] });
-							}
-							callback();
-						})
-					}, function (err) {
-						if (err) {
-							UCP.showAlert(err);
-						}
-						else {
+					let data = [];
+					Object.keys(sel).forEach(key => {
+						data.push({
+							msg: sel[key].msg_id,
+							folder: $("#VMmove").val(),
+							ext: extension
+						});
+					});
+					self.deleteVoicemailBulk(data, extension, function (data) {
+						if (data.status) {
 							self.rebuildVM(extension);
-							$("#modal_confirm_button").html(accept);
-							$("#confirm_modal").modal('toggle');
+							if (data.deleteStatus.includes(false)) {
+								UCP.showAlert('Not able to delete some of the voicemails.');
+							}
+							setTimeout(function () {
+								$("#modal_confirm_button").html(accept);
+								$("#confirm_modal").modal('toggle');
+							}, 2000);
+						} else {
+							UCP.showAlert(data.error);
 						}
 					});
 				}, 50);
@@ -567,6 +578,31 @@ var VoicemailC = UCPMC.extend({
 			}
 		});
 	},
+	moveVoicemailBulk: function (data, extension, callback) {
+		var formData = new FormData();
+		formData.append('data', JSON.stringify(data));
+		self = this;
+		$.ajax({
+			type: "POST",
+			enctype: 'multipart/form-data',
+			url: UCP.ajaxUrl + "?module=voicemail&command=moveToFolderBulk",
+			data: formData,
+			async: false,
+			processData: false,
+			contentType: false,
+			success: function (data) {
+				self.refreshFolderCount(extension);
+				if (typeof callback === "function") {
+					callback(data);
+				}
+			},
+			error: function (data) {
+				if (typeof callback === "function") {
+					callback({ status: false, error: data });
+				}
+			}
+		});
+	},
 	forwardVoicemail: function(msgid, extension, recpt, callback) {
 		var data = {
 			id: msgid,
@@ -603,6 +639,31 @@ var VoicemailC = UCPMC.extend({
 			error: function(data) {
 				if(typeof callback === "function") {
 					callback({status: false});
+				}
+			}
+		});
+	},
+	deleteVoicemailBulk: function (data, extension, callback) {
+		var formData = new FormData();
+		formData.append('data', JSON.stringify(data));
+		self = this;
+		$.ajax({
+			type: "POST",
+			enctype: 'multipart/form-data',
+			url: UCP.ajaxUrl + "?module=voicemail&command=deleteBulk",
+			data: formData,
+			async: false,
+			processData: false,
+			contentType: false,
+			success: function (data) {
+				self.refreshFolderCount(extension);
+				if (typeof callback === "function") {
+					callback(data);
+				}
+			},
+			error: function (data) {
+				if (typeof callback === "function") {
+					callback({ status: false });
 				}
 			}
 		});
