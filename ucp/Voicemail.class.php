@@ -295,6 +295,10 @@ class Voicemail extends Modules{
 				return true;
 			case 'checkboxes':
 				return true;
+			case 'moveToFolderBulk':
+				return true;
+			case 'deleteBulk':
+				return true;
 			default:
 				return false;
 			break;
@@ -496,6 +500,27 @@ class Voicemail extends Modules{
 				$msg = basename($_POST['msg']);
 				$status = $this->UCP->FreePBX->Voicemail->deleteMessageByID($msg,$ext);
 				$return = array("status" => $status, "message" => "");
+			break;
+			case 'moveToFolderBulk':
+				$moveStatus = [];
+				$formData = json_decode($_POST['data'],true);
+				foreach ($formData as $key => $data) {
+					$ext = basename($data['ext']);
+					$msg = basename($data['msg']);
+					$folder = basename($data['folder']);
+					$moveStatus[] = $this->UCP->FreePBX->Voicemail->moveMessageByExtensionFolder($msg,$ext,$folder);
+				}
+				$return = array("status" => true, 'moveStatus' => $moveStatus, "message" => "");
+			break;
+			case 'deleteBulk':
+				$deleteStatus = [];
+				$formData = json_decode($_POST['data'],true);
+				foreach ($formData as $key => $data) {
+					$ext = basename($data['ext']);
+					$msg = basename($data['msg']);
+					$deleteStatus[] = $this->UCP->FreePBX->Voicemail->deleteMessageByID($msg,$ext);
+				}
+				$return = array("status" => true, 'deleteStatus' => $deleteStatus,  "message" => "");
 			break;
 			case 'savesettings':
 				$ext = $_POST['ext'];
