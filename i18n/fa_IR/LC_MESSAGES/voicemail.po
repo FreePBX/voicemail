@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-16 15:32+0000\n"
+"POT-Creation-Date: 2022-03-21 04:39+0000\n"
 "PO-Revision-Date: 2016-07-17 10:07+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -255,7 +255,7 @@ msgstr ""
 msgid "Allowed Voicemail"
 msgstr "پست صوتی مجاز"
 
-#: ucp/assets/js/global.js:300
+#: ucp/assets/js/global.js:306
 msgid "Are you sure you wish to delete these voicemails?"
 msgstr "آیا از حذف این پست های مطمئن هستید؟"
 
@@ -407,7 +407,7 @@ msgstr "کنترل"
 msgid "Controls whether to attach the voicemail to the email"
 msgstr "کنترل نحوه پیوست ایمیل صوتی به ایمیل"
 
-#: ucp/assets/js/global.js:432
+#: ucp/assets/js/global.js:443
 msgid "Copying..."
 msgstr "درحال کپی..."
 
@@ -633,7 +633,7 @@ msgstr "شماره گیری مستقیم"
 msgid "Direct Dial Prefix"
 msgstr "شماره گیری با پیش شماره"
 
-#: ucp/assets/js/global.js:648
+#: ucp/assets/js/global.js:709
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr "ضبط مستقیم در مرورگر شما پشتیبانی نمیشود!"
 
@@ -685,7 +685,7 @@ msgstr ""
 msgid "Disk space currently in use by Voicemail data"
 msgstr "حجم دیسک مصرفی توسط ایمیل صوتی"
 
-#: ucp/assets/js/global.js:427
+#: ucp/assets/js/global.js:438
 msgid "Dragging to yourself is not allowed"
 msgstr "جابجایی شخصی مجاز نیست"
 
@@ -977,7 +977,7 @@ msgstr "کلیدهای حرکت سریع-به جلو"
 msgid "File Format"
 msgstr "فرمت فایل"
 
-#: ucp/Voicemail.class.php:335
+#: ucp/Voicemail.class.php:339
 msgid "File does not exist"
 msgstr "فایل موجود نیست"
 
@@ -1019,7 +1019,7 @@ msgstr ""
 msgid "For the directory, you can override the intro file if you want"
 msgstr "برای دایرکتوری، شما میتوانید فایل راهنما را بازنویسی کنید"
 
-#: ucp/Voicemail.class.php:618
+#: ucp/Voicemail.class.php:643
 msgid "Forbidden"
 msgstr "ممنوع"
 
@@ -1072,11 +1072,11 @@ msgstr ""
 "Voicemail, only the first format specified will be used."
 
 #: ucp/views/widget.php:31 ucp/assets/js/global.js:178
-#: ucp/assets/js/global.js:333
+#: ucp/assets/js/global.js:344
 msgid "Forward"
 msgstr "فوروارد"
 
-#: ucp/assets/js/global.js:176 ucp/assets/js/global.js:331
+#: ucp/assets/js/global.js:176 ucp/assets/js/global.js:342
 msgid "Forward Voicemail"
 msgstr "فوروارد ایمیل صوتی"
 
@@ -1411,7 +1411,7 @@ msgstr "فعالیت نامعتبر"
 msgid "Invalid Password"
 msgstr "کلمه عبور نامعتبر"
 
-#: ucp/Voicemail.class.php:367 ucp/Voicemail.class.php:398
+#: ucp/Voicemail.class.php:371 ucp/Voicemail.class.php:402
 msgid "Invalid Recipient"
 msgstr "گیرنده نامعتبر"
 
@@ -1699,11 +1699,11 @@ msgstr ""
 msgid "None"
 msgstr "هیچ"
 
-#: ucp/Voicemail.class.php:637
+#: ucp/Voicemail.class.php:662
 msgid "Not Found"
 msgstr "یافت نشد"
 
-#: ucp/assets/js/global.js:423
+#: ucp/assets/js/global.js:434
 msgid "Not a valid Draggable Object"
 msgstr "بدون شی قابل جابجایی"
 
@@ -1987,7 +1987,7 @@ msgstr ""
 msgid "Record Greeting"
 msgstr "ضبط پیام خوش آمد"
 
-#: ucp/assets/js/global.js:659
+#: ucp/assets/js/global.js:720
 msgid "Recorded Message"
 msgstr "ضبط پیام"
 
@@ -1999,7 +1999,7 @@ msgstr "نام ضبط شده"
 msgid "Recorded Names"
 msgstr "نام های ضبط شده"
 
-#: ucp/assets/js/global.js:690
+#: ucp/assets/js/global.js:751
 msgid "Recording..."
 msgstr "در حال ضبط ..."
 
@@ -2251,11 +2251,11 @@ msgstr ""
 msgid "Stop Keys"
 msgstr "کلیدهای ایست"
 
-#: ucp/assets/js/global.js:756
+#: ucp/assets/js/global.js:817
 msgid "Stop the Recording First before trying to delete"
 msgstr "قطع ضبط قبل از تلاش برای حذف"
 
-#: ucp/assets/js/global.js:707
+#: ucp/assets/js/global.js:768
 msgid "Stop the Recording First before trying to save"
 msgstr "قطع ضبط قبل از تلاش برای ذخیره"
 
@@ -2272,7 +2272,7 @@ msgid "Submit"
 msgstr "ارسال"
 
 #: ucp/assets/js/global.js:184 ucp/assets/js/global.js:194
-#: ucp/assets/js/global.js:341 ucp/assets/js/global.js:355
+#: ucp/assets/js/global.js:352 ucp/assets/js/global.js:366
 #, perl-format
 msgid "Successfully forwarded voicemail to %s"
 msgstr "فوروارد موفق ایمیل صوتی به %s"
@@ -2498,7 +2498,7 @@ msgstr ""
 msgid "The voicemail password/pin"
 msgstr ""
 
-#: ucp/assets/js/global.js:768
+#: ucp/assets/js/global.js:829
 msgid "There is nothing to delete"
 msgstr "موردی برای حذف وجود ندارد"
 
@@ -2620,7 +2620,7 @@ msgid "Timezone from zonemessages context.  Irrelevant if envelope=no."
 msgstr "Timezone from  zonemessages context.  Irrelevant if envelope=no."
 
 #: ucp/assets/js/global.js:177 ucp/assets/js/global.js:245
-#: ucp/assets/js/global.js:332
+#: ucp/assets/js/global.js:343
 msgid "To"
 msgstr "به"
 
@@ -2708,15 +2708,15 @@ msgstr "بدون علامت کنید برای پخش بوق بعد از پیام
 msgid "Unknown"
 msgstr "ناشناخته"
 
-#: ucp/Voicemail.class.php:572
+#: ucp/Voicemail.class.php:597
 msgid "Unknown Error"
 msgstr "خطای ناشناخته"
 
-#: ucp/Voicemail.class.php:535
+#: ucp/Voicemail.class.php:560
 msgid "Unsupported file format"
 msgstr "فرمت فایل پشتیبانی نشده"
 
-#: ucp/assets/js/global.js:459
+#: ucp/assets/js/global.js:470
 msgid "Unsupported file type"
 msgstr "نوع فایل پشتیبانی نشده"
 
@@ -2732,7 +2732,7 @@ msgstr "بازگذاری پیام خوش آمد"
 msgid "Upload a New Greeting or Drag an Old Greeting Here"
 msgstr "بارگذاری پیام خوش آمد یا کشیدن پیام قدیمی یه اینجا"
 
-#: ucp/assets/js/global.js:464 ucp/assets/js/global.js:711
+#: ucp/assets/js/global.js:475 ucp/assets/js/global.js:772
 msgid "Uploading..."
 msgstr "بارگذاری ..."
 
@@ -2804,7 +2804,7 @@ msgstr "متن ایمیل صوتی نمیتواند خالی باشد"
 msgid "VM Options"
 msgstr "گزینه های ایمیل صوتی"
 
-#: ucp/Voicemail.class.php:379
+#: ucp/Voicemail.class.php:383
 msgid "VMAIL"
 msgstr "ایمیل صوتی"
 
@@ -2866,7 +2866,7 @@ msgstr "فعال کردن ایمیل صوتی [خالی برای غیرفعال 
 msgid "Voicemail Instructions:"
 msgstr "ساختارهای ایمیل صوتی:"
 
-#: ucp/Voicemail.class.php:379
+#: ucp/Voicemail.class.php:383
 msgid "Voicemail Message"
 msgstr "پیام ایمیل صوتی"
 
@@ -2930,7 +2930,7 @@ msgstr ""
 "ایمیل صوتی فعال است ولی فیلد کلمه عبور ایمیل صوتی خالی است. آیا از ادامه "
 "مطمئن هستید؟"
 
-#: ucp/Voicemail.class.php:530 ucp/Voicemail.class.php:562
+#: ucp/Voicemail.class.php:555 ucp/Voicemail.class.php:587
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr "ایمیل صوتی منتقل نشد به%s"
@@ -2939,7 +2939,7 @@ msgstr "ایمیل صوتی منتقل نشد به%s"
 msgid "Voicemail notification"
 msgstr ""
 
-#: ucp/Voicemail.class.php:567
+#: ucp/Voicemail.class.php:592
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr "پیام صوتی خالی بود:%s"
@@ -3060,11 +3060,11 @@ msgstr ""
 msgid "You have a new voicemail"
 msgstr ""
 
-#: ucp/assets/js/global.js:696
+#: ucp/assets/js/global.js:757
 msgid "Your Browser Blocked The Recording, Please check your settings"
 msgstr "مرورگر شما ضبط پیام را محدود کرده, تنظیمات را چک کنید"
 
-#: ucp/assets/js/global.js:634
+#: ucp/assets/js/global.js:695
 msgid "Your settings have been saved"
 msgstr "تنظیمات شما ذخیره شد"
 
