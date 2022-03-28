@@ -90,6 +90,20 @@ class VoiceMailGqlApiTest extends ApiBaseTestCase {
       $input['extensionId'] = $extensionId = "18300";
       $password = '123456';
 
+      $stubCore = $this->getMockBuilder('\FreePBX\modules\Core')
+         ->disableOriginalConstructor()
+         ->disableOriginalClone()
+         ->setMethods(array('getDevice', 'getUser'))
+         ->getMock();
+
+      $stubCore->method('getDevice')
+         ->with($extensionId)
+         ->willReturn(true);
+      $stubCore->method('getUser')
+         ->with()
+         ->willReturn(true);
+      self::$freepbx->Core = $stubCore;
+
       //delete existing 
       $res = self::$voicemail->delMailbox($extensionId,false);
       $res = self::$voicemail->delUser($extensionId);
@@ -152,5 +166,30 @@ class VoiceMailGqlApiTest extends ApiBaseTestCase {
       //status 400 failure check
       $this->assertEquals(400, $response->getStatusCode());
    }
+
+    public function test_enableVoiceMailWhenPassingExtensionIdDoesNotExit_should_return_false() {
+		$stubCore = $this->getMockBuilder('\FreePBX\modules\Core')
+         ->disableOriginalConstructor()
+		   ->disableOriginalClone()
+		   ->setMethods(array('getDevice'))
+		   ->getMock();
+
+		$stubCore->method('getDevice')
+			->with('1001')
+			->willReturn(null);
+		 self::$freepbx->Core = $stubCore;
+
+      $response = $this->request("mutation{
+         enableVoiceMail(input : {
+            extensionId	: \"1001\"
+            password: \"123456\"
+           }){
+           status message
+         }
+       }");
    
+       $json = (string)$response->getBody();
+       $this->assertEquals('{"errors":[{"message":"Extension does not exists.","status":false}]}',$json);
+       $this->assertEquals(400, $response->getStatusCode());
+     }
 }

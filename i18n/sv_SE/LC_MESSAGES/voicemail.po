@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX voicemail\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-21 04:39+0000\n"
+"POT-Creation-Date: 2022-03-28 13:15+0000\n"
 "PO-Revision-Date: 2008-10-19 18:52+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -269,7 +269,7 @@ msgstr ""
 msgid "Attach Voicemail"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:217
+#: Api/Gql/Voicemail.php:221
 msgid "Attach the voicemail to the outgoing email"
 msgstr ""
 
@@ -363,7 +363,7 @@ msgstr ""
 msgid "Context Config"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:182
+#: Api/Gql/Voicemail.php:186
 msgid "Context for the voice mail Voicemail"
 msgstr ""
 
@@ -548,7 +548,7 @@ msgstr ""
 msgid "Delete all Recorded Names"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:238
+#: Api/Gql/Voicemail.php:242
 msgid "Delete the voicemail from local storage"
 msgstr ""
 
@@ -678,7 +678,7 @@ msgstr ""
 msgid "Email Subject"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:203
+#: Api/Gql/Voicemail.php:207
 msgid "Email address for the voicemail"
 msgstr ""
 
@@ -840,6 +840,10 @@ msgstr ""
 
 #: functions.inc.php:561
 msgid "Extension"
+msgstr ""
+
+#: Api/Gql/Voicemail.php:138
+msgid "Extension does not exists."
 msgstr ""
 
 #: Voicemail.class.php:2024
@@ -1387,7 +1391,7 @@ msgid ""
 "(100) is used. Maximum value for this option is 9999."
 msgstr ""
 
-#: Api/Gql/Voicemail.php:154 Api/Gql/Voicemail.php:178
+#: Api/Gql/Voicemail.php:158 Api/Gql/Voicemail.php:182
 msgid "Message for the request"
 msgstr ""
 
@@ -1472,7 +1476,7 @@ msgstr ""
 msgid "Name Greeting"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:196
+#: Api/Gql/Voicemail.php:200
 msgid "Name for the voicemail"
 msgstr ""
 
@@ -1664,7 +1668,7 @@ msgstr ""
 msgid "Password Mismatch"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:189
+#: Api/Gql/Voicemail.php:193
 msgid "Password for the voicemail"
 msgstr ""
 
@@ -1790,7 +1794,7 @@ msgid ""
 "described, or set to no, it will be in the envelope."
 msgstr ""
 
-#: Api/Gql/Voicemail.php:161
+#: Api/Gql/Voicemail.php:165
 msgid "Read the Voicemail information"
 msgstr ""
 
@@ -1999,7 +2003,7 @@ msgstr ""
 msgid "Sorry unable to fetch the status"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:142
+#: Api/Gql/Voicemail.php:146
 msgid "Sorry,voicemail already exists."
 msgstr ""
 
@@ -2029,7 +2033,7 @@ msgstr ""
 msgid "Specify what command is called for outbound E-mail"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:150 Api/Gql/Voicemail.php:174
+#: Api/Gql/Voicemail.php:154 Api/Gql/Voicemail.php:178
 msgid "Status of the request"
 msgstr ""
 
@@ -2250,7 +2254,7 @@ msgstr ""
 msgid "The voicemail name"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:98 Api/Gql/Voicemail.php:210
+#: Api/Gql/Voicemail.php:98 Api/Gql/Voicemail.php:214
 msgid "The voicemail pager number"
 msgstr ""
 
@@ -2372,7 +2376,7 @@ msgstr ""
 msgid "To Disable * in Voicemail Menu use Blank/no  OR yes"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:231
+#: Api/Gql/Voicemail.php:235
 msgid "To play the envelope to the caller"
 msgstr ""
 
@@ -2643,7 +2647,7 @@ msgstr ""
 msgid "Voicemail data found successfully"
 msgstr ""
 
-#: Api/Gql/Voicemail.php:140
+#: Api/Gql/Voicemail.php:144
 msgid "Voicemail has been created successfully"
 msgstr ""
 
@@ -2702,7 +2706,7 @@ msgstr ""
 msgid "Whether to play the CID to the caller "
 msgstr ""
 
-#: Api/Gql/Voicemail.php:224
+#: Api/Gql/Voicemail.php:228
 msgid "Whether to play the CID to the caller or not"
 msgstr ""
 

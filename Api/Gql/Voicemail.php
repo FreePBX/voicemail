@@ -133,6 +133,10 @@ class Voicemail extends Base {
 
 	public function enableVoiceMail($input){
 		$input = $this->resolveInputNames($input);
+		$extensionExists = $this->freepbx->Core->getDevice($input['extensionId']);
+		if (empty($extensionExists)) {
+			return ['message' => _('Extension does not exists.'),'status' => false];
+		}
 		$res = $this->freepbx->Voicemail->addMailbox($input['extensionId'],$input);
 		if($res == true){
 			$this->reloadVoiceMail();
