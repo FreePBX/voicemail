@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>16.0.36</version>
+	<version>16.0.37</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*16.0.37* FREEI-4667 GQLAPI for voicemail is showing success response if extension is not present 
 		*16.0.36* FREEI-4431 Reduced calling multiple ajax request into one request to move or delete bulk voicemails 
 		*16.0.35* SCD-224 make the voicemail msg_id unique 
 		*16.0.34* FREEPBX-23296 and FREEI-4431 
