@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-28 13:15+0000\n"
+"POT-Creation-Date: 2022-04-11 10:01+0000\n"
 "PO-Revision-Date: 2015-02-05 21:26+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -929,7 +929,7 @@ msgstr ""
 msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 
-#: ucp/Voicemail.class.php:643
+#: ucp/Voicemail.class.php:650
 msgid "Forbidden"
 msgstr ""
 
@@ -1534,7 +1534,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: ucp/Voicemail.class.php:662
+#: ucp/Voicemail.class.php:669
 msgid "Not Found"
 msgstr ""
 
@@ -2443,7 +2443,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ucp/Voicemail.class.php:597
+#: ucp/Voicemail.class.php:604
 msgid "Unknown Error"
 msgstr ""
 
@@ -2451,7 +2451,7 @@ msgstr ""
 msgid "Unsupported file format"
 msgstr ""
 
-#: ucp/assets/js/global.js:470
+#: ucp/Voicemail.class.php:580 ucp/assets/js/global.js:470
 msgid "Unsupported file type"
 msgstr ""
 
@@ -2651,7 +2651,7 @@ msgid ""
 "sure you wish to continue?"
 msgstr "语音邮件已启用，但密码为空，你希望继续吗？"
 
-#: ucp/Voicemail.class.php:555 ucp/Voicemail.class.php:587
+#: ucp/Voicemail.class.php:555 ucp/Voicemail.class.php:594
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
@@ -2660,7 +2660,7 @@ msgstr ""
 msgid "Voicemail notification"
 msgstr ""
 
-#: ucp/Voicemail.class.php:592
+#: ucp/Voicemail.class.php:599
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""

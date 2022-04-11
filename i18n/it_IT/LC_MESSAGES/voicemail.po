@@ -905,7 +905,7 @@ msgstr ""
 msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 
-#: ucp/Voicemail.class.php:643
+#: ucp/Voicemail.class.php:650
 msgid "Forbidden"
 msgstr ""
 
@@ -1510,7 +1510,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: ucp/Voicemail.class.php:662
+#: ucp/Voicemail.class.php:669
 msgid "Not Found"
 msgstr ""
 
@@ -2419,7 +2419,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ucp/Voicemail.class.php:597
+#: ucp/Voicemail.class.php:604
 msgid "Unknown Error"
 msgstr ""
 
@@ -2427,7 +2427,7 @@ msgstr ""
 msgid "Unsupported file format"
 msgstr ""
 
-#: ucp/assets/js/global.js:470
+#: ucp/Voicemail.class.php:580 ucp/assets/js/global.js:470
 msgid "Unsupported file type"
 msgstr ""
 
@@ -2627,7 +2627,7 @@ msgid ""
 "sure you wish to continue?"
 msgstr ""
 
-#: ucp/Voicemail.class.php:555 ucp/Voicemail.class.php:587
+#: ucp/Voicemail.class.php:555 ucp/Voicemail.class.php:594
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
@@ -2636,7 +2636,7 @@ msgstr ""
 msgid "Voicemail notification"
 msgstr ""
 
-#: ucp/Voicemail.class.php:592
+#: ucp/Voicemail.class.php:599
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""
