@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-15 06:53+0000\n"
-"PO-Revision-Date: 2015-07-13 20:16+0200\n"
-"Last-Translator: Yuriy <alliancesko@gmail.com>\n"
+"PO-Revision-Date: 2021-12-08 11:02+0000\n"
+"Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
-"voicemail/ru_RU/>\n"
+"voicemail/ru/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: Voicemail.class.php:2225
 msgid " Don't leave single period on end of line by itself."
@@ -319,7 +319,7 @@ msgstr "Тело сообщения пересылаемого на пейдже
 #: functions.inc.php:417 page.voicemail.php:425 ucp/views/vmx.php:15
 #: views/dialplan.php:46
 msgid "Busy"
-msgstr ""
+msgstr "Занято"
 
 #: Voicemail.class.php:79 views/usage.php:122
 msgid "Busy Greeting"
@@ -669,7 +669,7 @@ msgstr ""
 
 #: views/usage_system.php:12
 msgid "Disabled"
-msgstr "Выключен"
+msgstr "Выключено"
 
 #: ucp/views/greetings.php:52
 msgid "Discard Recording"
@@ -883,7 +883,7 @@ msgstr "Очищать при выходе."
 
 #: functions.inc.php:560
 msgid "Extension"
-msgstr ""
+msgstr "Внутренний номер"
 
 #: Voicemail.class.php:1941
 msgid "External Notify"
@@ -1332,7 +1332,7 @@ msgstr ""
 #: views/ucp_config.php:17 views/ucp_config.php:72 views/ucp_config.php:101
 #: views/ucp_config.php:130 views/ucp_config.php:159 views/ucp_config.php:188
 msgid "Inherit"
-msgstr ""
+msgstr "Наследовать"
 
 #: voicemail.i18n.php:20
 msgid ""
@@ -1630,11 +1630,11 @@ msgstr ""
 
 #: page.voicemail.php:430 views/dialplan.php:73
 msgid "None"
-msgstr ""
+msgstr "Нет"
 
 #: ucp/Voicemail.class.php:607
 msgid "Not Found"
-msgstr ""
+msgstr "Не найдено"
 
 #: ucp/assets/js/global.js:403
 msgid "Not a valid Draggable Object"
@@ -1687,7 +1687,7 @@ msgstr ""
 
 #: ucp/assets/js/global.js:147
 msgid "On"
-msgstr ""
+msgstr "Включен"
 
 #: Voicemail.class.php:2506
 msgid "Open Timeout"
@@ -1915,7 +1915,7 @@ msgstr ""
 
 #: ucp/assets/js/global.js:635
 msgid "Recording..."
-msgstr ""
+msgstr "Запись..."
 
 #: Voicemail.class.php:2143 page.voicemail.php:317
 msgid "Remind the user that their temporary greeting is set"
@@ -1954,7 +1954,7 @@ msgstr ""
 
 #: Voicemail.class.php:1680
 msgid "Reset"
-msgstr ""
+msgstr "Сброс"
 
 #: Voicemail.class.php:2004
 msgid "Restart Keys"
@@ -1978,7 +1978,7 @@ msgstr ""
 
 #: ucp/views/greetings.php:51
 msgid "Save Recording"
-msgstr ""
+msgstr "Сохранить запись"
 
 #: Voicemail.class.php:2110
 msgid "Say CID"
@@ -2145,7 +2145,7 @@ msgstr "Поле Тема: в сообщении на пейджер."
 
 #: Voicemail.class.php:1685 page.voicemail.php:672
 msgid "Submit"
-msgstr ""
+msgstr "Применить"
 
 #: ucp/assets/js/global.js:184 ucp/assets/js/global.js:194
 #: ucp/assets/js/global.js:321 ucp/assets/js/global.js:335
@@ -2430,7 +2430,7 @@ msgstr ""
 
 #: Voicemail.class.php:2018 Voicemail.class.php:2019
 msgid "Timezone"
-msgstr ""
+msgstr "Часовой пояс"
 
 #: functions.inc.php:975 views/header.php:12
 msgid "Timezone Definitions"
@@ -2438,11 +2438,11 @@ msgstr "Установки часового пояса"
 
 #: views/tz.php:81
 msgid "Timezone definition format is: "
-msgstr "Формат дефиниций часового пояса: "
+msgstr "Формат определения часового пояса: "
 
 #: page.voicemail.php:205
 msgid "Timezone definition name"
-msgstr "Дефиниция для определённого часового пояса"
+msgstr "Название часового пояса"
 
 #: page.voicemail.php:318
 msgid "Timezone from zonemessages context.  Irrelevant if envelope=no."
@@ -2465,6 +2465,8 @@ msgid ""
 "To play the media you will need to either update your browser to a recent "
 "version or update your %s"
 msgstr ""
+"Для воспроизведения медиаданных вам потребуется либо обновить браузер до "
+"последней версии, либо обновить %s"
 
 #: Vmx.class.php:34
 msgid "To send to followme use \"FMextension\""
@@ -2541,19 +2543,19 @@ msgstr ""
 
 #: ucp/Voicemail.class.php:542
 msgid "Unknown Error"
-msgstr ""
+msgstr "Неизвестная ошибка"
 
 #: ucp/Voicemail.class.php:505
 msgid "Unsupported file format"
-msgstr ""
+msgstr "Неподдерживаемый формат файла"
 
 #: ucp/assets/js/global.js:439
 msgid "Unsupported file type"
-msgstr ""
+msgstr "Неподдерживаемый тип файла"
 
 #: ucp/views/greetings.php:36
 msgid "Update Required"
-msgstr ""
+msgstr "Требуется обновление"
 
 #: ucp/views/greetings.php:44
 msgid "Upload Greeting"
@@ -2850,11 +2852,11 @@ msgstr ""
 
 #: ucp/assets/js/global.js:641
 msgid "Your Browser Blocked The Recording, Please check your settings"
-msgstr ""
+msgstr "Ваш браузер заблокировал запись, Пожалуйста, проверьте свои настройки"
 
 #: ucp/assets/js/global.js:579
 msgid "Your settings have been saved"
-msgstr ""
+msgstr "Ваши настройки были сохранены"
 
 #: install.php:185
 msgid "checking if Voicemail Admin (vmailadmin) is installed.."
