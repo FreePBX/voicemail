@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePbx 2.5.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 06:47+0000\n"
+"POT-Creation-Date: 2022-04-11 09:06+0000\n"
 "PO-Revision-Date: 2017-03-08 20:59+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -1013,7 +1013,7 @@ msgstr ""
 msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 
-#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:558
+#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:565
 msgid "Forbidden"
 msgstr "Proibido"
 
@@ -1637,7 +1637,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: ucp/Voicemail.class.php:577
+#: ucp/Voicemail.class.php:584
 msgid "Not Found"
 msgstr ""
 
@@ -2504,7 +2504,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ucp/Voicemail.class.php:465
+#: ucp/Voicemail.class.php:472
 msgid "Unknown Error"
 msgstr ""
 
@@ -2512,8 +2512,9 @@ msgstr ""
 msgid "Unsupported file format"
 msgstr ""
 
-#: ucp/assets/js/global.js:510 ucp/assets/js/global.js:549
-#: ucp/assets/js/global.js:588 ucp/assets/js/global.js:632
+#: ucp/Voicemail.class.php:448 ucp/assets/js/global.js:510
+#: ucp/assets/js/global.js:549 ucp/assets/js/global.js:588
+#: ucp/assets/js/global.js:632
 msgid "Unsupported file type"
 msgstr ""
 
@@ -2626,7 +2627,7 @@ msgid "VmX Locator"
 msgstr ""
 
 #: Voicemail.class.php:821 functions.inc.php:509 install.php:8
-#: ucp/Voicemail.class.php:525 views/header.php:2 voicemail.i18n.php:4
+#: ucp/Voicemail.class.php:532 views/header.php:2 voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr "Correio de voz"
@@ -2709,12 +2710,12 @@ msgstr ""
 "O correio de voz está habilitado mas o campo senha está vazio. Tem certeza "
 "que deseja continuar?"
 
-#: ucp/Voicemail.class.php:423 ucp/Voicemail.class.php:455
+#: ucp/Voicemail.class.php:423 ucp/Voicemail.class.php:462
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
 
-#: ucp/Voicemail.class.php:460
+#: ucp/Voicemail.class.php:467
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""

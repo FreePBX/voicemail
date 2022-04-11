@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>13.0.59.7</version>
+	<version>13.0.60</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*13.0.60*  FREEI-4350 Added backend validation for validating file format
 		*13.0.59.7* FREEI-2107 patch the security issue 
 		*13.0.59.6* Packaging of ver 13.0.59.6
 		*13.0.59.5* FREEPBX-19924 

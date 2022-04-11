@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 06:47+0000\n"
+"POT-Creation-Date: 2022-04-11 09:06+0000\n"
 "PO-Revision-Date: 2018-06-05 17:39+0000\n"
 "Last-Translator: Nils Heckenkamp <nheckenkamp@sangoma.com>\n"
 "Language-Team: German <http://*/projects/freepbx/voicemail/de/>\n"
@@ -1078,7 +1078,7 @@ msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 "Für das Verzeichnis können Sie die Intro-Datei überschreiben, falls gewünscht"
 
-#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:558
+#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:565
 msgid "Forbidden"
 msgstr "Verboten"
 
@@ -1780,7 +1780,7 @@ msgstr ""
 msgid "None"
 msgstr "Keine"
 
-#: ucp/Voicemail.class.php:577
+#: ucp/Voicemail.class.php:584
 msgid "Not Found"
 msgstr "Nicht gefunden"
 
@@ -2783,7 +2783,7 @@ msgstr ""
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: ucp/Voicemail.class.php:465
+#: ucp/Voicemail.class.php:472
 msgid "Unknown Error"
 msgstr "Unbekannter Fehler"
 
@@ -2791,8 +2791,9 @@ msgstr "Unbekannter Fehler"
 msgid "Unsupported file format"
 msgstr "Nicht unterstütztes Dateiformat"
 
-#: ucp/assets/js/global.js:510 ucp/assets/js/global.js:549
-#: ucp/assets/js/global.js:588 ucp/assets/js/global.js:632
+#: ucp/Voicemail.class.php:448 ucp/assets/js/global.js:510
+#: ucp/assets/js/global.js:549 ucp/assets/js/global.js:588
+#: ucp/assets/js/global.js:632
 msgid "Unsupported file type"
 msgstr "Nicht unterstützter Dateityp"
 
@@ -2921,7 +2922,7 @@ msgid "VmX Locator"
 msgstr "VmX-Locator"
 
 #: Voicemail.class.php:821 functions.inc.php:509 install.php:8
-#: ucp/Voicemail.class.php:525 views/header.php:2 voicemail.i18n.php:4
+#: ucp/Voicemail.class.php:532 views/header.php:2 voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr "Anrufbeantworter"
@@ -3008,12 +3009,12 @@ msgstr ""
 "Voicemail ist aktiviert, aber das Feld für das Voicemail-Passwort ist leer. "
 "Sind Sie sicher, dass Sie fortfahren möchten?"
 
-#: ucp/Voicemail.class.php:423 ucp/Voicemail.class.php:455
+#: ucp/Voicemail.class.php:423 ucp/Voicemail.class.php:462
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr "Voicemail nicht zu %s verschoben"
 
-#: ucp/Voicemail.class.php:460
+#: ucp/Voicemail.class.php:467
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr "Voicemail war leer: %s"

@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for voicemail
-# Copyright (C) 2008-2021 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2022 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 06:47+0000\n"
+"POT-Creation-Date: 2022-04-11 09:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -992,7 +992,7 @@ msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 
 #: ucp/Voicemail.class.php:62
-#: ucp/Voicemail.class.php:558
+#: ucp/Voicemail.class.php:565
 msgid "Forbidden"
 msgstr ""
 
@@ -1651,7 +1651,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: ucp/Voicemail.class.php:577
+#: ucp/Voicemail.class.php:584
 msgid "Not Found"
 msgstr ""
 
@@ -2567,7 +2567,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ucp/Voicemail.class.php:465
+#: ucp/Voicemail.class.php:472
 msgid "Unknown Error"
 msgstr ""
 
@@ -2575,6 +2575,7 @@ msgstr ""
 msgid "Unsupported file format"
 msgstr ""
 
+#: ucp/Voicemail.class.php:448
 #: ucp/assets/js/global.js:510
 #: ucp/assets/js/global.js:549
 #: ucp/assets/js/global.js:588
@@ -2697,7 +2698,7 @@ msgstr ""
 #: Voicemail.class.php:821
 #: functions.inc.php:509
 #: install.php:8
-#: ucp/Voicemail.class.php:525
+#: ucp/Voicemail.class.php:532
 #: views/header.php:2
 #: voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
@@ -2785,12 +2786,12 @@ msgid ""
 msgstr ""
 
 #: ucp/Voicemail.class.php:423
-#: ucp/Voicemail.class.php:455
+#: ucp/Voicemail.class.php:462
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
 
-#: ucp/Voicemail.class.php:460
+#: ucp/Voicemail.class.php:467
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""

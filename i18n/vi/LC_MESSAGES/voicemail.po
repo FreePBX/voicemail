@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 06:47+0000\n"
+"POT-Creation-Date: 2022-04-11 09:06+0000\n"
 "PO-Revision-Date: 2017-08-03 10:52+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -1056,7 +1056,7 @@ msgstr ""
 msgid "For the directory, you can override the intro file if you want"
 msgstr "Đối với danh mục, bạn có thể ghi đè tệp intro nếu bạn muốn"
 
-#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:558
+#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:565
 msgid "Forbidden"
 msgstr "bị cấm"
 
@@ -1738,7 +1738,7 @@ msgstr ""
 msgid "None"
 msgstr "Không có"
 
-#: ucp/Voicemail.class.php:577
+#: ucp/Voicemail.class.php:584
 msgid "Not Found"
 msgstr "Không tìm thấy"
 
@@ -2704,7 +2704,7 @@ msgstr ""
 msgid "Unknown"
 msgstr "Không xác định rõ"
 
-#: ucp/Voicemail.class.php:465
+#: ucp/Voicemail.class.php:472
 msgid "Unknown Error"
 msgstr "Lỗi không xác định"
 
@@ -2712,8 +2712,9 @@ msgstr "Lỗi không xác định"
 msgid "Unsupported file format"
 msgstr "Định dạng tệp không được hỗ trợ"
 
-#: ucp/assets/js/global.js:510 ucp/assets/js/global.js:549
-#: ucp/assets/js/global.js:588 ucp/assets/js/global.js:632
+#: ucp/Voicemail.class.php:448 ucp/assets/js/global.js:510
+#: ucp/assets/js/global.js:549 ucp/assets/js/global.js:588
+#: ucp/assets/js/global.js:632
 msgid "Unsupported file type"
 msgstr "Kiểu tệp không được hỗ trợ"
 
@@ -2836,7 +2837,7 @@ msgid "VmX Locator"
 msgstr "Bộ định vị VmX"
 
 #: Voicemail.class.php:821 functions.inc.php:509 install.php:8
-#: ucp/Voicemail.class.php:525 views/header.php:2 voicemail.i18n.php:4
+#: ucp/Voicemail.class.php:532 views/header.php:2 voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr "Thư thoại"
@@ -2922,12 +2923,12 @@ msgstr ""
 "Thư thoại được kích hoạt nhưng trường Mật khẩu Thư thoại để trống. Bạn có "
 "chắc muốn tiếp tục?"
 
-#: ucp/Voicemail.class.php:423 ucp/Voicemail.class.php:455
+#: ucp/Voicemail.class.php:423 ucp/Voicemail.class.php:462
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr "Thư thoại không được gửi tới %s"
 
-#: ucp/Voicemail.class.php:460
+#: ucp/Voicemail.class.php:467
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr "Thư thoại trống: %s"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 06:47+0000\n"
+"POT-Creation-Date: 2022-04-11 09:06+0000\n"
 "PO-Revision-Date: 2018-06-11 10:10+0000\n"
 "Last-Translator: Stell0 <stefano.fancello@nethesis.it>\n"
 "Language-Team: Italian <http://*/projects/freepbx/voicemail/it/>\n"
@@ -1068,7 +1068,7 @@ msgstr ""
 "Per la directory, è possibile sovrascrivere il file di introduzione se lo si "
 "desidera"
 
-#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:558
+#: ucp/Voicemail.class.php:62 ucp/Voicemail.class.php:565
 msgid "Forbidden"
 msgstr "Proibito"
 
@@ -1765,7 +1765,7 @@ msgstr ""
 msgid "None"
 msgstr "Nessuno"
 
-#: ucp/Voicemail.class.php:577
+#: ucp/Voicemail.class.php:584
 msgid "Not Found"
 msgstr "Non trovato"
 
@@ -2764,7 +2764,7 @@ msgstr ""
 msgid "Unknown"
 msgstr "Sconosciuto"
 
-#: ucp/Voicemail.class.php:465
+#: ucp/Voicemail.class.php:472
 msgid "Unknown Error"
 msgstr "Errore sconosciuto"
 
@@ -2772,8 +2772,9 @@ msgstr "Errore sconosciuto"
 msgid "Unsupported file format"
 msgstr "Formato file non supportato"
 
-#: ucp/assets/js/global.js:510 ucp/assets/js/global.js:549
-#: ucp/assets/js/global.js:588 ucp/assets/js/global.js:632
+#: ucp/Voicemail.class.php:448 ucp/assets/js/global.js:510
+#: ucp/assets/js/global.js:549 ucp/assets/js/global.js:588
+#: ucp/assets/js/global.js:632
 msgid "Unsupported file type"
 msgstr "Tipo di file non supportato"
 
@@ -2902,7 +2903,7 @@ msgid "VmX Locator"
 msgstr "Localizzatore VmX"
 
 #: Voicemail.class.php:821 functions.inc.php:509 install.php:8
-#: ucp/Voicemail.class.php:525 views/header.php:2 voicemail.i18n.php:4
+#: ucp/Voicemail.class.php:532 views/header.php:2 voicemail.i18n.php:4
 #: ucp/assets/js/global.js:12
 msgid "Voicemail"
 msgstr "Segreteria telefonica"
@@ -2989,12 +2990,12 @@ msgstr ""
 "Voicemail è abilitato ma il campo Password Voicemail è vuoto. Sei sicuro di "
 "voler continuare?"
 
-#: ucp/Voicemail.class.php:423 ucp/Voicemail.class.php:455
+#: ucp/Voicemail.class.php:423 ucp/Voicemail.class.php:462
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr "La segreteria telefonica non è stata spostata su %s1"
 
-#: ucp/Voicemail.class.php:460
+#: ucp/Voicemail.class.php:467
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr "La posta vocale era vuota: %s1"
