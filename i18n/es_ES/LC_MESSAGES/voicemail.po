@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 06:53+0000\n"
+"POT-Creation-Date: 2022-04-11 09:33+0000\n"
 "PO-Revision-Date: 2016-12-12 04:58+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -1062,7 +1062,7 @@ msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 "Para el directorio, puede anular el archivo de introducción si lo desea"
 
-#: ucp/Voicemail.class.php:588
+#: ucp/Voicemail.class.php:595
 msgid "Forbidden"
 msgstr "Prohibido"
 
@@ -1759,7 +1759,7 @@ msgstr ""
 msgid "None"
 msgstr "Nada"
 
-#: ucp/Voicemail.class.php:607
+#: ucp/Voicemail.class.php:614
 msgid "Not Found"
 msgstr "No Encontrado"
 
@@ -2756,7 +2756,7 @@ msgstr ""
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: ucp/Voicemail.class.php:542
+#: ucp/Voicemail.class.php:549
 msgid "Unknown Error"
 msgstr "Error Desconocido"
 
@@ -2764,7 +2764,7 @@ msgstr "Error Desconocido"
 msgid "Unsupported file format"
 msgstr "formato de archivo no soportado"
 
-#: ucp/assets/js/global.js:439
+#: ucp/Voicemail.class.php:525 ucp/assets/js/global.js:439
 msgid "Unsupported file type"
 msgstr "Tipo de archivo no soportado"
 
@@ -2975,12 +2975,12 @@ msgstr ""
 "El buzón de voz está habilitado, pero la contraseña del buzón está vacía. "
 "¿Está seguro de que desea continuar?"
 
-#: ucp/Voicemail.class.php:500 ucp/Voicemail.class.php:532
+#: ucp/Voicemail.class.php:500 ucp/Voicemail.class.php:539
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr "Correo de Voz no movido a %s"
 
-#: ucp/Voicemail.class.php:537
+#: ucp/Voicemail.class.php:544
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr "Correo de Voz estaba vacío: %s"

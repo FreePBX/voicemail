@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 06:53+0000\n"
+"POT-Creation-Date: 2022-04-11 09:33+0000\n"
 "PO-Revision-Date: 2015-02-18 07:06+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
@@ -1010,7 +1010,7 @@ msgstr ""
 msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 
-#: ucp/Voicemail.class.php:588
+#: ucp/Voicemail.class.php:595
 msgid "Forbidden"
 msgstr "アクセス拒否"
 
@@ -1663,7 +1663,7 @@ msgstr ""
 msgid "None"
 msgstr "なし"
 
-#: ucp/Voicemail.class.php:607
+#: ucp/Voicemail.class.php:614
 msgid "Not Found"
 msgstr ""
 
@@ -2573,7 +2573,7 @@ msgstr ""
 msgid "Unknown"
 msgstr "不明"
 
-#: ucp/Voicemail.class.php:542
+#: ucp/Voicemail.class.php:549
 msgid "Unknown Error"
 msgstr ""
 
@@ -2581,7 +2581,7 @@ msgstr ""
 msgid "Unsupported file format"
 msgstr ""
 
-#: ucp/assets/js/global.js:439
+#: ucp/Voicemail.class.php:525 ucp/assets/js/global.js:439
 msgid "Unsupported file type"
 msgstr ""
 
@@ -2783,12 +2783,12 @@ msgid ""
 msgstr ""
 "ボイスメールは有効化されていますが、パスワードが空です。処理を続行しますか？"
 
-#: ucp/Voicemail.class.php:500 ucp/Voicemail.class.php:532
+#: ucp/Voicemail.class.php:500 ucp/Voicemail.class.php:539
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
 
-#: ucp/Voicemail.class.php:537
+#: ucp/Voicemail.class.php:544
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""

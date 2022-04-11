@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 06:53+0000\n"
+"POT-Creation-Date: 2022-04-11 09:33+0000\n"
 "PO-Revision-Date: 2019-01-25 12:10+0000\n"
 "Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://*/projects/freepbx/voicemail/fa/>\n"
@@ -1039,7 +1039,7 @@ msgstr ""
 msgid "For the directory, you can override the intro file if you want"
 msgstr "برای دایرکتوری، شما میتوانید فایل راهنما را بازنویسی کنید"
 
-#: ucp/Voicemail.class.php:588
+#: ucp/Voicemail.class.php:595
 msgid "Forbidden"
 msgstr "ممنوع"
 
@@ -1718,7 +1718,7 @@ msgstr ""
 msgid "None"
 msgstr "هیچ"
 
-#: ucp/Voicemail.class.php:607
+#: ucp/Voicemail.class.php:614
 msgid "Not Found"
 msgstr "یافت نشد"
 
@@ -2675,7 +2675,7 @@ msgstr "بدون علامت کنید برای پخش بوق بعد از پیام
 msgid "Unknown"
 msgstr "ناشناخته"
 
-#: ucp/Voicemail.class.php:542
+#: ucp/Voicemail.class.php:549
 msgid "Unknown Error"
 msgstr "خطای ناشناخته"
 
@@ -2683,7 +2683,7 @@ msgstr "خطای ناشناخته"
 msgid "Unsupported file format"
 msgstr "فرمت فایل پشتیبانی نشده"
 
-#: ucp/assets/js/global.js:439
+#: ucp/Voicemail.class.php:525 ucp/assets/js/global.js:439
 msgid "Unsupported file type"
 msgstr "نوع فایل پشتیبانی نشده"
 
@@ -2893,12 +2893,12 @@ msgstr ""
 "ایمیل صوتی فعال است ولی فیلد کلمه عبور ایمیل صوتی خالی است. آیا از ادامه "
 "مطمئن هستید؟"
 
-#: ucp/Voicemail.class.php:500 ucp/Voicemail.class.php:532
+#: ucp/Voicemail.class.php:500 ucp/Voicemail.class.php:539
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr "ایمیل صوتی منتقل نشد به%s"
 
-#: ucp/Voicemail.class.php:537
+#: ucp/Voicemail.class.php:544
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr "پیام صوتی خالی بود:%s"
