@@ -440,6 +440,13 @@ class Voicemail extends Modules{
 			break;
 			case "record":
 				$return = array("status" => true, "message" => "");
+				//validate file extension
+				$allowed = array("WAV", "sln192", "sln96", "sln48", "sln44", "sln32", "sln24", "sln16", "sln12", "sln", "gsm", "g722", "alaw", "ulaw", "wav16", "wav", "aiff", "flac", "ogg", "oga", "mp3", "m4a", "mp4");
+				$filename = $_FILES['file']['name'];
+				$ext = pathinfo($filename, PATHINFO_EXTENSION);
+				if (!in_array($ext, $allowed)) {
+					return array("status" => false, "message" => _("Unsupported file type"));
+				}
 				if ($_FILES["file"]["error"] == UPLOAD_ERR_OK) {
 					$tmp_path = sys_get_temp_dir();
 					$tmp_path = !empty($tmp_path) ? $tmp_path : '/tmp';
