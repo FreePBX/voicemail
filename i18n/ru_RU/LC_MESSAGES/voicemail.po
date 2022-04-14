@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-11 09:33+0000\n"
-"PO-Revision-Date: 2022-04-13 06:00+0000\n"
+"PO-Revision-Date: 2022-04-15 06:01+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "voicemail/ru/>\n"
@@ -1365,7 +1365,7 @@ msgstr ""
 
 #: Voicemail.class.php:2297
 msgid "Language"
-msgstr ""
+msgstr "Язык"
 
 #: Voicemail.class.php:2298
 msgid "Language code for voicemail"
