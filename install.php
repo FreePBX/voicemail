@@ -17,13 +17,7 @@ _("The Feature Code used to dial any voicemail");
 global $astman;
 global $amp_conf;
 global $db;
-$content = file_get_contents($amp_conf['ASTETCDIR']."/voicemail.conf");
-if(strpos($content,"externnotify") === false) {
-	$content = str_replace("[general]\n","[general]\nexternnotify=/usr/sbin/fwconsole voicemail\n", $content);
-	file_put_contents($amp_conf['ASTETCDIR']."/voicemail.conf", $content);
-}else {
-	exec("sed -i -e 's/externnotify=.*/externnotify=\/usr\/sbin\/fwconsole voicemail/g' ".$amp_conf['ASTETCDIR']."/voicemail.conf");
-}
+
 $fcc = new featurecode('voicemail', 'myvoicemail');
 $fcc->setDescription('My Voicemail');
 $fcc->setHelpText('The Feature Code used to direct dial a users voicemail from their own extension');
