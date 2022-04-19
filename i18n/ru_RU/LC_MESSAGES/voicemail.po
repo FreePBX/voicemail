@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Voicemail\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-19 10:01+0530\n"
-"PO-Revision-Date: 2022-04-19 12:29+0000\n"
+"PO-Revision-Date: 2022-04-19 15:28+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "voicemail/ru/>\n"
@@ -463,6 +463,13 @@ msgid ""
 "contexts. Otherwise, an ambiguity is created since it is impossible to know "
 "which mailbox to retrieve when one is requested."
 msgstr ""
+"Текущее поведение по умолчанию заключается в поиске только контекста по "
+"умолчанию, если он не указан. Более старое поведение заключалось в поиске во "
+"всех контекстах. Эта опция восстанавливает прежнее поведение [ПО "
+"УМОЛЧАНИЮ=нет] Примечание: Если у вас включена эта опция - вам потребуется "
+"иметь уникальные имена почтовых ящиков во всех контекстах. В противном "
+"случае возникает двусмысленность, поскольку невозможно определить, какой "
+"почтовый ящик использовать при запросе."
 
 #: Voicemail.class.php:1984 Voicemail.class.php:1991 Voicemail.class.php:1998
 #: Voicemail.class.php:2005 Voicemail.class.php:2012 page.voicemail.php:245
@@ -490,6 +497,8 @@ msgid ""
 "Customize which sound file is used instead of the default prompt that says "
 "\"Please try again.\""
 msgstr ""
+"Настройте, какой звуковой файл используется вместо приглашения по умолчанию "
+"\"Пожалуйста, попробуйте еще раз\""
 
 #: Voicemail.class.php:2541 page.voicemail.php:284
 msgid ""
@@ -523,6 +532,9 @@ msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"The passwords you entered and re-entered did not match. Please try again.\""
 msgstr ""
+"Настройте, какой звуковой файл используется вместо приглашения по умолчанию, "
+"в котором говорится: \"Пароли, которые вы ввели и ввели повторно, не "
+"совпадают. Пожалуйста, попробуйте еще раз\""
 
 #: Voicemail.class.php:2548 page.voicemail.php:285
 msgid ""
@@ -545,12 +557,17 @@ msgid ""
 "Customize which sound file is used instead of the default prompt that "
 "says: ..."
 msgstr ""
+"Настройте, какой звуковой файл используется вместо подсказки по умолчанию, в "
+"которой говорится: ..."
 
 #: Voicemail.class.php:2583
 msgid ""
 "Customize which sound file is used when the user times out while recording a "
 "prepend message instead of the default prompt that says \"then press pound\""
 msgstr ""
+"Настройте, какой звуковой файл используется, когда пользователь отключается "
+"во время записи предварительного сообщения, вместо подсказки по умолчанию \""
+"после чего нажмите решетку\""
 
 #: ucp/views/widget.php:60
 msgid "Date/Time"
@@ -568,6 +585,11 @@ msgid ""
 "an external number and there is NO VALIDATION so it should be tested after "
 "configuration."
 msgstr ""
+"Номер по умолчанию для набора для \"обнуления\" голосовой почты, если она "
+"включена. Это может быть переопределено для каждого номера с помощью "
+"параметра VMX Locater, который действителен, даже если VMX Locater не "
+"включен. Это может быть любое число, включая внешний номер, и ПРОВЕРКА НЕ "
+"проводится, поэтому его следует протестировать после настройки."
 
 #: ucp/views/greetings.php:47 ucp/views/widget.php:28 views/tz.php:21
 msgid "Delete"
@@ -637,7 +659,7 @@ msgstr "Вызов голосовой почты"
 
 #: Voicemail.class.php:2616
 msgid "Dialout Context"
-msgstr ""
+msgstr "Контекст набора номера"
 
 #: functions.inc.php:992 views/header.php:11
 msgid "Dialplan Behavior"
@@ -649,15 +671,15 @@ msgstr "Режим прямого набора"
 
 #: install.php:12 voicemail.i18n.php:30
 msgid "Direct Dial Prefix"
-msgstr ""
+msgstr "Префикс прямого набора"
 
 #: ucp/assets/js/global.js:593
 msgid "Direct Media Recording is Unsupported in your Broswer!"
-msgstr ""
+msgstr "Прямая запись мультимедиа не поддерживается вашим браузером!"
 
 #: Voicemail.class.php:2589
 msgid "Directory Intro"
-msgstr ""
+msgstr "Введение в каталог"
 
 #: ucp/assets/js/global.js:115
 msgid "Disable"
@@ -686,6 +708,10 @@ msgid ""
 "after the beep. This can be individually controlled for users who have VMX "
 "locater enabled."
 msgstr ""
+"Отключите стандартные инструкции голосовой почты, которые следуют за "
+"записанным пользователем сообщением. Эти стандартные инструкции предписывают "
+"вызывающему абоненту оставить сообщение после звукового сигнала. Ими можно "
+"управлять индивидуально для пользователей, у которых включен VMX locater."
 
 #: views/usage_system.php:12
 msgid "Disabled"
@@ -693,7 +719,7 @@ msgstr "Выключен"
 
 #: ucp/views/greetings.php:52
 msgid "Discard Recording"
-msgstr ""
+msgstr "Отменить запись"
 
 #: views/usage.php:8 views/usage_system.php:24
 msgid "Disk space currently in use by Voicemail data"
@@ -701,7 +727,7 @@ msgstr "Дисковое пространство, используемое по
 
 #: ucp/assets/js/global.js:407
 msgid "Dragging to yourself is not allowed"
-msgstr ""
+msgstr "Перетаскивание на себя не допускается"
 
 #: ucp/views/widget.php:65
 msgid "Duration"
@@ -713,6 +739,8 @@ msgid ""
 "ERROR inserting %s into voicemail_admin during migration, it may alreayd "
 "exist"
 msgstr ""
+"ОШИБКА при вставке %s в voicemail_admin во время миграции, возможно, она уже "
+"существует"
 
 #: Voicemail.class.php:1927 functions.inc.php:600 page.voicemail.php:519
 #: ucp/views/vmsettings.php:11
@@ -773,6 +801,10 @@ msgid ""
 "when sending a Voicemail. NOTE: sox must be installed for this option to "
 "work."
 msgstr ""
+"Электронные письма с голосовой почтой могут приходить слишком тихо, чтобы их "
+"можно было услышать. Этот параметр позволяет указать, какой коэффициент "
+"усиления следует добавить к сообщению при отправке голосовой почты. "
+"ПРИМЕЧАНИЕ: для работы этой опции необходимо установить sox."
 
 #: ucp/views/vmx.php:5 ucp/assets/js/global.js:114
 msgid "Enable"
@@ -780,7 +812,7 @@ msgstr "Включить"
 
 #: Voicemail.class.php:2174 Voicemail.class.php:2175
 msgid "Enable SMDI notification"
-msgstr ""
+msgstr "Включить уведомление SMDI"
 
 #: page.voicemail.php:278
 msgid "Enable Simple Message Desk Interface (SMDI) integration"
@@ -788,12 +820,14 @@ msgstr "Задействовать интеграцию с Simple Message Desk I
 
 #: views/ucp_config.php:197
 msgid "Enable VmX Locater in UCP for this user"
-msgstr ""
+msgstr "Включить VmX Locater в UCP для этого пользователя"
 
 #: ucp/views/vmx.php:17
 msgid ""
 "Enable VmX Menu options during Voicemail playback for the selected options."
 msgstr ""
+"Включите параметры меню VmX во время воспроизведения голосовой почты для "
+"выбранных параметров."
 
 #: views/quickCreate.php:5
 msgid "Enable Voicemail"
@@ -831,6 +865,12 @@ msgid ""
 "callers more control. In essence, the VMX locater is a mini-IVR (interactive "
 "voice response) for voicemail"
 msgstr ""
+"Включите/отключите функцию определения местоположения VmX (Расширение "
+"виртуальной машины) для этого пользователя. VMX locator позволяет "
+"осуществлять расширенный контроль над системой голосовой почты пользователя. "
+"Это чем-то похоже на функцию \"Следуйте сюда\", однако она дает абонентам "
+"больше контроля. По сути, VMX locater представляет собой мини-IVR ("
+"интерактивное голосовое меню) для голосовой почты"
 
 #: ucp/views/vmx.php:7
 msgid ""
@@ -2490,7 +2530,7 @@ msgstr ""
 #: ucp/assets/js/global.js:177 ucp/assets/js/global.js:245
 #: ucp/assets/js/global.js:312
 msgid "To"
-msgstr ""
+msgstr "и"
 
 #: Voicemail.class.php:1716
 msgid "To Disable * in Voicemail Menu use Blank/no  OR yes"
@@ -2850,7 +2890,7 @@ msgstr "Рабочий"
 
 #: Voicemail.class.php:2520
 msgid "Write Timeout"
-msgstr ""
+msgstr "Таймаут записи"
 
 #: views/tz.php:142
 msgid "Year"
