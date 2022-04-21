@@ -425,6 +425,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 			if(isset($uservm[$vmcontext][$mailbox])){
 				$this->delConfig($mailbox, 'vmmapping');
 				unset($uservm[$vmcontext][$mailbox]);
+                unset($uservm["pbxaliases"]);
 				$this->saveVoicemail($uservm);
 				return true;
 			}
