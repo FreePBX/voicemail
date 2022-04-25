@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Voicemail\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-19 10:01+0530\n"
-"PO-Revision-Date: 2022-04-19 15:28+0000\n"
+"PO-Revision-Date: 2022-04-25 09:21+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "voicemail/ru/>\n"
@@ -880,6 +880,12 @@ msgid ""
 "essence, the VMX locater is a mini-IVR (interactive voice response) for "
 "voicemail"
 msgstr ""
+"Включение/отключение функции определения местоположения VmX (Расширение "
+"виртуальной машины). Локатор VMX позволяет осуществлять расширенный контроль "
+"над вашей системой голосовой почты. Это чем-то похоже на функцию \"Следуйте-"
+"сюда\", однако она дает абонентам больше контроля. По сути, VMX locater "
+"представляет собой мини-IVR (интерактивное голосовое меню) для голосовой "
+"почты"
 
 #: functions.inc.php:530 functions.inc.php:815
 msgid "Enabled"
@@ -887,7 +893,7 @@ msgstr "Включен"
 
 #: Voicemail.class.php:2341 page.voicemail.php:256
 msgid "Enforce minimum password length"
-msgstr ""
+msgstr "Обеспечение соблюдения минимальной длины пароля"
 
 #: functions.inc.php:880
 msgid ""
@@ -896,6 +902,11 @@ msgid ""
 "to use your Follow Me List, check \"Send to Follow Me\" and disable Follow "
 "Me otherwise the call will go to Follow Me first and skip VmX Locater."
 msgstr ""
+"Введите здесь альтернативный номер, затем измените свое личное приветствие "
+"голосовой почты, чтобы абоненты знали, что нужно нажать 1, чтобы набрать "
+"этот номер. <br/><br/>Если вы хотите использовать свой список Следуйте-сюда -"
+" установите флажок \"Отправить в Следуйте-сюда\" и отключите Следуйте-сюда, "
+"иначе вызов будет отправлен сначала на Следуйте-сюда и пропустит VmX Locater."
 
 #: ucp/views/vmx.php:37
 msgid ""
@@ -904,6 +915,11 @@ msgid ""
 "your Follow Me List, uncheck the box to disable, otherwise the call will go "
 "to Follow Me first and skip VmX Locater"
 msgstr ""
+"Введите здесь альтернативный номер, затем измените свое личное приветствие "
+"голосовой почты, чтобы абоненты знали, что нужно нажать 1 для набора этого "
+"номера. Если вы хотите использовать свой список Следуйте-сюда - снимите "
+"флажок для отключения, в противном случае вызов сначала перейдет к Следуйте-"
+"сюда и пропустит VmX Locater"
 
 #: views/tz.php:4
 msgid "Entries below will be written to Voicemail configuration as-is."
@@ -932,7 +948,7 @@ msgstr "Ошибка выполнения %s. Причина: %s"
 
 #: views/dialplan.php:186
 msgid "Error Re-tries"
-msgstr ""
+msgstr "Ошибка повтора"
 
 #: Voicemail.class.php:2623
 msgid "Exit Context"
@@ -956,11 +972,11 @@ msgstr "Внешний пароль"
 
 #: Voicemail.class.php:1955
 msgid "External Password Notify"
-msgstr ""
+msgstr "Уведомление о внешнем пароле"
 
 #: Voicemail.class.php:1962
 msgid "External Password Verification Script"
-msgstr ""
+msgstr "Скрипт проверки внешнего пароля"
 
 #: Voicemail.class.php:1942 Voicemail.class.php:2047 page.voicemail.php:226
 msgid "External Voicemail notify application."
