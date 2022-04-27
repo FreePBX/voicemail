@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Russian (FreePBX)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-27 04:42+0000\n"
-"PO-Revision-Date: 2022-04-27 12:51+0000\n"
+"POT-Creation-Date: 2022-04-27 12:49+0000\n"
+"PO-Revision-Date: 2022-04-27 12:52+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "voicemail/ru/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: Voicemail.class.php:2225
 msgid " Don't leave single period on end of line by itself."
-msgstr " Не оставляйте ни одного периода в конце строки сам по себе."
+msgstr " Не оставляйте ни одной точки в конце строки самой по себе."
 
 #: views/tz.php:204
 msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
@@ -3123,7 +3123,7 @@ msgstr "не может быть удалено"
 
 #: install.php:141
 msgid "deleting VM_PREFIX from globals.."
-msgstr ""
+msgstr "удаление VM_PREFIX из глобальных параметров.."
 
 #: install.php:127 install.php:144
 msgid "done"
