@@ -6,8 +6,8 @@
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="VM_OPTS"><?php echo _("Disable Standard Prompt") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="VM_OPTS"></i>
@@ -33,8 +33,8 @@
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="VM_DDTYPE"><?php echo _("Direct Dial Mode") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="VM_DDTYPE"></i>
@@ -62,8 +62,8 @@
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="VM_GAIN"><?php echo _("Voicemail Recording Gain") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="VM_GAIN"></i>
@@ -97,8 +97,8 @@
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="OPERATOR_XTN"><?php echo _("Operator Extension") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="OPERATOR_XTN"></i>
@@ -126,8 +126,8 @@
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="VMX_TIMEOUT"><?php echo _("Msg Timeout") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="VMX_TIMEOUT"></i>
@@ -153,8 +153,8 @@
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="VMX_REPEAT"><?php echo _("Times to Play Message") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="VMX_REPEAT"></i>
@@ -180,8 +180,8 @@
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="VMX_LOOPS"><?php echo _("Error Re-tries") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="VMX_LOOPS"></i>
@@ -207,8 +207,8 @@
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="VMX_OPTS_LOOP"><?php echo _("Disable Standard Prompt after Max Loops") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="VMX_OPTS_LOOP"></i>
@@ -234,8 +234,8 @@
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="form-group">
+				<div class="">
+					<div class="row form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="VMX_OPTS_DOVM"><?php echo _("Disable Standard Prompt on 'dovm' Extension") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="VMX_OPTS_DOVM"></i>

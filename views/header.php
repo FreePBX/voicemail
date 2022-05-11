@@ -5,11 +5,11 @@
 				<div class="fpbx-container">
 					<div class="display no-border">
 						<div class="tabpanel">
-							<ul class="nav nav-tabs">
-								<li role="presentation" <?php echo ($action == 'usage')? 'class="active"':''?>><a href="config.php?display=voicemail&amp;action=usage"><?php echo _("Usage")?></a></li>
-								<li role="presentation" <?php echo ($action == 'settings')? 'class="active"':''?>><a href="config.php?display=voicemail&amp;action=settings"><?php echo _("Settings")?></a></li>
-								<li role="presentation" <?php echo ($action == 'dialplan')? 'class="active"':''?>><a href="config.php?display=voicemail&amp;action=dialplan"><?php echo _("Dialplan Behavior")?></a></li>
-								<li role="presentation" <?php echo ($action == 'tz')? 'class="active"':''?>><a href="config.php?display=voicemail&amp;action=tz"><?php echo _("Timezone Definitions")?></a></li>
+							<ul class="nav nav-tabs pb-0">
+								<li role="presentation"><a class="nav-link <?php echo ($action == 'usage')? 'active':''?>" href="config.php?display=voicemail&amp;action=usage"><?php echo _("Usage")?></a></li>
+								<li role="presentation"><a class="nav-link <?php echo ($action == 'settings')? 'active':''?>" href="config.php?display=voicemail&amp;action=settings"><?php echo _("Settings")?></a></li>
+								<li role="presentation"><a class="nav-link <?php echo ($action == 'dialplan')? 'active':''?>" href="config.php?display=voicemail&amp;action=dialplan"><?php echo _("Dialplan Behavior")?></a></li>
+								<li role="presentation"><a class="nav-link <?php echo ($action == 'tz')? 'active':''?>" href="config.php?display=voicemail&amp;action=tz"><?php echo _("Timezone Definitions")?></a></li>
 							</ul>
 							<div class="tab-content">
 								<div id="<?php echo $action?>" class="tab-pane display active">
