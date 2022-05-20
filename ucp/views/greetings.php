@@ -51,7 +51,7 @@
 					<button class="btn btn-success btn-xs save" data-id="<?php echo $greeting?>"><i class="fa fa-floppy-o"></i> <?php echo _('Save Recording')?></button>
 					<button class="btn btn-danger btn-xs delete" data-id="<?php echo $greeting?>"><i class="fa fa-trash-o fa-lg"></i> <?php echo _('Discard Recording')?></button>
 				</div>
-				<div data-type="<?php echo $greeting?>" class="filedrop d-none d-sm-none">
+				<div data-type="<?php echo $greeting?>" class="filedrop">
 					<div class="message" data-message="<?php echo _('Upload a New Greeting or Drag an Old Greeting Here')?>"><?php echo _('Upload a New Greeting or Drag an Old Greeting Here')?></div>
 					<div class="pbar"></div>
 				</div>
