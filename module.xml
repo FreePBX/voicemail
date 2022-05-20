@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>16.0.41</version>
+	<version>16.0.42</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*16.0.42* Packaging of ver 16.0.42
 		*16.0.41* Packaging of ver 16.0.41
 		*16.0.40* FREEI-4793 
 		*16.0.39* FREEPBX-20336 and FREEI-4723 
