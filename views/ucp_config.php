@@ -1,8 +1,8 @@
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="voicemailenable"><?php echo _("Enable Voicemail Access") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="voicemailenable"></i>
@@ -30,8 +30,8 @@
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="ucp_voicemail"><?php echo _("Allowed Voicemail")?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="ucp_voicemail"></i>
@@ -56,8 +56,8 @@
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="voicemailplayback"><?php echo _("Allow Voicemail Playback") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="voicemailplayback"></i>
@@ -85,8 +85,8 @@
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="voicemaildownload"><?php echo _("Allow Voicemail Download") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="voicemaildownload"></i>
@@ -114,8 +114,8 @@
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="voicemailsettings"><?php echo _("Allow Voicemail Settings") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="voicemailsettings"></i>
@@ -143,8 +143,8 @@
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="voicemailgreetings"><?php echo _("Allow Voicemail Greetings") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="voicemailgreetings"></i>
@@ -172,8 +172,8 @@
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="vmxlocater"><?php echo _("Allow VmX Locater Settings") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="vmxlocater"></i>
