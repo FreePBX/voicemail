@@ -2002,7 +2002,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 						"type" => "text",
 						"default" => "",
 						"description" => _("Pager Email Address"),
-						"helptext" => _("Pager/mobile email address that short Voicemail notifications are sent to.") . " [pager]"
+						"helptext" => _("Pager/mobile email address that short Voicemail notifications are sent to. Separated by |") . " [pager]"
 					),
 					"email" => array(
 						"level" => array("account"),
