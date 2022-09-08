@@ -576,6 +576,10 @@ class Voicemail extends Modules{
 				$allowed = array("WAV", "sln192", "sln96", "sln48", "sln44", "sln32", "sln24", "sln16", "sln12", "sln", "gsm", "g722", "alaw", "ulaw", "wav16", "wav", "aiff", "flac", "ogg", "oga", "mp3", "m4a", "mp4");
 				$filename = $_FILES['file']['name'];
 				$ext = pathinfo($filename, PATHINFO_EXTENSION);
+				if(empty($ext)){
+					$ext = explode("/",$_FILES['file']['type']);
+					$ext = is_array($ext) && count($ext) > 0 ? $ext[1] : "";
+				}
 				if (!in_array($ext, $allowed)) {
 					return array("status" => false, "message" => _("Unsupported file type"));
 				}
