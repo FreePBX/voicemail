@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-21 03:11+0000\n"
+"POT-Creation-Date: 2022-09-09 03:01+0000\n"
 "PO-Revision-Date: 2016-12-12 04:58+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -1049,7 +1049,7 @@ msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 "Para el directorio, puede anular el archivo de introducción si lo desea"
 
-#: ucp/Voicemail.class.php:650
+#: ucp/Voicemail.class.php:654
 msgid "Forbidden"
 msgstr "Prohibido"
 
@@ -1751,7 +1751,7 @@ msgstr ""
 msgid "None"
 msgstr "Nada"
 
-#: ucp/Voicemail.class.php:669
+#: ucp/Voicemail.class.php:673
 msgid "Not Found"
 msgstr "No Encontrado"
 
@@ -1876,13 +1876,18 @@ msgstr "Cadena \"De\" Buscapersonas"
 msgid "Pager Subject"
 msgstr "Asunto Buscapersonas"
 
-#: Voicemail.class.php:2005 functions.inc.php:615 page.voicemail.php:310
-#: ucp/views/vmsettings.php:18
+#: functions.inc.php:615
 msgid ""
 "Pager/mobile email address that short Voicemail notifications are sent to."
 msgstr ""
 "Número de teléfono móvil/buscapersonas a la que se enviarán las "
 "notificaciones del buzón de voz."
+
+#: Voicemail.class.php:2005 page.voicemail.php:310 ucp/views/vmsettings.php:18
+msgid ""
+"Pager/mobile email address that short Voicemail notifications are sent to. "
+"Separated by |"
+msgstr ""
 
 #: Voicemail.class.php:2638
 msgid "Password"
@@ -2804,7 +2809,7 @@ msgstr ""
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: ucp/Voicemail.class.php:604
+#: ucp/Voicemail.class.php:608
 msgid "Unknown Error"
 msgstr "Error Desconocido"
 
@@ -2812,7 +2817,7 @@ msgstr "Error Desconocido"
 msgid "Unsupported file format"
 msgstr "formato de archivo no soportado"
 
-#: ucp/Voicemail.class.php:580 ucp/assets/js/global.js:470
+#: ucp/Voicemail.class.php:584 ucp/assets/js/global.js:470
 msgid "Unsupported file type"
 msgstr "Tipo de archivo no soportado"
 
@@ -3031,7 +3036,7 @@ msgstr ""
 "El buzón de voz está habilitado, pero la contraseña del buzón está vacía. "
 "¿Está seguro de que desea continuar?"
 
-#: ucp/Voicemail.class.php:555 ucp/Voicemail.class.php:594
+#: ucp/Voicemail.class.php:555 ucp/Voicemail.class.php:598
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr "Correo de Voz no movido a %s"
@@ -3040,7 +3045,7 @@ msgstr "Correo de Voz no movido a %s"
 msgid "Voicemail notification"
 msgstr ""
 
-#: ucp/Voicemail.class.php:599
+#: ucp/Voicemail.class.php:603
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr "Correo de Voz estaba vacío: %s"
