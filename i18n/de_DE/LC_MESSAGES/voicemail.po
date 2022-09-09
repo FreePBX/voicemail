@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-21 03:10+0000\n"
+"POT-Creation-Date: 2022-09-09 03:01+0000\n"
 "PO-Revision-Date: 2018-02-16 16:12+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -1068,7 +1068,7 @@ msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 "Für das Verzeichnis können Sie die Intro-Datei überschreiben, falls gewünscht"
 
-#: ucp/Voicemail.class.php:650
+#: ucp/Voicemail.class.php:654
 msgid "Forbidden"
 msgstr "Verboten"
 
@@ -1779,7 +1779,7 @@ msgstr ""
 msgid "None"
 msgstr "Keine"
 
-#: ucp/Voicemail.class.php:669
+#: ucp/Voicemail.class.php:673
 msgid "Not Found"
 msgstr "Nicht gefunden"
 
@@ -1907,13 +1907,18 @@ msgstr "Pager von String"
 msgid "Pager Subject"
 msgstr "Pager-Betreff"
 
-#: Voicemail.class.php:2005 functions.inc.php:615 page.voicemail.php:310
-#: ucp/views/vmsettings.php:18
+#: functions.inc.php:615
 msgid ""
 "Pager/mobile email address that short Voicemail notifications are sent to."
 msgstr ""
 "Pager/mobile E-Mail-Adresse, an die kurze Voicemail-Benachrichtigungen "
 "gesendet werden."
+
+#: Voicemail.class.php:2005 page.voicemail.php:310 ucp/views/vmsettings.php:18
+msgid ""
+"Pager/mobile email address that short Voicemail notifications are sent to. "
+"Separated by |"
+msgstr ""
 
 #: Voicemail.class.php:2638
 msgid "Password"
@@ -2833,7 +2838,7 @@ msgstr ""
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: ucp/Voicemail.class.php:604
+#: ucp/Voicemail.class.php:608
 msgid "Unknown Error"
 msgstr "Unbekannter Fehler"
 
@@ -2841,7 +2846,7 @@ msgstr "Unbekannter Fehler"
 msgid "Unsupported file format"
 msgstr "Nicht unterstütztes Dateiformat"
 
-#: ucp/Voicemail.class.php:580 ucp/assets/js/global.js:470
+#: ucp/Voicemail.class.php:584 ucp/assets/js/global.js:470
 msgid "Unsupported file type"
 msgstr "Nicht unterstützter Dateityp"
 
@@ -3064,7 +3069,7 @@ msgstr ""
 "Voicemail ist aktiviert, aber das Feld für das Voicemail-Passwort ist leer. "
 "Sind Sie sicher, dass Sie fortfahren möchten?"
 
-#: ucp/Voicemail.class.php:555 ucp/Voicemail.class.php:594
+#: ucp/Voicemail.class.php:555 ucp/Voicemail.class.php:598
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr "Voicemail nicht zu %s verschoben"
@@ -3073,7 +3078,7 @@ msgstr "Voicemail nicht zu %s verschoben"
 msgid "Voicemail notification"
 msgstr ""
 
-#: ucp/Voicemail.class.php:599
+#: ucp/Voicemail.class.php:603
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr "Voicemail war leer: %s"
