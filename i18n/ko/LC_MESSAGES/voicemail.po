@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-09 03:01+0000\n"
+"POT-Creation-Date: 2022-09-22 06:02+0000\n"
 "PO-Revision-Date: 2021-02-10 00:00+0000\n"
 "Last-Translator: Andy Lim <mhlim@dialogic.co.kr>\n"
 "Language-Team: Korean <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -2561,7 +2561,7 @@ msgstr ""
 msgid "VmX Locater&trade;"
 msgstr ""
 
-#: Voicemail.class.php:894 Voicemail.class.php:2870 functions.inc.php:510
+#: Voicemail.class.php:894 Voicemail.class.php:2875 functions.inc.php:510
 #: install.php:8 ucp/Voicemail.class.php:97 ucp/Voicemail.class.php:146
 #: ucp/Voicemail.class.php:198 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"

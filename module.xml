@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.26</version>
+	<version>15.0.27</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.27* FREEI-4015 D series - Voicemail app on multiple AORs 
 		*15.0.26* FREEPBX-22996 Added check to validate file extension from file type 
 		*15.0.25* FREEI-4977 UCC Voicemail to email URL issue fix 
 		*15.0.24* FREEPBX-20336 and FREEI-4723 
