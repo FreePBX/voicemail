@@ -79,7 +79,7 @@
 
 <div class="well well-info">
 	<?php echo _("Timezone definition format is: ") ?>&nbsp;&nbsp;<b style='font-family:courier;'><?php echo _("timezone|values")?></b>
-	<br /><br/><b><?php echo _("<i>Timezones</i> are listed in /usr/share/zoneinfo")?>
+	<br /><br/><b><?php echo _("<i>Timezones</i> are listed in /usr/share/zoneinfo")?></b>
 </div>
 
 	<table class="table table-striped">
