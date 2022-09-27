@@ -19,8 +19,8 @@
 			<div class="element-container">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="">
-							<div class="row form-group">
+						<div class="row">
+							<div class="form-group">
 								<div class="col-md-3">
 									<label class="control-label" for="del_msgs"><?php echo _("Number of Messages") ?></label>
 									<i class="fa fa-question-circle fpbx-help-icon" data-for="del_msgs"></i>
@@ -54,8 +54,8 @@
 			<div class="element-container">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="">
-							<div class="row form-group">
+						<div class="row">
+							<div class="form-group">
 								<div class="col-md-3">
 									<label class="control-label" for="del_names"><?php echo _("Recorded Name") ?></label>
 									<i class="fa fa-question-circle fpbx-help-icon" data-for="del_names"></i>
@@ -85,8 +85,8 @@
 			<div class="element-container">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="">
-							<div class="row form-group">
+						<div class="row">
+							<div class="form-group">
 								<div class="col-md-3">
 									<label class="control-label" for="del_unavail"><?php echo _("Unavailable Greeting") ?></label>
 									<i class="fa fa-question-circle fpbx-help-icon" data-for="del_unavail"></i>
@@ -116,8 +116,8 @@
 			<div class="element-container">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="">
-							<div class="row form-group">
+						<div class="row">
+							<div class="form-group">
 								<div class="col-md-3">
 									<label class="control-label" for="del_busy"><?php echo _("Busy Greeting") ?></label>
 									<i class="fa fa-question-circle fpbx-help-icon" data-for="del_busy"></i>
@@ -147,8 +147,8 @@
 			<div class="element-container">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="">
-							<div class="row form-group">
+						<div class="row">
+							<div class="form-group">
 								<div class="col-md-3">
 									<label class="control-label" for="del_temp"><?php echo _("Temporary Greeting") ?></label>
 									<i class="fa fa-question-circle fpbx-help-icon" data-for="del_temp"></i>
@@ -178,8 +178,8 @@
 			<div class="element-container">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="">
-							<div class="row form-group">
+						<div class="row">
+							<div class="form-group">
 								<div class="col-md-3">
 									<label class="control-label" for="del_abandoned"><?php echo _("Abandoned Greetings") ?></label>
 									<i class="fa fa-question-circle fpbx-help-icon" data-for="del_abandoned"></i>

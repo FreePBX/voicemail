@@ -2002,7 +2002,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 						"type" => "text",
 						"default" => "",
 						"description" => _("Pager Email Address"),
-						"helptext" => _("Pager/mobile email address that short Voicemail notifications are sent to.") . " [pager]"
+						"helptext" => _("Pager/mobile email address that short Voicemail notifications are sent to. Separated by |") . " [pager]"
 					),
 					"email" => array(
 						"level" => array("account"),
@@ -2857,7 +2857,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		return $returnList;
 	}
 
-	public function playVoicemailMessage($ext, $context, $msg_id)
+	public function playVoicemailMessage($ext, $context, $msg_id, $uri = false)
 	{
 		$autoanswer = array('Alert-Info' => 'intercom', 'X-Event-Name' => 'digium.incomingCall.voicemail');
 		foreach ($autoanswer as $key => $val) {
@@ -2865,8 +2865,13 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 			$variables['PJSIP_HEADER(add,' . $key . ')'] = $val;
 		}
 		$device = $this->FreePBX->Core->getDevice($ext);
+		$channel = strtoupper($device['tech']).'/' . $ext;
+		if($uri) {
+			$channel = $channel .'/'. $uri;
+		}
+
 		$res = $this->astman->Originate(array(
-			'Channel' => strtoupper($device['tech']).'/' . $ext,
+			'Channel' => $channel,
 			'CallerID' =>  _('Voicemail').' <' . $msg_id . '>',
 			'Variable' => $variables,
 			'Application' => 'VoiceMailPlayMsg',

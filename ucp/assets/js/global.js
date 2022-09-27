@@ -214,7 +214,7 @@ var VoicemailC = UCPMC.extend({
 			self.bindPlayers(widget_id);
 		});
 		$("div[data-id='"+widget_id+"'] .voicemail-grid").on("check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table", function () {
-			var sel = $(this).bootstrapTable('getSelections'),
+			var sel = $(this).bootstrapTable('getAllSelections'),
 					dis = true;
 			if(sel.length) {
 				dis = false;
@@ -234,7 +234,7 @@ var VoicemailC = UCPMC.extend({
 		});
 
 		$("div[data-id='"+widget_id+"'] .move-selection").click(function() {
-			var opts = '', cur = (typeof $.url().param("folder") !== "undefined") ? $.url().param("folder") : "INBOX", sel = $("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('getSelections');
+			var opts = '', cur = (typeof $.url().param("folder") !== "undefined") ? $.url().param("folder") : "INBOX", sel = $("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('getAllSelections');
 			$.each($("div[data-id='"+widget_id+"'] .folder-list .folder"), function(i, v){
 				var folder = $(v).data("folder");
 				if(folder != cur) {
@@ -305,7 +305,7 @@ var VoicemailC = UCPMC.extend({
 			$('#modal_confirm_button').attr("data-dismiss", '');
 			UCP.showConfirm(_("Are you sure you wish to delete these voicemails?"),'warning',function() {
 				var extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
-				var sel = $("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('getSelections');
+				var sel = $("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('getAllSelections');
 				var accept = $("#modal_confirm_button").text();
 				$("#modal_confirm_button").html('<i class="fa fa-spinner fa-spin"></i>&nbsp;'+ accept);
 				setTimeout(function () {
@@ -338,7 +338,7 @@ var VoicemailC = UCPMC.extend({
 			});
 		});
 		$("div[data-id='"+widget_id+"'] .forward-selection").click(function() {
-			var sel = $("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('getSelections');
+			var sel = $("div[data-id='"+widget_id+"'] .voicemail-grid").bootstrapTable('getAllSelections');
 			UCP.showDialog(_("Forward Voicemail"),
 				_("To")+":</label><input type='text' class='form-control' id='VMto'>",
 				'<button class="btn btn-default" id="forwardVM">' + _("Forward") + "</button>",

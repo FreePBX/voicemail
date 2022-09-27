@@ -15,7 +15,7 @@
 			<div class="form-group">
 				<label for="pager" class="help"><?php echo _('Pager Email Address')?> <i class="fa fa-question-circle"></i></label>
 				<input name="pager" type="email" class="form-control" id="pager" value="<?php echo $settings['pager']?>" placeholder="user@domain.tld" autocapitalize="off" autocorrect="off">
-				<span class="help-block help-hidden" data-for="pager"><?php echo _('Pager/mobile email address that short Voicemail notifications are sent to.')?></span>
+				<span class="help-block help-hidden" data-for="pager"><?php echo _('Pager/mobile email address that short Voicemail notifications are sent to. Separated by |')?></span>
 			</div>
 		</div>
 	</div>
