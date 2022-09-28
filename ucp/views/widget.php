@@ -25,7 +25,7 @@
 			<?php } ?>
 			<div id="voicemail-toolbar-<?php echo $extension?>">
 				<button class="btn btn-danger delete-selection" disabled>
-					<i class="fa fa-remove"></i> <span><?php echo _('Delete')?></span>
+					<i class="glyphicon glyphicon-remove"></i> <span><?php echo _('Delete')?></span>
 				</button>
 				<button class="btn btn-default forward-selection" disabled>
 					<i class="fa fa-share"></i> <span><?php echo _('Forward')?></span>

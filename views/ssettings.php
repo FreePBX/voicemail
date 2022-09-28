@@ -1,21 +1,21 @@
 <?php if (!empty($extension)) { ?>
 <h3><?php echo _("Account View Links:") ?></h3>
 <ul class="nav nav-tabs">
-        <li role="presentation"><a  class="nav-link <?php echo $action == 'bsettings' ? 'active' : ''?>" href="config.php?display=voicemail&amp;action=bsettings&amp;ext=<?php echo $extension ?>"><?php echo _("Account Settings") ?></a></li>
-        <li role="presentation"><a  class="nav-link <?php echo $action == 'usage' ? 'active' : ''?>" href="config.php?display=voicemail&amp;action=usage&amp;ext=<?php echo $extension ?>"><?php echo _("Account Usage") ?></a></li>
-        <li role="presentation"><a  class="nav-link <?php echo $action == 'settings' ? 'active' : ''?>" href="config.php?display=voicemail&amp;action=settings&amp;ext=<?php echo $extension ?>"><?php echo _("Account Advanced Settings") ?></a></li>
+        <li role="presentation" <?php echo $action == 'bsettings' ? ' class="active"' : ''?>><a href="config.php?display=voicemail&amp;action=bsettings&amp;ext=<?php echo $extension ?>"><?php echo _("Account Settings") ?></a></li>
+        <li role="presentation" <?php echo $action == 'usage' ? ' class="active"' : ''?>><a href="config.php?display=voicemail&amp;action=usage&amp;ext=<?php echo $extension ?>"><?php echo _("Account Usage") ?></a></li>
+        <li role="presentation" <?php echo $action == 'settings' ? ' class="active"' : ''?>><a href="config.php?display=voicemail&amp;action=settings&amp;ext=<?php echo $extension ?>"><?php echo _("Account Advanced Settings") ?></a></li>
 </ul>
 
 <?php }
 ?>
 <div class="container-fluid">
 	<div class="nav-container">
-		<div class="scroller scroller-left"><i class="fa fa-chevron-left"></i></div>
-		<div class="scroller scroller-right"><i class="fa fa-chevron-right"></i></div>
+		<div class="scroller scroller-left"><i class="glyphicon glyphicon-chevron-left"></i></div>
+		<div class="scroller scroller-right"><i class="glyphicon glyphicon-chevron-right"></i></div>
 		<div class="wrapper">
-			<ul class="nav nav-tabs list mt-0" role="tablist">
+			<ul class="nav nav-tabs list" role="tablist">
 			<?php foreach($d as $section => $data) { ?>
-				<li data-name="<?php echo $section?>" class="change-tab"><a class="nav-link <?php echo ($section == "general") ? "active" : ""?>" href="#<?php echo $section?>" aria-controls="<?php echo $section?>" role="tab" data-toggle="tab"><?php echo $data['name']?></a></li>
+				<li data-name="<?php echo $section?>" class="change-tab <?php echo ($section == "general") ? "active" : ""?>"><a href="#<?php echo $section?>" aria-controls="<?php echo $section?>" role="tab" data-toggle="tab"><?php echo $data['name']?></a></li>
 			<?php } ?>
 			</ul>
 		</div>
@@ -30,8 +30,8 @@
 					<div class="element-container">
 						<div class="row">
 							<div class="col-md-12">
-								<div class="">
-									<div class="row form-group">
+								<div class="row">
+									<div class="form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="<?php echo $id_prefix?>__<?php echo $key?>"><?php echo $items['description']?></label>
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="<?php echo $id_prefix?>__<?php echo $key?>"></i>

@@ -27,8 +27,8 @@
 
 <!--Restore Advanced Settings-->
 <div class="element-container">
-	<div class="">
-		<div class="row form-group">
+	<div class="row">
+		<div class="form-group">
 			<div class="col-md-6">
 				<label class="control-label" for="voicemail_vmrecords"><?php echo _("Exclude VM Recordings?") ?></label>
 			</div>
@@ -44,8 +44,8 @@
 		</div>
 	</div><br/>
 
-	<div class="">
-    		<div class="row form-group">
+	<div class="row">
+    		<div class="form-group">
     			<div class="col-md-6">
     				<label class="control-label" for="voicemail_vmgreetings"><?php echo _("Exclude VM Greetings?") ?></label>
     			</div>

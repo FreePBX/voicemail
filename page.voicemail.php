@@ -307,7 +307,7 @@ $tooltips = array("tz" 	    => array("name" 				=> _("Timezone definition name")
 				     "maxmessage" 			=> _("Max message time length."),
 				     "maxsecs" 				=> _("Max message time length."),
 				     "name"				=> _("Name of account/user"),
-				     "pager"				=> _("Pager/mobile email address that short Voicemail notifications are sent to."),
+				     "pager"				=> _("Pager/mobile email address that short Voicemail notifications are sent to. Separated by |"),
 				     "review"				=> _("Allow sender to review/rerecord their message before saving it [OFF by default]"),
 				     "saycid" 				=> _("Read back caller's telephone number prior to playing the incoming message, and just after announcing the date and time the message was left. If not described, or set to no, it will be in the envelope."),
 				     "sayduration" 			=> _("Turn on/off saying duration information before the message playback. [ON by default]"),

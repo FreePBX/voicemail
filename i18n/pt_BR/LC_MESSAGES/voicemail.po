@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePbx 2.5.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-21 03:11+0000\n"
+"POT-Creation-Date: 2022-09-22 06:04+0000\n"
 "PO-Revision-Date: 2015-12-22 03:36+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -421,7 +421,7 @@ msgstr "Controla se incluir o correio de voz no email"
 msgid "Copying..."
 msgstr "Copiando..."
 
-#: voicemail.i18n.php:12
+#: voicemail.i18n.php:4
 msgid "Create Voicemail Hints"
 msgstr "Criar Dicas de Correio de Voz"
 
@@ -614,7 +614,7 @@ msgid "Device"
 msgstr "Dispositivo"
 
 #: functions.inc.php:225 functions.inc.php:291 install.php:10
-#: voicemail.i18n.php:26
+#: voicemail.i18n.php:18
 msgid "Dial Voicemail"
 msgstr "Discar correio de voz"
 
@@ -630,7 +630,7 @@ msgstr "Comportamento Plano de Discagem"
 msgid "Direct Dial Mode"
 msgstr "Modo Discagem Direta"
 
-#: install.php:12 voicemail.i18n.php:30
+#: install.php:12 voicemail.i18n.php:22
 msgid "Direct Dial Prefix"
 msgstr "Prefixo Discagem Direta"
 
@@ -1006,7 +1006,7 @@ msgstr ""
 msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 
-#: ucp/Voicemail.class.php:650
+#: ucp/Voicemail.class.php:654
 msgid "Forbidden"
 msgstr "Proibido"
 
@@ -1351,7 +1351,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: voicemail.i18n.php:20
+#: voicemail.i18n.php:12
 msgid ""
 "Installations that have configured Voicemail with IMAP should set this to "
 "true so that the IMAP username and password fields are provided in the "
@@ -1387,7 +1387,7 @@ msgstr ""
 msgid "Leave blank for go to operator"
 msgstr ""
 
-#: voicemail.i18n.php:24
+#: voicemail.i18n.php:16
 msgid ""
 "Limit the Messages to be Displayed in UCP. If your device has more "
 "processing power you can increase this otherwise lower it if you find your "
@@ -1563,7 +1563,7 @@ msgstr ""
 msgid "Msg Timeout"
 msgstr ""
 
-#: functions.inc.php:173 install.php:9 voicemail.i18n.php:32
+#: functions.inc.php:173 install.php:9 voicemail.i18n.php:24
 msgid "My Voicemail"
 msgstr "Meu correio de voz"
 
@@ -1641,7 +1641,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: ucp/Voicemail.class.php:669
+#: ucp/Voicemail.class.php:673
 msgid "Not Found"
 msgstr ""
 
@@ -1749,10 +1749,15 @@ msgstr ""
 msgid "Pager Subject"
 msgstr ""
 
-#: Voicemail.class.php:2005 functions.inc.php:615 page.voicemail.php:310
-#: ucp/views/vmsettings.php:18
+#: functions.inc.php:615
 msgid ""
 "Pager/mobile email address that short Voicemail notifications are sent to."
+msgstr ""
+
+#: Voicemail.class.php:2005 page.voicemail.php:310 ucp/views/vmsettings.php:18
+msgid ""
+"Pager/mobile email address that short Voicemail notifications are sent to. "
+"Separated by |"
 msgstr ""
 
 #: Voicemail.class.php:2638
@@ -1867,7 +1872,7 @@ msgid ""
 "Check to enter another destination here."
 msgstr ""
 
-#: voicemail.i18n.php:18
+#: voicemail.i18n.php:10
 msgid "Provide IMAP Voicemail Fields"
 msgstr ""
 
@@ -2048,7 +2053,7 @@ msgstr ""
 msgid "Set to a valid port as specified in smdi.conf"
 msgstr ""
 
-#: voicemail.i18n.php:16
+#: voicemail.i18n.php:8
 msgid ""
 "Setting this flag with generate the required dialplan to integrate with "
 "res_mwi_devstate (res_mwi_blf) which is included with the Official FreePBX "
@@ -2056,7 +2061,7 @@ msgid ""
 "via BLF of changes."
 msgstr ""
 
-#: views/header.php:10 voicemail.i18n.php:6
+#: views/header.php:10
 msgid "Settings"
 msgstr ""
 
@@ -2220,11 +2225,11 @@ msgstr ""
 msgid "The ADSI security lock code"
 msgstr ""
 
-#: install.php:14 voicemail.i18n.php:28
+#: install.php:14 voicemail.i18n.php:20
 msgid "The Feature Code used to dial any voicemail"
 msgstr ""
 
-#: install.php:13 voicemail.i18n.php:34
+#: install.php:13 voicemail.i18n.php:26
 msgid ""
 "The Feature Code used to direct dial a users voicemail from their own "
 "extension"
@@ -2436,10 +2441,6 @@ msgid ""
 "'No'"
 msgstr ""
 
-#: voicemail.i18n.php:8
-msgid "This module allows you to configure Voicemail for a user or extension"
-msgstr ""
-
 #: page.voicemail.php:206
 msgid "Time announcement for message playback"
 msgstr ""
@@ -2527,7 +2528,7 @@ msgid ""
 "default]"
 msgstr ""
 
-#: voicemail.i18n.php:22
+#: voicemail.i18n.php:14
 msgid "UCP Message Limit"
 msgstr ""
 
@@ -2560,7 +2561,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ucp/Voicemail.class.php:604
+#: ucp/Voicemail.class.php:608
 msgid "Unknown Error"
 msgstr ""
 
@@ -2568,7 +2569,7 @@ msgstr ""
 msgid "Unsupported file format"
 msgstr ""
 
-#: ucp/Voicemail.class.php:580 ucp/assets/js/global.js:470
+#: ucp/Voicemail.class.php:584 ucp/assets/js/global.js:470
 msgid "Unsupported file type"
 msgstr ""
 
@@ -2674,13 +2675,13 @@ msgstr ""
 msgid "VmX Locater&trade;"
 msgstr "Locater&trade VmX;"
 
-#: Voicemail.class.php:894 Voicemail.class.php:2870 functions.inc.php:510
+#: Voicemail.class.php:894 Voicemail.class.php:2875 functions.inc.php:510
 #: install.php:8 ucp/Voicemail.class.php:97 ucp/Voicemail.class.php:146
-#: ucp/Voicemail.class.php:198 views/header.php:2 voicemail.i18n.php:4
+#: ucp/Voicemail.class.php:198 views/header.php:2
 msgid "Voicemail"
 msgstr "Correio de voz"
 
-#: install.php:11 voicemail.i18n.php:10
+#: install.php:11
 msgid "Voicemail Admin"
 msgstr ""
 
@@ -2712,7 +2713,7 @@ msgstr "Instruções de mensagens de voz"
 msgid "Voicemail Message"
 msgstr ""
 
-#: voicemail.i18n.php:14
+#: voicemail.i18n.php:6
 msgid "Voicemail Module"
 msgstr ""
 
@@ -2770,7 +2771,7 @@ msgstr ""
 "O correio de voz está habilitado mas o campo senha está vazio. Tem certeza "
 "que deseja continuar?"
 
-#: ucp/Voicemail.class.php:555 ucp/Voicemail.class.php:594
+#: ucp/Voicemail.class.php:555 ucp/Voicemail.class.php:598
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
@@ -2779,7 +2780,7 @@ msgstr ""
 msgid "Voicemail notification"
 msgstr ""
 
-#: ucp/Voicemail.class.php:599
+#: ucp/Voicemail.class.php:603
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""

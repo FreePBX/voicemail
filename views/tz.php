@@ -9,8 +9,8 @@
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="tz__<?php echo $key ?>"><?php echo $key ?></label>
 						</div>
@@ -31,8 +31,8 @@
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="tznew_name"><?php echo _("New Name") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="tznew_name"></i>
@@ -55,8 +55,8 @@
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="tznew_def"><?php echo _("New Timezone Definition") ?></label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="tznew_def"></i>
