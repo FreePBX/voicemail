@@ -86,7 +86,7 @@ function voicemail_get_config($engine) {
 			$ext->add($context, '#', '', new ext_playback('vm-goodbye'));
 			$ext->add($context, '#', '', new ext_hangup());
 
-			$ext->add($context, '*', '', new ext_macro('get-vmcontext', '${MBOX}'));
+			$ext->add($context, '*', '', new ext_gosub('1','s','sub-get-vmcontext', '${MBOX}'));
 			$ext->add($context, '*', '', new ext_vmmain('${MBOX}@${VMCONTEXT},s'));
 
 			$ext->add($context, 'i', '', new ext_playback('pm-invalid-option'));
@@ -140,20 +140,20 @@ function voicemail_directdialvoicemail($c) {
 			if($vm != "novm") {
 				$context = 'ext-local';
 				$exten_num = $item['extension'];
-				// This usually gets called from macro-exten-vm but if follow-me destination need to go this route
+				// This usually gets called from sub-exten-vm but if follow-me destination need to go this route
 				$ext->add($context, $c.$exten_num, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
 				$ext->add($context, $c.$exten_num, '', new ext_set('CONNECTEDLINE(name,i)',sprintf(_("%s Voicemail"),$exten_num)));
 				$ext->add($context, $c.$exten_num, '', new ext_set('CONNECTEDLINE(num,i)',$exten_num));
-				$ext->add($context, $c.$exten_num, '', new ext_macro('vm',$vm.',DIRECTDIAL,${IVR_RETVM}'));
+				$ext->add($context, $c.$exten_num, '', new ext_gosub('1','s','sub-vm',$vm.',DIRECTDIAL,${IVR_RETVM}'));
 				$ext->add($context, $c.$exten_num, '', new ext_goto('1','vmret'));
 
 				$ivr_context = 'from-did-direct-ivr';
 				$ext->add($ivr_context, $c.$exten_num, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
 				$ext->add($ivr_context, $c.$exten_num, '', new ext_set('CONNECTEDLINE(name,i)',sprintf(_("%s Voicemail"),$exten_num)));
 				$ext->add($ivr_context, $c.$exten_num, '', new ext_set('CONNECTEDLINE(num,i)',$exten_num));
-				$ext->add($ivr_context, $c.$exten_num, '', new ext_macro('blkvm-clr'));
+				$ext->add($ivr_context, $c.$exten_num, '', new ext_gosub('1','s','sub-blkvm-clr'));
 				$ext->add($ivr_context, $c.$exten_num, '', new ext_setvar('__NODEST', ''));
-				$ext->add($ivr_context, $c.$exten_num, '', new ext_macro('vm',$vm.',DIRECTDIAL,${IVR_RETVM}'));
+				$ext->add($ivr_context, $c.$exten_num, '', new ext_gosub('1','s','sub-vm',$vm.',DIRECTDIAL,${IVR_RETVM}'));
 				$ext->add($ivr_context, $c.$exten_num, '', new ext_gotoif('$["${IVR_RETVM}" = "RETURN" & "${IVR_CONTEXT}" != ""]','ext-local,vmret,playret'));
 			}
 		}
@@ -168,26 +168,21 @@ function voicemail_myvoicemail($c) {
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 
-	$ext->add($id, $c, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid')); 
 	$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
 	$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(name,i)',_("My Voicemail")));
 	$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(num,i)','${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_macro('get-vmcontext','${AMPUSER}'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-get-vmcontext','${AMPUSER}'));
 	$ext->add($id, $c, 'check', new ext_vmexists('${AMPUSER}@${VMCONTEXT}')); // n,VoiceMailMain(${VMCONTEXT})
 	$ext->add($id, $c, '', new ext_gotoif('$["${VMBOXEXISTSSTATUS}" = "SUCCESS"]', 'mbexist'));
 	$ext->add($id, $c, '', new ext_vmmain('')); // n,VoiceMailMain(${VMCONTEXT})
 	$ext->add($id, $c, '', new ext_gotoif('$["${IVR_RETVM}" = "RETURN" & "${IVR_CONTEXT}" != ""]','playret'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall')); 
 	$ext->add($id, $c, 'mbexist', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/novmpw)}"!=""]','novmpw','vmpw'),'check',101);
 
 	$ext->add($id, $c, 'novmpw', new ext_noop('Verifying channel ${CHANNEL} is actually ${AMPUSER}'));
-	//$ext->add($id, $c, '', new ext_gotoif('$["${REGEX("^${DB(DEVICE/${AMPUSER}/dial)}-[0-9a-f]+$" ${CHANNEL})}"!="1"]','vmpws'));
-	//$ext->add($id, $c, '', new ext_vmmain('${AMPUSER}@${VMCONTEXT},s')); // n,VoiceMailMain(${VMCONTEXT})
-	//$ext->add($id, $c, '', new ext_goto('vmend'));
-
-	//$ext->add($id, $c, 'vmpws', new ext_noop('Channel ${CHANNEL} is NOT ${AMPUSER} forcing VM Password'));
 	$ext->add($id, $c, '', new ext_setvar('DEVICES', '${DB(AMPUSER/${AMPUSER}/device)}'));
 	$ext->add($id, $c, '', new ext_execif('$["${DEVICES}" = ""]', 'Set', 'DEVICES=${AMPUSER}'));
 	$ext->add($id, $c, '', new ext_execif('$["${DEVICES:0:1}" = "&"]', 'Set', 'DEVICES=${DEVICES:1}'));
@@ -202,7 +197,7 @@ function voicemail_myvoicemail($c) {
 	$ext->add($id, $c, 'vmpwskip', new ext_vmmain('${AMPUSER}@${VMCONTEXT},s')); // n,VoiceMailMain(${VMCONTEXT})
 
 	$ext->add($id, $c, 'vmend', new ext_gotoif('$["${IVR_RETVM}" = "RETURN" & "${IVR_CONTEXT}" != ""]','playret'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall')); 
 	$ext->add($id, $c, 'playret', new ext_playback('beep&you-will-be-transfered-menu&silence/1'));
 	$ext->add($id, $c, '', new ext_goto('1','return','${IVR_CONTEXT}'));
 
@@ -220,7 +215,7 @@ function voicemail_dialvoicemail($c) {
 
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
 
-	$ext->add($id, $c, '', new ext_macro('user-callerid'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
 	$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
 	$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(name,i)',_("Dial Voicemail")));
 	$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(num,i)','${EXTEN}'));
@@ -230,15 +225,15 @@ function voicemail_dialvoicemail($c) {
 	$ext->add($id, $c, '', new ext_read('MAILBOX', 'vm-login', '', '', 3, 2));
 	$ext->add($id, $c, 'check', new ext_gotoif('$["${MAILBOX}" = ""]', 'hangup'));
 	$ext->add($id, $c, '', new ext_noop($id.': Got Mailbox ${MAILBOX}'));
-	$ext->add($id, $c, '', new ext_macro('get-vmcontext','${MAILBOX}'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-get-vmcontext','${MAILBOX}'));
 	$ext->add($id, $c, '', new ext_vmexists('${MAILBOX}@${VMCONTEXT}'));
 	$ext->add($id, $c, '', new ext_gotoif('$["${VMBOXEXISTSSTATUS}" = "SUCCESS"]', 'good', 'bad'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 	$ext->add($id, $c, 'good', new ext_noop($id.': Good mailbox ${MAILBOX}@${VMCONTEXT}'));
 	//$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(num)','${MAILBOX}')); //makes audio stutter on the phone
 	$ext->add($id, $c, '', new ext_vmmain('${MAILBOX}@${VMCONTEXT}'));
 	$ext->add($id, $c, '', new ext_gotoif('$["${IVR_RETVM}" = "RETURN" & "${IVR_CONTEXT}" != ""]','playret'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 	$ext->add($id, $c, 'bad', new ext_noop($id.': BAD mailbox ${MAILBOX}@${VMCONTEXT}'));
 	$ext->add($id, $c, '', new ext_wait('1'));
 	$ext->add($id, $c, '', new ext_noop($id.': Asking for password so people can\'t probe for existence of a mailbox'));
@@ -246,9 +241,9 @@ function voicemail_dialvoicemail($c) {
 	$ext->add($id, $c, '', new ext_noop($id.': Asking for mailbox again'));
 	$ext->add($id, $c, '', new ext_read('MAILBOX', 'vm-incorrect-mailbox', '', '', 3, 2));
 	$ext->add($id, $c, '', new ext_goto('check'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 	$ext->add($id, $c, 'hangup', new ext_playback('vm-incorrect&vm-goodbye'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
 	$ext->add($id, $c, 'playret', new ext_playback('beep&you-will-be-transfered-menu&silence/1'));
 	$ext->add($id, $c, '', new ext_goto('1','return','${IVR_CONTEXT}'));
 
@@ -292,10 +287,10 @@ function voicemail_dialvoicemail($c) {
 	$ext->add($id, $c, '', new ext_set('CONNECTEDLINE(num,i)','${EXTEN:'.$clen.'}'));
 	$ext->add($id, $c, '', new ext_answer('')); // $cmd,1,Answer
 	$ext->add($id, $c, '', new ext_wait('1')); // $cmd,n,Wait(1)
-	$ext->add($id, $c, '', new ext_macro('get-vmcontext','${EXTEN:'.$clen.'}'));
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-get-vmcontext','${EXTEN:'.$clen.'}'));
 	$ext->add($id, $c, '', new ext_vmmain('${EXTEN:'.$clen.'}@${VMCONTEXT}')); // n,VoiceMailMain(${VMCONTEXT})
 	$ext->add($id, $c, '', new ext_gotoif('$["${IVR_RETVM}" = "RETURN" & "${IVR_CONTEXT}" != ""]','${IVR_CONTEXT},return,1'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
+	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall')); 
 }
 
 function voicemail_configpageinit($pagename) {
