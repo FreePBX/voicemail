@@ -498,7 +498,7 @@ class Voicemail extends Modules{
 			case 'delete':
 				$ext = basename($_POST['ext']);
 				$msg = basename($_POST['msg']);
-				$status = $this->UCP->FreePBX->Voicemail->deleteMessageByID($msg,$ext);
+				$status = $this->UCP->FreePBX->Voicemail->deleteMessageByID($msg, $ext, $this->user['id']);
 				$return = array("status" => $status, "message" => "");
 			break;
 			case 'moveToFolderBulk':
@@ -518,7 +518,7 @@ class Voicemail extends Modules{
 				foreach ($formData as $key => $data) {
 					$ext = basename($data['ext']);
 					$msg = basename($data['msg']);
-					$deleteStatus[] = $this->UCP->FreePBX->Voicemail->deleteMessageByID($msg,$ext);
+					$deleteStatus[] = $this->UCP->FreePBX->Voicemail->deleteMessageByID($msg, $ext, $this->user['id']);
 				}
 				$return = array("status" => true, 'deleteStatus' => $deleteStatus,  "message" => "");
 			break;

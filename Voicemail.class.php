@@ -1047,10 +1047,12 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 	 * Delete a message by ID
 	 * @param string $msg The message ID
 	 * @param int $ext The extension
+	 * @param int $userId The User ID
 	 */
-	public function deleteMessageByID($msg,$ext) {
+	public function deleteMessageByID($msg, $ext, $userId = '') {
+		$status = true;
 		if(isset($this->greetings[$msg])) {
-			return $this->deleteVMGreeting($ext,$msg);
+			$status = $this->deleteVMGreeting($ext,$msg);
 		} else {
 			$o = $this->getVoicemailBoxByExtension($ext);
 			$message = $this->getMessageByMessageIDExtension($msg,$ext);
@@ -1069,10 +1071,12 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 						}
 					}
 				}
-				return true;
 			}
 		}
-		return false;
+		if (!empty($userId)) {
+			$this->FreePBX->Hooks->processHooks($msg, $userId);
+		}
+		return $status;
 	}
 
 	/**
