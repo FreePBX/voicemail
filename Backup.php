@@ -22,7 +22,7 @@ class Backup Extends Base\BackupBase{
 					if($file['basename'] === 'greet.wav' || $file['basename'] === 'temp.wav' || $file['basename'] === 'busy.wav' || $file['basename'] === 'unavail.wav'){
 						continue;
 					}
-					if($backupsettings['voicemail_vmrecords'] == 'no' ){
+					if($backupsettings['voicemail_vmrecords'] == 'no' && !is_link($file['path'].'/'.$file['basename']) ){
 						$this->addFile($file['basename'], $file['path'], $file['base'], $file['type']);
 					}
 				}

@@ -133,14 +133,22 @@ class Voicemail extends Base {
 
 	public function enableVoiceMail($input){
 		$input = $this->resolveInputNames($input);
-		$extensionExists = $this->freepbx->Core->getDevice($input['extensionId']);
-		if (empty($extensionExists)) {
-			return ['message' => _('Extension does not exists.'),'status' => false];
+		$extensionId = $input['extensionId'];
+
+		// Load the device or the virtual extension
+		$data = $this->freepbx->Core->getDevice($extensionId);
+		if(empty($data) || empty($data['description'])) {
+			$data = $this->freepbx->Core->getUser($extensionId);
 		}
-		$res = $this->freepbx->Voicemail->addMailbox($input['extensionId'],$input);
-		if($res == true){
+
+		if (empty($data)) {
+			return ['message' => _('Extension does not exists.'), 'status' => false];
+		}
+
+		$res = $this->freepbx->Voicemail->addMailbox($extensionId, $input);
+		if($res === true){
 			$this->reloadVoiceMail();
-			$this->freepbx->Voicemail->updateMailBoxContext($input['extensionId'], 'default');
+			$this->freepbx->Voicemail->updateMailBoxContext($extensionId, 'default');
 			return ['message' => _('Voicemail has been created successfully'),'status' => true];
 		} else{
 			return ['message' => _('Sorry,voicemail already exists.'),'status' => false];
