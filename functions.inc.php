@@ -1364,7 +1364,7 @@ function voicemail_get_settings($vmconf, $action, $extension="") {
 	}
 	return $settings;
 }
-function voicemail_update_usage($vmail_info, $context="", $extension="", $args) {
+function voicemail_update_usage($vmail_info, $context="", $extension="", $args="") {
 	global $vmail_root;
 	$take_action = false;
 
