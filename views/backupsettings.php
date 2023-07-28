@@ -14,8 +14,8 @@
             }
             $('#backup_items').val(JSON.stringify(processItems(undefined, obj)));
         });
-	    var dbRecValue = <?php echo json_encode($voicemail_vmrecords) ?>;
-	    var dbGreValue = <?php echo json_encode($voicemail_vmgreetings) ?>;
+	    var dbRecValue = <?php echo json_encode($voicemail_vmrecords, JSON_THROW_ON_ERROR) ?>;
+	    var dbGreValue = <?php echo json_encode($voicemail_vmgreetings, JSON_THROW_ON_ERROR) ?>;
 	    var items =  $("input[name='backup_items']").val();
         var mod = JSON.parse(items).find(item => item.modulename === "voicemail");
         var vmRecToggle = (mod && mod.settings.length > 0) ? mod.settings[0].value : dbRecValue;
@@ -34,7 +34,7 @@
 			</div>
 			<div class="col-md-6">
 				<span class="radioset">
-                    <?php $voicemail_vmrecords = isset($voicemail_vmrecords) ? $voicemail_vmrecords : 'no'?>
+                    <?php $voicemail_vmrecords ??= 'no'?>
 					<input type="radio" name="voicemail_vmrecords" id="voicemail_vmrecordsyes" value="yes" <?php echo ($voicemail_vmrecords == "yes"?"CHECKED":"") ?> >
 					<label for="voicemail_vmrecordsyes"><?php echo _("Yes");?></label>
 					<input type="radio" name="voicemail_vmrecords" id="voicemail_vmrecordsno" value="no" <?php echo ($voicemail_vmrecords == "yes"?"":"CHECKED") ?> >
@@ -51,7 +51,7 @@
     			</div>
     			<div class="col-md-6">
     				<span class="radioset">
-                        <?php $voicemail_vmgreetings = isset($voicemail_vmgreetings) ? $voicemail_vmgreetings : 'no'?>
+                        <?php $voicemail_vmgreetings ??= 'no'?>
     					<input type="radio" name="voicemail_vmgreetings" id="voicemail_vmgreetingsyes" value="yes" <?php echo ($voicemail_vmgreetings == "yes"?"CHECKED":"") ?> >
     					<label for="voicemail_vmgreetingsyes"><?php echo _("Yes");?></label>
     					<input type="radio" name="voicemail_vmgreetings" id="voicemail_vmgreetingsno" value="no" <?php echo ($voicemail_vmgreetings == "yes"?"":"CHECKED") ?> >

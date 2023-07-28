@@ -22,7 +22,7 @@
 			</div>
 			<div class="panel-body">
 				<div class="well"><?php echo _("Disk space currently in use by Voicemail data")?></div>
-				<table class="table"><tr><td><b><?php echo _("Total")?></b></td><td><?php echo $storage?$storage:_("Unknown")?></td></tr></table>
+				<table class="table"><tr><td><b><?php echo _("Total")?></b></td><td><?php echo $storage ?: _("Unknown")?></td></tr></table>
 			</div>
 		</div>
 	</div>

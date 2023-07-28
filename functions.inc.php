@@ -6,11 +6,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 class vmxObject {
 
-	private $exten;
-
 	// contstructor
-	function __construct($myexten) {
-		$this->exten = $myexten;
+	function __construct(private $exten) {
 		$this->vmx = FreePBX::Voicemail()->Vmx;
 	}
 
@@ -214,7 +211,8 @@ function voicemail_myvoicemail($c) {
 }
 
 function voicemail_dialvoicemail($c) {
-	global $ext,$amp_conf,$astman;
+	$resmwiblf_module = null;
+ global $ext,$amp_conf,$astman;
 
 	$id = "app-dialvm"; // The context to be included
 
@@ -254,12 +252,12 @@ function voicemail_dialvoicemail($c) {
 
 	//res_mwi_blf allows you to subscribe to voicemail hints, the following code generates the dialplan for doing so
 	if($astman->connected()) {
-		$resmwiblf_check = $astman->send_request('Command', array('Command' => 'module show like res_mwi_blf'));
-		$resmwiblf_module = preg_match('/[1-9] modules loaded/', $resmwiblf_check['data']);
+		$resmwiblf_check = $astman->send_request('Command', ['Command' => 'module show like res_mwi_blf']);
+		$resmwiblf_module = preg_match('/[1-9] modules loaded/', (string) $resmwiblf_check['data']);
 
 		if(!$resmwiblf_module) {
-			$resmwiblf_check = $astman->send_request('Command', array('Command' => 'module show like res_mwi_devstate'));
-			$resmwiblf_module = preg_match('/[1-9] modules loaded/', $resmwiblf_check['data']);
+			$resmwiblf_check = $astman->send_request('Command', ['Command' => 'module show like res_mwi_devstate']);
+			$resmwiblf_module = preg_match('/[1-9] modules loaded/', (string) $resmwiblf_check['data']);
 		}
 	}
 	if ($resmwiblf_module && $amp_conf['USERESMWIBLF']) { // TODO: PUT THIS BACK
@@ -269,11 +267,11 @@ function voicemail_dialvoicemail($c) {
 				$vm = ((($item['voicemail'] == "novm") || ($item['voicemail'] == "disabled") || ($item['voicemail'] == "")) ? "novm" : $item['extension']);
 
 				if($vm != "novm") {
-					$ext->add($id, $c.$vm, '', new ext_goto('1','dvm${EXTEN:'.strlen($c).'}'));
+					$ext->add($id, $c.$vm, '', new ext_goto('1','dvm${EXTEN:'.strlen((string) $c).'}'));
 					//$ext->addHint($id, $c.$vm, 'MWI:'.$vm.'@'.$item['voicemail']);
 				}
 			}
-			$c_len = strlen($c);
+			$c_len = strlen((string) $c);
 			//$ext->add($id, "_$c".'X.', '', new ext_noop("This extension does not have access to this"));
 			//
 			$ext->addHint($id, "_$c".'X.', 'MWI:${EXTEN:'.$c_len.'}@${DB(AMPUSER/${EXTEN:'.$c_len.'}/voicemail)}');
@@ -301,11 +299,11 @@ function voicemail_dialvoicemail($c) {
 function voicemail_configpageinit($pagename) {
 	global $currentcomponent;
 	global $amp_conf;
-	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
-	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
-	$extension = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
-	$tech_hardware = isset($_REQUEST['tech_hardware'])?$_REQUEST['tech_hardware']:null;
-	$display = isset($_REQUEST['display'])?$_REQUEST['display']:null;
+	$action = $_REQUEST['action'] ?? null;
+	$extdisplay = $_REQUEST['extdisplay'] ?? null;
+	$extension = $_REQUEST['extension'] ?? null;
+	$tech_hardware = $_REQUEST['tech_hardware'] ?? null;
+	$display = $_REQUEST['display'] ?? null;
 
        // We only want to hook 'users' or 'extensions' pages.
 	if ($pagename != 'users' && $pagename != 'extensions')  {
@@ -430,10 +428,10 @@ function voicemail_configpageload() {
 	global $astman;
 
 	// Init vars from $_REQUEST[]
-	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
-	$ext = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
-	$extn = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
-	$display = isset($_REQUEST['display'])?$_REQUEST['display']:null;
+	$action = $_REQUEST['action'] ?? null;
+	$ext = $_REQUEST['extdisplay'] ?? null;
+	$extn = $_REQUEST['extension'] ?? null;
+	$display = $_REQUEST['display'] ?? null;
 
 	if ($ext==='') {
 		$extdisplay = $extn;
@@ -452,7 +450,7 @@ function voicemail_configpageload() {
 			$pager = null;
 			$vmoptions = null;
 		} else {
-			$incontext = isset($vmbox['vmcontext'])?$vmbox['vmcontext']:'default';
+			$incontext = $vmbox['vmcontext'] ?? 'default';
 			$vmpwd = $vmbox['pwd'];
 			$name = $vmbox['name'];
 			$email = $vmbox['email'];
@@ -488,7 +486,7 @@ function voicemail_configpageload() {
 		}
 
 		if (empty($vmcontext))
-			$vmcontext = (isset($_REQUEST['vmcontext']) ? $_REQUEST['vmcontext'] : $incontext);
+			$vmcontext = ($_REQUEST['vmcontext'] ?? $incontext);
 		if (empty($vmcontext))
 			$vmcontext = 'default';
 
@@ -504,52 +502,21 @@ function voicemail_configpageload() {
 		$msgInvalidEmail = _("Please enter a valid Email Address");
 		$msgInvalidPager = _("Please enter a valid Pager Email Address");
 		$msgInvalidVMContext = _("VM Context cannot be blank");
-		$vmops_imapuser = isset($vmops_imapuser) ? $vmops_imapuser : '';
-		$vmops_imappassword = isset($vmops_imappassword) ? $vmops_imappassword : '';
+		$vmops_imapuser ??= '';
+		$vmops_imappassword ??= '';
 
 		$section = _("Voicemail");
 		$class = "fpbx-voicemail";
 		$category = "voicemail";
 
-		$guidefaults = array(
-			"elemname" => "",
-			"prompttext" => "",
-			"helptext" => "",
-			"currentvalue" => "",
-			"valarray" => array(),
-			"jsonclick" => '',
-			"jsvalidation" => "",
-			"failvalidationmsg" => "",
-			"canbeempty" => true,
-			"maxchars" => 0,
-			"disable" => false,
-			"inputgroup" => false,
-			"class" => ""
-		);
-		$el = array(
-			"elemname" => "vm",
-			"prompttext" => _('Enabled'),
-			"currentvalue" => $vmselect,
-			"valarray" => $currentcomponent->getoptlist('vmena'),
-			"jsonclick" => "frm_${display}_voicemailEnabled() && frm_${display}_vmxEnabled()",
-			"pairedvalues" => false
-		);
-		$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)),$category);
+		$guidefaults = ["elemname" => "", "prompttext" => "", "helptext" => "", "currentvalue" => "", "valarray" => [], "jsonclick" => '', "jsvalidation" => "", "failvalidationmsg" => "", "canbeempty" => true, "maxchars" => 0, "disable" => false, "inputgroup" => false, "class" => ""];
+		$el = ["elemname" => "vm", "prompttext" => _('Enabled'), "currentvalue" => $vmselect, "valarray" => $currentcomponent->getoptlist('vmena'), "jsonclick" => "frm_${display}_voicemailEnabled() && frm_${display}_vmxEnabled()", "pairedvalues" => false];
+		$currentcomponent->addguielem($section, new gui_radio([...$guidefaults, ...$el]),$category);
 		$disable = ($vmselect == 'disabled');
 
-		$el = array(
-			"elemname" => "vmpwd",
-			"prompttext" => _('Voicemail Password'),
-			"helptext" => sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm),
-			"currentvalue" => $vmpwd,
-			"jsvalidation" => "frm_${display}_isVoiceMailEnabled() && !frm_${display}_isValidVoicemailPass()",
-			"failvalidationmsg" => $msgInvalidVmPwd,
-			"canbeempty" => false,
-			"class" => "$class confidential",
-			"disable" => $disable
-		);
+		$el = ["elemname" => "vmpwd", "prompttext" => _('Voicemail Password'), "helptext" => sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "currentvalue" => $vmpwd, "jsvalidation" => "frm_${display}_isVoiceMailEnabled() && !frm_${display}_isValidVoicemailPass()", "failvalidationmsg" => $msgInvalidVmPwd, "canbeempty" => false, "class" => "$class confidential", "disable" => $disable];
 
-		$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)),$category);
+		$currentcomponent->addguielem($section, new gui_textbox([...$guidefaults, ...$el]),$category);
 		//for passwordless voicemail we need to check some settings
 		//first lets see if there is an entry in the asteriskDB for this device
 		//no entry in the db is the same as yes, meaning we need a voicemail password
@@ -572,144 +539,46 @@ function voicemail_configpageload() {
 			$rb = "gui_radio";
 		}
 
-		$el = array(
-			"elemname" => "passlogin",
-			"prompttext" => sprintf(_('Require From Same %s'),$extword),
-			"helptext" => sprintf(_("If set to \"no\" then when the user dials %s to access their own voicemail, they will not be asked to enter a password. This does not apply to %s calls, which will always prompt for a password. For security reasons, this should probably be set to \"yes\" in an environment where other users will have physical access to this extension."),$mvm->getCode(),$dvm->getCode()),
-			"currentvalue" => $passlogin,
-			"valarray" => $currentcomponent->getoptlist('vmyn'),
-			"disable" => $disable,
-			"class" => $class
-		);
-		$currentcomponent->addguielem($section, new $rb(array_merge($guidefaults,$el)),$category);
+		$el = ["elemname" => "passlogin", "prompttext" => sprintf(_('Require From Same %s'),$extword), "helptext" => sprintf(_("If set to \"no\" then when the user dials %s to access their own voicemail, they will not be asked to enter a password. This does not apply to %s calls, which will always prompt for a password. For security reasons, this should probably be set to \"yes\" in an environment where other users will have physical access to this extension."),$mvm->getCode(),$dvm->getCode()), "currentvalue" => $passlogin, "valarray" => $currentcomponent->getoptlist('vmyn'), "disable" => $disable, "class" => $class];
+		$currentcomponent->addguielem($section, new $rb([...$guidefaults, ...$el]),$category);
 
 		$novmstar = !empty($extdisplay) ? $astman->connected() && $astman->database_get("AMPUSER", $extdisplay."/novmstar") : 'yes';
 		$novmstar = !empty($novmstar) ? 'yes' : 'no';
-		$el = array(
-			"elemname" => "novmstar",
-			"prompttext" => _("Disable (*) in Voicemail Menu"),
-			"helptext" => sprintf(_("If set to \"yes\" then when someone dials this voicemail box they will not be able to access the voicemail menu by pressing (*). If you have no plans to access your mailbox remotely set this to \"yes\""),$mvm->getCode(),$dvm->getCode()),
-			"currentvalue" => $novmstar,
-			"valarray" => $currentcomponent->getoptlist('vmyn'),
-			"disable" => $disable,
-			"class" => $class
-		);
-		$currentcomponent->addguielem($section, new $rb(array_merge($guidefaults,$el)),$category);
+		$el = ["elemname" => "novmstar", "prompttext" => _("Disable (*) in Voicemail Menu"), "helptext" => sprintf(_("If set to \"yes\" then when someone dials this voicemail box they will not be able to access the voicemail menu by pressing (*). If you have no plans to access your mailbox remotely set this to \"yes\""),$mvm->getCode(),$dvm->getCode()), "currentvalue" => $novmstar, "valarray" => $currentcomponent->getoptlist('vmyn'), "disable" => $disable, "class" => $class];
+		$currentcomponent->addguielem($section, new $rb([...$guidefaults, ...$el]),$category);
 
-		$el = array(
-			"elemname" => "email",
-			"prompttext" => _('Email Address'),
-			"helptext" => _("The email address that Voicemails are sent to."),
-			"currentvalue" => $email,
-			"jsvalidation" => "frm_${display}_isVoiceMailEnabled() && frm_${display}_isEmailAttachment() && !isEmail()",
-			"failvalidationmsg" => $msgInvalidEmail,
-			"canbeempty" => false,
-			"class" => $class,
-			"disable" => $disable
-		);
-		$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)),$category);
+		$el = ["elemname" => "email", "prompttext" => _('Email Address'), "helptext" => _("The email address that Voicemails are sent to."), "currentvalue" => $email, "jsvalidation" => "frm_${display}_isVoiceMailEnabled() && frm_${display}_isEmailAttachment() && !isEmail()", "failvalidationmsg" => $msgInvalidEmail, "canbeempty" => false, "class" => $class, "disable" => $disable];
+		$currentcomponent->addguielem($section, new gui_textbox([...$guidefaults, ...$el]),$category);
 
-		$el = array(
-			"elemname" => "pager",
-			"prompttext" => _('Pager Email Address'),
-			"helptext" => _("Pager/mobile email address that short Voicemail notifications are sent to."),
-			"currentvalue" => $pager,
-			"jsvalidation" => "frm_${display}_isVoiceMailEnabled() && !isEmpty() && !isEmail()",
-			"failvalidationmsg" => $msgInvalidEmail,
-			"canbeempty" => false,
-			"class" => $class,
-			"disable" => $disable
-		);
-		$currentcomponent->addguielem($section, new $tb(array_merge($guidefaults,$el)),$category);
+		$el = ["elemname" => "pager", "prompttext" => _('Pager Email Address'), "helptext" => _("Pager/mobile email address that short Voicemail notifications are sent to."), "currentvalue" => $pager, "jsvalidation" => "frm_${display}_isVoiceMailEnabled() && !isEmpty() && !isEmail()", "failvalidationmsg" => $msgInvalidEmail, "canbeempty" => false, "class" => $class, "disable" => $disable];
+		$currentcomponent->addguielem($section, new $tb([...$guidefaults, ...$el]),$category);
 
-		$el = array(
-			"elemname" => "attach",
-			"prompttext" => _('Email Attachment'),
-			"helptext" => _("Option to attach Voicemails to email."),
-			"currentvalue" => $vmops_attach,
-			"valarray" => $currentcomponent->getoptlist('vmyn'),
-			"disable" => $disable,
-			"class" => $class
-		);
-		$currentcomponent->addguielem($section, new $rb(array_merge($guidefaults,$el)),$category);
+		$el = ["elemname" => "attach", "prompttext" => _('Email Attachment'), "helptext" => _("Option to attach Voicemails to email."), "currentvalue" => $vmops_attach, "valarray" => $currentcomponent->getoptlist('vmyn'), "disable" => $disable, "class" => $class];
+		$currentcomponent->addguielem($section, new $rb([...$guidefaults, ...$el]),$category);
 
-		$el = array(
-			"elemname" => "saycid",
-			"prompttext" => _('Play CID'),
-			"helptext" => _("Read back caller's telephone number prior to playing the incoming message, and just after announcing the date and time the message was left."),
-			"currentvalue" => $vmops_saycid,
-			"valarray" => $currentcomponent->getoptlist('vmyn'),
-			"disable" => $disable,
-			"class" => $class
-		);
-		$currentcomponent->addguielem($section, new $rb(array_merge($guidefaults,$el)),$category);
+		$el = ["elemname" => "saycid", "prompttext" => _('Play CID'), "helptext" => _("Read back caller's telephone number prior to playing the incoming message, and just after announcing the date and time the message was left."), "currentvalue" => $vmops_saycid, "valarray" => $currentcomponent->getoptlist('vmyn'), "disable" => $disable, "class" => $class];
+		$currentcomponent->addguielem($section, new $rb([...$guidefaults, ...$el]),$category);
 
-		$el = array(
-			"elemname" => "envelope",
-			"prompttext" => _('Play Envelope'),
-			"helptext" => _("Envelope controls whether or not the Voicemail system will play the message envelope (date/time) before playing the Voicemail message. This setting does not affect the operation of the envelope option in the advanced Voicemail menu."),
-			"currentvalue" => $vmops_envelope,
-			"valarray" => $currentcomponent->getoptlist('vmyn'),
-			"disable" => $disable,
-			"class" => $class
-		);
-		$currentcomponent->addguielem($section, new $rb(array_merge($guidefaults,$el)),$category);
+		$el = ["elemname" => "envelope", "prompttext" => _('Play Envelope'), "helptext" => _("Envelope controls whether or not the Voicemail system will play the message envelope (date/time) before playing the Voicemail message. This setting does not affect the operation of the envelope option in the advanced Voicemail menu."), "currentvalue" => $vmops_envelope, "valarray" => $currentcomponent->getoptlist('vmyn'), "disable" => $disable, "class" => $class];
+		$currentcomponent->addguielem($section, new $rb([...$guidefaults, ...$el]),$category);
 
-		$el = array(
-			"elemname" => "vmdelete",
-			"prompttext" => _('Delete Voicemail'),
-			"helptext" => _("If set to \"yes\" the message will be deleted from the Voicemailbox (after having been emailed). Provides functionality that allows a user to receive their Voicemail via email alone, rather than having the Voicemail able to be retrieved from the Webinterface or the Extension handset.  CAUTION: MUST HAVE attach Voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE LOST FOREVER."),
-			"currentvalue" => $vmops_delete,
-			"valarray" => $currentcomponent->getoptlist('vmyn'),
-			"disable" => $disable,
-			"class" => $class
-		);
-		$currentcomponent->addguielem($section, new $rb(array_merge($guidefaults,$el)),$category);
+		$el = ["elemname" => "vmdelete", "prompttext" => _('Delete Voicemail'), "helptext" => _("If set to \"yes\" the message will be deleted from the Voicemailbox (after having been emailed). Provides functionality that allows a user to receive their Voicemail via email alone, rather than having the Voicemail able to be retrieved from the Webinterface or the Extension handset.  CAUTION: MUST HAVE attach Voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE LOST FOREVER."), "currentvalue" => $vmops_delete, "valarray" => $currentcomponent->getoptlist('vmyn'), "disable" => $disable, "class" => $class];
+		$currentcomponent->addguielem($section, new $rb([...$guidefaults, ...$el]),$category);
 
 
 		if ($amp_conf['VM_SHOW_IMAP'] || $vmops_imapuser || $vmops_imappassword) {
-			$el = array(
-				"elemname" => "imapuser",
-				"prompttext" => _('IMAP Username'),
-				"helptext" => sprintf(_("This is the IMAP username, if using IMAP storage"),"<br /><br />"),
-				"currentvalue" => $vmops_imapuser,
-				"class" => $class,
-				"disable" => $disable
-			);
-			$currentcomponent->addguielem($section, new $tb(array_merge($guidefaults,$el)),$category);
+			$el = ["elemname" => "imapuser", "prompttext" => _('IMAP Username'), "helptext" => sprintf(_("This is the IMAP username, if using IMAP storage"),"<br /><br />"), "currentvalue" => $vmops_imapuser, "class" => $class, "disable" => $disable];
+			$currentcomponent->addguielem($section, new $tb([...$guidefaults, ...$el]),$category);
 
-			$el = array(
-				"elemname" => "imappassword",
-				"prompttext" => _('IMAP Password'),
-				"helptext" => sprintf(_("This is the IMAP password, if using IMAP storage"),"<br /><br />"),
-				"currentvalue" => $vmops_imappassword,
-				"class" => $class,
-				"disable" => $disable
-			);
-			$currentcomponent->addguielem($section, new $tb(array_merge($guidefaults,$el)),$category);
+			$el = ["elemname" => "imappassword", "prompttext" => _('IMAP Password'), "helptext" => sprintf(_("This is the IMAP password, if using IMAP storage"),"<br /><br />"), "currentvalue" => $vmops_imappassword, "class" => $class, "disable" => $disable];
+			$currentcomponent->addguielem($section, new $tb([...$guidefaults, ...$el]),$category);
 		}
 
-		$el = array(
-			"elemname" => "options",
-			"prompttext" => _('VM Options'),
-			"helptext" => sprintf(_("Separate options with pipe ( | )%sie: review=yes|maxmessage=60"),"<br /><br />"),
-			"currentvalue" => $options,
-			"class" => $class,
-			"disable" => $disable
-		);
-		$currentcomponent->addguielem($section, new $tb(array_merge($guidefaults,$el)),$category);
+		$el = ["elemname" => "options", "prompttext" => _('VM Options'), "helptext" => sprintf(_("Separate options with pipe ( | )%sie: review=yes|maxmessage=60"),"<br /><br />"), "currentvalue" => $options, "class" => $class, "disable" => $disable];
+		$currentcomponent->addguielem($section, new $tb([...$guidefaults, ...$el]),$category);
 
-		$el = array(
-			"elemname" => "vmcontext",
-			"prompttext" => _('VM Context'),
-			"helptext" => _("This is the Voicemail Context which is normally set to default. Do not change unless you understand the implications."),
-			"currentvalue" => $incontext,
-			"class" => $class,
-			"disable" => $disable,
-			"jsvalidation" => "frm_${display}_isVoiceMailEnabled() && isEmpty()",
-			"failvalidationmsg" => $msgInvalidVMContext,
-		);
-		$currentcomponent->addguielem($section, new $tb(array_merge($guidefaults,$el)),$category);
+		$el = ["elemname" => "vmcontext", "prompttext" => _('VM Context'), "helptext" => _("This is the Voicemail Context which is normally set to default. Do not change unless you understand the implications."), "currentvalue" => $incontext, "class" => $class, "disable" => $disable, "jsvalidation" => "frm_${display}_isVoiceMailEnabled() && isEmpty()", "failvalidationmsg" => $msgInvalidVMContext];
+		$currentcomponent->addguielem($section, new $tb([...$guidefaults, ...$el]),$category);
 
 		voicemail_draw_vmxgui($extdisplay, $disable);
 	}
@@ -735,7 +604,7 @@ function voicemail_draw_vmxgui($extdisplay, $vmdisable) {
 	$vmxobj = new vmxObject($extdisplay);
 	$disable = $vmxobj->isEnabled() && !$vmdisable ? false : true;
 
-	$uw = array();
+	$uw = [];
 
 	if($vmxobj->getState("unavail") == "enabled") {
 		$uw[] = "vmx_unavail_enabled";
@@ -751,164 +620,58 @@ function voicemail_draw_vmxgui($extdisplay, $vmdisable) {
 
 	$follow_me_disabled = !$vmxobj->hasFollowMe();
 
-	$vmxsettings = array();
+	$vmxsettings = [];
 
-	$vmxsettings['option'][0] = array(
-		"disabled" => false,
-		"value" =>  $vmxobj->getMenuOpt(0),
-		"checked" => false
-	);
+	$vmxsettings['option'][0] = ["disabled" => false, "value" =>  $vmxobj->getMenuOpt(0), "checked" => false];
 	if($vmxsettings['option'][0]['value'] == '') {
 		$vmxsettings['option'][0]['disabled'] = true;
 		$vmxsettings['option'][0]['checked'] = true;
 	}
 	if (!$follow_me_disabled) {
 		if ($vmxobj->isFollowMe()) {
-			$vmxsettings['option'][1] = array(
-				"disabled" => true,
-				"value" => "",
-				"checked" => true
-			);
+			$vmxsettings['option'][1] = ["disabled" => true, "value" => "", "checked" => true];
 		} else {
 			$val = !$disable ? $vmxobj->getMenuOpt(1) : '';
-			$vmxsettings['option'][1] = array(
-				"disabled" => empty($val),
-				"value" => $val,
-				"checked" => empty($val)
-			);
+			$vmxsettings['option'][1] = ["disabled" => empty($val), "value" => $val, "checked" => empty($val)];
 		}
 	} else {
 		$val = !$disable ? $vmxobj->getMenuOpt(1) : '';
-		$vmxsettings['option'][1] = array(
-			"disabled" => empty($val),
-			"value" => $val,
-			"checked" => empty($val)
-		);
+		$vmxsettings['option'][1] = ["disabled" => empty($val), "value" => $val, "checked" => empty($val)];
 	}
 
-	$vmxsettings['option'][2] = array(
-		"value" => !$disable ? $vmxobj->getMenuOpt(2) : ''
-	);
+	$vmxsettings['option'][2] = ["value" => !$disable ? $vmxobj->getMenuOpt(2) : ''];
 
-	$guidefaults = array(
-		"elemname" => "",
-		"prompttext" => "",
-		"helptext" => "",
-		"currentvalue" => "",
-		"valarray" => array(),
-		"jsonclick" => '',
-		"jsvalidation" => "",
-		"failvalidationmsg" => "",
-		"canbeempty" => true,
-		"maxchars" => 0,
-		"disable" => false,
-		"inputgroup" => false,
-		"class" => "",
-		"cblabel" => 'Enable',
-		"disabled_value" => 'DEFAULT',
-		"check_enables" => 'true',
-		"cbdisable" => false,
-		"cbclass" => ''
-	);
+	$guidefaults = ["elemname" => "", "prompttext" => "", "helptext" => "", "currentvalue" => "", "valarray" => [], "jsonclick" => '', "jsvalidation" => "", "failvalidationmsg" => "", "canbeempty" => true, "maxchars" => 0, "disable" => false, "inputgroup" => false, "class" => "", "cblabel" => 'Enable', "disabled_value" => 'DEFAULT', "check_enables" => 'true', "cbdisable" => false, "cbclass" => ''];
 
-	$el = array(
-		"elemname" => "vmx_state",
-		"prompttext" => _('Enabled'),
-		"helptext" => _("Enable/Disable the VmX (Virtual Machine eXtension) Locater feature for this user. The VMX locator allows for advanced control of a user's voicemail system. It is somewhat similar to the Follow Me feature; however it gives callers more control. In essence, the VMX locater is a mini-IVR (interactive voice response) for voicemail"),
-		"currentvalue" => (($disable) ? 'disabled' : 'enabled'),
-		"valarray" => $currentcomponent->getoptlist('vmena'),
-		"jsonclick" => "frm_${display}_vmxEnabled()",
-		"class" => "fpbx-voicemail",
-		"disable" => $vmdisable,
-		"pairedvalues" => false
-	);
-	$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)), 5, 6, $category);
+	$el = ["elemname" => "vmx_state", "prompttext" => _('Enabled'), "helptext" => _("Enable/Disable the VmX (Virtual Machine eXtension) Locater feature for this user. The VMX locator allows for advanced control of a user's voicemail system. It is somewhat similar to the Follow Me feature; however it gives callers more control. In essence, the VMX locater is a mini-IVR (interactive voice response) for voicemail"), "currentvalue" => (($disable) ? 'disabled' : 'enabled'), "valarray" => $currentcomponent->getoptlist('vmena'), "jsonclick" => "frm_${display}_vmxEnabled()", "class" => "fpbx-voicemail", "disable" => $vmdisable, "pairedvalues" => false];
+	$currentcomponent->addguielem($section, new gui_radio([...$guidefaults, ...$el]), 5, 6, $category);
 
 
-	$el = array(
-		"elemname" => "vmx_use_when",
-		"prompttext" => _('Use When:'),
-		"helptext" => _("When to use VMX"),
-		"currentvalue" => $uw,
-		"valarray" => $currentcomponent->getoptlist('vmxuw'),
-		"class" => $group,
-		"disable" => $disable
-	);
-	$currentcomponent->addguielem($section, new gui_checkset(array_merge($guidefaults,$el)), $category);
+	$el = ["elemname" => "vmx_use_when", "prompttext" => _('Use When:'), "helptext" => _("When to use VMX"), "currentvalue" => $uw, "valarray" => $currentcomponent->getoptlist('vmxuw'), "class" => $group, "disable" => $disable];
+	$currentcomponent->addguielem($section, new gui_checkset([...$guidefaults, ...$el]), $category);
 
-	$el = array(
-		"elemname" => "vmx_play_instructions",
-		"prompttext" => _("Voicemail Instructions:"),
-		"helptext" => _("Uncheck to play a beep after your personal Voicemail greeting."),
-		"currentvalue" => $vmxobj->getVmPlay() ? "yes" : "no",
-		"valarray" => $currentcomponent->getoptlist('vmyn'),
-		"class" => $group,
-		"disable" => $disable,
-		"pairedvalues" => false
-	);
-	$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)), $category);
-	$el = array(
-		"elemname" => "vmx_option_0_number",
-		"prompttext" => _("Press 0:"),
-		"helptext" => _("Pressing 0 during your personal Voicemail greeting goes to the Operator. Uncheck to enter another destination here. This feature can be used while still disabling VmX to allow an alternative Operator extension without requiring the VmX feature for the user."),
-		"currentvalue" => $vmxsettings['option'][0]['value'],
-		"disable" => false,
-		"class" => '',
-		"disabled_value" => $vmxsettings['option'][0]['value'],
-		"cblabel" => _("Go To Operator"),
-		"cbelemname" => "vmx_option_0_system_default",
-		"check_enables" => 'false',
-		"cbdisable" => false,
-		"cbclass" => $group,
-		"cbchecked" => $vmxsettings['option'][0]['checked']
-	);
-	$currentcomponent->addguielem($section, new gui_textbox_check(array_merge($guidefaults,$el)), $category);
+	$el = ["elemname" => "vmx_play_instructions", "prompttext" => _("Voicemail Instructions:"), "helptext" => _("Uncheck to play a beep after your personal Voicemail greeting."), "currentvalue" => $vmxobj->getVmPlay() ? "yes" : "no", "valarray" => $currentcomponent->getoptlist('vmyn'), "class" => $group, "disable" => $disable, "pairedvalues" => false];
+	$currentcomponent->addguielem($section, new gui_radio([...$guidefaults, ...$el]), $category);
+	$el = ["elemname" => "vmx_option_0_number", "prompttext" => _("Press 0:"), "helptext" => _("Pressing 0 during your personal Voicemail greeting goes to the Operator. Uncheck to enter another destination here. This feature can be used while still disabling VmX to allow an alternative Operator extension without requiring the VmX feature for the user."), "currentvalue" => $vmxsettings['option'][0]['value'], "disable" => false, "class" => '', "disabled_value" => $vmxsettings['option'][0]['value'], "cblabel" => _("Go To Operator"), "cbelemname" => "vmx_option_0_system_default", "check_enables" => 'false', "cbdisable" => false, "cbclass" => $group, "cbchecked" => $vmxsettings['option'][0]['checked']];
+	$currentcomponent->addguielem($section, new gui_textbox_check([...$guidefaults, ...$el]), $category);
 
 	if ($follow_me_disabled) {
-		$el = array(
-			"elemname" => "vmx_option_1_number",
-			"prompttext" => _('Press 1:'),
-			"helptext" => _("The remaining options can have internal extensions, ringgroups, queues and external numbers that may be rung. It is often used to include your cell phone. You should run a test to make sure that the number is functional any time a change is made so you don't leave a caller stranded or receiving invalid number messages."),
-			"currentvalue" => $vmxobj->getMenuOpt(1),
-			"class" => $group,
-			"disable" => $disable,
-		);
-		$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)), $category);
+		$el = ["elemname" => "vmx_option_1_number", "prompttext" => _('Press 1:'), "helptext" => _("The remaining options can have internal extensions, ringgroups, queues and external numbers that may be rung. It is often used to include your cell phone. You should run a test to make sure that the number is functional any time a change is made so you don't leave a caller stranded or receiving invalid number messages."), "currentvalue" => $vmxobj->getMenuOpt(1), "class" => $group, "disable" => $disable];
+		$currentcomponent->addguielem($section, new gui_textbox([...$guidefaults, ...$el]), $category);
 	} else {
-		$el = array(
-			"elemname" => "vmx_option_1_number",
-			"prompttext" => _("Press 1:"),
-			"helptext" => _("Enter an alternate number here, then change your personal Voicemail greeting to let callers know to press 1 to reach that number. <br/><br/>If you'd like to use your Follow Me List, check \"Send to Follow Me\" and disable Follow Me otherwise the call will go to Follow Me first and skip VmX Locater."),
-			"currentvalue" => $vmxsettings['option'][1]['value'],
-			"disable" => $vmxsettings['option'][1]['disabled'],
-			"class" => '',
-			"disabled_value" => $vmxsettings['option'][0]['value'],
-			"cblabel" => _("Send to Follow-Me"),
-			"cbelemname" => "vmx_option_1_system_default",
-			"check_enables" => 'false',
-			"cbdisable" => $disable,
-			"cbclass" => $group,
-			"cbchecked" => $vmxsettings['option'][1]['checked']
-		);
-		$currentcomponent->addguielem($section, new gui_textbox_check(array_merge($guidefaults,$el)), $category);
+		$el = ["elemname" => "vmx_option_1_number", "prompttext" => _("Press 1:"), "helptext" => _("Enter an alternate number here, then change your personal Voicemail greeting to let callers know to press 1 to reach that number. <br/><br/>If you'd like to use your Follow Me List, check \"Send to Follow Me\" and disable Follow Me otherwise the call will go to Follow Me first and skip VmX Locater."), "currentvalue" => $vmxsettings['option'][1]['value'], "disable" => $vmxsettings['option'][1]['disabled'], "class" => '', "disabled_value" => $vmxsettings['option'][0]['value'], "cblabel" => _("Send to Follow-Me"), "cbelemname" => "vmx_option_1_system_default", "check_enables" => 'false', "cbdisable" => $disable, "cbclass" => $group, "cbchecked" => $vmxsettings['option'][1]['checked']];
+		$currentcomponent->addguielem($section, new gui_textbox_check([...$guidefaults, ...$el]), $category);
 	}
 
-	$el = array(
-		"elemname" => "vmx_option_2_number",
-		"prompttext" => _('Press 2:'),
-		"helptext" => _("Use any extensions, ringgroups, queues or external numbers. <br/><br/>Remember to re-record your personal Voicemail greeting and include instructions. Run a test to make sure that the number is functional."),
-		"currentvalue" => $vmxobj->getMenuOpt(2),
-		"class" => $group,
-		"disable" => $disable,
-	);
-	$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)), $category);
+	$el = ["elemname" => "vmx_option_2_number", "prompttext" => _('Press 2:'), "helptext" => _("Use any extensions, ringgroups, queues or external numbers. <br/><br/>Remember to re-record your personal Voicemail greeting and include instructions. Run a test to make sure that the number is functional."), "currentvalue" => $vmxobj->getMenuOpt(2), "class" => $group, "disable" => $disable];
+	$currentcomponent->addguielem($section, new gui_textbox([...$guidefaults, ...$el]), $category);
 }
 
 function voicemail_configprocess() {
 	//create vars from the request
 	extract($_REQUEST);
-	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
-	$extdisplay = isset($_REQUEST['extdisplay']) && trim($_REQUEST['extdisplay']) != "" ? $_REQUEST['extdisplay'] : (isset($_REQUEST['extension']) && trim($_REQUEST['extension']) != "" ? $_REQUEST['extension'] : null);
+	$action = $_REQUEST['action'] ?? null;
+	$extdisplay = isset($_REQUEST['extdisplay']) && trim((string) $_REQUEST['extdisplay']) != "" ? $_REQUEST['extdisplay'] : (isset($_REQUEST['extension']) && trim((string) $_REQUEST['extension']) != "" ? $_REQUEST['extension'] : null);
 	//if submitting form, update database
 	switch ($action) {
 		case "add":
@@ -916,7 +679,7 @@ function voicemail_configprocess() {
 				$usage_arr = framework_check_extension_usage($_REQUEST['extension']);
 				if (!empty($usage_arr)) {
 					$GLOBALS['abort'] = true;
-				} elseif(trim($extdisplay) != "") {
+				} elseif(trim((string) $extdisplay) != "") {
 					voicemail_mailbox_add($extdisplay, $_REQUEST);
 					needreload();
 				}
@@ -1027,13 +790,13 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 		switch ($action) {
 			case "tz":
 				/* First update all zonemessages opts that are already in vmconf */
-				$vmconf["zonemessages"] = is_array($vmconf["zonemessages"]) ? $vmconf["zonemessages"] : array();
+				$vmconf["zonemessages"] = is_array($vmconf["zonemessages"]) ? $vmconf["zonemessages"] : [];
 				foreach ($vmconf["zonemessages"] as $key => $val) {
 					$id = "tz__$key";
-					$vmconf["zonemessages"][$key]	= isset($args[$id])?$args[$id]:$vmconf["zonemessages"][$key];
+					$vmconf["zonemessages"][$key]	= $args[$id] ?? $vmconf["zonemessages"][$key];
 					/* Bad to have empty fields in vmconf. */
 					/* And remove deleted fields, too.     */
-					if (empty($vmconf["zonemessages"][$key]) || ($args["tzdel__$key"] == "true")) {
+					if (empty($vmconf["zonemessages"][$key]) || (isset($args["tzdel__$key"]) && $args["tzdel__$key"] == "true")) {
 						unset($vmconf["zonemessages"][$key]);
 					}
 				}
@@ -1055,17 +818,17 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 			case "settings":
 				if (empty($extension) && $action == "settings") {
 					/* First update all general opts that are already in vmconf */
-					$vmconf["general"] = is_array($vmconf["general"]) ? $vmconf["general"] : array();
+					$vmconf["general"] = is_array($vmconf["general"]) ? $vmconf["general"] : [];
 					foreach ($vmconf["general"] as $key => $val) {
 						$id = "gen__$key";
-						$vmconf["general"][$key] = isset($args[$id])?$args[$id]:$vmconf["general"][$key];
+						$vmconf["general"][$key] = $args[$id] ?? $vmconf["general"][$key];
 						//The only reason to use \r is if you're writing to a character terminal
 						//(or more likely a "console window" emulating it) and want the next
 						//line you write to overwrite the last one you just wrote
 						//(sometimes used for goofy "ascii animation" effects of e.g. progress bars)
 						//-- this is getting pretty obsolete in a world of GUIs, though;-).
 						//http://stackoverflow.com/questions/1761051/difference-between-n-and-r
-						$vmconf["general"][$key] = str_replace(array("\r","\n","\t"),array('','\n','\t'),$vmconf["general"][$key]);
+						$vmconf["general"][$key] = str_replace(["\r", "\n", "\t"],['', '\n', '\t'],(string) $vmconf["general"][$key]);
 						/* Bad to have empty fields in vmconf. */
 						/* also make sure no boolean undefined fields left in there */
 						if ((trim($vmconf["general"][$key]) == "") || $vmconf["general"][$key] == 'undefined' && $gen_settings[$key]['type'] == 'flag') {
@@ -1094,7 +857,7 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 						$pwd = $args["acct__pwd"];
 						unset($args["acct__pwd"]);
 					}else{
-						$pwd = isset($vmconf[$context][$extension]['pwd'])?$vmconf[$context][$extension]['pwd']:"";
+						$pwd = $vmconf[$context][$extension]['pwd'] ?? "";
 					}
 					unset($args["acct__pwd"]);
 					if (isset($args["acct__name"]) && $args["acct__name"] != "") {
@@ -1104,14 +867,14 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 						$name = $this_exten["name"];
 					}
 					unset($args["acct__name"]);
-					$email = isset($args["acct__email"])?$args["acct__email"]:"";
+					$email = $args["acct__email"] ?? "";
 					unset($args["acct__email"]);
-					$pager = isset($args["acct__pager"])?$args["acct__pager"]:"";
+					$pager = $args["acct__pager"] ?? "";
 					unset($args["acct__pager"]);
 
 					/* Now handle the options. */
-					$options = array();
-					$acct_settings = is_array($acct_settings) ? $acct_settings : array();
+					$options = [];
+					$acct_settings = is_array($acct_settings) ? $acct_settings : [];
 					foreach ($acct_settings as $key => $descrip) {
 						$id = "acct__$key";
 						if (isset($args[$id]) && !empty($args[$id]) && $args[$id] != "undefined") {
@@ -1121,19 +884,12 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 					/* Remove call me num from options - that is set in ast db */
 					unset($options["callmenum"]);
 					/* New account values to vmconf */
-					$vmconf[$context][$extension] = array(
-										"mailbox"	=> $extension,
-										"pwd" 		=> $pwd,
-										"name" 		=> $name,
-										"email" 	=> $email,
-										"pager" 	=> $pager,
-										"options" 	=> $options
-									     );
+					$vmconf[$context][$extension] = ["mailbox"	=> $extension, "pwd" 		=> $pwd, "name" 		=> $name, "email" 	=> $email, "pager" 	=> $pager, "options" 	=> $options];
 					$callmenum = (isset($args["acct__callmenum"]) && !empty($args["acct__callmenum"]))?$args["acct__callmenum"]:$extension;
 					// Save call me num.
 					$cmd = "database put AMPUSER $extension/callmenum $callmenum";
 					if($astman->connected()) {
-						$astman->send_request("Command", array("Command" => $cmd));
+						$astman->send_request("Command", ["Command" => $cmd]);
 					}
 				}
 				break;
@@ -1148,7 +904,7 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 					/* Each Voicemail account has a line in voicemail.conf like this: */
 					/* extension => password,name,email,pager,options		  */
 					/* Take care of password, name, email and pager.                  */
-					$pwd = isset($args["acct__pwd"])?$args["acct__pwd"]:"";
+					$pwd = $args["acct__pwd"] ?? "";
 					unset($args["acct__pwd"]);
 					if (isset($args["acct__name"]) && $args["acct__name"] != "") {
 						$name = $args["acct__name"];
@@ -1157,15 +913,15 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 						$name = $this_exten["name"];
 					}
 					unset($args["acct__name"]);
-					$email = isset($args["acct__email"])?$args["acct__email"]:"";
+					$email = $args["acct__email"] ?? "";
 					unset($args["acct__email"]);
-					$pager = isset($args["acct__pager"])?$args["acct__pager"]:"";
+					$pager = $args["acct__pager"] ?? "";
 					unset($args["acct__pager"]);
 
 					/* THESE ARE COMING FROM THE USER'S OLD SETTINGS.                     */
 					$options = $vmbox["options"];	/* An array */
 					/* Update the four options listed on the "bsettings" page as needed. */
-					$basic_opts_list = array("attach", "saycid", "envelope", "delete");
+					$basic_opts_list = ["attach", "saycid", "envelope", "delete"];
 					foreach ($basic_opts_list as $basic_opt) {
 						$id = "acct__" . $basic_opt;
 						if (isset($args[$id]) && !empty($args[$id]) && $args[$id] != "undefined") {
@@ -1177,19 +933,12 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 					/* Remove call me num from options - that is set in ast db. Should not be here anyway, since options are coming from the old settings... */
 					unset($options["callmenum"]);
 					/* New account values to vmconf */
-					$vmconf[$context][$extension] = array(
-										"mailbox"	=> $extension,
-										"pwd" 		=> $pwd,
-										"name" 		=> $name,
-										"email" 	=> $email,
-										"pager" 	=> $pager,
-										"options" 	=> $options
-									     );
+					$vmconf[$context][$extension] = ["mailbox"	=> $extension, "pwd" 		=> $pwd, "name" 		=> $name, "email" 	=> $email, "pager" 	=> $pager, "options" 	=> $options];
 					$callmenum = (isset($args["acct__callmenum"]) && !empty($args["acct__callmenum"]))?$args["acct__callmenum"]:$extension;
 					// Save call me num.
 					$cmd = "database put AMPUSER $extension/callmenum $callmenum";
 					if($astman->connected()) {
-						$astman->send_request("Command", array("Command" => $cmd));
+						$astman->send_request("Command", ["Command" => $cmd]);
 					}
 				}
 				break;
@@ -1201,7 +950,7 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 		}
 		voicemail_saveVoicemail($vmconf);
 		if($astman->connected()) {
-			$astman->send_request("Command", array("Command" => "reload app_voicemail.so"));
+			$astman->send_request("Command", ["Command" => "reload app_voicemail.so"]);
 		}
 		return true;
 
@@ -1210,7 +959,7 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 
 		// defaults need to be set for checkboxes unless we change them to radio buttons
 		//
-		$cb = array('VM_OPTS', 'VMX_OPTS_LOOP', 'VMX_OPTS_DOVM');
+		$cb = ['VM_OPTS', 'VMX_OPTS_LOOP', 'VMX_OPTS_DOVM'];
 		foreach ($cb as $cbs) {
 			if (!isset($args[$cbs])) {
 				$args[$cbs] = '';
@@ -1224,22 +973,12 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 function voicemail_admin_update($args) {
 	global $db;
 
-	$valid_settings = array(
-		'VM_OPTS',
-		'VM_DDTYPE',
-		'VM_GAIN',
-		'OPERATOR_XTN',
-		'VMX_OPTS_LOOP',
-		'VMX_OPTS_DOVM',
-		'VMX_TIMEOUT',
-		'VMX_REPEAT',
-		'VMX_LOOPS'
-	);
+	$valid_settings = ['VM_OPTS', 'VM_DDTYPE', 'VM_GAIN', 'OPERATOR_XTN', 'VMX_OPTS_LOOP', 'VMX_OPTS_DOVM', 'VMX_TIMEOUT', 'VMX_REPEAT', 'VMX_LOOPS'];
 
-	$update_arr = array();
+	$update_arr = [];
 	foreach ($args as $key => $value) {
 		if (in_array($key, $valid_settings)) {
-			$update_arr[] = array($key, $db->escapeSimple($value));
+			$update_arr[] = [$key, $db->escapeSimple($value)];
 		}
 	}
 	if (empty($update_arr)) {
@@ -1269,9 +1008,9 @@ function voicemail_admin_get($setting = false) {
 	// result in this, better to avoid crashes in the install_amp log
 	//
 	if(DB::IsError($res)) {
-		$res = array();
+		$res = [];
 	}
-	$settings = array();
+	$settings = [];
 	foreach ($res as $s) {
 		$settings[$s['variable']] = $s['value'];
 	}
@@ -1279,7 +1018,7 @@ function voicemail_admin_get($setting = false) {
 }
 
 function voicemail_get_settings($vmconf, $action, $extension="") {
-	$settings = array();
+	$settings = [];
 	switch ($action) {
 		case "dialplan":
 			// DEFAULTS:
@@ -1317,16 +1056,16 @@ function voicemail_get_settings($vmconf, $action, $extension="") {
 				} else {
 					$settings["enabled"] = false;
 				}
-				$settings["vmcontext"] = $c = isset($vmbox["vmcontext"])?$vmbox["vmcontext"]:"default";
-				$settings["pwd"] = isset($vmbox["pwd"])?$vmbox["pwd"]:"";
+				$settings["vmcontext"] = $c = $vmbox["vmcontext"] ?? "default";
+				$settings["pwd"] = $vmbox["pwd"] ?? "";
 				$settings["name"] = (isset($vmbox["name"]) && $vmbox["name"] != "")?$vmbox["name"]:"";
 				if ($settings["name"] == "") {
 					$this_exten = core_users_get($extension);
 					$settings["name"] = $this_exten["name"];
 				}
-				$settings["email"] = isset($vmbox["email"])?$vmbox["email"]:"";
-				$settings["pager"] = isset($vmbox["pager"])?$vmbox["pager"]:"";
-				$options = isset($vmbox["options"])?$vmbox["options"]:array();
+				$settings["email"] = $vmbox["email"] ?? "";
+				$settings["pager"] = $vmbox["pager"] ?? "";
+				$options = $vmbox["options"] ?? [];
 				foreach ($options as $key => $val) {
 					$settings[$key] = $val;
 				}
@@ -1338,12 +1077,12 @@ function voicemail_get_settings($vmconf, $action, $extension="") {
 				}
 				$cmd 		= "database get AMPUSER $extension/callmenum";
 				$callmenum 	= "";
-				$results 	= $astman->send_request("Command", array("Command" => $cmd));
+				$results 	= $astman->send_request("Command", ["Command" => $cmd]);
 				if (is_array($results))
 				{
 					foreach ($results as $results_elem)
 					{
-						if (preg_match('/Value: [^\s]*/', $results_elem, $matches) > 0)
+						if (preg_match('/Value: [^\s]*/', (string) $results_elem, $matches) > 0)
 						{
 							$parts = preg_split('/ /', trim($matches[0]));
 							$callmenum = $parts[1];
@@ -1473,10 +1212,10 @@ function voicemail_del_greeting_files($vmail_root, $context="", $exten="", $name
 			}
 		}
 
-		$names = ($name) ? voicemail_get_greetings("greet", $name_cmd) : array();
-		$unavails = ($unavail) ? voicemail_get_greetings("unavail", $unavail_cmd) : array();
-		$busys = ($busy) ? voicemail_get_greetings("busy", $busy_cmd) : array();
-		$temps = ($temp) ? voicemail_get_greetings("temp", $temp_cmd) : array();
+		$names = ($name) ? voicemail_get_greetings("greet", $name_cmd) : [];
+		$unavails = ($unavail) ? voicemail_get_greetings("unavail", $unavail_cmd) : [];
+		$busys = ($busy) ? voicemail_get_greetings("busy", $busy_cmd) : [];
+		$temps = ($temp) ? voicemail_get_greetings("temp", $temp_cmd) : [];
 
 		$greetings   = array_merge($names, $temps, $busys, $unavails);
 		if (!empty($greetings)) {
@@ -1498,8 +1237,8 @@ function voicemail_get_storage($path) {
 		}
 	}
 	$base = log($bytes, 1024);
-	$suffixes = array('', _('KB'), _('MB'), _('GB'), _('TB'));
-	return sprintf('%1.2f %s',round(pow(1024, $base - floor($base)), 5),$suffixes[floor($base)]);
+	$suffixes = ['', _('KB'), _('MB'), _('GB'), _('TB')];
+	return sprintf('%1.2f %s',round(1024 ** ($base - floor($base)), 5),$suffixes[floor($base)]);
 }
 
 function voicemail_get_usage($vmail_info, $scope, &$acts_total, &$acts_act, &$acts_unact, &$disabled_count,
@@ -1620,7 +1359,7 @@ function voicemail_file_usage($path, &$inmsg_cnt, &$othmsg_cnt, &$greet_cnt, &$u
 
 }
 function voicemail_strip_exten_from_greet_path($greet_path) {
-	$path_array = explode("/", $greet_path);
+	$path_array = explode("/", (string) $greet_path);
 	$n = sizeof($path_array);
 	$exten = $path_array[$n-2];
 	return $exten;
@@ -1628,7 +1367,7 @@ function voicemail_strip_exten_from_greet_path($greet_path) {
 function voicemail_count_greetings($greeting, $path) {
 	/* get a list of all greeting files */
 	$file_list = voicemail_get_greetings($greeting, $path);
-	$greet_list = array();
+	$greet_list = [];
 	/* greeting can be in multiple formats, making file count greater than greeting */
 	/* count, so make array with one entry for each extension that has the greeting */
 	foreach ($file_list as $greeting_file) {
@@ -1637,13 +1376,13 @@ function voicemail_count_greetings($greeting, $path) {
 	return sizeof($greet_list);
 }
 function voicemail_get_greetings($greeting, $path) {
-	$results = array();
-	$greet_list = array();
+	$results = [];
+	$greet_list = [];
 
 	foreach (glob($path) as $filename) {
 		/* filter out abandoned greeting recordings */
 		$pat = "/.*" . $greeting . "\.tmp\..+/";
-		if (!preg_match($pat, $filename))
+		if (!preg_match($pat, (string) $filename))
 			$greet_list[] = $filename;
 	}
 	return $greet_list;
@@ -1651,7 +1390,7 @@ function voicemail_get_greetings($greeting, $path) {
 function voicemail_count_ab_greetings($greeting, $cmd) {
 
 	$file_list = voicemail_get_ab_greetings($greeting, $cmd);
-	$greet_list = array();
+	$greet_list = [];
 	/* greeting can be in multiple formats, making file count greater than greeting */
 	/* count, so make array with one entry for each extension that has the greeting */
 	foreach ($file_list as $greeting_file) {
@@ -1660,8 +1399,8 @@ function voicemail_count_ab_greetings($greeting, $cmd) {
 	return sizeof($greet_list);
 }
 function voicemail_get_ab_greetings($greeting, $path) {
-	$results = array();
-	$greet_list = array();
+	$results = [];
+	$greet_list = [];
 
 	foreach (glob($path) as $filename) {
 		$greet_list[] = $filename;
@@ -1669,20 +1408,21 @@ function voicemail_get_ab_greetings($greeting, $path) {
 	return $greet_list;
 }
 function voicemail_count_msg($path) {
-	$results = array();
+	$results = [];
 	$msg_cnt = 0;
 
 	/* Message can be recorded in multiple formats, but there is always one text */
 	/* file for each message, so count the text files. */
 	foreach (glob($path) as $r) {
-		if (preg_match("/.+\/msg[0-9][0-9][0-9][0-9]\.txt\/{0,1}/", $r)) {
+		if (preg_match("/.+\/msg[0-9][0-9][0-9][0-9]\.txt\/{0,1}/", (string) $r)) {
 			$msg_cnt++;
 		}
 	}
 	return $msg_cnt;
 }
 function voicemail_get_greeting_timestamps($name=0, $unavail=0, $busy=0, $temp=0, $context="", $extension="") {
-	global $vmail_root;
+	$ts = [];
+ global $vmail_root;
 	if ($context == "" || $extension == "") {
 		return null;
 	}
@@ -1692,7 +1432,7 @@ function voicemail_get_greeting_timestamps($name=0, $unavail=0, $busy=0, $temp=0
 	$ts["busy"] = 0;
 	$ts["temp"] = 0;
 	if ($name) {
-		$listing = array();
+		$listing = [];
 		exec("ls $vmail_path/greet.*", $listing);
 		foreach ($listing as $entry) {
 			if (!preg_match("/greet\.tmp\..+/", $entry)) {
@@ -1702,7 +1442,7 @@ function voicemail_get_greeting_timestamps($name=0, $unavail=0, $busy=0, $temp=0
 		}
 	}
 	if ($unavail) {
-		$listing = array();
+		$listing = [];
 		exec("ls $vmail_path/unavail.*", $listing);
 		foreach ($listing as $entry) {
 			if (!preg_match("/unavail\.tmp\..+/", $entry)) {
@@ -1712,7 +1452,7 @@ function voicemail_get_greeting_timestamps($name=0, $unavail=0, $busy=0, $temp=0
 		}
 	}
 	if ($busy) {
-		$listing = array();
+		$listing = [];
 		exec("ls $vmail_path/busy.*", $listing);
 		foreach ($listing as $entry) {
 			if (!preg_match("/busy\.tmp\..+/", $entry)) {
@@ -1722,7 +1462,7 @@ function voicemail_get_greeting_timestamps($name=0, $unavail=0, $busy=0, $temp=0
 		}
 	}
 	if ($temp) {
-		$listing = array();
+		$listing = [];
 		exec("ls $vmail_path/temp.*", $listing);
 		foreach ($listing as $entry) {
 			if (!preg_match("/temp\.tmp\..+/", $entry)) {
@@ -1745,7 +1485,7 @@ function updateUCPAddressInEmailBody() {
 		}
 		$ampWebAddress = \FreePBX::Config()->get('AMPWEBADDRESS');
 		if(!empty($ampWebAddress)) {
-			preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $emailBody, $match);
+			preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', (string) $emailBody, $match);
 			$vURL = $match[0][0];
 			$ucpProtocol = "http";
 			$ucpPort = "81";
@@ -1770,7 +1510,7 @@ function updateUCPAddressInEmailBody() {
 			}
 
 			$ampWebAddress = $ucpProtocol.'://'. $ampWebAddress . ':' . $ucpPort . $ucp;
-			$emailBody = str_replace($vURL, $ampWebAddress, $emailBody);
+			$emailBody = str_replace($vURL, $ampWebAddress, (string) $emailBody);
 			$vmConf['general']['emailbody'] = $emailBody;
 		} else {
 			$existingEmailBody = $vMail->getConfig('email_body');
