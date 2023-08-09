@@ -30,7 +30,9 @@ class Restore Extends Base\RestoreBase{
 			}
 		}
 		$this->log(sprintf(_("%s Files Restored"), $nfiles++),'INFO');
-		$this->importTables($configs['tables']);
+		if(isset($configs['tables'])) {
+			$this->importTables($configs['tables']);
+		}
 	}
 
 	public function processLegacy($pdo, $data, $tables, $unknownTables) {
