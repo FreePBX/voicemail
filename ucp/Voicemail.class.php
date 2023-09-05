@@ -103,6 +103,7 @@ class Voicemail extends Modules {
 	}
 
 	public function getWidgetDisplay($id) {
+		$html = '';
 		$ext = !empty($id) ? $id : '';
 		if (!empty($ext) && !$this->_checkExtension($ext)) {
 			return array();
