@@ -211,6 +211,7 @@ class Voicemail extends Modules{
 			"supportedHTML5" => implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats()),
 			"mailboxes" => $this->voicemails,
 			"extensions" => $this->extensions,
+			"isSngaiEnabled" =>$this->UCP->FreePBX->Modules->checkStatus("sngai")
 		);
 	}
 
