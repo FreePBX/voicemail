@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>17.0.3</version>
+	<version>17.0.4</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*17.0.4* Packaging of ver 17.0.4
 		*17.0.3* Packaging of ver 17.0.3
 		*17.0.2* Packaging of ver 17.0.2
 		*17.0.1alpha* 17.0.1 alpha release

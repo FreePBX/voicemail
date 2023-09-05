@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-02 09:52+0000\n"
+"POT-Creation-Date: 2023-09-05 06:02+0000\n"
 "PO-Revision-Date: 2021-02-10 00:00+0000\n"
 "Last-Translator: Andy Lim <mhlim@dialogic.co.kr>\n"
 "Language-Team: Korean <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -891,7 +891,7 @@ msgstr ""
 msgid "File Format"
 msgstr ""
 
-#: ucp/Voicemail.class.php:342
+#: ucp/Voicemail.class.php:343
 msgid "File does not exist"
 msgstr ""
 
@@ -928,7 +928,7 @@ msgstr ""
 msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 
-#: ucp/Voicemail.class.php:665
+#: ucp/Voicemail.class.php:666
 msgid "Forbidden"
 msgstr ""
 
@@ -1011,7 +1011,7 @@ msgstr ""
 msgid "Go To Operator"
 msgstr ""
 
-#: ucp/Voicemail.class.php:179
+#: ucp/Voicemail.class.php:180
 msgid "Greetings"
 msgstr ""
 
@@ -1259,7 +1259,7 @@ msgstr ""
 msgid "Invalid Password"
 msgstr ""
 
-#: ucp/Voicemail.class.php:374 ucp/Voicemail.class.php:408
+#: ucp/Voicemail.class.php:375 ucp/Voicemail.class.php:409
 msgid "Invalid Recipient"
 msgstr ""
 
@@ -1533,7 +1533,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: ucp/Voicemail.class.php:684
+#: ucp/Voicemail.class.php:685
 msgid "Not Found"
 msgstr ""
 
@@ -2447,15 +2447,15 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: ucp/Voicemail.class.php:619
+#: ucp/Voicemail.class.php:620
 msgid "Unknown Error"
 msgstr ""
 
-#: ucp/Voicemail.class.php:570
+#: ucp/Voicemail.class.php:571
 msgid "Unsupported file format"
 msgstr ""
 
-#: ucp/Voicemail.class.php:594 ucp/assets/js/global.js:470
+#: ucp/Voicemail.class.php:595 ucp/assets/js/global.js:470
 msgid "Unsupported file type"
 msgstr ""
 
@@ -2535,7 +2535,7 @@ msgstr ""
 msgid "VM Options"
 msgstr ""
 
-#: ucp/Voicemail.class.php:387
+#: ucp/Voicemail.class.php:388
 msgid "VMAIL"
 msgstr ""
 
@@ -2562,8 +2562,8 @@ msgid "VmX Locater&trade;"
 msgstr ""
 
 #: Voicemail.class.php:894 Voicemail.class.php:2875 functions.inc.php:508
-#: install.php:8 ucp/Voicemail.class.php:99 ucp/Voicemail.class.php:148
-#: ucp/Voicemail.class.php:200 views/header.php:2 voicemail.i18n.php:4
+#: install.php:8 ucp/Voicemail.class.php:99 ucp/Voicemail.class.php:149
+#: ucp/Voicemail.class.php:201 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
 msgstr ""
 
@@ -2595,7 +2595,7 @@ msgstr ""
 msgid "Voicemail Instructions:"
 msgstr ""
 
-#: ucp/Voicemail.class.php:387
+#: ucp/Voicemail.class.php:388
 msgid "Voicemail Message"
 msgstr ""
 
@@ -2633,7 +2633,7 @@ msgstr ""
 msgid "Voicemail Recording Gain"
 msgstr ""
 
-#: ucp/Voicemail.class.php:167
+#: ucp/Voicemail.class.php:168
 msgid "Voicemail Settings"
 msgstr ""
 
@@ -2655,7 +2655,7 @@ msgid ""
 "sure you wish to continue?"
 msgstr ""
 
-#: ucp/Voicemail.class.php:564 ucp/Voicemail.class.php:608
+#: ucp/Voicemail.class.php:565 ucp/Voicemail.class.php:609
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr ""
@@ -2664,7 +2664,7 @@ msgstr ""
 msgid "Voicemail notification"
 msgstr ""
 
-#: ucp/Voicemail.class.php:613
+#: ucp/Voicemail.class.php:614
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr ""
