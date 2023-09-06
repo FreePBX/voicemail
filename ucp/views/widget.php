@@ -60,7 +60,7 @@
 						<th data-field="origtime" data-sortable="true" data-formatter="UCP.Modules.Voicemail.dateFormatter"><?php echo _("Date/Time")?></th>
 						<th data-field="callerid" data-sortable="true"><?php echo _("CID")?></th>
 						<?php if($showPlayback) { ?>
-							<th data-field="playback" data-width="40%" data-formatter="UCP.Modules.Voicemail.playbackFormatter"><?php echo _("Playback")?></th>
+							<th data-field="playback" data-width="280" data-formatter="UCP.Modules.Voicemail.playbackFormatter"><?php echo _("Playback")?></th>
 						<?php } ?>
 						<th data-field="duration" data-sortable="true" data-formatter="UCP.Modules.Voicemail.durationFormatter"><?php echo _("Duration")?></th>
 						<th data-field="controls" data-formatter="UCP.Modules.Voicemail.controlFormatter"><?php echo _("Controls")?></th>
