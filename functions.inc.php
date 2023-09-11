@@ -510,11 +510,11 @@ function voicemail_configpageload() {
 		$category = "voicemail";
 
 		$guidefaults = ["elemname" => "", "prompttext" => "", "helptext" => "", "currentvalue" => "", "valarray" => [], "jsonclick" => '', "jsvalidation" => "", "failvalidationmsg" => "", "canbeempty" => true, "maxchars" => 0, "disable" => false, "inputgroup" => false, "class" => ""];
-		$el = ["elemname" => "vm", "prompttext" => _('Enabled'), "currentvalue" => $vmselect, "valarray" => $currentcomponent->getoptlist('vmena'), "jsonclick" => "frm_${display}_voicemailEnabled() && frm_${display}_vmxEnabled()", "pairedvalues" => false];
+		$el = ["elemname" => "vm", "prompttext" => _('Enabled'), "currentvalue" => $vmselect, "valarray" => $currentcomponent->getoptlist('vmena'), "jsonclick" => "frm_{$display}_voicemailEnabled() && frm_{$display}_vmxEnabled()", "pairedvalues" => false];
 		$currentcomponent->addguielem($section, new gui_radio([...$guidefaults, ...$el]),$category);
 		$disable = ($vmselect == 'disabled');
 
-		$el = ["elemname" => "vmpwd", "prompttext" => _('Voicemail Password'), "helptext" => sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "currentvalue" => $vmpwd, "jsvalidation" => "frm_${display}_isVoiceMailEnabled() && !frm_${display}_isValidVoicemailPass()", "failvalidationmsg" => $msgInvalidVmPwd, "canbeempty" => false, "class" => "$class confidential", "disable" => $disable];
+		$el = ["elemname" => "vmpwd", "prompttext" => _('Voicemail Password'), "helptext" => sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "currentvalue" => $vmpwd, "jsvalidation" => "frm_{$display}_isVoiceMailEnabled() && !frm_{$display}_isValidVoicemailPass()", "failvalidationmsg" => $msgInvalidVmPwd, "canbeempty" => false, "class" => "$class confidential", "disable" => $disable];
 
 		$currentcomponent->addguielem($section, new gui_textbox([...$guidefaults, ...$el]),$category);
 		//for passwordless voicemail we need to check some settings
@@ -547,10 +547,10 @@ function voicemail_configpageload() {
 		$el = ["elemname" => "novmstar", "prompttext" => _("Disable (*) in Voicemail Menu"), "helptext" => sprintf(_("If set to \"yes\" then when someone dials this voicemail box they will not be able to access the voicemail menu by pressing (*). If you have no plans to access your mailbox remotely set this to \"yes\""),$mvm->getCode(),$dvm->getCode()), "currentvalue" => $novmstar, "valarray" => $currentcomponent->getoptlist('vmyn'), "disable" => $disable, "class" => $class];
 		$currentcomponent->addguielem($section, new $rb([...$guidefaults, ...$el]),$category);
 
-		$el = ["elemname" => "email", "prompttext" => _('Email Address'), "helptext" => _("The email address that Voicemails are sent to."), "currentvalue" => $email, "jsvalidation" => "frm_${display}_isVoiceMailEnabled() && frm_${display}_isEmailAttachment() && !isEmail()", "failvalidationmsg" => $msgInvalidEmail, "canbeempty" => false, "class" => $class, "disable" => $disable];
+		$el = ["elemname" => "email", "prompttext" => _('Email Address'), "helptext" => _("The email address that Voicemails are sent to."), "currentvalue" => $email, "jsvalidation" => "frm_{$display}_isVoiceMailEnabled() && frm_{$display}_isEmailAttachment() && !isEmail()", "failvalidationmsg" => $msgInvalidEmail, "canbeempty" => false, "class" => $class, "disable" => $disable];
 		$currentcomponent->addguielem($section, new gui_textbox([...$guidefaults, ...$el]),$category);
 
-		$el = ["elemname" => "pager", "prompttext" => _('Pager Email Address'), "helptext" => _("Pager/mobile email address that short Voicemail notifications are sent to."), "currentvalue" => $pager, "jsvalidation" => "frm_${display}_isVoiceMailEnabled() && !isEmpty() && !isEmail()", "failvalidationmsg" => $msgInvalidEmail, "canbeempty" => false, "class" => $class, "disable" => $disable];
+		$el = ["elemname" => "pager", "prompttext" => _('Pager Email Address'), "helptext" => _("Pager/mobile email address that short Voicemail notifications are sent to."), "currentvalue" => $pager, "jsvalidation" => "frm_{$display}_isVoiceMailEnabled() && !isEmpty() && !isEmail()", "failvalidationmsg" => $msgInvalidEmail, "canbeempty" => false, "class" => $class, "disable" => $disable];
 		$currentcomponent->addguielem($section, new $tb([...$guidefaults, ...$el]),$category);
 
 		$el = ["elemname" => "attach", "prompttext" => _('Email Attachment'), "helptext" => _("Option to attach Voicemails to email."), "currentvalue" => $vmops_attach, "valarray" => $currentcomponent->getoptlist('vmyn'), "disable" => $disable, "class" => $class];
@@ -577,7 +577,7 @@ function voicemail_configpageload() {
 		$el = ["elemname" => "options", "prompttext" => _('VM Options'), "helptext" => sprintf(_("Separate options with pipe ( | )%sie: review=yes|maxmessage=60"),"<br /><br />"), "currentvalue" => $options, "class" => $class, "disable" => $disable];
 		$currentcomponent->addguielem($section, new $tb([...$guidefaults, ...$el]),$category);
 
-		$el = ["elemname" => "vmcontext", "prompttext" => _('VM Context'), "helptext" => _("This is the Voicemail Context which is normally set to default. Do not change unless you understand the implications."), "currentvalue" => $incontext, "class" => $class, "disable" => $disable, "jsvalidation" => "frm_${display}_isVoiceMailEnabled() && isEmpty()", "failvalidationmsg" => $msgInvalidVMContext];
+		$el = ["elemname" => "vmcontext", "prompttext" => _('VM Context'), "helptext" => _("This is the Voicemail Context which is normally set to default. Do not change unless you understand the implications."), "currentvalue" => $incontext, "class" => $class, "disable" => $disable, "jsvalidation" => "frm_{$display}_isVoiceMailEnabled() && isEmpty()", "failvalidationmsg" => $msgInvalidVMContext];
 		$currentcomponent->addguielem($section, new $tb([...$guidefaults, ...$el]),$category);
 
 		voicemail_draw_vmxgui($extdisplay, $disable);
@@ -643,7 +643,7 @@ function voicemail_draw_vmxgui($extdisplay, $vmdisable) {
 
 	$guidefaults = ["elemname" => "", "prompttext" => "", "helptext" => "", "currentvalue" => "", "valarray" => [], "jsonclick" => '', "jsvalidation" => "", "failvalidationmsg" => "", "canbeempty" => true, "maxchars" => 0, "disable" => false, "inputgroup" => false, "class" => "", "cblabel" => 'Enable', "disabled_value" => 'DEFAULT', "check_enables" => 'true', "cbdisable" => false, "cbclass" => ''];
 
-	$el = ["elemname" => "vmx_state", "prompttext" => _('Enabled'), "helptext" => _("Enable/Disable the VmX (Virtual Machine eXtension) Locater feature for this user. The VMX locator allows for advanced control of a user's voicemail system. It is somewhat similar to the Follow Me feature; however it gives callers more control. In essence, the VMX locater is a mini-IVR (interactive voice response) for voicemail"), "currentvalue" => (($disable) ? 'disabled' : 'enabled'), "valarray" => $currentcomponent->getoptlist('vmena'), "jsonclick" => "frm_${display}_vmxEnabled()", "class" => "fpbx-voicemail", "disable" => $vmdisable, "pairedvalues" => false];
+	$el = ["elemname" => "vmx_state", "prompttext" => _('Enabled'), "helptext" => _("Enable/Disable the VmX (Virtual Machine eXtension) Locater feature for this user. The VMX locator allows for advanced control of a user's voicemail system. It is somewhat similar to the Follow Me feature; however it gives callers more control. In essence, the VMX locater is a mini-IVR (interactive voice response) for voicemail"), "currentvalue" => (($disable) ? 'disabled' : 'enabled'), "valarray" => $currentcomponent->getoptlist('vmena'), "jsonclick" => "frm_{$display}_vmxEnabled()", "class" => "fpbx-voicemail", "disable" => $vmdisable, "pairedvalues" => false];
 	$currentcomponent->addguielem($section, new gui_radio([...$guidefaults, ...$el]), 5, 6, $category);
 
 

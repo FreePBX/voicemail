@@ -25,7 +25,7 @@
 namespace UCP\Modules;
 
 use \UCP\Modules as Modules;
-
+#[\AllowDynamicProperties]
 class Voicemail extends Modules {
 	protected $module = 'Voicemail';
 	private $limit = 15;
