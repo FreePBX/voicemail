@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Voicemail\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-05 06:02+0000\n"
+"POT-Creation-Date: 2023-09-13 06:05+0000\n"
 "PO-Revision-Date: 2022-04-19 15:28+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -427,10 +427,6 @@ msgstr ""
 msgid "Copying..."
 msgstr "Копирование..."
 
-#: voicemail.i18n.php:12
-msgid "Create Voicemail Hints"
-msgstr "Создавать хинты голосовой почты"
-
 #: Api/Gql/Voicemail.php:19
 msgid "Create/enable a voicemail account"
 msgstr ""
@@ -629,7 +625,7 @@ msgstr ""
 msgid "Delete:"
 msgstr "Удалить:"
 
-#: Vmx.class.php:36
+#: Vmx.class.php:37
 msgid "Destination number"
 msgstr "Номер назначения"
 
@@ -638,7 +634,6 @@ msgid "Device"
 msgstr "Устройство"
 
 #: functions.inc.php:223 functions.inc.php:289 install.php:10
-#: voicemail.i18n.php:26
 msgid "Dial Voicemail"
 msgstr "Вызов голосовой почты"
 
@@ -654,7 +649,7 @@ msgstr "Поведение диалплана"
 msgid "Direct Dial Mode"
 msgstr "Режим прямого набора"
 
-#: install.php:12 voicemail.i18n.php:30
+#: install.php:12
 msgid "Direct Dial Prefix"
 msgstr "Префикс прямого набора"
 
@@ -1390,19 +1385,6 @@ msgstr ""
 msgid "Inherit"
 msgstr "Наследовать"
 
-#: voicemail.i18n.php:20
-msgid ""
-"Installations that have configured Voicemail with IMAP should set this to "
-"true so that the IMAP username and password fields are provided in the "
-"Voicemail setup screen for extensions. If an extension alread has these "
-"fields populated, they will be displayed even if this is set to false."
-msgstr ""
-"Инсталляции, с конфигурирацией голосовой почты с использованием IMAP, "
-"требуют установки этой опции в true, чтобы обеспечить передачу пользователя "
-"IMAP и пароля доступа из полей настройки внутренних номеров. Если же "
-"внутренний номер уже прописан со значениями в этих полях, то они будут "
-"работать даже если здесь установлено в false."
-
 #: functions.inc.php:766
 msgid "Invalid Action"
 msgstr "Неверное действие"
@@ -1427,15 +1409,8 @@ msgstr "Язык"
 msgid "Language code for voicemail"
 msgstr "Языковой код для голосовой почты"
 
-#: Vmx.class.php:31
+#: Vmx.class.php:32
 msgid "Leave blank for go to operator"
-msgstr ""
-
-#: voicemail.i18n.php:24
-msgid ""
-"Limit the Messages to be Displayed in UCP. If your device has more "
-"processing power you can increase this otherwise lower it if you find your "
-"system not responsive"
 msgstr ""
 
 #: Voicemail.class.php:2394
@@ -1615,7 +1590,7 @@ msgstr ""
 msgid "Msg Timeout"
 msgstr ""
 
-#: functions.inc.php:170 install.php:9 voicemail.i18n.php:32
+#: functions.inc.php:170 install.php:9
 msgid "My Voicemail"
 msgstr "Моя голосовая почта"
 
@@ -1942,10 +1917,6 @@ msgid ""
 "Check to enter another destination here."
 msgstr ""
 
-#: voicemail.i18n.php:18
-msgid "Provide IMAP Voicemail Fields"
-msgstr "Обеспечивает поля голосовой почты IMAP"
-
 #: Voicemail.class.php:2645
 msgid "Re-enter Password"
 msgstr ""
@@ -2130,15 +2101,7 @@ msgstr ""
 msgid "Set to a valid port as specified in smdi.conf"
 msgstr ""
 
-#: voicemail.i18n.php:16
-msgid ""
-"Setting this flag with generate the required dialplan to integrate with "
-"res_mwi_devstate (res_mwi_blf) which is included with the Official FreePBX "
-"Distro. It allows users to subscribe to other voicemail box and be notified "
-"via BLF of changes."
-msgstr ""
-
-#: views/header.php:10 voicemail.i18n.php:6
+#: views/header.php:10
 msgid "Settings"
 msgstr "Настройки"
 
@@ -2305,11 +2268,11 @@ msgstr "Номер дескриптора ADSI для скачивания"
 msgid "The ADSI security lock code"
 msgstr "Секретный код защиты ADSI"
 
-#: install.php:14 voicemail.i18n.php:28
+#: install.php:14
 msgid "The Feature Code used to dial any voicemail"
 msgstr ""
 
-#: install.php:13 voicemail.i18n.php:34
+#: install.php:13
 msgid ""
 "The Feature Code used to direct dial a users voicemail from their own "
 "extension"
@@ -2533,12 +2496,6 @@ msgid ""
 "'No'"
 msgstr ""
 
-#: voicemail.i18n.php:8
-msgid "This module allows you to configure Voicemail for a user or extension"
-msgstr ""
-"Этот модуль позволяет сконфигурировать голосовую почту для пользователя или "
-"внутреннего номера"
-
 #: page.voicemail.php:206
 msgid "Time announcement for message playback"
 msgstr "Предупреждение о часовом поясе при воспроизведении сообщения"
@@ -2597,7 +2554,7 @@ msgstr ""
 "Чтобы воспроизвести медианоситель - вам нужно будет либо обновить браузер до "
 "последней версии, либо обновить ваш %s"
 
-#: Vmx.class.php:34
+#: Vmx.class.php:35
 msgid "To send to followme use \"FMextension\""
 msgstr ""
 
@@ -2634,10 +2591,6 @@ msgid ""
 msgstr ""
 "включает/выключает сообщение о длительности записи перед воспроизведением. "
 "[Включено по умолчанию]"
-
-#: voicemail.i18n.php:22
-msgid "UCP Message Limit"
-msgstr ""
 
 #: Voicemail.class.php:1883
 msgid "Unable to add mailbox!"
@@ -2768,15 +2721,15 @@ msgstr "Опции голосовой почты"
 msgid "VMAIL"
 msgstr ""
 
-#: Vmx.class.php:19
+#: Vmx.class.php:20
 msgid "VMX Use when Unavailable \"enabled\" and for disable use:blocked "
 msgstr ""
 
-#: Vmx.class.php:22 Vmx.class.php:25
+#: Vmx.class.php:23 Vmx.class.php:26
 msgid "VMX Use when busy:\"enabled\" AND  for disable this use blocked "
 msgstr ""
 
-#: Vmx.class.php:28
+#: Vmx.class.php:29
 msgid "VMX play_instructions, Use yes: no"
 msgstr ""
 
@@ -2794,11 +2747,11 @@ msgstr "VmX Локатор&trade;"
 
 #: Voicemail.class.php:894 Voicemail.class.php:2875 functions.inc.php:508
 #: install.php:8 ucp/Voicemail.class.php:99 ucp/Voicemail.class.php:149
-#: ucp/Voicemail.class.php:201 views/header.php:2 voicemail.i18n.php:4
+#: ucp/Voicemail.class.php:201 views/header.php:2
 msgid "Voicemail"
 msgstr "Голосовая почта"
 
-#: install.php:11 voicemail.i18n.php:10
+#: install.php:11
 msgid "Voicemail Admin"
 msgstr "Администратор голосовой почты"
 
@@ -2829,10 +2782,6 @@ msgstr "Инструкции по голосовой почте:"
 #: ucp/Voicemail.class.php:388
 msgid "Voicemail Message"
 msgstr "Сообщение голосовой почты"
-
-#: voicemail.i18n.php:14
-msgid "Voicemail Module"
-msgstr "Модуль голосовой почты"
 
 #: Voicemail.class.php:1790
 msgid ""
@@ -3039,6 +2988,33 @@ msgstr "переменная"
 #: page.voicemail.php:569
 msgid "yes"
 msgstr "да"
+
+#~ msgid "Create Voicemail Hints"
+#~ msgstr "Создавать хинты голосовой почты"
+
+#~ msgid ""
+#~ "Installations that have configured Voicemail with IMAP should set this to "
+#~ "true so that the IMAP username and password fields are provided in the "
+#~ "Voicemail setup screen for extensions. If an extension alread has these "
+#~ "fields populated, they will be displayed even if this is set to false."
+#~ msgstr ""
+#~ "Инсталляции, с конфигурирацией голосовой почты с использованием IMAP, "
+#~ "требуют установки этой опции в true, чтобы обеспечить передачу "
+#~ "пользователя IMAP и пароля доступа из полей настройки внутренних номеров. "
+#~ "Если же внутренний номер уже прописан со значениями в этих полях, то они "
+#~ "будут работать даже если здесь установлено в false."
+
+#~ msgid "Provide IMAP Voicemail Fields"
+#~ msgstr "Обеспечивает поля голосовой почты IMAP"
+
+#~ msgid ""
+#~ "This module allows you to configure Voicemail for a user or extension"
+#~ msgstr ""
+#~ "Этот модуль позволяет сконфигурировать голосовую почту для пользователя "
+#~ "или внутреннего номера"
+
+#~ msgid "Voicemail Module"
+#~ msgstr "Модуль голосовой почты"
 
 #~ msgid "%s adjusted from %s to %s"
 #~ msgstr "%s скорректирован с %s в %s"
