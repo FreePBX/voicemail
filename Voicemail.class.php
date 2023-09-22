@@ -520,7 +520,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		if(!$fromReload) {
 			$extEmailBody = $this->getConfig('email_body');
 			if($extEmailBody) {
-				$this->setConfig('email_body', $vmconf['general']['emailbody']);
+				$this->setConfig('email_body', $vmconf['general']['emailbody'] ?? "");
 			}
 		}
 		$this->FreePBX->WriteConfig->writeConfig("voicemail.conf", $vmconf, false);
