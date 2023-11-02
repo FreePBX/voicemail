@@ -738,7 +738,7 @@ switch ($action) {
 			/* Get timestamps, if applicable */
 			$vals['ts'] = voicemail_get_greeting_timestamps($name, $unavail, $busy, $temp, $context, $extension);
 			$vals['name_ts'] = ($vals['ts']["name"] > 0) ? $vals['ts']["name"] : '0';
-			$vals['unavail_ts'] = ($vals['ts']["unavail"] > 0) ? $vals['ts']["unavail"] : '0';
+			$vals['unavail_ts'] = (isset($vals['ts']["unavail"]) && $vals['ts']["unavail"] > 0) ? $vals['ts']["unavail"] : '0';
 			$vals['busy_ts'] = ($vals['ts']["busy"] > 0) ? $vals['ts']["busy"] : '0';
 			$vals['temp_ts'] = ($vals['ts']["temp"] > 0) ? $vals['ts']["temp"] : '0';
 			show_view(dirname(__FILE__).'/views/usage.php',$vals);
