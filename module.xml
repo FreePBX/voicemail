@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.29</version>
+	<version>15.0.30</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.30* Packaging of ver 15.0.30
 		*15.0.29* FREEI-5549 vm backup issue 
 		*15.0.28* FREEPBX-23781 
 		*15.0.27* FREEI-4015 D series - Voicemail app on multiple AORs 
