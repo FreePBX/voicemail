@@ -73,7 +73,7 @@ if (isset($extens) && is_array($extens)) {
 				$link = "config.php?type=setup&display=users&extdisplay=" . $exten[0] . "#" . $exten[0];
 			}
 		}
-		$rnav_entries[$i] = "<a" . ($extdisplay==$exten[0] ? ' class="list-group-item active"':' class="list-group-item"') . "${disabled_style}${unactivated_style} href=\"$link\" onHover='menuUpdatePos();'>{$name} &lt;" . $exten[0] . "&gt;&nbsp;&nbsp;(${c}${disabled_txt})${unactivated_txt}</a></li>\n";
+		$rnav_entries[$i] = "<a" . ($extdisplay==$exten[0] ? ' class="list-group-item active"':' class="list-group-item"') . "{$disabled_style}{$unactivated_style} href=\"$link\" onHover='menuUpdatePos();'>{$name} &lt;" . $exten[0] . "&gt;&nbsp;&nbsp;({$c}{$disabled_txt}){$unactivated_txt}</a></li>\n";
 		$i++;
 	}
 }
