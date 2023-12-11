@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-11 09:33+0000\n"
-"PO-Revision-Date: 2023-11-11 13:01+0000\n"
+"PO-Revision-Date: 2023-12-12 18:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/voicemail/"
 "pl/>\n"
@@ -24,11 +24,11 @@ msgstr ""
 
 #: Voicemail.class.php:2225
 msgid " Don't leave single period on end of line by itself."
-msgstr ""
+msgstr " Nie zostawiaj samej kropki na końcu linii."
 
 #: views/tz.php:204
 msgid "\"\" (for today), \"yesterday\", weekday, or ABdY"
-msgstr ""
+msgstr "„” (na dziś), „wczoraj”, dzień powszedni lub ABdY"
 
 #: views/tz.php:196
 msgid "\"today\", \"yesterday\" or ABdY"
