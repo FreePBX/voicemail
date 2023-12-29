@@ -1001,13 +1001,15 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		//unaval (unavail.wav)
 		//busy (busy.wav)
 		//name (greet.wav)
-		$context = $o['vmcontext'];
-		$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
 		$files = array();
-		foreach(array_keys($this->greetings) as $greeting) {
-			$file = $this->checkFileType($vmfolder, $greeting);
-			if(file_exists($file)) {
-				$files[$greeting] = $file;
+		if(is_array($o) && isset($o['vmcontext'])) {
+			$context = $o['vmcontext'];
+			$vmfolder = $this->vmPath . '/'.$context.'/'.$ext;
+			foreach(array_keys($this->greetings) as $greeting) {
+				$file = $this->checkFileType($vmfolder, $greeting);
+				if(file_exists($file)) {
+					$files[$greeting] = $file;
+				}
 			}
 		}
 		return $files;
@@ -2746,11 +2748,15 @@ class Voicemail extends FreePBX_Helpers implements BMO {
         $dirs = [];
         $files = [];
         $o = $this->getVoicemailBoxByExtension($exten);
-        $context = $o['vmcontext'];
-	$path = $this->vmPath . '/'.$context.'/'.$exten;
-	if (!file_exists($path)) {
-        	return ['dirs' => $dirs, 'files' => $files];
-	}
+		if(is_array($o) && isset($o['vmcontext'])){
+			$context = $o['vmcontext'];
+			$path = $this->vmPath . '/'.$context.'/'.$exten;
+			if (!file_exists($path)) {
+					return ['dirs' => $dirs, 'files' => $files];
+			}
+		} else {
+			return ['dirs' => $dirs, 'files' => $files];
+		}
         $directory = new RecursiveDirectoryIterator($path);
         $iterator = new RecursiveIteratorIterator($directory);
         foreach ($iterator as $fileObj) {
