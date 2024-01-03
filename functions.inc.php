@@ -1226,20 +1226,28 @@ function voicemail_del_greeting_files($vmail_root, $context="", $exten="", $name
 	}
 }
 function voicemail_get_storage($path) {
-	$bytes = 0;
-	$path = realpath($path);
-	if($path!==false){
-		foreach(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path, FilesystemIterator::SKIP_DOTS)) as $object){
-			if($object->isLink()){
-				continue;
-			}
-			$bytes += $object->getSize();
-		}
-	}
-	$base = log($bytes, 1024);
-	$suffixes = ['', _('KB'), _('MB'), _('GB'), _('TB')];
-	return sprintf('%1.2f %s',round(1024 ** ($base - floor($base)), 5),$suffixes[floor($base)]);
+    $bytes = 0;
+    $path = realpath($path);
+
+    if ($path !== false) {
+        foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path, FilesystemIterator::SKIP_DOTS)) as $object) {
+            if ($object->isLink()) {
+                continue;
+            }
+            $bytes += $object->getSize();
+        }
+    }
+
+    if ($bytes > 0) {
+        $base = log($bytes, 1024);
+        $suffixes = ['', _('KB'), _('MB'), _('GB'), _('TB')];
+        return sprintf('%1.2f %s', round(1024 ** ($base - floor($base)), 5), $suffixes[floor($base)]);
+    } else {
+        // Handle the case where $bytes is zero
+        return '0 ' . _('Bytes');
+    }
 }
+
 
 function voicemail_get_usage($vmail_info, $scope, &$acts_total, &$acts_act, &$acts_unact, &$disabled_count,
 							&$msg_total, &$msg_in, &$msg_other,&$name, &$unavail, &$busy, &$temp, &$abandoned,
