@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-01 23:33-0500\n"
+"POT-Creation-Date: 2024-01-03 10:11-0500\n"
 "PO-Revision-Date: 2017-03-13 15:27+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -301,6 +301,10 @@ msgstr "Message d'indication d'occupation"
 #: views/usage_system.php:141
 msgid "Busy Greetings"
 msgstr "Messages d'indication d'occupation"
+
+#: functions.inc.php:1247
+msgid "Bytes"
+msgstr ""
 
 #: ucp/views/widget.php:61
 msgid "CID"
@@ -1002,7 +1006,7 @@ msgstr ""
 msgid "From: string sent to pager."
 msgstr ""
 
-#: functions.inc.php:1240
+#: functions.inc.php:1243
 msgid "GB"
 msgstr "Go"
 
@@ -1274,7 +1278,7 @@ msgstr "Mot de passe incorrect"
 msgid "Invalid Recipient"
 msgstr "Destinataire invalide"
 
-#: functions.inc.php:1240
+#: functions.inc.php:1243
 msgid "KB"
 msgstr "KB"
 
@@ -1317,7 +1321,7 @@ msgstr "Écoute du message vocal"
 msgid "Load date format config for Voicemail mail."
 msgstr ""
 
-#: functions.inc.php:1240
+#: functions.inc.php:1243
 msgid "MB"
 msgstr "MB"
 
@@ -2109,7 +2113,7 @@ msgstr "Paramètres système"
 msgid "System Usage Statistics"
 msgstr "Statistiques d'utilisation du système"
 
-#: functions.inc.php:1240
+#: functions.inc.php:1243
 msgid "TB"
 msgstr ""
 

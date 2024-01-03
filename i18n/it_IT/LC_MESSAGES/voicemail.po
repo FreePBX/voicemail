@@ -279,6 +279,10 @@ msgstr ""
 msgid "Busy Greetings"
 msgstr ""
 
+#: functions.inc.php:1247
+msgid "Bytes"
+msgstr ""
+
 #: ucp/views/widget.php:61
 msgid "CID"
 msgstr ""
@@ -978,7 +982,7 @@ msgstr ""
 msgid "From: string sent to pager."
 msgstr ""
 
-#: functions.inc.php:1240
+#: functions.inc.php:1243
 msgid "GB"
 msgstr ""
 
@@ -1250,7 +1254,7 @@ msgstr ""
 msgid "Invalid Recipient"
 msgstr ""
 
-#: functions.inc.php:1240
+#: functions.inc.php:1243
 msgid "KB"
 msgstr ""
 
@@ -1293,7 +1297,7 @@ msgstr ""
 msgid "Load date format config for Voicemail mail."
 msgstr ""
 
-#: functions.inc.php:1240
+#: functions.inc.php:1243
 msgid "MB"
 msgstr ""
 
@@ -2069,7 +2073,7 @@ msgstr ""
 msgid "System Usage Statistics"
 msgstr ""
 
-#: functions.inc.php:1240
+#: functions.inc.php:1243
 msgid "TB"
 msgstr ""
 

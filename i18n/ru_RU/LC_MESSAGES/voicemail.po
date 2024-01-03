@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Voicemail\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-01 23:33-0500\n"
+"POT-Creation-Date: 2024-01-03 10:11-0500\n"
 "PO-Revision-Date: 2022-04-19 15:28+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -324,6 +324,10 @@ msgstr "Приветствие при занятости"
 #: views/usage_system.php:141
 msgid "Busy Greetings"
 msgstr "Приветствия при занятости"
+
+#: functions.inc.php:1247
+msgid "Bytes"
+msgstr ""
 
 #: ucp/views/widget.php:61
 msgid "CID"
@@ -1110,7 +1114,7 @@ msgstr "Поле От: для эл. сообщений голосовой поч
 msgid "From: string sent to pager."
 msgstr "Поле От: в сообщении на пейджер."
 
-#: functions.inc.php:1240
+#: functions.inc.php:1243
 msgid "GB"
 msgstr ""
 
@@ -1425,7 +1429,7 @@ msgstr "Неверный пароль"
 msgid "Invalid Recipient"
 msgstr "Неверный получатель"
 
-#: functions.inc.php:1240
+#: functions.inc.php:1243
 msgid "KB"
 msgstr "Кб"
 
@@ -1469,7 +1473,7 @@ msgid "Load date format config for Voicemail mail."
 msgstr ""
 "Загружать конфигурацию формата даты для электронных писем голосовой почты."
 
-#: functions.inc.php:1240
+#: functions.inc.php:1243
 msgid "MB"
 msgstr "МБ"
 
@@ -2283,7 +2287,7 @@ msgstr "Системные настройки"
 msgid "System Usage Statistics"
 msgstr "Статистика использования системы"
 
-#: functions.inc.php:1240
+#: functions.inc.php:1243
 msgid "TB"
 msgstr ""
 

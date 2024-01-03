@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePbx 2.5.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-01 23:33-0500\n"
+"POT-Creation-Date: 2024-01-03 10:11-0500\n"
 "PO-Revision-Date: 2015-12-22 03:36+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -328,6 +328,10 @@ msgstr "Saudação Ocupado"
 #: views/usage_system.php:141
 msgid "Busy Greetings"
 msgstr "Saudações de Ocupado"
+
+#: functions.inc.php:1247
+msgid "Bytes"
+msgstr ""
 
 #: ucp/views/widget.php:61
 msgid "CID"
@@ -1085,7 +1089,7 @@ msgstr "Campo De: para email"
 msgid "From: string sent to pager."
 msgstr "Campo De: enviado para pager."
 
-#: functions.inc.php:1240
+#: functions.inc.php:1243
 msgid "GB"
 msgstr ""
 
@@ -1381,7 +1385,7 @@ msgstr ""
 msgid "Invalid Recipient"
 msgstr ""
 
-#: functions.inc.php:1240
+#: functions.inc.php:1243
 msgid "KB"
 msgstr ""
 
@@ -1424,7 +1428,7 @@ msgstr ""
 msgid "Load date format config for Voicemail mail."
 msgstr ""
 
-#: functions.inc.php:1240
+#: functions.inc.php:1243
 msgid "MB"
 msgstr ""
 
@@ -2203,7 +2207,7 @@ msgstr ""
 msgid "System Usage Statistics"
 msgstr ""
 
-#: functions.inc.php:1240
+#: functions.inc.php:1243
 msgid "TB"
 msgstr ""
 
