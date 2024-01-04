@@ -494,20 +494,20 @@ class Voicemail extends Modules {
 				break;
 			case 'rebuildVM':
 				$ext = basename($_POST['ext']);
-				$folder = basename($_POST['folder']);
+				$folder = basename($_POST['folder'] ?? '');
 				$status = $this->UCP->FreePBX->Voicemail->rebuildVM($ext, $folder);
 				$return = array( "status" => $status, "message" => "" );
 				break;
 			case 'moveToFolder':
 				$ext = basename($_POST['ext']);
-				$msg = basename($_POST['msg']);
-				$folder = basename($_POST['folder']);
+				$msg = basename($_POST['msg'] ?? '');
+				$folder = basename($_POST['folder'] ?? '');
 				$status = $this->UCP->FreePBX->Voicemail->moveMessageByExtensionFolder($msg, $ext, $folder);
 				$return = array( "status" => $status, "message" => "" );
 				break;
 			case 'delete':
 				$ext = basename($_POST['ext']);
-				$msg = basename($_POST['msg']);
+				$msg = basename($_POST['msg'] ?? '');
 				$status = $this->UCP->FreePBX->Voicemail->deleteMessageByID($msg, $ext);
 				$return = array( "status" => $status, "message" => "" );
 				break;
@@ -516,8 +516,8 @@ class Voicemail extends Modules {
 				$formData = json_decode($_POST['data'], true);
 				foreach ($formData as $key => $data) {
 					$ext          = basename($data['ext']);
-					$msg          = basename($data['msg']);
-					$folder       = basename($data['folder']);
+					$msg          = basename($data['msg'] ?? '');
+					$folder       = basename($data['folder'] ?? '');
 					$moveStatus[] = $this->UCP->FreePBX->Voicemail->moveMessageByExtensionFolder($msg, $ext, $folder);
 				}
 				$return = array( "status" => true, 'moveStatus' => $moveStatus, "message" => "" );
@@ -527,7 +527,7 @@ class Voicemail extends Modules {
 				$formData = json_decode($_POST['data'], true);
 				foreach ($formData as $key => $data) {
 					$ext            = basename($data['ext']);
-					$msg            = basename($data['msg']);
+					$msg            = basename($data['msg'] ?? '');
 					$deleteStatus[] = $this->UCP->FreePBX->Voicemail->deleteMessageByID($msg, $ext);
 				}
 				$return = array( "status" => true, 'deleteStatus' => $deleteStatus, "message" => "" );
