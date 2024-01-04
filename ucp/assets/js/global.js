@@ -895,7 +895,7 @@ var VoicemailC = UCPMC.extend({
 		html += '<a class="delete" alt="'+_('Delete')+'" data-id="'+row.msg_id+'"><i class="fa fa-trash-o"></i></a>';
 
 		if(row.converttotext !== undefined && row.converttotext !== null && row.converttotext != '' && settings.isSngaiEnabled) {
-			html += '<a href="#"> <i class="fa fa-file-text transcript" onclick="openmodal(\'' + row.converttotext + '\')"></i></a>';
+			html += '<a href="#"> <i class="fa fa-file-text transcript" onclick="openmodal(\'' + UCP.ajaxUrl +row.converttotext + '\')"></i></a>';
 		}
 
 		return html;
