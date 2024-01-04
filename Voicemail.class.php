@@ -1426,7 +1426,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 
 	public function rebuildVM($ext){
 		foreach($this->vmFolders as $f => $data){
-			if($data["name"] == $folder){
+			if(isset($folder) && $data["name"] == $folder){
 				$folder = $f;
 			} 
 		}
@@ -1434,7 +1434,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		$context 	= $o['vmcontext'];
 
 		$vmfolder 	= $this->vmPath . '/'.$context.'/'.basename($ext);
-		$folder 	= $vmfolder."/".basename($folder);
+		$folder 	= $vmfolder."/".basename($folder ?? '');
 		$fs 		= scandir($folder);
 		foreach($fs as $f){
 			switch($f){
