@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>15.0.31</version>
+	<version>15.0.32</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*15.0.32* Packaging of ver 15.0.32
 		*15.0.31* Packaging of ver 15.0.31
 		*15.0.30* Packaging of ver 15.0.30
 		*15.0.29* FREEI-5549 vm backup issue 
