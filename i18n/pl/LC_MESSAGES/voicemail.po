@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-11 09:33+0000\n"
-"PO-Revision-Date: 2023-12-12 18:00+0000\n"
+"PO-Revision-Date: 2024-01-23 17:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/voicemail/"
 "pl/>\n"
@@ -32,63 +32,64 @@ msgstr "„” (na dziś), „wczoraj”, dzień powszedni lub ABdY"
 
 #: views/tz.php:196
 msgid "\"today\", \"yesterday\" or ABdY"
-msgstr ""
+msgstr "\"today\", \"yesterday\" lub ABdY"
 
 #: page.voicemail.php:444
 #, php-format
 msgid "%s Attempts"
-msgstr ""
+msgstr "%s prób"
 
 #: page.voicemail.php:450
 #, php-format
 msgid "%s Retries"
-msgstr ""
+msgstr "%s Ponownych prób"
 
 #: page.voicemail.php:448
 #, php-format
 msgid "%s Retry"
-msgstr ""
+msgstr "Ponowna próba"
 
 #: page.voicemail.php:440
 #, php-format
 msgid "%s Sec"
-msgstr ""
+msgstr "%s sek"
 
 #: functions.inc.php:144
 #: functions.inc.php:151
 #, php-format
 msgid "%s Voicemail"
-msgstr ""
+msgstr "Poczta głosowa"
 
 #: install.php:114
 #, php-format
 msgid "%s added"
-msgstr ""
+msgstr "Dodano %s"
 
 #: install.php:81
 #, php-format
 msgid "%s adjusted from %s to %s"
-msgstr ""
+msgstr "%s dostowano z %s do %s"
 
 #: install.php:85
 #, php-format
 msgid "%s adjusted from bad value %s to default no gain"
 msgstr ""
+"%s zostało dostosowane z błędnej wartości %s do domyślnego braku wzmocnienia"
 
 #: install.php:76
 #, php-format
 msgid "%s changed from %s to max value 15"
-msgstr ""
+msgstr "%s zmienioneo z %s do wartości maksymalnej 15"
 
 #: install.php:95
 #, php-format
 msgid "%s migrated"
-msgstr ""
+msgstr "%s zmigrowano"
 
 #: install.php:72
 #, php-format
 msgid "%s no longer used"
-msgstr ""
+msgstr "%s nie jest już wykorzystywany"
 
 #: views/tz.php:115
 #: views/tz.php:131
@@ -96,16 +97,16 @@ msgstr ""
 #: views/tz.php:185
 #, php-format
 msgid "%s or %s"
-msgstr ""
+msgstr "%s czy %s"
 
 #: views/tz.php:123
 #, php-format
 msgid "%s or %s or %s"
-msgstr ""
+msgstr "%s czy %s czy %s"
 
 #: views/tz.php:94
 msgid "'filename'"
-msgstr ""
+msgstr "'nazwapliku'"
 
 #: page.voicemail.php:238
 msgid ""
@@ -115,45 +116,47 @@ msgstr ""
 
 #: page.voicemail.php:438
 msgid "0 Sec"
-msgstr ""
+msgstr "0 sek"
 
 #: page.voicemail.php:434
 #: views/dialplan.php:81
 msgid "12 db"
-msgstr ""
+msgstr "12 db"
 
 #: page.voicemail.php:435
 #: views/dialplan.php:83
 msgid "15 db"
-msgstr ""
+msgstr "15 db"
 
 #: views/tz.php:212
 msgid "24 hour time, including minute"
-msgstr ""
+msgstr "Czas 24 godzinny, łącznie z minutami"
 
 #: page.voicemail.php:431
 #: views/dialplan.php:75
 msgid "3 db"
-msgstr ""
+msgstr "3 db"
 
 #: page.voicemail.php:432
 #: views/dialplan.php:77
 msgid "6 db"
-msgstr ""
+msgstr "6 db"
 
 #: page.voicemail.php:433
 #: views/dialplan.php:79
 msgid "9 db"
-msgstr ""
+msgstr "9 db"
 
 #: views/tz.php:82
 msgid "<i>Timezones</i> are listed in /usr/share/zoneinfo"
-msgstr ""
+msgstr "<i>Strefy czasowe</i> zostały wymienione w /usr/share/zoneinfo"
 
 #: views/tz.php:2
 msgid ""
 "A timezone definition specifies how the Voicemail system announces the time."
 msgstr ""
+"Definicja strefy czasowej określa w jaki sposób system poczty głosowej "
+"wypowiada czas."
 
 #: views/tz.php:105
 msgid "A variable to be substituted (see below for supported variable values)"
@@ -169,48 +172,48 @@ msgstr ""
 
 #: views/tz.php:188
 msgid "AM or PM"
-msgstr ""
+msgstr "AM czy PM"
 
 #: views/usage.php:184
 #: views/usage_system.php:203
 msgid "Abandoned Greetings"
-msgstr ""
+msgstr "Porzucone powitania"
 
 #: views/usage.php:2
 msgid "Account"
-msgstr ""
+msgstr "Konto"
 
 #: views/settings.php:6
 #: views/ssettings.php:6
 msgid "Account Advanced Settings"
-msgstr ""
+msgstr "Zaawansowane ustawienia kont"
 
 #: views/settings.php:4
 #: views/ssettings.php:4
 msgid "Account Settings"
-msgstr ""
+msgstr "Ustawienia kont"
 
 #: views/settings.php:5
 #: views/ssettings.php:5
 msgid "Account Usage"
-msgstr ""
+msgstr "Wykorzystanie kont"
 
 #: views/settings.php:2
 #: views/ssettings.php:2
 msgid "Account View Links:"
-msgstr ""
+msgstr "Linku widoku konta:"
 
 #: views/usage_system.php:10
 msgid "Activated"
-msgstr ""
+msgstr "Aktywowane"
 
 #: functions.inc.php:986
 msgid "Advanced Settings For: "
-msgstr ""
+msgstr "Zaawansowane ustawieni dla: "
 
 #: views/dialplan.php:122
 msgid "Advanced VmX Locater Settings"
-msgstr ""
+msgstr "Zaawansowane ustawienia WmX Locater"
 
 #: page.voicemail.php:295
 msgid ""
@@ -229,23 +232,23 @@ msgstr ""
 
 #: views/ucp_config.php:178
 msgid "Allow VmX Locater Settings"
-msgstr ""
+msgstr "Zezwalaj na ustawienia WmX Locater"
 
 #: views/ucp_config.php:91
 msgid "Allow Voicemail Download"
-msgstr ""
+msgstr "Zezwalaj na pobieranie nagrań poczty głosowej"
 
 #: views/ucp_config.php:149
 msgid "Allow Voicemail Greetings"
-msgstr ""
+msgstr "Zezwalaj na nagrywanie własnych powitań poczty głosowej"
 
 #: views/ucp_config.php:62
 msgid "Allow Voicemail Playback"
-msgstr ""
+msgstr "Zezwalaj na odtwarzanie poczty głosowej"
 
 #: views/ucp_config.php:120
 msgid "Allow Voicemail Settings"
-msgstr ""
+msgstr "Zezwalaj na ustawienia poczty głosowej"
 
 #: Voicemail.class.php:2095
 msgid ""
@@ -273,44 +276,46 @@ msgstr ""
 
 #: views/ucp_config.php:36
 msgid "Allowed Voicemail"
-msgstr ""
+msgstr "Zezwolenie na pocztę głosową"
 
 #: ucp/assets/js/global.js:291
 msgid "Are you sure you wish to delete these voicemails?"
-msgstr ""
+msgstr "Jesteś pewien że chcesz usunąć te skrzynki poczty głosowej?"
 
 #: ucp/assets/js/global.js:206
 msgid "Are you sure you wish to delete this voicemail?"
-msgstr ""
+msgstr "Jesteś pewien że chcesz usunąć te nagrania poczty głosowej?"
 
 #: functions.inc.php:1336
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr ""
+"Wygląda na to, że Asterisk nie jest uruchomiony i nie można podłączyć się do "
+"Asterisk Managera"
 
 #: page.voicemail.php:305
 msgid "Asterisk language code"
-msgstr ""
+msgstr "Kod językowy asteriska"
 
 #: Voicemail.class.php:2290
 msgid "Attach Voicemail"
-msgstr ""
+msgstr "Załącz nagranie poczty głosowej"
 
 #: views/dialplan.php:165
 msgid "Attempt(s)"
-msgstr ""
+msgstr "Próba(y)"
 
 #: install.php:192
 msgid "Attempting to delete.."
-msgstr ""
+msgstr "Próbuję usunąć.."
 
 #: ucp/views/vmsettings.php:47
 msgid "Auto-Refresh"
-msgstr ""
+msgstr "Automatyczne odświeżanie"
 
 #: functions.inc.php:979
 msgid "Basic Settings For: "
-msgstr ""
+msgstr "Podstawowe ustawienia dla: "
 
 #: functions.inc.php:981
 msgid "Basic settings view is for individual accounts."
@@ -318,31 +323,31 @@ msgstr ""
 
 #: page.voicemail.php:263
 msgid "Body of message sent to pager."
-msgstr ""
+msgstr "Treść wiadomości wysyłanej na pager."
 
 #: functions.inc.php:417
 #: page.voicemail.php:425
 #: ucp/views/vmx.php:15
 #: views/dialplan.php:46
 msgid "Busy"
-msgstr ""
+msgstr "Zajęty"
 
 #: Voicemail.class.php:79
 #: views/usage.php:122
 msgid "Busy Greeting"
-msgstr ""
+msgstr "Powiadomienie w przypadku zajętości"
 
 #: views/usage_system.php:141
 msgid "Busy Greetings"
-msgstr ""
+msgstr "Powiadomienia w przypadku zajętości"
 
 #: ucp/views/widget.php:61
 msgid "CID"
-msgstr ""
+msgstr "CID"
 
 #: Voicemail.class.php:2609
 msgid "CID Internal Context"
-msgstr ""
+msgstr "Wewnętrzny kontekst CID"
 
 #: Voicemail.class.php:2026
 #: page.voicemail.php:321
@@ -356,7 +361,7 @@ msgstr ""
 
 #: Voicemail.class.php:2602
 msgid "Callback Context"
-msgstr ""
+msgstr "Kontekst oddzwaniania"
 
 #: install.php:176
 msgid "Cannot connect to Asterisk Manager with "
@@ -364,7 +369,7 @@ msgstr ""
 
 #: Voicemail.class.php:1913
 msgid "Character Set"
-msgstr ""
+msgstr "Ustawienia zestawu znaków"
 
 #: install.php:65
 msgid "Checking for General Setting migrations.."
@@ -372,7 +377,7 @@ msgstr ""
 
 #: Voicemail.class.php:2499
 msgid "Close Timeout"
-msgstr ""
+msgstr "Timeout zamknięcia"
 
 #: Voicemail.class.php:2610
 #: page.voicemail.php:217
@@ -441,7 +446,7 @@ msgstr ""
 
 #: voicemail.i18n.php:12
 msgid "Create Voicemail Hints"
-msgstr ""
+msgstr "Twórz wskazówki poczty głosowej"
 
 #: Voicemail.class.php:2127
 msgid ""
@@ -558,19 +563,19 @@ msgstr ""
 #: ucp/views/widget.php:28
 #: views/tz.php:21
 msgid "Delete"
-msgstr ""
+msgstr "Usuń"
 
 #: views/usage_system.php:191
 msgid "Delete All Temporary Greetings"
-msgstr ""
+msgstr "Usuń wszystkie tymczasowe powitania"
 
 #: views/usage_system.php:129
 msgid "Delete All Unavailible Greetings"
-msgstr ""
+msgstr "Usuń wszystkie powitania dla braku dostępności"
 
 #: views/usage.php:141
 msgid "Delete Busy Message"
-msgstr ""
+msgstr "Usuń wiadomość w przypadku zajętości"
 
 #: views/usage.php:79
 msgid "Delete Recorded Name"
