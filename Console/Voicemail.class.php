@@ -19,8 +19,8 @@ class Voicemail extends Command{
 		protected function execute(InputInterface $input, OutputInterface $output){
 			$options = $input->getArgument('notification');
 
-			$context = $options[0];
-			$extension = $options[1];
+			$context = $options[0] ?? '';
+			$extension = $options[1] ?? '';
 			$vmcount = isset($options[2]) ? $options[2] : 0;
 			$oldvmcount = isset($options[3]) ? $options[3] : 0;
 			$urgvmcount = isset($options[4]) ? $options[4] : 0;
