@@ -1596,9 +1596,21 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		$aMsgs['messages'] = array_values($aMsgs['messages']);
 		$aMsgs['messages'] = ($order == 'asc') ? array_reverse($aMsgs['messages']) : $aMsgs['messages'];
 		$out = array();
+		$sngaiModuleStatus = false;
+		if ($this->FreePBX->Modules->checkStatus("sngai")) {
+			$sngaiModuleStatus = true;
+		}
 		for($i=$start;$i<($start+$limit);$i++) {
 			if(empty($aMsgs['messages'][$i])) {
 				break;
+			}
+			if($sngaiModuleStatus) {
+				$url = \FreePBX::Sngai()->getUcpTranscriptionUrl($aMsgs['messages'][$i]['origmailbox'],$aMsgs['messages'][$i]['msg_id'],'voicemail');
+				if($url) {
+					$aMsgs['messages'][$i]['converttotext'] = $url;
+				} else {
+					$aMsgs['messages'][$i]['converttotext'] = '';
+				}
 			}
 			$out['messages'][] = $aMsgs['messages'][$i];
 		}
