@@ -790,7 +790,7 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 		switch ($action) {
 			case "tz":
 				/* First update all zonemessages opts that are already in vmconf */
-				$vmconf["zonemessages"] = is_array($vmconf["zonemessages"]) ? $vmconf["zonemessages"] : [];
+				$vmconf["zonemessages"] = (isset($vmconf["zonemessages"]) && is_array($vmconf["zonemessages"])) ? $vmconf["zonemessages"] : [];
 				foreach ($vmconf["zonemessages"] as $key => $val) {
 					$id = "tz__$key";
 					$vmconf["zonemessages"][$key]	= $args[$id] ?? $vmconf["zonemessages"][$key];
@@ -818,7 +818,7 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 			case "settings":
 				if (empty($extension) && $action == "settings") {
 					/* First update all general opts that are already in vmconf */
-					$vmconf["general"] = is_array($vmconf["general"]) ? $vmconf["general"] : [];
+					$vmconf["general"] = (isset($vmconf["general"]) && is_array($vmconf["general"])) ? $vmconf["general"] : [];
 					foreach ($vmconf["general"] as $key => $val) {
 						$id = "gen__$key";
 						$vmconf["general"][$key] = $args[$id] ?? $vmconf["general"][$key];
