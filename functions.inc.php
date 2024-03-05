@@ -804,7 +804,7 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 					if (!empty($args["tznew_name"]) && !empty($args["tznew_def"])) {
 						$vmconf["zonemessages"][$args["tznew_name"]] = $args["tznew_def"];
 					}
-					unset($args[$id]);
+					if(isset($id)) unset($args[$id]);
 				/* Next record any new zonemessages opts that were on the page but not already in vmconf. */
 				if(is_array($tz_settings)) {
 					foreach ($tz_settings as $key) {
