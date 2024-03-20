@@ -10,8 +10,8 @@
 ?>
 <div class="container-fluid">
 	<div class="nav-container">
-		<div class="scroller scroller-left"><i class="glyphicon glyphicon-chevron-left"></i></div>
-		<div class="scroller scroller-right"><i class="glyphicon glyphicon-chevron-right"></i></div>
+		<div class="scroller scroller-left"><i class="fa fa-chevron-left"></i></div>
+		<div class="scroller scroller-right"><i class="fa fa-chevron-right"></i></div>
 		<div class="wrapper">
 			<ul class="nav nav-tabs list" role="tablist">
 			<?php foreach($d as $section => $data) { ?>
