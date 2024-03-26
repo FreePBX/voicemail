@@ -1595,7 +1595,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		$aMsgs['messages'] = ($order == 'asc') ? array_reverse($aMsgs['messages']) : $aMsgs['messages'];
 		$out = array();
 		$sngaiModuleStatus = false;
-		if ($this->FreePBX->Modules->checkStatus("sngai")) {
+		if ($this->FreePBX->Modules->checkStatus("sngai") && $this->FreePBX->Sngai->isLicensed()) {
 			$sngaiModuleStatus = true;
 		}
 		for($i=$start;$i<($start+$limit);$i++) {
