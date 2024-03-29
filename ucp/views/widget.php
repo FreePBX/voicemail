@@ -70,7 +70,5 @@
 		</div>
 	</div>
 </div>
-
-
 <div id="addtionalcontent">
 </div>
