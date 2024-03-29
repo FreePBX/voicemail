@@ -893,7 +893,9 @@ var VoicemailC = UCPMC.extend({
 		}
 
 		html += '<a class="delete" alt="'+_('Delete')+'" data-id="'+row.msg_id+'"><i class="fa fa-trash-o"></i></a>';
-
+		if(row.converttotext !== undefined && row.converttotext !== null && row.converttotext != '') {
+			html += '<a href="#"> <i class="fa fa-file-text transcript" onclick="openmodal(\'' + UCP.ajaxUrl +row.converttotext + '\')"></i></a>';
+		}
 		return html;
 	},
 	bindPlayers: function(widget_id) {
@@ -1128,3 +1130,21 @@ var VoicemailC = UCPMC.extend({
 		};
 	}
 });
+
+function openmodal(turl) {
+    var result = $.ajax({
+        url: turl,
+        type: 'POST',
+        async: false
+    });
+    result = JSON.parse(result.responseText);
+    $("#addtionalcontent").html(result.html);
+    $("#addtionalcontent").appendTo("body");
+    $("#datamodal").show();
+}
+
+function closemodal() {
+	$('div#addtionalcontent:not(:first)').remove();
+	$("#addtionalcontent").html("");
+	$("#datamodal").hide();
+}
