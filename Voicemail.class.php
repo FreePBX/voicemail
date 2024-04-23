@@ -1282,7 +1282,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		}
 
 		foreach($this->vmFolders as $f => $data){
-			if($data["name"] == $folder){
+			if($data["folder"] == $folder){
 				$folder = $f;
 			} 
 		}
@@ -1358,7 +1358,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		}
       
 		foreach($this->vmFolders as $f => $data){
-			if($data["name"] == $folder){
+			if($data["folder"] == $folder){
 				$folder = $f;
 			} 
 		}
@@ -1424,7 +1424,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 
 	public function rebuildVM($ext){
 		foreach($this->vmFolders as $f => $data){
-			if($data["name"] == $folder){
+			if($data["folder"] == $folder){
 				$folder = $f;
 			} 
 		}
@@ -1706,7 +1706,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 	 */
 	private function validFolder($folder) {
 		foreach($this->vmFolders as $f => $data){
-			if($data["name"] == $folder){
+			if($data["folder"] == $folder){
 				return true;
 			} 
 		}
