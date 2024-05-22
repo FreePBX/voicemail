@@ -10,20 +10,22 @@ class Voicemail extends Base {
 		 * @returns - a mailbox resource
 		 * @uri /voicemail/mailboxes/:id
 		 */
+		$freepbx = $this->freepbx;
 		$app->get('/voicemail/mailboxes/{id}', function ($request, $response, $args) {
 			\FreePBX::Modules()->loadFunctionsInc('voicemail');
-			return $response->withJson(voicemail_mailbox_get($args['id']));
+			$response->getBody()->write(json_encode(voicemail_mailbox_get($args['id'])));
+			return $response->withHeader('Content-Type', 'application/json');
 		})->add($this->checkAllReadScopeMiddleware());
 
 		/**
 		 * @verb PUT
 		 * @uri /voicemail/password/:id
 		 */
-		$app->put('/voicemail/password/{id}', function ($request, $response, $args) {
+		$app->put('/voicemail/password/{id}', function ($request, $response, $args) use($freepbx) {
 			\FreePBX::Modules()->loadFunctionsInc('voicemail');
 			$params = $request->getParsedBody();
 			if (!isset($params['password'])) {
-				$response->withJson(false);
+				$response->getBody()->write(json_encode(false));
 			}
 
 			$uservm = voicemail_getVoicemail();
@@ -36,13 +38,12 @@ class Voicemail extends Base {
 
 					voicemail_saveVoicemail($uservm);
 
-					$this->freepbx->astman->send_request("Command", array("Command" => "voicemail reload"));
-
-					$response->withJson(true);
+					$freepbx->astman->send_request("Command", array("Command" => "voicemail reload"));
+					$response->getBody()->write(json_encode(true));
 				}
 			}
-
-			return $response->withJson(false);
+			$response->getBody()->write(json_encode(false));
+			return $response->withHeader('Content-Type', 'application/json');
 		})->add($this->checkAllWriteScopeMiddleware());
 	}
 }
