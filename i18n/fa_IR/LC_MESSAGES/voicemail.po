@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-14 23:15-0500\n"
+"POT-Creation-Date: 2024-05-28 10:03-0400\n"
 "PO-Revision-Date: 2016-07-17 10:07+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -995,7 +995,7 @@ msgstr "کلیدهای حرکت سریع-به جلو"
 msgid "File Format"
 msgstr "فرمت فایل"
 
-#: ucp/Voicemail.class.php:344
+#: ucp/Voicemail.class.php:375
 msgid "File does not exist"
 msgstr "فایل موجود نیست"
 
@@ -1037,7 +1037,7 @@ msgstr ""
 msgid "For the directory, you can override the intro file if you want"
 msgstr "برای دایرکتوری، شما میتوانید فایل راهنما را بازنویسی کنید"
 
-#: ucp/Voicemail.class.php:667
+#: ucp/Voicemail.class.php:698
 msgid "Forbidden"
 msgstr "ممنوع"
 
@@ -1130,7 +1130,7 @@ msgstr "استفاده عمومی"
 msgid "Go To Operator"
 msgstr "برو به اپراتور"
 
-#: ucp/Voicemail.class.php:180
+#: ucp/Voicemail.class.php:211
 msgid "Greetings"
 msgstr "پیام خوش آمد"
 
@@ -1429,7 +1429,7 @@ msgstr "فعالیت نامعتبر"
 msgid "Invalid Password"
 msgstr "کلمه عبور نامعتبر"
 
-#: ucp/Voicemail.class.php:376 ucp/Voicemail.class.php:410
+#: ucp/Voicemail.class.php:407 ucp/Voicemail.class.php:441
 msgid "Invalid Recipient"
 msgstr "گیرنده نامعتبر"
 
@@ -1721,7 +1721,7 @@ msgstr ""
 msgid "None"
 msgstr "هیچ"
 
-#: ucp/Voicemail.class.php:686
+#: ucp/Voicemail.class.php:717
 msgid "Not Found"
 msgstr "یافت نشد"
 
@@ -2459,6 +2459,10 @@ msgstr ""
 "The folder in  which to store voicemail messages on the IMAP server. By "
 "default, they are stored in INBOX."
 
+#: ucp/Voicemail.class.php:120
+msgid "The given extension is empty."
+msgstr ""
+
 #: views/tz.php:97
 msgid "The name of a sound file (the file name must be single-quoted)"
 msgstr "نام فایل صوتی (نام فایل باید single-quoted باشد)"
@@ -2525,6 +2529,10 @@ msgstr ""
 msgid "The voicemail password/pin"
 msgstr ""
 
+#: ucp/Voicemail.class.php:115
+msgid "There are no assigned extensions."
+msgstr ""
+
 #: ucp/assets/js/global.js:829
 msgid "There is nothing to delete"
 msgstr "موردی برای حذف وجود ندارد"
@@ -2552,6 +2560,10 @@ msgid ""
 msgstr ""
 "These settings  are only applicable when Asterisk is compiled with IMAP "
 "support"
+
+#: ucp/Voicemail.class.php:124
+msgid "This extension is not assigned to this user."
+msgstr ""
 
 #: functions.inc.php:573
 #, php-format
@@ -2706,6 +2718,10 @@ msgstr ""
 msgid "UCP Message Limit"
 msgstr "محدودیت پیام پنل کاربری"
 
+#: ucp/Voicemail.class.php:111
+msgid "UCP Voicemail is not enabled for this user."
+msgstr ""
+
 #: Voicemail.class.php:1897
 msgid "Unable to add mailbox!"
 msgstr "عدم توانایی افزودن صندوق ایمیل!"
@@ -2735,15 +2751,15 @@ msgstr "بدون علامت کنید برای پخش بوق بعد از پیام
 msgid "Unknown"
 msgstr "ناشناخته"
 
-#: ucp/Voicemail.class.php:621
+#: ucp/Voicemail.class.php:652
 msgid "Unknown Error"
 msgstr "خطای ناشناخته"
 
-#: ucp/Voicemail.class.php:572
+#: ucp/Voicemail.class.php:603
 msgid "Unsupported file format"
 msgstr "فرمت فایل پشتیبانی نشده"
 
-#: ucp/Voicemail.class.php:596 ucp/assets/js/global.js:470
+#: ucp/Voicemail.class.php:627 ucp/assets/js/global.js:470
 msgid "Unsupported file type"
 msgstr "نوع فایل پشتیبانی نشده"
 
@@ -2831,7 +2847,7 @@ msgstr "متن ایمیل صوتی نمیتواند خالی باشد"
 msgid "VM Options"
 msgstr "گزینه های ایمیل صوتی"
 
-#: ucp/Voicemail.class.php:389
+#: ucp/Voicemail.class.php:420
 msgid "VMAIL"
 msgstr "ایمیل صوتی"
 
@@ -2860,8 +2876,8 @@ msgid "VmX Locater&trade;"
 msgstr "VmX  Locater&trade;"
 
 #: Voicemail.class.php:894 Voicemail.class.php:2893 functions.inc.php:508
-#: install.php:8 ucp/Voicemail.class.php:99 ucp/Voicemail.class.php:149
-#: ucp/Voicemail.class.php:201 views/header.php:2 voicemail.i18n.php:4
+#: install.php:8 ucp/Voicemail.class.php:65 ucp/Voicemail.class.php:180
+#: ucp/Voicemail.class.php:232 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
 msgstr "ایمیل صوتی"
 
@@ -2893,7 +2909,7 @@ msgstr "فعال کردن ایمیل صوتی [خالی برای غیرفعال 
 msgid "Voicemail Instructions:"
 msgstr "ساختارهای ایمیل صوتی:"
 
-#: ucp/Voicemail.class.php:389
+#: ucp/Voicemail.class.php:420
 msgid "Voicemail Message"
 msgstr "پیام ایمیل صوتی"
 
@@ -2933,7 +2949,7 @@ msgstr "پین ایمیل صوتی"
 msgid "Voicemail Recording Gain"
 msgstr "دامنه ضبط ایمیل صوتی"
 
-#: ucp/Voicemail.class.php:168
+#: ucp/Voicemail.class.php:199
 msgid "Voicemail Settings"
 msgstr "تنظیمات ایمیل صوتی"
 
@@ -2957,7 +2973,11 @@ msgstr ""
 "ایمیل صوتی فعال است ولی فیلد کلمه عبور ایمیل صوتی خالی است. آیا از ادامه "
 "مطمئن هستید؟"
 
-#: ucp/Voicemail.class.php:566 ucp/Voicemail.class.php:610
+#: ucp/Voicemail.class.php:128
+msgid "Voicemail is not enabled for this extension."
+msgstr ""
+
+#: ucp/Voicemail.class.php:597 ucp/Voicemail.class.php:641
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr "ایمیل صوتی منتقل نشد به%s"
@@ -2966,7 +2986,7 @@ msgstr "ایمیل صوتی منتقل نشد به%s"
 msgid "Voicemail notification"
 msgstr ""
 
-#: ucp/Voicemail.class.php:615
+#: ucp/Voicemail.class.php:646
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr "پیام صوتی خالی بود:%s"

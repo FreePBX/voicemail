@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-14 23:15-0500\n"
+"POT-Creation-Date: 2024-05-28 10:03-0400\n"
 "PO-Revision-Date: 2018-02-16 16:12+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -1039,7 +1039,7 @@ msgstr "Vorspultasten"
 msgid "File Format"
 msgstr "Dateiformat"
 
-#: ucp/Voicemail.class.php:344
+#: ucp/Voicemail.class.php:375
 msgid "File does not exist"
 msgstr "Datei existiert nicht"
 
@@ -1082,7 +1082,7 @@ msgid "For the directory, you can override the intro file if you want"
 msgstr ""
 "Für das Verzeichnis können Sie die Intro-Datei überschreiben, falls gewünscht"
 
-#: ucp/Voicemail.class.php:667
+#: ucp/Voicemail.class.php:698
 msgid "Forbidden"
 msgstr "Verboten"
 
@@ -1179,7 +1179,7 @@ msgstr "Allgemeine Nutzung"
 msgid "Go To Operator"
 msgstr "Zum Bediener gehen"
 
-#: ucp/Voicemail.class.php:180
+#: ucp/Voicemail.class.php:211
 msgid "Greetings"
 msgstr "Begrüßungen"
 
@@ -1495,7 +1495,7 @@ msgstr "Ungültige Aktion"
 msgid "Invalid Password"
 msgstr "Ungültiges Passwort"
 
-#: ucp/Voicemail.class.php:376 ucp/Voicemail.class.php:410
+#: ucp/Voicemail.class.php:407 ucp/Voicemail.class.php:441
 msgid "Invalid Recipient"
 msgstr "Ungültiger Empfänger"
 
@@ -1797,7 +1797,7 @@ msgstr ""
 msgid "None"
 msgstr "Keine"
 
-#: ucp/Voicemail.class.php:686
+#: ucp/Voicemail.class.php:717
 msgid "Not Found"
 msgstr "Nicht gefunden"
 
@@ -2565,6 +2565,10 @@ msgstr ""
 "Der Ordner, in dem Voicemail-Nachrichten auf dem IMAP-Server gespeichert "
 "werden. Standardmäßig werden sie im POSTEINGANG gespeichert."
 
+#: ucp/Voicemail.class.php:120
+msgid "The given extension is empty."
+msgstr ""
+
 #: views/tz.php:97
 msgid "The name of a sound file (the file name must be single-quoted)"
 msgstr ""
@@ -2633,6 +2637,10 @@ msgstr ""
 msgid "The voicemail password/pin"
 msgstr ""
 
+#: ucp/Voicemail.class.php:115
+msgid "There are no assigned extensions."
+msgstr ""
+
 #: ucp/assets/js/global.js:829
 msgid "There is nothing to delete"
 msgstr "Es ist nichts zum Löschen vorhanden"
@@ -2659,6 +2667,10 @@ msgid ""
 "support"
 msgstr ""
 "Diese Einstellungen gelten nur, wenn Asterisk mit IMAP-Support erstellt wurde"
+
+#: ucp/Voicemail.class.php:124
+msgid "This extension is not assigned to this user."
+msgstr ""
 
 #: functions.inc.php:573
 #, php-format
@@ -2825,6 +2837,10 @@ msgstr ""
 msgid "UCP Message Limit"
 msgstr "UCP-Nachrichtenbeschränkung"
 
+#: ucp/Voicemail.class.php:111
+msgid "UCP Voicemail is not enabled for this user."
+msgstr ""
+
 #: Voicemail.class.php:1897
 msgid "Unable to add mailbox!"
 msgstr "Kann keine Mailbox hinzufügen!"
@@ -2856,15 +2872,15 @@ msgstr ""
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: ucp/Voicemail.class.php:621
+#: ucp/Voicemail.class.php:652
 msgid "Unknown Error"
 msgstr "Unbekannter Fehler"
 
-#: ucp/Voicemail.class.php:572
+#: ucp/Voicemail.class.php:603
 msgid "Unsupported file format"
 msgstr "Nicht unterstütztes Dateiformat"
 
-#: ucp/Voicemail.class.php:596 ucp/assets/js/global.js:470
+#: ucp/Voicemail.class.php:627 ucp/assets/js/global.js:470
 msgid "Unsupported file type"
 msgstr "Nicht unterstützter Dateityp"
 
@@ -2954,7 +2970,7 @@ msgstr "VM Kontext kann nicht leer sein"
 msgid "VM Options"
 msgstr "VM Optionen"
 
-#: ucp/Voicemail.class.php:389
+#: ucp/Voicemail.class.php:420
 msgid "VMAIL"
 msgstr "VMAIL"
 
@@ -2988,8 +3004,8 @@ msgid "VmX Locater&trade;"
 msgstr "VmX Locater&trade;"
 
 #: Voicemail.class.php:894 Voicemail.class.php:2893 functions.inc.php:508
-#: install.php:8 ucp/Voicemail.class.php:99 ucp/Voicemail.class.php:149
-#: ucp/Voicemail.class.php:201 views/header.php:2 voicemail.i18n.php:4
+#: install.php:8 ucp/Voicemail.class.php:65 ucp/Voicemail.class.php:180
+#: ucp/Voicemail.class.php:232 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
 msgstr "Anrufbeantworter"
 
@@ -3023,7 +3039,7 @@ msgstr "Voicemail aktivieren [Freilassen, um zu deaktivieren]"
 msgid "Voicemail Instructions:"
 msgstr "Voicemail-Anweisungen:"
 
-#: ucp/Voicemail.class.php:389
+#: ucp/Voicemail.class.php:420
 msgid "Voicemail Message"
 msgstr "Voicemail-Nachricht"
 
@@ -3063,7 +3079,7 @@ msgstr "Voicemail-PIN"
 msgid "Voicemail Recording Gain"
 msgstr "Voicemail-Lautstärkeerhöhung"
 
-#: ucp/Voicemail.class.php:168
+#: ucp/Voicemail.class.php:199
 msgid "Voicemail Settings"
 msgstr "Voicemail-Einstellungen"
 
@@ -3087,7 +3103,11 @@ msgstr ""
 "Voicemail ist aktiviert, aber das Feld für das Voicemail-Passwort ist leer. "
 "Sind Sie sicher, dass Sie fortfahren möchten?"
 
-#: ucp/Voicemail.class.php:566 ucp/Voicemail.class.php:610
+#: ucp/Voicemail.class.php:128
+msgid "Voicemail is not enabled for this extension."
+msgstr ""
+
+#: ucp/Voicemail.class.php:597 ucp/Voicemail.class.php:641
 #, php-format
 msgid "Voicemail not moved to %s"
 msgstr "Voicemail nicht zu %s verschoben"
@@ -3096,7 +3116,7 @@ msgstr "Voicemail nicht zu %s verschoben"
 msgid "Voicemail notification"
 msgstr ""
 
-#: ucp/Voicemail.class.php:615
+#: ucp/Voicemail.class.php:646
 #, php-format
 msgid "Voicemail was empty: %s"
 msgstr "Voicemail war leer: %s"
