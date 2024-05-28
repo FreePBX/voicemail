@@ -2964,4 +2964,9 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		}
 		return $data;
 	}
+
+	public function checkVoicemailEnabled($extension) {
+		$voicemailStatus = $this->astman->database_get("AMPUSER", $extension."/voicemail");
+		return $voicemailStatus != 'novm' ? true : false;
+	}
 }
