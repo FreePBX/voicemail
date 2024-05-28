@@ -60,15 +60,21 @@ class Voicemail extends Modules {
 	}
 
 	public function getWidgetList() {
-		if (!$this->enabled) {
-			return array();
+		$responseData = array(
+			"rawname" => "voicemail",
+			"display" => _("Voicemail"),
+			"icon" => "fa fa-inbox",
+			"list" => []
+		);
+		$errors = $this->validate();
+		if ($errors['hasError']) {
+			return array_merge($responseData, $errors);
 		}
 
 		$widgets = array();
 
 		$extensions = $this->extensions;
 		if (!empty($extensions)) {
-			$boxes = $this->getMailboxCount($extensions);
 			foreach ($extensions as $extension) {
 				$data = $this->UCP->FreePBX->Core->getDevice($extension);
 				if (empty($data) || empty($data['description'])) {
@@ -78,36 +84,61 @@ class Voicemail extends Modules {
 				else {
 					$name = $data['description'];
 				}
-				$o = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($extension);
-				if (!empty($o) && isset($boxes['extensions'][$extension])) {
-					$widgets[$extension] = array(
-						"display"     => $name,
-						"hasSettings" => true,
-						"minsize"     => array( "height" => 5, "width" => 5 ),
-						"defaultsize" => array( "height" => 7, "width" => 6 )
-					);
-				}
+				$widgets[$extension] = array(
+					"display"     => $name,
+					"hasSettings" => true,
+					"minsize"     => array( "height" => 5, "width" => 5 ),
+					"defaultsize" => array( "height" => 7, "width" => 6 )
+				);
 			}
 		}
 
-		if (empty($widgets)) {
-			return array();
+		$responseData['list'] = $widgets;
+		return $responseData;
+	}
+
+	/**
+	 * validate against rules
+	 */
+	private function validate($extension = false) {
+		$data = array(
+			'hasError' => false,
+			'errorMessages' => []
+		);
+
+		if (!$this->enabled) {
+			$data['hasError'] = true;
+			$data['errorMessages'][] = _('UCP Voicemail is not enabled for this user.');
+		}
+		if (empty($this->extensions)) {
+			$data['hasError'] = true;
+			$data['errorMessages'][] = _('There are no assigned extensions.');
+		}
+		if ($extension !== false) {
+			if (empty($extension)) {
+				$data['hasError'] = true;
+				$data['errorMessages'][] = _('The given extension is empty.');
+			}
+			if (!$this->_checkExtension($extension)) {
+				$data['hasError'] = true;
+				$data['errorMessages'][] = _('This extension is not assigned to this user.');
+			}
+			if (!$this->UCP->FreePBX->Voicemail->checkVoicemailEnabled($extension)) {
+				$data['hasError'] = true;
+				$data['errorMessages'][] = _('Voicemail is not enabled for this extension.');
+			}
 		}
 
-		return array(
-			"rawname" => "voicemail",
-			"display" => _("Voicemail"),
-			"icon"    => "fa fa-inbox",
-			"list"    => $widgets
-		);
+		return $data;
 	}
 
 	public function getWidgetDisplay($id) {
+		$errors = $this->validate($id);
+		if ($errors['hasError']) {
+			return $errors;
+		}
 		$html = '';
 		$ext = !empty($id) ? $id : '';
-		if (!empty($ext) && !$this->_checkExtension($ext)) {
-			return array();
-		}
 		$view     = !empty($_REQUEST['view']) ? $_REQUEST['view'] : 'folder';
 		$page     = !empty($_REQUEST['page']) ? $_REQUEST['page'] : 1;
 		$folders  = $this->UCP->FreePBX->Voicemail->getFolders();
