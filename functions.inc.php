@@ -461,6 +461,12 @@ function voicemail_configpageload() {
 
 		//loop through all options
 		$options="";
+		$vmops_attach = 'no';
+		$vmops_saycid = 'no';
+		$vmops_envelope = 'no';
+		$vmops_delete = 'no';
+		$vmops_imapuser = null;
+		$vmops_imappassword = null;
 		if ( isset($vmoptions) && is_array($vmoptions) ) {
 			$alloptions = array_keys($vmoptions);
 			if (isset($alloptions)) {
@@ -474,15 +480,6 @@ function voicemail_configpageload() {
 
 			}
 			extract($vmoptions, EXTR_PREFIX_ALL, "vmops");
-		} else {
-			$vmops_novmstar = 'no';
-			$vmops_passlogin = 'yes';
-			$vmops_attach = 'no';
-			$vmops_saycid = 'no';
-			$vmops_envelope = 'no';
-			$vmops_delete = 'no';
-			$vmops_imapuser = null;
-			$vmops_imappassword = null;
 		}
 
 		if (empty($vmcontext))
