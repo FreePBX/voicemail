@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-28 10:03-0400\n"
+"POT-Creation-Date: 2024-06-05 06:27-0400\n"
 "PO-Revision-Date: 2016-07-17 10:07+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -176,7 +176,7 @@ msgstr "لینک های مشاهده حساب："
 msgid "Activated"
 msgstr "فعال"
 
-#: functions.inc.php:750
+#: functions.inc.php:747
 msgid "Advanced Settings For: "
 msgstr "تنظیمات پیشرفته برای： "
 
@@ -268,7 +268,7 @@ msgstr "آیا از حذف این پست های مطمئن هستید؟"
 msgid "Are you sure you wish to delete this voicemail?"
 msgstr "آیا از حذف این پست صوتی مطمئن هستید؟"
 
-#: functions.inc.php:1076
+#: functions.inc.php:1073
 msgid ""
 "Asterisk doesn't appear to be running, Cannot connect to Asterisk Manager"
 msgstr "استریسک اجرا نشده, نمیتوان به مدیریت استریسک وصل شد"
@@ -293,11 +293,11 @@ msgstr "تلاش(ها)"
 msgid "Auto-Refresh"
 msgstr "بازنشانی خودکار"
 
-#: functions.inc.php:743
+#: functions.inc.php:740
 msgid "Basic Settings For: "
 msgstr "تنظیمات عمومی برای： "
 
-#: functions.inc.php:745
+#: functions.inc.php:742
 msgid "Basic settings view is for individual accounts."
 msgstr "مشاهده تنظیمات عمومی برای حساب های معمولی."
 
@@ -318,7 +318,7 @@ msgstr "پیام مشغولی"
 msgid "Busy Greetings"
 msgstr "پیامهای مشغولی"
 
-#: functions.inc.php:1247
+#: functions.inc.php:1244
 msgid "Bytes"
 msgstr ""
 
@@ -585,7 +585,7 @@ msgstr "حذف پیام موقت"
 msgid "Delete Unavailible Greeting"
 msgstr "حذف پیام عدم دسترس"
 
-#: Voicemail.class.php:2168 functions.inc.php:565 page.voicemail.php:524
+#: Voicemail.class.php:2168 functions.inc.php:562 page.voicemail.php:524
 #: ucp/views/vmsettings.php:42
 msgid "Delete Voicemail"
 msgstr "حذف ایمیل صوتی"
@@ -618,7 +618,7 @@ msgstr "حذف:"
 msgid "Destination number"
 msgstr ""
 
-#: functions.inc.php:528
+#: functions.inc.php:525
 msgid "Device"
 msgstr "وسیله"
 
@@ -631,7 +631,7 @@ msgstr "شماره گیری ایمیل صوتی"
 msgid "Dialout Context"
 msgstr "زمینه تماس خارجی"
 
-#: functions.inc.php:756 views/header.php:11
+#: functions.inc.php:753 views/header.php:11
 msgid "Dialplan Behavior"
 msgstr "رفتار پلان شماره گیری"
 
@@ -655,7 +655,7 @@ msgstr "دایرکتوری راهنما"
 msgid "Disable"
 msgstr ""
 
-#: functions.inc.php:547
+#: functions.inc.php:544
 msgid "Disable (*) in Voicemail Menu"
 msgstr "غیرفعال کردن (*) در منو ایمیل صوتی"
 
@@ -707,12 +707,12 @@ msgstr "جابجایی شخصی مجاز نیست"
 msgid "Duration"
 msgstr "درحال"
 
-#: Voicemail.class.php:2025 functions.inc.php:550 page.voicemail.php:519
+#: Voicemail.class.php:2025 functions.inc.php:547 page.voicemail.php:519
 #: ucp/views/vmsettings.php:11
 msgid "Email Address"
 msgstr "آدرس ایمیل"
 
-#: functions.inc.php:556 page.voicemail.php:521 ucp/views/vmsettings.php:25
+#: functions.inc.php:553 page.voicemail.php:521 ucp/views/vmsettings.php:25
 msgid "Email Attachment"
 msgstr "پیوست ایمیل"
 
@@ -823,7 +823,7 @@ msgstr "فعال سازی پخش مجدد ایمیل صوتی در پنل این
 msgid "Enable voicemail settings in UCP for this user"
 msgstr "فعال سازی تنظیمات ایمیل صوتی در پنل این کاربر"
 
-#: functions.inc.php:646
+#: functions.inc.php:643
 msgid ""
 "Enable/Disable the VmX (Virtual Machine eXtension) Locater feature for this "
 "user. The VMX locator allows for advanced control of a user's voicemail "
@@ -851,7 +851,7 @@ msgstr ""
 "control. In essence, the VMX locater is a mini-IVR (interactive voice "
 "response) for voicemail"
 
-#: functions.inc.php:513 functions.inc.php:646
+#: functions.inc.php:510 functions.inc.php:643
 msgid "Enabled"
 msgstr "قعال شد"
 
@@ -859,7 +859,7 @@ msgstr "قعال شد"
 msgid "Enforce minimum password length"
 msgstr "قید حداقل طول کلمه عبور"
 
-#: functions.inc.php:662
+#: functions.inc.php:659
 msgid ""
 "Enter an alternate number here, then change your personal Voicemail greeting "
 "to let callers know to press 1 to reach that number. <br/><br/>If you'd like "
@@ -891,7 +891,7 @@ msgstr "Entries below  will be written to Voicemail configuration as-is."
 msgid "Envelope Playback"
 msgstr "پخش پاکت"
 
-#: functions.inc.php:562 ucp/views/vmsettings.php:37
+#: functions.inc.php:559 ucp/views/vmsettings.php:37
 msgid ""
 "Envelope controls whether or not the Voicemail system will play the message "
 "envelope (date/time) before playing the Voicemail message. This setting does "
@@ -928,7 +928,7 @@ msgstr "زمینه خروج"
 msgid "Expunge on exit."
 msgstr "نابود کردن در هنگام خروج."
 
-#: functions.inc.php:528
+#: functions.inc.php:525
 msgid "Extension"
 msgstr "داخلی"
 
@@ -1110,7 +1110,7 @@ msgstr "از: جمله برای ایمیل"
 msgid "From: string sent to pager."
 msgstr "از: جمله برای ارسال به پیام گیر."
 
-#: functions.inc.php:1243
+#: functions.inc.php:1240
 msgid "GB"
 msgstr "گیگا بایت"
 
@@ -1126,7 +1126,7 @@ msgstr "تنظیمات عمومی پلن شماره گیری"
 msgid "General Usage"
 msgstr "استفاده عمومی"
 
-#: functions.inc.php:655 ucp/views/vmx.php:25
+#: functions.inc.php:652 ucp/views/vmx.php:25
 msgid "Go To Operator"
 msgstr "برو به اپراتور"
 
@@ -1212,7 +1212,7 @@ msgstr "خوش آمد گویی IMAP"
 msgid "IMAP Parent Folder"
 msgstr "فولدر والد IMAP"
 
-#: Voicemail.class.php:2554 functions.inc.php:573
+#: Voicemail.class.php:2554 functions.inc.php:570
 msgid "IMAP Password"
 msgstr "کلمه عبور IMAP"
 
@@ -1224,7 +1224,7 @@ msgstr "ظرفیت IMAP"
 msgid "IMAP User"
 msgstr "کاربر IMAP"
 
-#: functions.inc.php:570
+#: functions.inc.php:567
 msgid "IMAP Username"
 msgstr "نام کاربری IMAP"
 
@@ -1304,7 +1304,7 @@ msgstr ""
 "would require this option are web interfaces to voicemail or an email client "
 "in the case of using IMAP storage."
 
-#: functions.inc.php:542
+#: functions.inc.php:539
 #, php-format
 msgid ""
 "If set to \"no\" then when the user dials %s to access their own voicemail, "
@@ -1325,7 +1325,7 @@ msgid ""
 "voicemails are retrieved"
 msgstr ""
 
-#: functions.inc.php:565 ucp/views/vmsettings.php:44
+#: functions.inc.php:562 ucp/views/vmsettings.php:44
 msgid ""
 "If set to \"yes\" the message will be deleted from the Voicemailbox (after "
 "having been emailed). Provides functionality that allows a user to receive "
@@ -1341,7 +1341,7 @@ msgstr ""
 "HAVE attach Voicemail to email SET TO YES OTHERWISE YOUR MESSAGES WILL BE "
 "LOST FOREVER."
 
-#: functions.inc.php:547
+#: functions.inc.php:544
 #, php-format
 msgid ""
 "If set to \"yes\" then when someone dials this voicemail box they will not "
@@ -1421,7 +1421,7 @@ msgstr ""
 "Voicemail setup screen for extensions. If an extension alread has these "
 "fields populated, they will be displayed even if this is set to false."
 
-#: functions.inc.php:766
+#: functions.inc.php:763
 msgid "Invalid Action"
 msgstr "فعالیت نامعتبر"
 
@@ -1433,7 +1433,7 @@ msgstr "کلمه عبور نامعتبر"
 msgid "Invalid Recipient"
 msgstr "گیرنده نامعتبر"
 
-#: functions.inc.php:1243
+#: functions.inc.php:1240
 msgid "KB"
 msgstr "کیلو بایت"
 
@@ -1479,7 +1479,7 @@ msgstr "گوش دادن در ایمیل صوتی"
 msgid "Load date format config for Voicemail mail."
 msgstr "فراخوانی تنظیم فرمت تاریخ در ایمیل صوتی."
 
-#: functions.inc.php:1243
+#: functions.inc.php:1240
 msgid "MB"
 msgstr "مگا بایت"
 
@@ -1807,7 +1807,7 @@ msgstr ""
 "اپراتور شکست خورد. اجازه به فرستنده برای فشردن 0 قبل/بعد/هنگام گذاشتن ایمیا "
 "صوتی [روشن در حالت پیشفرض]"
 
-#: Voicemail.class.php:2389 functions.inc.php:556 page.voicemail.php:211
+#: Voicemail.class.php:2389 functions.inc.php:553 page.voicemail.php:211
 #: page.voicemail.php:291
 msgid "Option to attach Voicemails to email."
 msgstr "گزینه پیوست ایمیل صوتی به ایمیل."
@@ -1830,7 +1830,7 @@ msgstr "بدنه پیجر"
 msgid "Pager Date Format"
 msgstr "فرمت تاریخ پیجر"
 
-#: Voicemail.class.php:2018 functions.inc.php:553 page.voicemail.php:520
+#: Voicemail.class.php:2018 functions.inc.php:550 page.voicemail.php:520
 #: ucp/views/vmsettings.php:16
 msgid "Pager Email Address"
 msgstr "آدرس ایمیل پیام گیر"
@@ -1843,7 +1843,7 @@ msgstr "پیجر از جمله"
 msgid "Pager Subject"
 msgstr "عنوان پیجر"
 
-#: functions.inc.php:553
+#: functions.inc.php:550
 msgid ""
 "Pager/mobile email address that short Voicemail notifications are sent to."
 msgstr "آدرس ایمیل پیجر/موبایل که هشدارهای ایمیل صوتی کوتاه به آن ارسال شده."
@@ -1884,11 +1884,11 @@ msgstr ""
 "پین استفاده شده برای ورود به ایمیل صوتی. این پین تنها میتواند شامل اعداد "
 "باشد."
 
-#: functions.inc.php:559 page.voicemail.php:522 ucp/views/vmsettings.php:30
+#: functions.inc.php:556 page.voicemail.php:522 ucp/views/vmsettings.php:30
 msgid "Play CID"
 msgstr "پخش شماره تماس گیرنده"
 
-#: functions.inc.php:562 page.voicemail.php:523 ucp/views/vmsettings.php:35
+#: functions.inc.php:559 page.voicemail.php:523 ucp/views/vmsettings.php:35
 msgid "Play Envelope"
 msgstr "پخش پاکت"
 
@@ -1907,15 +1907,15 @@ msgstr ""
 "Please be sure to  follow the format for timezone definitions described "
 "below."
 
-#: functions.inc.php:502
+#: functions.inc.php:499
 msgid "Please enter a valid Email Address"
 msgstr "لطفا ایمیل آدرس درست وارد کنید"
 
-#: functions.inc.php:503
+#: functions.inc.php:500
 msgid "Please enter a valid Pager Email Address"
 msgstr "لطفا آدرس ایمیل درست برای پیام گیر وارد کنید"
 
-#: functions.inc.php:501
+#: functions.inc.php:498
 msgid "Please enter a valid Voicemail Password, using digits only"
 msgstr ""
 "لطفا کلمه عبور درست برای ایمیل صوتی وارد کنید، تنها از اعداد استفاده شود"
@@ -1936,7 +1936,7 @@ msgstr "وقفه زمانی"
 msgid "Press 0"
 msgstr "فشردن 0"
 
-#: functions.inc.php:655
+#: functions.inc.php:652
 msgid "Press 0:"
 msgstr "فشردن 0:"
 
@@ -1944,7 +1944,7 @@ msgstr "فشردن 0:"
 msgid "Press 1"
 msgstr "فشردن 1"
 
-#: functions.inc.php:659 functions.inc.php:662
+#: functions.inc.php:656 functions.inc.php:659
 msgid "Press 1:"
 msgstr "فشردن 1:"
 
@@ -1952,11 +1952,11 @@ msgstr "فشردن 1:"
 msgid "Press 2"
 msgstr "فشردن 2"
 
-#: functions.inc.php:666
+#: functions.inc.php:663
 msgid "Press 2:"
 msgstr "فشردن 2:"
 
-#: functions.inc.php:655
+#: functions.inc.php:652
 msgid ""
 "Pressing 0 during your personal Voicemail greeting goes to the Operator. "
 "Uncheck to enter another destination here. This feature can be used while "
@@ -1988,7 +1988,7 @@ msgstr "ورود مجدد کلمه عبور"
 msgid "Read Timeout"
 msgstr "خواندن وقفه زمانی"
 
-#: functions.inc.php:559 ucp/views/vmsettings.php:32
+#: functions.inc.php:556 ucp/views/vmsettings.php:32
 msgid ""
 "Read back caller's telephone number prior to playing the incoming message, "
 "and just after announcing the date and time the message was left."
@@ -2062,7 +2062,7 @@ msgstr "حذف تمام پیام ها"
 msgid "Remove the timezone definition"
 msgstr "حذف منطقه زمانی تعریف شده"
 
-#: functions.inc.php:542
+#: functions.inc.php:539
 #, php-format
 msgid "Require From Same %s"
 msgstr "درخواست از %s"
@@ -2135,11 +2135,11 @@ msgstr ""
 "Send Voicemail  message. If not listed, sending messages from inside "
 "Voicemail will not be permitted."
 
-#: functions.inc.php:662 ucp/views/vmx.php:35
+#: functions.inc.php:659 ucp/views/vmx.php:35
 msgid "Send to Follow-Me"
 msgstr "ارسال به مرا دنبال کن"
 
-#: functions.inc.php:577
+#: functions.inc.php:574
 #, php-format
 msgid "Separate options with pipe ( | )%sie: review=yes|maxmessage=60"
 msgstr "Separate  options with pipe ( | )%sie: review=yes|maxmessage=60"
@@ -2313,15 +2313,15 @@ msgstr "پشتیبانی <i>متغیرها</i>:"
 msgid "Supported Formats: %s"
 msgstr "فرمت پشتیبانی شده: %s"
 
-#: functions.inc.php:752
+#: functions.inc.php:749
 msgid "System Settings"
 msgstr "تنظیمات سیستم"
 
-#: functions.inc.php:762
+#: functions.inc.php:759
 msgid "System Usage Statistics"
 msgstr "آمار مصرفی سیستم"
 
-#: functions.inc.php:1243
+#: functions.inc.php:1240
 msgid "TB"
 msgstr "ترا بایت"
 
@@ -2416,7 +2416,7 @@ msgstr "جدول پیشفرض ODBC ذخیره ایمیل صوتی در پیام 
 msgid "The default table for ODBC voicemail storage is voicemessages."
 msgstr "The default table  for ODBC voicemail storage is voicemessages."
 
-#: Voicemail.class.php:2026 functions.inc.php:550 ucp/views/vmsettings.php:13
+#: Voicemail.class.php:2026 functions.inc.php:547 ucp/views/vmsettings.php:13
 msgid "The email address that Voicemails are sent to."
 msgstr "آدرس ایمیلی که ایمیل صوتی به آن ارسال شده."
 
@@ -2487,7 +2487,7 @@ msgstr ""
 msgid "The pager subject"
 msgstr "عنوان پیجر"
 
-#: functions.inc.php:659
+#: functions.inc.php:656
 msgid ""
 "The remaining options can have internal extensions, ringgroups, queues and "
 "external numbers that may be rung. It is often used to include your cell "
@@ -2565,12 +2565,12 @@ msgstr ""
 msgid "This extension is not assigned to this user."
 msgstr ""
 
-#: functions.inc.php:573
+#: functions.inc.php:570
 #, php-format
 msgid "This is the IMAP password, if using IMAP storage"
 msgstr "این کلمه عبور IMAP است, اگر از ذخیره IMAP استفاده میکنید"
 
-#: functions.inc.php:570
+#: functions.inc.php:567
 #, php-format
 msgid "This is the IMAP username, if using IMAP storage"
 msgstr "این نام کاربری IMAP است, اگر از ذخیره IMAP استفاده میکنید"
@@ -2583,7 +2583,7 @@ msgstr ""
 "این پین استفاده شده برای دسترسی به سیستم ایمیل صوتی است.طولش باید بین 4 و12 "
 "رقم باشد."
 
-#: functions.inc.php:580 page.voicemail.php:319
+#: functions.inc.php:577 page.voicemail.php:319
 msgid ""
 "This is the Voicemail Context which is normally set to default. Do not "
 "change unless you understand the implications."
@@ -2591,7 +2591,7 @@ msgstr ""
 "این متن ایمیل صوتی است که معمولا به صورت پیشفرض تنظیم میشود. اگر نیازی نیست "
 "تغییر ندهید."
 
-#: functions.inc.php:517
+#: functions.inc.php:514
 #, php-format
 msgid ""
 "This is the password used to access the Voicemail system.%sThis password can "
@@ -2642,7 +2642,7 @@ msgstr "زمان های پخش پیام"
 msgid "Timezone"
 msgstr "منطقه زمانی"
 
-#: functions.inc.php:739 views/header.php:12
+#: functions.inc.php:736 views/header.php:12
 msgid "Timezone Definitions"
 msgstr "تعریف منطقه زمانی"
 
@@ -2743,7 +2743,7 @@ msgstr "پیام غیرقابل دسترس"
 msgid "Unavailable Greetings"
 msgstr "پیام های غیرقابل دسترس"
 
-#: functions.inc.php:653
+#: functions.inc.php:650
 msgid "Uncheck to play a beep after your personal Voicemail greeting."
 msgstr "بدون علامت کنید برای پخش بوق بعد از پیام خوش آمد شخصی در ایمیل صوتی."
 
@@ -2787,7 +2787,7 @@ msgstr "فوری"
 msgid "Usage"
 msgstr "مصرفی"
 
-#: functions.inc.php:760
+#: functions.inc.php:757
 msgid "Usage Statistics For: "
 msgstr "آمار مصرفی برای: "
 
@@ -2799,11 +2799,11 @@ msgstr "استفاده از دایرکتوری"
 msgid "Use When"
 msgstr "هنگام مصرف"
 
-#: functions.inc.php:650
+#: functions.inc.php:647
 msgid "Use When:"
 msgstr "هنگام مصرف:"
 
-#: functions.inc.php:666
+#: functions.inc.php:663
 msgid ""
 "Use any extensions, ringgroups, queues or external numbers. <br/><br/"
 ">Remember to re-record your personal Voicemail greeting and include "
@@ -2835,15 +2835,15 @@ msgstr ""
 "User context is  where entries from users.conf are registered.  The default "
 "value is 'default'"
 
-#: functions.inc.php:580
+#: functions.inc.php:577
 msgid "VM Context"
 msgstr "متن ایمیل صوتی"
 
-#: functions.inc.php:504
+#: functions.inc.php:501
 msgid "VM Context cannot be blank"
 msgstr "متن ایمیل صوتی نمیتواند خالی باشد"
 
-#: functions.inc.php:577
+#: functions.inc.php:574
 msgid "VM Options"
 msgstr "گزینه های ایمیل صوتی"
 
@@ -2871,11 +2871,11 @@ msgstr ""
 "Valid port as  specified in smdi.conf for using smdi for external "
 "notification."
 
-#: functions.inc.php:600
+#: functions.inc.php:597
 msgid "VmX Locater&trade;"
 msgstr "VmX  Locater&trade;"
 
-#: Voicemail.class.php:894 Voicemail.class.php:2893 functions.inc.php:508
+#: Voicemail.class.php:894 Voicemail.class.php:2893 functions.inc.php:505
 #: install.php:8 ucp/Voicemail.class.php:65 ucp/Voicemail.class.php:180
 #: ucp/Voicemail.class.php:232 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
@@ -2885,7 +2885,7 @@ msgstr "ایمیل صوتی"
 msgid "Voicemail Admin"
 msgstr "مدیریت ایمیل صوتی"
 
-#: functions.inc.php:736
+#: functions.inc.php:733
 msgid "Voicemail Administration"
 msgstr "مدیریت کردن ایمیل صوتی"
 
@@ -2905,7 +2905,7 @@ msgstr "ایمیل ایمیل صوتی"
 msgid "Voicemail Enable [Blank to disable]"
 msgstr "فعال کردن ایمیل صوتی [خالی برای غیرفعال کردن]"
 
-#: functions.inc.php:653
+#: functions.inc.php:650
 msgid "Voicemail Instructions:"
 msgstr "ساختارهای ایمیل صوتی:"
 
@@ -2929,7 +2929,7 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr "پین ایمیل صوتی"
 
-#: Voicemail.class.php:1798 functions.inc.php:517 page.voicemail.php:518
+#: Voicemail.class.php:1798 functions.inc.php:514 page.voicemail.php:518
 msgid "Voicemail Password"
 msgstr "کلمه عبور ایمیل صوتی"
 
@@ -3008,7 +3008,7 @@ msgstr ""
 msgid "Warning: the actions below are global and will affect ALL users."
 msgstr "هشدار： عملیات زیر عمومی بوده روی تمام کاربران اعمال میشود."
 
-#: functions.inc.php:650
+#: functions.inc.php:647
 msgid "When to use VMX"
 msgstr "زمان استفاده از VMX"
 
