@@ -1491,7 +1491,7 @@ function updateUCPAddressInEmailBody() {
 		$ampWebAddress = \FreePBX::Config()->get('AMPWEBADDRESS');
 		if(!empty($ampWebAddress)) {
 			preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', (string) $emailBody, $match);
-			$vURL = $match[0][0];
+			$vURL = isset($match[0][0]) ? $match[0][0] : '';
 			$ucpProtocol = "http";
 			$ucpPort = "81";
 			$ucp = '/ucp';
