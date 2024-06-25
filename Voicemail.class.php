@@ -559,27 +559,27 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 				$vmoptions['imapuser'] = $settings['imapuser'];
 				$vmoptions['imappassword'] = $settings['imappassword'];
 			}
-			if(isset($settings['passlogin'])) {
+			if(isset($settings['passlogin']) && $settings['passlogin']!='no') {
 				$vmoption = explode("=",$settings['passlogin']);
 				$settings['passlogin'] = $vmoption[1];
 			}
 
-			if(isset($settings['novmstar'])) {
+			if(isset($settings['novmstar'])&& $settings['novmstar']!='no') {
 				$vmoption = explode("=",$settings['novmstar']);
 				$settings['novmstar'] = $vmoption[1];
 			}
 
-			if(isset($settings['attach'])) {
+			if(isset($settings['attach']) && $settings['attach']!='no') {
 				$vmoption = explode("=",$settings['attach']);
 				$vmoptions['attach'] = $vmoption[1];
 			}
 
-			if(isset($settings['saycid'])) {
+			if(isset($settings['saycid']) && $settings['saycid']!='no') {
 				$vmoption = explode("=",$settings['saycid']);
 				$vmoptions['saycid'] = $vmoption[1];
 			}
 
-			if(isset($settings['envelope'])) {
+			if(isset($settings['envelope']) && $settings['envelope']!='no') {
 				$vmoption = explode("=",$settings['envelope']);
 				$vmoptions['envelope'] = $vmoption[1];
 			}
