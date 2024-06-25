@@ -584,7 +584,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 				$vmoptions['envelope'] = $vmoption[1];
 			}
 
-			if(isset($settings['vmdelete'])) {
+			if(isset($settings['vmdelete']) && $settings['vmdelete']!='no') {
 				$vmoption = explode("=",$settings['vmdelete']);
 				$vmoptions['delete'] = $vmoption[1];
 			}
