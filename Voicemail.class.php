@@ -188,7 +188,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 	 * @param int $mailbox The mailbox number
 	 */
 	public function mapMailBox($mailbox) {
-		if($mailbox == 'none'){
+		if(empty($mailbox) || $mailbox == 'none'){
 			return;
 		}
 		if(!is_numeric($mailbox)) {
