@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-09 11:49+0000\n"
+"POT-Creation-Date: 2024-11-13 06:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -411,6 +411,10 @@ msgstr ""
 msgid "Copying..."
 msgstr ""
 
+#: voicemail.i18n.php:12
+msgid "Create Voicemail Hints"
+msgstr ""
+
 #: Api/Gql/Voicemail.php:19
 msgid "Create/enable a voicemail account"
 msgstr ""
@@ -605,6 +609,7 @@ msgstr ""
 #: functions.inc.php:225
 #: functions.inc.php:291
 #: install.php:10
+#: voicemail.i18n.php:26
 msgid "Dial Voicemail"
 msgstr ""
 
@@ -622,6 +627,7 @@ msgid "Direct Dial Mode"
 msgstr ""
 
 #: install.php:12
+#: voicemail.i18n.php:30
 msgid "Direct Dial Prefix"
 msgstr ""
 
@@ -1318,6 +1324,14 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
+#: voicemail.i18n.php:20
+msgid ""
+"Installations that have configured Voicemail with IMAP should set this to "
+"true so that the IMAP username and password fields are provided in the "
+"Voicemail setup screen for extensions. If an extension alread has these "
+"fields populated, they will be displayed even if this is set to false."
+msgstr ""
+
 #: functions.inc.php:1003
 msgid "Invalid Action"
 msgstr ""
@@ -1345,6 +1359,13 @@ msgstr ""
 
 #: Vmx.class.php:31
 msgid "Leave blank for go to operator"
+msgstr ""
+
+#: voicemail.i18n.php:24
+msgid ""
+"Limit the Messages to be Displayed in UCP. If your device has more "
+"processing power you can increase this otherwise lower it if you find your "
+"system not responsive"
 msgstr ""
 
 #: Voicemail.class.php:2406
@@ -1526,6 +1547,7 @@ msgstr ""
 
 #: functions.inc.php:173
 #: install.php:9
+#: voicemail.i18n.php:32
 msgid "My Voicemail"
 msgstr ""
 
@@ -1883,6 +1905,10 @@ msgid ""
 "Check to enter another destination here."
 msgstr ""
 
+#: voicemail.i18n.php:18
+msgid "Provide IMAP Voicemail Fields"
+msgstr ""
+
 #: Voicemail.class.php:2657
 msgid "Re-enter Password"
 msgstr ""
@@ -2065,7 +2091,16 @@ msgstr ""
 msgid "Set to a valid port as specified in smdi.conf"
 msgstr ""
 
+#: voicemail.i18n.php:16
+msgid ""
+"Setting this flag with generate the required dialplan to integrate with "
+"res_mwi_devstate (res_mwi_blf) which is included with the Official FreePBX "
+"Distro. It allows users to subscribe to other voicemail box and be notified "
+"via BLF of changes."
+msgstr ""
+
 #: views/header.php:10
+#: voicemail.i18n.php:6
 msgid "Settings"
 msgstr ""
 
@@ -2242,10 +2277,12 @@ msgid "The ADSI security lock code"
 msgstr ""
 
 #: install.php:14
+#: voicemail.i18n.php:28
 msgid "The Feature Code used to dial any voicemail"
 msgstr ""
 
 #: install.php:13
+#: voicemail.i18n.php:34
 msgid ""
 "The Feature Code used to direct dial a users voicemail from their own "
 "extension"
@@ -2458,6 +2495,10 @@ msgid ""
 "'No'"
 msgstr ""
 
+#: voicemail.i18n.php:8
+msgid "This module allows you to configure Voicemail for a user or extension"
+msgstr ""
+
 #: page.voicemail.php:206
 msgid "Time announcement for message playback"
 msgstr ""
@@ -2557,6 +2598,10 @@ msgstr ""
 msgid ""
 "Turn on/off saying duration information before the message playback. [ON by "
 "default]"
+msgstr ""
+
+#: voicemail.i18n.php:22
+msgid "UCP Message Limit"
 msgstr ""
 
 #: Voicemail.class.php:1895
@@ -2717,10 +2762,12 @@ msgstr ""
 #: ucp/Voicemail.class.php:146
 #: ucp/Voicemail.class.php:198
 #: views/header.php:2
+#: voicemail.i18n.php:4
 msgid "Voicemail"
 msgstr ""
 
 #: install.php:11
+#: voicemail.i18n.php:10
 msgid "Voicemail Admin"
 msgstr ""
 
@@ -2752,6 +2799,10 @@ msgstr ""
 
 #: ucp/Voicemail.class.php:384
 msgid "Voicemail Message"
+msgstr ""
+
+#: voicemail.i18n.php:14
+msgid "Voicemail Module"
 msgstr ""
 
 #: Voicemail.class.php:1802
