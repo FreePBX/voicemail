@@ -245,7 +245,7 @@ class Voicemail extends Modules {
 			"supportedHTML5"  => implode(",", $this->UCP->FreePBX->Media->getSupportedHTML5Formats()),
 			"mailboxes"       => $this->voicemails,
 			"extensions"      => $this->extensions,
-			"isScribeEnabled" =>$this->UCP->FreePBX->Modules->checkStatus("scribe")
+			"isScribeEnabled" => ($this->UCP->FreePBX->Modules->checkStatus("scribe") && $this->UCP->FreePBX->Scribe->isLicensed())
 		);
 	}
 
