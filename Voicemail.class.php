@@ -1603,7 +1603,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 				break;
 			}
 			if($scribeModuleStatus) {
-				$url = \FreePBX::Scribe()->getUcpTranscriptionUrl($aMsgs['messages'][$i]['origmailbox'],$aMsgs['messages'][$i]['msg_id'],'voicemail');
+				$url = $this->FreePBX->Scribe->getUcpTranscriptionUrl($aMsgs['messages'][$i]['origmailbox'],$aMsgs['messages'][$i]['msg_id'],'voicemail');
 				if($url) {
 					$aMsgs['messages'][$i]['converttotext'] = $url;
 				} else {
