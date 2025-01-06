@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-05 06:27-0400\n"
+"POT-Creation-Date: 2025-01-06 00:26-0500\n"
 "PO-Revision-Date: 2018-02-16 16:12+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -1220,13 +1220,6 @@ msgstr "Stunde, 24-Stunden-Anzeige (Null vor einzelnen Stunden)"
 msgid "How many miliseconds of silence before we end the recording"
 msgstr "Wie viele Millisekunden Stille vor Beenden der Aufnahme"
 
-#: Voicemail.class.php:2455
-msgid ""
-"How many milliseconds of silence before we end the recording (in "
-"milliseconds)."
-msgstr ""
-"Wie viele Millisekunden Stille vor Beenden der Aufnahme (in Millisekunden)."
-
 #: page.voicemail.php:277
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback"
@@ -1241,6 +1234,10 @@ msgid ""
 msgstr ""
 "Wie viele Millisekunden beim Vor- oder Zurückspulen während der "
 "Nachrichtenwiedergabe vor- bzw. zurückgespult wird (in Millisekunden)"
+
+#: Voicemail.class.php:2455
+msgid "How many seconds of silence before we end the recording."
+msgstr ""
 
 #: Voicemail.class.php:2533
 msgid "IMAP Auth User"
@@ -1580,8 +1577,8 @@ msgid "Max Message Length (Seconds)"
 msgstr "Maximale Nachrichtenlänge (Sekunden)"
 
 #: Voicemail.class.php:2454
-msgid "Max Message Silence (Milliseconds)"
-msgstr "Maximale Stilledauer von Nachrichten (Millisekunden)"
+msgid "Max Message Silence (Seconds)"
+msgstr ""
 
 #: Voicemail.class.php:2430
 msgid "Max Messages"
@@ -3193,10 +3190,6 @@ msgstr ""
 msgid "Who the e-mail notification should appear to come from"
 msgstr "Der Absender der E-Mail-Benachrichtigung, der angezeigt werden soll"
 
-#: Voicemail.class.php:2455
-msgid "Why is this in milliseconds?"
-msgstr "Warum wird dies in Millisekunden angezeigt?"
-
 #: Voicemail.class.php:82
 msgid "Work"
 msgstr "Arbeit"
@@ -3284,6 +3277,19 @@ msgstr "Variable"
 #: page.voicemail.php:569
 msgid "yes"
 msgstr "ja"
+
+#~ msgid ""
+#~ "How many milliseconds of silence before we end the recording (in "
+#~ "milliseconds)."
+#~ msgstr ""
+#~ "Wie viele Millisekunden Stille vor Beenden der Aufnahme (in "
+#~ "Millisekunden)."
+
+#~ msgid "Max Message Silence (Milliseconds)"
+#~ msgstr "Maximale Stilledauer von Nachrichten (Millisekunden)"
+
+#~ msgid "Why is this in milliseconds?"
+#~ msgstr "Warum wird dies in Millisekunden angezeigt?"
 
 #~ msgid "%s adjusted from %s to %s"
 #~ msgstr "%s angepasst von %s auf %s"

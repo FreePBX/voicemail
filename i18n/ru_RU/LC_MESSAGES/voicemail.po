@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Voicemail\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-05 06:27-0400\n"
+"POT-Creation-Date: 2025-01-06 00:26-0500\n"
 "PO-Revision-Date: 2022-04-19 15:28+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -1178,12 +1178,6 @@ msgstr ""
 msgid "How many miliseconds of silence before we end the recording"
 msgstr ""
 
-#: Voicemail.class.php:2455
-msgid ""
-"How many milliseconds of silence before we end the recording (in "
-"milliseconds)."
-msgstr ""
-
 #: page.voicemail.php:277
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback"
@@ -1195,6 +1189,10 @@ msgstr ""
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback "
 "(in milliseconds)"
+msgstr ""
+
+#: Voicemail.class.php:2455
+msgid "How many seconds of silence before we end the recording."
 msgstr ""
 
 #: Voicemail.class.php:2533
@@ -1507,7 +1505,7 @@ msgid "Max Message Length (Seconds)"
 msgstr ""
 
 #: Voicemail.class.php:2454
-msgid "Max Message Silence (Milliseconds)"
+msgid "Max Message Silence (Seconds)"
 msgstr ""
 
 #: Voicemail.class.php:2430
@@ -3000,10 +2998,6 @@ msgstr ""
 #: Voicemail.class.php:2373 page.voicemail.php:275 page.voicemail.php:316
 msgid "Who the e-mail notification should appear to come from"
 msgstr "Кто является отправителем эл. почты при отправке"
-
-#: Voicemail.class.php:2455
-msgid "Why is this in milliseconds?"
-msgstr ""
 
 #: Voicemail.class.php:82
 msgid "Work"

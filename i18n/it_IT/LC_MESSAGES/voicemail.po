@@ -1040,12 +1040,6 @@ msgstr ""
 msgid "How many miliseconds of silence before we end the recording"
 msgstr ""
 
-#: Voicemail.class.php:2455
-msgid ""
-"How many milliseconds of silence before we end the recording (in "
-"milliseconds)."
-msgstr ""
-
 #: page.voicemail.php:277
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback"
@@ -1055,6 +1049,10 @@ msgstr ""
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback "
 "(in milliseconds)"
+msgstr ""
+
+#: Voicemail.class.php:2455
+msgid "How many seconds of silence before we end the recording."
 msgstr ""
 
 #: Voicemail.class.php:2533
@@ -1331,7 +1329,7 @@ msgid "Max Message Length (Seconds)"
 msgstr ""
 
 #: Voicemail.class.php:2454
-msgid "Max Message Silence (Milliseconds)"
+msgid "Max Message Silence (Seconds)"
 msgstr ""
 
 #: Voicemail.class.php:2430
@@ -2743,10 +2741,6 @@ msgstr ""
 
 #: Voicemail.class.php:2373 page.voicemail.php:275 page.voicemail.php:316
 msgid "Who the e-mail notification should appear to come from"
-msgstr ""
-
-#: Voicemail.class.php:2455
-msgid "Why is this in milliseconds?"
 msgstr ""
 
 #: Voicemail.class.php:82
