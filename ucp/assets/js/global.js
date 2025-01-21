@@ -894,7 +894,7 @@ var VoicemailC = UCPMC.extend({
 
 		html += '<a class="delete" alt="'+_('Delete')+'" data-id="'+row.msg_id+'"><i class="fa fa-trash-o"></i></a>';
 
-		if(row.converttotext.transcriptionURL !== undefined && row.converttotext.transcriptionURL !== null && row.converttotext.transcriptionURL != '' && settings.isScribeEnabled) {
+		if((row.converttotext !== undefined) && row.converttotext.transcriptionURL !== undefined && row.converttotext.transcriptionURL !== null && row.converttotext.transcriptionURL != '' && settings.isScribeEnabled) {
 			html += '<a href="#" data-toggle="tooltip" class="transcript tool-tip" title="Read the voice transcription" title="Read the voice transcription" onclick="openmodal(\'' + UCP.ajaxUrl +row.converttotext.transcriptionURL + '\')"> <img src="'+row.converttotext.scribeIconURL+'" width="15px" height="15px" alt="PBX Scribe" /></a>';
 		}
 
