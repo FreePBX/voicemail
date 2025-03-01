@@ -7,10 +7,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-06 00:26-0500\n"
-"PO-Revision-Date: 2016-07-17 10:07+0200\n"
+"POT-Creation-Date: 2025-03-01 00:31+0100\n"
+"PO-Revision-Date: 2025-03-01 00:43+0100\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
 "voicemail/fa_IR/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Poedit 3.4\n"
 
 #: Voicemail.class.php:2323
 msgid " Don't leave single period on end of line by itself."
@@ -2593,22 +2593,26 @@ msgstr ""
 #, php-format
 msgid ""
 "This is the password used to access the Voicemail system.%sThis password can "
-"only contain numbers.%sA user can change the password you enter here after "
+"only contain numbers.%sIf the password is prefixed by '-', then it is "
+"locked. Otherwise a user can change the password you enter here after "
 "logging into the Voicemail system (%s) with a phone."
 msgstr ""
-"This is the password used to access the  Voicemail system.%sThis password "
-"can only contain numbers.%sA user can change the password you enter here "
-"after logging into the Voicemail system (%s) with a phone."
+"این رمز عبوری است که برای دسترسی به سیستم پست صوتی استفاده می شود.%sاین رمز "
+"عبور فقط می تواند حاوی اعداد باشد.%sاگر رمز عبور با پیشوند '-' باشد، قفل می "
+"شود. در غیر این صورت، کاربر می تواند پس از ورود به سیستم پست صوتی (%s) با "
+"تلفن، رمز عبوری را که در اینجا وارد می کنید، تغییر دهد."
 
 #: page.voicemail.php:290
 msgid ""
 "This is the password used to access the Voicemail system.<br /><br />This "
-"password can only contain numbers.<br /><br />A user can change the password "
-"you enter here after logging into the Voicemail system (*98) with a phone."
+"password can only contain numbers.<br /><br />If the password is prefixed by "
+"'-', then it is locked. Otherwise a user can change the password you enter "
+"here after logging into the Voicemail system (*98) with a phone."
 msgstr ""
-"This is the password  used to access the Voicemail system.<br /><br />This "
-"password can only contain numbers.<br /><br />A user can change the password "
-"you enter here after logging into the Voicemail system (*98) with a phone."
+"این رمز عبوری است که برای دسترسی به سیستم پست صوتی استفاده می‌شود.<br /><br /"
+">این رمز عبور فقط می‌تواند حاوی اعداد باشد.<br /><br />اگر رمز عبور با پیشوند "
+"«-» باشد، قفل می‌شود. در غیر این صورت کاربر می تواند پس از ورود به سیستم پست "
+"صوتی (98*) با تلفن، رمز عبوری که در اینجا وارد می کنید را تغییر دهد."
 
 #: Voicemail.class.php:2185
 msgid ""
@@ -2942,6 +2946,10 @@ msgstr "کلمه عبور ایمیل صوتی تنها باید شامل اعد�
 #: ucp/views/vmsettings.php:6
 msgid "Voicemail Pin"
 msgstr "پین ایمیل صوتی"
+
+#: vmsettings.php:9
+msgid "Password is locked by the system administrator!"
+msgstr "رمز عبور توسط مدیر سیستم قفل شده است!"
 
 #: views/dialplan.php:68
 msgid "Voicemail Recording Gain"

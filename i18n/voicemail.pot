@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-21 02:01-0500\n"
+"POT-Creation-Date: 2025-03-01 00:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2507,15 +2507,17 @@ msgstr ""
 #, php-format
 msgid ""
 "This is the password used to access the Voicemail system.%sThis password can "
-"only contain numbers.%sA user can change the password you enter here after "
-"logging into the Voicemail system (%s) with a phone."
+"only contain numbers.%sIf the password is prefixed by '-', then it is locked. "
+"Otherwise a user can change the password you enter here after logging into the "
+"Voicemail system (%s) with a phone."
 msgstr ""
 
 #: page.voicemail.php:290
 msgid ""
 "This is the password used to access the Voicemail system.<br /><br />This "
-"password can only contain numbers.<br /><br />A user can change the password "
-"you enter here after logging into the Voicemail system (*98) with a phone."
+"password can only contain numbers.<br /><br />If the password is prefixed by "
+"'-', then it is locked. Otherwise a user can change the password you enter here after "
+"logging into the Voicemail system (*98) with a phone."
 msgstr ""
 
 #: Voicemail.class.php:2185
@@ -2864,6 +2866,10 @@ msgstr ""
 
 #: ucp/views/vmsettings.php:6
 msgid "Voicemail Pin"
+msgstr ""
+
+#: vmsettings.php:9
+msgid "Password is locked by the system administrator!"
 msgstr ""
 
 #: views/dialplan.php:68

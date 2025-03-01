@@ -7,10 +7,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-06 00:26-0500\n"
-"PO-Revision-Date: 2023-11-11 13:01+0000\n"
+"POT-Creation-Date: 2025-03-01 00:31+0100\n"
+"PO-Revision-Date: 2025-03-01 01:04+0100\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/voicemail/"
 "pl/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Poedit 3.4\n"
 
 #: Voicemail.class.php:2323
 msgid " Don't leave single period on end of line by itself."
@@ -2335,16 +2335,28 @@ msgstr ""
 #, php-format
 msgid ""
 "This is the password used to access the Voicemail system.%sThis password can "
-"only contain numbers.%sA user can change the password you enter here after "
+"only contain numbers.%sIf the password is prefixed by '-', then it is "
+"locked. Otherwise a user can change the password you enter here after "
 "logging into the Voicemail system (%s) with a phone."
 msgstr ""
+"To jest hasło umożliwiające dostęp do systemu poczty głosowej.%sTo hasło "
+"może zawierać tylko cyfry.%sJeśli hasło jest poprzedzone znakiem „-”, "
+"oznacza to, że jest zablokowane. W przeciwnym razie użytkownik może zmienić "
+"wprowadzone tutaj hasło po zalogowaniu się do systemu poczty głosowej (%s) "
+"za pomocą telefonu."
 
 #: page.voicemail.php:290
 msgid ""
 "This is the password used to access the Voicemail system.<br /><br />This "
-"password can only contain numbers.<br /><br />A user can change the password "
-"you enter here after logging into the Voicemail system (*98) with a phone."
+"password can only contain numbers.<br /><br />If the password is prefixed by "
+"'-', then it is locked. Otherwise a user can change the password you enter "
+"here after logging into the Voicemail system (*98) with a phone."
 msgstr ""
+"To jest hasło umożliwiające dostęp do systemu poczty głosowej.<br /><br />To "
+"hasło może zawierać tylko cyfry.<br /><br />Jeśli hasło jest poprzedzone "
+"znakiem „-”, oznacza to, że jest zablokowane. W przeciwnym razie użytkownik "
+"może zmienić wpisane tutaj hasło po zalogowaniu się do systemu poczty "
+"głosowej (*98) za pomocą telefonu."
 
 #: Voicemail.class.php:2185
 msgid ""
@@ -2661,6 +2673,10 @@ msgstr ""
 #: ucp/views/vmsettings.php:6
 msgid "Voicemail Pin"
 msgstr ""
+
+#: vmsettings.php:9
+msgid "Password is locked by the system administrator!"
+msgstr "Hasło zostało zablokowane przez administratora systemu!"
 
 #: views/dialplan.php:68
 msgid "Voicemail Recording Gain"

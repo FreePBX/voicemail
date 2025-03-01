@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-06 00:26-0500\n"
-"PO-Revision-Date: 2015-02-05 21:26+0200\n"
+"POT-Creation-Date: 2025-03-01 00:31+0100\n"
+"PO-Revision-Date: 2025-03-01 01:26+0100\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
 "voicemail/zh_CN/>\n"
@@ -17,9 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.10-dev\n"
-"X-Poedit-Language: Chinese\n"
-"X-Poedit-Country: CHINA\n"
+"X-Generator: Poedit 3.4\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: Voicemail.class.php:2323
@@ -2335,15 +2333,17 @@ msgstr ""
 #, php-format
 msgid ""
 "This is the password used to access the Voicemail system.%sThis password can "
-"only contain numbers.%sA user can change the password you enter here after "
+"only contain numbers.%sIf the password is prefixed by '-', then it is "
+"locked. Otherwise a user can change the password you enter here after "
 "logging into the Voicemail system (%s) with a phone."
 msgstr ""
 
 #: page.voicemail.php:290
 msgid ""
 "This is the password used to access the Voicemail system.<br /><br />This "
-"password can only contain numbers.<br /><br />A user can change the password "
-"you enter here after logging into the Voicemail system (*98) with a phone."
+"password can only contain numbers.<br /><br />If the password is prefixed by "
+"'-', then it is locked. Otherwise a user can change the password you enter "
+"here after logging into the Voicemail system (*98) with a phone."
 msgstr ""
 
 #: Voicemail.class.php:2185
@@ -2660,6 +2660,10 @@ msgstr ""
 
 #: ucp/views/vmsettings.php:6
 msgid "Voicemail Pin"
+msgstr ""
+
+#: vmsettings.php:9
+msgid "Password is locked by the system administrator!"
 msgstr ""
 
 #: views/dialplan.php:68

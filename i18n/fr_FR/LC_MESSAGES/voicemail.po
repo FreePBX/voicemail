@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-06 00:26-0500\n"
-"PO-Revision-Date: 2017-03-13 15:27+0200\n"
+"POT-Creation-Date: 2025-03-01 00:31+0100\n"
+"PO-Revision-Date: 2025-03-01 00:46+0100\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/voicemail/"
 "fr_FR/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Poedit 3.4\n"
 
 #: Voicemail.class.php:2323
 msgid " Don't leave single period on end of line by itself."
@@ -2351,16 +2351,29 @@ msgstr ""
 #, php-format
 msgid ""
 "This is the password used to access the Voicemail system.%sThis password can "
-"only contain numbers.%sA user can change the password you enter here after "
+"only contain numbers.%sIf the password is prefixed by '-', then it is "
+"locked. Otherwise a user can change the password you enter here after "
 "logging into the Voicemail system (%s) with a phone."
 msgstr ""
+"Il s'agit du mot de passe utilisé pour accéder au système de messagerie "
+"vocale.%sCe mot de passe ne peut contenir que des chiffres.%sSi le mot de "
+"passe est préfixé par « - », il est verrouillé. Sinon, un utilisateur peut "
+"modifier le mot de passe que vous saisissez ici après s'être connecté au "
+"système de messagerie vocale (%s) avec un téléphone."
 
 #: page.voicemail.php:290
 msgid ""
 "This is the password used to access the Voicemail system.<br /><br />This "
-"password can only contain numbers.<br /><br />A user can change the password "
-"you enter here after logging into the Voicemail system (*98) with a phone."
+"password can only contain numbers.<br /><br />If the password is prefixed by "
+"'-', then it is locked. Otherwise a user can change the password you enter "
+"here after logging into the Voicemail system (*98) with a phone."
 msgstr ""
+"Il s'agit du mot de passe utilisé pour accéder au système de messagerie "
+"vocale.<br /><br />Ce mot de passe ne peut contenir que des chiffres.<br /"
+"><br />Si le mot de passe est préfixé par « - », alors il est verrouillé. "
+"Sinon, un utilisateur peut modifier le mot de passe que vous entrez ici "
+"après s'être connecté au système de messagerie vocale (*98) avec un "
+"téléphone."
 
 #: Voicemail.class.php:2185
 msgid ""
@@ -2677,6 +2690,10 @@ msgstr ""
 #: ucp/views/vmsettings.php:6
 msgid "Voicemail Pin"
 msgstr ""
+
+#: vmsettings.php:9
+msgid "Password is locked by the system administrator!"
+msgstr "Le mot de passe est verrouillé par l'administrateur système!"
 
 #: views/dialplan.php:68
 msgid "Voicemail Recording Gain"

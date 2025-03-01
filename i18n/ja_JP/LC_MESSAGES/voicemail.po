@@ -4,15 +4,15 @@
 # Inquiries: info@qloog.com / www.qloog.com
 #
 # This translation is a culmination of the hard work of
-# several outstanding individuals, which started in 2009 with the 
-# first-ever Japanese localization of FreePBX by Kenichi Fukaumi 
+# several outstanding individuals, which started in 2009 with the
+# first-ever Japanese localization of FreePBX by Kenichi Fukaumi
 # and Kazuhiro Tokuyama (FreePBX Japanized Project).
 #
-# Beginning in 2013, with the approval of the original authors, 
-# QLOOG undertook a large scale overhaul of the translation to 
-# expand it for compatibility with FreePBX 2.11. Our work is, 
-# of course, released under the same GPLv2 license as FreePBX. 
-# We only ask that you kindly retain these credits in honor of 
+# Beginning in 2013, with the approval of the original authors,
+# QLOOG undertook a large scale overhaul of the translation to
+# expand it for compatibility with FreePBX 2.11. Our work is,
+# of course, released under the same GPLv2 license as FreePBX.
+# We only ask that you kindly retain these credits in honor of
 # the time and effort that all of us have contributed. Enjoy!
 #
 # This file is part of FreePBX.
@@ -37,8 +37,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-06 00:26-0500\n"
-"PO-Revision-Date: 2015-02-18 07:06+0200\n"
+"POT-Creation-Date: 2025-03-01 00:31+0100\n"
+"PO-Revision-Date: 2025-03-01 00:58+0100\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/"
 "voicemail/ja_JP/>\n"
@@ -47,7 +47,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Poedit 3.4\n"
 
 #: Voicemail.class.php:2323
 msgid " Don't leave single period on end of line by itself."
@@ -2493,23 +2493,28 @@ msgstr ""
 #, php-format
 msgid ""
 "This is the password used to access the Voicemail system.%sThis password can "
-"only contain numbers.%sA user can change the password you enter here after "
+"only contain numbers.%sIf the password is prefixed by '-', then it is "
+"locked. Otherwise a user can change the password you enter here after "
 "logging into the Voicemail system (%s) with a phone."
 msgstr ""
-"ボイスメールシステムにアクセスするためのパスワードを指定します。%s このパス"
-"ワードには数字のみを組み合わせて指定してください。%s 電話からボイスメールシス"
-"テム (%s) に接続し、ここで入力したパスワードを入力してください。"
+"これはボイスメール システムにアクセスするために使用されるパスワードです。%sこ"
+"のパスワードには数字のみを含めることができます。%sパスワードの先頭に「-」が付"
+"いている場合、パスワードはロックされています。それ以外の場合、ユーザーは電話"
+"でボイスメール システム (%s) にログインした後、ここで入力するパスワードを変更"
+"できます。"
 
 #: page.voicemail.php:290
 msgid ""
 "This is the password used to access the Voicemail system.<br /><br />This "
-"password can only contain numbers.<br /><br />A user can change the password "
-"you enter here after logging into the Voicemail system (*98) with a phone."
+"password can only contain numbers.<br /><br />If the password is prefixed by "
+"'-', then it is locked. Otherwise a user can change the password you enter "
+"here after logging into the Voicemail system (*98) with a phone."
 msgstr ""
-"これは、ボイスメールシステムにアクセスするために使用するパスワードです。<br /"
-"><br />このパスワードは数字のみが使用できます。<br /><br />ユーザは、電話機か"
-"ら（*98）をダイヤルしてボイスメールシステムにログインした後、ここで入力したパ"
-"スワードを変更することができます。"
+"これはボイスメール システムへのアクセスに使用されるパスワードです。<br /"
+"><br />このパスワードには数字のみを含めることができます。<br /><br />パスワー"
+"ドの先頭に「-」が付いている場合、パスワードはロックされています。それ以外の場"
+"合、ユーザーは電話でボイスメール システム (*98) にログインした後、ここで入力"
+"するパスワードを変更できます。"
 
 #: Voicemail.class.php:2185
 msgid ""
@@ -2847,6 +2852,10 @@ msgstr ""
 #: ucp/views/vmsettings.php:6
 msgid "Voicemail Pin"
 msgstr "ボイスメールPINコード"
+
+#: vmsettings.php:9
+msgid "Password is locked by the system administrator!"
+msgstr "パスワードはシステム管理者によってロックされています。"
 
 #: views/dialplan.php:68
 msgid "Voicemail Recording Gain"

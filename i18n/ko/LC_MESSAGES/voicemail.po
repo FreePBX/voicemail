@@ -7,10 +7,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-06 00:26-0500\n"
-"PO-Revision-Date: 2021-02-10 00:00+0000\n"
+"POT-Creation-Date: 2025-03-01 00:31+0100\n"
+"PO-Revision-Date: 2025-03-01 01:01+0100\n"
 "Last-Translator: Andy Lim <mhlim@dialogic.co.kr>\n"
 "Language-Team: Korean <http://weblate.freepbx.org/projects/freepbx/voicemail/"
 "ko/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Poedit 3.4\n"
 
 #: Voicemail.class.php:2323
 msgid " Don't leave single period on end of line by itself."
@@ -2334,16 +2334,26 @@ msgstr ""
 #, php-format
 msgid ""
 "This is the password used to access the Voicemail system.%sThis password can "
-"only contain numbers.%sA user can change the password you enter here after "
+"only contain numbers.%sIf the password is prefixed by '-', then it is "
+"locked. Otherwise a user can change the password you enter here after "
 "logging into the Voicemail system (%s) with a phone."
 msgstr ""
+"음성 메일 시스템에 액세스하는 데 사용되는 비밀번호입니다.%s이 비밀번호는 숫자"
+"만 포함할 수 있습니다.%s비밀번호 앞에 '-'가 붙으면 잠긴 것입니다. 그렇지 않으"
+"면 사용자가 전화로 음성 메일 시스템(%s)에 로그인한 후 여기에 입력한 비밀번호"
+"를 변경할 수 있습니다."
 
 #: page.voicemail.php:290
 msgid ""
 "This is the password used to access the Voicemail system.<br /><br />This "
-"password can only contain numbers.<br /><br />A user can change the password "
-"you enter here after logging into the Voicemail system (*98) with a phone."
+"password can only contain numbers.<br /><br />If the password is prefixed by "
+"'-', then it is locked. Otherwise a user can change the password you enter "
+"here after logging into the Voicemail system (*98) with a phone."
 msgstr ""
+"음성메일 시스템에 접속할 때 사용하는 비밀번호입니다.<br /><br />이 비밀번호"
+"는 숫자만 포함할 수 있습니다.<br /><br />비밀번호 앞에 '-'가 붙으면 잠겨 있"
+"는 것입니다. 그렇지 않은 경우 사용자는 전화로 음성 메일 시스템(*98)에 로그인"
+"한 후 여기에 입력한 비밀번호를 변경할 수 있습니다."
 
 #: Voicemail.class.php:2185
 msgid ""
@@ -2660,6 +2670,10 @@ msgstr ""
 #: ucp/views/vmsettings.php:6
 msgid "Voicemail Pin"
 msgstr ""
+
+#: vmsettings.php:9
+msgid "Password is locked by the system administrator!"
+msgstr "시스템 관리자가 비밀번호를 잠갔습니다!"
 
 #: views/dialplan.php:68
 msgid "Voicemail Recording Gain"
