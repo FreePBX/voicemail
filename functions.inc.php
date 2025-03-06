@@ -511,7 +511,7 @@ function voicemail_configpageload() {
 		$currentcomponent->addguielem($section, new gui_radio([...$guidefaults, ...$el]),$category);
 		$disable = ($vmselect == 'disabled');
 
-		$el = ["elemname" => "vmpwd", "prompttext" => _('Voicemail Password'), "helptext" => sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "currentvalue" => $vmpwd, "jsvalidation" => "frm_{$display}_isVoiceMailEnabled() && !frm_{$display}_isValidVoicemailPass()", "failvalidationmsg" => $msgInvalidVmPwd, "canbeempty" => false, "class" => "$class confidential", "disable" => $disable];
+		$el = ["elemname" => "vmpwd", "prompttext" => _('Voicemail Password'), "helptext" => sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sIf the password is prefixed by '-', then it is locked. Otherwise a user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "currentvalue" => $vmpwd, "jsvalidation" => "frm_{$display}_isVoiceMailEnabled() && !frm_{$display}_isValidVoicemailPass()", "failvalidationmsg" => $msgInvalidVmPwd, "canbeempty" => false, "class" => "$class confidential", "disable" => $disable];
 
 		$currentcomponent->addguielem($section, new gui_textbox([...$guidefaults, ...$el]),$category);
 		//for passwordless voicemail we need to check some settings
