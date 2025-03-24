@@ -390,7 +390,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		$widgets = array();
 		$widget_type_id = $widget['widget_type_id'];// this will be an extension number
 		$extensions = $this->FreePBX->UCP->getCombinedSettingByID($userid,'Voicemail','assigned');
-		if(in_array($widget_type_id,$extensions)){
+		if(is_array($extensions) && in_array($widget_type_id,$extensions)){
 			// nothing to do return the same widget
 			return $widget;
 		}else {// lets check VM enabled for this extension
