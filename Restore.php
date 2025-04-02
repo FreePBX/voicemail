@@ -15,7 +15,9 @@ class Restore Extends Base\RestoreBase{
 				$source = $this->tmpdir.'/files'.$file->getPathTo().'/'.$file->getFilename();
 				$dest = $filename;
 				if(file_exists($source)){
-					@mkdir($file->getPathTo(),0755,true);
+					if (!file_exists($file->getPathTo())) {
+						mkdir($file->getPathTo(),0755,true);
+					}
 					copy($source, $dest);
 					$nfiles++;
 				}
