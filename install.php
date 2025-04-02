@@ -60,7 +60,7 @@ if(!empty($globals_convert)) {
   }
 }
 
-$freepbx_conf =& freepbx_conf::create();
+$freepbx_conf = freepbx_conf::create();
 
 // VM_SHOW_IMAP
 //
