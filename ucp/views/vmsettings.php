@@ -4,7 +4,7 @@
 		<div class="col-xs-12">
 			<div class="form-group">
 				<label for="pwd" class="help"><?php echo _('Voicemail Pin')?> <i class="fa fa-question-circle"></i></label>
-				<input name="pwd" type="number" class="form-control" id="pwd" value="<?php echo $settings['pwd']?>" autocapitalize="off" autocorrect="off"<?php if(str_starts_with($settings['pwd'], '-')) { echo " disabled";}?>>
+				<input name="pwd" type="number" class="form-control" id="pwd" value="<?php echo ltrim($settings['pwd'], '-'); ?>" autocapitalize="off" autocorrect="off"<?php if(str_starts_with($settings['pwd'], '-')) { echo " disabled";}?>>
 				<span class="help-block help-hidden" data-for="pwd"><?php echo _('Pin Used to Login to Voicemail. This pin can only contain numbers.')?></span>
 				<?php if(str_starts_with($settings['pwd'], '-')) { echo _('Password is locked by the system administrator!');}?>
 			</div>
