@@ -59,4 +59,9 @@
 			<field name="value" type="string" length="80" default=""/>
 		</table>
 	</database>
+	<console>
+                <command>
+                        <name>voicemail</name>
+                </command>
+	</console>
 </module>
