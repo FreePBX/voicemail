@@ -8,7 +8,51 @@ class Restore Extends Base\RestoreBase{
 	public function runRestore(){
 		$configs = $this->getConfigs();
 		$files = $this->getFiles();
+		$voiceMail = $this->FreePBX->Voicemail;
 		$nfiles = 0;
+		$backupinfo = $this->getBackupInfo();
+		// lets remove old files from the system
+		$bkitems = json_decode($backupinfo['backup_items'],true);
+		foreach($bkitems as $i){
+			if($i['modulename'] == 'voicemail'){
+				$vmsetting = $i['settings'];
+			}
+		}
+		$voicemail_vmrecords ='no'; // default is no
+		$voicemail_vmgreetings = 'no';
+		if (is_array($vmsetting)) {
+			foreach ($vmsetting as $set) {
+				if (is_array($set) && isset($set['name'], $set['value'])) {
+					if ($set['name'] === 'voicemail_vmrecords') {
+						$voicemail_vmrecords = $set['value'];
+					} elseif ($set['name'] === 'voicemail_vmgreetings') {
+						$voicemail_vmgreetings = $set['value'];
+					}
+				}
+			}
+		}
+		$vmboxes = $voiceMail->getBaseBackupSettings();
+		if($voicemail_vmrecords =='no' || $voicemail_vmgreetings == 'no' ){
+			foreach($vmboxes as $exten){
+				$fileDirList = $voiceMail->allFileList($exten['extension']);
+				foreach ($fileDirList['files'] as $file) {
+					if($file['basename'] === 'greet.wav' || $file['basename'] === 'temp.wav' || $file['basename'] === 'busy.wav' || $file['basename'] === 'unavail.wav'){
+						continue;
+					}
+				if($voicemail_vmrecords == 'no' && !is_link($file['path'].'/'.$file['basename']) ){
+						unlink($file['path'].'/'.$file['basename']);
+					}
+				}
+				if($voicemail_vmgreetings == 'no'){
+					$greetings = $voiceMail->getGreetingsByExtension($exten['extension']);
+					foreach($greetings as $greeting){
+						$path = pathinfo($greeting,PATHINFO_DIRNAME);
+						unlink($path.'/'.basename($greeting));
+					}
+				}
+			}
+		}
+
 		foreach($files as $file){
 			if($file->getType() == 'voicemail' || $file->getType() == 'greeting'){
 				$filename = $file->getPathTo().'/'.$file->getFilename();
