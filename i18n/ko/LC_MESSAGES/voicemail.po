@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-13 06:21+0000\n"
+"POT-Creation-Date: 2025-07-30 09:49+0000\n"
 "PO-Revision-Date: 2021-02-10 00:00+0000\n"
 "Last-Translator: Andy Lim <mhlim@dialogic.co.kr>\n"
 "Language-Team: Korean <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -38,7 +38,7 @@ msgstr "\"오늘\", \"어제\" 혹은 ABdY"
 msgid "%s Attempts"
 msgstr "%s 시도 횟수"
 
-#: Restore.php:32
+#: Restore.php:76
 #, php-format
 msgid "%s Files Restored"
 msgstr ""
