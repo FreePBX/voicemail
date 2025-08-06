@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-30 09:49+0000\n"
+"POT-Creation-Date: 2025-08-06 11:32+0000\n"
 "PO-Revision-Date: 2023-11-11 13:01+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -39,7 +39,7 @@ msgstr ""
 msgid "%s Attempts"
 msgstr ""
 
-#: Restore.php:76
+#: Restore.php:78
 #, php-format
 msgid "%s Files Restored"
 msgstr ""
