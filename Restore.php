@@ -13,9 +13,11 @@ class Restore Extends Base\RestoreBase{
 		$backupinfo = $this->getBackupInfo();
 		// lets remove old files from the system
 		$bkitems = json_decode($backupinfo['backup_items'],true);
-		foreach($bkitems as $i){
-			if($i['modulename'] == 'voicemail'){
-				$vmsetting = $i['settings'];
+		if (is_array($bkitems)) {
+			foreach($bkitems as $i){
+				if($i['modulename'] == 'voicemail'){
+					$vmsetting = $i['settings'];
+				}
 			}
 		}
 		$voicemail_vmrecords ='no'; // default is no
