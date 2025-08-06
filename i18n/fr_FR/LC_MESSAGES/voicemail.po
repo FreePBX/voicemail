@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-20 22:46-0400\n"
+"POT-Creation-Date: 2025-08-06 07:35-0400\n"
 "PO-Revision-Date: 2017-03-13 15:27+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/voicemail/"
@@ -31,7 +31,7 @@ msgstr "\"aujourd'hui\", \"hier\" ou ABdY"
 msgid "%s Attempts"
 msgstr "%s essais"
 
-#: Restore.php:34
+#: Restore.php:80
 #, php-format
 msgid "%s Files Restored"
 msgstr ""

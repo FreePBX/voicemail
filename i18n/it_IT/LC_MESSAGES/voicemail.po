@@ -15,7 +15,7 @@ msgstr ""
 msgid "%s Attempts"
 msgstr ""
 
-#: Restore.php:34
+#: Restore.php:80
 #, php-format
 msgid "%s Files Restored"
 msgstr ""
