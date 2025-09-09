@@ -40,6 +40,29 @@
 					color: #ffffff;
 			}
 	}
+		.folder.drag-over {
+			background-color: #e3f2fd !important;
+			border: 2px solid #2196f3 !important;
+			border-radius: 3px !important;
+			opacity: 1 !important;
+			a {
+					color: #1976d2 !important;
+					font-weight: normal !important;
+			}
+		}
+		
+		// Drag over styling for table-based folder list
+		.folder-list-table tr.folder.drag-over {
+			background-color: #e3f2fd !important;
+			border: 2px solid #2196f3 !important;
+			border-radius: 3px !important;
+			opacity: 1 !important;
+			
+			td {
+				color: #1976d2 !important;
+				font-weight: normal !important;
+			}
+		}
 }
 #widget_settings[data-rawname='voicemail'] {
 	.tab-content {
@@ -113,9 +136,6 @@
 	.message-header {
 	    background-color: #f3f5f6;
 	}
-	.message-table {
-	    font-size: 90%;
-	}
 	.vm-message {
 	    cursor:move;
 	    opacity: 0.99;
@@ -161,6 +181,113 @@
 	        }
 	        a:hover {
 	            color:#428bca;
+	        }
+	    }
+	}
+	
+	// Folder list table styling
+	.folder-list-table {
+	    margin-bottom: 0;
+	    width: 100%;
+	    
+	    th {
+	        background-color: #f5f5f5;
+	        border: 1px solid #ddd;
+	        padding: 6px 8px;
+	        font-weight: 600;
+	        color: #333;
+	        text-align: left;
+	        font-size: 12px;
+	    }
+	    
+	    td {
+	        border: 1px solid #ddd;
+	        border-top: none;
+	        padding: 6px 8px;
+	        vertical-align: middle;
+	        font-size: 12px;
+	    }
+	    
+	    tr:hover {
+	        background-color: #f5f5f5;
+	    }
+	    
+	    tr.active {
+	        background-color: #e3f2fd;
+	        color: #1976d2;
+	        
+	        td {
+	            color: #1976d2;
+	        }
+	    }
+	    
+	    .folder-icon-header {
+	        text-align: center;
+	        width: 30px;
+	        
+	        i {
+	            font-size: 10px;
+	            color: #666;
+	        }
+	    }
+	    
+	    .folder-badge {
+	        text-align: center;
+	        width: 30px;
+	        
+	        .badge {
+	            font-size: 9px;
+	            padding: 1px 3px;
+	            border-radius: 2px;
+	            white-space: nowrap;
+	            min-width: 12px;
+	            text-align: center;
+	            font-weight: 500;
+	            display: inline-block !important;
+	        }
+	    }
+	    
+	    .folder-name {
+	        font-weight: 500;
+	        color: inherit;
+	    }
+	}
+	
+	// Badge colors - scoped to folder list
+	.folder-list-table {
+	    .badge-total {
+	        background-color: #337ab7;
+	        color: white;
+	    }
+	    
+	    .badge-unread {
+	        background-color: #f0ad4e;
+	        color: white;
+	    }
+	    
+	    .badge-high {
+	        background-color: #d9534f;
+	        color: white;
+	    }
+	}
+	
+	// Unread message highlighting
+	.voicemail-grid {
+	    table {
+	        table-layout: auto;
+	        width: auto;
+	    }
+	    
+	    tbody tr.unread {
+	        background-color: #f8f9fa;
+	        border-left: 3px solid #f0ad4e;
+	        
+	        &:hover {
+	            background-color: #e9ecef;
+	        }
+	        
+	        td {
+	            font-weight: 500;
 	        }
 	    }
 	}

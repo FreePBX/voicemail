@@ -1,5 +1,6 @@
 <div class="supported-formats"><?php echo sprintf(_("Supported Formats: %s"),implode(", ",$supported['in']))?></div>
 <?php $count = 1;?>
+
 <?php foreach($short_greetings as $greeting => $name) {?>
 	<div class="row">
 		<div class="col-md-12">
@@ -45,6 +46,7 @@
 						<input type="file" type="file" name="files[]" multiple />
 					</span>
 					<button class="btn btn-danger btn-xs delete <?php echo !isset($greetings[$greeting]) ? 'greet-hidden' : ''?>" data-id="<?php echo $greeting?>"><i class="fa fa-trash-o fa-lg"></i><?php echo _('Delete')?></button>
+					<button class="btn btn-primary btn-xs download-greeting <?php echo !isset($greetings[$greeting]) ? 'greet-hidden' : ''?>" data-id="<?php echo $greeting?>" title="<?php echo _('Download')?>"><i class="fa fa-download"></i></button>
 					<button class="btn btn-danger record-greeting-btn btn-xs record" data-id="<?php echo $greeting?>"><i class="fa fa-circle"></i><?php echo _("Record Greeting")?></button>
 				</div>
 				<div class="recording-controls">
