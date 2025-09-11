@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 11:32+0000\n"
+"POT-Creation-Date: 2025-09-11 06:55+0000\n"
 "PO-Revision-Date: 2016-07-17 10:07+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Voicemail.class.php:2321
+#: Voicemail.class.php:2328
 msgid " Don't leave single period on end of line by itself."
 msgstr ""
 
@@ -131,11 +131,11 @@ msgstr "تععین زمان محلی به چگونگی صندوق صوتی در 
 msgid "A variable to be substituted (see below for supported variable values)"
 msgstr "متغییر جایگزین شده (برای مقادیر پشتیبانی شده به پایین نگاه کنید)"
 
-#: Voicemail.class.php:2299
+#: Voicemail.class.php:2306
 msgid "ADSI Security Lock Code"
 msgstr "کد قفل امنیتی ADSI"
 
-#: Voicemail.class.php:2292
+#: Voicemail.class.php:2299
 msgid "ADSI feature descriptor"
 msgstr "توصیف ویژگی های ADSI"
 
@@ -191,7 +191,7 @@ msgstr ""
 "Voicemail ONLY by email. Note:  deletevoicemail is provided as an equivalent "
 "option for Realtime configuration."
 
-#: Voicemail.class.php:2167
+#: Voicemail.class.php:2174
 msgid ""
 "After notification, the voicemail is deleted from the server. [per-mailbox "
 "only] This is intended for use with users who wish to receive their "
@@ -221,7 +221,7 @@ msgstr "مجوز مجدد پست صوتی"
 msgid "Allow Voicemail Settings"
 msgstr "مجوز تنظیمات پست صوتی"
 
-#: Voicemail.class.php:2191
+#: Voicemail.class.php:2198
 msgid ""
 "Allow sender to hit 0 before/after/during leaving a voicemail to reach an "
 "operator"
@@ -229,7 +229,7 @@ msgstr ""
 "مجوز به ارسال کننده برای گرفتن 0 قبل/بعد/درهنگام گذاشتن ایمیل ثوتی برای "
 "اتصال به اپراتور"
 
-#: Voicemail.class.php:2199
+#: Voicemail.class.php:2206
 msgid "Allow sender to review/rerecord their message before saving it"
 msgstr "اجازه به کاربر برای مرور/ ضبط پیام قبل از ذخیره آن"
 
@@ -241,7 +241,7 @@ msgstr ""
 "فرستنده مجاز است پیام خود را قبل از ذخیره بازبینی/ضبط مجدد کند [به صورت "
 "پیشفرض خاموش است]"
 
-#: Voicemail.class.php:2231
+#: Voicemail.class.php:2238
 msgid ""
 "Allow the user to compose and send a voicemail while inside VoiceMailMain() "
 "[option 5 from mailbox's advanced menu]. If set to 'no', option 5 will not "
@@ -272,7 +272,7 @@ msgstr "استریسک اجرا نشده, نمیتوان به مدیریت اس�
 msgid "Asterisk language code"
 msgstr "کد زبان استریسک"
 
-#: Voicemail.class.php:2386
+#: Voicemail.class.php:2393
 msgid "Attach Voicemail"
 msgstr "پیوست ایمیل صوتی"
 
@@ -317,31 +317,31 @@ msgstr "پیامهای مشغولی"
 msgid "CID"
 msgstr "CID"
 
-#: Voicemail.class.php:2705
+#: Voicemail.class.php:2712
 msgid "CID Internal Context"
 msgstr "زمینه داخلی شناسه تماس گیرنده"
 
-#: Voicemail.class.php:2122 page.voicemail.php:321
+#: Voicemail.class.php:2129 page.voicemail.php:321
 msgid "Call me number. Can be used from within ARI."
 msgstr "شماره تماس با من.میتواند از ARI استفاده شود."
 
-#: Voicemail.class.php:2121 page.voicemail.php:525
+#: Voicemail.class.php:2128 page.voicemail.php:525
 msgid "Call-Me Number"
 msgstr "شماره تماس با من"
 
-#: Voicemail.class.php:2698
+#: Voicemail.class.php:2705
 msgid "Callback Context"
 msgstr "زمینه تماس بازگشتی"
 
-#: Voicemail.class.php:2009
+#: Voicemail.class.php:2016
 msgid "Character Set"
 msgstr "کاراکتر ست"
 
-#: Voicemail.class.php:2595
+#: Voicemail.class.php:2602
 msgid "Close Timeout"
 msgstr "مهلت بسته شدن"
 
-#: Voicemail.class.php:2706 page.voicemail.php:217
+#: Voicemail.class.php:2713 page.voicemail.php:217
 msgid "Comma separated list of internal contexts to use caller ID."
 msgstr ""
 "فهرست زمینه های داخلی توسط کاما جدا شده وبه عنوان شناسه تماس گیرنده استفاده "
@@ -351,7 +351,7 @@ msgstr ""
 msgid "Command specified runs after a user changes his password."
 msgstr "دستوری که پس از تغییر کلمه عبور توسط کاربر باید اجرا شود."
 
-#: Voicemail.class.php:2052
+#: Voicemail.class.php:2059
 msgid ""
 "Command specified runs after a user changes their password. The arguments "
 "passed to the application are: [context] [mailbox] [newpassword] Note: This "
@@ -361,7 +361,7 @@ msgstr ""
 "passed to the application are: [context] [mailbox] [newpassword] Note: This "
 "will also update the voicemail.conf file"
 
-#: Voicemail.class.php:2059
+#: Voicemail.class.php:2066
 msgid ""
 "Command specified runs before a user changes their password and can be used "
 "to impose security restrictions on voicemail password. The arguments passed "
@@ -371,7 +371,7 @@ msgid ""
 "INVALID to stdout. "
 msgstr ""
 
-#: Voicemail.class.php:2691
+#: Voicemail.class.php:2698
 msgid "Context Config"
 msgstr "پیکربندی زمینه"
 
@@ -379,19 +379,19 @@ msgstr "پیکربندی زمینه"
 msgid "Context for the voice mail Voicemail"
 msgstr ""
 
-#: Voicemail.class.php:2699 page.voicemail.php:215 page.voicemail.php:294
+#: Voicemail.class.php:2706 page.voicemail.php:215 page.voicemail.php:294
 msgid ""
 "Context to call back from; if not listed, calling the sender back will not "
 "be permitted."
 msgstr "زمینه ای که تماس برگشتی از آن آمده در صورت عدم وجود فهرست زمینه ."
 
-#: Voicemail.class.php:2720 page.voicemail.php:224 page.voicemail.php:299
+#: Voicemail.class.php:2727 page.voicemail.php:224 page.voicemail.php:299
 msgid ""
 "Context to check for handling * or 0 calls to operator. \"Operator Context\""
 msgstr ""
 "Context to  check for handling * or 0 calls to operator. \"Operator Context\""
 
-#: Voicemail.class.php:2713 page.voicemail.php:218 page.voicemail.php:296
+#: Voicemail.class.php:2720 page.voicemail.php:218 page.voicemail.php:296
 msgid ""
 "Context to dial out from [option 4 from the advanced menu] if not listed, "
 "dialing out will not be permitted."
@@ -419,7 +419,7 @@ msgstr "ساخت نکات ایمیل صوتی"
 msgid "Create/enable a voicemail account"
 msgstr ""
 
-#: Voicemail.class.php:2223
+#: Voicemail.class.php:2230
 msgid ""
 "Current default behavior is to search only the default context if one is not "
 "specified.  The older behavior was to search all contexts. This option "
@@ -435,8 +435,8 @@ msgstr ""
 "contexts. Otherwise, an ambiguity is created since it is impossible to know "
 "which mailbox to retrieve when one is requested."
 
-#: Voicemail.class.php:2080 Voicemail.class.php:2087 Voicemail.class.php:2094
-#: Voicemail.class.php:2101 Voicemail.class.php:2108 page.voicemail.php:245
+#: Voicemail.class.php:2087 Voicemail.class.php:2094 Voicemail.class.php:2101
+#: Voicemail.class.php:2108 Voicemail.class.php:2115 page.voicemail.php:245
 msgid "Customize the key that fast-forwards message playback"
 msgstr "شخصی سازی کلیدی برای مرور سریع پیام ها"
 
@@ -456,13 +456,13 @@ msgstr "شخصی سازی کلیدی برای مرور مجدد پیام"
 msgid "Customize the key that stops message playback"
 msgstr "شخصی سازی کلیدی برای توقف مرور پیام"
 
-#: Voicemail.class.php:2672
+#: Voicemail.class.php:2679
 msgid ""
 "Customize which sound file is used instead of the default prompt that says "
 "\"Please try again.\""
 msgstr "سفارشی کردن فایل صوتی که بجای \"لطفا دوباره تلاش کنید.\" استفاده میشود"
 
-#: Voicemail.class.php:2637 page.voicemail.php:284
+#: Voicemail.class.php:2644 page.voicemail.php:284
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"Please enter your new password followed by the pound key.\""
@@ -470,7 +470,7 @@ msgstr ""
 "مشخص کنید کدام فایل صوتی به جای صدای پیشفرضی استفاده شود که میگوید：\"لطفا "
 "کلمه عبور جدید را وارد کنید.\""
 
-#: Voicemail.class.php:2658 page.voicemail.php:287
+#: Voicemail.class.php:2665 page.voicemail.php:287
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"Please re-enter your password followed by the pound key\""
@@ -487,7 +487,7 @@ msgstr ""
 "مشخص کنید کدام فایل صوتی به جای صدای پیشفرض استفاده شود که میگوید：\"کلمات "
 "عبور وارد شده یکسان نیستند. لطفا مجدد تلاش کنید.\""
 
-#: Voicemail.class.php:2630
+#: Voicemail.class.php:2637
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"The passwords you entered and re-entered did not match. Please try again.\""
@@ -495,7 +495,7 @@ msgstr ""
 "سفارشی کردن فایل صوتی که به جای: \"کلمات عبور وارد شده یکسان نیستند.\" "
 "استفاده میشود"
 
-#: Voicemail.class.php:2644 page.voicemail.php:285
+#: Voicemail.class.php:2651 page.voicemail.php:285
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"Your password has been changed.\""
@@ -503,7 +503,7 @@ msgstr ""
 "مشخص کنید کدام فایل صوتی به جای صدای پیشفرض استفاده شود که میگوید：\"کلمه "
 "عبور شما تغییر کرد.\""
 
-#: Voicemail.class.php:2651 page.voicemail.php:286
+#: Voicemail.class.php:2658 page.voicemail.php:286
 msgid ""
 "Customize which sound file is used instead of the default prompt that says: "
 "\"password\""
@@ -511,13 +511,13 @@ msgstr ""
 "مشخص کنید کدام فایل صوتی به جای صدای پیشفرض استفاده شود که میگوید：\"کلمه "
 "عبور\""
 
-#: Voicemail.class.php:2665
+#: Voicemail.class.php:2672
 msgid ""
 "Customize which sound file is used instead of the default prompt that "
 "says: ..."
 msgstr "سفارشی کردن فایل صوتی که استفاده میشود به جای: ..."
 
-#: Voicemail.class.php:2679
+#: Voicemail.class.php:2686
 msgid ""
 "Customize which sound file is used when the user times out while recording a "
 "prepend message instead of the default prompt that says \"then press pound\""
@@ -575,7 +575,7 @@ msgstr "حذف پیام موقت"
 msgid "Delete Unavailible Greeting"
 msgstr "حذف پیام عدم دسترس"
 
-#: Voicemail.class.php:2166 functions.inc.php:660 page.voicemail.php:524
+#: Voicemail.class.php:2173 functions.inc.php:660 page.voicemail.php:524
 #: ucp/views/vmsettings.php:42
 msgid "Delete Voicemail"
 msgstr "حذف ایمیل صوتی"
@@ -617,7 +617,7 @@ msgstr "وسیله"
 msgid "Dial Voicemail"
 msgstr "شماره گیری ایمیل صوتی"
 
-#: Voicemail.class.php:2712
+#: Voicemail.class.php:2719
 msgid "Dialout Context"
 msgstr "زمینه تماس خارجی"
 
@@ -637,7 +637,7 @@ msgstr "شماره گیری با پیش شماره"
 msgid "Direct Media Recording is Unsupported in your Broswer!"
 msgstr "ضبط مستقیم در مرورگر شما پشتیبانی نمیشود!"
 
-#: Voicemail.class.php:2685
+#: Voicemail.class.php:2692
 msgid "Directory Intro"
 msgstr "دایرکتوری راهنما"
 
@@ -693,7 +693,7 @@ msgstr "جابجایی شخصی مجاز نیست"
 msgid "Duration"
 msgstr "درحال"
 
-#: Voicemail.class.php:2023 functions.inc.php:601 page.voicemail.php:519
+#: Voicemail.class.php:2030 functions.inc.php:601 page.voicemail.php:519
 #: ucp/views/vmsettings.php:11
 msgid "Email Address"
 msgstr "آدرس ایمیل"
@@ -702,23 +702,23 @@ msgstr "آدرس ایمیل"
 msgid "Email Attachment"
 msgstr "پیوست ایمیل"
 
-#: Voicemail.class.php:2320
+#: Voicemail.class.php:2327
 msgid "Email Body"
 msgstr "بدنه ایمیل"
 
-#: Voicemail.class.php:2305
+#: Voicemail.class.php:2312
 msgid "Email Config"
 msgstr "تنظیمات ایمیل"
 
-#: Voicemail.class.php:2334
+#: Voicemail.class.php:2341
 msgid "Email Date Format"
 msgstr "فرمت تاریخ ایمیل"
 
-#: Voicemail.class.php:2327
+#: Voicemail.class.php:2334
 msgid "Email From String"
 msgstr "جمله ایمیل از"
 
-#: Voicemail.class.php:2312
+#: Voicemail.class.php:2319
 msgid "Email Subject"
 msgstr "عنوان ایمیل"
 
@@ -746,7 +746,7 @@ msgstr ""
 "when sending a Voicemail. NOTE: sox must be installed for this option to "
 "work."
 
-#: Voicemail.class.php:2129
+#: Voicemail.class.php:2136
 msgid ""
 "Emails bearing the Voicemail may arrive in a volume too quiet to be heard. "
 "This parameter allows you to specify how much gain to add to the message "
@@ -762,7 +762,7 @@ msgstr ""
 msgid "Enable"
 msgstr "فعال"
 
-#: Voicemail.class.php:2270 Voicemail.class.php:2271
+#: Voicemail.class.php:2277 Voicemail.class.php:2278
 msgid "Enable SMDI notification"
 msgstr "فعال سازی هشدار SMDI"
 
@@ -841,7 +841,7 @@ msgstr ""
 msgid "Enabled"
 msgstr "قعال شد"
 
-#: Voicemail.class.php:2437 page.voicemail.php:256
+#: Voicemail.class.php:2444 page.voicemail.php:256
 msgid "Enforce minimum password length"
 msgstr "قید حداقل طول کلمه عبور"
 
@@ -873,7 +873,7 @@ msgstr ""
 msgid "Entries below will be written to Voicemail configuration as-is."
 msgstr "Entries below  will be written to Voicemail configuration as-is."
 
-#: Voicemail.class.php:2158
+#: Voicemail.class.php:2165
 msgid "Envelope Playback"
 msgstr "پخش پاکت"
 
@@ -906,7 +906,7 @@ msgstr ""
 msgid "Exclude VM Recordings?"
 msgstr ""
 
-#: Voicemail.class.php:2719
+#: Voicemail.class.php:2726
 msgid "Exit Context"
 msgstr "زمینه خروج"
 
@@ -922,27 +922,27 @@ msgstr "داخلی"
 msgid "Extension does not exists."
 msgstr ""
 
-#: Voicemail.class.php:2037
+#: Voicemail.class.php:2044
 msgid "External Notify"
 msgstr "هشدار خارجی"
 
-#: Voicemail.class.php:2044
+#: Voicemail.class.php:2051
 msgid "External Password"
 msgstr "کلمه عبور خارجی"
 
-#: Voicemail.class.php:2051
+#: Voicemail.class.php:2058
 msgid "External Password Notify"
 msgstr "هشدار کلمه عبور خارجی"
 
-#: Voicemail.class.php:2058
+#: Voicemail.class.php:2065
 msgid "External Password Verification Script"
 msgstr ""
 
-#: Voicemail.class.php:2038 Voicemail.class.php:2143 page.voicemail.php:226
+#: Voicemail.class.php:2045 Voicemail.class.php:2150 page.voicemail.php:226
 msgid "External Voicemail notify application."
 msgstr "هشدار به نرم افزار خارجی ایمیل صوتی."
 
-#: Voicemail.class.php:2045
+#: Voicemail.class.php:2052
 msgid ""
 "External password changing command (overrides 'External Password Notify'). "
 "The arguments passed to the application are: [context] [mailbox] "
@@ -973,11 +973,11 @@ msgstr "عدم موفقیت در حذف صندوق صوتی: %s@%s"
 msgid "Family"
 msgstr "نام خانوادگی"
 
-#: Voicemail.class.php:2079
+#: Voicemail.class.php:2086
 msgid "Fast-Foward Keys"
 msgstr "کلیدهای حرکت سریع-به جلو"
 
-#: Voicemail.class.php:2065 Voicemail.class.php:2072
+#: Voicemail.class.php:2072 Voicemail.class.php:2079
 msgid "File Format"
 msgstr "فرمت فایل"
 
@@ -1019,7 +1019,7 @@ msgstr ""
 "For example,  the time a message was left will be announced according to the "
 "user's timezone on message playback."
 
-#: Voicemail.class.php:2686
+#: Voicemail.class.php:2693
 msgid "For the directory, you can override the intro file if you want"
 msgstr "برای دایرکتوری، شما میتوانید فایل راهنما را بازنویسی کنید"
 
@@ -1027,11 +1027,11 @@ msgstr "برای دایرکتوری، شما میتوانید فایل راهن�
 msgid "Forbidden"
 msgstr "ممنوع"
 
-#: Voicemail.class.php:2182
+#: Voicemail.class.php:2189
 msgid "Force Greetings"
 msgstr "خوش آمد گویی"
 
-#: Voicemail.class.php:2174
+#: Voicemail.class.php:2181
 msgid "Force Name"
 msgstr "نام اجباری"
 
@@ -1043,7 +1043,7 @@ msgstr ""
 "Force a new user  to record their name.  A new user is determined by the "
 "password being the same as the mailbox number.  The default is \"yes\"."
 
-#: Voicemail.class.php:2175
+#: Voicemail.class.php:2182
 msgid ""
 "Force a new user to record their name. A new user is determined by the "
 "password being the same as the mailbox number. Default is 'Yes'"
@@ -1067,7 +1067,7 @@ msgstr ""
 "Formats for  writing Voicemail.  Note that when using IMAP storage for "
 "Voicemail, only the first format specified will be used."
 
-#: Voicemail.class.php:2066
+#: Voicemail.class.php:2073
 msgid ""
 "Formats for writing Voicemail. Note that when using IMAP storage for "
 "Voicemail, only the first format specified will be used."
@@ -1088,7 +1088,7 @@ msgstr "فوروارد ایمیل صوتی"
 msgid "Friends"
 msgstr "دوستان"
 
-#: Voicemail.class.php:2328 Voicemail.class.php:2357 page.voicemail.php:233
+#: Voicemail.class.php:2335 Voicemail.class.php:2364 page.voicemail.php:233
 msgid "From: string for email"
 msgstr "از: جمله برای ایمیل"
 
@@ -1100,7 +1100,7 @@ msgstr "از: جمله برای ارسال به پیام گیر."
 msgid "GB"
 msgstr "گیگا بایت"
 
-#: Voicemail.class.php:1995
+#: Voicemail.class.php:2002
 msgid "General"
 msgstr "عمومی"
 
@@ -1120,15 +1120,15 @@ msgstr "برو به اپراتور"
 msgid "Greetings"
 msgstr "پیام خوش آمد"
 
-#: Voicemail.class.php:2580
+#: Voicemail.class.php:2587
 msgid "Greetings folder"
 msgstr "فولدر خوش آمدگویی"
 
-#: Voicemail.class.php:2254
+#: Voicemail.class.php:2261
 msgid "Hide From Directory"
 msgstr "پنهان از دایرکتوری"
 
-#: Voicemail.class.php:2255
+#: Voicemail.class.php:2262
 msgid "Hide this mailbox from the directory produced by app_directory"
 msgstr "پنهان کردن صندوق صوتی از دایرکتوری ایجاد شده توسط app_directory"
 
@@ -1156,7 +1156,7 @@ msgstr "Hour, 24 hour  clock (single digit hours preceded by \"oh\")"
 msgid "How many miliseconds of silence before we end the recording"
 msgstr "مدت زمان سکوت برای خاتمه ضبط تماس براساس میلی ثانیه"
 
-#: Voicemail.class.php:2453
+#: Voicemail.class.php:2460
 msgid ""
 "How many milliseconds of silence before we end the recording (in "
 "milliseconds)."
@@ -1167,46 +1167,46 @@ msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback"
 msgstr "لغو چند میلی ثانیه در هنگام مرور سریع یا جلو/عقب کردن پیام"
 
-#: Voicemail.class.php:2477 Voicemail.class.php:2485
+#: Voicemail.class.php:2484 Voicemail.class.php:2492
 msgid ""
 "How many milliseconds to skip forward/back when rew/ff in message playback "
 "(in milliseconds)"
 msgstr ""
 "لغو چند میلی ثانیه در هنگام مرور سریع جلو/عقب کردن پیام (به میلی ثانیه)"
 
-#: Voicemail.class.php:2531
+#: Voicemail.class.php:2538
 msgid "IMAP Auth User"
 msgstr "احراز هویت کاربر IMAP"
 
-#: Voicemail.class.php:2538
+#: Voicemail.class.php:2545
 msgid "IMAP Auth User Password"
 msgstr "کلمه عبور کاربر IMAP"
 
-#: Voicemail.class.php:2559
+#: Voicemail.class.php:2566
 msgid "IMAP Flags"
 msgstr "پرچم های IMAP"
 
-#: Voicemail.class.php:2566
+#: Voicemail.class.php:2573
 msgid "IMAP Folder"
 msgstr "فولدر IMAP"
 
-#: Voicemail.class.php:2588
+#: Voicemail.class.php:2595
 msgid "IMAP Greetings"
 msgstr "خوش آمد گویی IMAP"
 
-#: Voicemail.class.php:2573
+#: Voicemail.class.php:2580
 msgid "IMAP Parent Folder"
 msgstr "فولدر والد IMAP"
 
-#: Voicemail.class.php:2552 functions.inc.php:683
+#: Voicemail.class.php:2559 functions.inc.php:683
 msgid "IMAP Password"
 msgstr "کلمه عبور IMAP"
 
-#: Voicemail.class.php:2510
+#: Voicemail.class.php:2517
 msgid "IMAP Storage"
 msgstr "ظرفیت IMAP"
 
-#: Voicemail.class.php:2545
+#: Voicemail.class.php:2552
 msgid "IMAP User"
 msgstr "کاربر IMAP"
 
@@ -1222,7 +1222,7 @@ msgstr "فولدر ایمیل صوتی IMAP."
 msgid "IMAP password."
 msgstr "کلمه عبور IMAP."
 
-#: Voicemail.class.php:2517 Voicemail.class.php:2518 page.voicemail.php:243
+#: Voicemail.class.php:2524 Voicemail.class.php:2525 page.voicemail.php:243
 msgid "IMAP server address."
 msgstr "آدرس سرور IMAP."
 
@@ -1230,15 +1230,15 @@ msgstr "آدرس سرور IMAP."
 msgid "IMAP server flags."
 msgstr "نشانه سرور IMAP."
 
-#: Voicemail.class.php:2539 page.voicemail.php:212
+#: Voicemail.class.php:2546 page.voicemail.php:212
 msgid "IMAP server master password."
 msgstr "کلمه عبور اصلی سرور IMAP."
 
-#: Voicemail.class.php:2532 page.voicemail.php:213
+#: Voicemail.class.php:2539 page.voicemail.php:213
 msgid "IMAP server master username."
 msgstr "نام کاربری اصلی سرور IMAP."
 
-#: Voicemail.class.php:2524 Voicemail.class.php:2525 page.voicemail.php:241
+#: Voicemail.class.php:2531 Voicemail.class.php:2532 page.voicemail.php:241
 msgid "IMAP server port."
 msgstr "پورت سرور IMAP."
 
@@ -1250,7 +1250,7 @@ msgstr "کاربر IMAP."
 msgid "INBOX"
 msgstr "صندوق ورودی"
 
-#: Voicemail.class.php:2581
+#: Voicemail.class.php:2588
 msgid ""
 "If IMAP Greetings is Yes, then specify which folder to store your greetings "
 "in. If you do not specify a folder, then INBOX will be used"
@@ -1274,7 +1274,7 @@ msgstr ""
 "would require this option are web interfaces to Voicemail or an email client "
 "in the case of using IMAP storage."
 
-#: Voicemail.class.php:2151
+#: Voicemail.class.php:2158
 msgid ""
 "If mailboxes are changed anywhere outside of app_voicemail, then this option "
 "must be enabled for MWI to work. This enables polling mailboxes for "
@@ -1380,7 +1380,7 @@ msgstr ""
 "via IMAP. If no,  then greetings are stored as if IMAP storage were not "
 "enabled"
 
-#: Voicemail.class.php:2589
+#: Voicemail.class.php:2596
 msgid ""
 "If using IMAP storage, specify whether Voicemail greetings should be stored "
 "via IMAP. If not set, then greetings are stored as if IMAP storage were not "
@@ -1411,7 +1411,7 @@ msgstr ""
 msgid "Invalid Action"
 msgstr "فعالیت نامعتبر"
 
-#: Voicemail.class.php:2664
+#: Voicemail.class.php:2671
 msgid "Invalid Password"
 msgstr "کلمه عبور نامعتبر"
 
@@ -1423,11 +1423,11 @@ msgstr "گیرنده نامعتبر"
 msgid "KB"
 msgstr "کیلو بایت"
 
-#: Voicemail.class.php:2393
+#: Voicemail.class.php:2400
 msgid "Language"
 msgstr "زبان"
 
-#: Voicemail.class.php:2394
+#: Voicemail.class.php:2401
 msgid "Language code for voicemail"
 msgstr "کد زبان برای ایمیل صوتی"
 
@@ -1445,7 +1445,7 @@ msgstr ""
 "processing power you can increase this otherwise lower it if you find your "
 "system not responsive"
 
-#: Voicemail.class.php:2406
+#: Voicemail.class.php:2413
 msgid "Limits"
 msgstr "محدودیت ها"
 
@@ -1465,7 +1465,7 @@ msgstr "فراخوانی تنظیم فرمت تاریخ در ایمیل صوتی
 msgid "MB"
 msgstr "مگا بایت"
 
-#: Voicemail.class.php:2400
+#: Voicemail.class.php:2407
 msgid "Mail Command"
 msgstr "دستور میل"
 
@@ -1482,31 +1482,31 @@ msgstr "صندوق ایمیل نمیتواند خالی باشد"
 msgid "Mailbox is not in the proper format [%s]"
 msgstr ""
 
-#: Voicemail.class.php:2420
+#: Voicemail.class.php:2427
 msgid "Max Failed Logins"
 msgstr "حداکثر ورود ناموفق"
 
-#: Voicemail.class.php:2413
+#: Voicemail.class.php:2420
 msgid "Max Greeting Length (Seconds)"
 msgstr ""
 
-#: Voicemail.class.php:2444
+#: Voicemail.class.php:2451
 msgid "Max Message Length (Seconds)"
 msgstr ""
 
-#: Voicemail.class.php:2452
+#: Voicemail.class.php:2459
 msgid "Max Message Silence (Milliseconds)"
 msgstr ""
 
-#: Voicemail.class.php:2428
+#: Voicemail.class.php:2435
 msgid "Max Messages"
 msgstr "حداکثر پیام"
 
-#: Voicemail.class.php:2030
+#: Voicemail.class.php:2037
 msgid "Max Number of Deleted Messages"
 msgstr "حداکثر پیام حذفی"
 
-#: Voicemail.class.php:2421 page.voicemail.php:252
+#: Voicemail.class.php:2428 page.voicemail.php:252
 msgid "Max failed login attempts."
 msgstr "حداکثر تعداد تلاش ناموفق برای ورود."
 
@@ -1514,7 +1514,7 @@ msgstr "حداکثر تعداد تلاش ناموفق برای ورود."
 msgid "Max message greeting length."
 msgstr "حداکثر طول پیام خوش آمد."
 
-#: Voicemail.class.php:2414
+#: Voicemail.class.php:2421
 msgid "Max message greeting length. (in seconds)"
 msgstr "حداکثر طول خوش آمد گویی.(به ثانیه)"
 
@@ -1523,7 +1523,7 @@ msgstr "حداکثر طول خوش آمد گویی.(به ثانیه)"
 msgid "Max message time length."
 msgstr "جداکثر طول پیام."
 
-#: Voicemail.class.php:2445
+#: Voicemail.class.php:2452
 msgid ""
 "Maximum length of a voicemail message in seconds for the message to be kept. "
 "The default is 300 (in seconds)."
@@ -1537,7 +1537,7 @@ msgstr ""
 "Maximum number  of messages per folder.  If not specified, a default value "
 "(100) is used.  Maximum value for this option is 9999."
 
-#: Voicemail.class.php:2429
+#: Voicemail.class.php:2436
 msgid ""
 "Maximum number of messages per folder. If not specified, a default value "
 "(100) is used. Maximum value for this option is 9999."
@@ -1561,7 +1561,7 @@ msgstr "پیام ها در صندوق های ورودی"
 msgid "Messages in other folders"
 msgstr "پیام ها در سایر فولدرها"
 
-#: Voicemail.class.php:2468
+#: Voicemail.class.php:2475
 msgid "Min Message Length (Seconds)"
 msgstr ""
 
@@ -1573,11 +1573,11 @@ msgstr ""
 "Min message time  length - maxsilence should be less than minsecs or you may "
 "get empty messages."
 
-#: Voicemail.class.php:2436
+#: Voicemail.class.php:2443
 msgid "Minimum Password"
 msgstr "حداقل کلمه عبور"
 
-#: Voicemail.class.php:2469
+#: Voicemail.class.php:2476
 msgid ""
 "Minimum length of a voicemail message in seconds for the message to be kept. "
 "(in seconds)."
@@ -1601,7 +1601,7 @@ msgstr "نام ماه (ژانویه،فوریه،...)"
 msgid "Move"
 msgstr "انتقال"
 
-#: Voicemail.class.php:2262
+#: Voicemail.class.php:2269
 msgid "Move Heard"
 msgstr "انتقال شنیده"
 
@@ -1609,7 +1609,7 @@ msgstr "انتقال شنیده"
 msgid "Move Voicemail"
 msgstr "انتقال ایمیل صوتی"
 
-#: Voicemail.class.php:2263
+#: Voicemail.class.php:2270
 msgid ""
 "Move heard messages to the 'Old' folder automagically.  Defaults to Yes."
 msgstr "انتقال خودکار پیام شنیده به فولدر 'قدیمی'. پیش فرض بله."
@@ -1643,7 +1643,7 @@ msgstr ""
 msgid "Name of Voicemail account"
 msgstr "نام حساب ایمیل صوتی"
 
-#: Voicemail.class.php:2002 Voicemail.class.php:2003 page.voicemail.php:309
+#: Voicemail.class.php:2009 Voicemail.class.php:2010 page.voicemail.php:309
 msgid "Name of account/user"
 msgstr "نام حساب/کاربر"
 
@@ -1651,7 +1651,7 @@ msgstr "نام حساب/کاربر"
 msgid "New Name"
 msgstr "نام جدید"
 
-#: Voicemail.class.php:2636
+#: Voicemail.class.php:2643
 msgid "New Password"
 msgstr "کلمه عبور جدید"
 
@@ -1659,17 +1659,17 @@ msgstr "کلمه عبور جدید"
 msgid "New Timezone Definition"
 msgstr "تعریف منطقه زمانی جدید"
 
-#: Voicemail.class.php:2278
+#: Voicemail.class.php:2285
 msgid "Next after command"
 msgstr "بعد از دستور"
 
-#: Voicemail.class.php:2148 Voicemail.class.php:2156 Voicemail.class.php:2164
-#: Voicemail.class.php:2172 Voicemail.class.php:2180 Voicemail.class.php:2188
-#: Voicemail.class.php:2196 Voicemail.class.php:2204 Voicemail.class.php:2212
-#: Voicemail.class.php:2220 Voicemail.class.php:2228 Voicemail.class.php:2236
-#: Voicemail.class.php:2244 Voicemail.class.php:2252 Voicemail.class.php:2260
-#: Voicemail.class.php:2268 Voicemail.class.php:2276 Voicemail.class.php:2376
-#: Voicemail.class.php:2384 Voicemail.class.php:2586 functions.inc.php:406
+#: Voicemail.class.php:2155 Voicemail.class.php:2163 Voicemail.class.php:2171
+#: Voicemail.class.php:2179 Voicemail.class.php:2187 Voicemail.class.php:2195
+#: Voicemail.class.php:2203 Voicemail.class.php:2211 Voicemail.class.php:2219
+#: Voicemail.class.php:2227 Voicemail.class.php:2235 Voicemail.class.php:2243
+#: Voicemail.class.php:2251 Voicemail.class.php:2259 Voicemail.class.php:2267
+#: Voicemail.class.php:2275 Voicemail.class.php:2283 Voicemail.class.php:2383
+#: Voicemail.class.php:2391 Voicemail.class.php:2593 functions.inc.php:406
 #: functions.inc.php:410 functions.inc.php:414 page.voicemail.php:571
 #: views/backupsettings.php:41 views/backupsettings.php:58
 #: views/dialplan.php:19 views/dialplan.php:220 views/dialplan.php:247
@@ -1691,7 +1691,7 @@ msgstr "بدون پیام"
 msgid "No name defined; this is configured from the Extensions or Users page."
 msgstr "نامی مشخص نشد؛ این تنظیمات در داخلی یا صفحه کاربران اعمال شده."
 
-#: Voicemail.class.php:2031 page.voicemail.php:214 page.voicemail.php:293
+#: Voicemail.class.php:2038 page.voicemail.php:214 page.voicemail.php:293
 msgid ""
 "No. of deleted messages saved per mailbox (can be a number or yes/no, yes "
 "meaning MAXMSG, no meaning 0)."
@@ -1749,15 +1749,15 @@ msgstr ""
 "to press the various options now and leave enough time in the greeting "
 "letting them know it will otherwise go to voicemail as is normal."
 
-#: Voicemail.class.php:2490
+#: Voicemail.class.php:2497
 msgid "ODBC Storage"
 msgstr "ظرفیت ODBC"
 
-#: Voicemail.class.php:2497
+#: Voicemail.class.php:2504
 msgid "ODBC Storage Name"
 msgstr "نام ظرفیت ODBC"
 
-#: Voicemail.class.php:2504
+#: Voicemail.class.php:2511
 msgid "ODBC Table Name"
 msgstr "نام جدول ODBC"
 
@@ -1769,11 +1769,11 @@ msgstr "قدیمی"
 msgid "On"
 msgstr "در"
 
-#: Voicemail.class.php:2602
+#: Voicemail.class.php:2609
 msgid "Open Timeout"
 msgstr "وقفه زمانی باز"
 
-#: Voicemail.class.php:2190
+#: Voicemail.class.php:2197
 msgid "Operator"
 msgstr "اپراتور"
 
@@ -1789,12 +1789,12 @@ msgstr ""
 "اپراتور شکست خورد. اجازه به فرستنده برای فشردن 0 قبل/بعد/هنگام گذاشتن ایمیا "
 "صوتی [روشن در حالت پیشفرض]"
 
-#: Voicemail.class.php:2387 functions.inc.php:628 page.voicemail.php:211
+#: Voicemail.class.php:2394 functions.inc.php:628 page.voicemail.php:211
 #: page.voicemail.php:291
 msgid "Option to attach Voicemails to email."
 msgstr "گزینه پیوست ایمیل صوتی به ایمیل."
 
-#: Voicemail.class.php:2560
+#: Voicemail.class.php:2567
 msgid ""
 "Optional flags to pass to the IMAP server in the IMAP mailbox name. For "
 "example, setting this to 'ssl' will enable OpenSSL encryption, assuming the "
@@ -1804,24 +1804,24 @@ msgstr ""
 "example, setting this to 'ssl' will enable OpenSSL encryption, assuming the "
 "IMAP libraries were compiled with OpenSSL support."
 
-#: Voicemail.class.php:2349
+#: Voicemail.class.php:2356
 msgid "Pager Body"
 msgstr "بدنه پیجر"
 
-#: Voicemail.class.php:2363
+#: Voicemail.class.php:2370
 msgid "Pager Date Format"
 msgstr "فرمت تاریخ پیجر"
 
-#: Voicemail.class.php:2016 functions.inc.php:614 page.voicemail.php:520
+#: Voicemail.class.php:2023 functions.inc.php:614 page.voicemail.php:520
 #: ucp/views/vmsettings.php:16
 msgid "Pager Email Address"
 msgstr "آدرس ایمیل پیام گیر"
 
-#: Voicemail.class.php:2356
+#: Voicemail.class.php:2363
 msgid "Pager From String"
 msgstr "پیجر از جمله"
 
-#: Voicemail.class.php:2341
+#: Voicemail.class.php:2348
 msgid "Pager Subject"
 msgstr "عنوان پیجر"
 
@@ -1830,21 +1830,21 @@ msgid ""
 "Pager/mobile email address that short Voicemail notifications are sent to."
 msgstr "آدرس ایمیل پیجر/موبایل که هشدارهای ایمیل صوتی کوتاه به آن ارسال شده."
 
-#: Voicemail.class.php:2017 page.voicemail.php:310 ucp/views/vmsettings.php:18
+#: Voicemail.class.php:2024 page.voicemail.php:310 ucp/views/vmsettings.php:18
 msgid ""
 "Pager/mobile email address that short Voicemail notifications are sent to. "
 "Separated by |"
 msgstr ""
 
-#: Voicemail.class.php:2650
+#: Voicemail.class.php:2657
 msgid "Password"
 msgstr "کلمه عبور"
 
-#: Voicemail.class.php:2643
+#: Voicemail.class.php:2650
 msgid "Password Changed"
 msgstr "کلمه عبور تغییر کرد"
 
-#: Voicemail.class.php:2629
+#: Voicemail.class.php:2636
 msgid "Password Mismatch"
 msgstr "کلمات عبور یکسان نیستند"
 
@@ -1852,11 +1852,11 @@ msgstr "کلمات عبور یکسان نیستند"
 msgid "Password for the voicemail"
 msgstr ""
 
-#: Voicemail.class.php:2093
+#: Voicemail.class.php:2100
 msgid "Pause Keys"
 msgstr "کلیدهای توقف"
 
-#: Voicemail.class.php:2247 page.voicemail.php:281
+#: Voicemail.class.php:2254 page.voicemail.php:281
 msgid "Permit finding entries for forward/compose from the directory"
 msgstr "Permit  finding entries for forward/compose from the directory"
 
@@ -1878,7 +1878,7 @@ msgstr "پخش پاکت"
 msgid "Playback"
 msgstr "مرور"
 
-#: Voicemail.class.php:2671
+#: Voicemail.class.php:2678
 msgid "Please Try Again"
 msgstr "مجدد تلاش کنید"
 
@@ -1902,15 +1902,15 @@ msgid "Please enter a valid Voicemail Password, using digits only"
 msgstr ""
 "لطفا کلمه عبور درست برای ایمیل صوتی وارد کنید، تنها از اعداد استفاده شود"
 
-#: Voicemail.class.php:2142
+#: Voicemail.class.php:2149
 msgid "Poll Frequency"
 msgstr "فرکانس نظر سنجی"
 
-#: Voicemail.class.php:2150
+#: Voicemail.class.php:2157
 msgid "Poll Mailboxes"
 msgstr "صندوق میل نظر سنجی"
 
-#: Voicemail.class.php:2678
+#: Voicemail.class.php:2685
 msgid "Prepend Timeout"
 msgstr "وقفه زمانی"
 
@@ -1962,11 +1962,11 @@ msgstr ""
 msgid "Provide IMAP Voicemail Fields"
 msgstr "ایجاد فیلدهای ایمیل صوتی IMAP"
 
-#: Voicemail.class.php:2657
+#: Voicemail.class.php:2664
 msgid "Re-enter Password"
 msgstr "ورود مجدد کلمه عبور"
 
-#: Voicemail.class.php:2609
+#: Voicemail.class.php:2616
 msgid "Read Timeout"
 msgstr "خواندن وقفه زمانی"
 
@@ -1978,7 +1978,7 @@ msgstr ""
 "Read back  caller's telephone number prior to playing the incoming message, "
 "and just after announcing the date and time the message was left."
 
-#: Voicemail.class.php:2207 page.voicemail.php:270 page.voicemail.php:312
+#: Voicemail.class.php:2214 page.voicemail.php:270 page.voicemail.php:312
 msgid ""
 "Read back caller's telephone number prior to playing the incoming message, "
 "and just after announcing the date and time the message was left. If not "
@@ -2012,7 +2012,7 @@ msgstr "نام های ضبط شده"
 msgid "Recording..."
 msgstr "در حال ضبط ..."
 
-#: Voicemail.class.php:2239 page.voicemail.php:317
+#: Voicemail.class.php:2246 page.voicemail.php:317
 msgid "Remind the user that their temporary greeting is set"
 msgstr "به کاربر یادآوری کن خوش آمدگویی موقت تنظیم شده"
 
@@ -2049,15 +2049,15 @@ msgstr "حذف منطقه زمانی تعریف شده"
 msgid "Require From Same %s"
 msgstr "درخواست از %s"
 
-#: Voicemail.class.php:1805
+#: Voicemail.class.php:1812
 msgid "Require From Same Extension[Blank/no to disable,yes for enable]"
 msgstr ""
 
-#: Voicemail.class.php:1773
+#: Voicemail.class.php:1780
 msgid "Reset"
 msgstr "بازنشانی"
 
-#: Voicemail.class.php:2100
+#: Voicemail.class.php:2107
 msgid "Restart Keys"
 msgstr "بازنشانی کلیدها"
 
@@ -2069,15 +2069,15 @@ msgstr "تلاش مجدد"
 msgid "Return extension details"
 msgstr ""
 
-#: Voicemail.class.php:2086
+#: Voicemail.class.php:2093
 msgid "Reverse Keys"
 msgstr "کلیدهای بازگشتی"
 
-#: Voicemail.class.php:2198
+#: Voicemail.class.php:2205
 msgid "Review Message"
 msgstr "مشاهده پیام"
 
-#: Voicemail.class.php:2285
+#: Voicemail.class.php:2292
 msgid "SMDI Port"
 msgstr "پورت SMDI"
 
@@ -2085,19 +2085,19 @@ msgstr "پورت SMDI"
 msgid "Save Recording"
 msgstr ""
 
-#: Voicemail.class.php:2206
+#: Voicemail.class.php:2213
 msgid "Say CID"
 msgstr "بگو CID"
 
-#: Voicemail.class.php:2214
+#: Voicemail.class.php:2221
 msgid "Say Duration"
 msgstr "مدت گفتن"
 
-#: Voicemail.class.php:2135
+#: Voicemail.class.php:2142
 msgid "Say Duration Minutes"
 msgstr "تعداد دقیقه گفتن"
 
-#: Voicemail.class.php:2222
+#: Voicemail.class.php:2229
 msgid "Search Contexts"
 msgstr "زمینه جستجو"
 
@@ -2105,7 +2105,7 @@ msgstr "زمینه جستجو"
 msgid "Second(s)"
 msgstr "ثانیه (ها)"
 
-#: Voicemail.class.php:2230
+#: Voicemail.class.php:2237
 msgid "Send Voicemail"
 msgstr "ارسال ایمیل صوتی"
 
@@ -2126,11 +2126,11 @@ msgstr "ارسال به مرا دنبال کن"
 msgid "Separate options with pipe ( | )%sie: review=yes|maxmessage=60"
 msgstr "Separate  options with pipe ( | )%sie: review=yes|maxmessage=60"
 
-#: Voicemail.class.php:2370
+#: Voicemail.class.php:2377
 msgid "Server Email"
 msgstr "سرور ایمل"
 
-#: Voicemail.class.php:2335
+#: Voicemail.class.php:2342
 msgid ""
 "Set the date format on outgoing mails. Valid arguments can be found on the "
 "strftime(3) man page"
@@ -2138,7 +2138,7 @@ msgstr ""
 "Set the date format  on outgoing mails. Valid arguments can be found on the "
 "strftime(3) man page"
 
-#: Voicemail.class.php:2364
+#: Voicemail.class.php:2371
 msgid ""
 "Set the date format on outgoing pager mails. Valid arguments can be found on "
 "the strftime(3) man page"
@@ -2150,7 +2150,7 @@ msgstr ""
 msgid "Set the parent folder (default is to have no parent folder set)."
 msgstr "اعمال فولدر بالاتر (پیشفرض بدون فولدر بالاتر ست شده)."
 
-#: Voicemail.class.php:2286
+#: Voicemail.class.php:2293
 msgid "Set to a valid port as specified in smdi.conf"
 msgstr "Set to a  valid port as specified in smdi.conf"
 
@@ -2170,25 +2170,25 @@ msgstr ""
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: Voicemail.class.php:2460
+#: Voicemail.class.php:2467
 msgid "Silence Threshold"
 msgstr "Silence  Threshold"
 
-#: Voicemail.class.php:2461 page.voicemail.php:276
+#: Voicemail.class.php:2468 page.voicemail.php:276
 msgid ""
 "Silence threshold (what we consider silence: the lower, the more sensitive)"
 msgstr ""
 "Silence  threshold (what we consider silence: the lower, the more sensitive)"
 
-#: Voicemail.class.php:2476 Voicemail.class.php:2484
+#: Voicemail.class.php:2483 Voicemail.class.php:2491
 msgid "Skip Milliseconds"
 msgstr "لغو میلی ثانیه"
 
-#: Voicemail.class.php:2378
+#: Voicemail.class.php:2385
 msgid "Skip PBX String"
 msgstr "لغو جمله PBX"
 
-#: Voicemail.class.php:2379 page.voicemail.php:266
+#: Voicemail.class.php:2386 page.voicemail.php:266
 msgid "Skip the \"[PBX]:\" string from the message title"
 msgstr "نادیده گرفتن \"[PBX]:\" جمله از عنوان پیام"
 
@@ -2196,7 +2196,7 @@ msgstr "نادیده گرفتن \"[PBX]:\" جمله از عنوان پیام"
 msgid "Skip to the next message after save/delete."
 msgstr "پرش به پیام بعدی پس از ذخیره / حذف."
 
-#: Voicemail.class.php:2279
+#: Voicemail.class.php:2286
 msgid ""
 "Skips to the next message after hitting 7 or 9 to delete/save current "
 "message."
@@ -2204,7 +2204,7 @@ msgstr ""
 "Skips to the next  message after hitting 7 or 9 to delete/save current "
 "message."
 
-#: Voicemail.class.php:2574
+#: Voicemail.class.php:2581
 msgid ""
 "Some IMAP server implementations store folders under INBOX instead of using "
 "a top level folder (ex. INBOX/Friends). In this case, user imapparentfolder "
@@ -2228,11 +2228,11 @@ msgstr ""
 msgid "Sorry,voicemail does not  exists."
 msgstr ""
 
-#: Voicemail.class.php:2622
+#: Voicemail.class.php:2629
 msgid "Sound Files"
 msgstr "فایل های صوتی"
 
-#: Voicemail.class.php:2623
+#: Voicemail.class.php:2630
 msgid "Sound files used for Voicemail"
 msgstr "فایل های صوتی استفاده شده برای ایمیل صوتی"
 
@@ -2240,7 +2240,7 @@ msgstr "فایل های صوتی استفاده شده برای ایمیل صو�
 msgid "Specify in minutes the minimum duration to say. Default is 2 minutes."
 msgstr "اختصاص کمترین دقیقه برای گفتن. پیشفرض 2دقیقه است."
 
-#: Voicemail.class.php:2136
+#: Voicemail.class.php:2143
 msgid ""
 "Specify in minutes the minimum duration to say. Default is 2 minutes. (in "
 "minutes)"
@@ -2248,7 +2248,7 @@ msgstr ""
 "Specify  in minutes the minimum duration to say. Default is 2 minutes. (in "
 "minutes)"
 
-#: Voicemail.class.php:2401
+#: Voicemail.class.php:2408
 msgid "Specify what command is called for outbound E-mail"
 msgstr "Specify what  command is called for outbound E-mail"
 
@@ -2256,7 +2256,7 @@ msgstr "Specify what  command is called for outbound E-mail"
 msgid "Status of the request"
 msgstr ""
 
-#: Voicemail.class.php:2107
+#: Voicemail.class.php:2114
 msgid "Stop Keys"
 msgstr "کلیدهای ایست"
 
@@ -2276,7 +2276,7 @@ msgstr "فضای مصرفی"
 msgid "Subject sent to pager."
 msgstr "عنوان ارسال شده برای پیام گیر."
 
-#: Voicemail.class.php:1778 page.voicemail.php:672
+#: Voicemail.class.php:1785 page.voicemail.php:672
 msgid "Submit"
 msgstr "ارسال"
 
@@ -2311,7 +2311,7 @@ msgstr "ترا بایت"
 msgid "Temporary Greeting"
 msgstr "پیام خوش آمد موقت"
 
-#: Voicemail.class.php:2238
+#: Voicemail.class.php:2245
 msgid "Temporary Greeting Warn"
 msgstr "هشدار خوش آمد گویی موقت"
 
@@ -2332,11 +2332,11 @@ msgstr ""
 msgid "The ADSI Voicemail application version number."
 msgstr "شماره نسخه درخواست ایمیل صوتی ADSI."
 
-#: Voicemail.class.php:2293 page.voicemail.php:208
+#: Voicemail.class.php:2300 page.voicemail.php:208
 msgid "The ADSI feature descriptor number to download to"
 msgstr "تعداد ویژگی توصیفی ADSI برای دانلود به"
 
-#: Voicemail.class.php:2300 page.voicemail.php:209
+#: Voicemail.class.php:2307 page.voicemail.php:209
 msgid "The ADSI security lock code"
 msgstr "کد قفل امنیتی ADSI"
 
@@ -2350,27 +2350,27 @@ msgid ""
 "extension"
 msgstr "کد ویژه برای شماره گیری مستقیم کاربران به ایمیل صوتی از داخلی کاربر"
 
-#: Voicemail.class.php:2553
+#: Voicemail.class.php:2560
 msgid "The IMAP password of the user"
 msgstr "کلمه عبور IMAP برای کاربر"
 
-#: Voicemail.class.php:2546
+#: Voicemail.class.php:2553
 msgid "The IMAP username of the mailbox to access"
 msgstr "نام کاربری IMAP برای دسترسی به صندوق ایمیل"
 
-#: Voicemail.class.php:2596
+#: Voicemail.class.php:2603
 msgid "The TCP close timeout (in seconds)"
 msgstr "The TCP close  timeout (in seconds)"
 
-#: Voicemail.class.php:2603
+#: Voicemail.class.php:2610
 msgid "The TCP open timeout (in seconds)"
 msgstr "The TCP open  timeout (in seconds)"
 
-#: Voicemail.class.php:2610
+#: Voicemail.class.php:2617
 msgid "The TCP read timeout (in seconds)"
 msgstr "The TCP read  timeout (in seconds)"
 
-#: Voicemail.class.php:2617
+#: Voicemail.class.php:2624
 msgid "The TCP write timeout (in seconds)"
 msgstr "The TCP write  timeout (in seconds)"
 
@@ -2386,7 +2386,7 @@ msgstr ""
 "your system, often caused by very quiet analog lines. The gain is in "
 "Decibels which doubles for every 3 db."
 
-#: Voicemail.class.php:2010 page.voicemail.php:216
+#: Voicemail.class.php:2017 page.voicemail.php:216
 msgid "The character set for Voicemail messages"
 msgstr "The character set  for Voicemail messages"
 
@@ -2394,11 +2394,11 @@ msgstr "The character set  for Voicemail messages"
 msgid "The default table for ODBC Voicemail storage is voicemessages."
 msgstr "جدول پیشفرض ODBC ذخیره ایمیل صوتی در پیام های صوتی."
 
-#: Voicemail.class.php:2505
+#: Voicemail.class.php:2512
 msgid "The default table for ODBC voicemail storage is voicemessages."
 msgstr "The default table  for ODBC voicemail storage is voicemessages."
 
-#: Voicemail.class.php:2024 functions.inc.php:602 ucp/views/vmsettings.php:13
+#: Voicemail.class.php:2031 functions.inc.php:602 ucp/views/vmsettings.php:13
 msgid "The email address that Voicemails are sent to."
 msgstr "آدرس ایمیلی که ایمیل صوتی به آن ارسال شده."
 
@@ -2409,7 +2409,7 @@ msgid ""
 "second@domain.tld,third@domain.tld) "
 msgstr ""
 
-#: Voicemail.class.php:2321
+#: Voicemail.class.php:2328
 msgid ""
 "The email body. Change the from, body and/or subject, variables: VM_NAME, "
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
@@ -2425,7 +2425,7 @@ msgstr ""
 "select between two variables by using dialplan functions, e.g. "
 "${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 
-#: Voicemail.class.php:2313
+#: Voicemail.class.php:2320
 msgid "The email subject"
 msgstr "عنوان ایمیل"
 
@@ -2433,7 +2433,7 @@ msgstr "عنوان ایمیل"
 msgid "The extension ID"
 msgstr ""
 
-#: Voicemail.class.php:2567
+#: Voicemail.class.php:2574
 msgid ""
 "The folder in which to store voicemail messages on the IMAP server. By "
 "default, they are stored in INBOX."
@@ -2445,7 +2445,7 @@ msgstr ""
 msgid "The name of a sound file (the file name must be single-quoted)"
 msgstr "نام فایل صوتی (نام فایل باید single-quoted باشد)"
 
-#: Voicemail.class.php:2350
+#: Voicemail.class.php:2357
 msgid ""
 "The pager body. Change the from, body and/or subject, variables: VM_NAME, "
 "VM_DUR, VM_MSGNUM, VM_MAILBOX, VM_CALLERID, VM_CIDNUM, VM_CIDNAME, VM_DATE. "
@@ -2461,7 +2461,7 @@ msgstr ""
 "select between two variables by using dialplan functions, e.g. "
 "${IF(${ISNULL(${ORIG_VM_DATE})}?${VM_DATE}:${ORIG_VM_DATE})}."
 
-#: Voicemail.class.php:2342
+#: Voicemail.class.php:2349
 msgid "The pager subject"
 msgstr "عنوان پیجر"
 
@@ -2479,7 +2479,7 @@ msgstr ""
 "time a change is made so you don't leave a caller stranded or receiving "
 "invalid number messages."
 
-#: Voicemail.class.php:2498 page.voicemail.php:260
+#: Voicemail.class.php:2505 page.voicemail.php:260
 msgid ""
 "The value of odbcstorage is the database connection configured in res_odbc."
 "conf."
@@ -2519,15 +2519,15 @@ msgstr ""
 "داخلی های فعال و مشخصی وجود دارد که به این کاربر در پنل کاربری ویرایش شده و "
 "نمایش داده میشوند"
 
-#: Voicemail.class.php:2306
+#: Voicemail.class.php:2313
 msgid "These settings apply to Voicemail Email Configuration"
 msgstr "تنظیمات در پیکربندی ایمیل صوتی اعمال میشود"
 
-#: Voicemail.class.php:2692
+#: Voicemail.class.php:2699
 msgid "These settings apply to context related operations"
 msgstr "تنظیمات در زمینه اپراتور مربوطه اعمال میشود"
 
-#: Voicemail.class.php:2491 Voicemail.class.php:2511
+#: Voicemail.class.php:2498 Voicemail.class.php:2518
 msgid ""
 "These settings are only applicable when Asterisk is compiled with IMAP "
 "support"
@@ -2582,7 +2582,7 @@ msgstr ""
 "password can only contain numbers.<br /><br />A user can change the password "
 "you enter here after logging into the Voicemail system (*98) with a phone."
 
-#: Voicemail.class.php:2183
+#: Voicemail.class.php:2190
 msgid ""
 "This is the same as Force Name, except for recording greetings. Default is "
 "'No'"
@@ -2608,7 +2608,7 @@ msgstr "زمان انتظار بعد از پخش پیام و/یا تکرار پ�
 msgid "Times to Play Message"
 msgstr "زمان های پخش پیام"
 
-#: Voicemail.class.php:2114 Voicemail.class.php:2115
+#: Voicemail.class.php:2121 Voicemail.class.php:2122
 msgid "Timezone"
 msgstr "منطقه زمانی"
 
@@ -2633,7 +2633,7 @@ msgstr "Timezone from  zonemessages context.  Irrelevant if envelope=no."
 msgid "To"
 msgstr "به"
 
-#: Voicemail.class.php:1808
+#: Voicemail.class.php:1815
 msgid "To Disable * in Voicemail Menu use Blank/no  OR yes"
 msgstr ""
 
@@ -2661,7 +2661,7 @@ msgstr ""
 msgid "Total"
 msgstr "مجموع"
 
-#: Voicemail.class.php:2159
+#: Voicemail.class.php:2166
 msgid "Turn on/off envelope playback before message playback"
 msgstr "Turn on/off envelope  playback before message playback"
 
@@ -2673,7 +2673,7 @@ msgstr ""
 "Turn on/off envelope  playback before message playback. [ON by default] This "
 "does NOT affect option 3,3 from the advanced options menu."
 
-#: Voicemail.class.php:2215
+#: Voicemail.class.php:2222
 msgid "Turn on/off saying duration information before the message playback."
 msgstr "Turn on/off saying duration information  before the message playback."
 
@@ -2688,7 +2688,7 @@ msgstr ""
 msgid "UCP Message Limit"
 msgstr "محدودیت پیام پنل کاربری"
 
-#: Voicemail.class.php:1895
+#: Voicemail.class.php:1902
 msgid "Unable to add mailbox!"
 msgstr "عدم توانایی افزودن صندوق ایمیل!"
 
@@ -2757,7 +2757,7 @@ msgstr "مصرفی"
 msgid "Usage Statistics For: "
 msgstr "آمار مصرفی برای: "
 
-#: Voicemail.class.php:2246
+#: Voicemail.class.php:2253
 msgid "Use Directory"
 msgstr "استفاده از دایرکتوری"
 
@@ -2841,7 +2841,7 @@ msgstr ""
 msgid "VmX Locater&trade;"
 msgstr "VmX  Locater&trade;"
 
-#: Voicemail.class.php:894 Voicemail.class.php:2887 functions.inc.php:510
+#: Voicemail.class.php:894 Voicemail.class.php:2894 functions.inc.php:510
 #: install.php:8 ucp/Voicemail.class.php:97 ucp/Voicemail.class.php:146
 #: ucp/Voicemail.class.php:198 views/header.php:2 voicemail.i18n.php:4
 msgid "Voicemail"
@@ -2859,15 +2859,15 @@ msgstr "مدیریت کردن ایمیل صوتی"
 msgid "Voicemail Auto Delete is on. New messages will not show up here."
 msgstr "حذف خودکار ایمیل صوتی روشن است. پیام جدید اینجا نمایش داده میشود."
 
-#: Voicemail.class.php:1793 Voicemail.class.php:2726 Voicemail.class.php:2727
+#: Voicemail.class.php:1800 Voicemail.class.php:2733 Voicemail.class.php:2734
 msgid "Voicemail Context"
 msgstr "زمینه ایمیل صوتی"
 
-#: Voicemail.class.php:1799
+#: Voicemail.class.php:1806
 msgid "Voicemail E-Mail"
 msgstr "ایمیل ایمیل صوتی"
 
-#: Voicemail.class.php:1790
+#: Voicemail.class.php:1797
 msgid "Voicemail Enable [Blank to disable]"
 msgstr "فعال کردن ایمیل صوتی [خالی برای غیرفعال کردن]"
 
@@ -2883,7 +2883,7 @@ msgstr "پیام ایمیل صوتی"
 msgid "Voicemail Module"
 msgstr "ماژول ایمیل صوتی"
 
-#: Voicemail.class.php:1802
+#: Voicemail.class.php:1809
 msgid ""
 "Voicemail Options is a pipe-delimited list of options.  Example: attach=no|"
 "delete=no"
@@ -2895,11 +2895,11 @@ msgstr ""
 msgid "Voicemail PIN"
 msgstr "پین ایمیل صوتی"
 
-#: Voicemail.class.php:1796 functions.inc.php:542 page.voicemail.php:518
+#: Voicemail.class.php:1803 functions.inc.php:542 page.voicemail.php:518
 msgid "Voicemail Password"
 msgstr "کلمه عبور ایمیل صوتی"
 
-#: Voicemail.class.php:1828
+#: Voicemail.class.php:1835
 msgid "Voicemail Password is empty."
 msgstr ""
 
@@ -2953,7 +2953,7 @@ msgstr ""
 msgid "Voicemail was empty: %s"
 msgstr "پیام صوتی خالی بود:%s"
 
-#: Voicemail.class.php:2128
+#: Voicemail.class.php:2135
 msgid "Volume Gain"
 msgstr "ایمیل صوتی Gain"
 
@@ -3006,7 +3006,7 @@ msgstr ""
 msgid "Which format of audio file to attach to the email."
 msgstr "کدام فرمت فایل صوتی به ایمیل ضمیمه شده است."
 
-#: Voicemail.class.php:2073
+#: Voicemail.class.php:2080
 msgid ""
 "Which format to attach to the email.  Normally this is the first format "
 "specified in the format parameter above, but this option lets you customize "
@@ -3018,11 +3018,11 @@ msgstr ""
 "the format sent to particular mailboxes. Useful if Windows users want wav49, "
 "but Linux users want gsm."
 
-#: Voicemail.class.php:2371 page.voicemail.php:275 page.voicemail.php:316
+#: Voicemail.class.php:2378 page.voicemail.php:275 page.voicemail.php:316
 msgid "Who the e-mail notification should appear to come from"
 msgstr "ایمیل هشدار از طرف که آمده"
 
-#: Voicemail.class.php:2453
+#: Voicemail.class.php:2460
 msgid "Why is this in milliseconds?"
 msgstr ""
 
@@ -3030,7 +3030,7 @@ msgstr ""
 msgid "Work"
 msgstr "محل کار"
 
-#: Voicemail.class.php:2616
+#: Voicemail.class.php:2623
 msgid "Write Timeout"
 msgstr "وقفه زمانی نوشتن"
 
@@ -3038,13 +3038,13 @@ msgstr "وقفه زمانی نوشتن"
 msgid "Year"
 msgstr "سال"
 
-#: Voicemail.class.php:2148 Voicemail.class.php:2156 Voicemail.class.php:2164
-#: Voicemail.class.php:2172 Voicemail.class.php:2180 Voicemail.class.php:2188
-#: Voicemail.class.php:2196 Voicemail.class.php:2204 Voicemail.class.php:2212
-#: Voicemail.class.php:2220 Voicemail.class.php:2228 Voicemail.class.php:2236
-#: Voicemail.class.php:2244 Voicemail.class.php:2252 Voicemail.class.php:2260
-#: Voicemail.class.php:2268 Voicemail.class.php:2276 Voicemail.class.php:2376
-#: Voicemail.class.php:2384 Voicemail.class.php:2586 functions.inc.php:405
+#: Voicemail.class.php:2155 Voicemail.class.php:2163 Voicemail.class.php:2171
+#: Voicemail.class.php:2179 Voicemail.class.php:2187 Voicemail.class.php:2195
+#: Voicemail.class.php:2203 Voicemail.class.php:2211 Voicemail.class.php:2219
+#: Voicemail.class.php:2227 Voicemail.class.php:2235 Voicemail.class.php:2243
+#: Voicemail.class.php:2251 Voicemail.class.php:2259 Voicemail.class.php:2267
+#: Voicemail.class.php:2275 Voicemail.class.php:2283 Voicemail.class.php:2383
+#: Voicemail.class.php:2391 Voicemail.class.php:2593 functions.inc.php:405
 #: functions.inc.php:409 functions.inc.php:413 views/backupsettings.php:39
 #: views/backupsettings.php:56 views/dialplan.php:17 views/dialplan.php:218
 #: views/dialplan.php:245 views/quickCreate.php:10 views/ucp_config.php:12

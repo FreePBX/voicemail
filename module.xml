@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>16.0.63</version>
+	<version>16.0.64</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*16.0.64* #857 Visual Voicemail: &#x201C;Mark as Unread&#x201D; leaves stale *.WAV file in Old 
 		*16.0.63* #458  Advanced Recovery Sync Issue - Voicemail light is blinking 
 		*16.0.62* #629 Recent Scribe Icon fix causes uncaught TypeError 
 		*16.0.61* bump 
