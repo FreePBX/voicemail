@@ -1547,13 +1547,20 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 						$out['messages'][$key]['path'] = $folder;
 
 						$extension = $this->getFileExtension($vfolder, $vm);
-						if(file_exists($wav)){
-						$out['messages'][$key]['format'][$extension] = array(
-							"filename" => basename($wav),
-							"path" => $folder,
-							"length" => filesize($wav)
-						);
-						} else {
+						$fformats = ['wav','WAV','gsm'];
+						$nofile = true;
+						foreach($fformats as $format){
+							$file = $vfolder."/".$vm.".".$format;
+							if(file_exists($file)){
+								$nofile = false;
+								$out['messages'][$key]['format'][$format] = array(
+									"filename" => basename($file),
+									"path" => $vfolder,
+									"length" => filesize($file)
+								);
+							}
+						}
+						if($nofile){
 							unset($out['messages'][$key]);
 						}
 						$out['total'] = $count++;
