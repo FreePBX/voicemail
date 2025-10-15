@@ -1150,7 +1150,7 @@ var VoicemailC = UCPMC.extend({
 	},
 	//Delete a voicemail greeting
 	deleteGreeting: function(extension,type) {
-		var self = this, data = { msg: type, ext: extension };
+		var self = this, data = { msg: type, ext: extension, type: 'greeting' };
 		$.post( UCP.ajaxUrl + "?module=voicemail&command=delete", data, function( data ) {
 			if (data.status) {
 				$("#freepbx_player_" + type).jPlayer( "clearMedia" );

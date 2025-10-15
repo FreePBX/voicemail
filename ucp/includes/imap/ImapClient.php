@@ -1688,8 +1688,6 @@ class ImapClient {
      * @return bool True if deletion was successful
      */
     public function deleteGreeting($extension, $context, $greetingType) {
-        freepbx_log(FPBX_LOG_INFO, "[IMAP] Params: Ext=$extension, Ctx=$context, Type/ID=$greetingType");
-        
         if (!$this->areImapGreetingsEnabled()) {
             freepbx_log(FPBX_LOG_ERROR, "[IMAP] IMAP greetings are not enabled");
             return false;
@@ -1706,29 +1704,27 @@ class ImapClient {
         
         // --- CORRECTED LOGIC: Find UID by Type Name First --- 
         try {
-            // Get the greetings folder path
-            $folderPath = $this->_buildFolderPath($this->greetingsFolder);
+            // Get the greetings folder name (not full path)
+            $greetingsFolderName = $this->greetingsFolder;
             
-            // Select the greetings mailbox - Needed for the helper
-            if (!$this->selectMailbox($folderPath)) {
-                freepbx_log(FPBX_LOG_ERROR, "[IMAP] deleteGreeting: Failed to select greetings folder: $folderPath");
+            // Select the greetings mailbox - Pass just the folder name, not the full path
+            if (!$this->selectMailbox($greetingsFolderName)) {
+                freepbx_log(FPBX_LOG_ERROR, "[IMAP] deleteGreeting: Failed to select greetings folder: $greetingsFolderName");
                 return false;
             }
             
             // Find the UID using the helper function based on the type name
-            freepbx_log(FPBX_LOG_INFO, "[IMAP] deleteGreeting: Searching for UID with Message Type \"$greetingType\" using helper in folder $folderPath");
-            $uidToDelete = $this->_findUidByMessageType($folderPath, $greetingType);
+            $uidToDelete = $this->_findUidByMessageType($greetingsFolderName, $greetingType);
 
             // Check if UID was found
             if ($uidToDelete === null) {
-                freepbx_log(FPBX_LOG_WARNING, "[IMAP] deleteGreeting: Greeting type '$greetingType' not found via helper in folder '$folderPath'. Cannot delete.");
+                freepbx_log(FPBX_LOG_WARNING, "[IMAP] deleteGreeting: Greeting type '$greetingType' not found via helper in folder '$greetingsFolderName'. Cannot delete.");
                 return false; // Indicate greeting not found
             }
 
-            freepbx_log(FPBX_LOG_INFO, "[IMAP] deleteGreeting: Found UID '$uidToDelete' for type '$greetingType'. Proceeding with deletion.");
-            
             // Call the internal helper method to delete the item by the found UID
-            return $this->_deleteItemByUid($uidToDelete, $folderPath); 
+            $fullFolderPath = $this->_buildFolderPath($greetingsFolderName);
+            return $this->_deleteItemByUid($uidToDelete, $fullFolderPath); 
 
         } catch (\Exception $e) {
             freepbx_log(FPBX_LOG_ERROR, "[IMAP] Exception in deleteGreeting while finding/deleting UID: " . $e->getMessage());
@@ -1785,7 +1781,6 @@ class ImapClient {
      */
     public function getVoicemailFolders() {
         freepbx_log(FPBX_LOG_INFO, "[IMAP] getVoicemailFolders: Fetching IMAP folder list...");
-        error_log("[DEBUG] getVoicemailFolders called at " . date('Y-m-d H:i:s'));
 
         $imapparentfolder = $this->imapparentfolder; // Can be empty/null
         $greetingsFolderSimpleName = $this->greetingsFolder ?: 'Greetings';
@@ -1910,7 +1905,6 @@ class ImapClient {
 
 
         freepbx_log(FPBX_LOG_INFO, "[IMAP] getVoicemailFolders: Returning " . count($finalFolders) . " structured folders.");
-        error_log("[DEBUG] getVoicemailFolders returning " . count($finalFolders) . " folders: " . implode(', ', array_keys($finalFolders)));
         return $finalFolders; // Return the sorted array
     }
 
@@ -2235,22 +2229,17 @@ class ImapClient {
         $baseMailbox = $this->_buildServerString();
         $mailboxString = $baseMailbox . $fullFolder;
         
-        freepbx_log(FPBX_LOG_INFO, "[DEBUG] selectMailbox: Attempting to select folder '$imapfolder' -> fullFolder '$fullFolder' -> mailboxString '$mailboxString'");
                 
                 try {
-                    freepbx_log(FPBX_LOG_INFO, "[DEBUG] selectMailbox: Attempting imap_reopen with mailboxString: '$mailboxString'");
                     $result = @imap_reopen($this->stream, $mailboxString);
                     
                     if ($result) {
-                        freepbx_log(FPBX_LOG_INFO, "[DEBUG] selectMailbox: Successfully selected mailbox: '$mailboxString'");
                         // Check what mailbox is actually selected
                         $currentMailbox = @imap_mailboxmsginfo($this->stream);
                         if ($currentMailbox) {
-                            freepbx_log(FPBX_LOG_INFO, "[DEBUG] selectMailbox: Current mailbox info - Name: '" . $currentMailbox->Mailbox . "', Messages: " . $currentMailbox->Nmsgs);
                         }
                         return true;
                     } else {
-                        freepbx_log(FPBX_LOG_INFO, "[DEBUG] selectMailbox: Failed to select mailbox: '$mailboxString', error: " . (imap_last_error() ?: 'none'));
                         $error = imap_last_error();
                 
                 // Fallback logic (simplified example - might need adjustment based on exact server behavior)
@@ -2939,7 +2928,6 @@ class ImapClient {
      */
     public function getMessageCount($folderPath, $onlyUnread = false) {
         freepbx_log(FPBX_LOG_INFO, "[IMAP] getMessageCount: Getting " . ($onlyUnread ? 'UNREAD' : 'ALL') . " count for Folder: [$folderPath] using imap_search");
-        freepbx_log(FPBX_LOG_INFO, "[DEBUG] getMessageCount called for folder: $folderPath, onlyUnread: " . ($onlyUnread ? 'true' : 'false'));
         $this->checkConnection(); // Ensure connection
         
         if (!$this->stream instanceof \IMAP\Connection) {
@@ -2948,27 +2936,21 @@ class ImapClient {
         }
 
         // Select the correct mailbox first
-        freepbx_log(FPBX_LOG_INFO, "[DEBUG] getMessageCount: Attempting to select mailbox: $folderPath");
         if (!$this->selectMailbox($folderPath)) { // Use full path
             freepbx_log(FPBX_LOG_ERROR, "[IMAP] getMessageCount: Failed to select mailbox [$folderPath]");
-            freepbx_log(FPBX_LOG_INFO, "[DEBUG] getMessageCount: Failed to select mailbox: $folderPath");
             return false;
         }
-        freepbx_log(FPBX_LOG_INFO, "[DEBUG] getMessageCount: Successfully selected mailbox: $folderPath");
         
         $criteria = $onlyUnread ? 'UNSEEN' : 'ALL';
         freepbx_log(FPBX_LOG_INFO, "[IMAP] getMessageCount: Attempting imap_search with criteria [$criteria]");
         
         // Clear previous errors
         imap_errors();
-        freepbx_log(FPBX_LOG_INFO, "[DEBUG] getMessageCount: Searching with criteria: $criteria");
         $searchResult = @imap_search($this->stream, $criteria, SE_UID);
         
         // === FIX: Treat false result (often means 0 found) as 0 count ===
-        freepbx_log(FPBX_LOG_INFO, "[DEBUG] getMessageCount: Search result type: " . gettype($searchResult));
         if ($searchResult === false) {
             $lastError = imap_last_error(); // Check if there was a *real* error
-            freepbx_log(FPBX_LOG_INFO, "[DEBUG] getMessageCount: Search returned false, last error: " . ($lastError ?: 'none'));
             if ($lastError) {
                 // If there was an actual IMAP error, log it and return false
                 freepbx_log(FPBX_LOG_WARNING, "[IMAP] getMessageCount: imap_search call failed for criteria [$criteria] in folder [$folderPath]. Last IMAP error: [$lastError]");
@@ -2982,7 +2964,6 @@ class ImapClient {
             // If $searchResult is an array (even an empty one), count it
             $count = is_array($searchResult) ? count($searchResult) : 0; // Ensure we handle empty array case
             freepbx_log(FPBX_LOG_INFO, "[IMAP] getMessageCount: Success. imap_search found $count messages for criteria [$criteria] in folder [$folderPath].");
-            freepbx_log(FPBX_LOG_INFO, "[DEBUG] getMessageCount: Returning count: $count");
             return $count;
         }
     }

@@ -614,16 +614,13 @@ class Voicemail extends Modules {
 						// Use the new efficient count method for ALL messages
 						// Use the folder key (simple name) that's already provided by getVoicemailFolders
 						$folderName = $folderInfo['key'];
-						freepbx_log(FPBX_LOG_INFO, "[Voicemail UCP Debug] refreshfoldercount: Getting count for folder '$folderPath' (folderName: '$folderName')");
 						
 						// Get total count
 						$folderCount = $imapClient->getMessageCount($folderName, false); // false = all messages
-						freepbx_log(FPBX_LOG_INFO, "[Voicemail UCP Debug] refreshfoldercount: getMessageCount returned: " . var_export($folderCount, true));
 						$count = ($folderCount !== false) ? $folderCount : 0;
 						
 						// Get unread count
 						$unreadCount = $imapClient->getMessageCount($folderName, true); // true = unread only
-						freepbx_log(FPBX_LOG_INFO, "[Voicemail UCP Debug] refreshfoldercount: unread count returned: " . var_export($unreadCount, true));
 						$unread = ($unreadCount !== false) ? $unreadCount : 0;
 						
 										// Get high priority count by fetching messages and counting high priority ones
@@ -638,9 +635,7 @@ class Voicemail extends Modules {
 						}
 					}
 				} catch (\Exception $e) {
-					freepbx_log(FPBX_LOG_WARNING, "[Voicemail UCP Debug] refreshfoldercount: Failed to get high priority count for $folderName: " . $e->getMessage());
 				}
-				freepbx_log(FPBX_LOG_INFO, "[Voicemail UCP Debug] refreshfoldercount: high priority count from messages: " . $highPriority);
 						
 						$folders[$folderKey] = [
 							'count' => $count,
@@ -769,7 +764,6 @@ class Voicemail extends Modules {
 			case 'listen':
 			case 'rebuildVM':
 			case 'movetofolder':
-			case 'delete':
 			case 'forwards':
 			case 'callme':
 			case 'forward':
@@ -778,6 +772,28 @@ class Voicemail extends Modules {
 				$checkResult = $this->_checkExtension($extension);
 				return $checkResult;
 				break;
+			case 'delete':
+				$extension = $_REQUEST['ext'] ?? null;
+				$type = $_REQUEST['type'] ?? '';
+				
+				// Check if this is a greeting deletion
+				$isGreeting = ($type === 'greeting') || 
+							  (isset($_REQUEST['is_greeting']) && $_REQUEST['is_greeting'] === 'true') ||
+							  (isset($_REQUEST['context']) && $_REQUEST['context'] === 'greeting');
+				
+				if ($isGreeting) {
+					// For greeting deletion, require both greetings permission and extension check
+					$checkResult = $this->greetings && $this->_checkExtension($extension);
+				} else {
+					// For regular message deletion, just check extension
+					$checkResult = $this->_checkExtension($extension);
+				}
+				
+				if (!$checkResult) {
+					return false;
+				}
+				// If authorized, return true to allow ajaxHandler to process the command
+				return true;
 			case "stream":
 				$requestedExt = $_REQUEST['ext'] ?? $_REQUEST['mailbox'] ?? '';
 				$playbackAllowed = $this->playback;
@@ -840,14 +856,8 @@ class Voicemail extends Modules {
 			// Turn off direct error output to prevent it from corrupting JSON responses
 			@ini_set('display_errors', 0);
 			
-			// <<< Log #1 (This one appears) >>>
-			error_log("[Voicemail UCP Debug] ajaxHandler: Reached. Command: " . ($_REQUEST['command'] ?? '[Not Set]') . ", Request: " . print_r($_REQUEST, true));
-
-			$command = strtolower($_REQUEST['command'] ?? 'unknown'); // Added default
+			$command = strtolower($_REQUEST['command'] ?? 'unknown');
 			$ret = array("status" => false, "message" => "");
-			
-			// <<< New Log #1.5 (Add this) >>>
-			error_log("[Voicemail UCP Debug] ajaxHandler: About to enter switch for command: " . $command);
 			
 			switch($command) {
 				case 'checkextensions':
@@ -880,7 +890,6 @@ class Voicemail extends Modules {
 
 					if (empty($ext) || empty($msgId)) {
 						// Log error or send 400 Bad Request
-						error_log("[Voicemail UCP Debug][Voicemail.class] Stream command missing required parameters: ext='{$ext}', msg='{$msgId}'");
 						header("HTTP/1.1 400 Bad Request");
 						echo "Missing required parameters.";
 							exit;
@@ -901,7 +910,6 @@ class Voicemail extends Modules {
 					// Initialize IMAP Client (might be needed for both paths if greetings are stored there)
 					$this->imap = $this->_setupImapClient($ext, $context);
 					if (empty($this->imap)) {
-						error_log("[Voicemail UCP Debug][Voicemail.class] Stream: Failed to setup IMAP client for ext {$ext}");
 						// Decide how to handle this - maybe fallback to local for greetings? Or fail?
 						header("HTTP/1.1 500 Internal Server Error");
 						echo "Failed to initialize backend services.";
@@ -916,6 +924,7 @@ class Voicemail extends Modules {
 							// <<< FIX: Add missing context parameter and ensure correct order >>>
 							$contextData = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
 							$context = !empty($contextData['vmcontext']) ? $contextData['vmcontext'] : 'default';
+							
 							$this->imap->streamGreeting($ext, $context, $msgId, $forceDownload); // Pass ext, context, greetingType (msgId), forceDownload
 							// <<< END FIX >>>
 							// streamGreeting should handle exit/headers internally
@@ -926,7 +935,6 @@ class Voicemail extends Modules {
 								} else {
 								// Local file streaming (assuming a method exists or needs implementation)
 								// $this->localStreamVoicemail($ext, $msgId, $folder, $forceDownload);
-								error_log("[Voicemail UCP Debug][Voicemail.class] Stream: Local voicemail streaming requested but not implemented yet.");
 								header("HTTP/1.1 501 Not Implemented");
 								echo "Local voicemail streaming is not implemented.";
 							exit;
@@ -935,7 +943,6 @@ class Voicemail extends Modules {
 						}
 					} catch (\Throwable $t) {
 						// Log the specific error
-						error_log("[Voicemail UCP Debug][Voicemail.class] Stream failed: Type={$type}, Ext={$ext}, Msg={$msgId}, Folder={$folder}. Error: " . $t->getMessage() . " at " . $t->getFile() . ":" . $t->getLine());
 						// Send appropriate error header
 						header("HTTP/1.1 500 Internal Server Error");
 						echo "Error processing stream request: " . htmlspecialchars($t->getMessage()); // Avoid echoing stack trace details
@@ -947,9 +954,24 @@ class Voicemail extends Modules {
 				case 'delete':
 					$message_id = $_REQUEST['msg_id'] ?? $_REQUEST['msg'] ?? null;
 					$ext = $_REQUEST['ext'];
+					$type = $_REQUEST['type'] ?? '';
 					
 					if (!$this->_checkExtension($ext)) {
 						return array("status" => false, "message" => _("Not Authorized"));
+					}
+					
+					// Check if this is a greeting deletion
+					$isGreeting = ($type === 'greeting') || 
+								  (isset($_REQUEST['is_greeting']) && $_REQUEST['is_greeting'] === 'true') ||
+								  (isset($_REQUEST['context']) && $_REQUEST['context'] === 'greeting');
+					
+					if ($isGreeting) {
+						// Handle greeting deletion
+						$status = $this->deleteGreeting($ext, $message_id);
+						return array( 
+							"status" => $status, 
+							"message" => $status ? _("Greeting deleted successfully") : _("Failed to delete greeting") 
+						);
 					}
 					
 					// Check if this is an IMAP message
@@ -991,31 +1013,24 @@ class Voicemail extends Modules {
 					}
 					
 					if (empty($ext) || empty($msg) || empty($toFolder) || empty($fromFolder)) {
-					    error_log("[Voicemail UCP Debug] moveToFolder: Missing required parameter(s). ext={$ext}, msg={$msg}, toFolder={$toFolder}, fromFolder={$fromFolder}");
 					    return array("status" => false, "message" => _("Missing required parameters."));
 					}
 
-					error_log("[Voicemail UCP Debug] moveToFolder: Handling request - ext={$ext}, msg={$msg}, toFolder={$toFolder}, fromFolder={$fromFolder}");
 
 					// Check if IMAP is enabled for this extension
 					if ($this->isImapEnabled($ext)) {
-					    error_log("[Voicemail UCP Debug] moveToFolder: IMAP path selected.");
 						// --- IMAP Path ---
 						$mailboxInfo = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
 						$context = !empty($mailboxInfo) ? ($mailboxInfo['vmcontext'] ?? 'default') : 'default';
 						$result = false; // Default to failure
 						$imapClient = $this->_setupImapClient($ext, $context);
 						if ($imapClient) {
-						    error_log("[Voicemail UCP Debug] moveToFolder: Calling IMAP moveMessage(ext={$ext}, context={$context}, msg={$msg}, toFolder={$toFolder}, fromFolder={$fromFolder})" );
 						    try {
 						        $result = $imapClient->moveMessage($ext, $context, $msg, $toFolder, $fromFolder);
-						        error_log("[Voicemail UCP Debug] moveToFolder: IMAP moveMessage returned: " . ($result ? 'true' : 'false'));
 						    } catch (\Exception $e) {
-						        error_log("[Voicemail UCP Debug] moveToFolder: Exception during IMAP moveMessage: " . $e->getMessage());
 						        $result = false;
 						    }
 						} else {
-						    error_log("[Voicemail UCP Debug] moveToFolder: Failed to setup IMAP client.");
 							$result = false;
 						}
 
@@ -1024,22 +1039,17 @@ class Voicemail extends Modules {
 							"message" => $result ? _("Message moved") : _("Failed to move message via IMAP")
 						);
 					} else {
-					    error_log("[Voicemail UCP Debug] moveToFolder: Local Storage path selected.");
 						// --- Local Storage Path ---
 						// Check message exists before trying to move
 						$message = $this->UCP->FreePBX->Voicemail->getMessageByMessageIDExtension($msg, $ext, $fromFolder); // Check in original folder
 					if (!empty($message)) {
-						    error_log("[Voicemail UCP Debug] moveToFolder: Calling local moveMessageByIDExtension(msg={$msg}, ext={$ext}, toFolder={$toFolder})");
 						    try {
 						        $status = $this->UCP->FreePBX->Voicemail->moveMessageByIDExtension($msg, $ext, $toFolder);
-						        error_log("[Voicemail UCP Debug] moveToFolder: Local move returned: " . ($status ? 'true' : 'false'));
 						        $ret = array("status" => $status, "message" => $status ? _("Message moved") : _("Failed to move local message"));
 						    } catch (\Exception $e) {
-						        error_log("[Voicemail UCP Debug] moveToFolder: Exception during local move: " . $e->getMessage());
 						        $ret = array("status" => false, "message" => _("Error moving local message."));
 						    }
 						} else {
-						    error_log("[Voicemail UCP Debug] moveToFolder: Local message msg={$msg} not found in fromFolder={$fromFolder}.");
 							$ret = array("status" => false, "message" => _("Message not found in original folder"));
 						}
 					}
@@ -1205,7 +1215,6 @@ class Voicemail extends Modules {
 													'imap' => true  // Mark as IMAP message
 												);
 												// <<< DEBUG LOGGING ADDED >>>
-												error_log("[Voicemail UCP Debug][Voicemail.class] ajaxHandler grid: Formatting message ID {$formattedMsg['msg_id']}. Raw date value from \$message['date']: " . ($message['date'] ?? '[Not Set]'));
 												// <<< END DEBUG LOGGING >>>
 												
 												// Process caller ID for clickable links
@@ -1430,77 +1439,88 @@ class Voicemail extends Modules {
 			case 'delete':
 				$ext = basename($_POST['ext']);
 				$msg = basename($_POST['msg'] ?? '');
+				$type = $_POST['type'] ?? ''; // Optional: 'greeting' or 'message'
 				
-				// Check if this mailbox uses IMAP
-				if ($this->isImapEnabled($ext)) {
-					// Use ImapClient for IMAP voicemails instead of AriClient
-					$imapClient = $this->_setupImapClient();
-					
-					// Get message details to determine the folder
-					$message = $this->getMessageDetails($ext, $msg);
-					$folder = !empty($message['folder']) ? $message['folder'] : 'INBOX';
-					
-					// Delete message using IMAP
-					$status = $imapClient->deleteMessage($ext, 'default', $msg, $folder);
-				} else {
-					// Original code for non-IMAP voicemails
-					$status = $this->UCP->FreePBX->Voicemail->deleteMessageByID($msg, $ext);
+				// Debug logging
+				
+				if (empty($ext) || empty($msg)) {
+					$return = array( "status" => false, "message" => _("Missing required parameters") );
+					break;
 				}
 				
-				$return = array( "status" => $status, "message" => "" );
+				// Determine if this is a greeting or message based on context
+				// If type is explicitly set to 'greeting', or if we're in a greeting context
+				$isGreeting = ($type === 'greeting') || 
+							  (isset($_POST['is_greeting']) && $_POST['is_greeting'] === 'true') ||
+							  (isset($_POST['context']) && $_POST['context'] === 'greeting');
+				
+				
+				if ($isGreeting) {
+					// Delete greeting
+					$status = $this->deleteGreeting($ext, $msg);
+					$return = array( 
+						"status" => $status, 
+						"message" => $status ? _("Greeting deleted successfully") : _("Failed to delete greeting") 
+					);
+				} else {
+					// Delete voicemail message
+					if ($this->isImapEnabled($ext)) {
+						// Use ImapClient for IMAP voicemails instead of AriClient
+						$imapClient = $this->_setupImapClient();
+						
+						// Get message details to determine the folder
+						$message = $this->getMessageDetails($ext, $msg);
+						$folder = !empty($message['folder']) ? $message['folder'] : 'INBOX';
+						
+						// Delete message using IMAP
+						$status = $imapClient->deleteMessage($ext, 'default', $msg, $folder);
+					} else {
+						// Original code for non-IMAP voicemails
+						$status = $this->UCP->FreePBX->Voicemail->deleteMessageByID($msg, $ext);
+					}
+					
+					$return = array( "status" => $status, "message" => "" );
+				}
 				break;
 			case 'movetofolderbulk': // <<< Corrected case
 				// <<< Simplified Log #2 (Check if this appears) >>>
-				error_log("[Voicemail UCP Debug] moveToFolderBulk: Reached case block."); 
 
 				$raw_post_data = $_POST['data'] ?? null;
-				error_log("[Voicemail UCP Debug] moveToFolderBulk: Raw POST['data'] type: " . gettype($raw_post_data));
-				error_log("[Voicemail UCP Debug] moveToFolderBulk: Raw POST['data'] content: " . print_r($raw_post_data, true));
 				
 				$moveStatus = [];
 				$formData = null;
 
 				// Check the type of the input data
 				if (is_array($raw_post_data)) {
-				    error_log("[Voicemail UCP Debug] moveToFolderBulk: POST['data'] is already an array. Using directly.");
 				    $formData = $raw_post_data;
 				} elseif (is_string($raw_post_data)) {
-				    error_log("[Voicemail UCP Debug] moveToFolderBulk: POST['data'] is a string. Attempting json_decode.");
 				    $formData = json_decode($raw_post_data, true);
 				    if (json_last_error() !== JSON_ERROR_NONE) {
-				        error_log("[Voicemail UCP Debug] moveToFolderBulk: ERROR - JSON decode failed: " . json_last_error_msg());
 				        $formData = null; // Ensure formData is null on decode failure
 				    }
 				} else {
-				    error_log("[Voicemail UCP Debug] moveToFolderBulk: ERROR - POST['data'] is neither string nor array. Type: " . gettype($raw_post_data));
 				}
 
 				// Check if we have a valid array to process
 				if (!is_array($formData)) {
-				    error_log("[Voicemail UCP Debug] moveToFolderBulk: ERROR - Failed to get valid array data from POST.");
 					return ["status" => false, "message" => _("Invalid request data format.")];
 				}
-				error_log("[Voicemail UCP Debug] moveToFolderBulk: Successfully obtained formData array: " . print_r($formData, true));
 
 				$overallStatus = true; // Assume success unless one fails
 				foreach ($formData as $key => $data) {
-					error_log("[Voicemail UCP Debug] moveToFolderBulk: Processing item key={$key}, data=" . print_r($data, true));
 					$ext = basename($data['ext'] ?? '');
 					$msg = basename($data['msg'] ?? '');
 					$toFolder = basename($data['folder'] ?? '');
 					$fromFolder = basename($data['fromFolder'] ?? 'INBOX'); // Get original folder
 					$status = false;
-					error_log("[Voicemail UCP Debug] moveToFolderBulk: Item params: ext={$ext}, msg={$msg}, toFolder={$toFolder}, fromFolder={$fromFolder}");
 
 					if (empty($ext) || empty($msg) || empty($toFolder)) {
-						error_log("[Voicemail UCP Debug] moveToFolderBulk: Skipping item due to missing data.");
 						$moveStatus[$key] = false;
 						$overallStatus = false;
 						continue;
 					}
 
 					if (!$this->_checkExtension($ext)) {
-						error_log("[Voicemail UCP Debug] moveToFolderBulk: Skipping item - Extension {$ext} not authorized.");
 						$moveStatus[$key] = false;
 						$overallStatus = false;
 						continue;
@@ -1508,45 +1528,33 @@ class Voicemail extends Modules {
 					
 					// Check if IMAP is enabled for this extension
 					if ($this->isImapEnabled($ext)) {
-					    error_log("[Voicemail UCP Debug] moveToFolderBulk: IMAP path selected for ext={$ext}.");
 					    // --- IMAP Path ---
 						$mailboxInfo = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
 						$context = !empty($mailboxInfo) ? ($mailboxInfo['vmcontext'] ?? 'default') : 'default';
-						error_log("[Voicemail UCP Debug] moveToFolderBulk: Setting up IMAP client for ext={$ext}, context={$context}.");
 						$imapClient = $this->_setupImapClient($ext, $context);
 						if ($imapClient) {
-							error_log("[Voicemail UCP Debug] moveToFolderBulk: IMAP client setup OK. Calling moveMessage(ext={$ext}, context={$context}, msg={$msg}, toFolder={$toFolder}, fromFolder={$fromFolder}).");
 							try {
 							    $status = $imapClient->moveMessage($ext, $context, $msg, $toFolder, $fromFolder);
-							    error_log("[Voicemail UCP Debug] moveToFolderBulk: IMAP moveMessage returned: " . ($status ? 'true' : 'false'));
 							} catch (\Exception $e) {
-							    error_log("[Voicemail UCP Debug] moveToFolderBulk: ERROR - Exception during IMAP moveMessage: " . $e->getMessage());
 							    $status = false;
 							}
 						} else {
-							error_log("[Voicemail UCP Debug] moveToFolderBulk: ERROR - Failed to setup IMAP client.");
 							$status = false;
 						}
 					} else {
-						error_log("[Voicemail UCP Debug] moveToFolderBulk: Local Storage path selected for ext={$ext}.");
 						// --- Local Storage Path ---
 						// Assuming the core function needs the 'from' folder implicitly or handles it
-						error_log("[Voicemail UCP Debug] moveToFolderBulk: Calling local moveMessageByIDExtension(msg={$msg}, ext={$ext}, toFolder={$toFolder}).");
 						try {
 						    $status = $this->UCP->FreePBX->Voicemail->moveMessageByIDExtension($msg, $ext, $toFolder);
-						    error_log("[Voicemail UCP Debug] moveToFolderBulk: Local moveMessageByIDExtension returned: " . ($status ? 'true' : 'false'));
 						} catch (\Exception $e) {
-						    error_log("[Voicemail UCP Debug] moveToFolderBulk: ERROR - Exception during local moveMessageByIDExtension: " . $e->getMessage());
 						    $status = false;
 						}
 					}
 					$moveStatus[$key] = $status;
 					if (!$status) {
-					    error_log("[Voicemail UCP Debug] moveToFolderBulk: Failed to move msg={$msg} for ext={$ext} (status=false).");
 						$overallStatus = false; // Mark overall failure if any item fails
 					}
 				}
-				error_log("[Voicemail UCP Debug] moveToFolderBulk: Finished processing loop. Overall Status: " . ($overallStatus ? 'true' : 'false') . ", Move Status Array: " . print_r($moveStatus, true));
 				// Assign the calculated result to $ret, which is the variable returned by the function
 				$ret = array( "status" => $overallStatus, 'moveStatus' => $moveStatus, "message" => $overallStatus ? _("Messages moved") : _("One or more messages failed to move") );
 				break;
@@ -1807,12 +1815,10 @@ class Voicemail extends Modules {
 				return $result;
 				break;
 			default:
-				error_log("[Voicemail UCP Debug] ajaxHandler: Unknown command received: " . $command);
 				$ret = ["status" => false, "message" => "Unknown command: " . $command];
 				break;
 		}
 		
-		error_log("[Voicemail UCP Debug] ajaxHandler: Exited switch statement normally. Returning: " . print_r($ret, true));
 		return $ret;
 
 				} catch (\Exception $e) {
@@ -2026,9 +2032,7 @@ class Voicemail extends Modules {
 
 			// --- ADD DEBUG LOG --- 
 			if (!empty($response['rows'])) {
-				error_log("[Voicemail UCP Debug] Grid Final Data Check (First Row): Date='" . ($response['rows'][0]['date'] ?? 'N/A') . "', Time='" . ($response['rows'][0]['time'] ?? 'N/A') . "', OrigTime='" . ($response['rows'][0]['origtime'] ?? 'N/A') . "'");
 				} else {
-			    error_log("[Voicemail UCP Debug] Grid Final Data Check: No rows to log.");
 			}
 			// --- END DEBUG LOG ---
 
