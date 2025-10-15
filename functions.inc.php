@@ -3,6 +3,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //	License for all code of this FreePBX module can be found in the license file inside the module directory
 //	Copyright 2006-2013 Schmooze Com Inc.
 //
+
 #[\AllowDynamicProperties]
 class vmxObject {
 
@@ -300,8 +301,107 @@ function voicemail_configpageinit($pagename) {
 	global $currentcomponent;
 	global $amp_conf;
 	$action = $_REQUEST['action'] ?? null;
+
+	// === AJAX Handler for IMAP Connection Test ===
+	if ($action === 'testImapConnection') {
+		// Debug: Log that we're in the handler
+		error_log("IMAP Test Handler: Action received: " . $action);
+		error_log("IMAP Test Handler: POST data: " . print_r($_POST, true));
+		
+		header('Content-Type: application/json');
+		$response = ['status' => false, 'message' => 'Test failed', 'data' => null, 'auto_detect_mode' => false];
+
+		try {
+			// Include the UCP ImapClient (adjust path if necessary)
+			$ucpVoicemailModulePath = $amp_conf['AMPWEBROOT'] . '/admin/modules/voicemail/ucp/';
+			$imapClientFile = $ucpVoicemailModulePath . 'includes/imap/ImapClient.php';
+
+			// Directly include the ImapClient file if the class doesn't exist yet
+			if (!class_exists('\UCP\Modules\Voicemail\Imap\ImapClient')) {
+				if (file_exists($imapClientFile)) {
+					@include_once($imapClientFile);
+				} else {
+					throw new \Exception("ImapClient class file not found at: " . $imapClientFile);
+				}
+			}
+
+			// Verify class was loaded
+			if (!class_exists('\UCP\Modules\Voicemail\Imap\ImapClient')) {
+				throw new \Exception("ImapClient class could not be loaded after include attempt.");
+			}
+
+			// Get POST data
+			$server = $_POST['server'] ?? null;
+			$port = $_POST['port'] ?? null;
+			$flags = $_POST['flags'] ?? null;
+			$authUser = $_POST['authUser'] ?? null;
+			$authPassword = $_POST['authPassword'] ?? null;
+			$testUser = $_POST['testUser'] ?? null;
+			// Get auth type from POST for direct instantiation
+			$authType = $_POST['authType'] ?? 'None'; 
+
+			// Check only for parameters that are *always* required
+			$missing = [];
+			if (empty($server))    $missing[] = 'Server';
+			if (empty($authUser)) $missing[] = 'Auth Username';
+			if (empty($authPassword)) $missing[] = 'Auth Password';
+			if (empty($testUser))  $missing[] = 'Test Username';
+
+			if (!empty($missing)) {
+				throw new \Exception("Missing required parameters for test: " . implode(', ', $missing));
+			}
+
+			// Instantiate client using POST data - Pass nulls for user/pass as auth creds are separate
+			$imapClient = new \UCP\Modules\Voicemail\Imap\ImapClient(
+				$server,      // server
+				$port,        // port
+				$flags,       // flags
+				null,         // username (not used directly for auth test)
+				null,         // password (not used directly for auth test)
+				$authUser,   // authuser (auth)
+				$authPassword,    // authpassword (auth)
+				null,         // parentFolder (use default)
+				null,         // greetingsFolder (use default)
+				null,         // defaultFolder (use default)
+				null,         // impersonationMethod (let test method figure it out)
+				$authType,     // authType (pass from POST or default)
+				'no'         // imapgreetings (default to 'no' for test)
+			);
+
+			// Run the test
+			$testResults = $imapClient->testImapConnection($testUser, $authUser, $authPassword);
+
+			$response['data'] = $testResults; // Contains details, including success flag and method/auth used
+
+			if ($testResults['success']) {
+				$response['status'] = true;
+				$response['message'] = 'Successfully connected using impersonation.';
+			} else {
+				// Not successful, but might have a recommendation
+				if (!empty($testResults['recommended_auth_type'])) {
+					$response['recommended_auth_type'] = $testResults['recommended_auth_type'];
+					$response['message'] = 'Impersonation failed, but analysis suggests trying: ' . $testResults['recommended_auth_type'];
+				} else {
+					// Use the specific error from testResults if available
+					$response['message'] = $testResults['error_summary'][0] ?? 'Impersonation connection failed. Check details.';
+				}
+			}
+
+		} catch (\Exception $e) {
+			$response['message'] = "Error during test: " . $e->getMessage();
+			// Optionally add trace for debugging:
+			//$response['data'] = ['trace' => $e->getTraceAsString()];
+		} catch (\Error $e) { // Catch fatal PHP errors too
+			$response['message'] = "PHP Error during test: " . $e->getMessage();
+			//$response['data'] = ['trace' => $e->getTraceAsString()];
+		}
+
+		echo json_encode($response);
+		exit;
+	}
+	// === END AJAX Handler ===
+
 	$extdisplay = $_REQUEST['extdisplay'] ?? null;
-	$extension = $_REQUEST['extension'] ?? null;
 	$tech_hardware = $_REQUEST['tech_hardware'] ?? null;
 	$display = $_REQUEST['display'] ?? null;
 
@@ -842,6 +942,37 @@ function voicemail_update_settings($action, $context="", $extension="", $args=nu
 							}
 						}
 					}
+					// --- ADD SAVING LOGIC FOR CUSTOM IMAP SETTINGS (Reading from $_POST, v3) ---
+					// Keys from the form elements in ssettings.php
+					$post_method_key = 'gen__imapimpersonationmethod'; // Corrected: No internal underscore
+					$post_auth_key = 'gen__imapauthtype';           // Corrected: No internal underscore
+
+					// Directly check $_POST for the impersonation method
+					if (isset($_POST[$post_method_key]) && !empty($_POST[$post_method_key])) {
+						// Set the value ONLY if it's submitted AND not empty
+						// Use the underscore-less key for voicemail.conf compatibility
+						$vmconf["general"]['imapimpersonationmethod'] = $_POST[$post_method_key]; // Corrected key
+						// error_log("VOICEMAIL SAVE: Setting imapimpersonationmethod to " . $_POST[$post_method_key]);
+					} else {
+						// If the key is not set OR if its value IS empty, remove it from config
+						// Use the underscore-less key for voicemail.conf compatibility
+						unset($vmconf["general"]['imapimpersonationmethod']); // Corrected key
+						// error_log("VOICEMAIL SAVE: Unsetting imapimpersonationmethod (Not set or empty)");
+					}
+
+					// Directly check $_POST for the auth type
+					if (isset($_POST[$post_auth_key]) && !empty($_POST[$post_auth_key])) {
+						// Set the value ONLY if it's submitted AND not empty
+						// Use the underscore-less key for voicemail.conf compatibility
+						$vmconf["general"]['imapauthtype'] = $_POST[$post_auth_key]; // Corrected key
+						// error_log("VOICEMAIL SAVE: Setting imapauthtype to " . $_POST[$post_auth_key]);
+					} else {
+						// Default to 'None' if not submitted or empty (adjust if unset is preferred)
+						// Use the underscore-less key for voicemail.conf compatibility
+						$vmconf["general"]['imapauthtype'] = 'None'; // Corrected key
+						// error_log("VOICEMAIL SAVE: Setting imapauthtype to None (Not set, empty, or default)");
+					}
+					// --- END CUSTOM IMAP SETTINGS ---
 				} else if (!empty($extension)) {
 					global $acct_settings;			/* We need this to know the type for each option (text value or flag) */
 					/* Delete user's old settings. */
@@ -1523,4 +1654,29 @@ function updateUCPAddressInEmailBody() {
 		}
 		voicemail_saveVoicemail($vmConf, true);
 	}
+}
+
+function getVoicemailBoxByExtension($extension) {
+    global $astman;
+
+    if (!$astman) {
+        return false;
+    }
+    
+    // Load voicemail.conf
+    $vmconf = \FreePBX::Voicemail()->getVoicemail();
+    
+    // Find the context for this extension
+    $uservm = \FreePBX::Voicemail()->getVoicemail();
+    $vmcontexts = array_keys($uservm);
+    
+    foreach ($vmcontexts as $vmcontext) {
+        $vmbox = isset($uservm[$vmcontext][$extension]) ? $uservm[$vmcontext][$extension] : null;
+        
+        if ($vmbox) {
+            return $vmbox;
+        }
+    }
+    
+    return false;
 }
