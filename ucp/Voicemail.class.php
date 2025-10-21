@@ -570,7 +570,14 @@ class Voicemail extends Modules {
 				$envelope = ($_POST['envelope'] == 'true') ? true : false;
 				$delete = ($_POST['vmdelete'] == 'true') ? true : false;
 				$attach = ($_POST['attach'] == 'true') ? true : false;
-				$status = $this->UCP->FreePBX->Voicemail->saveVMSettingsByExtension($ext, $_POST['pwd'], $_POST['email'], $_POST['pager'], $saycid, $envelope, $attach, $delete);
+				$settings = $this->UCP->FreePBX->Voicemail->getVoicemailBoxByExtension($ext);
+				if (str_starts_with($settings['pwd'], '-')) {
+					$pwd = $settings['pwd'];
+				}
+				else {
+					$pwd = $_POST['pwd'];
+				}
+				$status = $this->UCP->FreePBX->Voicemail->saveVMSettingsByExtension($ext, $pwd, $_POST['email'], $_POST['pager'], $saycid, $envelope, $attach, $delete);
 				$return = array( "status" => $status, "message" => "" );
 				break;
 			case "upload":
