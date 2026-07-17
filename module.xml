@@ -2,22 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>17.0.5.34</version>
+	<version>18.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
-		*17.0.5.34* #857 Visual Voicemail: &#x201C;Mark as Unread&#x201D; leaves stale *.WAV file in Old 
-		*17.0.5.33* Fixing Github #458 
-		*17.0.5.32* Packaging of ver 17.0.5.32
-		*17.0.5.31* Fixing restore time warnings 
-		*17.0.5.30* #issues 673 force rebuild fails 
-		*17.0.5.29* #629 Recent Scribe Icon fix causes uncaught TypeError 
-		*17.0.5.28* bump 
-		*17.0.5.27* Github #606 Fixing incorrect Voicemail maxsilence description in Voicemail Admin. 
-		*17.0.1alpha* 17.0.1 alpha release
+		*18.0.1* initial release
 	</changelog>
 	<description>This module allows you to configure Voicemail for a user or extension</description>
   	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/21135522/Voicemail</more-info>
@@ -26,11 +18,11 @@
 		<voicemail needsenginedb="yes">Voicemail Admin</voicemail>
 	</menuitems>
 	<depends>
-		<module>core ge 17.0.1</module>
-		<version>17.0.1</version>
+		<module>core ge 18.0.1</module>
+		<version>18.0</version>
 	</depends>
 	<supported>
-		<version>17.0</version>
+		<version>18.0</version>
 	</supported>
 	<hooks>
 		<core class="Core" namespace="FreePBX\modules">
