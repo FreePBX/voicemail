@@ -25,7 +25,7 @@
 namespace UCP\Modules;
 
 use \UCP\Modules as Modules;
-#[\AllowDynamicProperties]
+
 class Voicemail extends Modules {
 	protected $module = 'Voicemail';
 	private $limit = 15;
@@ -33,9 +33,22 @@ class Voicemail extends Modules {
 	private $boxes = array();
 	private $extensions = array();
 	private $user = array();
+	protected $Modules = null;
+	protected $UCP = null;
+	protected $Vmx = null;
+	private $ext = '';
+	private $voicemails = array();
+	private $enabled = false;
+	private $vmxenabled = false;
+	private $playback = true;
+	private $download = true;
+	private $settings = true;
+	private $greetings = true;
+	private $vmxlocator = true;
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
+		$this->UCP     = $this->Modules->UCP;
 		$this->Vmx     = $this->UCP->FreePBX->Voicemail->Vmx;
 		if ($this->UCP->Session->isMobile) {
 			$this->limit = 7;

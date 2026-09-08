@@ -1,8 +1,11 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=php:
 namespace FreePBX\modules\Voicemail;
-#[\AllowDynamicProperties]
+
 class Vmx {
+	protected $FreePBX = null;
+	protected $astman = null;
+
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 			throw new \Exception("Not given a FreePBX Object");

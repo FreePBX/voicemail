@@ -7,7 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class Voicemail extends Command{
-	protected function configure(){
+	protected function configure(): void {
 		$this->setName('voicemail')
 		->setDescription(_('Voicemail notification'))
 		->addArgument(
@@ -16,7 +16,7 @@ class Voicemail extends Command{
 			'Arguments from voicemail');
 		}
 
-		protected function execute(InputInterface $input, OutputInterface $output){
+		protected function execute(InputInterface $input, OutputInterface $output): int {
 			$options = $input->getArgument('notification');
 
 			$context = $options[0] ?? '';
@@ -26,6 +26,7 @@ class Voicemail extends Command{
 			$urgvmcount = isset($options[4]) ? $options[4] : 0;
 
 			$this->notification($context,$extension,$vmcount,$oldvmcount,$urgvmcount);
+			return 0;
 		}
 		public function notification($context,$extension,$vmcount,$oldvmcount,$urgvmcount){
 			\FreePBX::Voicemail()->hookExtNotify($context,$extension,$vmcount,$oldvmcount,$urgvmcount);
