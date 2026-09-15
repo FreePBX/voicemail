@@ -387,7 +387,8 @@ class Voicemail extends Modules {
 				$messages = array();
 				if (!empty($data['messages'])) {
 					foreach ($data['messages'] as $message) {
-						$message['callerid'] = htmlentities($message['callerid'], ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$callerid = $message['callerid'] ?? '';
+						$message['callerid'] = htmlentities($callerid, ENT_COMPAT | ENT_HTML401, "UTF-8");
 						$message['callerid'] = preg_replace("/&lt;(.*)&gt;/i", "&lt;<span class='clickable' data-type='number' data-primary='phone'>$1</span>&gt;", $message['callerid']);
 						$messages[]          = $message;
 					}
