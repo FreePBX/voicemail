@@ -1538,6 +1538,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 							$key = $data['msg_id'];
 						}
 						$out['messages'][$key] = $data;
+						$out['messages'][$key]['callerid'] = $data['callerid'] ?? '';
 						$out['messages'][$key]['self'] = $filename;
 						$out['messages'][$key]['msg_id'] = $key;
 						$out['messages'][$key]['file'] = basename($wav);
