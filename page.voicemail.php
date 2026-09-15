@@ -287,7 +287,7 @@ $tooltips = array("tz" 	    => array("name" 				=> _("Timezone definition name")
 				     "vm-reenterpassword"		=> _("Customize which sound file is used instead of the default prompt that says: \"Please re-enter your password followed by the pound key\""),
 				     "volgain"				=> _("Emails bearing the Voicemail may arrive in a volume too quiet to be heard.  This parameter allows you to specify how much gain to add to the message when sending a Voicemail. NOTE: sox must be installed for this option to work.")
 				     ),
-		  "account" => array("pwd" 				=> _("This is the password used to access the Voicemail system.<br /><br />This password can only contain numbers.<br /><br />A user can change the password you enter here after logging into the Voicemail system (*98) with a phone."),
+		  "account" => array("pwd" 				=> _("This is the password used to access the Voicemail system.<br /><br />This password can only contain numbers.<br /><br />If the password is prefixed by '-', then it is locked. Otherwise a user can change the password you enter here after logging into the Voicemail system (*98) with a phone."),
 				     "attach" 				=> _("Option to attach Voicemails to email."),
 				     "attachfmt"			=> _("Which format of audio file to attach to the email."),
 				     "backupdeleted" 			=> _("No. of deleted messages saved per mailbox (can be a number or yes/no, yes meaning MAXMSG, no meaning 0)."),

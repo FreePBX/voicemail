@@ -320,7 +320,7 @@ function voicemail_configpageinit($pagename) {
 
 		// JS for verifying an empty password is OK
 		$msg = _('Voicemail is enabled but the Voicemail Password field is empty.  Are you sure you wish to continue?');
-		$js = 'if(theForm.vmpwd.value.match(/^[0-9A-D\*#]*$/i)) {return true;}else{return false;}';
+		$js = 'if(theForm.vmpwd.value.match(/^\-{0,1}[0-9A-D\*#]+$/i)) {return true;}else{return false;}';
 		$js = 'if (theForm.vmpwd.value == "") { if(confirm("'.$msg.'")) { return true } else { return false; }} else { '.$js.' };';
 		$currentcomponent->addjsfunc('isValidVoicemailPass(notused)', $js);
 
@@ -495,7 +495,7 @@ function voicemail_configpageload() {
 
 		$fc_vm = featurecodes_getFeatureCode('voicemail', 'dialvoicemail');
 
-		$msgInvalidVmPwd = _("Please enter a valid Voicemail Password, using digits only");
+		$msgInvalidVmPwd = _("Please enter a valid Voicemail Password, using digits only (and an optional starting '-')");
 		$msgInvalidEmail = _("Please enter a valid Email Address");
 		$msgInvalidPager = _("Please enter a valid Pager Email Address");
 		$msgInvalidVMContext = _("VM Context cannot be blank");
@@ -511,7 +511,7 @@ function voicemail_configpageload() {
 		$currentcomponent->addguielem($section, new gui_radio([...$guidefaults, ...$el]),$category);
 		$disable = ($vmselect == 'disabled');
 
-		$el = ["elemname" => "vmpwd", "prompttext" => _('Voicemail Password'), "helptext" => sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sA user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "currentvalue" => $vmpwd, "jsvalidation" => "frm_{$display}_isVoiceMailEnabled() && !frm_{$display}_isValidVoicemailPass()", "failvalidationmsg" => $msgInvalidVmPwd, "canbeempty" => false, "class" => "$class confidential", "disable" => $disable];
+		$el = ["elemname" => "vmpwd", "prompttext" => _('Voicemail Password'), "helptext" => sprintf(_("This is the password used to access the Voicemail system.%sThis password can only contain numbers.%sIf the password is prefixed by '-', then it is locked. Otherwise a user can change the password you enter here after logging into the Voicemail system (%s) with a phone."),"<br /><br />","<br /><br />",$fc_vm), "currentvalue" => $vmpwd, "jsvalidation" => "frm_{$display}_isVoiceMailEnabled() && !frm_{$display}_isValidVoicemailPass()", "failvalidationmsg" => $msgInvalidVmPwd, "canbeempty" => false, "class" => "$class confidential", "disable" => $disable];
 
 		$currentcomponent->addguielem($section, new gui_textbox([...$guidefaults, ...$el]),$category);
 		//for passwordless voicemail we need to check some settings
