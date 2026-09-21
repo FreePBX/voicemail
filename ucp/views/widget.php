@@ -20,7 +20,7 @@
 			<?php if(!empty($message)) { ?>
 				<div class="alert alert-<?php echo $message['type']?>"><?php echo $message['message']?></div>
 			<?php } ?>
-			<?php if($settings['options']['delete'] == "yes") {?>
+			<?php if(isset($settings['options']['delete']) && $settings['options']['delete'] == "yes") {?>
 				<div class="alert alert-warning"><?php echo _("Voicemail Auto Delete is on. New messages will not show up here.")?></div>
 			<?php } ?>
 			<div id="voicemail-toolbar-<?php echo $extension?>">
