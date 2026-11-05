@@ -677,8 +677,13 @@ function voicemail_configprocess() {
 				if (!empty($usage_arr)) {
 					$GLOBALS['abort'] = true;
 				} elseif(trim((string) $extdisplay) != "") {
-					voicemail_mailbox_add($extdisplay, $_REQUEST);
-					needreload();
+					try {
+						voicemail_mailbox_add($extdisplay, $_REQUEST);
+						needreload();
+					} catch (Exception $e) {
+						$GLOBALS['abort'] = true;
+						echo "<script>javascript:alert('".addslashes($e->getMessage())."');</script>";
+					}
 				}
 			}
 		break;
@@ -691,9 +696,20 @@ function voicemail_configprocess() {
 		break;
 		case "edit":
 			if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
+				if ($vm != 'disabled' && (!is_scalar($extdisplay) || !preg_match('/^[0-9*#+]+$/', (string)$extdisplay))) {
+					$GLOBALS['abort'] = true;
+					echo "<script>javascript:alert('".addslashes(_("Mailbox must contain only digits, *, #, or +"))."');</script>";
+					break;
+				}
 				voicemail_mailbox_del($extdisplay);
 				if ( $vm != 'disabled' ) {
-					voicemail_mailbox_add($extdisplay, $_REQUEST);
+					try {
+						voicemail_mailbox_add($extdisplay, $_REQUEST);
+					} catch (Exception $e) {
+						$GLOBALS['abort'] = true;
+						echo "<script>javascript:alert('".addslashes($e->getMessage())."');</script>";
+						break;
+					}
 				}
 				needreload();
 			}
@@ -1100,6 +1116,31 @@ function voicemail_get_settings($vmconf, $action, $extension="") {
 	}
 	return $settings;
 }
+function voicemail_glob_escape($value) {
+	return str_replace(
+		array('\\', '*', '?', '[', ']'),
+		array('\\\\', '\\*', '\\?', '\\[', '\\]'),
+		(string)$value
+	);
+}
+
+function voicemail_glob($pattern) {
+	$matches = glob($pattern);
+	return is_array($matches) ? $matches : [];
+}
+
+function voicemail_unlink_glob($pattern) {
+	foreach (voicemail_glob($pattern) as $path) {
+		voicemail_unlink_path($path);
+	}
+}
+
+function voicemail_unlink_path($path) {
+	if (is_link($path) || is_file($path)) {
+		unlink($path);
+	}
+}
+
 function voicemail_update_usage($vmail_info, $context="", $extension="", $args="") {
 	global $vmail_root;
 	$take_action = false;
@@ -1152,7 +1193,7 @@ function voicemail_update_usage($vmail_info, $context="", $extension="", $args="
 	switch ($scope) {
 		case "system":
 			if ($msg) {
-				exec ("rm -f $vmail_root/*/*/*/msg*");
+				voicemail_unlink_glob($vmail_root . "/*/*/*/msg*");
 			}
 			foreach ($vmail_info["contexts"] as $c) {
 				voicemail_del_greeting_files($vmail_root, $c, "", $name, $unavail, $busy, $temp, $abandoned);
@@ -1160,9 +1201,9 @@ function voicemail_update_usage($vmail_info, $context="", $extension="", $args="
 			break;
 		case "account":
 			if (isset($vmail_info["activated_info"][$extension]) && $vmail_info["activated_info"][$extension] == $context) {
-				$vmail_path = $vmail_root . "/" . $context . "/" . $extension;
+				$vmail_path = $vmail_root . "/" . voicemail_glob_escape($context) . "/" . voicemail_glob_escape($extension);
 				if ($msg) {
-					exec ("rm -f $vmail_path/*/msg*");
+					voicemail_unlink_glob($vmail_path . "/*/msg*");
 				}
 				voicemail_del_greeting_files($vmail_root, $context, $extension, $name, $unavail, $busy, $temp, $abandoned);
 			}
@@ -1171,16 +1212,18 @@ function voicemail_update_usage($vmail_info, $context="", $extension="", $args="
 }
 function voicemail_del_greeting_files($vmail_root, $context="", $exten="", $name=false, $unavail=false, $busy=false, $temp=false, $abandoned=false) {
 	$path = $vmail_root;
+	$globPath = $vmail_root;
 	if (!empty($context) && !empty($exten)) {
 		$path .= "/" . $context . "/" . $exten;
-		$ab_name_cmd    = "$path/greet.tmp.*";
-		$ab_temp_cmd    = "$path/temp.tmp.*";
-		$ab_busy_cmd    = "$path/busy.tmp.*";
-		$ab_unavail_cmd = "$path/unavail.tmp.*";
-		$name_cmd       = "$path/greet.*";
-		$unavail_cmd    = "$path/unavail.*";
-		$busy_cmd       = "$path/busy.*";
-		$temp_cmd       = "$path/temp.*";
+		$globPath .= "/" . voicemail_glob_escape($context) . "/" . voicemail_glob_escape($exten);
+		$ab_name_cmd    = "$globPath/greet.tmp.*";
+		$ab_temp_cmd    = "$globPath/temp.tmp.*";
+		$ab_busy_cmd    = "$globPath/busy.tmp.*";
+		$ab_unavail_cmd = "$globPath/unavail.tmp.*";
+		$name_cmd       = "$globPath/greet.*";
+		$unavail_cmd    = "$globPath/unavail.*";
+		$busy_cmd       = "$globPath/busy.*";
+		$temp_cmd       = "$globPath/temp.*";
 	} else {
 		$ab_name_cmd    = "$path/*/*/greet.tmp.*";
 		$ab_temp_cmd    = "$path/*/*/temp.tmp.*";
@@ -1204,7 +1247,7 @@ function voicemail_del_greeting_files($vmail_root, $context="", $exten="", $name
 			$one_day	= 24 * 60 * 60;
 			foreach ($ab_greetings as $greeting_path) {
 				if (time() - filemtime($greeting_path) > $one_day) {
-					exec("rm -f $greeting_path");
+					voicemail_unlink_path($greeting_path);
 				}
 			}
 		}
@@ -1217,7 +1260,7 @@ function voicemail_del_greeting_files($vmail_root, $context="", $exten="", $name
 		$greetings   = array_merge($names, $temps, $busys, $unavails);
 		if (!empty($greetings)) {
 			foreach ($greetings as $greeting_path) {
-				exec ("rm -f $greeting_path");
+				voicemail_unlink_path($greeting_path);
 			}
 		}
 	}
@@ -1431,14 +1474,13 @@ function voicemail_get_greeting_timestamps($name=0, $unavail=0, $busy=0, $temp=0
 	if ($context == "" || $extension == "") {
 		return null;
 	}
-	$vmail_path = $vmail_root . "/$context/$extension";
+	$vmail_path = $vmail_root . "/" . voicemail_glob_escape($context) . "/" . voicemail_glob_escape($extension);
 	$ts["name"] = 0;
 	$ts["unavail"] = 0;
 	$ts["busy"] = 0;
 	$ts["temp"] = 0;
 	if ($name) {
-		$listing = [];
-		exec("ls $vmail_path/greet.*", $listing);
+		$listing = voicemail_glob($vmail_path . "/greet.*");
 		foreach ($listing as $entry) {
 			if (!preg_match("/greet\.tmp\..+/", $entry)) {
 				$ts["name"] = date("Y-m-d", filemtime("$entry"));
@@ -1447,8 +1489,7 @@ function voicemail_get_greeting_timestamps($name=0, $unavail=0, $busy=0, $temp=0
 		}
 	}
 	if ($unavail) {
-		$listing = [];
-		exec("ls $vmail_path/unavail.*", $listing);
+		$listing = voicemail_glob($vmail_path . "/unavail.*");
 		foreach ($listing as $entry) {
 			if (!preg_match("/unavail\.tmp\..+/", $entry)) {
 				$ts["unavail"] = date("Y-m-d", filemtime("$entry"));
@@ -1457,8 +1498,7 @@ function voicemail_get_greeting_timestamps($name=0, $unavail=0, $busy=0, $temp=0
 		}
 	}
 	if ($busy) {
-		$listing = [];
-		exec("ls $vmail_path/busy.*", $listing);
+		$listing = voicemail_glob($vmail_path . "/busy.*");
 		foreach ($listing as $entry) {
 			if (!preg_match("/busy\.tmp\..+/", $entry)) {
 				$ts["busy"] = date("Y-m-d", filemtime("$entry"));
@@ -1467,8 +1507,7 @@ function voicemail_get_greeting_timestamps($name=0, $unavail=0, $busy=0, $temp=0
 		}
 	}
 	if ($temp) {
-		$listing = [];
-		exec("ls $vmail_path/temp.*", $listing);
+		$listing = voicemail_glob($vmail_path . "/temp.*");
 		foreach ($listing as $entry) {
 			if (!preg_match("/temp\.tmp\..+/", $entry)) {
 				$ts["temp"] = date("Y-m-d", filemtime("$entry"));
