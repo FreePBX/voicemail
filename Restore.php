@@ -96,7 +96,9 @@ class Restore Extends Base\RestoreBase{
 			return;
 		}
 		$vmdir = $this->FreePBX->Config->get_conf_setting('ASTSPOOLDIR') . "/voicemail";
-		exec("rm -Rf ".$vmdir);
+		if (is_dir($vmdir) || is_link($vmdir)) {
+			$fileSystem->remove($vmdir);
+		}
 		foreach ($finder->in($this->tmpdir.'/var/spool/asterisk/voicemail') as $item) {
 			if($item->isDir()) {
 				$fileSystem->mkdir($vmdir.'/'.$item->getRelativePathname());

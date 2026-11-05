@@ -8,6 +8,7 @@ use FreePBX_Helpers;
 use Exception;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
+use FilesystemIterator;
 class Voicemail extends FreePBX_Helpers implements BMO {
 	//message to display to client
 	public $displayMessage = array(
@@ -215,7 +216,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 				$src = "$spooldir/voicemail/$vmcontext/$mailbox";
 				$dest = "$spooldir/voicemail/device/$mailbox";
 				// Remove anything that was previously there
-				exec("rm -rf $dest");
+				$this->deleteSpoolPath($dest);
 				// Make sure our source parent directory exists - This may be missing if a restore
 				// was partially done. Asterisk may or may not create this on demand.
 				if (!is_dir(dirname($src))) {
@@ -365,18 +366,86 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		foreach ($vmcontexts as $vmcontext) {
 			if(isset($uservm[$vmcontext][$mailbox])){
 				$vm_dir = $this->FreePBX->Config->get('ASTSPOOLDIR')."/voicemail/$vmcontext/$mailbox";
-				exec("rm -rf $vm_dir",$output,$ret);
-				if ($ret) {
+				if (!$this->deleteSpoolPath($vm_dir)) {
 					$return = false;
 					$text   = sprintf(_("Failed to delete vmbox: %s@%s"),$mailbox, $vmcontext);
-					$etext  = sprintf(_("failed with retcode %s while removing %s:"),$ret, $vm_dir)."<br>";
-					$etext .= implode("<br>",$output);
+					$etext  = sprintf(_("failed while removing %s"),$vm_dir);
 					$nt =& \notifications::create($db);
 					$nt->add_error('voicemail', 'MBOXREMOVE', $text, $etext, '', true, true);
 				}
 			}
 		}
 		return $return;
+	}
+
+	/**
+	 * Delete a file, symlink, or directory under the Asterisk spool.
+	 * Paths that resolve outside the spool are left untouched.
+	 * A missing path is success, matching the previous rm -rf behavior.
+	 * @param string $path
+	 * @return bool
+	 */
+	private function deleteSpoolPath($path) {
+		$base = rtrim((string)$this->FreePBX->Config->get('ASTSPOOLDIR'), '/');
+		$realBase = realpath($base);
+		if ($realBase === false) {
+			return !file_exists($path) && !is_link($path);
+		}
+		if (is_link($path)) {
+			$parent = realpath(dirname($path));
+			if ($parent === false || !$this->pathIsInside($parent, $realBase)) {
+				return false;
+			}
+			return unlink($path);
+		}
+		if (!file_exists($path)) {
+			return true;
+		}
+		$realTarget = realpath($path);
+		if ($realTarget === false || !$this->pathIsInside($realTarget, $realBase)) {
+			return false;
+		}
+		if (!is_dir($realTarget)) {
+			return unlink($realTarget);
+		}
+		return $this->deleteTree($realTarget);
+	}
+
+	/**
+	 * @param string $path
+	 * @param string $root
+	 * @return bool
+	 */
+	private function pathIsInside($path, $root) {
+		return $path === $root || strpos($path, $root . DIRECTORY_SEPARATOR) === 0;
+	}
+
+	/**
+	 * Recursively delete a directory without invoking a shell.
+	 * Symlinks are removed as links and are not followed.
+	 * @param string $dir
+	 * @return bool
+	 */
+	private function deleteTree($dir) {
+		try {
+			$iterator = new RecursiveIteratorIterator(
+				new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS),
+				RecursiveIteratorIterator::CHILD_FIRST
+			);
+			foreach ($iterator as $item) {
+				$itemPath = $item->getPathname();
+				if ($item->isLink() || !$item->isDir()) {
+					if (!unlink($itemPath)) {
+						return false;
+					}
+				} elseif (!rmdir($itemPath)) {
+					return false;
+				}
+			}
+		} catch (\Exception $e) {
+			return false;
+		}
+		return rmdir($dir);
 	}
 
 	/* UCP template to get the user assigned vm extension details
@@ -535,8 +604,11 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 	 */
 	public function addMailbox($mailbox, $settings, $cached = true) {
 		global $astman;
-		if(trim($mailbox) == "") {
+		if (!is_scalar($mailbox) || trim((string)$mailbox) == "") {
 			throw new Exception(_("Mailbox can not be empty"));
+		}
+		if (!preg_match('/^[0-9*#+]+$/', (string)$mailbox)) {
+			throw new Exception(_("Mailbox must contain only digits, *, #, or +"));
 		}
 		$vmconf = $this->getVoicemail($cached);
 		$settings['vmcontext'] = !empty($settings['vmcontext']) ? $settings['vmcontext'] : 'default';
@@ -1457,10 +1529,13 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 	 */
 	public function getGreetingByExtension($greeting,$ext) {
 		$greetings = $this->getGreetingsByExtension($ext,true);
-		$o = $this->getVoicemailBoxByExtension($ext);
-		$context = $o['vmcontext'];
 		$data = array();
 		if(isset($greetings[$greeting])) {
+			$o = $this->getVoicemailBoxByExtension($ext);
+			if(!is_array($o) || !isset($o['vmcontext'])) {
+				return $data;
+			}
+			$context = $o['vmcontext'];
 			$data['path'] = $this->vmPath . '/'.$context.'/'.$ext;
 			$data['file'] = basename($greetings[$greeting]);
 		}
@@ -1506,6 +1581,11 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		}
 		$extension = basename($extension);
 		$o = $this->getVoicemailBoxByExtension($extension);
+		if(!is_array($o) || !isset($o['vmcontext'])) {
+			return array(
+				"messages" => array()
+			);
+		}
 		$context = $o['vmcontext'];
 
 		$out = array(
