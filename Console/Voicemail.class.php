@@ -26,7 +26,7 @@ class Voicemail extends Command{
 			$urgvmcount = isset($options[4]) ? $options[4] : 0;
 
 			$this->notification($context,$extension,$vmcount,$oldvmcount,$urgvmcount);
-			return Command::SUCCESS;
+			return 0;
 		}
 		public function notification($context,$extension,$vmcount,$oldvmcount,$urgvmcount){
 			\FreePBX::Voicemail()->hookExtNotify($context,$extension,$vmcount,$oldvmcount,$urgvmcount);

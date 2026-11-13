@@ -2,13 +2,14 @@
 	<rawname>voicemail</rawname>
 	<repo>standard</repo>
 	<name>Voicemail</name>
-	<version>18.0.1</version>
+	<version>18.0.1.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<license>GPLv3+</license>
 	<candisable>no</candisable>
 	<canuninstall>no</canuninstall>
 	<changelog>
+		*18.0.1.1* Packaging of ver 18.0.1.1
 		*18.0.1* initial release
 	</changelog>
 	<description>This module allows you to configure Voicemail for a user or extension</description>

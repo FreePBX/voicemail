@@ -10,6 +10,11 @@ use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 class Voicemail extends FreePBX_Helpers implements BMO {
 	//message to display to client
+	protected $FreePBX = null;
+	protected $astman = null;
+	protected $db = null;
+	protected $dontUseSymlinks = false;
+
 	public $displayMessage = array(
 		"type" => "warning",
 		"message" => ""
@@ -1507,11 +1512,10 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		}
 		$extension = basename($extension);
 		$o = $this->getVoicemailBoxByExtension($extension);
+		if(empty($o['vmcontext'])) {
+			return [];
+		}
 		$context = $o['vmcontext'];
-
-		$out = array(
-			"messages" => array()
-		);
 		$vmfolder = $this->vmPath . '/'.$context.'/'.$extension;
 		if (is_dir($vmfolder) && is_readable($vmfolder)) {
 			$count = 1;
@@ -1539,6 +1543,7 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 							$key = $data['msg_id'];
 						}
 						$out['messages'][$key] = $data;
+						$out['messages'][$key]['callerid'] = $data['callerid'] ?? '';
 						$out['messages'][$key]['self'] = $filename;
 						$out['messages'][$key]['msg_id'] = $key;
 						$out['messages'][$key]['file'] = basename($wav);
@@ -1584,6 +1589,9 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 		$messages = $this->getMessagesByExtension($extension);
 		$count = 1;
 		$aMsgs = array();
+		if (empty($messages['messages'])) {
+			return $aMsgs;
+		}
 		foreach($messages['messages'] as $message) {
 			if($message['folder'] != $folder) {
 				continue;
@@ -1633,6 +1641,9 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 	public function getMessagesCountByExtensionFolder($extension,$folder) {
 		$messages = $this->getMessagesByExtension($extension);
 		$count = 0;
+		if(empty($messages['messages'])) {
+			return 0;
+		}
 		foreach($messages['messages'] as $message) {
 			if($message['folder'] != $folder) {
 				continue;
