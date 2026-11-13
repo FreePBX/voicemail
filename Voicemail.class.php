@@ -459,7 +459,8 @@ class Voicemail extends FreePBX_Helpers implements BMO {
 	 */
 	public function saveVoicemail($vmconf, $fromReload = false) {
 		// just in case someone tries to be sneaky and not call getVoicemail() first..
-		if ($vmconf == null) {
+		// Use strict comparison: an empty voicemail.conf parses to [] and [] == null is true in PHP.
+		if ($vmconf === null) {
 			throw new Exception(_("Null value was sent to saveVoicemail() can not continue"));
 		}
 		if($this->dontUseSymlinks) {
